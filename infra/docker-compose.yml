@@ -1,18 +1,19 @@
 # Postgres 16 com pgvector. Nesta fase só sobe o serviço: Registros, checkpoints e o
 # índice do RAG passam a usá-lo nas próximas branches.
+# Todas as variáveis vêm do .env (make db-up); não há valores padrão.
 services:
   postgres:
     image: pgvector/pgvector:pg16
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-cultiva}
+      POSTGRES_USER: ${POSTGRES_USER:?defina POSTGRES_USER no .env}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env}
-      POSTGRES_DB: ${POSTGRES_DB:-cultiva}
+      POSTGRES_DB: ${POSTGRES_DB:?defina POSTGRES_DB no .env}
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "${POSTGRES_PORT:?defina POSTGRES_PORT no .env}:5432"
     volumes:
       - cultiva-pg:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-cultiva}"]
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER}"]
       interval: 5s
       retries: 10
 

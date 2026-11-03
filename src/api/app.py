@@ -6,7 +6,7 @@ Sem autenticação nesta fase: usa o Perfil e os Registros de exemplo em memóri
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-from config import carregar_env
+from config import carregar_configuracao
 from dominio.exemplos import PERFIL_EXEMPLO, REGISTROS_EXEMPLO
 from modelo import ModeloDeLinguagem, criar_modelo
 from orquestracao import Cultiva
@@ -30,8 +30,8 @@ class RespostaChat(BaseModel):
 
 def criar_app(modelo: ModeloDeLinguagem | None = None) -> FastAPI:
     if modelo is None:
-        carregar_env()
-        modelo = criar_modelo()
+        # Falha ao iniciar se o .env ou alguma variável faltar.
+        modelo = criar_modelo(carregar_configuracao())
     cultiva = Cultiva(modelo)
     app = FastAPI(title="CULTIVA", version="0.1.0")
 

@@ -24,11 +24,11 @@ format:
 test:
 	$(UV) run pytest -q
 
-# Chat interativo no terminal com o modelo local (Ollama). Use /sinais para ver o fluxo.
+# Chat interativo no terminal com o modelo do .env. Use /sinais para ver o fluxo.
 chat:
-	$(UV) run python -m chat --provedor ollama
+	$(UV) run python -m chat
 
-# Mesmo chat com o modelo falso, sem Ollama.
+# Mesmo chat forçando o modelo falso, sem Ollama (o .env continua obrigatório).
 chat-falso:
 	$(UV) run python -m chat --provedor falso
 
@@ -36,11 +36,11 @@ chat-falso:
 api:
 	$(UV) run uvicorn api.app:criar_app --factory --reload --port 8000
 
-# Golden set com o modelo local (Ollama). Critério de pronto desta fase.
+# Golden set com o modelo do .env, fora do CI. Critério de pronto desta fase.
 eval-local:
-	$(UV) run python -m avaliacao --provedor ollama
+	$(UV) run python -m avaliacao
 
-# Golden set com o modelo falso, sem Ollama (rápido, determinístico).
+# Golden set forçando o modelo falso, sem Ollama (rápido, determinístico).
 eval-falso:
 	$(UV) run python -m avaliacao --provedor falso
 

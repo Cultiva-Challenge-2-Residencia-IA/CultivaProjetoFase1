@@ -1,20 +1,18 @@
 """Acesso a modelos de linguagem por uma interface própria."""
 
-import os
-
+from config import Configuracao
 from modelo.base import ModeloDeLinguagem
 from modelo.falso import ModeloFalso
 from modelo.ollama import ModeloOllama
 
 
-def criar_modelo(provedor: str | None = None) -> ModeloDeLinguagem:
-    """Cria o modelo pelo nome do provedor ou pela variável CULTIVA_PROVEDOR."""
-    nome = (provedor or os.environ.get("CULTIVA_PROVEDOR", "ollama")).lower()
-    if nome == "ollama":
-        return ModeloOllama()
-    if nome == "falso":
+def criar_modelo(config: Configuracao) -> ModeloDeLinguagem:
+    """Cria o modelo a partir da configuração já validada."""
+    if config.provedor == "ollama":
+        return ModeloOllama(modelo=config["CULTIVA_MODELO"], url=config["CULTIVA_OLLAMA_URL"])
+    if config.provedor == "falso":
         return ModeloFalso()
-    raise ValueError(f"Provedor de modelo desconhecido: {nome!r}")
+    raise ValueError(f"Provedor de modelo desconhecido: {config.provedor!r}")
 
 
 __all__ = ["ModeloDeLinguagem", "ModeloFalso", "ModeloOllama", "criar_modelo"]

@@ -6,7 +6,7 @@ import sys
 import httpx
 
 from chat.sessao import SessaoChat
-from config import carregar_env
+from config import ConfiguracaoInvalida, carregar_configuracao
 from modelo import ModeloOllama, criar_modelo
 from orquestracao import Cultiva
 
@@ -31,23 +31,27 @@ def _verificar_ollama(modelo: ModeloOllama) -> str | None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    carregar_env()
     p = argparse.ArgumentParser(prog="python -m chat")
-    p.add_argument("--provedor", default=None, help="ollama (padrão) ou falso")
+    p.add_argument("--provedor", default=None, help="ollama ou falso (vence o .env)")
     args = p.parse_args(argv)
 
-    modelo = criar_modelo(args.provedor)
+    try:
+        config = carregar_configuracao(provedor=args.provedor)
+    except ConfiguracaoInvalida as erro:
+        print(erro, file=sys.stderr)
+        return 1
+
+    modelo = criar_modelo(config)
     if isinstance(modelo, ModeloOllama):
         erro = _verificar_ollama(modelo)
         if erro:
             print(erro, file=sys.stderr)
             return 1
-        origem = f"{modelo.nome} em {modelo.url}"
-    else:
-        origem = modelo.nome
 
     sessao = SessaoChat(Cultiva(modelo))
-    print(f"CULTIVA, Aba Nutrição (modelo: {origem})")
+    print("CULTIVA, Aba Nutrição")
+    for chave, valor in config.valores.items():
+        print(f"  {chave}={valor} ({config.origem[chave]})")
     print("Perfil e Registros de exemplo, em memória. Digite /ajuda para ver os comandos.\n")
     while True:
         try:

@@ -1,21 +1,15 @@
-import os
-
 import httpx
 
 
 class ModeloOllama:
-    """Modelo local servido pelo Ollama. Temperatura zero para reduzir variação."""
+    """Modelo local servido pelo Ollama. Temperatura zero para reduzir variação.
 
-    def __init__(
-        self,
-        modelo: str | None = None,
-        url: str | None = None,
-        timeout: float = 120.0,
-    ):
-        self.nome = modelo or os.environ.get("CULTIVA_MODELO", "qwen2.5")
-        self._url = (url or os.environ.get("CULTIVA_OLLAMA_URL", "http://localhost:11434")).rstrip(
-            "/"
-        )
+    Nome do modelo e URL são obrigatórios e vêm da configuração (.env).
+    """
+
+    def __init__(self, modelo: str, url: str, timeout: float = 120.0):
+        self.nome = modelo
+        self._url = url.rstrip("/")
         self._timeout = timeout
 
     @property

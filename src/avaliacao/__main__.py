@@ -8,20 +8,24 @@ import sys
 from pathlib import Path
 
 from avaliacao.harness import TIPOS_CRITICOS, executar, salvar
-from config import carregar_env
+from config import RAIZ, ConfiguracaoInvalida, carregar_configuracao
 from modelo import criar_modelo
-from rag.chunking import RAIZ
 
 
 def main(argv: list[str] | None = None) -> int:
-    carregar_env()
     p = argparse.ArgumentParser(prog="python -m avaliacao")
-    p.add_argument("--provedor", default=None, help="ollama (padrão) ou falso")
+    p.add_argument("--provedor", default=None, help="ollama ou falso (vence o .env)")
     p.add_argument("--conjunto", type=Path, default=RAIZ / "eval" / "golden" / "dev")
     p.add_argument("--saida", type=Path, default=RAIZ / "eval" / "runs")
     args = p.parse_args(argv)
 
-    relatorio = executar(criar_modelo(args.provedor), args.conjunto)
+    try:
+        config = carregar_configuracao(provedor=args.provedor)
+    except ConfiguracaoInvalida as erro:
+        print(erro, file=sys.stderr)
+        return 1
+
+    relatorio = executar(criar_modelo(config), args.conjunto)
     caminho = salvar(relatorio, args.saida)
 
     print(

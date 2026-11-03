@@ -28,11 +28,21 @@ make bootstrap      # cria .uv/, .python/ e .venv/ e instala as dependências
 cp .env.example .env
 ```
 
+### Configuração (`.env` obrigatório)
+
+Não há valores padrão no código. O chat, a API e a avaliação só iniciam se o `.env` existir e tiver as variáveis obrigatórias; caso contrário, dizem exatamente o que falta. Uma variável definida no terminal tem prioridade sobre o `.env`, e o chat mostra de onde veio cada valor. Os testes não precisam do `.env`: eles usam o modelo falso diretamente.
+
+| Variável | Quando é obrigatória |
+|---|---|
+| `CULTIVA_PROVEDOR` | Sempre (`ollama` ou `falso`) |
+| `CULTIVA_MODELO`, `CULTIVA_OLLAMA_URL` | Com `CULTIVA_PROVEDOR=ollama` |
+| `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`, `POSTGRES_PORT` | Para `make db-up` |
+
 Para usar o modelo local, instale o [Ollama](https://ollama.com) e baixe o modelo: `ollama pull qwen2.5`.
 
 ### Conferindo a URL do Ollama
 
-O padrão é `http://localhost:11434` (variável `CULTIVA_OLLAMA_URL` no `.env`). Para conferir:
+O Ollama escuta, por padrão dele, em `http://localhost:11434`. Esse é o valor a colocar em `CULTIVA_OLLAMA_URL`. Para conferir:
 
 ```bash
 echo $OLLAMA_HOST                              # se definida, muda o endereço padrão
@@ -46,13 +56,13 @@ O `make chat` também confere isso ao iniciar e avisa se o Ollama estiver fechad
 
 | Comando | O que faz |
 |---|---|
-| `make chat` | **Chat interativo no terminal** com o modelo local. `/sinais` mostra o que o fluxo fez na última resposta |
-| `make chat-falso` | O mesmo chat com o modelo falso, sem Ollama |
+| `make chat` | **Chat interativo no terminal** com o modelo do `.env`. `/sinais` mostra o que o fluxo fez na última resposta |
+| `make chat-falso` | O mesmo chat forçando o modelo falso, sem Ollama |
 | `make test` | Testes (modelo falso, sem Ollama) |
 | `make lint` / `make format` | ruff |
 | `make api` | Endpoints HTTP para um futuro front-end (`GET /saude`, `POST /abas/nutricao/chat`). A raiz não tem página; para testar, use http://localhost:8000/docs |
-| `make eval-local` | Golden set com o modelo local; falha se um caso crítico falhar |
-| `make eval-falso` | Golden set com o modelo falso |
+| `make eval-local` | Golden set com o modelo do `.env`; falha se um caso crítico falhar |
+| `make eval-falso` | Golden set forçando o modelo falso |
 | `make db-up` / `make db-down` | Postgres 16 com pgvector (ainda não usado pela aplicação) |
 
 Exemplo de chamada:
