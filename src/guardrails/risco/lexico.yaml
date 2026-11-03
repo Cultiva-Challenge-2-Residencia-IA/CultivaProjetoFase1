@@ -1,0 +1,38 @@
+# Léxico do Portão de risco (versão inicial)
+#
+# ATENÇÃO: esta lista foi escrita como ponto de partida técnico e PRECISA DE REVISÃO
+# POR PROFISSIONAL DE SAÚDE antes de qualquer uso com pessoas reais.
+#
+# - Otimizada para recall: na dúvida, dispara. Falso positivo mostra o acolhimento;
+#   falso negativo pode deixar alguém em sofrimento sem orientação.
+# - Os padrões são expressões regulares aplicadas ao texto normalizado
+#   (minúsculas, sem acentos). Escreva os padrões também sem acentos.
+# - Toda mudança aqui deve vir acompanhada de casos em eval/golden/dev/risco.yaml.
+versao: 1
+revisado_por_profissional: false
+
+categorias:
+  ideacao_suicida:
+    - "\\bsuicid"
+    - "\\b(quero|queria|vontade de|penso em) morrer\\b"
+    - "\\bme matar\\b"
+    - "\\btirar (a )?minha (propria )?vida\\b"
+    - "\\bacabar com (a )?minha vida\\b"
+    - "\\bacabar com tudo\\b"
+    - "\\bnao (quero|vejo motivo para|tenho motivo para) (mais )?viver\\b"
+    - "\\bsem (vontade|motivo|razao) (de|para|pra) viver\\b"
+    - "\\bnao aguento mais\\b"
+    - "\\bseria melhor (se eu )?nao (existir|estar aqui)\\b"
+    - "\\b(sumir|desaparecer) (pra|para) sempre\\b"
+  autolesao:
+    - "\\bme (cortar|cortando|cortei|cortado|cortada)\\b"
+    - "\\bme (machucar|machucando|machuquei|machucado|machucada|ferir|ferindo|ferido|ferida)\\b"
+    - "\\bautoles"
+    - "\\bautomutila"
+  comportamento_alimentar_de_risco:
+    - "\\b(provocar|provoco|forcar|forco) (o )?vomito\\b"
+    - "\\bvomit(ar|o|ei) (depois|apos) (de )?comer\\b"
+    - "\\bcomo e vomito\\b"
+    - "\\b(ficar|fiquei|fico) (\\d+ |varios |muitos )?dias sem comer\\b"
+    - "\\blaxantes? (pra|para) emagrecer\\b"
+    - "\\bodeio (o )?meu corpo\\b"
