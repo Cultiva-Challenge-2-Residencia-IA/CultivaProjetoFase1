@@ -30,13 +30,27 @@ cp .env.example .env
 
 Para usar o modelo local, instale o [Ollama](https://ollama.com) e baixe o modelo: `ollama pull qwen2.5`.
 
+### Conferindo a URL do Ollama
+
+O padrão é `http://localhost:11434` (variável `CULTIVA_OLLAMA_URL` no `.env`). Para conferir:
+
+```bash
+echo $OLLAMA_HOST                              # se definida, muda o endereço padrão
+lsof -nP -iTCP -sTCP:LISTEN | grep -i ollama   # porta em que o Ollama está escutando
+curl http://localhost:11434/api/tags           # lista os modelos baixados
+```
+
+O `make chat` também confere isso ao iniciar e avisa se o Ollama estiver fechado ou o modelo não estiver baixado.
+
 ## Comandos
 
 | Comando | O que faz |
 |---|---|
+| `make chat` | **Chat interativo no terminal** com o modelo local. `/sinais` mostra o que o fluxo fez na última resposta |
+| `make chat-falso` | O mesmo chat com o modelo falso, sem Ollama |
 | `make test` | Testes (modelo falso, sem Ollama) |
 | `make lint` / `make format` | ruff |
-| `make api` | API em http://localhost:8000 (`GET /saude`, `POST /abas/nutricao/chat`) |
+| `make api` | Endpoints HTTP para um futuro front-end (`GET /saude`, `POST /abas/nutricao/chat`). A raiz não tem página; para testar, use http://localhost:8000/docs |
 | `make eval-local` | Golden set com o modelo local; falha se um caso crítico falhar |
 | `make eval-falso` | Golden set com o modelo falso |
 | `make db-up` / `make db-down` | Postgres 16 com pgvector (ainda não usado pela aplicação) |

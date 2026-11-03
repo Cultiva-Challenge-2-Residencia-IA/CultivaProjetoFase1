@@ -8,7 +8,7 @@ UV := $(CURDIR)/.uv/bin/uv
 # Usa "docker compose" se existir; senão, o binário "docker-compose".
 COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo docker-compose)
 
-.PHONY: bootstrap lint format test api eval-local eval-falso db-up db-down
+.PHONY: bootstrap lint format test chat chat-falso api eval-local eval-falso db-up db-down
 
 bootstrap:
 	./scripts/bootstrap.sh
@@ -24,6 +24,15 @@ format:
 test:
 	$(UV) run pytest -q
 
+# Chat interativo no terminal com o modelo local (Ollama). Use /sinais para ver o fluxo.
+chat:
+	$(UV) run python -m chat --provedor ollama
+
+# Mesmo chat com o modelo falso, sem Ollama.
+chat-falso:
+	$(UV) run python -m chat --provedor falso
+
+# Endpoints HTTP para um futuro front-end. Para testar manualmente: http://localhost:8000/docs
 api:
 	$(UV) run uvicorn api.app:criar_app --factory --reload --port 8000
 

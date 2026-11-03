@@ -18,6 +18,16 @@ class ModeloOllama:
         )
         self._timeout = timeout
 
+    @property
+    def url(self) -> str:
+        return self._url
+
+    def modelos_disponiveis(self) -> list[str]:
+        """Modelos baixados no Ollama. Levanta httpx.HTTPError se o servidor não responder."""
+        resposta = httpx.get(f"{self._url}/api/tags", timeout=5.0)
+        resposta.raise_for_status()
+        return [m["name"] for m in resposta.json().get("models", [])]
+
     def gerar(self, sistema: str, mensagem: str) -> str:
         resposta = httpx.post(
             f"{self._url}/api/chat",
