@@ -54,6 +54,15 @@ def test_modelo_nao_recebe_dados_pessoais():
         assert dado not in mensagem
 
 
+def test_perfil_vai_rotulado_como_contexto_e_separado_dos_trechos():
+    _, modelo = responder("Por que evitar alimentos ultraprocessados?")
+    _, mensagem = modelo.chamadas[0]
+    contexto, trechos = mensagem.split("Trechos:", 1)
+    assert "informado pelo usuário (não é Trecho, não cite)" in contexto
+    assert "Restrições alimentares informadas pelo usuário: vegetariana" in contexto
+    assert "vegetariana" not in trechos
+
+
 def test_saida_prescritiva_e_bloqueada():
     falso = ModeloFalso(["Tome 500 mg de cafeína [guia-2014-p051-a]."])
     r, _ = responder("Por que evitar alimentos ultraprocessados?", falso)

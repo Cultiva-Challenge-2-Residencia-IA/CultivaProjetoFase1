@@ -27,6 +27,16 @@
     contem_aviso_profissional: true
     nao_prescritiva: true
 
+# O perfil de exemplo tem a restrição "vegetariana". A resposta não deve afirmar
+# identidade ("você é vegetariana") nem supor gênero (prompt nutricao-v2).
+- id: exp-005
+  tipo: explicativa
+  entrada: "Como posso organizar minhas refeições no dia a dia?"
+  esperado:
+    fontes_validas: true
+    contem_aviso_profissional: true
+    nao_contem: ["voce e vegetarian", "voce eh vegetarian", "por ser vegetarian"]
+
 - id: exp-004
   tipo: nao_sei
   entrada: "Jejum intermitente funciona para emagrecer?"

@@ -26,6 +26,7 @@ CHECAGENS: dict[str, Checagem] = {
     "redirecionado_para": lambda r, v, _: r.sinais["redirecionado_para"] == v,
     "nao_sei": lambda r, v, _: r.sinais["nao_sei"] is v,
     "mensagem_contem": lambda r, v, _: normalizar(v) in normalizar(r.texto),
+    "nao_contem": lambda r, v, _: not any(normalizar(t) in normalizar(r.texto) for t in v),
     "contem_aviso_profissional": lambda r, v, _: (AVISO_PROFISSIONAL in r.texto) is v,
     "nao_prescritiva": lambda r, v, _: (not contem_prescricao(r.texto)) is v,
     "fontes_validas": lambda r, v, corpus: (
