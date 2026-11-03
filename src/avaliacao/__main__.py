@@ -8,11 +8,13 @@ import sys
 from pathlib import Path
 
 from avaliacao.harness import TIPOS_CRITICOS, executar, salvar
+from config import carregar_env
 from modelo import criar_modelo
 from rag.chunking import RAIZ
 
 
 def main(argv: list[str] | None = None) -> int:
+    carregar_env()
     p = argparse.ArgumentParser(prog="python -m avaliacao")
     p.add_argument("--provedor", default=None, help="ollama (padrão) ou falso")
     p.add_argument("--conjunto", type=Path, default=RAIZ / "eval" / "golden" / "dev")

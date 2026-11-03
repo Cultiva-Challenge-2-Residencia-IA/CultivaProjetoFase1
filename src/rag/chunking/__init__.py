@@ -8,9 +8,9 @@ from pathlib import Path
 
 import yaml
 
+from config import RAIZ
 from dominio.modelos import Trecho
 
-RAIZ = Path(__file__).resolve().parents[3]
 FIXTURE_PADRAO = RAIZ / "corpus" / "fixtures" / "guia_alimentar_trechos.yaml"
 
 
