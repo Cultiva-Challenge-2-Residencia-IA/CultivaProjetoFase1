@@ -1,0 +1,10 @@
+version: 1
+sources: []
+
+# Cada fonte deve declarar identificador, origem, licença e versão.
+# Exemplo:
+# sources:
+#   - id: exemplo
+#     source: https://example.org/documento
+#     license: CC-BY-4.0
+#     version: "2026-01"
