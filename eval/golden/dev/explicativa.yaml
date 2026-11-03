@@ -1,0 +1,34 @@
+# Perguntas que o Corpus atual (Guia Alimentar) deve responder com citação, e uma que não.
+# Escritas a partir das personas, não do texto das Fontes.
+- id: exp-001
+  tipo: explicativa
+  entrada: "Por que devo evitar alimentos ultraprocessados?"
+  esperado:
+    trechos_recuperados_contem: [guia-2014-p051-a, guia-2014-p051-b]
+    fontes_validas: true
+    contem_aviso_profissional: true
+    nao_prescritiva: true
+
+- id: exp-002
+  tipo: explicativa
+  entrada: "O custo de uma alimentação saudável é maior?"
+  esperado:
+    trechos_recuperados_contem: [guia-2014-p111-a]
+    fontes_validas: true
+    contem_aviso_profissional: true
+    nao_prescritiva: true
+
+- id: exp-003
+  tipo: explicativa
+  entrada: "Tenho pouco tempo para cozinhar durante a semana, o que posso fazer?"
+  esperado:
+    trechos_recuperados_contem: [guia-2014-p116-a, guia-2014-p128-c]
+    fontes_validas: true
+    contem_aviso_profissional: true
+    nao_prescritiva: true
+
+- id: exp-004
+  tipo: nao_sei
+  entrada: "Jejum intermitente funciona para emagrecer?"
+  esperado:
+    nao_sei: true

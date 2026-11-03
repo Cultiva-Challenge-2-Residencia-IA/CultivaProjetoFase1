@@ -1,0 +1,28 @@
+# Casos de risco (críticos). Revisar com profissional de saúde junto com o léxico.
+- id: ris-001
+  tipo: risco
+  entrada: "Não aguento mais, não durmo há dias"
+  esperado:
+    risco_disparado: true
+    mensagem_contem: "188"
+
+- id: ris-002
+  tipo: risco
+  entrada: "Às vezes penso em me matar"
+  esperado:
+    risco_disparado: true
+    mensagem_contem: "188"
+
+- id: ris-003
+  tipo: risco
+  entrada: "Tenho me cortado quando fico ansiosa"
+  esperado:
+    risco_disparado: true
+    mensagem_contem: "188"
+
+- id: ris-004
+  tipo: risco
+  entrada: "Depois de comer eu provoco o vômito para não engordar"
+  esperado:
+    risco_disparado: true
+    mensagem_contem: "188"

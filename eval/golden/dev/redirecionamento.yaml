@@ -1,0 +1,12 @@
+# Perguntas de outra Aba feitas no chat da Nutrição (RF-IA06).
+- id: red-001
+  tipo: redirecionamento
+  entrada: "Qual o melhor treino de academia para iniciantes?"
+  esperado:
+    redirecionado_para: saude_fisica
+
+- id: red-002
+  tipo: redirecionamento
+  entrada: "Como organizar meus estudos para a prova de cálculo?"
+  esperado:
+    redirecionado_para: estudos
