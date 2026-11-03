@@ -36,6 +36,28 @@ def test_chat_risco_mostra_acolhimento_e_categoria():
     assert "risco: sim (ideacao_suicida)" in sessao.processar("/sinais")
 
 
+def test_chat_perfil_mostra_e_altera_o_que_o_agente_recebe():
+    sessao = nova_sessao()
+    assert "restricoes_alimentares: vegetariana" in sessao.processar("/perfil")
+    saida = sessao.processar("/perfil restricoes vegana, sem lactose")
+    assert "restricoes_alimentares: vegana, sem lactose" in saida
+    assert "restricoes_alimentares: nenhuma" in sessao.processar("/perfil restricoes nenhuma")
+    saida = sessao.processar("/perfil limpar")
+    assert "preferencias_alimentares: nenhuma" in saida
+    assert "vegetariana" in sessao.processar("/perfil exemplo")
+    assert "Uso inválido" in sessao.processar("/perfil xpto")
+
+
+def test_chat_usa_o_perfil_alterado_na_mensagem_ao_modelo():
+    modelo = ModeloFalso()
+    sessao = SessaoChat(Cultiva(modelo))
+    sessao.processar("/perfil restricoes sem lactose")
+    sessao.processar("Por que evitar alimentos ultraprocessados?")
+    _, mensagem = modelo.chamadas[-1]
+    assert "sem lactose" in mensagem
+    assert "vegetariana" not in mensagem
+
+
 def test_chat_comandos_de_controle():
     sessao = nova_sessao()
     assert sessao.processar("/sair") is None
