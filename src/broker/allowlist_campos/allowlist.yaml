@@ -1,0 +1,21 @@
+# Allowlist de campos por agente (Context Broker).
+#
+# - "perfil": campos do Perfil que o agente pode receber.
+# - "registros_das_abas" e "metas_das_abas": de quais Abas o agente recebe Registros e metas.
+# - Campos em "nunca" são proibidos para qualquer agente; a carga falha se aparecerem.
+# - Campos de outras Abas só entram quando o agente sincronizador pedir (próximas fases).
+nunca:
+  - nome
+  - email
+  - telefone
+  - cpf
+
+agentes:
+  nutricao:
+    perfil:
+      - preferencias_alimentares
+      - restricoes_alimentares
+    registros_das_abas:
+      - nutricao
+    metas_das_abas:
+      - nutricao
