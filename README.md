@@ -23,10 +23,24 @@ Fora desta fase: RAG real (ingestão e embeddings), Langfuse, multimodal, outras
 
 Nada é instalado no sistema: o `uv`, o Python 3.12 e o `.venv` ficam dentro do repositório (pastas ignoradas pelo git).
 
+### Primeiro uso: `make bootstrap`
+
 ```bash
-make bootstrap      # cria .uv/, .python/ e .venv/ e instala as dependências
+make bootstrap
 cp .env.example .env
 ```
+
+Requisitos: um `python3` qualquer já instalado na máquina (só para o primeiro passo) e acesso à internet.
+
+O `make bootstrap` roda o `scripts/bootstrap.sh`, que:
+
+1. **Instala o `uv` em `.uv/`**: cria um ambiente temporário com o `python3` do sistema, instala o `uv` nele, copia o binário para `.uv/bin/uv` e apaga o temporário.
+2. **Baixa o Python 3.12 para `.python/`**: o projeto exige 3.12, independentemente da versão instalada na máquina.
+3. **Cria o `.venv/` e instala as dependências** com `uv sync`, nas versões travadas do `uv.lock` (iguais para toda a equipe). O cache de pacotes fica em `.uv-cache/`.
+
+Pode ser rodado de novo a qualquer momento: ele pula o que já existe e só atualiza as dependências. Rode de novo sempre que o `pyproject.toml` ou o `uv.lock` mudarem (por exemplo, depois de um `git pull`).
+
+Para recomeçar do zero: `rm -rf .uv .python .uv-cache .venv && make bootstrap`.
 
 ### Configuração (`.env` obrigatório)
 
@@ -56,6 +70,7 @@ O `make chat` também confere isso ao iniciar e avisa se o Ollama estiver fechad
 
 | Comando | O que faz |
 |---|---|
+| `make bootstrap` | Prepara o ambiente local (uv, Python 3.12, `.venv` e dependências). Primeiro comando a rodar |
 | `make chat` | **Chat interativo no terminal** com o modelo do `.env`. `/sinais` mostra o que o fluxo fez na última resposta |
 | `make chat-falso` | O mesmo chat forçando o modelo falso, sem Ollama |
 | `make test` | Testes (modelo falso, sem Ollama) |
