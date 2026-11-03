@@ -1,10 +1,22 @@
 version: 1
-sources: []
-
-# Cada fonte deve declarar identificador, origem, licença e versão.
-# Exemplo:
-# sources:
-#   - id: exemplo
-#     source: https://example.org/documento
-#     license: CC-BY-4.0
-#     version: "2026-01"
+sources:
+  - id: guia-alimentar-2014
+    titulo: "Guia Alimentar para a População Brasileira, 2ª edição (2014)"
+    source: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf
+    editor: Ministério da Saúde
+    license: CC-BY-NC-SA-4.0
+    license_evidencia: >-
+      Página 3 do PDF: "esta obra é disponibilizada nos termos da Licença Creative Commons
+      – Atribuição – Não Comercial – Compartilhamento pela mesma licença 4.0 Internacional.
+      É permitida a reprodução parcial ou total desta obra, desde que citada a fonte."
+    version: "2ª edição, 1ª reimpressão, 2014"
+    tier: T1
+    aba: nutricao
+    uso: fixture
+    pendencias:
+      - >-
+        A licença é NÃO COMERCIAL (NC). Validar com a equipe se o uso é compatível com o
+        modelo de negócio (vitrine paga, RN12) antes de usar fora do projeto acadêmico.
+      - >-
+        Compartilhamento pela mesma licença (SA): os trechos derivados em
+        corpus/fixtures/ seguem sob CC BY-NC-SA 4.0, com atribuição.

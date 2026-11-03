@@ -1,0 +1,115 @@
+# Trechos do Guia Alimentar para a População Brasileira, 2ª edição (2014).
+# Fonte: Ministério da Saúde. Licença: CC BY-NC-SA 4.0 (ver corpus/manifest.yaml).
+# Texto copiado do PDF oficial. Ajustes só de forma: capitalização no início das frases
+# (perdida na extração), travessões trocados por parênteses e aspas curvas por retas.
+# Omissões estão marcadas com (...). "pagina_pdf" é o número da página no arquivo PDF.
+# Uso: RAG simulado desta fase. Será substituído pela ingestão real do Corpus.
+fonte_id: guia-alimentar-2014
+titulo_fonte: "Guia Alimentar para a População Brasileira, 2ª edição (2014)"
+trechos:
+  - id: guia-2014-p050-a
+    pagina_pdf: 50
+    texto: >-
+      Faça de alimentos in natura ou minimamente processados a base de sua alimentação.
+      Alimentos in natura ou minimamente processados, em grande variedade e
+      predominantemente de origem vegetal, são a base de uma alimentação nutricionalmente
+      balanceada, saborosa, culturalmente apropriada e promotora de um sistema alimentar
+      socialmente e ambientalmente sustentável.
+  - id: guia-2014-p050-b
+    pagina_pdf: 50
+    texto: >-
+      Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar
+      alimentos e criar preparações culinárias. Desde que utilizados com moderação em
+      preparações culinárias com base em alimentos in natura ou minimamente processados,
+      óleos, gorduras, sal e açúcar contribuem para diversificar e tornar mais saborosa a
+      alimentação sem torná-la nutricionalmente desbalanceada.
+  - id: guia-2014-p050-c
+    pagina_pdf: 50
+    texto: >-
+      Limite o uso de alimentos processados, consumindo-os, em pequenas quantidades, como
+      ingredientes de preparações culinárias ou como parte de refeições baseadas em
+      alimentos in natura ou minimamente processados. Os ingredientes e métodos usados na
+      fabricação de alimentos processados (como conservas de legumes, compotas de frutas,
+      queijos e pães) alteram de modo desfavorável a composição nutricional dos alimentos
+      dos quais derivam.
+  - id: guia-2014-p051-a
+    pagina_pdf: 51
+    texto: >-
+      Evite alimentos ultraprocessados. Devido a seus ingredientes, alimentos
+      ultraprocessados (como biscoitos recheados, "salgadinhos de pacote", refrigerantes e
+      "macarrão instantâneo") são nutricionalmente desbalanceados. Por conta de sua
+      formulação e apresentação, tendem a ser consumidos em excesso e a substituir
+      alimentos in natura ou minimamente processados.
+  - id: guia-2014-p051-b
+    pagina_pdf: 51
+    texto: >-
+      A regra de ouro. Prefira sempre alimentos in natura ou minimamente processados e
+      preparações culinárias a alimentos ultraprocessados. Opte por água, leite e frutas no
+      lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque a "comida
+      feita na hora" (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados
+      de legumes e verduras, farofas, tortas) por produtos que dispensam preparação
+      culinária (...) e fique com sobremesas caseiras, dispensando as industrializadas.
+  - id: guia-2014-p126-a
+    pagina_pdf: 126
+    texto: >-
+      Variedade significa alimentos de todos os tipos (grãos, raízes, tubérculos, farinhas,
+      legumes, verduras, frutas, castanhas, leite, ovos e carnes) e variedade dentro de cada
+      tipo (feijão, arroz, milho, batata, mandioca, tomate, abóbora, laranja, banana,
+      frango, peixes etc.).
+  - id: guia-2014-p127-a
+    pagina_pdf: 127
+    texto: >-
+      Comer com regularidade e atenção, em ambientes apropriados e, sempre que possível,
+      com companhia. Procure fazer suas refeições em horários semelhantes todos os dias e
+      evite "beliscar" nos intervalos entre as refeições. Coma sempre devagar e desfrute o
+      que está comendo, sem se envolver em outra atividade.
+  - id: guia-2014-p128-a
+    pagina_pdf: 128
+    texto: >-
+      Fazer compras em locais que ofertem variedades de alimentos in natura ou minimamente
+      processados. Procure fazer compras de alimentos em mercados, feiras livres e feiras de
+      produtores e outros locais que comercializam variedades de alimentos in natura ou
+      minimamente processados. Prefira legumes, verduras e frutas da estação e cultivados
+      localmente.
+  - id: guia-2014-p128-b
+    pagina_pdf: 128
+    texto: >-
+      Desenvolver, exercitar e partilhar habilidades culinárias. (...) Se você não tem
+      habilidades culinárias (e isso vale para homens e mulheres), procure adquiri-las. Para isso, converse com as pessoas que sabem
+      cozinhar, peça receitas a familiares, amigos e colegas, leia livros, consulte a
+      internet, eventualmente faça cursos e... comece a cozinhar!
+  - id: guia-2014-p128-c
+    pagina_pdf: 128
+    texto: >-
+      Planejar o uso do tempo para dar à alimentação o espaço que ela merece. Planeje as
+      compras de alimentos, organize a despensa doméstica e defina com antecedência o
+      cardápio da semana. (...) Reavalie como você tem usado o seu tempo e identifique quais
+      atividades poderiam ceder espaço para a alimentação.
+  - id: guia-2014-p129-a
+    pagina_pdf: 129
+    texto: >-
+      Dar preferência, quando fora de casa, a locais que servem refeições feitas na hora.
+      No dia a dia, procure locais que servem refeições feitas na hora e a preço justo.
+      Restaurantes de comida a quilo podem ser boas opções, assim como refeitórios que
+      servem comida caseira em escolas ou no local de trabalho. Evite redes de fast-food.
+  - id: guia-2014-p129-b
+    pagina_pdf: 129
+    texto: >-
+      Ser crítico quanto a informações, orientações e mensagens sobre alimentação veiculadas
+      em propagandas comerciais. Lembre-se de que a função essencial da publicidade é
+      aumentar a venda de produtos, e não informar ou, menos ainda, educar as pessoas.
+  - id: guia-2014-p111-a
+    pagina_pdf: 111
+    texto: >-
+      Custo. Embora legumes, verduras e frutas possam ter preço superior ao de alguns
+      alimentos ultraprocessados, o custo total de uma alimentação baseada em alimentos in
+      natura ou minimamente processados ainda é menor no Brasil do que o custo de uma
+      alimentação baseada em alimentos ultraprocessados.
+  - id: guia-2014-p116-a
+    pagina_pdf: 116
+    texto: >-
+      Alguns alimentos que demandam maior tempo de cocção, como o feijão, podem ser cozidos
+      em maior quantidade em um único dia, congelados e utilizados em preparações ao longo
+      da semana. Determinados pratos como sopas, omeletes e arroz com legumes refogados
+      tomam pouco tempo e podem ser preferíveis em dias em que a disponibilidade de tempo é
+      menor.
