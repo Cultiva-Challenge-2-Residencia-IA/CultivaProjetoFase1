@@ -336,6 +336,296 @@ sources:
     approval_status: pendente
     intended_use_license_review: pendente
     scope_note: Documento destinado a profissionais de saúde, com condutas dietéticas e prescrição nutricional. Preservar o conteúdo não autoriza o aplicativo a prescrever dietas ou metas calóricas (RN01).
+  - id: sbme-modificacoes-dieteticas-suplementos-rbme-2009
+    title: "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde"
+    authors:
+      - Arnaldo José Hernandez
+      - Ricardo Munir Nahas
+    institutions:
+      - Sociedade Brasileira de Medicina do Exercício e do Esporte (SBME)
+    journal: Revista Brasileira de Medicina do Esporte
+    year: 2009
+    edition: "v. 15, n. 3, supl., p. 2-12 (diretriz da SBME; os dois nomes são os editores)"
+    version: "2009-15-3s"
+    doi: 10.1590/S1517-86922009000400001
+    source: https://www.scielo.br/j/rbme/a/4Y4gRJxwpZjVT4PsXRxtH9k/?lang=pt
+    download_url: https://www.scielo.br/j/rbme/a/4Y4gRJxwpZjVT4PsXRxtH9k/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-NC-4.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License". O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/sbme_modificacoes_dieteticas_suplementos_rbme_2009.pdf
+    markdown_path: corpus/nutricao/markdown/sbme_modificacoes_dieteticas_suplementos_rbme_2009.md
+    report_path: corpus/nutricao/relatorios/sbme_modificacoes_dieteticas_suplementos_rbme_2009.json
+    sha256: 62c7e8d81f47c013e2d5a2ccbd7585a809d83e3fc41a6ad537f36e609dff40c9
+    pdf_pages: 10
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: "Consenso brasileiro de nutrição esportiva: reposição hídrica, suplementos e ação ergogênica. Apoia o cruzamento entre as abas de Nutrição e Saúde Física."
+    scope_note: "Diretriz de 2009 para profissionais de saúde, com faixas, doses e comprovação de ação ergogênica. Pode estar desatualizada. Não autoriza o aplicativo a indicar suplementos nem doses (RN01)."
+  - id: franca-psicologia-nutricao-comportamento-alimentar-epsic-2012
+    title: Contribuições da psicologia e da nutrição para a mudança do comportamento alimentar
+    authors:
+      - Cristineide Leandro França
+      - Marina Biaginni
+      - Ana Paula Levindo Mudesto
+      - Elioenai Dornelles Alves
+    institutions:
+      - Universidade de Brasília
+    journal: Estudos de Psicologia (Natal)
+    year: 2012
+    edition: "v. 17, n. 2, p. 337-345"
+    version: "2012-17-2"
+    doi: 10.1590/S1413-294X2012000200019
+    source: https://www.scielo.br/j/epsic/a/rTfZMqP9HwXxBhjdFkwBmBC/?lang=pt
+    download_url: https://www.scielo.br/j/epsic/a/rTfZMqP9HwXxBhjdFkwBmBC/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-NC-4.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License". O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.pdf
+    markdown_path: corpus/nutricao/markdown/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.md
+    report_path: corpus/nutricao/relatorios/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.json
+    sha256: 81b1b1c273af68bf9522c24e6a2968942174c391c0b88bb4050f8e4b0a99b5d7
+    pdf_pages: 9
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: "Aproxima psicologia e nutrição na mudança do comportamento alimentar. Substitui o artigo \"Comportamento alimentar e suas interfaces com a saúde e o estresse\", que não foi localizado no SciELO com esse título."
+    scope_note: "Estudo com amostra pequena (11 participantes, conforme o resumo). Não se generaliza."
+  - id: santos-barreiras-frutas-verduras-csc-2019
+    title: Barreiras percebidas para o consumo de frutas e de verduras ou legumes em adultos brasileiros
+    authors:
+      - Graziela Maria Gorla Campiolo dos Santos
+      - Ana Maria Rigo Silva
+      - Wladithe Organ de Carvalho
+      - Cassiano Ricardo Rech
+      - Mathias Roberto Loch
+    institutions:
+      - Universidade Estadual de Londrina
+      - Universidade Federal de Santa Catarina
+    journal: Ciência & Saúde Coletiva
+    year: 2019
+    edition: "v. 24, n. 7, p. 2461-2470"
+    version: "2019-24-7"
+    doi: 10.1590/1413-81232018247.19992017
+    source: https://www.scielo.br/j/csc/a/LSm9mRVdJnBCpF7zvPXxsSP/?lang=pt
+    download_url: https://www.scielo.br/j/csc/a/LSm9mRVdJnBCpF7zvPXxsSP/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-4.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "Open Access article distributed under the terms of the Creative Commons Attribution License" (creativecommons.org/licenses/by/4.0/). O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/santos_et_al_barreiras_frutas_verduras_csc_2019.pdf
+    markdown_path: corpus/nutricao/markdown/santos_et_al_barreiras_frutas_verduras_csc_2019.md
+    report_path: corpus/nutricao/relatorios/santos_et_al_barreiras_frutas_verduras_csc_2019.json
+    sha256: 4eaea7e2ed37a8d6e78fe0c6d1ce5842ff3b5e290d229f11944a69eff101b7e5
+    pdf_pages: 10
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: "Traz as barreiras percebidas (como falta de tempo e preparo) ao consumo de frutas e verduras, apoiando sugestões simples e viáveis. Substitui o título \"Barreiras para o consumo de frutas e hortaliças no Brasil\" (RSP), que não foi localizado."
+    scope_note: Estudo transversal com 877 adultos de até 44 anos em Cambé (PR). Não se generaliza para o país.
+  - id: jaime-frutas-hortalicas-brasil-rsp-2009
+    title: "Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006"
+    authors:
+      - Patricia Constante Jaime
+      - Iramaia Campos Ribeiro Figueiredo
+      - Erly Catarina de Moura
+      - Deborah Carvalho Malta
+    institutions:
+      - Universidade de São Paulo
+    journal: Revista de Saúde Pública
+    year: 2009
+    edition: "v. 43, supl. 2, p. 57-64"
+    version: "2009-43-s2"
+    doi: 10.1590/S0034-89102009000900008
+    source: https://www.scielo.br/j/rsp/a/nSLrmKkbfjXMF4XbhgGcqcx/?lang=pt
+    download_url: https://www.scielo.br/j/rsp/a/nSLrmKkbfjXMF4XbhgGcqcx/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-NC-4.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License". O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.pdf
+    markdown_path: corpus/nutricao/markdown/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.md
+    report_path: corpus/nutricao/relatorios/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.json
+    sha256: 66b6884d3b6d1ebc651a8c0dd67e2f1afc01cfac708cc7388f3e0f8c2b1dc376
+    pdf_pages: 8
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: Fatores associados ao consumo de frutas e hortaliças com dados do Vigitel 2006. Complementa a fonte sobre barreiras.
+    scope_note: Dados de 2006 das capitais brasileiras; o consumo pode ter mudado.
+  - id: monteiro-nova-classificacao-alimentos-csp-2010
+    title: Uma nova classificação de alimentos baseada na extensão e propósito do seu processamento
+    authors:
+      - Carlos Augusto Monteiro
+      - Renata Bertazzi Levy
+      - Rafael Moreira Claro
+      - Inês Rugani Ribeiro de Castro
+      - Geoffrey Cannon
+    institutions:
+      - Universidade de São Paulo
+      - Universidade do Estado do Rio de Janeiro
+    journal: Cadernos de Saúde Pública
+    year: 2010
+    edition: "v. 26, n. 11, p. 2039-2049"
+    version: "2010-26-11"
+    doi: 10.1590/S0102-311X2010001100005
+    source: https://www.scielo.br/j/csp/a/fQWy8tBbJkMFhGq6gPzsGkb/?lang=pt
+    download_url: https://www.scielo.br/j/csp/a/fQWy8tBbJkMFhGq6gPzsGkb/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-NC-4.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página aponta creativecommons.org/licenses/by-nc/4.0/. O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/monteiro_et_al_nova_classificacao_alimentos_csp_2010.pdf
+    markdown_path: corpus/nutricao/markdown/monteiro_et_al_nova_classificacao_alimentos_csp_2010.md
+    report_path: corpus/nutricao/relatorios/monteiro_et_al_nova_classificacao_alimentos_csp_2010.json
+    sha256: f468c52386c34f8b6cac0db15748c45cb07e84bd5885a6372353b55fa007c1f5
+    pdf_pages: 11
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: "Artigo original da classificação NOVA, para explicar a diferença entre alimentos in natura, processados e ultraprocessados com base científica."
+    scope_note: Proposta de 2010; a NOVA foi atualizada depois (2016 em diante).
+  - id: louzada-ultraprocessados-perfil-nutricional-rsp-2015
+    title: Alimentos ultraprocessados e perfil nutricional da dieta no Brasil
+    authors:
+      - Maria Laura da Costa Louzada
+      - Ana Paula Bortoletto Martins
+      - Daniela Silva Canella
+      - Larissa Galastri Baraldi
+      - Renata Bertazzi Levy
+      - Rafael Moreira Claro
+      - Jean-Claude Moubarac
+      - Geoffrey Cannon
+      - Carlos Augusto Monteiro
+    institutions:
+      - Universidade de São Paulo
+    journal: Revista de Saúde Pública
+    year: 2015
+    edition: "v. 49, art. 38"
+    version: "2015-49-38"
+    doi: 10.1590/S0034-8910.2015049006132
+    source: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt
+    download_url: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-NC-3.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License" (by-nc/3.0). O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.pdf
+    markdown_path: corpus/nutricao/markdown/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.md
+    report_path: corpus/nutricao/relatorios/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.json
+    sha256: 9c08e961e93a5f98b5bd53584f2cd7f6c93761b8fbf8f7030245f3e1efdbc733
+    pdf_pages: 11
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: Mostra o perfil nutricional da dieta brasileira segundo o grau de processamento (POF 2008-2009).
+    scope_note: "Estudo populacional de 2008-2009; mostra associação, não efeito individual."
+  - id: louzada-ultraprocessados-micronutrientes-rsp-2015
+    title: Impacto de alimentos ultraprocessados sobre o teor de micronutrientes da dieta no Brasil
+    authors:
+      - Maria Laura da Costa Louzada
+      - Ana Paula Bortoletto Martins
+      - Daniela Silva Canella
+      - Larissa Galastri Baraldi
+      - Renata Bertazzi Levy
+      - Rafael Moreira Claro
+      - Jean-Claude Moubarac
+      - Geoffrey Cannon
+      - Carlos Augusto Monteiro
+    institutions:
+      - Universidade de São Paulo
+    journal: Revista de Saúde Pública
+    year: 2015
+    edition: "v. 49, art. 45"
+    version: "2015-49-45"
+    doi: 10.1590/S0034-8910.2015049006211
+    source: https://www.scielo.br/j/rsp/a/ffxtXJygXWTrgxwyHgvqFKz/?lang=pt
+    download_url: https://www.scielo.br/j/rsp/a/ffxtXJygXWTrgxwyHgvqFKz/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-NC-3.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License" (by-nc/3.0). O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.pdf
+    markdown_path: corpus/nutricao/markdown/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.md
+    report_path: corpus/nutricao/relatorios/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.json
+    sha256: 95d0a7cc7c42765caa81713b93430f1b95a37578e215ffba3f73787718f5fe9e
+    pdf_pages: 8
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: Mostra como o teor de micronutrientes cai conforme aumenta a participação de ultraprocessados na dieta.
+    scope_note: "Estudo populacional de 2008-2009; mostra associação, não efeito individual."
+  - id: rossetti-universitarios-consumo-alimentar-san-2015
+    title: "Ingestão dietética e fatores associados ao consumo alimentar de universitários brasileiros: uma revisão"
+    authors:
+      - Francini Xavier Rossetti
+    institutions:
+      - Universidade de São Paulo (ESALQ)
+    journal: Segurança Alimentar e Nutricional
+    year: 2015
+    edition: "v. 22, n. 2"
+    version: "2015-22-2"
+    doi: 10.20396/san.v22i2.8642509
+    source: https://periodicos.sbu.unicamp.br/ojs/index.php/san/article/view/8642509
+    download_url: https://periodicos.sbu.unicamp.br/ojs/index.php/san/article/download/8642509/10030
+    retrieved_on: "2026-11-05"
+    license: CC-BY-NC-4.0
+    license_evidence:
+      location: página do artigo no portal da revista (OJS) e registro do Crossref
+      description: A página e o Crossref apontam creativecommons.org/licenses/by-nc/4.0. O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/rossetti_universitarios_consumo_alimentar_san_2015.pdf
+    markdown_path: corpus/nutricao/markdown/rossetti_universitarios_consumo_alimentar_san_2015.md
+    report_path: corpus/nutricao/relatorios/rossetti_universitarios_consumo_alimentar_san_2015.json
+    sha256: d3c60423aa7159c5b4784b3d112064536b5c7d039673bc3867827bce71225638
+    pdf_pages: 8
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: "Revisão dos fatores associados ao consumo alimentar de universitários brasileiros (renda, dupla jornada, curso, local de moradia). Substitui o artigo \"Fatores associados ao consumo alimentar de jovens adultos e universitários\", que não foi localizado."
+    scope_note: Revisão de estudos de 2004 a 2014.
+  - id: cfn-codigo-etica-conduta-nutricionista-2018
+    title: Código de Ética e de Conduta do Nutricionista (Resolução CFN nº 599/2018)
+    institutions:
+      - Conselho Federal de Nutricionistas (CFN)
+    year: 2018
+    edition: "Resolução CFN nº 599, de 25 de fevereiro de 2018"
+    version: "2018-res599"
+    source: http://www.cfn.org.br/wp-content/uploads/2018/04/codigo-de-etica.pdf
+    download_url: http://www.cfn.org.br/wp-content/uploads/2018/04/codigo-de-etica.pdf
+    retrieved_on: "2026-11-05"
+    license: pendente
+    license_evidence:
+      location: ato oficial
+      description: "O PDF não declara licença. Resolução de conselho profissional é ato oficial, sem proteção autoral pela Lei nº 9.610/1998, art. 8º, IV (interpretação a confirmar). A diagramação da cartilha do CFN não foi avaliada."
+    original_path: corpus/nutricao/originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf
+    markdown_path: corpus/nutricao/markdown/cfn_codigo_etica_conduta_nutricionista_res599_2018.md
+    report_path: corpus/nutricao/relatorios/cfn_codigo_etica_conduta_nutricionista_res599_2018.json
+    sha256: d1b0f88f41cb181b4ec8778408c5fcbc59f5b819e346a554ca99225a557aab70
+    pdf_pages: 19
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: "Define os limites legais de diagnóstico e prescrição dietética, base do guardrail do produto (RN01 a RN03)."
+    supersession_note: "Fontes secundárias (Legisweb, nutritotal e a imprensa) informam que a Resolução CFN nº 856, de 25/04/2026, revoga esta e cria novo código, com seção sobre inteligência artificial; as datas de vigência divergem entre as fontes. O texto oficial da Resolução 856 não foi localizado no site do CFN e não foi catalogado. Confirmar a vigência antes de usar como regra."
 
 # Cada fonte deve declarar identificador, origem, licença e versão.
 # Exemplo:

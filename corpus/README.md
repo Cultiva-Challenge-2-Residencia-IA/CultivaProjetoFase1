@@ -21,6 +21,15 @@ O catálogo é [`manifest.yaml`](manifest.yaml), mantendo `version: 1` e `source
 | Água, Hidratação e Saúde | SBAN, documento técnico, 2016 (ano inferido do PDF) | 16 | PDF fornecido pela equipe; origem pública não identificada |
 | Depressão, ansiedade e estresse e o comportamento alimentar | Brisotto, Silva e Andretta, Rev Bras Ter Cogn, 18(2):153-160, 2022 | 8 | PDF fornecido pela equipe; endereço do Crossref não verificado |
 | Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade | ABESO, Departamento de Nutrição, 1ª ed., 2022 | 260 | PDF fornecido pela equipe; origem pública não identificada |
+| Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas | SBME (editores Hernandez e Nahas), Rev Bras Med Esporte, 15(3 supl):2-12, 2009 | 10 | [SciELO](https://www.scielo.br/j/rbme/a/4Y4gRJxwpZjVT4PsXRxtH9k/?lang=pt), obtido em 05/11/2026 |
+| Contribuições da psicologia e da nutrição para a mudança do comportamento alimentar | França et al., Estud Psicol (Natal), 17(2):337-345, 2012 | 9 | [SciELO](https://www.scielo.br/j/epsic/a/rTfZMqP9HwXxBhjdFkwBmBC/?lang=pt), obtido em 05/11/2026 |
+| Barreiras percebidas para o consumo de frutas e de verduras ou legumes em adultos brasileiros | Santos et al., Ciênc Saúde Coletiva, 24(7):2461-2470, 2019 | 10 | [SciELO](https://www.scielo.br/j/csc/a/LSm9mRVdJnBCpF7zvPXxsSP/?lang=pt), obtido em 05/11/2026 |
+| Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006 | Jaime et al., Rev Saúde Pública, 43(supl 2):57-64, 2009 | 8 | [SciELO](https://www.scielo.br/j/rsp/a/nSLrmKkbfjXMF4XbhgGcqcx/?lang=pt), obtido em 05/11/2026 |
+| Uma nova classificação de alimentos baseada na extensão e propósito do seu processamento | Monteiro et al., Cad Saúde Pública, 26(11):2039-2049, 2010 | 11 | [SciELO](https://www.scielo.br/j/csp/a/fQWy8tBbJkMFhGq6gPzsGkb/?lang=pt), obtido em 05/11/2026 |
+| Alimentos ultraprocessados e perfil nutricional da dieta no Brasil | Louzada et al., Rev Saúde Pública, 49:38, 2015 | 11 | [SciELO](https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt), obtido em 05/11/2026 |
+| Impacto de alimentos ultraprocessados sobre o teor de micronutrientes da dieta no Brasil | Louzada et al., Rev Saúde Pública, 49:45, 2015 | 8 | [SciELO](https://www.scielo.br/j/rsp/a/ffxtXJygXWTrgxwyHgvqFKz/?lang=pt), obtido em 05/11/2026 |
+| Ingestão dietética e fatores associados ao consumo alimentar de universitários brasileiros: uma revisão | Rossetti, Segur Aliment Nutr, 22(2), 2015 | 8 | [Portal da revista](https://periodicos.sbu.unicamp.br/ojs/index.php/san/article/view/8642509), obtido em 05/11/2026 |
+| Código de Ética e de Conduta do Nutricionista (Resolução CFN nº 599/2018) | Conselho Federal de Nutricionistas, 2018 | 19 | [CFN](http://www.cfn.org.br/wp-content/uploads/2018/04/codigo-de-etica.pdf), obtido em 05/11/2026 |
 
 Consulta e obtenção dos dois documentos do Ministério da Saúde: **03/11/2026**. O endereço do Guia informado no pedido redirecionou para autenticação; o arquivo foi obtido na BVS oficial. A edição foi identificada na capa e nos créditos, mas não foi possível comparar seus bytes com os do endereço indisponível. As fichas catalográficas indicam 156 e 26 páginas, respectivamente; o total físico inclui páginas adicionais. Os marcadores desta conversão usam sempre a posição física no PDF, começando em 1.
 
@@ -89,6 +98,15 @@ Os três PDFs vieram da branch `feat/nutricao-rag-mvp` (pasta `docs/nutricao/`),
 - **Brisotto et al.:** estudo transversal com 209 adultos; não demonstra causalidade.
 - **ABESO:** documento para profissionais, com condutas dietéticas e prescrição nutricional. Preservar o conteúdo não autoriza o aplicativo a prescrever (RN01).
 - **Limpeza para o RAG:** o descarte de referências termina no título do capítulo seguinte (`resume_after_skip` em `scripts/config/rag.yaml`), porque os capítulos da ABESO não têm título marcado e a regra anterior descartava o início deles.
+
+
+### Nove fontes complementares (inclusão de 05/11/2026)
+
+Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licença conferida na página de cada artigo), do portal da revista (Rossetti) e do CFN. Vários títulos da lista original não foram localizados, e foram trocados por artigos verificáveis do mesmo tema; o critério de cada troca está nas notas `purpose_note` do manifesto.
+
+- **Códigos e diretrizes:** o Código de Ética do CFN (Resolução 599/2018) e a diretriz da SBME de 2009 são documentos para profissionais e definem limites que o produto não pode ultrapassar (RN01). O PDF do CFN que a busca indicava como "Código de Ética" era um material de treinamento de fiscais; usei a cartilha oficial do CFN. Fontes secundárias informam que a **Resolução CFN nº 856/2026 revoga a 599/2018** e traz uma seção sobre inteligência artificial; o texto oficial não foi localizado no site do CFN, então não foi catalogado, e a vigência precisa ser confirmada.
+- **Licenças:** CC-BY-NC (4.0 ou 3.0) em sete artigos e CC-BY-4.0 em um (Santos et al.), todas conforme a página do artigo, pois os PDFs não trazem a licença impressa. O código do CFN fica com licença `pendente`: é ato oficial, mas a interpretação sobre direitos autorais precisa de confirmação. Todas as licenças não comerciais seguem pendentes de análise frente à RN12.
+- **Não localizados:** o artigo sobre privação de sono e comportamento alimentar (Revista de Nutrição) e o texto exato "Comportamento alimentar e suas interfaces com a saúde e o estresse". O estudo de Penaforte et al. (Demetra, 2016), sobre estresse e comportamento alimentar de universitários, foi identificado, mas o servidor da revista não respondeu para o download.
 
 
 ## Organização

@@ -65,3 +65,82 @@ brisotto-depressao-ansiedade-estresse-rbtc-2022:
     - '^P esquisa e mPírica'
     - '^Revista Brasileira de Terapias Cognitivas'
     - 'E-mail:'
+sbme-modificacoes-dieteticas-suplementos-rbme-2009:
+  drop_paragraphs:
+    - '^clíNIca MéDIca'
+    - '^Artigo originAl'
+    - '^coeditores:'
+    - '^Participantes:'
+    - '^Realização:'
+    - '^apoio:'
+    - '^editor:'
+    - '^editores:'
+    - '^Arnaldo José Hernandez e Ricardo'
+    - '^\d{1,3}\.\s+[A-ZÁÉÍÓÚ][\w-]+(\s+[A-Z]{1,3}[,.]|,\s+[A-Z]\.)'
+franca-psicologia-nutricao-comportamento-alimentar-epsic-2012:
+  drop_paragraphs:
+    - '^Cristineide Leandro'
+    - '^Marina Biaginni'
+    - '^Ana Paula Levindo'
+    - '^Elioenai Dornelles'
+    - '^Universidade de Brasília$'
+    - '^Ministério da Aeronáutica$'
+santos-barreiras-frutas-verduras-csc-2019:
+  drop_paragraphs:
+    - '^Perceived barriers'
+    - 'orcid\.org'
+    - '^86038-350'
+    - '^Key words'
+    - '^2 Programa de Pós'
+jaime-frutas-hortalicas-brasil-rsp-2009:
+  drop_paragraphs:
+    - '^Patricia Constante Jaime'
+    - '^Erly Catarina'
+    - '^Deborah Carvalho'
+    - '^Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006$'
+    - '^Factors associated with'
+    - '^-?\s*(I|II|III|IV)\s+(Núcleo|Programa|Coordenação|Departamento)'
+    - '^Correspond'
+    - '^Recebido:'
+    - '^DESCRITORES'
+monteiro-nova-classificacao-alimentos-csp-2010:
+  drop_paragraphs:
+    - '^Uma nova classificação'
+    - '^Carlos Augusto Monteiro Renata'
+    - '^\d Faculdade'
+    - '^\d World Public'
+    - '^Correspondence'
+louzada-ultraprocessados-perfil-nutricional-rsp-2015:
+  drop_paragraphs:
+    - '^Maria Laura da Costa Louzada'
+    - '^Carlos Augusto Monteiro$'
+    - '^Ultra-processed foods and the nutritional'
+    - '^Impact of ultra-processed'
+    - '^-?\s*(I|II|III|IV|V|VI)\s+(Programa|Núcleo|Departamento|Coordenação|Faculdade)'
+    - '^Correspond'
+    - '^Recebido:'
+    - '^Artigo disponível em'
+    - '^DESCRITORES'
+louzada-ultraprocessados-micronutrientes-rsp-2015:
+  drop_paragraphs:
+    - '^Maria Laura da Costa Louzada'
+    - '^Carlos Augusto Monteiro$'
+    - '^Ultra-processed foods and the nutritional'
+    - '^Impact of ultra-processed'
+    - '^-?\s*(I|II|III|IV|V|VI)\s+(Programa|Núcleo|Departamento|Coordenação|Faculdade)'
+    - '^Correspond'
+    - '^Recebido:'
+    - '^Artigo disponível em'
+    - '^DESCRITORES'
+rossetti-universitarios-consumo-alimentar-san-2015:
+  drop_paragraphs:
+    - '^> 1 Doutoranda'
+    - '^Key-words'
+    - '^Palavras-chave'
+cfn-codigo-etica-conduta-nutricionista-2018:
+  drop_paragraphs:
+    - '^DE ri É$'
+    - '^e\. q o\. e E$'
+    - '^E e o\. E\.$'
+    - '^ooo E »'
+    - '^CONSELHO FEDERAL DE NUTRICIONISTAS$'
