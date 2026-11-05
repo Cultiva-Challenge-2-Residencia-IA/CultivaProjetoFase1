@@ -8,8 +8,8 @@ import pymupdf
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / "corpus/nutricao/posicionamento_2022-alterado-nov-22-1.pdf"
-TARGET = ROOT / "src/agents/nutricao/posicionamento_2022-alterado-nov-22-1.md"
+SOURCE = ROOT / "docs/nutricao/posicionamento_2022-alterado-nov-22-1.pdf"
+TARGET = ROOT / "corpus/nutricao/posicionamento_2022-alterado-nov-22-1.md"
 def clean_text(value: str) -> str:
     value = value.replace("\u00a0", " ").replace("\u00ad", "")
     value = value.replace("ﬁ", "fi").replace("ﬂ", "fl").replace("ﬃ", "ffi")
@@ -219,6 +219,52 @@ def extract_water_balance_table(page: pymupdf.Page) -> dict | None:
     }
 
 
+def extract_article_results_tables(page: pymupdf.Page) -> list[dict]:
+    if not page.search_for("Tabela 1.") or not page.search_for("Tabela 2."):
+        return []
+
+    words = page.get_text("words", flags=pymupdf.TEXT_DEHYPHENATE)
+
+    def row_values(y_min: float, y_max: float, boundaries: list[float]) -> list[str]:
+        row = [[] for _ in range(len(boundaries) - 1)]
+        for word in words:
+            x0, y0, x1, y1, value = word[:5]
+            if not y_min <= (y0 + y1) / 2 < y_max:
+                continue
+            center_x = (x0 + x1) / 2
+            for index, (left, right) in enumerate(zip(boundaries, boundaries[1:])):
+                if left <= center_x < right:
+                    row[index].append((x0, value))
+                    break
+        return [" ".join(value for _, value in sorted(cell)) for cell in row]
+
+    def table(headers: list[str], rows: list[list[str]], bbox: tuple[float, float, float, float]) -> dict:
+        output = ["| " + " | ".join(headers) + " |", "| " + " | ".join("---" for _ in headers) + " |"]
+        output.extend("| " + " | ".join(value.replace("|", "\\|") for value in row) + " |" for row in rows)
+        return {"bbox": pymupdf.Rect(bbox), "kind": "table", "text": "\n".join(output)}
+
+    correlation_rows = [
+        row_values(y_min, y_max, [42, 170, 250, 350, 450, 555])
+        for y_min, y_max in [(119, 133), (133, 147), (147, 161)]
+    ]
+    regression_rows = [
+        row_values(y_min, y_max, [42, 135, 195, 265, 335, 405, 465, 555])
+        for y_min, y_max in [(219, 234), (234, 248), (248, 263)]
+    ]
+    return [
+        table(
+            ["Sintomas", "Alimentação emocional: r", "p", "Alimentação intuitiva: R", "p"],
+            correlation_rows,
+            (42, 93, 555, 160),
+        ),
+        table(
+            ["Preditor", "B", "Erro padrão", "Beta", "t", "Sig.", "R² ajustado"],
+            regression_rows,
+            (42, 195, 555, 261),
+        ),
+    ]
+
+
 def page_items(page: pymupdf.Page) -> list[dict]:
     data = page.get_text("dict", flags=pymupdf.TEXT_DEHYPHENATE)
     raw_page_text = page.get_text("text", flags=pymupdf.TEXT_DEHYPHENATE)
@@ -233,6 +279,8 @@ def page_items(page: pymupdf.Page) -> list[dict]:
     water_balance_table = extract_water_balance_table(page)
     if water_balance_table:
         tables.append(water_balance_table)
+    article_tables = extract_article_results_tables(page)
+    tables.extend(article_tables)
     try:
         for table in page.find_tables(strategy="lines").tables:
             if any(pymupdf.Rect(table.bbox).intersects(existing["bbox"]) for existing in tables):
@@ -337,6 +385,36 @@ def page_items(page: pymupdf.Page) -> list[dict]:
                 })
                 break
 
+    is_bilingual_article = page.number == 0 and page.search_for("Resumo") and page.search_for("Abstract")
+    if is_bilingual_article:
+        texts = [item for item in texts if item["bbox"].y0 >= 160]
+        author_words = [
+            word for word in page.get_text("words")
+            if 65 <= word[0] and word[2] <= 180 and 60 <= word[1] < 112
+            and word[4] != "1"
+        ]
+        author_words.sort(key=lambda word: (round(word[1] / 8), word[0]))
+        authors = []
+        for word in author_words:
+            if word[4] not in authors:
+                authors.append(word[4])
+        english_words = [
+            word for word in page.get_text("words")
+            if 220 <= word[0] and word[2] <= 555 and 112 <= word[1] < 160
+        ]
+        english_words.sort(key=lambda word: (round(word[1] / 8), word[0]))
+        english_title = " ".join(word[4] for word in english_words)
+        metadata = "**Autores:** " + " ".join(authors)
+        if english_title:
+            metadata += "\n\n*Título em inglês: " + english_title + "*"
+        texts.append({
+            "bbox": pymupdf.Rect(20, 58, 555, 160),
+            "kind": "text",
+            "text": metadata,
+        })
+        all_items = texts + tables + visuals
+        return sorted(all_items, key=lambda item: (item["bbox"].y0, item["bbox"].x0))
+
     # Uma letra capitular é o início ampliado de um parágrafo, não um subtítulo.
     filtered_texts = []
     for index, item in enumerate(texts):
@@ -402,6 +480,19 @@ def page_items(page: pymupdf.Page) -> list[dict]:
 
 def document_title(document: pymupdf.Document, fallback: str) -> str:
     first_page = document[0]
+    if first_page.search_for("Resumo") and first_page.search_for("Abstract"):
+        title_spans = [
+            span
+            for block in first_page.get_text("dict")["blocks"]
+            if "lines" in block
+            for line in block["lines"]
+            for span in line["spans"]
+            if span["size"] >= 18 and span["bbox"][0] > 190 and 55 <= span["bbox"][1] < 115
+        ]
+        title_spans.sort(key=lambda span: (span["bbox"][1], span["bbox"][0]))
+        if title_spans:
+            return clean_text(" ".join(span["text"] for span in title_spans))
+
     spans = [
         span
         for block in first_page.get_text("dict")["blocks"]
@@ -412,6 +503,7 @@ def document_title(document: pymupdf.Document, fallback: str) -> str:
     ]
     if not spans:
         return fallback
+    spans = [span for span in spans if span["bbox"][1] >= 50]
     largest_size = max(span["size"] for span in spans)
     title_spans = sorted(
         (span for span in spans if span["size"] >= largest_size * 0.9),
@@ -424,7 +516,7 @@ def document_title(document: pymupdf.Document, fallback: str) -> str:
 def main(source: Path = SOURCE, target: Path | None = None) -> None:
     source = source.expanduser().resolve()
     if target is None:
-        target = ROOT / "src/agents/nutricao" / f"{source.stem}.md"
+        target = ROOT / "corpus/nutricao" / f"{source.stem}.md"
     else:
         target = target.expanduser().resolve()
     document = pymupdf.open(source)
