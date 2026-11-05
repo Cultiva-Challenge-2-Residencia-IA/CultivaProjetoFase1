@@ -184,6 +184,158 @@ sources:
       de todos os suplementos; restrição de prescrição permanece uma regra do produto, independente deste estudo.
     rule_mapping_note: Na documentação original consultada em 05/11/2026, RN02 é alerta de orientação profissional
       e RN01 é bloqueio de prescrição; há divergência em relação à numeração mencionada no pedido. Nenhuma regra foi alterada.
+  - id: azevedo-jejum-intermitente-ramb-2013
+    title: Effects of intermittent fasting on metabolism in men
+    authors:
+      - Fernanda Reis de Azevedo
+      - Dimas Ikeoka
+      - Bruno Caramelli
+    institutions:
+      - Universidade de São Paulo
+    journal: Revista da Associação Médica Brasileira
+    year: 2013
+    edition: "v. 59, n. 2, p. 167-173"
+    version: "2013-59-2"
+    language: en
+    doi: 10.1016/j.ramb.2012.09.003
+    source: https://www.scielo.br/j/ramb/a/t4WdR3Hf36jwhLdtywQ77vf/?lang=en
+    download_url: https://www.scielo.br/j/ramb/a/t4WdR3Hf36jwhLdtywQ77vf/?format=pdf&lang=en
+    retrieved_on: "2026-11-05"
+    license: CC-BY-NC-4.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License". O PDF imprime "© 2013 Elsevier Editora Ltda. All rights reserved" (página 1), sem citar Creative Commons. A divergência entre o PDF e a página precisa de análise.
+    original_path: corpus/nutricao/originais/azevedo_et_al_jejum_intermitente_ramb_2013.pdf
+    markdown_path: corpus/nutricao/markdown/azevedo_et_al_jejum_intermitente_ramb_2013.md
+    report_path: corpus/nutricao/relatorios/azevedo_et_al_jejum_intermitente_ramb_2013.json
+    sha256: ca1c6d6d00dd20b8e3e22c767a287e9e7d6d843e8525b9805342dd0c28eb3ccd
+    pdf_pages: 7
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: Contextualiza dúvidas sobre jejum intermitente com revisão da literatura sobre metabolismo, lipídios, glicose e inflamação.
+    scope_note: Revisão narrativa de 2013, com evidência majoritariamente de modelos animais e poucos estudos em humanos. Está em inglês; a busca por consultas em português não a encontra por palavras. Não autoriza orientar jejum individual (RN01).
+  - id: salvi-estudantes-enfermagem-sono-reben-2020
+    title: "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares"
+    authors:
+      - Carolina Pasquini Praxedes Salvi
+      - Sandra Soares Mendes
+      - Milva Maria Figueiredo De Martino
+    institutions:
+      - Universidade Federal de São Paulo
+      - Universidade Estadual de Campinas
+    journal: Revista Brasileira de Enfermagem
+    year: 2020
+    edition: "v. 73, supl. 1, e20190365"
+    version: "2020-73-s1"
+    doi: 10.1590/0034-7167-2019-0365
+    source: https://www.scielo.br/j/reben/a/SKHWrVrjcT9ppdYJ5tHT5pL/?lang=pt
+    download_url: https://www.scielo.br/j/reben/a/SKHWrVrjcT9ppdYJ5tHT5pL/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-4.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "Open Access article distributed under the terms of the Creative Commons Attribution License" (creativecommons.org/licenses/by/4.0/). O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/salvi_et_al_estudantes_enfermagem_sono_reben_2020.pdf
+    markdown_path: corpus/nutricao/markdown/salvi_et_al_estudantes_enfermagem_sono_reben_2020.md
+    report_path: corpus/nutricao/relatorios/salvi_et_al_estudantes_enfermagem_sono_reben_2020.json
+    sha256: a61141b82a239756c27be9708139d3cc4389d0b3aa0ad1b0fa5765e16087b401
+    pdf_pages: 8
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: Traz o perfil de jovens universitários (idade média de 24 anos) que estudam e trabalham, com qualidade do sono, qualidade de vida e hábitos alimentares, o que contextualiza o público-alvo do CULTIVA.
+    scope_note: Estudo transversal com 195 estudantes de enfermagem, 87,1% mulheres, em uma instituição. Não se generaliza para todos os universitários nem demonstra causalidade.
+  - id: sban-agua-hidratacao-saude-2016
+    title: Água, Hidratação e Saúde
+    authors:
+      - Paula Schmidt Azevedo
+      - Filipe Welson Leal Pereira
+      - Sergio Alberto Rupp de Paiva
+    institutions:
+      - Sociedade Brasileira de Alimentação e Nutrição (SBAN)
+    year: 2016
+    edition: documento técnico; ano inferido da data de criação do PDF (18/11/2016), pois o ano de publicação não está impresso
+    version: "2016"
+    source: "pendente: origem pública não identificada; PDF recebido da equipe (branch feat/nutricao-rag-mvp)"
+    supplied_filename: AguaHidratacaoESaude.pdf
+    access_note: Arquivo fornecido pela equipe. Não foi localizada a URL de origem nem confirmada a equivalência dos bytes com uma cópia pública.
+    retrieved_on: "2026-11-05"
+    license: pendente
+    license_evidence:
+      description: O PDF não declara licença nem termos de reprodução.
+    original_path: corpus/nutricao/originais/sban_agua_hidratacao_saude.pdf
+    markdown_path: corpus/nutricao/markdown/sban_agua_hidratacao_saude.md
+    report_path: corpus/nutricao/relatorios/sban_agua_hidratacao_saude.json
+    sha256: 788f285836b6e16d69449e8ee2059cfc9a1f29f2893421cbc7a2bc58ca64546f
+    pdf_pages: 16
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    sponsorship_note: Os rótulos de página do PDF trazem o nome de arquivo "45912-002_AF_Nestle_Folheto_Aguas_MaterialCientifico", o que sugere material produzido para a Nestlé. Patrocínio e conflito de interesse não foram esclarecidos; avaliar antes de aprovar a fonte (RN16).
+    purpose_note: Resume o papel da água no corpo, balanço hídrico, recomendações, desidratação e composição da água, com referências nacionais e internacionais.
+  - id: brisotto-depressao-ansiedade-estresse-rbtc-2022
+    title: Depressão, ansiedade e estresse e o comportamento alimentar
+    authors:
+      - Marina Brisotto
+      - Myllena Diessy Silva
+      - Ilana Andretta
+    institutions:
+      - Universidade do Vale do Rio dos Sinos
+    journal: Revista Brasileira de Terapias Cognitivas
+    year: 2022
+    edition: "v. 18, n. 2, p. 153-160"
+    version: "2022-18-2"
+    doi: 10.5935/1808-5687.20220013
+    source: http://www.rbtc.org.br/detalhe_artigo.asp?id=354
+    supplied_filename: DepressaoAnsiedadeEstresseAlimentacao.pdf
+    access_note: Arquivo fornecido pela equipe. O endereço vem dos metadados do Crossref e não foi verificado; o DOI redireciona para gnresearch.org. Equivalência dos bytes com cópia pública não confirmada.
+    retrieved_on: "2026-11-05"
+    license: pendente
+    license_evidence:
+      description: O PDF e o registro do Crossref não declaram licença.
+    original_path: corpus/nutricao/originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf
+    markdown_path: corpus/nutricao/markdown/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.md
+    report_path: corpus/nutricao/relatorios/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.json
+    sha256: 184cf18f38d55369f40eb6960191b750f6a02a0e2b61adc5fe007363796c81e6
+    pdf_pages: 8
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    scope_note: Estudo transversal com 209 adultos; sintomas emocionais explicam parte da variação da alimentação emocional. Não demonstra causalidade e não autoriza orientar tratamento psicológico (RN01 a RN03).
+  - id: abeso-posicionamento-tratamento-nutricional-obesidade-2022
+    title: Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade
+    authors:
+      - Renata Bressan Pepe
+      - Ana Maria Pita Lottenberg
+      - Clarissa Tamie Hiwatashi Fujiwara
+      - Mônica Beyruti
+    institutions:
+      - Associação Brasileira para o Estudo da Obesidade e da Síndrome Metabólica (ABESO), Departamento de Nutrição
+    year: 2022
+    edition: 1ª edição, São Paulo, ABESO, 2022 (ISBN 978-85-93044-01-4)
+    version: "2022-1ed"
+    source: "pendente: origem pública não identificada; PDF recebido da equipe (branch feat/nutricao-rag-mvp)"
+    supplied_filename: posicionamento_2022-alterado-nov-22-1.pdf
+    access_note: Arquivo fornecido pela equipe. Não foi localizada a URL de origem nem confirmada a equivalência dos bytes com uma cópia pública.
+    retrieved_on: "2026-11-05"
+    license: pendente
+    license_evidence:
+      description: O PDF traz ficha catalográfica (CIP) e ISBN, sem declarar licença de reprodução. Tratar como obra com direitos reservados até confirmação.
+    original_path: corpus/nutricao/originais/abeso_posicionamento_obesidade_2022.pdf
+    markdown_path: corpus/nutricao/markdown/abeso_posicionamento_obesidade_2022.md
+    report_path: corpus/nutricao/relatorios/abeso_posicionamento_obesidade_2022.json
+    sha256: 2ae0ecb1a590aba3999442083a63b7e7d7b3804856cc2d07ff215aecd5efdaad
+    pdf_pages: 260
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    scope_note: Documento destinado a profissionais de saúde, com condutas dietéticas e prescrição nutricional. Preservar o conteúdo não autoriza o aplicativo a prescrever dietas ou metas calóricas (RN01).
 
 # Cada fonte deve declarar identificador, origem, licença e versão.
 # Exemplo:

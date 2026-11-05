@@ -16,6 +16,11 @@ O catálogo é [`manifest.yaml`](manifest.yaml), mantendo `version: 1` e `source
 | Souza e Backes — Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimentação Saudável entre universitários de Porto Alegre | Ciênc Saúde Coletiva 25(11):4463-4472, 2020 | 10 | [SciELO](https://www.scielo.br/j/csc/a/ZzMLsShvSMNPwPttjKqtGSC/?lang=pt) |
 | Guia alimentar de dietas vegetarianas para adultos | SVB, Eric Slywitch, 2012; número de edição não identificado | 66 | Arquivo `guia-alimentar.pdf` fornecido pelo solicitante em 05/11/2026 |
 | Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos | Moreira e Rodrigues, Rev Bras Med Esporte, 20(5):370–373, 2014 | 4 | [SciELO](https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?format=pdf&lang=pt), obtido em 05/11/2026 |
+| Effects of intermittent fasting on metabolism in men | Azevedo, Ikeoka e Caramelli, Rev Assoc Med Bras, 59(2):167-173, 2013 | 7 | [SciELO](https://www.scielo.br/j/ramb/a/t4WdR3Hf36jwhLdtywQ77vf/?lang=en), obtido em 05/11/2026 |
+| Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares | Salvi, Mendes e Martino, Rev Bras Enferm, 73(supl. 1):e20190365, 2020 | 8 | [SciELO](https://www.scielo.br/j/reben/a/SKHWrVrjcT9ppdYJ5tHT5pL/?lang=pt), obtido em 05/11/2026 |
+| Água, Hidratação e Saúde | SBAN, documento técnico, 2016 (ano inferido do PDF) | 16 | PDF fornecido pela equipe; origem pública não identificada |
+| Depressão, ansiedade e estresse e o comportamento alimentar | Brisotto, Silva e Andretta, Rev Bras Ter Cogn, 18(2):153-160, 2022 | 8 | PDF fornecido pela equipe; endereço do Crossref não verificado |
+| Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade | ABESO, Departamento de Nutrição, 1ª ed., 2022 | 260 | PDF fornecido pela equipe; origem pública não identificada |
 
 Consulta e obtenção dos dois documentos do Ministério da Saúde: **03/11/2026**. O endereço do Guia informado no pedido redirecionou para autenticação; o arquivo foi obtido na BVS oficial. A edição foi identificada na capa e nos créditos, mas não foi possível comparar seus bytes com os do endereço indisponível. As fichas catalográficas indicam 156 e 26 páginas, respectivamente; o total físico inclui páginas adicionais. Os marcadores desta conversão usam sempre a posição física no PDF, começando em 1.
 
@@ -66,6 +71,25 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --source moreira-rodrigue
 ```
 
 Revisão independente de fidelidade, avaliação científica, aprovação e compatibilidade da licença permanecem pendentes. Conferência pelo assistente não equivale à aprovação para uso pelo produto.
+
+### Artigos do jejum intermitente e do sono dos estudantes (inclusão de 05/11/2026)
+
+Os dois PDFs foram obtidos no SciELO pelo DOI e convertidos pelo pipeline padrão, sem OCR. Os `.md` transcritos que a equipe já tinha não foram usados, para manter a cadeia de hashes a partir do original.
+
+- **Azevedo et al. (2013)** é uma revisão narrativa **em inglês**, com resumo em português. A busca por palavras com perguntas em português só a alcança pelo resumo em português. O PDF imprime "© 2013 Elsevier Editora Ltda. All rights reserved", enquanto a página do SciELO declara **CC-BY-NC-4.0**; a divergência está registrada no manifesto e a licença segue pendente de análise. A evidência é majoritariamente de modelos animais, e o artigo não autoriza orientar jejum individual (RN01).
+- **Salvi et al. (2020)** é um estudo transversal com 195 estudantes de enfermagem (87,1% mulheres) sobre sono, qualidade de vida e hábitos alimentares. Licença **CC-BY-4.0**, conforme a página do SciELO. Não se generaliza para todos os universitários.
+
+
+### Documentos recebidos da equipe (inclusão de 05/11/2026)
+
+Os três PDFs vieram da branch `feat/nutricao-rag-mvp` (pasta `docs/nutricao/`), foram preservados byte a byte e reconvertidos pelo pipeline padrão. Os `.md` transcritos por outro conversor não foram usados, porque não têm marcadores de página nem relatório. A conversão fez OCR de 2 páginas da SBAN e 32 da ABESO (quase todas folhas de abertura de capítulo, sem texto).
+
+- **Licença pendente nos três.** Nenhum PDF declara licença, e a origem pública de dois deles não foi identificada. O da ABESO é um livro com ficha catalográfica e ISBN, tratado como obra com direitos reservados até confirmação. Como o repositório é público, convém confirmar a permissão antes de manter os PDFs nele.
+- **SBAN, Água, Hidratação e Saúde:** os rótulos de página do PDF trazem o nome de arquivo "Nestle_Folheto_Aguas_MaterialCientifico", o que sugere material produzido para a Nestlé. Patrocínio e conflito de interesse não foram esclarecidos e precisam ser avaliados antes da aprovação (RN16).
+- **Brisotto et al.:** estudo transversal com 209 adultos; não demonstra causalidade.
+- **ABESO:** documento para profissionais, com condutas dietéticas e prescrição nutricional. Preservar o conteúdo não autoriza o aplicativo a prescrever (RN01).
+- **Limpeza para o RAG:** o descarte de referências termina no título do capítulo seguinte (`resume_after_skip` em `scripts/config/rag.yaml`), porque os capítulos da ABESO não têm título marcado e a regra anterior descartava o início deles.
+
 
 ## Organização
 
