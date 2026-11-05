@@ -32,7 +32,7 @@ RUNNING_HEADER_MIN_PAGES = 4
 # Aceita numeração antes do título ("9. BIBLIOGRAFIA", "9.BIBLIOGRAFIA").
 SKIPPED_SECTIONS = re.compile(
     r"^(\d+(\.\d+)*\.?\s*)?"
-    r"(refer[eê]ncias( bibliogr[aá]ficas)?|bibliografia|colaboradores|abstract|[ií]ndice|sum[aá]rio)$",
+    r"(refer[eê]ncias( bibliogr[aá]ficas)?|bibliografia|colaboradores|abstract|resumen|[ií]ndice|sum[aá]rio)$",
     re.I,
 )
 # Linhas de cabeçalho/rodapé de periódico e numeração solta.

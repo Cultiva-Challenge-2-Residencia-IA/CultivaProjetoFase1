@@ -12,3 +12,11 @@ souza-backes-universitarios-csc-2020:
     - 'orcid\.org'
     - '^>\s*\d\s'
     - '^(Abstract|Key words)\b'
+moreira-rodrigues-conhecimento-nutricional-suplementacao-2014:
+  drop_paragraphs:
+    - '^NUTRITIONAL KNOWLEDGE AND DIETARY'
+    - '^Artigo Original$'
+    - '^CONOCIMIENTO NUTRICIONAL Y'
+    - '^Fernanda Pedrotti Moreira'
+    - '^1\. Departamento de Nutrição'
+    - '@'
