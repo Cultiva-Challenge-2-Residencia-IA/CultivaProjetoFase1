@@ -1,5 +1,55 @@
 version: 1
-sources: []
+sources:
+  - id: guia-alimentar-populacao-brasileira-2014
+    title: Guia alimentar para a população brasileira
+    institutions:
+      - Ministério da Saúde
+    year: 2014
+    edition: 2ª edição, 1ª reimpressão
+    version: "2014-2ed-1reimpr"
+    source: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf
+    download_url: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf
+    access_note: O endereço informado redirecionou para autenticação. Obtida na BVS a 2ª edição, 1ª reimpressão, de 2014; não foi possível comparar os bytes com o endereço informado.
+    retrieved_on: "2026-11-03"
+    license: CC-BY-NC-SA-4.0
+    license_evidence:
+      pdf_page: 3
+      description: Créditos declaram Creative Commons Atribuição, Não Comercial, Compartilhamento pela mesma licença 4.0 Internacional.
+    original_path: corpus/nutricao/originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf
+    markdown_path: corpus/nutricao/markdown/guia_alimentar_populacao_brasileira_2ed_2014.md
+    report_path: corpus/nutricao/relatorios/guia_alimentar_populacao_brasileira_2ed_2014.json
+    conversion_config: corpus/scripts/config/guia-2014.yaml
+    sha256: c9abefded671cafe914193c04f808df25dfaa315e5e744e477163fe24407f139
+    pdf_pages: 158
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: protocolos-guia-alimentar-fasciculo1-2021
+    title: "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta"
+    institutions:
+      - Ministério da Saúde
+      - Universidade de São Paulo
+    year: 2021
+    edition: 1ª edição, versão eletrônica
+    version: "2021-1ed"
+    source: https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf
+    download_url: https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf
+    retrieved_on: "2026-11-03"
+    license: CC-BY-NC-SA-4.0
+    license_evidence:
+      pdf_page: 3
+      description: Créditos declaram Creative Commons Atribuição, Não Comercial, Compartilhamento pela mesma licença 4.0 Internacional.
+    original_path: corpus/nutricao/originais/protocolos_guia_alimentar_fasciculo1_2021.pdf
+    markdown_path: corpus/nutricao/markdown/protocolos_guia_alimentar_fasciculo1_2021.md
+    report_path: corpus/nutricao/relatorios/protocolos_guia_alimentar_fasciculo1_2021.json
+    conversion_config: corpus/scripts/config/fasciculo1-2021.yaml
+    sha256: 627765d1bd2ba2b66c415a12c6f733a6974961b4ab38757fb1d8ed4f83a2e033
+    pdf_pages: 28
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
 
 # Cada fonte deve declarar identificador, origem, licença e versão.
 # Exemplo:

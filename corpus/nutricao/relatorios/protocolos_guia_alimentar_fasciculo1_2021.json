@@ -1,0 +1,833 @@
+{
+  "source_id": "protocolos-guia-alimentar-fasciculo1-2021",
+  "source_sha256": "627765d1bd2ba2b66c415a12c6f733a6974961b4ab38757fb1d8ed4f83a2e033",
+  "pdf_pages": 28,
+  "conversion_status": "concluida_com_ressalvas",
+  "review_status": "pendente",
+  "approval_status": "pendente",
+  "script_sha256": "8329189761aef75517de5fc57b9df715bd6aee49d827f8a8096efe08de9f8d92",
+  "config_sha256": "c102854f6fff40e1e83994a14461fa2c32ddc595ba64d4d31e89a4be5b4b1bd7",
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, imagens, OCR pontual e ajustes explícitos",
+  "sparse_threshold_characters": 150,
+  "ocr_model": {
+    "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata",
+    "sha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas são preservados como imagens, sem descrição gerada.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 238,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 359
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 237,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 355
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 3047,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Créditos em colunas; agrupamento de nomes e funções requer revisão."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3061
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 1170,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Sumário em tabela; títulos extensos podem ocupar mais de uma linha."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98919,
+      "missing_native_tokens": {
+        "o": 1,
+        "populaçã": 1
+      },
+      "markdown_characters": 1394
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 1302,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9949,
+      "missing_native_tokens": {
+        "4": 1
+      },
+      "markdown_characters": 1531
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 2815,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99531,
+      "missing_native_tokens": {
+        "o": 1,
+        "populaçã": 1
+      },
+      "markdown_characters": 2813
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 3521,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Quadro 1 conferido visualmente; corrigidos espaços entre palavras, preservadas as três colunas e quatro grupos."
+      ],
+      "adjustments": [
+        {
+          "page": 7,
+          "old": "Alimentos_in natura_ou",
+          "new": "Alimentos _in natura_ ou"
+        },
+        {
+          "page": 7,
+          "old": "alimento_in natura_.",
+          "new": "alimento _in natura_."
+        },
+        {
+          "page": 7,
+          "old": "prepa rações",
+          "new": "preparações"
+        },
+        {
+          "page": 7,
+          "old": "e sal;queijos",
+          "new": "e sal; queijos"
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.99395,
+      "missing_native_tokens": {
+        "nãoalcoólica": 1,
+        "prepa": 1,
+        "rações": 1
+      },
+      "markdown_characters": 3714
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 2354,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Texto pequeno na miniatura não foi reconhecido com fidelidade pelo OCR; imagem preservada, sem incorporar caracteres espúrios à transcrição.",
+        "Miniatura da capa com texto pequeno não recuperado com fidelidade por OCR."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Miniatura da capa do Guia Alimentar",
+          "bbox": [
+            385,
+            635,
+            520,
+            770
+          ],
+          "raw_text": "e\n",
+          "verified_text": null,
+          "note": "Texto pequeno na miniatura não foi reconhecido com fidelidade pelo OCR; imagem preservada, sem incorporar caracteres espúrios à transcrição."
+        }
+      ],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2440
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 1097,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2657
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 3294,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3270
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 1592,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99583,
+      "missing_native_tokens": {
+        "10": 1
+      },
+      "markdown_characters": 1660
+    },
+    {
+      "pdf_page": 12,
+      "native_characters": 3385,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3487
+    },
+    {
+      "pdf_page": 13,
+      "native_characters": 2330,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99718,
+      "missing_native_tokens": {
+        "12": 1
+      },
+      "markdown_characters": 2581
+    },
+    {
+      "pdf_page": 14,
+      "native_characters": 3535,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3524
+    },
+    {
+      "pdf_page": 15,
+      "native_characters": 2867,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2967
+    },
+    {
+      "pdf_page": 16,
+      "native_characters": 2385,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Título recomposto na ordem visual; texto de camada não visível que se misturava ao título foi removido apenas nesse trecho.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [
+        {
+          "page": 16,
+          "old": "**_PROTOCOLO DE USO DO_** PROTOCOLOS DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA **_GUIA ALIMENTAR PARA A_** ORIENTAÇÃO ALIMENTAR **_POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR DA_ POPULAÇÃO ADULTA**",
+          "new": "**PROTOCOLO DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR DA POPULAÇÃO ADULTA**"
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.95308,
+      "missing_native_tokens": {
+        "15": 1,
+        "a": 1,
+        "adulta": 1,
+        "alimentar": 2,
+        "brasileira": 1,
+        "de": 1,
+        "do": 1,
+        "fascículo1": 1,
+        "guia": 1,
+        "na": 1,
+        "orientação": 1,
+        "para": 1,
+        "população": 1,
+        "protocolos": 1,
+        "uso": 1
+      },
+      "markdown_characters": 2253
+    },
+    {
+      "pdf_page": 17,
+      "native_characters": 2857,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Numeração 1–5 e formulário recompostos por transcrição literal após perdas do extrator; revisar campos e opções na imagem."
+      ],
+      "adjustments": [
+        {
+          "page_override": "corpus/scripts/ajustes/fasciculo-p017.md",
+          "sha256": "c8f3f9b5ead5b119d24f54d7b06969b8ea102ef6adb4a6571dae0e2a3b1e802c"
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.98756,
+      "missing_native_tokens": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "markdown_characters": 3082
+    },
+    {
+      "pdf_page": 18,
+      "native_characters": 1404,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Fluxograma recomposto como tabela de ramos SIM/NÃO, com textos literais; a geometria das setas é preservada na imagem.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [
+        {
+          "page_override": "corpus/scripts/ajustes/fasciculo-p018.md",
+          "sha256": "fdd6e4375c3ed6696ba49e0253a6317fdf01c5bb91441138089bb74dcf706290"
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.95023,
+      "missing_native_tokens": {
+        "17": 1,
+        "não": 5,
+        "sim": 5
+      },
+      "markdown_characters": 1884
+    },
+    {
+      "pdf_page": 19,
+      "native_characters": 3413,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Barras decorativas produziram falso tachado; marcadores removidos e título reordenado conforme a página.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [
+        {
+          "page": 19,
+          "old": "**ESTIMULE O CONSUMO DIÁRIO RECOMENDAÇÃO 1: DE FEIJÃO NO ALMOÇO E NO JANTAR**",
+          "new": "**RECOMENDAÇÃO 1: ESTIMULE O CONSUMO DIÁRIO DE FEIJÃO NO ALMOÇO E NO JANTAR**"
+        },
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.97993,
+      "missing_native_tokens": {
+        "18": 1,
+        "alimentar": 1,
+        "brasileira": 1,
+        "da": 1,
+        "do": 1,
+        "guia": 1,
+        "imagem": 1,
+        "ministério": 1,
+        "para": 1,
+        "populacão": 1,
+        "saúde": 1
+      },
+      "markdown_characters": 3508
+    },
+    {
+      "pdf_page": 20,
+      "native_characters": 3264,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado de título removido; revisar cabeçalhos e barras laterais."
+      ],
+      "adjustments": [
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.98028,
+      "missing_native_tokens": {
+        "alimentar": 1,
+        "brasileira": 1,
+        "da": 1,
+        "do": 1,
+        "guia": 1,
+        "imagem": 1,
+        "ministério": 1,
+        "para": 1,
+        "populacão": 1,
+        "saúde": 1
+      },
+      "markdown_characters": 3238
+    },
+    {
+      "pdf_page": 21,
+      "native_characters": 5973,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado de título removido; revisar cabeçalhos e barras laterais."
+      ],
+      "adjustments": [
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 6202
+    },
+    {
+      "pdf_page": 22,
+      "native_characters": 2696,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado removido e título reordenado conforme a página; revisar cabeçalhos e barras laterais."
+      ],
+      "adjustments": [
+        {
+          "page": 22,
+          "old": "**ORIENTE O CONSUMO DIÁRIO DE LEGUMES E VERDURAS RECOMENDAÇÃO 4:**",
+          "new": "**RECOMENDAÇÃO 4: ORIENTE O CONSUMO DIÁRIO DE LEGUMES E VERDURAS**"
+        },
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.99504,
+      "missing_native_tokens": {
+        "o": 1,
+        "opçã": 1
+      },
+      "markdown_characters": 2861
+    },
+    {
+      "pdf_page": 23,
+      "native_characters": 2634,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado de título removido; revisar cabeçalhos e barras laterais."
+      ],
+      "adjustments": [
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.99504,
+      "missing_native_tokens": {
+        "22": 2
+      },
+      "markdown_characters": 2794
+    },
+    {
+      "pdf_page": 24,
+      "native_characters": 3232,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado de título removido; a camada nativa contém palavras divididas junto a acentos, causando alertas de cobertura que exigem conferência visual.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.95609,
+      "missing_native_tokens": {
+        "alimentaçã": 2,
+        "atençã": 1,
+        "concentraçã": 2,
+        "duraçã": 1,
+        "es": 4,
+        "o": 7,
+        "opçã": 1,
+        "preparaçõ": 1,
+        "refeiçõ": 3
+      },
+      "markdown_characters": 3418
+    },
+    {
+      "pdf_page": 25,
+      "native_characters": 2367,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99407,
+      "missing_native_tokens": {
+        "24": 2
+      },
+      "markdown_characters": 2393
+    },
+    {
+      "pdf_page": 26,
+      "native_characters": 706,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98214,
+      "missing_native_tokens": {
+        "25": 2
+      },
+      "markdown_characters": 724
+    },
+    {
+      "pdf_page": 27,
+      "native_characters": 133,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "sparse_page_decision": "Créditos finais breves disponíveis como texto nativo.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 130
+    },
+    {
+      "pdf_page": 28,
+      "native_characters": 94,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR parcial e impreciso dos logotipos; resultado bruto fica no relatório e imagem no Markdown.",
+        "Logotipos pequenos e código de barras sem transcrição textual integral; imagem preservada e OCR bruto registrado."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Logotipos da contracapa",
+          "bbox": [
+            75,
+            700,
+            550,
+            830
+          ],
+          "raw_text": "NUPENS\nE\nMINISTÉRIODA | GOVERNO\nSUS a\n|\nSAÚDE\nFEDERAL\n",
+          "verified_text": null,
+          "note": "OCR parcial e impreciso dos logotipos; resultado bruto fica no relatório e imagem no Markdown."
+        }
+      ],
+      "sparse_page_decision": "Contracapa com logotipos; OCR complementar em região delimitada.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 944
+    }
+  ],
+  "markdown_sha256": "fc4a81760ee9bf431c2724472378cedfcf6937cd5c1e9a854e76534d81f6f301",
+  "summary": {
+    "pages_converted": 28,
+    "sparse_pages": [
+      27,
+      28
+    ],
+    "ocr_pages": [
+      8,
+      28
+    ],
+    "pages_with_tables_detected": [
+      4,
+      7,
+      17
+    ],
+    "pages_with_warnings": [
+      3,
+      4,
+      7,
+      8,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      28
+    ],
+    "pages_with_adjustments": [
+      7,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ]
+  },
+  "assets": [
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-007-conferencia.png",
+      "sha256": "bca2cf7c9f6a953d48c93f061cff30aca7a613bdf4f70fe3f46077c37c290a1d"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-008-conferencia.png",
+      "sha256": "b4be3988e2b896d358f428c972677354c564918497449b576292da84c7b816a5"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-016-conferencia.png",
+      "sha256": "027ef33cff0cee8cec72953b0fd636a08fb46c232251b35d80380c63994015bf"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-017-conferencia.png",
+      "sha256": "3924b9acd9bc8af76529b1c6c547b2d9650f8445e2658fb39ccfcc2fcf58f275"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-018-conferencia.png",
+      "sha256": "4a009a31ecec3646c9dd40e5e6769229f721e58ad4138f5e0d94664126cf2a41"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-019-conferencia.png",
+      "sha256": "1f8638587c95c49d30c5ffc86beeadd4bc17188626ef19d131dcb44c903f6c2b"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-020-conferencia.png",
+      "sha256": "2bc8c96815c3482bc7a6f485813074add76d1a8b2601f28dbb215c3cf22d75d3"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-021-conferencia.png",
+      "sha256": "4e4be70f09601fec29e2dec1152a4654cfd74c5ee6cbcf907729495275fd1740"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-022-conferencia.png",
+      "sha256": "a4d77765a3db82bd561fac4e88b623f21bca28171c92936e02eba282f08b1a6c"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-023-conferencia.png",
+      "sha256": "553611ede8b42ce473bc1dac9a09d2f02c348ac71963a29a5f1e219cdf462a33"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-024-conferencia.png",
+      "sha256": "3278fd1ff2e548737a207c8d190f3a1cdc7c89f7c57153bc6453274f02738db3"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-028-conferencia.png",
+      "sha256": "e21424b3572810cda295d5b4adeb21d4ab47c65e45d7f32ab1fa971485b6e0ef"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0001-02.png",
+      "sha256": "39a3ed6ec158d63618be477d762e7c56427f031abf15e7c3390278159e0f4741"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0002-02.png",
+      "sha256": "7ee9d27809e7cc5f50889c4d30de867ca8b8f7a94e6a027f7a8fb0b1d341bcfb"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0003-01.png",
+      "sha256": "7f67418a7cb1030f17a056b4928bc9c3eaad49c7237eadf0c4181cbbe326fb90"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0005-00.png",
+      "sha256": "8f0ca90d4bfafa5f6c2d18cf509023d9bace6d2c873135e5be6dda1cb036d7bc"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0005-06.png",
+      "sha256": "541115304df69464bb565b0a43118c2cc0cd29a42e18bcd6a6a7670f06f7ad47"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0008-06.png",
+      "sha256": "e2bfebb8530dcd53793ceafb1c967fba3b1b7d1ba589d9c27741a26a57c5a11d"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-01.png",
+      "sha256": "e3cf3f20cf56d0e64abcff4cc97c9dc071531b1900ee397540631641461343eb"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-04.png",
+      "sha256": "7df85f07113351eaec128e53161b5bc1a06874257d2533db28cc9f6fa51d546d"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-05.png",
+      "sha256": "61b57efe4c8ef2761fd2ef5d0095a98797815f29775a84324f765954c15816ae"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-08.png",
+      "sha256": "e3caf96d59b1314f1a0dfd9e30e8b9e8205df002baa4a44ebd634e38f4508bdb"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-09.png",
+      "sha256": "2469d385c5a91efbfcf0dea9a59f8d5c5d6750e5c00355667fe550facd804234"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-12.png",
+      "sha256": "f438857db46c562fbc6da3aaa48372afe3ca339e8443011a66a90286eec05dfc"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-13.png",
+      "sha256": "03aaec26291886109c11c853cddd7dbe873b254b818dd823e49ca61cf463df70"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-16.png",
+      "sha256": "fa79e78334c21eaada0513505098eae15efb31c28a53d658d5b28e77b131eb2c"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-17.png",
+      "sha256": "a63518f4dc3e706dc773e93add485829410e18066e1373d61c85ccf1b01001d4"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-20.png",
+      "sha256": "bf476ca283306624cec515430ed0922ec9258a5c5b5400a145d37be55cf47f7e"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-21.png",
+      "sha256": "e0934db7a07b51853253fadbf70382f52ae1d3d0b43b72c577da3ea7ee235614"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-24.png",
+      "sha256": "a637df4953f04e15a461cfe68f707f96426675940c9276ea7e7f0c9415380708"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-25.png",
+      "sha256": "8aae18086b29f3eb0b73fca1d8d5bf7ded85c6850e9ae946e8a8c00fb24e5128"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0011-04.png",
+      "sha256": "ec695f2c3ddfbae32a2e7c75ff61efdbdbe6116033f880389d163871d71ab831"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0012-01.png",
+      "sha256": "8fa1ff9beee5aeee912d4134a3164717c2e05f55ebf3f5cd0d5ca6cef19f9691"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0013-03.png",
+      "sha256": "6c0fadee3522817d48418610836e2d7ca2b64053473b1db96484577d62ce40e4"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0013-08.png",
+      "sha256": "36c32a0e94812c23e324f488dc16d286a208a76ad32ee5242f2c42223b7445cb"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0015-06.png",
+      "sha256": "5826d72a769a53dc4081cc80865b24d50e96c81055bfbf0eb05cfaa95476b881"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0018-02.png",
+      "sha256": "40f725fa2f8363019b7577f0f74a8f8808c7153d72d76124560a9ad704b386d5"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0019-17.png",
+      "sha256": "0514d829a2b2e30042498dd23f54a04c0d58d2b5718a0fec35b5937ff2d39ec0"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0021-00.png",
+      "sha256": "29ff13e697235762a57c3fca10766249a9da4e4021338aab5eb67c7a81a14762"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0022-01.png",
+      "sha256": "715cc2cfb5bfa5c94cfc65bf5934a3d938170b5f7a2617f934da3608fbc53e1e"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0023-03.png",
+      "sha256": "87bed83c84dab6eedea54eab5062b7914f02e0594844968c180648687e8a0a2c"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0024-01.png",
+      "sha256": "4bcd7570f8d202d7fdd0e48425e92d8171cef6260dc546d5ed403c2f42d17e04"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0024-13.png",
+      "sha256": "13533f16e3ec4c6d197c8e0302ff238ff8d78614e746d10de78848043ade79aa"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-00.png",
+      "sha256": "716e0fbcde2aa09ee17ac32ea48480972d8f8e1b30c1446009d29ac071826533"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-01.png",
+      "sha256": "1003b69fd902721527d4d0171332badb2ac8ca2c55bbab7c277d3fa4f6eda9bf"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-02.png",
+      "sha256": "87eb8f29439fa1d3250f9d879322b2af3dfa7db8356a7d833090898a8ceb0341"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-03.png",
+      "sha256": "e1f936474dfacde5b170a3c4d2733fc1f165782deef0e6f7a1e56ec501477957"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-04.png",
+      "sha256": "3454ee833cbb7fa2266f5701f2bd6d7fcffdd89cc34140f7aa16867ccf0dfbb2"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-06.png",
+      "sha256": "a1ba1462e0c88bac0a8596994aa609e53af4352ea1141b87d00e486cc46c3fdf"
+    },
+    {
+      "path": "corpus/nutricao/markdown/assets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-08.png",
+      "sha256": "bd9942c20568bc6b0a9134c89cf8837f8d209f9a42d33ce41845c9639b0e6b49"
+    }
+  ]
+}

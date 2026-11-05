@@ -1,0 +1,44 @@
+# Ajustes vinculados aos bytes do PDF, nunca a uma edição desconhecida.
+sha256: c9abefded671cafe914193c04f808df25dfaa315e5e744e477163fe24407f139
+sparse_page_decisions:
+  1: Capa com texto nativo; OCR complementar do selo em região delimitada.
+  5: Página de transição com fundo liso; sem texto visual a recuperar por OCR.
+  11: Fotografia de alimentos; sem texto a recuperar por OCR.
+  15: Fotografia de plantação; sem texto a recuperar por OCR.
+  25: Fotografia de frutas; sem texto a recuperar por OCR.
+  53: Fotografia de refeição; sem texto a recuperar por OCR.
+  91: Fotografia de alimentos; sem texto a recuperar por OCR.
+  95: Fotografia de pessoas em refeição; sem texto a recuperar por OCR.
+  96: Fotografia de pessoas em refeição; sem texto a recuperar por OCR.
+  102: Fotografia de pessoas em refeição; sem texto a recuperar por OCR.
+  103: Fotografia de preparo de refeição; sem texto a recuperar por OCR.
+  120: Fotografia de preparo de refeição; sem texto a recuperar por OCR.
+  125: Fotografia de preparo de refeição; sem texto a recuperar por OCR.
+  130: Texto breve nativo em página de transição.
+  131: Fotografia de preparo de refeição; sem texto a recuperar por OCR.
+  145: Página visualmente em branco; texto de cabeçalho/rodapé existe na camada nativa.
+  154: Página visualmente em branco; texto de cabeçalho/rodapé existe na camada nativa.
+  155: Página visualmente em branco; texto de cabeçalho/rodapé existe na camada nativa.
+  156: Página visualmente em branco; texto de cabeçalho/rodapé existe na camada nativa.
+  158: Contracapa com logotipos; OCR complementar em região delimitada.
+ocr_regions:
+  - page: 1
+    bbox: [442, 595, 540, 675]
+    label: Selo de distribuição
+    rotation: -22
+    invert: true
+    verified_text: "DISTRIBUIÇÃO\nVENDA PROIBIDA\nGRATUITA"
+    note: OCR isolado não reconheceu o selo curvo; transcrição literal conferida visualmente pelo assistente, ainda pendente de revisão humana.
+  - page: 158
+    bbox: [0, 550, 567, 738]
+    label: Logotipos e contatos da contracapa
+    note: OCR dos logotipos pequenos é impreciso; resultado bruto fica apenas no relatório. Consultar a imagem e o PDF para leitura fiel.
+page_overrides:
+  52: corpus/scripts/ajustes/guia-p052.md
+page_notes:
+  1: Selo vetorial sem texto nativo recuperado por transcrição pontual após tentativa de OCR; revisar com a imagem.
+  3: Créditos em colunas; ordem de leitura e agrupamento dos nomes requerem revisão.
+  4: Sumário convertido em tabela; conferir a continuidade de títulos em linhas separadas.
+  52: Rótulos do diagrama reorganizados em três tabelas por transcrição literal; ilustração integral preservada.
+  148: Tabela numérica conferida por amostra; capitalização de versaletes difere da aparência no PDF.
+  158: Logotipos pequenos, código de barras e composição visual não são integralmente transcritos; imagem preservada e OCR bruto registrado.
