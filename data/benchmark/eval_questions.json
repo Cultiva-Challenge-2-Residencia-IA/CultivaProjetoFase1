@@ -97,5 +97,41 @@
     "expected_doc_ids": ["GUIA_MS_CAP5_OBSTACULOS", "GUIA_MS_DEZ_PASSOS"],
     "expected_keywords": ["obstáculos", "publicidade", "habilidades culinárias", "tempo", "custo"],
     "expect_guardrail_trigger": false
+  },
+  {
+    "id": "Q13_NATURAL_GRAPH",
+    "category": "multi_hop_and_composition_gap",
+    "query": "Ouvi falar que tomar açafrão com água em jejum desinflama o corpo. Funciona mesmo puro ou precisa misturar com alguma coisa?",
+    "expected_doc_ids": ["DOC_BIOATIVOS_BIODISPONIBILIDADE_08", "PUBMED_BIOACTIVES_MICRONUTRIENTS"],
+    "expected_keywords": ["curcumina", "piperina", "pimenta-do-reino", "2000%", "glicuronidação", "LOW_EFFICACY_ALONE"],
+    "baseline_limitation_note": "Pergunta cotidiana sobre sinergia culinária que exige o Grafo de 4 Camadas para contrastar a curcumina isolada (LOW_EFFICACY_ALONE) com a adição de piperina/lipídios (+2000% biodisponibilidade).",
+    "expect_guardrail_trigger": false
+  },
+  {
+    "id": "Q14_NATURAL_GRAPH",
+    "category": "multi_hop_and_composition_gap",
+    "query": "É verdade que requentar o arroz ou a batata que ficaram na geladeira de um dia para o outro sobe menos o açúcar no sangue do que comer feito na hora?",
+    "expected_doc_ids": ["GUIA_MS_CAP3_REFEICOES", "PUBMED_GLYCEMIC_DIABETES"],
+    "expected_keywords": ["amido resistente", "RS3", "retrogradação", "resfriamento", "GLP-1", "HOMA-IR"],
+    "baseline_limitation_note": "Pergunta cotidiana sobre técnica de preparo (resfriamento por 12-24h) que exige o Grafo de 4 Camadas para conectar a retrogradação da amilose em Amido Resistente Tipo 3 (RS3) à fermentação colônica (butirato/GLP-1) e menor pico glicêmico.",
+    "expect_guardrail_trigger": false
+  },
+  {
+    "id": "Q15_NATURAL_GRAPH",
+    "category": "multi_hop_and_composition_gap",
+    "query": "Eu sempre cozinho o brócolis na água fervendo até ficar bem macio. Ele perde os benefícios assim? Qual é o jeito certo de preparar?",
+    "expected_doc_ids": ["GUIA_MS_CAP3_REFEICOES", "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"],
+    "expected_keywords": ["glicorafanina", "mirosinase", "sulforafano", "Nrf2", "vapor"],
+    "baseline_limitation_note": "Pergunta cotidiana sobre processamento térmico que exige o Grafo de 4 Camadas para explicar que a fervura inativa a enzima mirosinase, impedindo a conversão da glicorafanina em sulforafano.",
+    "expect_guardrail_trigger": false
+  },
+  {
+    "id": "Q16_NATURAL_GRAPH",
+    "category": "multi_hop_and_composition_gap",
+    "query": "Meu pai tem pressão alta e diabetes, mas descobriu problema nos rins e o médico pediu para cuidar do potássio. O que ajuda na pressão e na glicose sem ter potássio?",
+    "expected_doc_ids": ["DOC_HIPERTENSAO_DASH_05", "PUBMED_DASH_HYPERTENSION"],
+    "expected_keywords": ["CONTRAINDICADO", "hipercalemia", "Azeite de Oliva", "0 mg de potássio", "HOMA-IR"],
+    "baseline_limitation_note": "Pergunta cotidiana com conflito de comorbidades (hipertensão + DM2 + restrição renal de potássio) resolvida pelo filtro de contraindicação do Grafo de 4 Camadas.",
+    "expect_guardrail_trigger": false
   }
 ]

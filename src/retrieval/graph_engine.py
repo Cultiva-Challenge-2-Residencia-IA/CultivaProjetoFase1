@@ -104,9 +104,14 @@ class CausalKnowledgeGraphEngine:
             for kw in [
                 "doenca renal",
                 "renal cronica",
+                "problema nos rins",
+                "problemas renais",
+                "insuficiencia renal",
                 "drc",
                 "nao aumente o potassio",
                 "sem aumentar o potassio",
+                "sem ter potassio",
+                "cuidar do potassio",
                 "hipercalemia",
                 "restricao de potassio",
             ]
@@ -115,6 +120,21 @@ class CausalKnowledgeGraphEngine:
         if "anticoagulante" in norm_query or "calculo biliar" in norm_query:
             restrictions.add("biliary_anticoagulant")
         return restrictions
+
+    @staticmethod
+    def _expand_colloquial_terms(norm_query: str) -> str:
+        expansions = {
+            "acafrao": "curcuma curcumina piperina biodisponibilidade",
+            "geladeira": "resfriamento resfriados amido resistente rs3 retrogradacao",
+            "requentar": "resfriamento resfriados amido resistente rs3",
+            "pressao alta": "hipertensao pressao arterial",
+            "acucar no sangue": "glicemia resistencia insulina homa-ir hba1c",
+            "suco de laranja": "frutas citricas vitamina c acido ascorbico ferro",
+            "fervendo": "cozimento vapor mirosinase sulforafano",
+            "molho": "remolho fitatos acido fitico oligossacarideos",
+        }
+        extra = [val for key, val in expansions.items() if key in norm_query]
+        return f"{norm_query} {' '.join(extra)}" if extra else norm_query
 
     def traverse_for_query(
         self, user_query: str, max_paths: int = 4
@@ -125,7 +145,8 @@ class CausalKnowledgeGraphEngine:
         aplicando filtro de contraindicações e diferenciação entre efeito in vitro vs. ECR.
         """
         norm_q = normalize_text(user_query)
-        query_tokens = set(tokenize_biomedical(user_query))
+        expanded_q = self._expand_colloquial_terms(norm_q)
+        query_tokens = set(tokenize_biomedical(expanded_q))
         if not query_tokens:
             return [], ""
 

@@ -1,11 +1,11 @@
 {
   "phase": "PHASE_2_FULL_HYBRID_RAG_PLUS_GRAPH_AND_TACO",
-  "total_questions": 12,
+  "total_questions": 16,
   "top_k": 4,
   "overall_metrics": {
-    "mean_doc_recall_at_k": 0.9167,
-    "mean_reciprocal_rank_mrr": 0.9583,
-    "mean_keyword_coverage": 0.8375,
+    "mean_doc_recall_at_k": 0.9375,
+    "mean_reciprocal_rank_mrr": 0.9688,
+    "mean_keyword_coverage": 0.8677,
     "legal_guardrail_accuracy": 1.0
   },
   "metrics_by_category": {
@@ -17,10 +17,10 @@
       "guardrail_accuracy": 1.0
     },
     "multi_hop_and_composition_gap": {
-      "questions": 3,
-      "mean_doc_recall_at_k": 0.8333,
+      "questions": 7,
+      "mean_doc_recall_at_k": 0.9286,
       "mean_mrr": 1.0,
-      "mean_keyword_coverage": 0.8333,
+      "mean_keyword_coverage": 0.9048,
       "guardrail_accuracy": 1.0
     },
     "legal_guardrail_trap": {
@@ -327,8 +327,8 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_PROTEINAS_MASSA_MUSCULAR_06",
-        "DOC_SUPLEMENTOS_EVIDENCIA_07"
+        "DOC_SUPLEMENTOS_EVIDENCIA_07",
+        "DOC_PROTEINAS_MASSA_MUSCULAR_06"
       ],
       "retrieved_doc_ids": [
         "DOC_PROTEINAS_MASSA_MUSCULAR_06",
@@ -375,6 +375,122 @@
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
       "evidence_summary_preview": "O capítulo 5 examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia – informação, oferta, custo, habilidades culinárias, tempo e publicidade – e propõe para sua superação a combinação de ações no plan"
+    },
+    {
+      "id": "Q13_NATURAL_GRAPH",
+      "category": "multi_hop_and_composition_gap",
+      "query": "Ouvi falar que tomar açafrão com água em jejum desinflama o corpo. Funciona mesmo puro ou precisa misturar com alguma coisa?",
+      "effective_query": "Ouvi falar que tomar açafrão com água em jejum desinflama o corpo. Funciona mesmo puro ou precisa misturar com alguma coisa?",
+      "guardrail_triggered": false,
+      "expect_guardrail_trigger": false,
+      "guardrail_accurate": true,
+      "expected_doc_ids": [
+        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
+        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
+      ],
+      "retrieved_doc_ids": [
+        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
+        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
+        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
+        "PUBMED_BIOACTIVES_MICRONUTRIENTS"
+      ],
+      "doc_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "keyword_coverage": 0.8333,
+      "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
+      "taco_records_count": 0,
+      "graph_paths_count": 3,
+      "model_used": "local_extractive_synthesis",
+      "evidence_grade": "GRADE_A",
+      "baseline_limitation_note": "Pergunta cotidiana sobre sinergia culinária que exige o Grafo de 4 Camadas para contrastar a curcumina isolada (LOW_EFFICACY_ALONE) com a adição de piperina/lipídios (+2000% biodisponibilidade).",
+      "evidence_summary_preview": "Estudo: Curcumin-piperine co-supplementation and human health: A comprehensive review of preclinical and clinical studies. (PMID:36720711 (Phytotherapy research : PTR, 2023 | DOI: 10.1002/ptr.7737)). Curcumin is extracted from the rhizomes "
+    },
+    {
+      "id": "Q14_NATURAL_GRAPH",
+      "category": "multi_hop_and_composition_gap",
+      "query": "É verdade que requentar o arroz ou a batata que ficaram na geladeira de um dia para o outro sobe menos o açúcar no sangue do que comer feito na hora?",
+      "effective_query": "É verdade que requentar o arroz ou a batata que ficaram na geladeira de um dia para o outro sobe menos o açúcar no sangue do que comer feito na hora?",
+      "guardrail_triggered": false,
+      "expect_guardrail_trigger": false,
+      "guardrail_accurate": true,
+      "expected_doc_ids": [
+        "GUIA_MS_CAP3_REFEICOES",
+        "PUBMED_GLYCEMIC_DIABETES"
+      ],
+      "retrieved_doc_ids": [
+        "GUIA_MS_CAP3_REFEICOES",
+        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
+        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
+        "PUBMED_GLYCEMIC_DIABETES"
+      ],
+      "doc_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "keyword_coverage": 1.0,
+      "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
+      "taco_records_count": 2,
+      "graph_paths_count": 4,
+      "model_used": "local_extractive_synthesis",
+      "evidence_grade": "GRADE_A",
+      "baseline_limitation_note": "Pergunta cotidiana sobre técnica de preparo (resfriamento por 12-24h) que exige o Grafo de 4 Camadas para conectar a retrogradação da amilose em Amido Resistente Tipo 3 (RS3) à fermentação colônica (butirato/GLP-1) e menor pico glicêmico.",
+      "evidence_summary_preview": "Também faz parte da cultura alimentar do brasileiro o consumo na forma de bebidas como café e chá. Neste caso, entretanto, convém não adicionar açúcar ou, pelo menos, reduzir a quantidade ao mínimo. Para proteger o ambiente, utensílios não "
+    },
+    {
+      "id": "Q15_NATURAL_GRAPH",
+      "category": "multi_hop_and_composition_gap",
+      "query": "Eu sempre cozinho o brócolis na água fervendo até ficar bem macio. Ele perde os benefícios assim? Qual é o jeito certo de preparar?",
+      "effective_query": "Eu sempre cozinho o brócolis na água fervendo até ficar bem macio. Ele perde os benefícios assim? Qual é o jeito certo de preparar?",
+      "guardrail_triggered": false,
+      "expect_guardrail_trigger": false,
+      "guardrail_accurate": true,
+      "expected_doc_ids": [
+        "GUIA_MS_CAP3_REFEICOES",
+        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
+      ],
+      "retrieved_doc_ids": [
+        "GUIA_MS_CAP3_REFEICOES",
+        "GUIA_MS_CAP3_REFEICOES",
+        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
+        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS"
+      ],
+      "doc_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "keyword_coverage": 1.0,
+      "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
+      "taco_records_count": 1,
+      "graph_paths_count": 4,
+      "model_used": "local_extractive_synthesis",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
+      "baseline_limitation_note": "Pergunta cotidiana sobre processamento térmico que exige o Grafo de 4 Camadas para explicar que a fervura inativa a enzima mirosinase, impedindo a conversão da glicorafanina em sulforafano.",
+      "evidence_summary_preview": "chuchu, brócolis, maxixe e abobrinha. São também usados com leite e açúcar na preparação de bolos, pudins e tortas doces. Como as carnes e os peixes, os ovos são ricos em proteínas de alta qualidade, em minerais e em vitaminas, especialment"
+    },
+    {
+      "id": "Q16_NATURAL_GRAPH",
+      "category": "multi_hop_and_composition_gap",
+      "query": "Meu pai tem pressão alta e diabetes, mas descobriu problema nos rins e o médico pediu para cuidar do potássio. O que ajuda na pressão e na glicose sem ter potássio?",
+      "effective_query": "Meu pai tem pressão alta e diabetes, mas descobriu problema nos rins e o médico pediu para cuidar do potássio. O que ajuda na pressão e na glicose sem ter potássio?",
+      "guardrail_triggered": false,
+      "expect_guardrail_trigger": false,
+      "guardrail_accurate": true,
+      "expected_doc_ids": [
+        "PUBMED_DASH_HYPERTENSION",
+        "DOC_HIPERTENSAO_DASH_05"
+      ],
+      "retrieved_doc_ids": [
+        "DOC_HIPERTENSAO_DASH_05",
+        "PUBMED_DASH_HYPERTENSION",
+        "DOC_HIPERTENSAO_DASH_05",
+        "PUBMED_DASH_HYPERTENSION"
+      ],
+      "doc_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "keyword_coverage": 1.0,
+      "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
+      "taco_records_count": 0,
+      "graph_paths_count": 4,
+      "model_used": "local_extractive_synthesis",
+      "evidence_grade": "GRADE_A",
+      "baseline_limitation_note": "Pergunta cotidiana com conflito de comorbidades (hipertensão + DM2 + restrição renal de potássio) resolvida pelo filtro de contraindicação do Grafo de 4 Camadas.",
+      "evidence_summary_preview": "O padrão alimentar DASH (Dietary Approaches to Stop Hypertension), rico em frutas, hortaliças, laticínios com baixo teor de gordura, grãos integrais e oleaginosas, reduz a pressão arterial sistólica em 6 a 11 mmHg em ensaios clínicos random"
     }
   ]
 }
