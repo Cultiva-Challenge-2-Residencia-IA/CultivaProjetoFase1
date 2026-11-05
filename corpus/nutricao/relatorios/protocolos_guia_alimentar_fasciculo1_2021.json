@@ -1,0 +1,631 @@
+{
+  "source_id": "protocolos-guia-alimentar-fasciculo1-2021",
+  "source_sha256": "627765d1bd2ba2b66c415a12c6f733a6974961b4ab38757fb1d8ed4f83a2e033",
+  "pdf_pages": 28,
+  "conversion_status": "concluida_com_ressalvas",
+  "review_status": "pendente",
+  "approval_status": "pendente",
+  "script_sha256": "7014d190c7567763f1ad11f9fd7c1d0ec8cf2f404ffac46b6d019c721a2c2100",
+  "config_sha256": "4f4c172336aec045094cbefa7f1e05bcc323cbf2042c263cad1b43f803f587fb",
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": {
+    "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata",
+    "sha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 238,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 238
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 237,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 234
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 3047,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Créditos em colunas; agrupamento de nomes e funções requer revisão."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2940
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 1170,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Sumário em tabela; títulos extensos podem ocupar mais de uma linha."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98919,
+      "missing_native_tokens": {
+        "o": 1,
+        "populaçã": 1
+      },
+      "markdown_characters": 1394
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 1302,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9949,
+      "missing_native_tokens": {
+        "4": 1
+      },
+      "markdown_characters": 1289
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 2815,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99531,
+      "missing_native_tokens": {
+        "o": 1,
+        "populaçã": 1
+      },
+      "markdown_characters": 2813
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 3521,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Quadro 1 conferido visualmente; corrigidos espaços entre palavras, preservadas as três colunas e quatro grupos."
+      ],
+      "adjustments": [
+        {
+          "page": 7,
+          "old": "Alimentos_in natura_ou",
+          "new": "Alimentos _in natura_ ou"
+        },
+        {
+          "page": 7,
+          "old": "alimento_in natura_.",
+          "new": "alimento _in natura_."
+        },
+        {
+          "page": 7,
+          "old": "prepa rações",
+          "new": "preparações"
+        },
+        {
+          "page": 7,
+          "old": "e sal;queijos",
+          "new": "e sal; queijos"
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.99395,
+      "missing_native_tokens": {
+        "nãoalcoólica": 1,
+        "prepa": 1,
+        "rações": 1
+      },
+      "markdown_characters": 3714
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 2354,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Texto pequeno na miniatura não foi reconhecido com fidelidade pelo OCR; imagem disponível no PDF original, sem incorporar caracteres espúrios à transcrição.",
+        "Miniatura da capa com texto pequeno não recuperado com fidelidade por OCR."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Miniatura da capa do Guia Alimentar",
+          "bbox": [
+            385,
+            635,
+            520,
+            770
+          ],
+          "raw_text": "e\n",
+          "verified_text": null,
+          "note": "Texto pequeno na miniatura não foi reconhecido com fidelidade pelo OCR; imagem disponível no PDF original, sem incorporar caracteres espúrios à transcrição."
+        }
+      ],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2319
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 1097,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1084
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 3294,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3270
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 1592,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99583,
+      "missing_native_tokens": {
+        "10": 1
+      },
+      "markdown_characters": 1539
+    },
+    {
+      "pdf_page": 12,
+      "native_characters": 3385,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3366
+    },
+    {
+      "pdf_page": 13,
+      "native_characters": 2330,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99718,
+      "missing_native_tokens": {
+        "12": 1
+      },
+      "markdown_characters": 2339
+    },
+    {
+      "pdf_page": 14,
+      "native_characters": 3535,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3524
+    },
+    {
+      "pdf_page": 15,
+      "native_characters": 2867,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2846
+    },
+    {
+      "pdf_page": 16,
+      "native_characters": 2385,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Título recomposto na ordem visual; texto de camada não visível que se misturava ao título foi removido apenas nesse trecho.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [
+        {
+          "page": 16,
+          "old": "**_PROTOCOLO DE USO DO_** PROTOCOLOS DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA **_GUIA ALIMENTAR PARA A_** ORIENTAÇÃO ALIMENTAR **_POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR DA_ POPULAÇÃO ADULTA**",
+          "new": "**PROTOCOLO DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR DA POPULAÇÃO ADULTA**"
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.95308,
+      "missing_native_tokens": {
+        "15": 1,
+        "a": 1,
+        "adulta": 1,
+        "alimentar": 2,
+        "brasileira": 1,
+        "de": 1,
+        "do": 1,
+        "fascículo1": 1,
+        "guia": 1,
+        "na": 1,
+        "orientação": 1,
+        "para": 1,
+        "população": 1,
+        "protocolos": 1,
+        "uso": 1
+      },
+      "markdown_characters": 2253
+    },
+    {
+      "pdf_page": 17,
+      "native_characters": 2857,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Numeração 1–5 e formulário recompostos por transcrição literal após perdas do extrator; revisar campos e opções na imagem."
+      ],
+      "adjustments": [
+        {
+          "page_override": "corpus/scripts/ajustes/fasciculo-p017.md",
+          "sha256": "c8f3f9b5ead5b119d24f54d7b06969b8ea102ef6adb4a6571dae0e2a3b1e802c"
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.98756,
+      "missing_native_tokens": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1
+      },
+      "markdown_characters": 3082
+    },
+    {
+      "pdf_page": 18,
+      "native_characters": 1404,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Fluxograma recomposto como tabela de ramos SIM/NÃO, com textos literais; a geometria das setas é preservada no PDF original.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [
+        {
+          "page_override": "corpus/scripts/ajustes/fasciculo-p018.md",
+          "sha256": "c422c83745963a12e605456f0115f286ec4104a96ad75a99200ccbbbafe9d25c"
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.95023,
+      "missing_native_tokens": {
+        "17": 1,
+        "não": 5,
+        "sim": 5
+      },
+      "markdown_characters": 1903
+    },
+    {
+      "pdf_page": 19,
+      "native_characters": 3413,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Barras decorativas produziram falso tachado; marcadores removidos e título reordenado conforme a página.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [
+        {
+          "page": 19,
+          "old": "**ESTIMULE O CONSUMO DIÁRIO RECOMENDAÇÃO 1: DE FEIJÃO NO ALMOÇO E NO JANTAR**",
+          "new": "**RECOMENDAÇÃO 1: ESTIMULE O CONSUMO DIÁRIO DE FEIJÃO NO ALMOÇO E NO JANTAR**"
+        },
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.97993,
+      "missing_native_tokens": {
+        "18": 1,
+        "alimentar": 1,
+        "brasileira": 1,
+        "da": 1,
+        "do": 1,
+        "guia": 1,
+        "imagem": 1,
+        "ministério": 1,
+        "para": 1,
+        "populacão": 1,
+        "saúde": 1
+      },
+      "markdown_characters": 3387
+    },
+    {
+      "pdf_page": 20,
+      "native_characters": 3264,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado de título removido; revisar cabeçalhos e barras laterais."
+      ],
+      "adjustments": [
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.98028,
+      "missing_native_tokens": {
+        "alimentar": 1,
+        "brasileira": 1,
+        "da": 1,
+        "do": 1,
+        "guia": 1,
+        "imagem": 1,
+        "ministério": 1,
+        "para": 1,
+        "populacão": 1,
+        "saúde": 1
+      },
+      "markdown_characters": 3238
+    },
+    {
+      "pdf_page": 21,
+      "native_characters": 5973,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado de título removido; revisar cabeçalhos e barras laterais."
+      ],
+      "adjustments": [
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 6081
+    },
+    {
+      "pdf_page": 22,
+      "native_characters": 2696,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado removido e título reordenado conforme a página; revisar cabeçalhos e barras laterais."
+      ],
+      "adjustments": [
+        {
+          "page": 22,
+          "old": "**ORIENTE O CONSUMO DIÁRIO DE LEGUMES E VERDURAS RECOMENDAÇÃO 4:**",
+          "new": "**RECOMENDAÇÃO 4: ORIENTE O CONSUMO DIÁRIO DE LEGUMES E VERDURAS**"
+        },
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.99504,
+      "missing_native_tokens": {
+        "o": 1,
+        "opçã": 1
+      },
+      "markdown_characters": 2740
+    },
+    {
+      "pdf_page": 23,
+      "native_characters": 2634,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado de título removido; revisar cabeçalhos e barras laterais."
+      ],
+      "adjustments": [
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.99504,
+      "missing_native_tokens": {
+        "22": 2
+      },
+      "markdown_characters": 2673
+    },
+    {
+      "pdf_page": 24,
+      "native_characters": 3232,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Falso tachado de título removido; a camada nativa contém palavras divididas junto a acentos, causando alertas de cobertura que exigem conferência visual.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
+      "ocr": [],
+      "native_word_coverage": 0.95609,
+      "missing_native_tokens": {
+        "alimentaçã": 2,
+        "atençã": 1,
+        "concentraçã": 2,
+        "duraçã": 1,
+        "es": 4,
+        "o": 7,
+        "opçã": 1,
+        "preparaçõ": 1,
+        "refeiçõ": 3
+      },
+      "markdown_characters": 3176
+    },
+    {
+      "pdf_page": 25,
+      "native_characters": 2367,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99407,
+      "missing_native_tokens": {
+        "24": 2
+      },
+      "markdown_characters": 2393
+    },
+    {
+      "pdf_page": 26,
+      "native_characters": 706,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98214,
+      "missing_native_tokens": {
+        "25": 2
+      },
+      "markdown_characters": 724
+    },
+    {
+      "pdf_page": 27,
+      "native_characters": 133,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "sparse_page_decision": "Créditos finais breves disponíveis como texto nativo.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 130
+    },
+    {
+      "pdf_page": 28,
+      "native_characters": 94,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR parcial e impreciso dos logotipos; resultado bruto fica no relatório e imagem no PDF original.",
+        "Logotipos pequenos e código de barras sem transcrição textual integral; imagem disponível no PDF original e OCR bruto registrado."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Logotipos da contracapa",
+          "bbox": [
+            75,
+            700,
+            550,
+            830
+          ],
+          "raw_text": "NUPENS\nE\nMINISTÉRIODA | GOVERNO\nSUS a\n|\nSAÚDE\nFEDERAL\n",
+          "verified_text": null,
+          "note": "OCR parcial e impreciso dos logotipos; resultado bruto fica no relatório e imagem no PDF original."
+        }
+      ],
+      "sparse_page_decision": "Contracapa com logotipos; OCR complementar em região delimitada.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 97
+    }
+  ],
+  "markdown_sha256": "9e38ff95c72de4e152d34b1301b7a848d8b1494f2aef82a1ef9f44a8021ce833",
+  "summary": {
+    "pages_converted": 28,
+    "sparse_pages": [
+      27,
+      28
+    ],
+    "ocr_pages": [
+      8,
+      28
+    ],
+    "pages_with_tables_detected": [
+      4,
+      7,
+      17
+    ],
+    "pages_with_warnings": [
+      3,
+      4,
+      7,
+      8,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      28
+    ],
+    "pages_with_adjustments": [
+      7,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ]
+  }
+}

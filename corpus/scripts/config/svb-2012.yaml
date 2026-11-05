@@ -1,0 +1,23 @@
+sha256: e59b55dbba23400046c8bab693cfe60e73daf218adeecaa09b2baae0f0f32914
+sparse_page_decisions:
+  66: 'Contracapa conferida visualmente: os dois dizeres estão na camada nativa; fundo
+    decorativo, sem necessidade de OCR.'
+page_notes:
+  3: Créditos atribuem a publicação à SVB e Eric Slywitch, sem autoria conjunta SBAN.
+    Permissão de reprodução não comercial com atribuição; não é licença Creative Commons.
+  66: Fundo decorativo preservado no PDF; texto nativo disponível. Sem exportação
+    de imagens.
+  1: Capa conferida visualmente. A camada nativa duplica o título decorativo; o Markdown
+    mantém uma ocorrência. O alerta lexical permanece registrado, sem indicar perda
+    do título visível.
+  23: Tabela 9 convertida em oito pares sequenciais de afirmação e resposta; textos
+    e correspondências conferidos na amostra. Bordas e cores permanecem no original.
+  47: Conferidas as três colunas e cinco linhas da tabela, incluindo vírgulas decimais,
+    unidades e frações 1½ e 3½. Cabeçalho e título repetidos pertencem ao original.
+  57: Referências 1–20 conferidas em amostra visual; removido espaço introduzido pela
+    quebra de linha no URL da referência 5. Disponibilidade atual dos links bibliográficos
+    não verificada.
+replacements:
+- page: 57
+  old: db=cal db&comp=
+  new: db=caldb&comp=

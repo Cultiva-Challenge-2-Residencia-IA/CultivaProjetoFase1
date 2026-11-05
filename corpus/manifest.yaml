@@ -1,48 +1,92 @@
 version: 1
-project: CultivaProjetoFase1 - Modulo de Nutricao Baseada em Evidencias
 sources:
-  - id: guia_alimentar_ms_2ed
-    title: "Guia Alimentar para a População Brasileira (2ª Edição)"
-    organization: "Ministério da Saúde (Brasil)"
-    source: "https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf"
-    local_pdf_path: "data/raw/pdfs/guia_alimentar_populacao_brasileira_2ed.pdf"
-    local_json_path: "data/raw/guidelines/guia_alimentar_ms_2ed.json"
-    license: "Domínio Público / Ministério da Saúde - Governo Federal do Brasil"
-    version: "2014-2ed"
-    evidence_level: "GUIDELINE_CONSENSUS"
+  - id: guia-alimentar-populacao-brasileira-2014
+    title: Guia alimentar para a população brasileira
+    institutions:
+      - Ministério da Saúde
+    year: 2014
+    edition: 2ª edição, 1ª reimpressão
+    version: "2014-2ed-1reimpr"
+    source: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf
+    download_url: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf
+    access_note: O endereço informado redirecionou para autenticação. Obtida na BVS a 2ª edição, 1ª reimpressão, de 2014; não foi possível comparar os bytes com o endereço informado.
+    retrieved_on: "2026-11-03"
+    license: CC-BY-NC-SA-4.0
+    license_evidence:
+      pdf_page: 3
+      description: Créditos declaram Creative Commons Atribuição, Não Comercial, Compartilhamento pela mesma licença 4.0 Internacional.
+    original_path: corpus/nutricao/originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf
+    markdown_path: corpus/nutricao/markdown/guia_alimentar_populacao_brasileira_2ed_2014.md
+    report_path: corpus/nutricao/relatorios/guia_alimentar_populacao_brasileira_2ed_2014.json
+    conversion_config: corpus/scripts/config/guia-2014.yaml
+    sha256: c9abefded671cafe914193c04f808df25dfaa315e5e744e477163fe24407f139
+    pdf_pages: 158
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: protocolos-guia-alimentar-fasciculo1-2021
+    title: "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta"
+    institutions:
+      - Ministério da Saúde
+      - Universidade de São Paulo
+    year: 2021
+    edition: 1ª edição, versão eletrônica
+    version: "2021-1ed"
+    source: https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf
+    download_url: https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf
+    retrieved_on: "2026-11-03"
+    license: CC-BY-NC-SA-4.0
+    license_evidence:
+      pdf_page: 3
+      description: Créditos declaram Creative Commons Atribuição, Não Comercial, Compartilhamento pela mesma licença 4.0 Internacional.
+    original_path: corpus/nutricao/originais/protocolos_guia_alimentar_fasciculo1_2021.pdf
+    markdown_path: corpus/nutricao/markdown/protocolos_guia_alimentar_fasciculo1_2021.md
+    report_path: corpus/nutricao/relatorios/protocolos_guia_alimentar_fasciculo1_2021.json
+    conversion_config: corpus/scripts/config/fasciculo1-2021.yaml
+    sha256: 627765d1bd2ba2b66c415a12c6f733a6974961b4ab38757fb1d8ed4f83a2e033
+    pdf_pages: 28
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: guia-dietas-vegetarianas-svb-2012
+    title: Guia alimentar de dietas vegetarianas para adultos
+    institutions:
+      - Sociedade Vegetariana Brasileira
+    authors:
+      - Eric Slywitch
+    year: 2012
+    edition: pendente; número de edição não identificado
+    version: '2012'
+    source: https://old.svb.org.br/livros/guia-alimentar.pdf
+    supplied_filename: guia-alimentar.pdf
+    access_note: Original fornecido pelo solicitante. URLs oficiais indexadas old.svb.org.br/livros/guia-alimentar.pdf
+      e veg.svb.org.br/livros/guia-alimentar.pdf retornaram HTTP 404 em 05/11/2026; equivalência dos bytes com cópia
+      online não confirmada.
+    retrieved_on: '2026-11-05'
+    license: 'Permissão própria SVB: reprodução parcial ou total com citação da fonte, sem venda ou qualquer fim comercial.'
+    license_evidence:
+      pdf_page: 3
+      description: © 2012 Sociedade Vegetariana Brasileira. Todos os direitos reservados; reprodução autorizada com
+        atribuição para fins não comerciais. Não declara Creative Commons.
+    original_path: corpus/nutricao/originais/guia_alimentar_dietas_vegetarianas_adultos_svb_2012.pdf
+    markdown_path: corpus/nutricao/markdown/guia_alimentar_dietas_vegetarianas_adultos_svb_2012.md
+    report_path: corpus/nutricao/relatorios/guia_alimentar_dietas_vegetarianas_adultos_svb_2012.json
+    conversion_config: corpus/scripts/config/svb-2012.yaml
+    sha256: e59b55dbba23400046c8bab693cfe60e73daf218adeecaa09b2baae0f0f32914
+    pdf_pages: 66
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    identity_note: Créditos identificam SVB e Eric Slywitch; não identificam autoria conjunta com SBAN. Posicionamento
+      da SBAN não incluído nesta fonte.
 
-  - id: pubmed_clinical_meta_analyses
-    title: "Coleção de 34 Meta-Análises e Revisões Sistemáticas em Nutrição Clínica e Bioativos"
-    organization: "PubMed / NCBI Entrez E-Utilities"
-    source: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
-    local_json_path: "data/raw/guidelines/pubmed_clinical_evidence.json"
-    license: "NLM / NCBI Public Abstracts (PMID & DOI Indexed)"
-    version: "2024-11"
-    evidence_level: "GRADE_A / GRADE_B"
-
-  - id: diretrizes_sbd_sbc_issn_coi
-    title: "Sínteses Normativas de Diretrizes Clínicas (SBD, SBC, ISSN, COI)"
-    organization: "Sociedade Brasileira de Diabetes / Sociedade Brasileira de Cardiologia / ISSN / COI"
-    source: "https://diretriz.diabetes.org.br/"
-    local_json_path: "data/raw/guidelines/seed_guidelines.json"
-    license: "Uso Educacional e Pesquisa Científica"
-    version: "2024-01"
-    evidence_level: "GRADE_A / GUIDELINE_CONSENSUS"
-
-  - id: tabela_taco_4ed_unicamp
-    title: "Tabela Brasileira de Composição de Alimentos (TACO 4ª Edição - 597 Alimentos)"
-    organization: "NEPA / Unicamp & TBCA-USP"
-    source: "https://www.cfn.org.br/wp-content/uploads/2017/03/taco_4_edicao_ampliada_e_revisada.pdf"
-    local_json_path: "data/raw/taco/taco_raw.json"
-    license: "Domínio Público / NEPA-Unicamp & Ministério da Saúde"
-    version: "4.0"
-    evidence_level: "DETERMINISTIC_BROMATOLOGICAL_TABLE"
-
-  - id: nutrition_4layer_causal_graph
-    title: "Grafo de Conhecimento Causal de 4 Camadas (Alimento -> Composto -> Mecanismo -> Desfecho GRADE)"
-    organization: "Curadoria Baseada em TACO + FooDB + PubMed/GRADE"
-    source: "https://foodb.ca/"
-    local_json_path: "data/raw/knowledge_graph/nutrition_4layer_graph.json"
-    license: "CC-BY-4.0"
-    version: "2026-01"
-    evidence_level: "GRADE_A / GRADE_B"
+# Cada fonte deve declarar identificador, origem, licença e versão.
+# Exemplo:
+# sources:
+#   - id: exemplo
+#     source: https://example.org/documento
+#     license: CC-BY-4.0
+#     version: "2026-01"
