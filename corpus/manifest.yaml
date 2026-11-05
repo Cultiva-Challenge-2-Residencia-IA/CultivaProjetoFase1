@@ -50,6 +50,38 @@ sources:
     review_status: pendente
     approval_status: pendente
     intended_use_license_review: pendente
+  - id: guia-dietas-vegetarianas-svb-2012
+    title: Guia alimentar de dietas vegetarianas para adultos
+    institutions:
+      - Sociedade Vegetariana Brasileira
+    authors:
+      - Eric Slywitch
+    year: 2012
+    edition: pendente; número de edição não identificado
+    version: '2012'
+    source: https://old.svb.org.br/livros/guia-alimentar.pdf
+    supplied_filename: guia-alimentar.pdf
+    access_note: Original fornecido pelo solicitante. URLs oficiais indexadas old.svb.org.br/livros/guia-alimentar.pdf
+      e veg.svb.org.br/livros/guia-alimentar.pdf retornaram HTTP 404 em 05/11/2026; equivalência dos bytes com cópia
+      online não confirmada.
+    retrieved_on: '2026-11-05'
+    license: 'Permissão própria SVB: reprodução parcial ou total com citação da fonte, sem venda ou qualquer fim comercial.'
+    license_evidence:
+      pdf_page: 3
+      description: © 2012 Sociedade Vegetariana Brasileira. Todos os direitos reservados; reprodução autorizada com
+        atribuição para fins não comerciais. Não declara Creative Commons.
+    original_path: corpus/nutricao/originais/guia_alimentar_dietas_vegetarianas_adultos_svb_2012.pdf
+    markdown_path: corpus/nutricao/markdown/guia_alimentar_dietas_vegetarianas_adultos_svb_2012.md
+    report_path: corpus/nutricao/relatorios/guia_alimentar_dietas_vegetarianas_adultos_svb_2012.json
+    conversion_config: corpus/scripts/config/svb-2012.yaml
+    sha256: e59b55dbba23400046c8bab693cfe60e73daf218adeecaa09b2baae0f0f32914
+    pdf_pages: 66
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    identity_note: Créditos identificam SVB e Eric Slywitch; não identificam autoria conjunta com SBAN. Posicionamento
+      da SBAN não incluído nesta fonte.
 
 # Cada fonte deve declarar identificador, origem, licença e versão.
 # Exemplo:

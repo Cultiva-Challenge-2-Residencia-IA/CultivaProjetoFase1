@@ -1,8 +1,8 @@
 # Corpus científico de Nutrição
 
-Esta etapa obtém os PDFs oficiais e produz transcrições em Markdown, com marcadores e links a todas as páginas dos originais. **Os dois documentos permanecem com revisão e aprovação pendentes.** Conversão e conferência amostral não tornam uma fonte elegível para responder aos usuários.
+Esta etapa obtém os PDFs oficiais e produz transcrições em Markdown, com marcadores e links a todas as páginas dos originais. **Os documentos permanecem com revisão e aprovação pendentes.** Conversão e conferência amostral não tornam uma fonte elegível para responder aos usuários.
 
-O corpus científico é separado dos dados pessoais. Não colocar aqui perfis, registros de hábitos/saúde, conversas, fotos, áudios ou PDFs enviados por usuários.
+O corpus científico é separado dos dados pessoais. Não colocar aqui perfis, registros de hábitos/saúde, conversas, fotos, áudios ou PDFs pessoais enviados por usuários do aplicativo. A inclusão bibliográfica solicitada nesta tarefa não incorpora registros pessoais ao corpus.
 
 ## Fontes e procedência
 
@@ -12,10 +12,29 @@ O catálogo é [`manifest.yaml`](manifest.yaml), mantendo `version: 1` e `source
 |---|---|---:|---|
 | Guia alimentar para a população brasileira | 2ª edição, 1ª reimpressão, Ministério da Saúde, 2014 | 158 | [BVS / Ministério da Saúde](https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf) |
 | Fascículo 1 — bases teóricas e metodológicas e protocolo para a população adulta | 1ª edição, versão eletrônica, Ministério da Saúde e USP, 2021 | 28 | [BVS / Ministério da Saúde](https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf) |
+| Guia alimentar de dietas vegetarianas para adultos | SVB, Eric Slywitch, 2012; número de edição não identificado | 66 | Arquivo `guia-alimentar.pdf` fornecido pelo solicitante em 05/11/2026 |
 
-Consulta e obtenção: **03/11/2026**. O endereço do Guia informado no pedido redirecionou para autenticação; o arquivo foi obtido na BVS oficial. A edição foi identificada na capa e nos créditos, mas não foi possível comparar seus bytes com os do endereço indisponível. As fichas catalográficas indicam 156 e 26 páginas, respectivamente; o total físico inclui páginas adicionais. Os marcadores desta conversão usam sempre a posição física no PDF, começando em 1.
+Consulta e obtenção dos dois documentos do Ministério da Saúde: **03/11/2026**. O endereço do Guia informado no pedido redirecionou para autenticação; o arquivo foi obtido na BVS oficial. A edição foi identificada na capa e nos créditos, mas não foi possível comparar seus bytes com os do endereço indisponível. As fichas catalográficas indicam 156 e 26 páginas, respectivamente; o total físico inclui páginas adicionais. Os marcadores desta conversão usam sempre a posição física no PDF, começando em 1.
 
-Ambos os PDFs declaram **CC-BY-NC-SA-4.0** na página física 3: atribuição, uso não comercial e compartilhamento pela mesma licença. Originais e textos derivados mantêm a atribuição aos autores institucionais e essa licença. As transformações realizadas são extração, estruturação em Markdown, OCR pontual e correções de transcrição identificadas; não há endosso do Ministério ou da USP ao CULTIVA. A compatibilidade dessa licença com o uso futuro pretendido pelo produto permanece **pendente**.
+Os dois PDFs do Ministério da Saúde declaram **CC-BY-NC-SA-4.0** na página física 3: atribuição, uso não comercial e compartilhamento pela mesma licença. Originais e textos derivados mantêm a atribuição aos autores institucionais e essa licença. As transformações realizadas são extração, estruturação em Markdown, OCR pontual e correções de transcrição identificadas; não há endosso do Ministério ou da USP ao CULTIVA. A compatibilidade dessa licença com o uso futuro pretendido pelo produto permanece **pendente**.
+
+### Guia da SVB (inclusão de 05/11/2026)
+
+O PDF recebido é o **Guia alimentar de dietas vegetarianas para adultos**, de **Eric Slywitch**, publicado pela **SVB em 2012**, conforme capa e créditos (páginas 1 e 3). Não há identificação de autoria conjunta com a SBAN; o posicionamento SBAN mencionado no pedido continua **não obtido**. Não classificar este arquivo como esse posicionamento. O número de edição não foi identificado.
+
+O original recebido foi preservado byte a byte. Os endereços oficiais indexados [old.svb.org.br](https://old.svb.org.br/livros/guia-alimentar.pdf) e [veg.svb.org.br](https://veg.svb.org.br/livros/guia-alimentar.pdf) retornaram HTTP 404 na tentativa de download; a equivalência com uma cópia online permanece não confirmada. O manifesto registra a origem recebida e essa limitação, sem URL de download funcional presumida.
+
+A página 3 declara uma **permissão própria de reprodução parcial ou total com citação da fonte, sem venda ou qualquer fim comercial**. Não atribuir Creative Commons a esta fonte. A compatibilidade com o uso pretendido pelo CULTIVA permanece pendente.
+
+A relação com a adaptação a preferências vegetarianas é uma **hipótese de utilidade**, não resultado demonstrado pela conversão nem aprovação do requisito. O guia é de 2012 e contém conteúdo destinado a profissionais, inclusive prescrição nutricional: atualização científica, elegibilidade e compatibilidade com os limites educativos do produto exigem avaliação própria. Nenhuma recomendação clínica foi atualizada ou validada nesta transcrição.
+
+Para regenerar apenas esta fonte, com o original já preservado:
+
+```bash
+corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --source guia-dietas-vegetarianas-svb-2012 --overwrite
+```
+
+Foram extraídas todas as 66 páginas pela camada textual com PyMuPDF Layout, sem OCR: a única página abaixo do limiar de texto (66) é uma contracapa decorativa com os dizeres presentes na camada nativa, conferida visualmente. Não foi necessária instalação de dependências nem alteração dos scripts. A configuração `scripts/config/svb-2012.yaml` registra decisões e a correção literal de uma quebra de URL. Isso não elimina a necessidade de revisão integral de figuras, tabelas e hierarquia dos títulos.
 
 ## Organização
 
@@ -73,7 +92,7 @@ Imagens de conferência são renderizadas apenas em diretório temporário fora 
 
 1. Verificar assinatura PDF, integridade por SHA-256, quantidade de páginas e correspondência dos ajustes com o original.
 2. Extrair todas as páginas com PyMuPDF Layout, mantendo cabeçalhos, rodapés e texto em figuras; sem exportar PNGs. Gerar títulos, parágrafos, listas e tabelas; sem resumir ou produzir orientações novas.
-3. Sinalizar páginas com menos de 150 caracteres nativos. A inspeção visual distingue páginas de fotografia/transição de texto que precisa de OCR. As decisões destes dois PDFs estão nas configurações. Em novos documentos, páginas esparsas sem decisão explícita passam por OCR integral e recebem aviso de revisão.
+3. Sinalizar páginas com menos de 150 caracteres nativos. A inspeção visual distingue páginas de fotografia/transição de texto que precisa de OCR. As decisões dos PDFs cadastrados estão nas configurações. Em novos documentos, páginas esparsas sem decisão explícita passam por OCR integral e recebem aviso de revisão.
 4. Aplicar OCR em regiões delimitadas quando há texto visual ausente da camada nativa. Resultados auxiliares imprecisos ficam no relatório, sem se misturar às orientações. O selo da capa do Guia foi transcrito literalmente após falha do OCR, com registro explícito.
 5. Aplicar correções pontuais vinculadas ao hash do PDF. Substituições estritas falham se o trecho esperado mudar. As páginas recompostas ficam em `scripts/ajustes/`, e o link da página leva ao PDF original para conferência. Ajustes de estrutura não implicam revisão humana concluída.
 6. Acrescentar `<!-- PDF_PAGE: N -->`, âncora `pagina-pdf-NNN` e link ao original em cada página. Notas editoriais são identificadas como notas de conversão.
@@ -94,9 +113,14 @@ Amostra conferida pelo assistente contra páginas renderizadas; não é revisão
 | Fascículo, 3 e 7 | Licença e Quadro 1 conferidos. Preservadas três colunas e quatro grupos de alimentos; corrigidos espaços indevidos entre palavras. |
 | Fascículo, 16–18 | Título, sequência de cinco instruções, opções do formulário e ramos SIM/NÃO do fluxograma conferidos. O extrator inicial duplicava números e perdia opções; transcrições pontuais corrigem esses casos. As setas e a geometria original permanecem no PDF original. |
 | Fascículo, 19 e 22 | Conferidos títulos e as orientações da amostra; a faixa **6 a 12 horas** da página 19 foi preservada. Corrigidas ordem dos títulos e marcas de tachado produzidas por barras decorativas. |
+| SVB, 1, 3 e 66 | Conferidas capa, autoria, permissão de reprodução e contracapa. O título decorativo duplicado na camada nativa aparece uma vez no Markdown; mantido o alerta lexical no relatório. |
+| SVB, 23 | Os oito pares da Tabela 9 foram preservados como blocos sequenciais; bordas e cores ficam no PDF. |
+| SVB, 47 | Conferidos parágrafos, três colunas e cinco linhas de medidas caseiras, inclusive 125,0 g, 202,5 g, 1½ e 3½. |
+| SVB, 57 | Conferidas referências 1–20; corrigido espaço introduzido em URL quebrado entre linhas. Links históricos não tiveram disponibilidade validada. |
 
 Limitações registradas para revisão:
 
+- **SVB: páginas 1, 3, 23, 47, 57 e 66** têm notas de conferência/limitações no relatório. As demais páginas não receberam revisão visual integral. Tabelas foram detectadas em 33 páginas; isso não comprova fidelidade de todas as células. A fonte permanece pendente de revisão, aprovação científica e análise do uso da licença.
 - **Guia: páginas 1, 3, 4, 52, 148 e 158.** Selo/contracapa, ordem dos créditos em colunas, continuidade do sumário, diagrama e capitalização da tabela. O OCR dos logotipos da página 158 não é fiel; consultar imagem/PDF.
 - **Fascículo: páginas 3, 4, 7, 8, 16–24 e 28.** Créditos, sumário, tabelas, títulos, fluxograma e elementos gráficos. A miniatura da capa na página 8 e logotipos da página 28 não tiveram transcrição OCR confiável. Na página 24, palavras partidas da camada nativa produzem alertas que precisam ser conferidos no original.
 - Fotografias, marcas, códigos de barras e a disposição das figuras continuam preservados nos PDFs originais, sem exportação para PNG ou descrição semântica gerada. Selos curvos e letras muito pequenas não têm transcrição automática integral. A estrutura hierárquica de títulos e a ordem em páginas complexas são inferidas e exigem revisão.
