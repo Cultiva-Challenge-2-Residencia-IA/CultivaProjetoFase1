@@ -1,0 +1,20 @@
+"""Guardrail de Prescrição Dietética Individualizada (Lei Federal nº 8.234/1991, Art. 3º, VIII - CFN)."""
+
+from src.agent.guardrails import (
+    DIAGNOSIS_PATTERNS,
+    DIET_PRESCRIPTION_PATTERNS,
+    LAW_8234_COMPLIANCE_NOTICE,
+    SUPPLEMENT_POSOLOGY_PATTERNS,
+    LegalGuardrail,
+)
+
+LEGAL_COMPLIANCE_NOTICE = LAW_8234_COMPLIANCE_NOTICE
+
+__all__ = [
+    "LegalGuardrail",
+    "LAW_8234_COMPLIANCE_NOTICE",
+    "LEGAL_COMPLIANCE_NOTICE",
+    "DIET_PRESCRIPTION_PATTERNS",
+    "DIAGNOSIS_PATTERNS",
+    "SUPPLEMENT_POSOLOGY_PATTERNS",
+]

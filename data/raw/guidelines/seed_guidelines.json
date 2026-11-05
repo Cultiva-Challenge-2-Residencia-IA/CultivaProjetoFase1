@@ -1,0 +1,178 @@
+[
+  {
+    "doc_id": "DOC_GUIA_NOVA_01",
+    "title": "Guia Alimentar para a População Brasileira: Classificação NOVA e Matriz Alimentar",
+    "source_organization": "Ministério da Saúde (Brasil)",
+    "publication_year": 2024,
+    "clinical_domain": "Alimentação Saudável Geral e Prevenção Crônica",
+    "evidence_level": "GUIDELINE_CONSENSUS",
+    "sections": [
+      {
+        "section_path": "Capítulo 2 > Classificação NOVA e Regra de Ouro",
+        "text": "A regra de ouro das diretrizes alimentares brasileiras estabelece que alimentos in natura ou minimamente processados (frutas, hortaliças, raízes, tubérculos, grãos, leguminosas, ovos e carnes frescas) devem constituir a base da alimentação. Alimentos ultraprocessados são formulações industriais feitas tipicamente com cinco ou mais ingredientes, incluindo açúcares livres, gorduras modificadas, isolados proteicos e aditivos cosméticos (emulsificantes, edulcorantes, aromatizantes). Ensaios clínicos controlados em enfermaria metabólica (Hall et al., NIH) demonstraram relação causal direta: indivíduos expostos a dietas ultraprocessadas equiparadas em macronutrientes consumiram espontaneamente cerca de 500 kcal/dia a mais devido à alta densidade energética, hiperpalatabilidade e maior velocidade de ingestão oral."
+      },
+      {
+        "section_path": "Capítulo 3 > Matriz Alimentar e Combinações Tradicionais",
+        "text": "O efeito fisiológico de um alimento não se resume à soma isolada de seus nutrientes, mas depende da matriz alimentar (estrutura física celular e interações entre fibras, fitoquímicos e macronutrientes). A combinação brasileira tradicional de arroz com feijão fornece perfil completo de aminoácidos essenciais: o arroz é limitante em lisina mas rico em metionina, enquanto o feijão é rico em lisina e limitante em metionina, além de oferecer amido resistente e fibras que atenuam a resposta glicêmica."
+      }
+    ]
+  },
+  {
+    "doc_id": "DOC_FIBRAS_MICROBIOTA_02",
+    "title": "Fibras Alimentares, Viscosidade Intestinal e Modulação da Microbiota",
+    "source_organization": "Consenso Internacional de Gastroenterologia e Nutrição / Meta-análises PubMed",
+    "publication_year": 2024,
+    "clinical_domain": "Saúde Gastrointestinal, Saciedade e Metabolismo",
+    "evidence_level": "GRADE_A",
+    "sections": [
+      {
+        "section_path": "Mecanismos Fisiológicos > Fibras Solúveis Viscosas vs. Insolúveis",
+        "text": "As fibras alimentares dividem-se funcionalmente conforme solubilidade, viscosidade e fermentabilidade. Fibras solúveis formadoras de gel viscoso — como a beta-glucana (presente na aveia e cevada), o psyllium (ispaghula) e as pectinas (frutas cítricas e maçã) — aumentam a viscosidade do quimo no intestino delgado. Esse mecanismo retarda o esvaziamento gástrico, reduz a difusão de enzimas digestivas sobre os carboidratos e sequestra ácidos biliares no lúmen intestinal, reduzindo comprovadamente (Evidência GRADE A, meta-análises de ECRs) tanto o pico glicêmico pós-prandial quanto o colesterol LDL sérico."
+      },
+      {
+        "section_path": "Microbiota Intestinal > Fermentação Colônica e Ácidos Graxos de Cadeia Curta (AGCC)",
+        "text": "Fibras fermentáveis (inulina, fruto-oligossacarídeos, amido resistente e beta-glucanas) chegam intactas ao cólon, onde são metabolizadas por bactérias comensais (como Bifidobacterium e Faecalibacterium prausnitzii), produzindo Ácidos Graxos de Cadeia Curta (AGCC): butirato, propionato e acetato. O butirato é a principal fonte energética dos colonócitos, fortalecendo a barreira epitelial intestinal (junções oclusivas) e reduzindo a endotoxemia metabólica (translocação de LPS). Além disso, os AGCC ativam receptores acoplados à proteína G (FFAR2/GPR43 e FFAR3/GPR41) nas células L enteroendócrinas, estimulando a secreção dos hormônios de saciedade GLP-1 e PYY."
+      }
+    ]
+  },
+  {
+    "doc_id": "DOC_GLICEMIA_CARBOIDRATOS_03",
+    "title": "Diretriz da Sociedade Brasileira de Diabetes: Manejo Nutricional da Glicemia e Resistência à Insulina",
+    "source_organization": "Sociedade Brasileira de Diabetes (SBD)",
+    "publication_year": 2024,
+    "clinical_domain": "Controle Glicêmico, Resistência à Insulina e Diabetes Tipo 2",
+    "evidence_level": "GRADE_A",
+    "sections": [
+      {
+        "section_path": "Estratégias Glicêmicas > Carga Glicêmica, Ordem da Refeição e Amido Resistente",
+        "text": "Nos protocolos clínicos da SBD e ADA para controle glicêmico e resistência à insulina (HOMA-IR), a qualidade do carboidrato e a carga glicêmica total da refeição têm impacto superior à restrição extrema isolada. Ensaios clínicos cruzados mostram que iniciar a refeição pelo consumo de vegetais ricos em fibras e fontes proteicas antes dos carboidratos amiláceos reduz a excursão glicêmica e insulinêmica pós-prandial em 30% a 40% (Evidência GRADE B). Adicionalmente, o processo culinário de cozimento seguido de resfriamento sob refrigeração (ex.: batata, arroz ou mandioca cozidos e resfriados por 12-24h) promove a retrogradação da amilose, convertendo parte do amido digerível em amido resistente tipo 3 (RS3), que reduz o impacto glicêmico."
+      },
+      {
+        "section_path": "Evidência Clínica > Ingestão de Fibras no Diabetes Tipo 2",
+        "text": "Meta-análises de ensaios clínicos randomizados demonstram que o consumo populacional de 25g a 35g/dia de fibras alimentares totais (ou incremento de 10g a 15g/dia sobre o habitual), priorizando fontes de fibras solúveis (como aveia, leguminosas e psyllium), promove redução clinicamente significativa na hemoglobina glicada (HbA1c em média -0,4% a -0,6%) e na glicemia de jejum em adultos com pré-diabetes ou diabetes tipo 2 (Evidência GRADE A)."
+      }
+    ]
+  },
+  {
+    "doc_id": "DOC_LIPIDIOS_COLESTEROL_04",
+    "title": "Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose",
+    "source_organization": "Sociedade Brasileira de Cardiologia (SBC)",
+    "publication_year": 2024,
+    "clinical_domain": "Saúde Cardiovascular, Colesterol LDL e Triglicerídeos",
+    "evidence_level": "GRADE_A",
+    "sections": [
+      {
+        "section_path": "Colesterol LDL > Gorduras Saturadas, Insaturadas e Fitoesteróis",
+        "text": "O principal determinante dietético da elevação do colesterol LDL plasmático não é o colesterol alimentar intrínseco (presente por exemplo na gema do ovo), mas sim o excesso de ácidos graxos saturados e ácidos graxos trans, que reduzem a expressão dos receptores hepáticos de LDL (LDLR) e diminuem o clareamento de partículas apoB. A substituição isocalórica de gorduras saturadas por ácidos graxos monoinsaturados (azeite de oliva extravirgem, abacate, castanhas) e poli-insaturados reduz o LDL-c com Evidência GRADE A. Os fitoesteróis vegetais competem estruturalmente com o colesterol pela incorporação nas micelas mistas no lúmen intestinal (transportador NPC1L1); nos protocolos clínicos, a ingestão de 1,5g a 2,0g/dia de fitoesteróis reduz o LDL-c em 8% a 12%."
+      },
+      {
+        "section_path": "Hipertrigliceridemia > Ácidos Graxos Ômega-3 Marinhos (EPA e DHA)",
+        "text": "Para o manejo da hipertrigliceridemia, a redução de açúcares simples (especialmente frutose livre de bebidas açucaradas, que estimula a lipogênese hepática de novo) e de álcool é prioritária. Os ácidos graxos poli-insaturados ômega-3 de cadeia longa de origem marinha — ácido eicosapentaenoico (EPA) e ácido docosahexaenoico (DHA), encontrados em peixes como sardinha, cavalinha e salmão — ativam receptores nucleares PPAR-alfa no fígado, aumentando a beta-oxidação de ácidos graxos e inibindo a síntese hepática de VLDL, reduzindo os triglicerídeos séricos em protocolos clínicos (Evidência GRADE A)."
+      }
+    ]
+  },
+  {
+    "doc_id": "DOC_HIPERTENSAO_DASH_05",
+    "title": "Diretrizes Brasileiras de Hipertensão Arterial: Padrão DASH, Eletrólitos e Nitratos",
+    "source_organization": "Sociedade Brasileira de Cardiologia (SBC)",
+    "publication_year": 2024,
+    "clinical_domain": "Pressão Arterial e Função Endotelial",
+    "evidence_level": "GRADE_A",
+    "sections": [
+      {
+        "section_path": "Padrão Alimentar DASH > Equilíbrio Sódio, Potássio e Magnésio",
+        "text": "O padrão alimentar DASH (Dietary Approaches to Stop Hypertension), rico em frutas, hortaliças, laticínios com baixo teor de gordura, grãos integrais e oleaginosas, reduz a pressão arterial sistólica em 6 a 11 mmHg em ensaios clínicos randomizados (Evidência GRADE A). O mecanismo envolve não apenas a restrição do sódio (< 2g de sódio ou < 5g de cloreto de sódio por dia na população geral), mas o aumento simultâneo da ingestão dietética de potássio (que promove natriurese renal e vasodilatação dependente do endotélio), magnésio e cálcio. Nota de segurança: o aumento de potássio dietético possui contraindicação relativa em indivíduos com doença renal crônica avançada ou em uso de diuréticos poupadores de potássio, exigindo avaliação profissional."
+      },
+      {
+        "section_path": "Função Endotelial > Nitratos Inorgânicos da Beterraba e Folhosos Verdes",
+        "text": "Vegetais como beterraba, rúcula e espinafre são fontes concentradas de nitrato inorgânico (NO3-). Após a ingestão, o nitrato é secretado pelas glândulas salivares e reduzido a nitrito (NO2-) por bactérias comensais da língua, sendo posteriormente convertido em óxido nítrico (NO) na circulação. O óxido nítrico relaxa a musculatura lisa vascular via GMP cíclico, promovendo vasodilatação e redução modesta porém consistente da pressão arterial em meta-análises de ECRs (Evidência GRADE B)."
+      }
+    ]
+  },
+  {
+    "doc_id": "DOC_PROTEINAS_MASSA_MUSCULAR_06",
+    "title": "Consenso Científico sobre Proteínas, Síntese Proteica Muscular e Sarcopenia",
+    "source_organization": "International Society of Sports Nutrition (ISSN) / ESPEN",
+    "publication_year": 2024,
+    "clinical_domain": "Composição Corporal, Hipertrofia e Envelhecimento Saudável",
+    "evidence_level": "GRADE_A",
+    "sections": [
+      {
+        "section_path": "Mecanismo Anabólico > Via mTORC1, Limiar de Leucina e Distribuição Diária",
+        "text": "A síntese proteica miofibrilar (MPS) é estimulada pelo aporte de aminoácidos essenciais, em especial a leucina, que atua como sinalizador intracelular ativando o complexo mTORC1 (via sensor Sestrin2). A literatura clínica (ISSN/ESPEN) aponta que, enquanto a recomendação mínima populacional para evitar deficiência em sedentários é de 0,8 g/kg/dia, protocolos voltados à preservação de massa magra em idosos (prevenção de sarcopenia, resistência anabólica) e praticantes de treinamento resistido estudam faixas populacionais entre 1,2 e 2,0 g/kg/dia em indivíduos com função renal preservada (Evidência GRADE A). A distribuição fracionada de proteínas ao longo de 3 a 4 refeições diárias otimiza o estímulo da síntese proteica ao longo de 24 horas."
+      }
+    ]
+  },
+  {
+    "doc_id": "DOC_SUPLEMENTOS_EVIDENCIA_07",
+    "title": "Consenso do Comitê Olímpico Internacional (IOC) e ISSN sobre Suplementos Nutricionais",
+    "source_organization": "IOC Consensus Statement / ISSN",
+    "publication_year": 2024,
+    "clinical_domain": "Suplementação Baseada em Evidências e Ergogenia",
+    "evidence_level": "GRADE_A",
+    "sections": [
+      {
+        "section_path": "Suplementos Grau A > Creatina Monohidratada: Mecanismo e Segurança Renal",
+        "text": "A creatina monohidratada possui Evidência GRADE A (meta-análises de ECRs) para aumento da força muscular, potência anaeróbica e preservação de massa magra em combinação com exercício resistido, além de evidência crescente (GRADE B) para suporte bioenergético cerebral em condições de privação de sono ou envelhecimento. Seu mecanismo consiste na elevação dos estoques intramusculares de fosfocreatina (PCr), acelerando a ressíntese de ATP via enzima creatina quinase durante esforços de alta intensidade. O efeito depende da saturação crônica tecidual (protocolos clínicos utilizam tipicamente 3g a 5g/dia de uso contínuo, não tendo efeito agudo imediato pré-treino). Em indivíduos sem nefropatia prévia, ensaios clínicos controlados demonstram que a creatina não causa lesão renal; ela apenas pode elevar discretamente a creatinina sérica (produto de degradação espontânea da creatina), o que pode falsear fórmulas estimadas de filtração glomerular baseadas apenas em creatinina (sendo a Cistatina C o marcador fidedigno)."
+      },
+      {
+        "section_path": "Suplementos Grau A > Cafeína, Adenosina e Variabilidade Genética (CYP1A2)",
+        "text": "A cafeína atua como antagonista competitivo dos receptores de adenosina (A1 e A2A) no sistema nervoso central, reduzindo a percepção subjetiva de esforço e fadiga (Evidência GRADE A). Contudo, seu efeito sobre a pressão arterial e o sono é altamente condicional: há desenvolvimento de tolerância hemodinâmica em consumidores habituais, e o polimorfismo do gene hepático CYP1A2 divide os indivíduos em metabolizadores rápidos e lentos. Em metabolizadores lentos ou indivíduos com ansiedade e insônia, doses elevadas ou consumidas até 6-8 horas antes de dormir prejudicam a arquitetura do sono profundo (ondas lentas)."
+      },
+      {
+        "section_path": "Suplementos Proteicos > Whey Protein vs. Alimentos Fontes",
+        "text": "O Whey Protein (proteína do soro do leite) é uma fonte proteica de alta digestibilidade e rica em leucina, porém os ensaios clínicos confirmam que ele não possui propriedade anabólica mágica superior às proteínas de alimentos sólidos (como ovos, laticínios, peixes, carnes magras ou combinações vegetais bem ajustadas) quando a ingestão proteica total diária está equiparada. Trata-se de um recurso de conveniência prática, e não de uma necessidade obrigatória."
+      }
+    ]
+  },
+  {
+    "doc_id": "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
+    "title": "Compostos Bioativos, Fitoquímicos e Mitos vs. Evidência Clínica em Humanos",
+    "source_organization": "Revisões Sistemáticas de Nutrição Clínica e Bioquímica Alimentar",
+    "publication_year": 2024,
+    "clinical_domain": "Fitoquímicos, Inflamação e Biodisponibilidade",
+    "evidence_level": "GRADE_B",
+    "sections": [
+      {
+        "section_path": "Polifenóis > Curcumina e o Gargalo da Biodisponibilidade",
+        "text": "A curcumina, polifenol presente no rizoma da cúrcuma (Curcuma longa), modula vias inflamatórias como o fator de transcrição NF-kappaB e citocinas (TNF-alfa, IL-6) em estudos mecanísticos. Contudo, existe uma diferença crítica entre estudos in vitro e eficácia clínica em humanos: a curcumina isolada por via oral apresenta baixíssima biodisponibilidade (< 1%) devido à baixa absorção intestinal e rápida conjugação (glicuronidação) no fígado e intestino. Nos protocolos clínicos que demonstraram efeito anti-inflamatório em humanos (Evidência GRADE B), a curcumina foi associada à piperina (composto bioativo da pimenta-do-reino, que inibe a glicuronidação aumentando a biodisponibilidade em até 20 vezes) e a uma fonte lipídica."
+      },
+      {
+        "section_path": "Catequinas e Brássicas > Chá Verde (EGCG) e Sulforafano",
+        "text": "O chá verde (Camellia sinensis) contém a catequina epigalocatequina-galato (EGCG). Embora frequentemente divulgado como termogênico potente, meta-análises de ECRs mostram que o efeito isolado do chá verde na perda de peso é clinicamente modesto (cerca de 0,5 a 1,2 kg em 12 semanas, Evidência GRADE B), atuando por leve inibição da enzima COMT (catecol-O-metiltransferase) em sinergia com a cafeína. Já vegetais crucíferos (brócolis, couve, repolho) contêm glicorafanina, que é convertida no composto bioativo sulforafano (ativador da via antioxidante celular Nrf2) pela enzima mirosinase; como o calor intenso inativa a mirosinase, picar o brócolis cru 30 minutos antes do cozimento leve a vapor ou adicionar semente de mostarda preserva a formação de sulforafano."
+      }
+    ]
+  },
+  {
+    "doc_id": "DOC_MICRONUTRIENTES_INTERACOES_09",
+    "title": "Biodisponibilidade de Micronutrientes e Interações Nutriente-Nutriente",
+    "source_organization": "Consenso de Nutrição Clínica e Hematologia",
+    "publication_year": 2024,
+    "clinical_domain": "Micronutrientes, Anemia Ferropriva e Metabolismo Ósseo",
+    "evidence_level": "GRADE_A",
+    "sections": [
+      {
+        "section_path": "Absorção de Ferro > Ferro Heme vs. Não-Heme, Vitamina C e Antinutrientes",
+        "text": "O ferro dietético apresenta-se em duas formas: ferro heme (origem animal, absorção de 15% a 35%) e ferro não-heme (origem vegetal, como feijão, lentilha, grão-de-bico e folhas verde-escuras, absorção variável de 2% a 20%). A absorção do ferro não-heme no duodeno depende da sua redução da forma férrica (Fe3+) para a forma ferrosa (Fe2+) antes do transporte pelo DMT1. O ácido ascórbico (Vitamina C, presente em laranja, acerola, limão e caju) forma um quelato solúvel e reduz o Fe3+ a Fe2+, triplicando a absorção do ferro vegetal na mesma refeição (Evidência GRADE A). Em contrapartida, polifenóis/taninos (café, chá preto e mate consumidos junto à refeição), fitatos (grãos não demolhados, sendo reduzidos pelo remolho do feijão por 8-12h) e doses altas de cálcio competem ou inibem a absorção do ferro não-heme."
+      },
+      {
+        "section_path": "Vitaminas Críticas > Vitamina B12 e Vitamina D",
+        "text": "A vitamina B12 (cobalamina) é sintetizada exclusivamente por microrganismos e está presente de forma biodisponível apenas em alimentos de origem animal ou alimentos fortificados; nenhuma planta ou fungo não fortificado fornece B12 ativa de forma confiável para humanos, tornando o monitoramento laboratorial e a suplementação orientados por profissional indispensáveis em dietas estritamente vegetarianas/veganas (Evidência GRADE A). A vitamina D (colecalciferol), por ser lipossolúvel, tem sua absorção intestinal otimizada quando ingerida junto a uma refeição contendo lipídios."
+      }
+    ]
+  },
+  {
+    "doc_id": "DOC_HIDRATACAO_SONO_CRONO_10",
+    "title": "Crononutrição, Sono, Regulação Neuroendócrina da Saciedade e Hidratação",
+    "source_organization": "Diretrizes de Medicina do Estilo de Vida e Cronobiologia Nutricional",
+    "publication_year": 2024,
+    "clinical_domain": "Crononutrição, Saciedade e Hidratação",
+    "evidence_level": "GRADE_B",
+    "sections": [
+      {
+        "section_path": "Crononutrição e Sono > Leptina, Grelina e Sensibilidade Circadiana à Insulina",
+        "text": "A sensibilidade periférica à insulina e a tolerância à glicose seguem ritmo circadiano, sendo fisiologicamente maiores pela manhã e início da tarde e menores no período noturno tardio devido à ação da melatonina sobre as células beta pancreáticas. Além disso, estudos clínicos controlados demonstram que a restrição de sono (< 6 horas por noite) reduz os níveis séricos de leptina (hormônio anorexígeno de saciedade) e eleva a grelina acilada (hormônio orexígeno da fome), aumentando o apetite por alimentos hiperpalatáveis ricos em açúcares e gorduras no dia seguinte (Evidência GRADE B)."
+      }
+    ]
+  }
+]
