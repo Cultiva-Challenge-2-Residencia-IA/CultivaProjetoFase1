@@ -29,8 +29,11 @@ RUNNING_HEADER_MAX_CHARS = 200
 RUNNING_HEADER_MIN_PAGES = 4
 
 # Seções sem conteúdo científico a recuperar. Descartadas até o próximo título.
+# Aceita numeração antes do título ("9. BIBLIOGRAFIA", "9.BIBLIOGRAFIA").
 SKIPPED_SECTIONS = re.compile(
-    r"^(refer[eê]ncias( bibliogr[aá]ficas)?|bibliografia|colaboradores|abstract)$", re.I
+    r"^(\d+(\.\d+)*\.?\s*)?"
+    r"(refer[eê]ncias( bibliogr[aá]ficas)?|bibliografia|colaboradores|abstract|[ií]ndice|sum[aá]rio)$",
+    re.I,
 )
 # Linhas de cabeçalho/rodapé de periódico e numeração solta.
 NOISE_LINE = re.compile(
@@ -71,14 +74,14 @@ def clean_inline(line: str) -> str:
     return unicodedata.normalize("NFC", line)
 
 
-def clean_page(raw: str, skipping: bool, section: str) -> tuple[list[tuple[str, str]], bool, str]:
-    """Devolve (seção, parágrafo) limpos, se segue em seção descartada e a seção corrente."""
-    paragraphs: list[tuple[str, str]] = []
+def clean_page(raw: str, skipping: bool, section: str) -> tuple[list[tuple[str, str, bool]], bool, str]:
+    """Devolve (seção, parágrafo, é_linha_de_tabela), se segue em seção descartada e a seção corrente."""
+    paragraphs: list[tuple[str, str, bool]] = []
     current: list[str] = []
 
     def flush() -> None:
         if current:
-            paragraphs.append((section, " ".join(current)))
+            paragraphs.append((section, " ".join(current), False))
             current.clear()
 
     for line in raw.splitlines():
@@ -106,7 +109,7 @@ def clean_page(raw: str, skipping: bool, section: str) -> tuple[list[tuple[str, 
             cells = [clean_inline(c) for c in stripped.strip("|").split("|")]
             row = " | ".join(c for c in cells if c)
             if row:
-                paragraphs.append((section, row))
+                paragraphs.append((section, row, True))
             continue
         text = clean_inline(stripped)
         if not text or NOISE_LINE.match(text):
@@ -166,16 +169,17 @@ def prepare(source: dict) -> dict:
     cleaned = []
     for page, raw in split_pages(markdown):
         paragraphs, skipping, section = clean_page(raw, skipping, section)
-        cleaned.append((page, [(s, p) for s, p in paragraphs if not any(rx.search(p) for rx in drop)]))
+        cleaned.append((page, [(s, p, t) for s, p, t in paragraphs if not any(rx.search(p) for rx in drop)]))
     # Cabeçalhos e rodapés correntes: parágrafo curto que se repete em várias páginas.
+    # Linhas de tabela ficam de fora: cabeçalhos de coluna repetidos são conteúdo.
     pages_by_text: dict[str, set[int]] = {}
     for page, paragraphs in cleaned:
-        for _, paragraph in paragraphs:
-            if len(paragraph) < RUNNING_HEADER_MAX_CHARS:
+        for _, paragraph, is_table in paragraphs:
+            if not is_table and len(paragraph) < RUNNING_HEADER_MAX_CHARS:
                 pages_by_text.setdefault(paragraph, set()).add(page)
     running = {text for text, pages in pages_by_text.items() if len(pages) >= RUNNING_HEADER_MIN_PAGES}
     for page, paragraphs in cleaned:
-        paragraphs = [(s, p) for s, p in paragraphs if p not in running]
+        paragraphs = [(s, p) for s, p, t in paragraphs if t or p not in running]
         for number, (chunk_section, text) in enumerate(chunk_page(paragraphs), 1):
             if len(text) < MIN_CHARS:
                 discarded_short += 1

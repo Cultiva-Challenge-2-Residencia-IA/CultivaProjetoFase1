@@ -148,8 +148,8 @@ Campos: `id`, `fonte_id`, `titulo_fonte`, `pagina_pdf`, `secao`, `texto`, `licen
 
 O que o script faz:
 
-- Remove front matter, marcadores de página, links, notas de conversão, HTML (`<sup>`, `<br>`), formatação Markdown, numeração solta e cabeçalhos/rodapés repetidos (parágrafo curto presente em 4 ou mais páginas).
-- Descarta seções de Referências, Colaboradores e Abstract. Metadados editoriais por fonte (autores, afiliações, resumo em inglês) são descartados por `scripts/config/rag.yaml`.
+- Remove front matter, marcadores de página, links, notas de conversão, HTML (`<sup>`, `<br>`), formatação Markdown, numeração solta e cabeçalhos/rodapés repetidos (parágrafo curto presente em 4 ou mais páginas; linhas de tabela não entram nessa regra, para preservar cabeçalhos de coluna).
+- Descarta seções de Referências/Bibliografia, Sumário/Índice, Colaboradores e Abstract, inclusive com numeração no título (ex.: "9. BIBLIOGRAFIA"). Metadados editoriais por fonte (autores, afiliações, resumo em inglês) são descartados por `scripts/config/rag.yaml`.
 - Repara ligaturas quebradas pela extração ("signifi cativo" vira "significativo").
 - Divide em Trechos de cerca de 1000 caracteres (máximo de 1400 nos parágrafos longos), **sem atravessar página nem seção**. Tabelas ficam com uma linha por linha.
 - Confere o SHA-256 do `.md` contra o relatório e gera saída determinística: rodar de novo produz arquivos idênticos.
