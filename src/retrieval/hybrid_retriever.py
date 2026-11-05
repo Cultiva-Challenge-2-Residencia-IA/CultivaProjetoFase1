@@ -17,7 +17,7 @@ from src.config import (
     WEIGHT_BM25,
     WEIGHT_VECTOR,
 )
-from src.models.schemas import DocumentChunk, RetrievedChunk
+from src.models.schemas import DocumentChunk, RetrievedChunk, TrechoRecuperado
 
 PORTUGUESE_STOPWORDS = {
     "a", "ao", "aos", "aquela", "aquelas", "aquele", "aqueles", "aquilo", "as",
@@ -129,15 +129,21 @@ class HybridRetriever:
         weight_bm25: float = WEIGHT_BM25,
         weight_vector: float = WEIGHT_VECTOR,
     ) -> None:
-        if not chunks:
-            raise ValueError("A lista de chunks para o HybridRetriever não pode estar vazia.")
-
         self.chunks = chunks
         self.top_k_bm25 = top_k_bm25
         self.top_k_vector = top_k_vector
         self.rrf_k = rrf_k
         self.weight_bm25 = weight_bm25
         self.weight_vector = weight_vector
+
+        if not chunks:
+            self.bm25 = None
+            self.tfidf = None
+            self.svd = None
+            self.doc_vectors = None
+            self.tfidf_matrix_norm = None
+            self.tokenized_corpus = []
+            return
 
         # 1. Construção do índice BM25
         self.tokenized_corpus = [
@@ -171,6 +177,8 @@ class HybridRetriever:
             self.tfidf_matrix_norm = normalize(tfidf_matrix)
 
     def _search_bm25(self, query: str) -> List[Tuple[int, float]]:
+        if not self.chunks or self.bm25 is None:
+            return []
         query_tokens = tokenize_biomedical(query)
         if not query_tokens:
             return [(idx, 0.0) for idx in range(min(self.top_k_bm25, len(self.chunks)))]
@@ -179,6 +187,8 @@ class HybridRetriever:
         return [(int(idx), float(scores[idx])) for idx in ranked_indices]
 
     def _search_vector(self, query: str) -> List[Tuple[int, float]]:
+        if not self.chunks or self.tfidf is None:
+            return []
         expanded_query = expand_clinical_synonyms(query)
         q_tfidf = self.tfidf.transform([expanded_query])
         q_tfidf_norm = normalize(q_tfidf)
@@ -216,6 +226,8 @@ class HybridRetriever:
         top_k: int = TOP_K_FINAL,
         max_chunks_per_doc: int = MAX_CHUNKS_PER_DOC,
     ) -> List[RetrievedChunk]:
+        if not self.chunks or self.bm25 is None:
+            return []
         bm25_results = self._search_bm25(query)
         vector_results = self._search_vector(query)
 
@@ -287,3 +299,15 @@ class HybridRetriever:
             return diversified
 
         return retrieved_items[:top_k]
+
+    def recuperar(self, consulta: str, k: int = TOP_K_FINAL) -> List[TrechoRecuperado]:
+        """
+        Implementa a interface canônica NutricaoRetrieverProtocol.
+        Entrada: consulta (str), k (int).
+        Saída: Trechos com scores (List[TrechoRecuperado]).
+        """
+        results = self.retrieve(query=consulta, top_k=k)
+        return [
+            TrechoRecuperado.from_retrieved_chunk(rc=item, rank=idx)
+            for idx, item in enumerate(results, start=1)
+        ]

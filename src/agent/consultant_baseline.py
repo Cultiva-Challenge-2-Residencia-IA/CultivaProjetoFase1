@@ -4,12 +4,15 @@ from typing import List, Optional
 from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
 from src.config import GUIDELINES_DIR, TOP_K_FINAL
+from src.guardrails.risco import detect_clinical_risk_flags
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.models.schemas import (
     CausalGraphPath,
     ConsultantResponse,
     DocumentChunk,
+    SinaisFluxo,
     TacoFoodNutrientRecord,
+    TrechoRecuperado,
 )
 from src.retrieval.graph_engine import CausalKnowledgeGraphEngine
 from src.retrieval.hybrid_retriever import HybridRetriever
@@ -136,6 +139,49 @@ class NutritionConsultantBaseline:
         else:
             mode = "HYBRID_RAG_BASELINE"
 
+        # Sinais do fluxo que a avaliação lê (risco, recusa, redirecionamento, nao_sei)
+        risk_flags = detect_clinical_risk_flags(user_query)
+        has_contraindication = any(gp.is_contraindicated_for_query for gp in graph_paths)
+        has_risk = bool(risk_flags or has_contraindication)
+        risk_details = sorted(list(risk_flags))
+        if has_contraindication:
+            risk_details.append("contraindicacao_cruzada")
+
+        is_refusal = assessment.is_restricted_by_law_8234
+        refusal_reason = (
+            f"Lei Federal nº 8.234/1991 (Art. 3º - CFN): {assessment.intent_category}"
+            if is_refusal
+            else None
+        )
+
+        is_redirect = assessment.is_restricted_by_law_8234
+        redirect_query = assessment.reframed_population_query if is_redirect else None
+        redirect_notice = assessment.legal_notice_required if is_redirect else None
+
+        is_nao_sei = len(retrieved) == 0 or all(r.rrf_score <= 0.001 for r in retrieved)
+        nao_sei_motivo = (
+            "Ausência de evidências científicas aprovadas suficientes no corpus de Nutrição para fundamentar a resposta (RN04/RF-IA01)."
+            if is_nao_sei
+            else None
+        )
+
+        sinais = SinaisFluxo(
+            risco=has_risk,
+            risco_detalhes=risk_details,
+            recusa=is_refusal,
+            recusa_motivo=refusal_reason,
+            redirecionamento=is_redirect,
+            redirecionamento_consulta=redirect_query,
+            redirecionamento_aviso=redirect_notice,
+            nao_sei=is_nao_sei,
+            nao_sei_motivo=nao_sei_motivo,
+        )
+
+        trechos_recuperados = [
+            TrechoRecuperado.from_retrieved_chunk(item, rank=idx)
+            for idx, item in enumerate(retrieved, start=1)
+        ]
+
         return ConsultantResponse(
             original_query=user_query,
             effective_query=effective_query,
@@ -151,6 +197,8 @@ class NutritionConsultantBaseline:
             evidence_grade=str(synthesis.get("evidence_grade", "N/A")),
             citations=citations,
             retrieved_chunks=retrieved,
+            trechos_recuperados=trechos_recuperados,
+            sinais=sinais,
             model_used=model_used,
             retrieval_mode=mode,
         )
