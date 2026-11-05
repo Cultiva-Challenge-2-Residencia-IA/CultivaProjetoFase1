@@ -6,35 +6,43 @@ Projeto: CULTIVA, um aplicativo que usa IA para ajudar jovens adultos e estudant
 
 ## Consultor Científico de Nutrição Baseado em Evidências (RAG Híbrido + TACO + Grafo Causal)
 
-Implementação completa em 3 passos de um consultor de nutrição baseado em evidências científicas e diretrizes oficiais, operando com modelo local (**Ollama `qwen2.5:7b` / `qwen2.5:3b`**) e respeitando rigorosamente os limites da **Lei Federal nº 8.234/1991 (Art. 3º - CFN)**.
+Implementação completa em 3 passos de um consultor de nutrição baseado em evidências científicas e diretrizes oficiais, operando com a **API gratuita da Groq (`openai/gpt-oss-120b` / `qwen/qwen3.8-27b`)** (com fallback opcional para **Ollama local `qwen2.5:7b`**) e respeitando rigorosamente os limites da **Lei Federal nº 8.234/1991 (Art. 3º - CFN)**.
 
-## Arquitetura da Fase 1 (Baseline)
+## Arquitetura em 3 Passos
 
-1. **Contextual Chunking (`src/ingestion/contextual_chunker.py`):**
-   Divide as diretrizes e revisões sistemáticas preservando a hierarquia de seções e injetando o cabeçalho contextual (`[Documento | Fonte | Domínio | Nível GRADE | Seção]`) em cada chunk.
-2. **Motor de RAG Híbrido (`src/retrieval/hybrid_retriever.py`):**
-   * **Busca Léxica (BM25):** Tokenizador biomédico em português que preserva siglas (`HbA1c`, `LDL-c`, `mTORC1`, `EGCG`, `GLP-1`, `CYP1A2`, `Fe2+`).
-   * **Busca Vetorial Densa Local:** Representação semântica local (TF-IDF n-gramas + SVD/LSA normalizado por cosseno) com expansão de sinônimos clínicos.
-   * **Fusão RRF (`Reciprocal Rank Fusion`) + Reranker Clínico:** Combina os rankings léxico e vetorial e aplica bônus de cobertura conceitual e grau de evidência (`GRADE_A`, `GRADE_B`, `GUIDELINE_CONSENSUS`).
-3. **Guardrails Legais (`src/agent/guardrails.py`):**
-   * **Input Guardrail & Reframing:** Detecta pedidos de prescrição de cardápio/dieta individualizada, diagnóstico clínico por exames ou posologia personalizada de suplementos, exibe a nota de conformidade com a Lei nº 8.234/91 e reescreve a consulta para o formato PICO populacional.
-   * **Output Guardrail:** Bloqueia expressões imperativas/prescritivas individuais na saída.
-4. **Síntese Local (`src/agent/llm_client.py`):**
-   Integra-se ao **Ollama local (`qwen2.5:7b` / `qwen2.5:3b`)** com saída JSON estruturada e possui síntese extrativa determinística integrada como fallback.
+1. **Passo 1 — Contextual Chunking & RAG Híbrido (`src/ingestion/` & `src/retrieval/hybrid_retriever.py`):**
+   * **Contextual Chunking:** Divide o *Guia Alimentar para a População Brasileira (2ª Ed. Oficial)*, *34 Meta-Análises/Revisões Sistemáticas do PubMed* e *Diretrizes Clínicas (SBD, SBC, ISSN, COI)* preservando a hierarquia de seções e o grau de evidência (`GRADE_A`, `GRADE_B`, `GUIDELINE_CONSENSUS`).
+   * **Fusão RRF (`BM25` + `Vetorial SVD Local`) + Reranker Clínico:** Combina busca léxica biomédica e busca semântica densa com diversificação documental.
+2. **Passo 2 — Ferramenta Determinística da Tabela TACO (`src/retrieval/taco_tool.py`):**
+   * Consulta exata e ranking matemático por 100g sobre os **597 alimentos brasileiros** da *Tabela TACO 4ª Edição (Unicamp) / TBCA-USP*.
+3. **Passo 3 — Grafo de Conhecimento Causal de 4 Camadas (`src/retrieval/graph_engine.py`):**
+   * Grafo `NetworkX` (`MultiDiGraph`) estruturado em 4 camadas (`Alimento ➔ Composto Bioativo ➔ Mecanismo Fisiológico ➔ Desfecho Clínico PICO/GRADE`), validando sinergias de biodisponibilidade (ex.: *Curcumina + Piperina*) e filtrando contraindicações em comorbidades múltiplas (ex.: risco de hipercalemia do potássio na Doença Renal Crônica).
+4. **Guardrails Ético-Legais (`src/agent/guardrails.py`):**
+   * **Input Guardrail & Reframing:** Bloqueia pedidos de prescrição de cardápio/dieta individualizada, diagnóstico clínico por exames ou posologia personalizada de suplementos (Lei nº 8.234/91) e reenquadra para consulta PICO populacional.
+   * **Output Guardrail:** Remove expressões imperativas/prescritivas individuais na saída.
+5. **Síntese Estruturada via Groq API (`src/agent/llm_client.py`):**
+   * Integra-se à API gratuita da **Groq (`openai/gpt-oss-120b` / `qwen/qwen3.8-27b`)**, com fallback para **Ollama local** e síntese extrativa determinística.
 
 ## Como Executar
 
-### 1. Instalar dependências e rodar os testes automatizados
+### 1. Configurar variáveis de ambiente (`.env`)
+```bash
+cp .env.example .env
+# Edite o arquivo .env e adicione sua chave gratuita da Groq (https://console.groq.com/keys):
+# GROQ_API_KEY=gsk_...
+```
+
+### 2. Rodar a suíte de testes automatizados (21 testes)
 ```bash
 uv run pytest -v
 ```
 
-### 2. Executar a Suíte de Benchmark do Baseline
+### 3. Executar o Benchmark (16 questões) e Estudo de Ablação
 ```bash
-# Usando síntese determinística rápida:
-uv run python -m src.evaluation.run_benchmark --no-ollama
+# Estudo de Ablação rápido (Passo 1 vs. Passo 2 vs. Passo 3):
+uv run python -m src.evaluation.run_benchmark --no-ollama --ablation
 
-# Usando o modelo local no Ollama (qwen2.5:7b):
+# Benchmark completo com LLM (Groq / Ollama):
 uv run python -m src.evaluation.run_benchmark
 ```
 
