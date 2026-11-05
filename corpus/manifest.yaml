@@ -82,6 +82,45 @@ sources:
     intended_use_license_review: pendente
     identity_note: Créditos identificam SVB e Eric Slywitch; não identificam autoria conjunta com SBAN. Posicionamento
       da SBAN não incluído nesta fonte.
+  - id: moreira-rodrigues-conhecimento-nutricional-suplementacao-2014
+    title: Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos
+    authors:
+      - Fernanda Pedrotti Moreira
+      - Kelly Lameiro Rodrigues
+    institutions:
+      - Universidade Federal de Pelotas
+    journal: Revista Brasileira de Medicina do Esporte
+    year: 2014
+    edition: volume 20, número 5, setembro/outubro, páginas 370–373
+    version: 2014-v20-n5-p370-373
+    doi: 10.1590/1517-86922014200500795
+    source: https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?lang=pt
+    download_url: https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?format=pdf&lang=pt
+    retrieved_on: '2026-11-05'
+    access_note: PDF baixado da SciELO; bytes idênticos ao anexo fornecido pelo solicitante, conforme SHA-256.
+    license: CC-BY-NC-4.0
+    license_evidence:
+      url: https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?lang=pt
+      license_url: https://creativecommons.org/licenses/by-nc/4.0/
+      checked_on: '2026-11-05'
+      description: Aviso de licença da página do artigo declara Creative Commons Attribution Non-Commercial; o link
+        aponta para BY-NC 4.0. O PDF não exibe esse aviso.
+    original_path: corpus/nutricao/originais/moreira_rodrigues_2014_conhecimento_nutricional_suplementacao.pdf
+    markdown_path: corpus/nutricao/markdown/moreira_rodrigues_2014_conhecimento_nutricional_suplementacao.md
+    report_path: corpus/nutricao/relatorios/moreira_rodrigues_2014_conhecimento_nutricional_suplementacao.json
+    conversion_config: corpus/scripts/config/moreira-rodrigues-2014.yaml
+    sha256: 86dc9ecd4bf70e7a975d2b085922dcf972d0dbf0af7f40fcc29efe52bb85d25a
+    pdf_pages: 4
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+    purpose_note: Contribui para contextualizar o consumo de suplementos, a autoindicação e a necessidade de orientação
+      nutricional. Apoia as respostas educativas do CULTIVA relacionadas à RN02 e ao encaminhamento para profissionais.
+    scope_note: Estudo transversal descritivo de 60 frequentadores de uma academia de Pelotas. Não comprova riscos
+      de todos os suplementos; restrição de prescrição permanece uma regra do produto, independente deste estudo.
+    rule_mapping_note: Na documentação original consultada em 05/11/2026, RN02 é alerta de orientação profissional
+      e RN01 é bloqueio de prescrição; há divergência em relação à numeração mencionada no pedido. Nenhuma regra foi alterada.
 
 # Cada fonte deve declarar identificador, origem, licença e versão.
 # Exemplo:
