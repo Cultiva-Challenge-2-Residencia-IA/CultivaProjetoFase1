@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: CULTIVA Nutrição API
+  version: 1.0.0
+  description: API de nutrição com respostas fundamentadas, fontes e guardrails.
+paths:
+  /v1/nutricao/perguntar:
+    post:
+      summary: Responde pergunta sobre nutrição
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [pergunta]
+              properties:
+                pergunta:
+                  type: string
+                thread_id:
+                  type: string
+                user_id:
+                  type: string
+      responses:
+        '200':
+          description: Resposta estruturada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Answer'
+  /v1/feedback:
+    post:
+      summary: Feedback de resposta incorreta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [trace_id, incorreta]
+              properties:
+                trace_id:
+                  type: string
+                incorreta:
+                  type: boolean
+                comentario:
+                  type: string
+      responses:
+        '200':
+          description: Feedback aceito
+  /health:
+    get:
+      summary: health check
+      responses:
+        '200':
+          description: ok
+components:
+  schemas:
+    Source:
+      type: object
+      required: [id, title]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        section:
+          type: string
+        page:
+          type: integer
+        url:
+          type: string
+          nullable: true
+        snippet:
+          type: string
+    Claim:
+      type: object
+      required: [texto, source_ids, tipo]
+      properties:
+        texto:
+          type: string
+        source_ids:
+          type: array
+          items:
+            type: string
+        tipo:
+          type: string
+          enum: [da_fonte, estimativa_ia]
+    Answer:
+      type: object
+      required: [answer, claims, sources, confianca, recusou, avisos, trace_id]
+      properties:
+        answer:
+          type: string
+        claims:
+          type: array
+          items:
+            $ref: '#/components/schemas/Claim'
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Source'
+        confianca:
+          type: string
+          enum: [alta, media, baixa]
+        recusou:
+          type: boolean
+        motivo:
+          type: string
+          nullable: true
+        avisos:
+          type: array
+          items:
+            type: string
+        trace_id:
+          type: string

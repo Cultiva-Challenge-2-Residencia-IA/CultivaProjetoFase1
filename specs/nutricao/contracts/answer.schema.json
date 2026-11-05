@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resposta da nutrição",
+  "type": "object",
+  "required": ["answer", "claims", "sources", "confianca", "recusou", "avisos", "trace_id"],
+  "properties": {
+    "answer": { "type": "string" },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["texto", "source_ids", "tipo"],
+        "properties": {
+          "texto": { "type": "string" },
+          "source_ids": { "type": "array", "items": { "type": "string" } },
+          "tipo": { "type": "string", "enum": ["da_fonte", "estimativa_ia"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "section": { "type": ["string", "null"] },
+          "page": { "type": ["integer", "null"] },
+          "url": { "type": ["string", "null"] },
+          "snippet": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "confianca": { "type": "string", "enum": ["alta", "media", "baixa"] },
+    "recusou": { "type": "boolean" },
+    "motivo": { "type": ["string", "null"] },
+    "avisos": { "type": "array", "items": { "type": "string" } },
+    "trace_id": { "type": "string" }
+  },
+  "additionalProperties": false
+}
