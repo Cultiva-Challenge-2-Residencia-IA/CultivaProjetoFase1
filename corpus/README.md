@@ -15,6 +15,7 @@ O catálogo é [`manifest.yaml`](manifest.yaml), mantendo `version: 1` e `source
 | Martins et al. — Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009) | Rev Saúde Pública 47(4):656-665, 2013 | 10 | [SciELO](https://www.scielo.br/j/rsp/a/VxDyNppnrq8vv6jQtZfSsRP/?lang=pt) |
 | Souza e Backes — Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimentação Saudável entre universitários de Porto Alegre | Ciênc Saúde Coletiva 25(11):4463-4472, 2020 | 10 | [SciELO](https://www.scielo.br/j/csc/a/ZzMLsShvSMNPwPttjKqtGSC/?lang=pt) |
 | Guia alimentar de dietas vegetarianas para adultos | SVB, Eric Slywitch, 2012; número de edição não identificado | 66 | Arquivo `guia-alimentar.pdf` fornecido pelo solicitante em 05/11/2026 |
+| Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos | Moreira e Rodrigues, Rev Bras Med Esporte, 20(5):370–373, 2014 | 4 | [SciELO](https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?format=pdf&lang=pt), obtido em 05/11/2026 |
 
 Consulta e obtenção dos dois documentos do Ministério da Saúde: **03/11/2026**. O endereço do Guia informado no pedido redirecionou para autenticação; o arquivo foi obtido na BVS oficial. A edição foi identificada na capa e nos créditos, mas não foi possível comparar seus bytes com os do endereço indisponível. As fichas catalográficas indicam 156 e 26 páginas, respectivamente; o total físico inclui páginas adicionais. Os marcadores desta conversão usam sempre a posição física no PDF, começando em 1.
 
@@ -41,6 +42,30 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --source guia-dietas-vege
 ```
 
 Foram extraídas todas as 66 páginas pela camada textual com PyMuPDF Layout, sem OCR: a única página abaixo do limiar de texto (66) é uma contracapa decorativa com os dizeres presentes na camada nativa, conferida visualmente. Não foi necessária instalação de dependências nem alteração dos scripts. A configuração `scripts/config/svb-2012.yaml` registra decisões e a correção literal de uma quebra de URL. Isso não elimina a necessidade de revisão integral de figuras, tabelas e hierarquia dos títulos.
+
+### Artigo de Moreira e Rodrigues (inclusão de 05/11/2026)
+
+**Referência:** Moreira, Fernanda Pedrotti; Rodrigues, Kelly Lameiro. Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos. *Revista Brasileira de Medicina do Esporte*, 20(5):370–373, 2014. DOI: [10.1590/1517-86922014200500795](https://doi.org/10.1590/1517-86922014200500795). O PDF baixado da SciELO é idêntico, por SHA-256, ao anexo recebido; preservado sem modificar os bytes. Os marcadores físicos 1–4 correspondem às páginas impressas 370–373.
+
+**Justificativa de inclusão solicitada:** “Contribui para contextualizar o consumo de suplementos, a autoindicação e a necessidade de orientação nutricional. Apoia as respostas educativas do CULTIVA relacionadas à RN02 e ao encaminhamento para profissionais.” É uma finalidade proposta para curadoria; conversão não comprova atendimento ao requisito nem aprovação da fonte.
+
+O título anterior informado pelo solicitante não foi encontrado no manifesto ou na documentação local inspecionada, portanto não houve registro local a substituir. Não foi alterado o repositório externo de documentação.
+
+**Limite da evidência:** estudo transversal descritivo com 60 frequentadores de uma academia de Pelotas; excluiu atletas de rendimento e pessoas que recebiam orientação nutricional (página física 2). Não é prova dos riscos de todos os suplementos nem estabelece causalidade ou representatividade de todos os praticantes. O encaminhamento e a restrição de prescrição continuam definidos pelas regras do produto, independentemente deste estudo. **Divergência de numeração:** nas [regras originais consultadas em 05/11/2026](https://github.com/Cultiva-Challenge-2-Residencia-IA/Documentacao-Cultiva/blob/main/docs/regras-de-negocio.md), RN02 é o alerta de orientação profissional; o bloqueio de prescrição consta na RN01. O pedido o atribuiu à RN02. A justificativa foi mantida literalmente; nenhuma regra foi renumerada ou modificada. A aprovação formal dos requisitos continua não confirmada.
+
+**Licença:** a [página do artigo na SciELO](https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?lang=pt) declara Creative Commons Atribuição Não Comercial e vincula [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/); o PDF não exibe o aviso. Esta transcrição mantém atribuição às autoras; alterações são estruturação, recomposição de tabela/gráfico e correções de extração registradas. Não há endosso das autoras ao CULTIVA. Compatibilidade com o uso pretendido permanece pendente.
+
+**Conversão e conferência:** extração nativa com o conversor existente; conferidas as quatro páginas renderizadas, as quatro tabelas (células, percentuais, unidades, sinais e valores de p), os resumos nos três idiomas, a Figura 1, a continuidade dos parágrafos em colunas, conclusões e referências 1–21. Dois cabeçalhos de tabela saíram corrompidos; a página 3 foi recomposta por ajuste literal. Figura 1 transcrita em tabela (Baixo 33,3; Moderado 51,7; Alto 15), mantendo a escala e o link ao PDF. Corrigidos falso tachado do rodapé, quebra espúria de musculação, continuidade da referência 11 e espaço de URL. OCR apenas no brasão da página 1 foi impreciso e ficou no relatório, sem contaminar o corpo da transcrição. Sem exportar imagens; conferências visuais ficaram em `/tmp`.
+
+**Resultados desfavoráveis preservados:** os resultados informam 78,9% de homens (páginas 1–2), enquanto a discussão informa 75,9% para n=15 (página 3); a Tabela 3 mantém 17/19 e 89,95%, embora a divisão resulte em aproximadamente 89,47%. Os números publicados não foram corrigidos nem harmonizados. Alertas lexicais incluem palavras hifenizadas, referências sobrescritas e notas com sinais matemáticos; cobertura lexical não mede fidelidade semântica. Brasão circular, geometria do gráfico, espaçamento e hierarquia visual não estão integralmente representados em Markdown. Os URLs históricos das referências não foram validados.
+
+Para regenerar somente este artigo (ajustes em `scripts/config/moreira-rodrigues-2014.yaml` e `scripts/ajustes/moreira-rodrigues-p003.md`):
+
+```bash
+corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --source moreira-rodrigues-conhecimento-nutricional-suplementacao-2014 --download-ocr --overwrite
+```
+
+Revisão independente de fidelidade, avaliação científica, aprovação e compatibilidade da licença permanecem pendentes. Conferência pelo assistente não equivale à aprovação para uso pelo produto.
 
 ## Organização
 
