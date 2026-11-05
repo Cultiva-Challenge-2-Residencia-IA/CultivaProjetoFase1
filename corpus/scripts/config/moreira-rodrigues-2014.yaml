@@ -1,0 +1,54 @@
+sha256: 86dc9ecd4bf70e7a975d2b085922dcf972d0dbf0af7f40fcc29efe52bb85d25a
+page_notes:
+  1: Títulos e resumos em português, inglês e espanhol. Brasão da revista permanece
+    no PDF; texto circular do logotipo sem transcrição integral. Autoras e afiliação
+    preservadas. Capitalização de Artigo Original e falso tachado em N do rodapé corrigidos
+    conforme imagem.
+  2: Texto em duas colunas e continuação do resumo em espanhol. DOI conferido. Respeitar
+    a continuidade entre páginas. Falso tachado em N do rodapé removido. Alertas lexicais
+    incluem palavras hifenizadas e citações sobrescritas; não constituem medida de
+    fidelidade.
+  3: Tabelas 1–4 conferidas célula a célula; corrigidos cabeçalhos corrompidos. Figura
+    1 transcrita como tabela de rótulos/valores e escala. Tabela 4 e figura posicionadas
+    antes da discussão para recompor o parágrafo entre colunas. Original mantém 78,9%
+    nos resultados (página 2) e 75,9% na discussão (página 3) para n=15; Tabela 3
+    mantém 17/19 e 89,95%, cuja divisão resulta em aproximadamente 89,47%. Não corrigidos
+    os valores publicados; exigem avaliação científica.
+  4: Conferidos discussão, conclusões, declaração de conflito de interesses e referências
+    1–21. Corrigidas quebra espúria em musculação (referência 1), continuidade da
+    referência 11 e espaço no URL da referência 14. Removido falso tachado em N do
+    rodapé. Links históricos não validados.
+page_overrides:
+  3: corpus/scripts/ajustes/moreira-rodrigues-p003.md
+replacements:
+- page: 1
+  old: ~~N~~<sup><u>o</u></sup>
+  new: N<sup>o</sup>
+- page: 2
+  old: ~~N~~<sup><u>o</u></sup>
+  new: N<sup>o</sup>
+- page: 4
+  old: ~~N~~<sup><u>o</u></sup>
+  new: N<sup>o</sup>
+- page: 1
+  old: '**Artigo originAl**'
+  new: '**Artigo Original**'
+- page: 4
+  old: "mus- \n\n- culação"
+  new: musculação
+- page: 4
+  old: http://www.efdeportes.com/ efd147/
+  new: http://www.efdeportes.com/efd147/
+- page: 4
+  old: "suplementação alimentar por \n\namostra representativa"
+  new: suplementação alimentar por amostra representativa
+ocr_regions:
+- page: 1
+  bbox:
+  - 487
+  - 8
+  - 558
+  - 93
+  label: Brasão da revista na primeira página
+  note: OCR auxiliar do texto circular do brasão; não incorporado automaticamente
+    por exigir conferência. Marca e composição visual preservadas no PDF.
