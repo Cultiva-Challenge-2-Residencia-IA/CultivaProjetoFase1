@@ -20,3 +20,48 @@ moreira-rodrigues-conhecimento-nutricional-suplementacao-2014:
     - '^Fernanda Pedrotti Moreira'
     - '^1\. Departamento de Nutrição'
     - '@'
+azevedo-jejum-intermitente-ramb-2013:
+  keep_sections:
+    - abstract
+  drop_paragraphs:
+    - '^Revista da ASSOCIAÇÃO MÉDICA BRASILEIRA'
+    - '^www\.ramb\.org\.br'
+    - '^> [ab] '
+    - '^Article history'
+    - '^©'
+    - '^0104-4230'
+salvi-estudantes-enfermagem-sono-reben-2020:
+  drop_paragraphs:
+    - '^ARTIGO ORIGINAL'
+    - '^Profile of nursing students'
+    - '^Perfil de los estudiantes'
+    - 'ORCID'
+    - '^Descritores:'
+    - '^Como citar este artigo'
+    - '^I Universidade Federal'
+    - '^EDITOR CHEFE'
+abeso-posicionamento-tratamento-nutricional-obesidade-2022:
+  resume_after_skip:
+    - '^CAPÍTULO \d+\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ]{3,}'
+    - '^[A-ZÁÉÍÓÚÂÊÔÃÕÇ ,]{15,}$'
+  drop_paragraphs:
+    - '^\|?\s*(Apresenta|Métod)'
+    - '^DEPARTAMENTO DE NUTRIÇÃO DA ASSOCIAÇÃO BRASILEIRA'
+    - '^Ana Maria Pita Lottenberg Clarissa'
+    - '^Renata Bressan Pepe Ana Maria'
+    - '^Departamento de Nutrição ABESO$'
+    - '^Dados Internacionais de Catalogação'
+sban-agua-hidratacao-saude-2016:
+  drop_paragraphs:
+    - '^Água, Hidratação e Saúde Paula Schmidt'
+    - '^A Sociedade Brasileira de Alimentação e Nutrição \(SBAN\)'
+    - '^Estimular e divulgar conhecimentos'
+    - '^Realiza periodicamente reuniões'
+    - '^Mantém intercâmbio com associações'
+    - '^\d\.$'
+    - '^DRA?\. [A-ZÁÉÍÓÚ]'
+brisotto-depressao-ansiedade-estresse-rbtc-2022:
+  drop_paragraphs:
+    - '^P esquisa e mPírica'
+    - '^Revista Brasileira de Terapias Cognitivas'
+    - 'E-mail:'
