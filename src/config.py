@@ -13,7 +13,17 @@ KNOWLEDGE_GRAPH_PATH = DATA_DIR / "raw" / "knowledge_graph" / "nutrition_4layer_
 BENCHMARK_QUESTIONS_PATH = DATA_DIR / "benchmark" / "eval_questions.json"
 BENCHMARK_REPORT_PATH = DATA_DIR / "benchmark" / "baseline_report.json"
 
-# Configurações do Modelo Local (Ollama)
+# Provedor de LLM ("groq", "ollama" ou "auto")
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq").lower()
+
+# Configurações da API Gratuita Groq (https://console.groq.com)
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_BASE_URL = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_FALLBACK_MODEL = os.getenv("GROQ_FALLBACK_MODEL", "llama-3.1-8b-instant")
+GROQ_TIMEOUT = float(os.getenv("GROQ_TIMEOUT", "30.0"))
+
+# Configurações do Modelo Local (Ollama - Fallback Opcional)
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
 OLLAMA_FALLBACK_MODEL = os.getenv("OLLAMA_FALLBACK_MODEL", "qwen2.5:3b")

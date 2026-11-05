@@ -40,3 +40,25 @@ def test_benchmark_evaluation_achieves_high_recall_and_perfect_legal_compliance(
     assert metrics["legal_guardrail_accuracy"] == 1.0
     assert metrics["mean_doc_recall_at_k"] >= 0.80
     assert report_file.exists()
+
+
+def test_groq_api_client_synthesis(monkeypatch) -> None:
+    consultant = NutritionConsultantBaseline(enable_ollama=True)
+    consultant.llm_client.provider = "groq"
+    consultant.llm_client.groq_api_key = "gsk_test_fake_key"
+    consultant.llm_client.enable_groq = True
+
+    def fake_call_groq(model_name: str, user_prompt: str):
+        assert model_name == "llama-3.3-70b-versatile"
+        return {
+            "evidence_summary": "A beta-glucana da aveia reduz o colesterol LDL-c segundo meta-análises.",
+            "physiological_mechanism": "Aumento da viscosidade luminal intestinal e sequestro de ácidos biliares.",
+            "protocol_findings": "Ingestão populacional estudada de 3 g/dia de beta-glucana.",
+            "food_sources_or_compounds": ["Aveia (beta-glucana)"],
+            "evidence_grade": "GRADE_A",
+        }
+
+    monkeypatch.setattr(consultant.llm_client, "_call_groq_model", fake_call_groq)
+    res = consultant.consult("Como a fibra solúvel da aveia reduz o colesterol LDL?")
+    assert res.model_used == "groq:llama-3.3-70b-versatile"
+    assert "beta-glucana" in res.evidence_summary.lower()

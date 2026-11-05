@@ -5,6 +5,12 @@ from typing import Any, Dict, List, Optional, Tuple
 import httpx
 
 from src.config import (
+    GROQ_API_KEY,
+    GROQ_BASE_URL,
+    GROQ_FALLBACK_MODEL,
+    GROQ_MODEL,
+    GROQ_TIMEOUT,
+    LLM_PROVIDER,
     OLLAMA_BASE_URL,
     OLLAMA_FALLBACK_MODEL,
     OLLAMA_MODEL,
@@ -31,7 +37,8 @@ Responda ESTRITAMENTE em formato JSON válido com as seguintes chaves:
 
 
 class LocalLLMClient:
-    """Cliente para geração local via Ollama (qwen2.5:7b / qwen2.5:3b) com fallback extrativo."""
+    """Cliente de geração via API gratuita Groq (llama-3.3-70b-versatile / llama-3.1-8b-instant),
+    com suporte opcional a Ollama local e fallback determinístico extrativo."""
 
     def __init__(
         self,
@@ -40,12 +47,30 @@ class LocalLLMClient:
         fallback_model: str = OLLAMA_FALLBACK_MODEL,
         timeout: float = OLLAMA_TIMEOUT,
         enable_ollama: bool = True,
+        provider: str = LLM_PROVIDER,
+        groq_api_key: str = GROQ_API_KEY,
+        groq_base_url: str = GROQ_BASE_URL,
+        groq_model: str = GROQ_MODEL,
+        groq_fallback_model: str = GROQ_FALLBACK_MODEL,
+        groq_timeout: float = GROQ_TIMEOUT,
+        enable_groq: Optional[bool] = None,
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.primary_model = primary_model
         self.fallback_model = fallback_model
         self.timeout = timeout
         self.enable_ollama = enable_ollama
+
+        self.provider = provider.lower()
+        self.groq_api_key = groq_api_key.strip()
+        self.groq_base_url = groq_base_url.rstrip("/")
+        self.groq_model = groq_model
+        self.groq_fallback_model = groq_fallback_model
+        self.groq_timeout = groq_timeout
+        self.enable_groq = enable_ollama if enable_groq is None else enable_groq
+
+    def is_groq_available(self) -> bool:
+        return bool(self.enable_groq and self.groq_api_key)
 
     def is_ollama_available(self) -> bool:
         if not self.enable_ollama:
@@ -79,6 +104,42 @@ class LocalLLMClient:
             f"EVIDÊNCIAS RECUPERADAS PELO RAG HÍBRIDO:\n{joined_context}{taco_section}{graph_section}\n\n"
             "Elabore a resposta em JSON seguindo rigorosamente o esquema solicitado e usando os termos técnicos, cadeias do Grafo Causal e valores da Tabela TACO presentes nas fontes."
         )
+
+    def _call_groq_model(self, model_name: str, user_prompt: str) -> Optional[Dict[str, Any]]:
+        if not self.groq_api_key:
+            return None
+        headers = {
+            "Authorization": f"Bearer {self.groq_api_key}",
+            "Content-Type": "application/json",
+        }
+        payload = {
+            "model": model_name,
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT_CONSULTANT},
+                {"role": "user", "content": user_prompt},
+            ],
+            "response_format": {"type": "json_object"},
+            "temperature": 0.1,
+        }
+        try:
+            with httpx.Client(timeout=self.groq_timeout) as client:
+                response = client.post(
+                    f"{self.groq_base_url}/chat/completions",
+                    headers=headers,
+                    json=payload,
+                )
+                response.raise_for_status()
+                data = response.json()
+                choices = data.get("choices", [])
+                if not choices:
+                    return None
+                content = choices[0].get("message", {}).get("content", "")
+                parsed = json.loads(content)
+                if isinstance(parsed, dict) and "evidence_summary" in parsed:
+                    return parsed
+        except Exception:
+            return None
+        return None
 
     def _call_ollama_model(self, model_name: str, user_prompt: str) -> Optional[Dict[str, Any]]:
         payload = {
@@ -220,6 +281,37 @@ class LocalLLMClient:
             "evidence_grade": best_grade,
         }
 
+    @staticmethod
+    def _merge_llm_with_extractive(
+        llm_result: Dict[str, Any],
+        extractive: Dict[str, Any],
+        taco_context_str: str = "",
+    ) -> Dict[str, Any]:
+        llm_protocol = str(
+            llm_result.get("protocol_findings") or extractive["protocol_findings"]
+        )
+        if taco_context_str and "TABELA TACO" not in llm_protocol:
+            llm_protocol = f"{llm_protocol}\n\n{taco_context_str}"
+        return {
+            "evidence_summary": str(
+                llm_result.get("evidence_summary") or extractive["evidence_summary"]
+            ),
+            "physiological_mechanism": (
+                f"{llm_result.get('physiological_mechanism', '')} "
+                f"({extractive['physiological_mechanism']})"
+            ).strip(),
+            "protocol_findings": llm_protocol,
+            "food_sources_or_compounds": (
+                llm_result.get("food_sources_or_compounds")
+                if isinstance(llm_result.get("food_sources_or_compounds"), list)
+                and llm_result.get("food_sources_or_compounds")
+                else extractive["food_sources_or_compounds"]
+            ),
+            "evidence_grade": str(
+                llm_result.get("evidence_grade") or extractive["evidence_grade"]
+            ),
+        }
+
     def generate_structured_synthesis(
         self,
         query: str,
@@ -228,8 +320,9 @@ class LocalLLMClient:
         graph_context_str: str = "",
     ) -> Tuple[Dict[str, Any], str]:
         """
-        Gera a síntese estruturada usando o modelo local no Ollama (qwen2.5:7b -> qwen2.5:3b),
-        com enriquecimento/fallback determinístico para garantir fidelidade terminológica, Grafo e TACO.
+        Gera a síntese estruturada usando preferencialmente a API gratuita Groq
+        (llama-3.3-70b-versatile -> llama-3.1-8b-instant), com fallback opcional para Ollama
+        local (qwen2.5:7b -> qwen2.5:3b) e enriquecimento determinístico.
         """
         extractive = self.synthesize_extractive_fallback(
             query,
@@ -238,7 +331,10 @@ class LocalLLMClient:
             graph_context_str=graph_context_str,
         )
 
-        if not self.is_ollama_available():
+        groq_ready = self.provider in ("groq", "auto") and self.is_groq_available()
+        ollama_ready = self.provider in ("ollama", "auto", "groq") and self.is_ollama_available()
+
+        if not groq_ready and not ollama_ready:
             return extractive, "local_extractive_synthesis"
 
         user_prompt = self._build_user_prompt(
@@ -247,35 +343,29 @@ class LocalLLMClient:
             taco_context_str=taco_context_str,
             graph_context_str=graph_context_str,
         )
-        for model_name in [self.primary_model, self.fallback_model]:
-            if not model_name:
-                continue
-            llm_result = self._call_ollama_model(model_name, user_prompt)
-            if llm_result:
-                llm_protocol = str(
-                    llm_result.get("protocol_findings") or extractive["protocol_findings"]
-                )
-                if taco_context_str and "TABELA TACO" not in llm_protocol:
-                    llm_protocol = f"{llm_protocol}\n\n{taco_context_str}"
-                merged = {
-                    "evidence_summary": str(
-                        llm_result.get("evidence_summary") or extractive["evidence_summary"]
-                    ),
-                    "physiological_mechanism": (
-                        f"{llm_result.get('physiological_mechanism', '')} "
-                        f"({extractive['physiological_mechanism']})"
-                    ).strip(),
-                    "protocol_findings": llm_protocol,
-                    "food_sources_or_compounds": (
-                        llm_result.get("food_sources_or_compounds")
-                        if isinstance(llm_result.get("food_sources_or_compounds"), list)
-                        and llm_result.get("food_sources_or_compounds")
-                        else extractive["food_sources_or_compounds"]
-                    ),
-                    "evidence_grade": str(
-                        llm_result.get("evidence_grade") or extractive["evidence_grade"]
-                    ),
-                }
-                return merged, f"ollama:{model_name}"
+
+        # 1. Tenta primeiro via API gratuita Groq (quando GROQ_API_KEY estiver configurada)
+        if groq_ready:
+            for model_name in [self.groq_model, self.groq_fallback_model]:
+                if not model_name:
+                    continue
+                llm_result = self._call_groq_model(model_name, user_prompt)
+                if llm_result:
+                    merged = self._merge_llm_with_extractive(
+                        llm_result, extractive, taco_context_str
+                    )
+                    return merged, f"groq:{model_name}"
+
+        # 2. Fallback para Ollama local caso configurado/disponível
+        if ollama_ready:
+            for model_name in [self.primary_model, self.fallback_model]:
+                if not model_name:
+                    continue
+                llm_result = self._call_ollama_model(model_name, user_prompt)
+                if llm_result:
+                    merged = self._merge_llm_with_extractive(
+                        llm_result, extractive, taco_context_str
+                    )
+                    return merged, f"ollama:{model_name}"
 
         return extractive, "local_extractive_synthesis"

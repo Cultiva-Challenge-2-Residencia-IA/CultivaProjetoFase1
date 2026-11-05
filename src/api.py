@@ -45,6 +45,9 @@ def health_check() -> dict:
         "indexed_chunks": len(consultant.chunks),
         "taco_foods_loaded": len(consultant.taco_tool.foods) if consultant.taco_tool else 0,
         "knowledge_graph_stats": graph_stats,
+        "llm_provider": consultant.llm_client.provider,
+        "groq_configured": consultant.llm_client.is_groq_available(),
+        "groq_model": consultant.llm_client.groq_model,
         "ollama_available": consultant.llm_client.is_ollama_available(),
         "primary_local_model": consultant.llm_client.primary_model,
     }
