@@ -50,6 +50,69 @@ sources:
     review_status: pendente
     approval_status: pendente
     intended_use_license_review: pendente
+  - id: martins-ultraprocessados-rsp-2013
+    title: Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)
+    authors:
+      - Ana Paula Bortoletto Martins
+      - Renata Bertazzi Levy
+      - Rafael Moreira Claro
+      - Jean Claude Moubarac
+      - Carlos Augusto Monteiro
+    institutions:
+      - Universidade de São Paulo
+      - Universidade Federal de Minas Gerais
+    journal: Revista de Saúde Pública
+    year: 2013
+    edition: "v. 47, n. 4, p. 656-665"
+    version: "2013-47-4"
+    doi: 10.1590/S0034-8910.2013047004968
+    source: https://www.scielo.br/j/rsp/a/VxDyNppnrq8vv6jQtZfSsRP/?lang=pt
+    download_url: https://www.scielo.br/j/rsp/a/VxDyNppnrq8vv6jQtZfSsRP/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-NC-3.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page), não o PDF
+      description: A página declara "Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License" (creativecommons.org/licenses/by-nc/3.0/). O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/martins_et_al_ultraprocessados_rsp_2013.pdf
+    markdown_path: corpus/nutricao/markdown/martins_et_al_ultraprocessados_rsp_2013.md
+    report_path: corpus/nutricao/relatorios/martins_et_al_ultraprocessados_rsp_2013.json
+    sha256: e606387251889e4e9364b436689a85838b346b01ce87fe6dba52df474a398c49
+    pdf_pages: 10
+    selection_note: Artigo da família NOVA com Monteiro como último autor; descreve os grupos por extensão e propósito do processamento e a tendência de ultraprocessados no Brasil. Não é o artigo original da classificação (Monteiro et al., 2010, Cadernos de Saúde Pública).
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: souza-backes-universitarios-csc-2020
+    title: Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimentação Saudável entre universitários de Porto Alegre, Brasil
+    authors:
+      - Rosenir Korpalski de Souza
+      - Vanessa Backes
+    institutions:
+      - Hospital de Clínicas de Porto Alegre
+      - Universidade do Vale do Rio dos Sinos
+    journal: Ciência & Saúde Coletiva
+    year: 2020
+    edition: "v. 25, n. 11, p. 4463-4472"
+    version: "2020-25-11"
+    doi: 10.1590/1413-812320202511.35582018
+    source: https://www.scielo.br/j/csc/a/ZzMLsShvSMNPwPttjKqtGSC/?lang=pt
+    download_url: https://www.scielo.br/j/csc/a/ZzMLsShvSMNPwPttjKqtGSC/?format=pdf&lang=pt
+    retrieved_on: "2026-11-05"
+    license: CC-BY-4.0
+    license_evidence:
+      pdf_page: 10
+      description: Rodapé do PDF declara artigo em acesso aberto sob licença Creative Commons (selo CC BY); a landing page aponta creativecommons.org/licenses/by/4.0/.
+    original_path: corpus/nutricao/originais/souza_backes_universitarios_csc_2020.pdf
+    markdown_path: corpus/nutricao/markdown/souza_backes_universitarios_csc_2020.md
+    report_path: corpus/nutricao/relatorios/souza_backes_universitarios_csc_2020.json
+    sha256: 3c31861b720181790a0fb052c5ceb9036a02fa2ea5cf3ef826b54a599b4596a2
+    pdf_pages: 10
+    selection_note: Estudo com universitários (Porto Alegre) sobre autopercepção alimentar e adesão aos Dez Passos do Guia Alimentar. Substitui a revisão Perez et al. 2021, que não foi localizada no Crossref nem no índice da edição.
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: pendente
   - id: guia-dietas-vegetarianas-svb-2012
     title: Guia alimentar de dietas vegetarianas para adultos
     institutions:

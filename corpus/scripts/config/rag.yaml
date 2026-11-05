@@ -1,0 +1,22 @@
+# Parágrafos descartados na preparação para o RAG (expressões regulares, por fonte).
+# Remove só metadados editoriais (autores, afiliações, resumo em inglês); nunca conteúdo científico.
+martins-ultraprocessados-rsp-2013:
+  drop_paragraphs:
+    - '^Ana Paula Bortoletto Martins'
+    - '^Increased contribution of ultra-processed'
+    - '^-?\s*(I|II|III)\s+(Núcleo|Departamento)'
+    - '^Correspondência \| Correspondence'
+souza-backes-universitarios-csc-2020:
+  drop_paragraphs:
+    - '^Self-perception of food consumption'
+    - 'orcid\.org'
+    - '^>\s*\d\s'
+    - '^(Abstract|Key words)\b'
+moreira-rodrigues-conhecimento-nutricional-suplementacao-2014:
+  drop_paragraphs:
+    - '^NUTRITIONAL KNOWLEDGE AND DIETARY'
+    - '^Artigo Original$'
+    - '^CONOCIMIENTO NUTRICIONAL Y'
+    - '^Fernanda Pedrotti Moreira'
+    - '^1\. Departamento de Nutrição'
+    - '@'

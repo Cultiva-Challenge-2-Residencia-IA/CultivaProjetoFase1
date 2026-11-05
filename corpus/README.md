@@ -12,12 +12,18 @@ O catálogo é [`manifest.yaml`](manifest.yaml), mantendo `version: 1` e `source
 |---|---|---:|---|
 | Guia alimentar para a população brasileira | 2ª edição, 1ª reimpressão, Ministério da Saúde, 2014 | 158 | [BVS / Ministério da Saúde](https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf) |
 | Fascículo 1 — bases teóricas e metodológicas e protocolo para a população adulta | 1ª edição, versão eletrônica, Ministério da Saúde e USP, 2021 | 28 | [BVS / Ministério da Saúde](https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf) |
+| Martins et al. — Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009) | Rev Saúde Pública 47(4):656-665, 2013 | 10 | [SciELO](https://www.scielo.br/j/rsp/a/VxDyNppnrq8vv6jQtZfSsRP/?lang=pt) |
+| Souza e Backes — Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimentação Saudável entre universitários de Porto Alegre | Ciênc Saúde Coletiva 25(11):4463-4472, 2020 | 10 | [SciELO](https://www.scielo.br/j/csc/a/ZzMLsShvSMNPwPttjKqtGSC/?lang=pt) |
 | Guia alimentar de dietas vegetarianas para adultos | SVB, Eric Slywitch, 2012; número de edição não identificado | 66 | Arquivo `guia-alimentar.pdf` fornecido pelo solicitante em 05/11/2026 |
 | Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos | Moreira e Rodrigues, Rev Bras Med Esporte, 20(5):370–373, 2014 | 4 | [SciELO](https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?format=pdf&lang=pt), obtido em 05/11/2026 |
 
 Consulta e obtenção dos dois documentos do Ministério da Saúde: **03/11/2026**. O endereço do Guia informado no pedido redirecionou para autenticação; o arquivo foi obtido na BVS oficial. A edição foi identificada na capa e nos créditos, mas não foi possível comparar seus bytes com os do endereço indisponível. As fichas catalográficas indicam 156 e 26 páginas, respectivamente; o total físico inclui páginas adicionais. Os marcadores desta conversão usam sempre a posição física no PDF, começando em 1.
 
 Os dois PDFs do Ministério da Saúde declaram **CC-BY-NC-SA-4.0** na página física 3: atribuição, uso não comercial e compartilhamento pela mesma licença. Originais e textos derivados mantêm a atribuição aos autores institucionais e essa licença. As transformações realizadas são extração, estruturação em Markdown, OCR pontual e correções de transcrição identificadas; não há endosso do Ministério ou da USP ao CULTIVA. A compatibilidade dessa licença com o uso futuro pretendido pelo produto permanece **pendente**.
+
+Os dois artigos científicos têm licenças próprias, registradas em `manifest.yaml`: Souza e Backes (2020) é **CC-BY-4.0** (evidência na página física 10 do PDF) e Martins et al. (2013) é **CC-BY-NC-3.0**, conforme a página do artigo no SciELO, pois o PDF não traz a licença impressa. Nas duas, a compatibilidade com o uso pretendido pelo produto também está **pendente**.
+
+O artigo de Martins et al. usa a classificação por extensão e propósito do processamento (base da NOVA), mas **não é o artigo original da classificação** (Monteiro et al., 2010, Cadernos de Saúde Pública). A revisão sistemática de Perez et al. (2021) citada no pedido inicial não foi localizada no Crossref e por isso não foi catalogada.
 
 ### Guia da SVB (inclusão de 05/11/2026)
 
@@ -153,6 +159,33 @@ Limitações registradas para revisão:
 - O Fascículo é destinado à orientação por profissionais. Preservar seu conteúdo documental não autoriza o aplicativo a executar prescrições ou protocolos individualizados.
 
 Os relatórios mantêm esses resultados desfavoráveis e os alertas de cobertura. A conclusão da conversão não demonstra adequação do corpus para uso pelo produto.
+
+## Preparação para o RAG
+
+Os `.md` convertidos preservam a conversão fiel e não são indexados diretamente. O `scripts/prepare_rag.py` gera, para cada fonte, um arquivo `nutricao/rag/<nome>.jsonl` com um Trecho por linha:
+
+```bash
+corpus/.venv/bin/python corpus/scripts/prepare_rag.py                       # todas as fontes
+corpus/.venv/bin/python corpus/scripts/prepare_rag.py --source <id-da-fonte> # uma fonte
+```
+
+Campos: `id`, `fonte_id`, `titulo_fonte`, `pagina_pdf`, `secao`, `texto`, `licenca`, `review_status`, `approval_status`. O `pagina_pdf` é a posição física no PDF, a mesma dos marcadores e dos links do Markdown, para a citação apontar a página.
+
+O que o script faz:
+
+- Remove front matter, marcadores de página, links, notas de conversão, HTML (`<sup>`, `<br>`), formatação Markdown, numeração solta e cabeçalhos/rodapés repetidos (parágrafo curto presente em 4 ou mais páginas; linhas de tabela não entram nessa regra, para preservar cabeçalhos de coluna).
+- Descarta seções de Referências/Bibliografia, Sumário/Índice, Colaboradores e Abstract, inclusive com numeração no título (ex.: "9. BIBLIOGRAFIA"). Metadados editoriais por fonte (autores, afiliações, resumo em inglês) são descartados por `scripts/config/rag.yaml`.
+- Repara ligaturas quebradas pela extração ("signifi cativo" vira "significativo").
+- Divide em Trechos de cerca de 1000 caracteres (máximo de 1400 nos parágrafos longos), **sem atravessar página nem seção**. Tabelas ficam com uma linha por linha.
+- Confere o SHA-256 do `.md` contra o relatório e gera saída determinística: rodar de novo produz arquivos idênticos.
+
+Limitações:
+
+- Um parágrafo que continua na página seguinte é cortado na quebra de página. Cada metade vira Trecho de sua página.
+- A seção (`secao`) vem dos títulos que o extrator identificou. Em páginas de duas colunas ou com caixas ela pode estar imprecisa.
+- Os superscritos (`<sup>`) são removidos, o que também apaga expoentes legítimos como m².
+- Os Trechos copiam o `approval_status` do manifesto, hoje `pendente` em todas as fontes. Quem indexa deve decidir se aceita fontes pendentes e não deve apresentá-las como aprovadas.
+- Não há embeddings nem índice: este passo só prepara o texto.
 
 ## Como incluir outro documento
 
