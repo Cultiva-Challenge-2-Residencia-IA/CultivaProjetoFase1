@@ -1,10 +1,48 @@
 version: 1
-sources: []
+project: CultivaProjetoFase1 - Modulo de Nutricao Baseada em Evidencias
+sources:
+  - id: guia_alimentar_ms_2ed
+    title: "Guia Alimentar para a População Brasileira (2ª Edição)"
+    organization: "Ministério da Saúde (Brasil)"
+    source: "https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf"
+    local_pdf_path: "data/raw/pdfs/guia_alimentar_populacao_brasileira_2ed.pdf"
+    local_json_path: "data/raw/guidelines/guia_alimentar_ms_2ed.json"
+    license: "Domínio Público / Ministério da Saúde - Governo Federal do Brasil"
+    version: "2014-2ed"
+    evidence_level: "GUIDELINE_CONSENSUS"
 
-# Cada fonte deve declarar identificador, origem, licença e versão.
-# Exemplo:
-# sources:
-#   - id: exemplo
-#     source: https://example.org/documento
-#     license: CC-BY-4.0
-#     version: "2026-01"
+  - id: pubmed_clinical_meta_analyses
+    title: "Coleção de 34 Meta-Análises e Revisões Sistemáticas em Nutrição Clínica e Bioativos"
+    organization: "PubMed / NCBI Entrez E-Utilities"
+    source: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
+    local_json_path: "data/raw/guidelines/pubmed_clinical_evidence.json"
+    license: "NLM / NCBI Public Abstracts (PMID & DOI Indexed)"
+    version: "2024-11"
+    evidence_level: "GRADE_A / GRADE_B"
+
+  - id: diretrizes_sbd_sbc_issn_coi
+    title: "Sínteses Normativas de Diretrizes Clínicas (SBD, SBC, ISSN, COI)"
+    organization: "Sociedade Brasileira de Diabetes / Sociedade Brasileira de Cardiologia / ISSN / COI"
+    source: "https://diretriz.diabetes.org.br/"
+    local_json_path: "data/raw/guidelines/seed_guidelines.json"
+    license: "Uso Educacional e Pesquisa Científica"
+    version: "2024-01"
+    evidence_level: "GRADE_A / GUIDELINE_CONSENSUS"
+
+  - id: tabela_taco_4ed_unicamp
+    title: "Tabela Brasileira de Composição de Alimentos (TACO 4ª Edição - 597 Alimentos)"
+    organization: "NEPA / Unicamp & TBCA-USP"
+    source: "https://www.cfn.org.br/wp-content/uploads/2017/03/taco_4_edicao_ampliada_e_revisada.pdf"
+    local_json_path: "data/raw/taco/taco_raw.json"
+    license: "Domínio Público / NEPA-Unicamp & Ministério da Saúde"
+    version: "4.0"
+    evidence_level: "DETERMINISTIC_BROMATOLOGICAL_TABLE"
+
+  - id: nutrition_4layer_causal_graph
+    title: "Grafo de Conhecimento Causal de 4 Camadas (Alimento -> Composto -> Mecanismo -> Desfecho GRADE)"
+    organization: "Curadoria Baseada em TACO + FooDB + PubMed/GRADE"
+    source: "https://foodb.ca/"
+    local_json_path: "data/raw/knowledge_graph/nutrition_4layer_graph.json"
+    license: "CC-BY-4.0"
+    version: "2026-01"
+    evidence_level: "GRADE_A / GRADE_B"
