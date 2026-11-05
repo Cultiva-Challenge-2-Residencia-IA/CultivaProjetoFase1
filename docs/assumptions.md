@@ -10,3 +10,9 @@ Este documento registra as premissas adotadas para evitar bloqueios durante a Fa
 - A obra de nutrição precisa seguir estritamente as regras do prompt; nenhuma afirmação fora do corpus será adicionada sem explicitamente declarar o item em `docs/assumptions.md`.
 - O uso de `Langfuse` e `Redis` permanece no backlog conforme a decisão do prompt.
 - O ambiente de execução ainda não foi validado para Docker/Postgres; o design mantém `InMemoryStore` em fallback para testes.
+
+## Atualização na Fase 2
+
+- O documento `docs/CULTIVA — PRINCIPAL.docx.md` foi fornecido como visão de produto. Ele descreve a visão integrada do CULTIVA, mas a implementação desta etapa continua limitada à nutrição conforme `specs/nutricao/spec.md`; nenhuma aba adicional é autorizada por este documento.
+- A origem, licença e aprovação das três fontes em `corpus/nutricao` ainda não estão estruturadas no manifesto. Até que sejam declaradas, nenhum desses arquivos será habilitado por descoberta automática.
+- A hipótese anterior sobre gerar `sources.yaml` e `corpus_manifest.json` foi ajustada em T1-01: o primeiro contrato usa o `corpus/manifest.yaml` já existente, sem gerar ou substituir manifestos derivados nesta etapa.

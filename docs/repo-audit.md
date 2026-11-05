@@ -67,3 +67,9 @@
 ## Regra de preservação aplicada
 
 Conforme R1, não foram apagados, movidos, renomeados ou sobrescritos arquivos existentes. Onde houve conflito de estrutura, foi optado por extensão e criação de novos artefatos com sufixo de documentação ou arquivo novo, sem matar o que já existe.
+
+## Atualização na entrada da Fase 2
+
+- A branch `feat/nutricao-rag-mvp` contém os commits da Fase 1 e das mudanças recentes de corpus.
+- O usuário adicionou `docs/CULTIVA — PRINCIPAL.docx.md`, documento de visão do produto. Foi preservado sem alterações; a documentação de premissas foi estendida para registrar sua relação com o escopo nutricional aprovado.
+- Há arquivos `.DS_Store` locais não rastreados; permanecem intocados.

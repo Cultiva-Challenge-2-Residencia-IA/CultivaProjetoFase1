@@ -50,3 +50,9 @@
 - Nenhum requisito órfão.
 - Cada requisito aparece em pelo menos um teste e em uma peça de arquitetura.
 - Cada resposta gerada deve ser rastreada por `trace_id` e prompt/modelo/corpus versionados.
+
+## Execução M1
+
+| Requisito | Incremento | Teste |
+| --- | --- | --- |
+| RN16 | Manifesto explícito como whitelist; manifesto vazio autoriza zero documentos | `tests/test_manifest.py` |

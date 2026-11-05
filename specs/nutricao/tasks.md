@@ -58,3 +58,11 @@
 ## Ordenação obrigatória
 
 M1 → M2 → M3 → M4 → M5
+
+## Aceite do primeiro incremento M1 (T1-01)
+
+- `corpus/manifest.yaml` é a única whitelist para ingestão; arquivos Markdown descobertos fora dela não são autorizados implicitamente.
+- Manifesto vazio resulta em zero fontes autorizadas.
+- Cada fonte declarada identifica `id` e caminho relativo dentro de `corpus/`; metadados desconhecidos devem ser declarados como `null`.
+- IDs duplicados, caminhos ausentes, caminhos fora de `corpus/` e arquivos inexistentes são rejeitados.
+- Teste de aceite: `python -m unittest discover -s tests -v`.
