@@ -16,7 +16,7 @@ Instituição(ões): Ministério da Saúde. Edição: 2014-2ed-1reimpr.
 
 > Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
 
-Marcadores usam a posição física no PDF, começando em 1; a numeração impressa pode diferir. Notas de conversão e imagens de conferência são identificadas como acréscimos editoriais.
+Marcadores usam a posição física no PDF, começando em 1; a numeração impressa pode diferir. Notas de conversão são identificadas como acréscimos editoriais. Figuras e composição visual podem ser conferidas no PDF pelos links de página.
 
 <a id="pagina-pdf-001"></a>
 <!-- PDF_PAGE: 1 -->
@@ -30,25 +30,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 MiniStério da SaÚde
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-01.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-02.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-03.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-04.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-05.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-06.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-07.png)
-
 Guia alimentar para a população Brasileira
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-09.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-10.png)
 
 2ª edição 1ª reimpressão
 
@@ -59,8 +41,6 @@ Brasília — dF 2014
 DISTRIBUIÇÃO
 VENDA PROIBIDA
 GRATUITA
-
-![Página 1 do PDF para conferência](assets/guia_alimentar_populacao_brasileira_2ed_2014/pagina-001-conferencia.png)
 
 ---
 
@@ -74,11 +54,7 @@ ministério da saúde GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA secretaria de
 
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0002-02.png)
-
 2ª edição 1ª reimpressão
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0002-04.png)
 
 1
 
@@ -97,8 +73,6 @@ Brasília — dF 2014
 ###### 2006 ministério da saúde.
 
 esta obra é disponibilizada nos termos da Licença Creative Commons – atribuição – não Comercial – Compartilhamento pela mesma licença 4.0 internacional. é permitida a reprodução parcial ou total desta obra, desde que citada a fonte.
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0003-02.png)
 
 a coleção institucional do ministério da saúde pode ser acessada, na íntegra, na Biblioteca Virtual em saúde do ministério da saúde: <www.saude.gov.br/bvs>.
 
@@ -184,10 +158,6 @@ MINISTÉRIO DA SAÚDE
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=6)
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0006-00.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0006-01.png)
-
 # APRESENTAÇÃO
 
 nas últimas décadas, o Brasil passou por diversas mudanças políticas, econômicas, sociais e culturais que evidenciaram transformações no modo de vida da população. a ampliação de políticas sociais na área de saúde, educação, trabalho e emprego e assistência social contribuiu para a redução das desigualdades sociais e permitiu que o País crescesse de forma inclusiva. também se observou rápida transição demográfica, epidemiológica e nutricional, apresentando como consequência maior expectativa de vida e redução do número de filhos por mulher, além de mudanças importantes no padrão de saúde e consumo alimentar da população brasileira.
@@ -227,8 +197,6 @@ ministério da saúde
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=8)
 
 # PREâMBULO
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0008-01.png)
 
 a organização mundial da saúde (oms) recomenda, por meio da estratégia Global para a Promoção da alimentação saudável, atividade Física e saúde, que os governos formulem e atualizem periodicamente diretrizes nacionais sobre alimentação e nutrição, levando em conta mudanças nos hábitos alimentares e nas condições de saúde da população e o progresso no conhecimento científico. Essas diretrizes têm como propósito apoiar a educação alimentar e nutricional e subsidiar políticas e programas nacionais de alimentação e nutrição.
 
@@ -280,8 +248,6 @@ assim, o _Guia Alimentar para a População Brasileira_ se constitui como instru
 
 Coordenação-Geral de alimentação e nutrição do ministério da saúde
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0010-05.png)
-
 9
 
 ---
@@ -303,10 +269,6 @@ MINISTÉRIO DA SAÚDE
 ## Página PDF 12
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=12)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0012-00.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0012-01.png)
 
 # INTROdUÇÃO
 
@@ -384,15 +346,11 @@ MINISTÉRIO DA SAÚDE
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=16)
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0016-00.png)
-
 # cAPíTULO 1. PRINcíPIOS
 
 toda ação humana estruturada é implícita ou explicitamente guiada por princípios. a formulação de guias alimentares não foge a esta regra. os princípios que orientaram a elaboração deste guia são apresentados neste capítulo.
 
 ###### AlimentAção é mAis que ingestão de nutrientes
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0016-04.png)
 
 alimentação diz respeito à ingestão de nutrientes, mas também aos alimentos que contêm e fornecem os nutrientes, a como alimentos são combinados entre si e preparados, a características do modo de comer e às dimensões culturais e sociais das práticas alimentares. Todos esses aspectos influenciam a saúde e o bem-estar.
 
@@ -434,8 +392,6 @@ Por olhar de forma abrangente a alimentação e sua relação com a saúde e o b
 
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0018-01.png)
-
 ###### Recomendações sobRe alimentação devem estaR em sintonia com seu tempo
 
 Recomendações feitas por guias alimentares devem levar em conta o cenário da evolução da alimentação e das condições de saúde da população.
@@ -461,8 +417,6 @@ MINISTÉRIO DA SAÚDE
 controle de carências específicas de micronutrientes em grupos vulneráveis da população, projeta-se o controle da desnutrição em futuro próximo.
 
 sintonizado com seu tempo, este guia oferece recomendações para promover a alimentação adequada e saudável e, nessa medida, acelerar o declínio da desnutrição e reverter as tendências desfavoráveis de aumento da obesidade e de outras doenças crônicas relacionadas à alimentação.
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0019-03.png)
 
 AlimentAção AdequAdA e sAudável derivA de sistemA AlimentAr sociAlmente e AmbientAlmente sustentável
 
@@ -508,8 +462,6 @@ transgênicas, agrotóxicos e antibióticos e, ainda, do transporte por longas d
 
 este guia leva em conta as formas pelas quais os alimentos são produzidos e distribuídos, privilegiando aqueles cujo sistema de produção e distribuição seja socialmente e ambientalmente sustentável.
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0021-03.png)
-
 diferentes sAberes gerAm o conhecimento pArA A formulAção de guiAs AlimentAres
 
 em face das várias dimensões da alimentação e da complexa relação entre essas dimensões e a saúde e o bem-estar das pessoas, o conhecimento necessário para elaborar recomendações sobre alimentação é gerado por diferentes saberes.
@@ -535,8 +487,6 @@ antropológicos, estudos populacionais provêm preciosas informações sobre pad
 Padrões tradicionais de alimentação, desenvolvidos e transmitidos ao longo de gerações, são fontes essenciais de conhecimentos para a formulação de recomendações que visam promover a alimentação adequada e saudável. esses padrões resultam do acúmulo de conhecimentos sobre as variedades de plantas e de animais que mais bem se adaptaram às condições do clima e do solo, sobre as técnicas de produção que se mostraram mais produtivas e sustentáveis e sobre as combinações de alimentos e preparações culinárias que bem atendiam à saúde e ao paladar humanos. o processo de seleção subjacente ao período de desenvolvimento dos padrões tradicionais de alimentação constitui verdadeiro experimento natural e, nesta qualidade, deve ser considerado pelos guias alimentares.
 
 este guia baseia suas recomendações em conhecimentos gerados por estudos experimentais, clínicos, populacionais e antropológicos, bem como em conhecimentos implícitos na formação dos padrões tradicionais de alimentação.
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0022-04.png)
 
 ###### guiAs AlimentAres AmpliAm A AutonomiA nAs escolhAs AlimentAres
 
@@ -622,8 +572,6 @@ MINISTÉRIO DA SAÚDE
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=26)
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0026-00.png)
-
 # cAPíTULO 2. A EScOLhA dOS ALIMENTOS
 
 este capítulo apresenta recomendações gerais que orientam a escolha de alimentos para compor uma alimentação nutricionalmente balanceada, saborosa e culturalmente apropriada e, ao mesmo tempo, promotora de sistemas alimentares socialmente e ambientalmente sustentáveis. essas recomendações foram elaboradas de acordo com os princípios explicitados no capítulo anterior e, como as demais recomendações deste guia, visam a maximizar a saúde e o bem-estar de todos, agora e no futuro.
@@ -652,11 +600,7 @@ a segunda categoria corresponde a produtos extraídos de alimentos _in natura_ o
 
 a terceira categoria corresponde a produtos fabricados essencialmente com a adição de sal ou açúcar a um alimento _in natura_ ou minimamente processado, como legumes em conserva, frutas em calda, queijos e pães. a quarta categoria corresponde a produtos cuja fabricação envolve diversas etapas e técnicas de processamento e vários ingredientes, muitos deles de uso exclusivamente industrial. exemplos incluem refrigerantes, biscoitos recheados, “salgadinhos de pacote” e “macarrão instantâneo”.
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0027-04.png)
-
 a seguir, apresentamos as sugestões para o consumo das quatro categorias de alimentos consideradas por este guia. as recomendações são acompanhadas por uma definição detalhada de cada categoria, por uma lista dos alimentos que dela fazem parte e pelas razões principais que justificam as orientações feitas quanto ao seu consumo.
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0027-06.png)
 
 ###### Alimentos _in nAtuRA_ ou minimAmente processAdos
 
@@ -681,14 +625,6 @@ Alimentos in natura ou minimamente processados incluem muitas variedades de grã
 Como vimos, alimentos _in natura_ são obtidos diretamente de plantas ou de animais e são adquiridos para o consumo sem que tenham sofrido qualquer alteração após deixarem a natureza.
 
 a aquisição de alimentos _in natura_ é limitada a algumas variedades como frutas, legumes, verduras, raízes, tubérculos e ovos. e, ainda assim, é comum que mesmo esses alimentos sofram alguma alteração antes de serem adquiridos, como limpeza, remoção de partes não comestíveis e refrigeração. outros alimentos como arroz, feijão, leite e carne são comumente adquiridos após
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0028-04.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0028-05.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0028-06.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0028-07.png)
 
 27
 
@@ -848,19 +784,11 @@ GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
 cozinhar alimentos _in natura_ ou minimamente processados e para com eles criar preparações culinárias agradáveis ao paladar. sobre esta categoria de produtos, aplica-se a segunda recomendação deste capítulo.
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0034-02.png)
-
 ###### Óleos, gordurAs, sAl e AçúcAr
 
 Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias.
 
 desde que utilizados com moderação em preparações culinárias com base em alimentos _in natura_ ou minimamente processados, os óleos, as gorduras, o sal e o açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem que fique nutricionalmente desbalanceada.
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0034-06.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0034-07.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0034-08.png)
 
 Óleos, gorduras, sal e açúcar são produtos alimentícios usados para temperar e cozinhar alimentos e para criar preparações culinárias
 
@@ -920,15 +848,11 @@ Como se verá no próximo capítulo deste guia, alimentos _in natura_ ou minimam
 
 MINISTÉRIO DA SAÚDE
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0037-01.png)
-
 ###### Alimentos processAdos
 
 Limite o uso de alimentos processados, consumindo-os, em pequenas quantidades, como ingredientes de preparações culinárias ou como parte de refeições baseadas em alimentos _in natura_ ou minimamente processados
 
 os ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compota de frutas, queijos e pães – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam.
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0037-05.png)
 
 Alimentos processados incluem alimentos em conserva, frutas em calda, queijos e pães feitos de farinha de trigo, leveduras, água e sal
 
@@ -992,19 +916,11 @@ GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
 baseadas em alimentos _in natura_ ou minimamente processados. no caso do seu consumo, é importante consultar o rótulo dos produtos para dar preferência àqueles com menor teor de sal ou açúcar.
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0040-02.png)
-
 ###### Alimentos ultrAprocessAdos
 
 ###### evite alimentos ultraprocessados
 
 devido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, salgadinhos “de pacote”, refrigerantes e macarrão “instantâneo” – são nutricionalmente desbalanceados. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos _in natura_ ou minimamente processados. as formas de produção, distribuição, comercialização e consumo afetam de modo desfavorável a cultura, a vida social e o meio ambiente
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0040-06.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0040-07.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0040-08.png)
 
 Alimentos ultraprocessados incluem biscoitos recheados e salgadinhos “de
 
@@ -1180,8 +1096,6 @@ impacto no ambiente: a manufatura, distribuição e comercialização de aliment
 
 Por todas as razões descritas acima, alimentos ultraprocessados devem ser evitados.
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0047-04.png)
-
 46
 
 ---
@@ -1193,10 +1107,6 @@ Por todas as razões descritas acima, alimentos ultraprocessados devem ser evita
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=48)
 
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0048-01.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0048-02.png)
 
 # A REGRA dE OURO
 
@@ -1278,13 +1188,13 @@ opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e bis
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=52)
 
-> **Nota de conversão — página 52:** Rótulos do diagrama reorganizados em três tabelas por transcrição literal; ilustração integral preservada.
+> **Nota de conversão — página 52:** Rótulos do diagrama reorganizados em três tabelas por transcrição literal; ilustração integral disponível no PDF original.
 
 > **Nota de conversão — página 52:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 <!-- Transcrição pontual do PDF, página 52 (impressa 51).
 Os três grupos visuais foram representados como tabelas, sem alterar seus rótulos.
-A imagem integral é anexada pelo conversor. Revisão humana pendente. -->
+A imagem integral pode ser consultada no PDF original pelo link da página. Revisão humana pendente. -->
 
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
@@ -1301,8 +1211,6 @@ GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 | Peixe fresco | Peixe em conserva | Empanado de peixe (nuggets) |
 
 51
-
-![Página 52 do PDF para conferência](assets/guia_alimentar_populacao_brasileira_2ed_2014/pagina-052-conferencia.png)
 
 ---
 
@@ -1323,8 +1231,6 @@ MINISTÉRIO DA SAÚDE
 ## Página PDF 54
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=54)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0054-00.png)
 
 # cAPíTULO 3. dOS ALIMENTOS à REfEIÇÃO
 
@@ -1430,19 +1336,11 @@ GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
 #### CaFé da manHã
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0058-02.png)
-
 Café com leite, bolo de milho e melão
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0058-04.png)
 
 Leite, cuscuz, ovo de galinha e banana
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0058-06.png)
-
 Café, pão integral com queijo e ameixa
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0058-08.png)
 
 Café com leite, tapioca e banana
 
@@ -1462,19 +1360,11 @@ o leitor notará que frutas e café com leite são presenças constantes na prim
 
 MINISTÉRIO DA SAÚDE
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0059-01.png)
-
 Café com leite, pão de queijo e mamão
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0059-03.png)
 
 Suco de laranja natural, pão francês com manteiga e mamão
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0059-05.png)
-
 Café com leite, bolo de mandioca, queijo e mamão
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0059-07.png)
 
 Café com leite, cuscuz e manga
 
@@ -1496,19 +1386,11 @@ GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
 ###### aLmoço
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0060-02.png)
-
 Arroz, feijão, coxa de frango assada, beterraba e polenta com queijo
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0060-04.png)
 
 Feijoada, arroz, vinagrete de cebola e tomate, farofa, couve refogada e laranja
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0060-06.png)
-
 Arroz, feijão, omelete e jiló refogado
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0060-08.png)
 
 Salada de tomate, arroz, feijão, bife grelhado e salada de frutas
 
@@ -1528,19 +1410,11 @@ a mistura de feijão com arroz aparece em quase todos os almoços selecionados. 
 
 MINISTÉRIO DA SAÚDE
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0061-01.png)
-
 Alface, arroz, lentilha, pernil, batata, repolho e abacaxi
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0061-03.png)
 
 Arroz, feijão, angu, abóbora, quiabo e mamão
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0061-05.png)
-
 Alface, tomate, feijão, farinha de mandioca, peixe e cocada
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0061-07.png)
 
 Alface e tomate, arroz, feijão, berinjela e suco cupuaçu
 
@@ -1578,19 +1452,11 @@ MINISTÉRIO DA SAÚDE
 
 ###### Jantar
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0063-02.png)
-
 Arroz, feijão, fígado bovino e abobrinha refogada
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0063-04.png)
 
 Sopa de legumes, farinha de mandioca e açaí
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0063-06.png)
-
 Salada de folhas, arroz, feijão, ovo e maçã
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0063-08.png)
 
 Salada de folhas, macarrão e galeto
 
@@ -1614,19 +1480,11 @@ Legumes e verduras aparecem em todas as refeições, por vezes crus, na forma de
 
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0064-01.png)
-
 Arroz, feijão, coxa de frango, repolho, moranga e laranja
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0064-03.png)
 
 Arroz, feijão, peito de frango, abóbora com quiabo e compota de jenipapo
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0064-05.png)
-
 Alface, tomate, arroz, feijão, omelete, mandioca de forno
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0064-07.png)
 
 Arroz, feijão, carne moída com legumes
 
@@ -1656,19 +1514,11 @@ no caso de pequenas refeições, a escolha dos alimentos a serem consumidos deve
 
 Frutas frescas ou secas são excelentes alternativas, bem como leite, iogurte natural e castanhas ou nozes, na medida em que são alimentos com alto teor de nutrientes e grande poder de saciedade, além de serem práticos para transportar e consumir.
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0065-05.png)
-
 Iogurte com frutas
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0065-07.png)
 
 Leite batido com frutas
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0065-09.png)
-
 Castanhas
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0065-11.png)
 
 Salada de frutas
 
@@ -1709,10 +1559,6 @@ MINISTÉRIO DA SAÚDE
 Grão-de-bico em salada
 
 Feijão preto
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0067-04.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0067-05.png)
 
 este grupo inclui vários tipos de feijão e outros alimentos do grupo das leguminosas, como ervilhas, lentilhas e grão-de-bico.
 
@@ -1758,11 +1604,7 @@ Feijões, assim como todas as demais leguminosas, são fontes de proteína, fibr
 
 Polenta de milho com molho de tomate
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0069-02.png)
-
 Macarrão com molho de tomate e ervas frescas
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0069-04.png)
 
 este grupo abrange arroz, milho (incluindo grãos e farinha) e trigo (incluindo grãos, farinha, macarrão e pães), além de outros cereais, como a aveia e o centeio.
 
@@ -1842,11 +1684,7 @@ GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
 ###### GrUPo das raízes e tUBérCULos
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0072-02.png)
-
 Mandioca cozida com cebolinha e/ou salsinha
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0072-04.png)
 
 Purê de batata-doce
 
@@ -1892,11 +1730,7 @@ GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
 GrUPo dos LeGUmes e das VerdUras
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0074-02.png)
-
 Mix de legumes refogados
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0074-04.png)
 
 Abóbora refogada com cebola, cebolinha e/ou salsinha
 
@@ -1956,10 +1790,6 @@ MINISTÉRIO DA SAÚDE
 
 GrUPo das FrUtas
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0077-02.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0077-03.png)
-
 Salada de folhas com manga
 
 Salada de frutas
@@ -2008,15 +1838,9 @@ MINISTÉRIO DA SAÚDE
 
 ###### GrUPo das CastanHas e nozes
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0079-02.png)
-
 Castanhas
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0079-04.png)
-
 Salada de folhas com castanhas de caju
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0079-06.png)
 
 Quibe de carne assado com nozes
 
@@ -2044,11 +1868,7 @@ GrUPo do Leite e QUeiJos
 
 Iogurte natural com fruta
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0080-03.png)
-
 Vitamina de mamão com leite de vaca
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0080-05.png)
 
 este grupo inclui alimentos minimamente processados, como leite de vaca, coalhadas e iogurtes naturais; e alimentos processados, como queijos.
 
@@ -2089,12 +1909,6 @@ Bebidas lácteas e iogurtes adoçados e adicionados de corantes e saborizantes s
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
 ###### GrUPo das Carnes e oVos
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0082-02.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0082-03.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0082-04.png)
 
 Cozido de carne com batata e legumes
 
@@ -2197,8 +2011,6 @@ GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 ###### ÁGUa
 
 Água pura
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0086-03.png)
 
 Água com limão
 
@@ -2325,8 +2137,6 @@ MINISTÉRIO DA SAÚDE
 ## Página PDF 92
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=92)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0092-00.png)
 
 # cAPíTULO 4. O ATO dE cOMER E A cOMENSALIdAdE
 
@@ -2466,8 +2276,6 @@ a participação de toda a família nas atividades de planejar as refeições, a
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=99)
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0099-00.png)
-
 <!-- Start of picture text -->
 MINISTÉRIO DA SAÚDE<br><!-- End of picture text -->
 
@@ -2484,8 +2292,6 @@ a vida moderna é marcada por crescentes demandas e pela falta crônica de tempo
 ## Página PDF 100
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=100)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0100-00.png)
 
 <!-- Start of picture text -->
      GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA<br><!-- End of picture text -->
@@ -2524,8 +2330,6 @@ Procure comer sempre em locais limpos, confortáveis e tranquilos e onde não ha
 
 Sempre que possível, prefira comer em companhia, com familiares, amigos ou colegas de trabalho ou escola. Procure compartilhar também as atividades domésticas que antecedem ou sucedem o consumo das refeições.
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0101-08.png)
-
 100
 
 ---
@@ -2535,8 +2339,6 @@ Sempre que possível, prefira comer em companhia, com familiares, amigos ou cole
 ## Página PDF 102
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=102)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0102-00.png)
 
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
@@ -2561,8 +2363,6 @@ MINISTÉRIO DA SAÚDE
 ## Página PDF 104
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=104)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0104-00.png)
 
 # cAPíTULO 5. A cOMPREENSÃO E A SUPERAÇÃO dE OBSTácULOS
 
@@ -2776,8 +2576,6 @@ em contraste com alimentos ultraprocessados, alimentos _in natura_ ou minimament
 
 no Brasil e em muitos outros países, o processo de transmissão de habilidades culinárias entre gerações vem perdendo força e as pessoas mais jovens possuem cada vez menos confiança e autonomia para preparar alimentos. as razões para isso são complexas e
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0113-05.png)
-
 <!-- Start of picture text -->
 112<br><!-- End of picture text -->
 
@@ -2812,8 +2610,6 @@ Como todas as habilidades, a habilidade no preparo de alimentos melhora quando �
 ## Página PDF 115
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=115)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0115-00.png)
 
 <!-- Start of picture text -->
 MINISTÉRIO DA SAÚDE<br><!-- End of picture text -->
@@ -2885,8 +2681,6 @@ embora a atribuição de maior valor para a alimentação favoreça de modo gera
 ## Página PDF 118
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=118)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0118-00.png)
 
 <!-- Start of picture text -->
      GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA<br><!-- End of picture text -->
@@ -2987,8 +2781,6 @@ os obstáculos para a adoção das recomendações deste guia são reunidos ao f
 
 MINISTÉRIO DA SAÚDE
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0123-01.png)
-
 ### a ComPreensão e a sUPeração dos oBstÁCULos
 
 ###### inFormação
@@ -3062,10 +2854,6 @@ MINISTÉRIO DA SAÚDE
 ## Página PDF 126
 
 [Conferir no original](../originais/guia_alimentar_populacao_brasileira_2ed_2014.pdf#page=126)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0126-00.png)
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0126-01.png)
 
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
@@ -3983,8 +3771,6 @@ mara Lucia dos santos Costa – Coordenação Geral de alimentação e nutriçã
 
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0154-01.png)
-
 <!-- Start of picture text -->
 153<br><!-- End of picture text -->
 
@@ -4036,16 +3822,10 @@ Tiragem: 60.000 exemplares Impresso na Gráfica e Editora Brasil Ltda. PDJK, Pó
 
 > **Nota de conversão — página 158:** OCR dos logotipos pequenos é impreciso; resultado bruto fica apenas no relatório. Consultar a imagem e o PDF para leitura fiel.
 
-> **Nota de conversão — página 158:** Logotipos pequenos, código de barras e composição visual não são integralmente transcritos; imagem preservada e OCR bruto registrado.
+> **Nota de conversão — página 158:** Logotipos pequenos, código de barras e composição visual não são integralmente transcritos; imagem disponível no PDF original e OCR bruto registrado.
 
 ISBN 978-85-334-2176-9 9 788533 421769
 
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0158-01.png)
-
 Biblioteca Virtual em Saúde do Ministério da Saúde www.saude.gov.br/bvs
-
-![](/privateassets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0158-03.png)
-
-![Página 158 do PDF para conferência](assets/guia_alimentar_populacao_brasileira_2ed_2014/pagina-158-conferencia.png)
 
 ---

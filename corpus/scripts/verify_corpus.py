@@ -39,16 +39,15 @@ def verify() -> None:
             for adjustment in page["adjustments"]:
                 if "page_override" in adjustment and sha256(repo_path(adjustment["page_override"])) != adjustment["sha256"]:
                     raise ValueError("Transcrição pontual mudou após a conversão.")
-        for asset in report["assets"]:
-            if sha256(repo_path(asset["path"])) != asset["sha256"]:
-                raise ValueError(f"Imagem divergente: {asset['path']}")
-        for link in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", text):
-            if not (markdown.parent / link).is_file():
-                raise ValueError(f"Imagem ausente: {link}")
+        if re.search(r"!\[[^\]]*\]\(", text):
+            raise ValueError("Markdown contém imagem exportada; usar os links de página do PDF.")
+        for number in pages:
+            if f".pdf#page={number})" not in text:
+                raise ValueError(f"Link ao PDF ausente na página {number}.")
         for key in ["review_status", "approval_status"]:
             if source[key] != "pendente" or report[key] != "pendente":
                 raise ValueError(f"Status inesperado nesta etapa de conversão: {key}")
-        print(f"OK {source['id']}: {count} páginas, {len(report['assets'])} imagens; SHA-256, marcadores e links conferidos.")
+        print(f"OK {source['id']}: {count} páginas; SHA-256, marcadores e links ao PDF conferidos; sem imagens exportadas.")
     print("Esta verificação estrutural não substitui revisão de fidelidade ou aprovação das fontes.")
 
 

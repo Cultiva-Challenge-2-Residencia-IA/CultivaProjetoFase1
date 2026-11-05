@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""PDFs públicos -> Markdown por página + imagens + relatório auditável.
+"""PDFs públicos -> Markdown por página + relatório auditável, sem exportar imagens.
 
 Não modifica PDFs, manifesto ou status de revisão. Não usa LLM generativo.
 """
@@ -121,9 +121,7 @@ def convert(source: dict, args) -> dict:
     original = repo_path(source["original_path"])
     markdown = repo_path(source["markdown_path"])
     report_path = repo_path(source["report_path"])
-    asset_path = markdown.parent / "assets" / markdown.stem
-    if (original in [markdown, report_path] or markdown == report_path
-            or original.is_relative_to(asset_path) or report_path.is_relative_to(asset_path)):
+    if original in [markdown, report_path] or markdown == report_path:
         raise ValueError("Caminhos de originais e derivados não podem se sobrepor.")
     if not original.exists():
         if not args.download:
@@ -134,7 +132,7 @@ def convert(source: dict, args) -> dict:
     digest = sha256(original)
     if source.get("sha256") and source["sha256"] != digest:
         raise ValueError(f"SHA-256 do original diverge do manifesto: {source['id']}")
-    destinations = [markdown, report_path, asset_path]
+    destinations = [markdown, report_path]
     if any(path.exists() for path in destinations) and not args.overwrite:
         raise FileExistsError("Saídas já existem; use --overwrite somente para regenerar derivados.")
     if source.get("review_status") != "pendente" or source.get("approval_status", "pendente") != "pendente":
@@ -143,7 +141,7 @@ def convert(source: dict, args) -> dict:
     if config and config.get("sha256") != digest:
         raise ValueError("Ajustes não correspondem ao SHA-256 deste PDF.")
 
-    with pymupdf.open(original) as doc, tempfile.TemporaryDirectory(prefix="cultiva-conversao-") as temp:
+    with pymupdf.open(original) as doc:
         if source.get("pdf_pages") and source["pdf_pages"] != len(doc):
             raise ValueError("Quantidade de páginas diverge do manifesto.")
         # Valida também páginas de ajustes para não ignorar silenciosamente erros de configuração.
@@ -163,12 +161,9 @@ def convert(source: dict, args) -> dict:
                 download(OCR_URL, traineddata, OCR_SHA256)
             if not traineddata.exists() or sha256(traineddata) != OCR_SHA256:
                 raise ValueError("Modelo OCR ausente ou divergente; use --download-ocr e --tessdata.")
-        work_assets = Path(temp) / "assets"
-        work_assets.mkdir()
         chunks = doc.to_markdown(
             page_chunks=True, use_ocr=False, header=True, footer=True,
-            force_text=True, write_images=True, image_path=str(work_assets),
-            image_format="png", dpi=120,
+            force_text=True, write_images=False,
         )
         if len(chunks) != len(doc):
             raise ValueError("Extração não retornou todas as páginas.")
@@ -182,13 +177,13 @@ def convert(source: dict, args) -> dict:
             "config_sha256": sha256(repo_path(source["conversion_config"])) if config else None,
             "versions": {name: importlib.metadata.version(name) for name in
                          ["PyMuPDF", "pymupdf4llm", "PyYAML", "Pillow", "onnxruntime", "numpy"]},
-            "method": "PyMuPDF Layout local; texto nativo, imagens, OCR pontual e ajustes explícitos",
+            "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
             "sparse_threshold_characters": SPARSE_LIMIT,
             "ocr_model": {"url": OCR_URL, "sha256": OCR_SHA256} if requires_ocr else None,
             "limitations": [
                 "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
                 "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
-                "Fotos e diagramas são preservados como imagens, sem descrição gerada.",
+                "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
                 "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
                 "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral.",
             ], "pages": [],
@@ -204,7 +199,8 @@ def convert(source: dict, args) -> dict:
             "> Conversão documental para revisão. As orientações abaixo pertencem à publicação original. "
             "Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.", "",
             "Marcadores usam a posição física no PDF, começando em 1; a numeração impressa pode diferir. "
-            "Notas de conversão e imagens de conferência são identificadas como acréscimos editoriais.", "",
+            "Notas de conversão são identificadas como acréscimos editoriais. "
+            "Figuras e composição visual podem ser conferidas no PDF pelos links de página.", "",
         ]
         for number, chunk in enumerate(chunks, 1):
             if chunk["metadata"]["page_number"] != number:
@@ -220,7 +216,7 @@ def convert(source: dict, args) -> dict:
             if number in auto_ocr_pages:
                 raw, data = ocr_region(page, {}, tessdata)
                 with pymupdf.open(stream=data, filetype="pdf") as ocr_doc:
-                    text = ocr_doc.to_markdown(use_ocr=False, force_text=True)
+                    text = ocr_doc.to_markdown(use_ocr=False, force_text=True, write_images=False)
                 item["method"] = "ocr_full_page"
                 item["ocr"].append({"label": "Página inteira", "raw_text": raw})
                 item["warnings"].append("OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.")
@@ -254,8 +250,6 @@ def convert(source: dict, args) -> dict:
             note = config.get("page_notes", {}).get(number)
             if note:
                 item["warnings"].append(note)
-            # Substitui caminhos de imagens temporárias por links portáveis.
-            text = text.replace(str(work_assets), relative_link(asset_path, markdown.parent))
             raw_tokens = tokens(native[number - 1])
             missing = raw_tokens - tokens(text)
             item["native_word_coverage"] = round(1 - sum(missing.values()) / max(1, sum(raw_tokens.values())), 5)
@@ -264,11 +258,6 @@ def convert(source: dict, args) -> dict:
                 item["warnings"].append("Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.")
             text = clean_markdown(text)
             item["markdown_characters"] = len(text)
-            # Preserva a página visual em ajustes/OCR, além dos recortes do extrator.
-            if item["adjustments"] or item["ocr"]:
-                name = f"pagina-{number:03d}-conferencia.png"
-                page.get_pixmap(dpi=120).save(work_assets / name)
-                text += f"\n\n![Página {number} do PDF para conferência]({relative_link(asset_path / name, markdown.parent)})"
             output.extend([f'<a id="pagina-pdf-{number:03d}"></a>', f"<!-- PDF_PAGE: {number} -->",
                            f"## Página PDF {number}", "", f"[Conferir no original]({original_link}#page={number})", ""])
             for warning in item["warnings"]:
@@ -284,16 +273,11 @@ def convert(source: dict, args) -> dict:
             "pages_with_warnings": [p["pdf_page"] for p in report["pages"] if p["warnings"]],
             "pages_with_adjustments": [p["pdf_page"] for p in report["pages"] if p["adjustments"]],
         }
-        report["assets"] = [{"path": (asset_path / path.name).relative_to(ROOT).as_posix(),
-                             "sha256": sha256(path)} for path in sorted(work_assets.iterdir())]
         if sha256(original) != digest:
             raise ValueError("Original alterado durante a conversão.")
         # Só publica os derivados após concluir todas as páginas e os ajustes estritos.
         markdown.parent.mkdir(parents=True, exist_ok=True)
         report_path.parent.mkdir(parents=True, exist_ok=True)
-        if asset_path.exists():
-            shutil.rmtree(asset_path)
-        shutil.copytree(work_assets, asset_path)
         markdown.write_text(rendered, encoding="utf-8")
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         return report["summary"]
@@ -306,7 +290,7 @@ def main() -> int:
     parser.add_argument("--download", action="store_true", help="Baixa originais ausentes; nunca substitui existentes")
     parser.add_argument("--download-ocr", action="store_true", help="Baixa modelo OCR português ausente, validando SHA-256")
     parser.add_argument("--tessdata", default=str(ROOT / "corpus/.cache/tessdata"))
-    parser.add_argument("--overwrite", action="store_true", help="Regenera Markdown, imagens e relatórios; preserva PDFs")
+    parser.add_argument("--overwrite", action="store_true", help="Regenera Markdown e relatórios; preserva PDFs")
     args = parser.parse_args()
     try:
         manifest = read_yaml(repo_path(args.manifest))

@@ -1,6 +1,6 @@
 <!-- Transcrição pontual do PDF, página 52 (impressa 51).
 Os três grupos visuais foram representados como tabelas, sem alterar seus rótulos.
-A imagem integral é anexada pelo conversor. Revisão humana pendente. -->
+A imagem integral pode ser consultada no PDF original pelo link da página. Revisão humana pendente. -->
 
 GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA
 

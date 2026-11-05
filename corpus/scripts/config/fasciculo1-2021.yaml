@@ -6,11 +6,11 @@ ocr_regions:
   - page: 8
     bbox: [385, 635, 520, 770]
     label: Miniatura da capa do Guia Alimentar
-    note: Texto pequeno na miniatura não foi reconhecido com fidelidade pelo OCR; imagem preservada, sem incorporar caracteres espúrios à transcrição.
+    note: Texto pequeno na miniatura não foi reconhecido com fidelidade pelo OCR; imagem disponível no PDF original, sem incorporar caracteres espúrios à transcrição.
   - page: 28
     bbox: [75, 700, 550, 830]
     label: Logotipos da contracapa
-    note: OCR parcial e impreciso dos logotipos; resultado bruto fica no relatório e imagem no Markdown.
+    note: OCR parcial e impreciso dos logotipos; resultado bruto fica no relatório e imagem no PDF original.
 page_overrides:
   17: corpus/scripts/ajustes/fasciculo-p017.md
   18: corpus/scripts/ajustes/fasciculo-p018.md
@@ -45,11 +45,11 @@ page_notes:
   8: Miniatura da capa com texto pequeno não recuperado com fidelidade por OCR.
   16: Título recomposto na ordem visual; texto de camada não visível que se misturava ao título foi removido apenas nesse trecho.
   17: Numeração 1–5 e formulário recompostos por transcrição literal após perdas do extrator; revisar campos e opções na imagem.
-  18: Fluxograma recomposto como tabela de ramos SIM/NÃO, com textos literais; a geometria das setas é preservada na imagem.
+  18: Fluxograma recomposto como tabela de ramos SIM/NÃO, com textos literais; a geometria das setas é preservada no PDF original.
   19: Barras decorativas produziram falso tachado; marcadores removidos e título reordenado conforme a página.
   20: Falso tachado de título removido; revisar cabeçalhos e barras laterais.
   21: Falso tachado de título removido; revisar cabeçalhos e barras laterais.
   22: Falso tachado removido e título reordenado conforme a página; revisar cabeçalhos e barras laterais.
   23: Falso tachado de título removido; revisar cabeçalhos e barras laterais.
   24: Falso tachado de título removido; a camada nativa contém palavras divididas junto a acentos, causando alertas de cobertura que exigem conferência visual.
-  28: Logotipos pequenos e código de barras sem transcrição textual integral; imagem preservada e OCR bruto registrado.
+  28: Logotipos pequenos e código de barras sem transcrição textual integral; imagem disponível no PDF original e OCR bruto registrado.

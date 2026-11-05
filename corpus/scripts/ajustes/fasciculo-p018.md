@@ -2,7 +2,7 @@
 A tabela representa os ramos do fluxograma; rótulos e textos são literais.
 Após os ramos das etapas 1–5, as setas seguem à etapa seguinte.
 Após os dois ramos da etapa 6, seguem a ORIENTAÇÕES ADICIONAIS.
-A geometria original está na imagem anexada. Revisão humana pendente. -->
+A geometria original está no PDF acessível pelo link da página. Revisão humana pendente. -->
 
 FASCÍCULO 1 | PROTOCOLOS DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR: BASES TEÓRICAS E METODOLÓGICAS E PROTOCOLO PARA A POPULAÇÃO ADULTA
 

@@ -5,8 +5,8 @@
   "conversion_status": "concluida_com_ressalvas",
   "review_status": "pendente",
   "approval_status": "pendente",
-  "script_sha256": "8329189761aef75517de5fc57b9df715bd6aee49d827f8a8096efe08de9f8d92",
-  "config_sha256": "b1c00e54d719ec848c2dd362eb6cc82dd9e691f253aa21414f4721b77eddac69",
+  "script_sha256": "7014d190c7567763f1ad11f9fd7c1d0ec8cf2f404ffac46b6d019c721a2c2100",
+  "config_sha256": "dc4387a6a45eb8a21c6f937118f3cdac5e5ef9296607cd169bcd2989b98f496b",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -15,7 +15,7 @@
     "onnxruntime": "1.31.1",
     "numpy": "2.4.6"
   },
-  "method": "PyMuPDF Layout local; texto nativo, imagens, OCR pontual e ajustes explícitos",
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
   "sparse_threshold_characters": 150,
   "ocr_model": {
     "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata",
@@ -24,7 +24,7 @@
   "limitations": [
     "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
     "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
-    "Fotos e diagramas são preservados como imagens, sem descrição gerada.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
     "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
     "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
   ],
@@ -56,7 +56,7 @@
       "sparse_page_decision": "Capa com texto nativo; OCR complementar do selo em região delimitada.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1359
+      "markdown_characters": 216
     },
     {
       "pdf_page": 2,
@@ -68,7 +68,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 470
+      "markdown_characters": 216
     },
     {
       "pdf_page": 3,
@@ -82,7 +82,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 3446
+      "markdown_characters": 3319
     },
     {
       "pdf_page": 4,
@@ -121,7 +121,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 2082
+      "markdown_characters": 1828
     },
     {
       "pdf_page": 7,
@@ -145,7 +145,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 2038
+      "markdown_characters": 1911
     },
     {
       "pdf_page": 9,
@@ -169,7 +169,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1730
+      "markdown_characters": 1603
     },
     {
       "pdf_page": 11,
@@ -194,7 +194,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1875
+      "markdown_characters": 1621
     },
     {
       "pdf_page": 13,
@@ -243,7 +243,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1449
+      "markdown_characters": 1195
     },
     {
       "pdf_page": 17,
@@ -267,7 +267,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 2198
+      "markdown_characters": 2071
     },
     {
       "pdf_page": 19,
@@ -279,7 +279,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1207
+      "markdown_characters": 1080
     },
     {
       "pdf_page": 20,
@@ -303,7 +303,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1983
+      "markdown_characters": 1856
     },
     {
       "pdf_page": 22,
@@ -315,7 +315,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 2004
+      "markdown_characters": 1877
     },
     {
       "pdf_page": 23,
@@ -364,7 +364,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1705
+      "markdown_characters": 1578
     },
     {
       "pdf_page": 27,
@@ -376,7 +376,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 2040
+      "markdown_characters": 1786
     },
     {
       "pdf_page": 28,
@@ -388,7 +388,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1293
+      "markdown_characters": 785
     },
     {
       "pdf_page": 29,
@@ -460,7 +460,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1341
+      "markdown_characters": 833
     },
     {
       "pdf_page": 35,
@@ -496,7 +496,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 880
+      "markdown_characters": 626
     },
     {
       "pdf_page": 38,
@@ -535,7 +535,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1880
+      "markdown_characters": 1372
     },
     {
       "pdf_page": 41,
@@ -619,7 +619,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1537
+      "markdown_characters": 1410
     },
     {
       "pdf_page": 48,
@@ -631,7 +631,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1239
+      "markdown_characters": 985
     },
     {
       "pdf_page": 49,
@@ -675,13 +675,13 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [
-        "Rótulos do diagrama reorganizados em três tabelas por transcrição literal; ilustração integral preservada.",
+        "Rótulos do diagrama reorganizados em três tabelas por transcrição literal; ilustração integral disponível no PDF original.",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [
         {
           "page_override": "corpus/scripts/ajustes/guia-p052.md",
-          "sha256": "fcca0cbf487ddcd62a24b9da309adb43545628752f4e892ba536569b3299449e"
+          "sha256": "9413dabc6894e26cbaff0e47ca624c49737aeabd611fb6fb2ab8e51e074d6124"
         }
       ],
       "ocr": [],
@@ -692,7 +692,7 @@
         "fresco": 1,
         "in": 1
       },
-      "markdown_characters": 723
+      "markdown_characters": 754
     },
     {
       "pdf_page": 53,
@@ -717,7 +717,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1600
+      "markdown_characters": 1473
     },
     {
       "pdf_page": 55,
@@ -765,7 +765,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1104
+      "markdown_characters": 596
     },
     {
       "pdf_page": 59,
@@ -777,7 +777,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1218
+      "markdown_characters": 710
     },
     {
       "pdf_page": 60,
@@ -789,7 +789,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1273
+      "markdown_characters": 765
     },
     {
       "pdf_page": 61,
@@ -801,7 +801,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1558
+      "markdown_characters": 1050
     },
     {
       "pdf_page": 62,
@@ -825,7 +825,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1377
+      "markdown_characters": 869
     },
     {
       "pdf_page": 64,
@@ -837,7 +837,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1336
+      "markdown_characters": 828
     },
     {
       "pdf_page": 65,
@@ -849,7 +849,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1497
+      "markdown_characters": 989
     },
     {
       "pdf_page": 66,
@@ -873,7 +873,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1146
+      "markdown_characters": 892
     },
     {
       "pdf_page": 68,
@@ -900,7 +900,7 @@
         "68": 1,
         "legumes": 1
       },
-      "markdown_characters": 1111
+      "markdown_characters": 857
     },
     {
       "pdf_page": 70,
@@ -936,7 +936,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1391
+      "markdown_characters": 1137
     },
     {
       "pdf_page": 73,
@@ -960,7 +960,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1208
+      "markdown_characters": 954
     },
     {
       "pdf_page": 75,
@@ -996,7 +996,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1129
+      "markdown_characters": 875
     },
     {
       "pdf_page": 78,
@@ -1020,7 +1020,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1371
+      "markdown_characters": 990
     },
     {
       "pdf_page": 80,
@@ -1032,7 +1032,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1123
+      "markdown_characters": 869
     },
     {
       "pdf_page": 81,
@@ -1056,7 +1056,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1695
+      "markdown_characters": 1314
     },
     {
       "pdf_page": 83,
@@ -1104,7 +1104,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1175
+      "markdown_characters": 1048
     },
     {
       "pdf_page": 87,
@@ -1177,7 +1177,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1136
+      "markdown_characters": 1009
     },
     {
       "pdf_page": 93,
@@ -1263,7 +1263,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 919
+      "markdown_characters": 792
     },
     {
       "pdf_page": 100,
@@ -1275,7 +1275,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1053
+      "markdown_characters": 926
     },
     {
       "pdf_page": 101,
@@ -1287,7 +1287,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 878
+      "markdown_characters": 751
     },
     {
       "pdf_page": 102,
@@ -1300,7 +1300,7 @@
       "sparse_page_decision": "Fotografia de pessoas em refeição; sem texto a recuperar por OCR.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 174
+      "markdown_characters": 47
     },
     {
       "pdf_page": 103,
@@ -1325,7 +1325,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1459
+      "markdown_characters": 1332
     },
     {
       "pdf_page": 105,
@@ -1433,7 +1433,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1312
+      "markdown_characters": 1185
     },
     {
       "pdf_page": 114,
@@ -1457,7 +1457,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1429
+      "markdown_characters": 1302
     },
     {
       "pdf_page": 116,
@@ -1493,7 +1493,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1113
+      "markdown_characters": 986
     },
     {
       "pdf_page": 119,
@@ -1554,7 +1554,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1766
+      "markdown_characters": 1639
     },
     {
       "pdf_page": 124,
@@ -1591,7 +1591,7 @@
       "ocr": [],
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 1396
+      "markdown_characters": 1142
     },
     {
       "pdf_page": 127,
@@ -1933,7 +1933,7 @@
       "sparse_page_decision": "Página visualmente em branco; texto de cabeçalho/rodapé existe na camada nativa.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 237
+      "markdown_characters": 110
     },
     {
       "pdf_page": 155,
@@ -1980,7 +1980,7 @@
       "tables_detected": 0,
       "warnings": [
         "OCR dos logotipos pequenos é impreciso; resultado bruto fica apenas no relatório. Consultar a imagem e o PDF para leitura fiel.",
-        "Logotipos pequenos, código de barras e composição visual não são integralmente transcritos; imagem preservada e OCR bruto registrado."
+        "Logotipos pequenos, código de barras e composição visual não são integralmente transcritos; imagem disponível no PDF original e OCR bruto registrado."
       ],
       "adjustments": [],
       "ocr": [
@@ -2000,10 +2000,10 @@
       "sparse_page_decision": "Contracapa com logotipos; OCR complementar em região delimitada.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 365
+      "markdown_characters": 111
     }
   ],
-  "markdown_sha256": "91f1e8176d4983794a3916dad06280ddfb9171ab8a93fbb8a49b2b28139a6c76",
+  "markdown_sha256": "f874838d63f82f48e94a2302428122e51e0edcd168ceb998e1154207a188c386",
   "summary": {
     "pages_converted": 158,
     "sparse_pages": [
@@ -2047,451 +2047,5 @@
     "pages_with_adjustments": [
       52
     ]
-  },
-  "assets": [
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-01.png",
-      "sha256": "9784fee161a8a041de05e206577db4fab0dcc5eb844866c36c8d5c885d6768ad"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-02.png",
-      "sha256": "fd71c950fdf44eb12bf543227b1c8b481a09b8225c9d38cbc4ab1e127f2089f8"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-03.png",
-      "sha256": "de6336ec365b487060efa8e50c1b487974cdca9767657f55721513d04f2bee6b"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-04.png",
-      "sha256": "9589fe82d8c0c44fb698a315c37c7666ba5d2004fa0e5395749d5524ac32ad57"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-05.png",
-      "sha256": "dd1f66bd99627ced07bbd00fbe69f756e487ee3358d78d806c394a1f1641fd21"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-06.png",
-      "sha256": "9d735dbb80133e69b89e74f0f02dfd47f3e8b4f183728128cee74658c7d1fa98"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-07.png",
-      "sha256": "3d9ca65eb75ac7bb9410aa1853d99f97c414b755988be7ccf807acb4fd4521a5"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-09.png",
-      "sha256": "18a50bb057693ec3be7148fd4a1a398e25817ced47c615cee6339ce5e178d1ff"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0001-10.png",
-      "sha256": "a7c1647c62fa5083e7274d9675dd198969974ce3b6a7b75d870582a45dc5153e"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0002-02.png",
-      "sha256": "006833f6f2c75185fb3bf71f1456f5dc4efa2a8910177e96f01d8f1322ebdbad"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0002-04.png",
-      "sha256": "462de90388dabebd5e6b736c037838bd420f6f3681770d401daca86c58a4a149"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0003-02.png",
-      "sha256": "0e98cd2559aeb07f0efeaf42d9e0cdea19b300c89f05aea225c2f26640545351"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0006-00.png",
-      "sha256": "df3c1beedeb97562528f95187c83328085eaf8e26314aeceb97cb9cfe8bddd89"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0006-01.png",
-      "sha256": "9ebb09c41c11b1c13a25a190237e575ece4e9768f5ada0d52889563588927147"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0008-01.png",
-      "sha256": "b523f7b68a43794435ff292d72015862ea8998debe0ba6dfca98cb93365fb4be"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0010-05.png",
-      "sha256": "f31b086f2999d163ff0b94959d4b790c3765b86ed040331ddbc38ddbe87a22a8"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0012-00.png",
-      "sha256": "54ff48192f2118bee547e43d961916f51fc348db529b9c6e80e167f4707e64c0"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0012-01.png",
-      "sha256": "64340d1e2bb6ae0bd7c31b4770df1d2d38b868b5ec18c2a364bea4a46f5645a9"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0016-00.png",
-      "sha256": "5166737093ee8545280e93570a655a9991dea6231426d75d78a1bf0193bfaa4b"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0016-04.png",
-      "sha256": "3411748574c7daa638f9209256da67179a3ec3390697e4144d82f388e18a2659"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0018-01.png",
-      "sha256": "4ecee96aae0936a33fd3336f059c4bbbff89412635ec3970f45f195757d8fe3b"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0019-03.png",
-      "sha256": "50bfb9603b9d77f06f884f4217e00b15d474adff920d53951934ef1891d1402e"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0021-03.png",
-      "sha256": "159daf31b15af1a8a5452267187d9514d9f391d663518065c0211c97b4f923f0"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0022-04.png",
-      "sha256": "f914d1c1e75f7396d3a395ec485ad8a342524af61cc0225eb0e61b64da964557"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0026-00.png",
-      "sha256": "283a920ddeaa1255064fcc1895af382d962b4adb2922b09f51e2f18d9a2a320a"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0027-04.png",
-      "sha256": "b77330f86ec14dc29548f8b64f274b8aa9328bc959a49585646b890d40e5e417"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0027-06.png",
-      "sha256": "930171d5168ea4822eea66c325870b271574a80be6e975f2825aa64005255df9"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0028-04.png",
-      "sha256": "1322443a96a7921318d24369dd97f6b386b604f2ef0854e9b392e46057709707"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0028-05.png",
-      "sha256": "9c8bb5aad5b2a1a2475d8a7f02b490e970c13ecf2dda219164f716a239411e27"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0028-06.png",
-      "sha256": "31fd5dc81829e5a01faa833e7dab1c242f53224e4bef76f57dd32fea95cd371b"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0028-07.png",
-      "sha256": "6af2b80062d4142a816bd3c3b4f6871534b5798913dc8b831c43df08a152f339"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0034-02.png",
-      "sha256": "6293509fba6fa637b19745bc93a3c5ac474542a9f366a5dc4218c9a75069ec23"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0034-06.png",
-      "sha256": "844cf3df98f4d0fe3ff777843cd64eeb59706dd84c9a0e626e1c7743f6b8cc5a"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0034-07.png",
-      "sha256": "3c971b31549e47428044ac4d132059b60c874ea5109508c7668ca585c1ed22a4"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0034-08.png",
-      "sha256": "69357f84277e525d80cebc1967111c8c27e86bdac7d7c0d255f4d49930c19bb2"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0037-01.png",
-      "sha256": "1f3efa3002c3d38bf9b29b16e672cf09c69f813adee39ac9a786a21ff3f28671"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0037-05.png",
-      "sha256": "3064624158d3e4ce0e31a8e54113573ac360d72103e5d50f436ababef315e51c"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0040-02.png",
-      "sha256": "41b59224c31e556efa07638909cf4ea811d3b307e636ca02f5488bdc160a3a9d"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0040-06.png",
-      "sha256": "142dd849ae749385f3141cb1e0bee273e94138245612b3706f9af6dec1ca9f42"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0040-07.png",
-      "sha256": "3beb4d465621d4b7ed14f3556dc61b3ebaac48469ef0c10398c13603b07a4317"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0040-08.png",
-      "sha256": "83ee5e74d48302e03aa1e28504f87acbb1ce878fb0bc045f21e92f68515d7580"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0047-04.png",
-      "sha256": "e156ec696b9c356b1309998b3c0a56d542583d054198056c46874ccc5e961c21"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0048-01.png",
-      "sha256": "e73d6746de87d2bcaa99f2389dc2a765ecd0cc2382c3848f7d82b1d8f473bc72"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0048-02.png",
-      "sha256": "4ba67fdf2ac7073354a03c6537b4f3e81b41f5b389c4279e437e195edaa7327b"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0052-01.png",
-      "sha256": "72cd4b581f6b2c9b59998052e632fa624bd8a98ba2f7e9cf372fab2fb8cf195b"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0054-00.png",
-      "sha256": "a50610eb4bb8b2f1b40c5a315847f16d5990a5167ffa47922330b3d3c06daf02"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0058-02.png",
-      "sha256": "7b07c10b9edf5868ec88bc2c9a3f88a3ee21005d07df7688113bbd1d2a65b705"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0058-04.png",
-      "sha256": "674bd8251ecf42224b6bc381644c23f820f46f78a9a6fde2e0109020ea2bd3da"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0058-06.png",
-      "sha256": "eee05dbe2806d10ee399cb84c6feddc17a9b71d73b971b970eb9e682056b4c1e"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0058-08.png",
-      "sha256": "127a2ed65fd2f06e0f045420215eec0f1b1a7a69028168979aaa9f4e02f2f296"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0059-01.png",
-      "sha256": "33ed16f7aaedf7198f04ec4c66fba93285bfbd24a02f19c0ea893525665314f9"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0059-03.png",
-      "sha256": "4c3ac70e8337f6f1801cde43264becaa250aaa271eec86635a2db9b51cfc5468"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0059-05.png",
-      "sha256": "a30de559afaa8775bbdf40055656b3aa7c8894100b376ce577032dc099f43fc9"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0059-07.png",
-      "sha256": "6b1f39fc27763983e063f5a3bf21133c3b0859d9f0a0da76188f28bc79fdd16d"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0060-02.png",
-      "sha256": "cabae35aeb5ac89ec9305182e9ee7411126e3fb47217f051e5d40abc3bd4816d"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0060-04.png",
-      "sha256": "a45729a274ce577f28329e79c934d67539594885701c053a81e3d9f09af07d7d"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0060-06.png",
-      "sha256": "5acac5ca002069c09e0b75aaccb6fa7e6d34f4116cf8c99d09471cca51d7d5cf"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0060-08.png",
-      "sha256": "5caa8affce4c44116b3e04a67c81a6a36f54eb2523c0142f4d5802964c878540"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0061-01.png",
-      "sha256": "6d4c95558368e33ea89f82abf875a914bcee225a87e464f3c8574a83db59c79e"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0061-03.png",
-      "sha256": "ffe8be301bef6530f456041e68953a91b7e9302fb8959e34c0eee50438d6d24f"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0061-05.png",
-      "sha256": "f24efbec661e1f77c07112e73328abec6d3e5fb16cff5c001253fd8f2226a4ac"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0061-07.png",
-      "sha256": "78e295382c72393be4c93db373ee1578cc87ae121be64e3c4ccf33c298d3bdec"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0063-02.png",
-      "sha256": "b0f552bb7df2007db417ac0110d17bba6c384bac1cefdda3aba4aaf6aa4850f5"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0063-04.png",
-      "sha256": "5e8976e3ba876cff54e90b8438a9f37cbd503147b2fe21661429c9884fe4aab9"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0063-06.png",
-      "sha256": "8efe1255b824b0716ef84ee0b142c7ab8d94edecbd9b60fe89cef7794d8d7f47"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0063-08.png",
-      "sha256": "7ac7540d45599e0af6f28cc677e4822cb1351cc194387262bdbc2823492566f0"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0064-01.png",
-      "sha256": "579c8a4bf48413c058c362d53b1da5717663bc8f801f11a7950466b132e69537"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0064-03.png",
-      "sha256": "6436972235d65b60b9a5fddd1e13ad086391cb6c8d5b91264176c21cb337cac3"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0064-05.png",
-      "sha256": "38a1b3bb3b0ae6c7059abdb3f5d20f31de61a00386ffffea001e60a4ac791201"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0064-07.png",
-      "sha256": "fb732181a310333730f15e578957e425c1d5e80d0d2cc6835eee022c9eaeeb89"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0065-05.png",
-      "sha256": "c330c81a7afc9088f7c4a57a529b71329485316c5ba602a8fff28f5fb36ce766"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0065-07.png",
-      "sha256": "dbb703bd53246dbb0c040dc5a32e9618ce855e43318b4013567cd40ded71e32f"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0065-09.png",
-      "sha256": "1cc7c3a0786c1f3b3b4b26b67b0f2ea86525d58b473ecb274ebc9a351ffb1d8f"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0065-11.png",
-      "sha256": "9598f683f1b73568cd2a4842f0ffd8ab0eba49041b101348a7191a7feeef91dc"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0067-04.png",
-      "sha256": "53cbedacdfcb3894629d1ae6047887dfe89898ab9e20ae285dbbb22d34bf41e8"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0067-05.png",
-      "sha256": "5307e46ea490b2795eeeb9bffd1fe014353ca1e1953343ecbb52fa3e8d9ee72d"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0069-02.png",
-      "sha256": "e4a63fea0ee2be3644da2bfba23ab328967c293331f8be836a47ddb289679846"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0069-04.png",
-      "sha256": "c71597707db48e48586318ee62887f774b212572e0dd70569447471221693724"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0072-02.png",
-      "sha256": "577db50b67297d15443b8c335d46ed09cd954e35fd5dac439db33aa235d448b0"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0072-04.png",
-      "sha256": "8efbad4327fbbb3b35806e4891d85514cd40d87ad3c9b9e4b35f44b6cf9cbf3d"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0074-02.png",
-      "sha256": "70a49a71ca2aed458a99febfc8617e59fdd460ead58892ea3b80f73a5977b725"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0074-04.png",
-      "sha256": "14dc790b8a1ba9d29835cc8d015ca57bb0dd2a986d3814d6753e9a3994650426"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0077-02.png",
-      "sha256": "15e0b70e1adb0c17a109f3e4d1d2d9b3c7782f48e024f0e85b2eadf350486e41"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0077-03.png",
-      "sha256": "da2d46198c9ee19d0506b86aa94cf519750ec07b956cec34c974a00398877c1c"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0079-02.png",
-      "sha256": "4f8604b91cd34d15be6b7abc64e7661b83a3d563fb0bd22c8c9690e982a87fe0"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0079-04.png",
-      "sha256": "d2537c4a35494c5a975199da9dc3966307ffcd1f01b727e99d8fab7886c04347"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0079-06.png",
-      "sha256": "900af10c92843bfd9df7ebb3db6af140c8d74bd9d1f0235e94b649745623d699"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0080-03.png",
-      "sha256": "dff0e57204c00d01904358006817c4962a1283db8fc8511bbb2e6b5ae81941bc"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0080-05.png",
-      "sha256": "0a87e7a8222074c8d334cb014311075a9b5075a5bc7c07386f22ab99a1905bd9"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0082-02.png",
-      "sha256": "e5fc0016e846b21d5d449e29d1eb1de93d1e31be653df306859a62af33865612"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0082-03.png",
-      "sha256": "5c10668f97da56ee728c3b7d24cb7d5662d981dd6ac2ebc919179e208343fbc0"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0082-04.png",
-      "sha256": "12b46475e104dc62b4bd1da670b0a65ddb9d47c6af0f63eaf412b0d9f0209827"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0086-03.png",
-      "sha256": "4c1baab2b520d6479413a5b8b9fa0f8741822ffa32e87f768d3694ee1834bb78"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0092-00.png",
-      "sha256": "a20ce15de40d1ab84450ad7d59a7a8f13a741a868dd8c61e53f64ac8461df6c4"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0099-00.png",
-      "sha256": "f9b0676daf1f30a0a1d14224adda0f53c9ba0e2de04ba6c367fc67ddf49f6e97"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0100-00.png",
-      "sha256": "0350d4b2c25ac009b940d360a237a4453b39ab59ea4b2477c59b735d643d0b17"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0101-08.png",
-      "sha256": "d56f660e941c20c527d0af139145a827e4274dbeb9a7f12e137a50881dc7b4b1"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0102-00.png",
-      "sha256": "5a1c2db5eea838831c06a69f38e7b9d8e8e6853a7fe3e3628d2cc5f5b03c80dd"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0104-00.png",
-      "sha256": "a902413ae8a85e4f577f45288cd4926ada05124161fe377619394766248ba0c9"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0113-05.png",
-      "sha256": "6b33072c6c9ce8a7a565d950c8faa32dfce4a53aefeffe465be73fbfb46901b7"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0115-00.png",
-      "sha256": "53f75bf538bfcb663cfb226456ca93d0ae99a84378ef9557d825505c1c9bf877"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0118-00.png",
-      "sha256": "d6787aa18e16e20f69bd97aaba1e259d6f12203e4abbb9a86ad85087bbd48489"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0123-01.png",
-      "sha256": "10731ae9554de6decad0219d5a0a2b8857868ed5616f0c6b599abd7763553fb3"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0126-00.png",
-      "sha256": "6d2b4768c0905de2f5749ea25d210883f1c199afd69aba86a3f4d9a9d01552db"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0126-01.png",
-      "sha256": "a3c91d71b416776411c468cf2847317f61c796e51e2a31bac7132c957089d796"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0154-01.png",
-      "sha256": "e2cec4aa3d6045c769322a83ca514607148849954cb3145568ad87c00ca82a1d"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0158-01.png",
-      "sha256": "2eb8ae01fef5ed07a4d00ced299e7619c57f35f620121b833f7f10fdcacabe46"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/guia_alimentar_populacao_brasileira_2ed_2014.pdf-0158-03.png",
-      "sha256": "847bf7752894990038ea20038561c9d5b8b48f5bfae6fe1853782631de5889ad"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/pagina-001-conferencia.png",
-      "sha256": "353959bb1b68e259243660ee683d97d0802dd0c32339ed5c5dca7e85c2611326"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/pagina-052-conferencia.png",
-      "sha256": "9e201e3169a64ce0a28bf45de251a234ab23afed21e4d6dce96820c715e7fc4b"
-    },
-    {
-      "path": "corpus/nutricao/markdown/assets/guia_alimentar_populacao_brasileira_2ed_2014/pagina-158-conferencia.png",
-      "sha256": "329a9e17b2088c7588cb67b878c555cbb6052d74f5e0fabc656466db3fc3d24c"
-    }
-  ]
+  }
 }

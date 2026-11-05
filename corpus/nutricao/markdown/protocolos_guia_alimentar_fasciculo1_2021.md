@@ -18,7 +18,7 @@ Instituição(ões): Ministério da Saúde, Universidade de São Paulo. Edição
 
 > Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
 
-Marcadores usam a posição física no PDF, começando em 1; a numeração impressa pode diferir. Notas de conversão e imagens de conferência são identificadas como acréscimos editoriais.
+Marcadores usam a posição física no PDF, começando em 1; a numeração impressa pode diferir. Notas de conversão são identificadas como acréscimos editoriais. Figuras e composição visual podem ser conferidas no PDF pelos links de página.
 
 <a id="pagina-pdf-001"></a>
 <!-- PDF_PAGE: 1 -->
@@ -29,8 +29,6 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 MINISTÉRIO DA SAÚDE UNIVERSIDADE DE SÃO PAULO
 
 **FASCÍCULO 1** PROTOCOLOS DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR: BASES TEÓRICAS E METODOLÓGICAS E PROTOCOLO PARA A POPULAÇÃO ADULTA
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0001-02.png)
 
 Brasília – DF 2021
 
@@ -46,8 +44,6 @@ MINISTÉRIO DA SAÚDE UNIVERSIDADE DE SÃO PAULO
 
 FASCÍCULO 1 PROTOCOLOS DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR: BASES TEÓRICAS E METODOLÓGICAS E PROTOCOLO PARA A POPULAÇÃO ADULTA
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0002-02.png)
-
 Brasília – DF 2021
 
 ---
@@ -61,8 +57,6 @@ Brasília – DF 2021
 > **Nota de conversão — página 3:** Créditos em colunas; agrupamento de nomes e funções requer revisão.
 
 2021 Ministério da Saúde. Universidade de São Paulo.
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0003-01.png)
 
 Esta obra é disponibilizada nos termos da Licença CreativeCommons – Atribuição – Não Comercial – Compartilhamento pela mesma licença 4.0 Internacional. É permitida a reprodução parcial ou total desta obra, desde que citada a fonte.
 
@@ -138,8 +132,6 @@ Protocols for the Dietary Guidelines for Brazilian Population use in nutrition a
 
 [Conferir no original](../originais/protocolos_guia_alimentar_fasciculo1_2021.pdf#page=5)
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0005-00.png)
-
 MINISTÉRIO DA SAÚDE | UNIVERSIDADE DE SÃO PAULO
 
 # **Apresentação**
@@ -149,8 +141,6 @@ Este material é o primeiro fascículo da Série “Protocolos de Uso do Guia Al
 Hoje, sabemos que a má alimentação lidera o ranking dos fatores de risco relacionados à carga global de doenças no mundo, sendo o que mais contribui para mortalidade e o segundo fator que mais contribuiu para os anos de vida perdidos. A melhoria nas condições de alimentação da população poderia prevenir uma em cada cinco mortes no mundo. Assim, investir em ferramentas que apoiem os profissionais de saúde na implantação das recomendações do Guia Alimentar para a População Brasileira é prioridade do Ministério da Saúde.
 
 Com isso, acreditamos que esses protocolos contribuirão para a qualificação do trabalho dos profissionais e equipes de Atenção Primária do Sistema Único de Saúde (SUS) e apoiarão o reforço da disseminação das recomendações para uma alimentação saudável, tornando essas mensagens mais acessíveis à população brasileira.
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0005-06.png)
 
 **4**
 
@@ -205,8 +195,6 @@ Fonte: Ministério da Saúde, 2014 e Monteiro _et al_ ., 2019.
 
 6
 
-![Página 7 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-007-conferencia.png)
-
 ---
 
 <a id="pagina-pdf-008"></a>
@@ -215,7 +203,7 @@ Fonte: Ministério da Saúde, 2014 e Monteiro _et al_ ., 2019.
 
 [Conferir no original](../originais/protocolos_guia_alimentar_fasciculo1_2021.pdf#page=8)
 
-> **Nota de conversão — página 8:** Texto pequeno na miniatura não foi reconhecido com fidelidade pelo OCR; imagem preservada, sem incorporar caracteres espúrios à transcrição.
+> **Nota de conversão — página 8:** Texto pequeno na miniatura não foi reconhecido com fidelidade pelo OCR; imagem disponível no PDF original, sem incorporar caracteres espúrios à transcrição.
 
 > **Nota de conversão — página 8:** Miniatura da capa com texto pequeno não recuperado com fidelidade por OCR.
 
@@ -231,11 +219,7 @@ Por fim, a última dimensão das recomendações diz respeito ao ato de comer e 
 
 O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde.
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0008-06.png)
-
 7
-
-![Página 8 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-008-conferencia.png)
 
 ---
 
@@ -247,55 +231,29 @@ O último capítulo refere-se aos possíveis obstáculos para cumprir as recomen
 
 MINISTÉRIO DA SAÚDE | UNIVERSIDADE DE SÃO PAULO
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-01.png)
-
 As recomendações do Guia estão resumidas em 10 passos (Quadro 2): Quadro 2 – Dez passos para uma alimentação saudável
 
 DEZ PASSOS PARA UMA ALIMENTAÇÃO ADEQUADA E SAUDÁVEL
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-04.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-05.png)
 
 FAZER DE ALIMENTOS _IN NATURA_ OU MINIMAMENTE PRICESSADOS A BASE DA ALIMENTAÇÃO
 
 FAZER COMPRAS EM LOCAIS QUE OFERTEM VARIEDADES DE ALIMENTOS _IN NATURA_ OU MINIMAMENTE PRICESSADOS
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-08.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-09.png)
-
 UTILIZAR ÓLEOS, GORDURAS, SAL E AÇÚCAR EM PEQUENAS QUANTIDAES AO TEMPERAR E COZINHAR ALIMENTOS E CRIAR PREPARACÕES CULINÁRIAS
 
 DESENVOLVER, EXERCITAR E PARTILHAR HABILIDADES CULINÁRIAS
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-12.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-13.png)
 
 LIMITAR O CONSUMO DE ALIMENTOS PROCESSADOS
 
 PLANEJAR O USO DO TEMPO PARA DAR À ALIMENTAÇÃO O ESPAÇO QUE ELA MERECE
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-16.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-17.png)
-
 EVITAR O CONSUMO DE ALIMENTOS ULTRAPROCESSADOS
 
 DAR PREFERÊNCIA, QUANDO FORA DE CASA, A LOCAIS QUE SERVEM REFEIÇÕES FEITAS NA HORA
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-20.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-21.png)
-
 COMER COM REGULARIDADE E ATENÇÃO, EM AMBIENTES APROPRIADOS E, SEMPRE QUE POSSÍVEL, COM COMPANHIA
 
 SER CRÍTICO QUANTO A INFORMACÕES, ORIENTAÇÕES E MENSAGENS SOBRE ALIMENTAÇÃO VEICULADAS EM PROPAGANDAS COMERCIAIS
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-24.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0009-25.png)
 
 Fonte: Ministério da Saúde, 2014.
 
@@ -339,8 +297,6 @@ Destacam-se esforços anteriores realizados pelo Ministério da Saúde na produ�
 
 - em Equipes que Atuam na Atenção Primária à Saúde”, de 2019. No entanto, para instrumentalizar a orientação alimentar na abordagem individual com base no Guia Alimentar, ainda há a necessidade do desenvolvimento de ferramentas para dar suporte aos profissionais de saúde atuantes na APS.
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0011-04.png)
-
 **10**
 
 ---
@@ -352,8 +308,6 @@ Destacam-se esforços anteriores realizados pelo Ministério da Saúde na produ�
 [Conferir no original](../originais/protocolos_guia_alimentar_fasciculo1_2021.pdf#page=12)
 
 _ORIENTAÇÃO ALIMENTAR INDIVIDUAL NO SUS_
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0012-01.png)
 
 Com a intencionalidade de difundir as informações do Guia na atenção nutricional dos usuários da APS, esse protocolo tem enfoque na orientação alimentar individual. A partir da abordagem metodológica centrada na pessoa, entende-se que a oferta de um atendimento direcionado e pactuado com o usuário contribui para um cuidado mais integral, refletindo suas necessidades, valores e preferências ao mesmo tempo em que a prática é baseada em evidências e diretrizes.
 
@@ -383,8 +337,6 @@ Outra informação importante refere-se ao hábito de realizar as refeições as
 
 O formulário de marcadores do consumo alimentar está disponibilizado tanto no SISVAN quanto no e-SUS Atenção Primária. Nesse protocolo, o uso do formulário de Marcadores de Consumo Alimentar do SISVAN é essencial, pois, além de possibilitar a identificação dos pontos críticos na alimentação dos indivíduos atendidos na APS de maneira rápida e prática, é uma via para indução do uso dessa ferramenta, ampliando o alcance desse importante instrumento de vigilância alimentar e nutricional em todo o país.
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0013-03.png)
-
 #### _<mark>O PERFIL DE CONSUMO</mark> DA POPULAÇÃO BRASILEIRA A PARTIR DOS MARCADORES DO SISVAN_
 
 Para apoiar a elaboração deste protocolo, as análises foram feitas a partir dos dados da Pesquisa de Orçamentos Familiares de 2017-2018. Esta, que avaliou detalhadamente a alimentação de uma amostra de mais de 40 mil brasileiros com 10 ou mais anos de idade de todas as regiões do país, das áreas urbanas e rurais e dos vários estratos socioeconômicos da população, atrelada aos marcadores contidos no SISVAN, serviu como base para a identificação de padrões de alimentação saudáveis ou não-saudáveis da população em geral.
@@ -392,8 +344,6 @@ Para apoiar a elaboração deste protocolo, as análises foram feitas a partir d
 Apesar de pesquisas anteriores apontarem a tendência crescente de consumo de alimentos ultraprocessados, o Brasil possui particularidades regionais resultantes do próprio processo histórico, intercâmbio entre diferentes culturas, existência de rica biodiversidade com grande variedade de alimentos, permitindo que uma parcela expressiva da população ainda baseie a alimentação em preparações culinárias tradicionais feitas de alimentos in natura ou minimamente processados.
 
 Avaliando-se a alimentação segundo os marcadores de consumo alimentar do SISVAN em 2017-2018, observou-se que quase ¾ dos brasileiros (74%) relatou o consumo de feijão no dia anterior à entrevista, 45% de verduras e legumes e 39% de fruta (excluindo-se sucos). Por outro lado, quase 25% já referiu o consumo de bebidas adoçadas, 24% de biscoito recheado, doces ou guloseimas, 21% de macarrão instantâneo, salgadinhos de pacote ou biscoitos salgados e 21% de hambúrguer e/ou embutido.
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0013-08.png)
 
 **12**
 
@@ -445,8 +395,6 @@ O profissional de saúde, a partir da identificação dos marcadores de alimenta
 
 Essa série é composta por cinco fascículos. O primeiro introduz a série, elucida a base metodológica utilizada para o desenvolvimento dos protocolos de uso do Guia Alimentar, orienta o uso e, por fim, apresenta o protocolo de uso do Guia Alimentar para População Adulta. Os quatro fascículos seguintes tratam dos protocolos de uso do Guia para pessoas idosas, gestantes, crianças e adolescentes, organizados em dez páginas, passíveis de impressão em folha A4. O protocolo inicialmente apresenta sua finalidade e as especificidades de cada grupo, as instruções para a utilização e o formulário dos marcadores de consumo alimentar do SISVAN. Em seguida, o fluxograma direcional de conduta e as recomendações relacionadas a cada ponto crítico identificado. Por fim, as recomendações que expõem as informações adicionais sobre alimentação saudável.
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0015-06.png)
-
 14
 
 ---
@@ -470,8 +418,6 @@ O Guia Alimentar para População Brasileira (2014) é considerado uma tecnologi
 Tendo como base o padrão de consumo alimentar da população brasileira adulta e os principais obstáculos enfrentados por esse grupo, foram elaborados o fluxograma decisório para orientação alimentar na prática clínica e as respectivas recomendações, apresentados a seguir.BRASIL, 2020
 
 **15**
-
-![Página 16 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-016-conferencia.png)
 
 ---
 
@@ -526,8 +472,6 @@ Fonte: http://189.28.128.100/dab/docs/portaldab/documentos/esus/ficha_marcadores
 
 16
 
-![Página 17 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-017-conferencia.png)
-
 ---
 
 <a id="pagina-pdf-018"></a>
@@ -536,7 +480,7 @@ Fonte: http://189.28.128.100/dab/docs/portaldab/documentos/esus/ficha_marcadores
 
 [Conferir no original](../originais/protocolos_guia_alimentar_fasciculo1_2021.pdf#page=18)
 
-> **Nota de conversão — página 18:** Fluxograma recomposto como tabela de ramos SIM/NÃO, com textos literais; a geometria das setas é preservada na imagem.
+> **Nota de conversão — página 18:** Fluxograma recomposto como tabela de ramos SIM/NÃO, com textos literais; a geometria das setas é preservada no PDF original.
 
 > **Nota de conversão — página 18:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -544,7 +488,7 @@ Fonte: http://189.28.128.100/dab/docs/portaldab/documentos/esus/ficha_marcadores
 A tabela representa os ramos do fluxograma; rótulos e textos são literais.
 Após os ramos das etapas 1–5, as setas seguem à etapa seguinte.
 Após os dois ramos da etapa 6, seguem a ORIENTAÇÕES ADICIONAIS.
-A geometria original está na imagem anexada. Revisão humana pendente. -->
+A geometria original está no PDF acessível pelo link da página. Revisão humana pendente. -->
 
 FASCÍCULO 1 | PROTOCOLOS DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR: BASES TEÓRICAS E METODOLÓGICAS E PROTOCOLO PARA A POPULAÇÃO ADULTA
 
@@ -568,8 +512,6 @@ ORIENTAÇÕES ADICIONAIS
 Fonte: Elaborado pelos autores.
 
 17
-
-![Página 18 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-018-conferencia.png)
 
 ---
 
@@ -615,13 +557,9 @@ Atenção para a **quantidade de sal, uso de temperos industrializados, carnes s
 
 Algumas pessoas relatam **não ter habilidade** para o preparo do feijão. Nesse caso, relembre (e isso vale para homens e mulheres) que o preparo, embora possa ser um pouco demorado, é muito simples. Se possível, procure uma receita junto ao usuário ou estimule que ele busque em livros ou páginas na internet ou mesmo que aprendam com quem já sabe.
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0019-17.png)
-
 - **FORA DE CASA** , restaurantes que servem refeições preparadas na hora, como “quilos”, “buffets” ou “pratos feitos” são boas opções para o consumo de feijão. Valorize refeitórios institucionais (em locais de trabalho e instituições de ensino) que servem comida fresca e os restaurantes populares. Para algumas pessoas, levar comida feita em casa (“marmita”) para o local de trabalho ou estudo pode ser outra boa opção.
 
 **18**
-
-![Página 19 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-019-conferencia.png)
 
 ---
 
@@ -667,8 +605,6 @@ Para usuários que não têm o **hábito de consumir água** , existem algumas m
 
 19
 
-![Página 20 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-020-conferencia.png)
-
 ---
 
 <a id="pagina-pdf-021"></a>
@@ -678,8 +614,6 @@ Para usuários que não têm o **hábito de consumir água** , existem algumas m
 [Conferir no original](../originais/protocolos_guia_alimentar_fasciculo1_2021.pdf#page=21)
 
 > **Nota de conversão — página 21:** Falso tachado de título removido; revisar cabeçalhos e barras laterais.
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0021-00.png)
 
 MINISTÉRIO DA SAÚDE | UNIVERSIDADE DE SÃO PAULO
 
@@ -725,8 +659,6 @@ Ajude o indivíduo a **planejar o tempo** designado para a alimentação, como a
 
 20
 
-![Página 21 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-021-conferencia.png)
-
 ---
 
 <a id="pagina-pdf-022"></a>
@@ -738,8 +670,6 @@ Ajude o indivíduo a **planejar o tempo** designado para a alimentação, como a
 > **Nota de conversão — página 22:** Falso tachado removido e título reordenado conforme a página; revisar cabeçalhos e barras laterais.
 
 FASCÍCULO 1| PROTOCOLOS DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR: BASES TEÓRICAS E METODOLÓGICAS E PROTOCOLO PARA A POPULAÇÃO ADULTA
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0022-01.png)
 
 # **RECOMENDAÇÃO 4: ORIENTE O CONSUMO DIÁRIO DE LEGUMES E VERDURAS**
 
@@ -771,8 +701,6 @@ Atenção para a **quantidade de sal** utilizada na preparação de legumes e ve
 
 21
 
-![Página 22 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-022-conferencia.png)
-
 ---
 
 <a id="pagina-pdf-023"></a>
@@ -788,8 +716,6 @@ MINISTÉRIO DA SAÚDE | UNIVERSIDADE DE SÃO PAULO
 # **RECOMENDAÇÃO 5: ORIENTE O CONSUMO DIÁRIO DE FRUTAS**
 
 **ORIENTAÇÃO:** Estimule o consumo diário de frutas, sendo preferencialmente inteiras, em vez de sucos.
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0023-03.png)
 
 ###### **VARIAÇÕES E SUGESTÕES DE PREPARAÇÕES:**
 
@@ -815,8 +741,6 @@ Para aqueles que referem **não ter o hábito ou não gostar de frutas** , estim
 
 2222
 
-![Página 23 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-023-conferencia.png)
-
 ---
 
 <a id="pagina-pdf-024"></a>
@@ -830,8 +754,6 @@ Para aqueles que referem **não ter o hábito ou não gostar de frutas** , estim
 > **Nota de conversão — página 24:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 FASCÍCULO 1| PROTOCOLOS DE USO DO GUIA ALIMENTAR PARA A POPULAÇÃO BRASILEIRA NA ORIENTAÇÃO ALIMENTAR: BASES TEÓRICAS E METODOLÓGICAS E PROTOCOLO PARA A POPULAÇÃO ADULTA
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0024-01.png)
 
 # **RECOMENDAÇÃO 6: ORIENTE QUE O USUÁRIO COMA EM AMBIENTES APROPRIADOS E COM ATENÇÃO**
 
@@ -855,11 +777,7 @@ O ambiente onde comemos pode influenciar a quantidade de alimentos que ingerimos
 
 Imagem: Guia Alimentar para Populacão Brasileira do Ministério da Saúde.
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0024-13.png)
-
 23
-
-![Página 24 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-024-conferencia.png)
 
 ---
 
@@ -927,28 +845,12 @@ Conte-nos o que pensa sobre esta publicação. Responda a pesquisa disponível p
 
 [Conferir no original](../originais/protocolos_guia_alimentar_fasciculo1_2021.pdf#page=28)
 
-> **Nota de conversão — página 28:** OCR parcial e impreciso dos logotipos; resultado bruto fica no relatório e imagem no Markdown.
+> **Nota de conversão — página 28:** OCR parcial e impreciso dos logotipos; resultado bruto fica no relatório e imagem no PDF original.
 
-> **Nota de conversão — página 28:** Logotipos pequenos e código de barras sem transcrição textual integral; imagem preservada e OCR bruto registrado.
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-00.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-01.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-02.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-03.png)
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-04.png)
+> **Nota de conversão — página 28:** Logotipos pequenos e código de barras sem transcrição textual integral; imagem disponível no PDF original e OCR bruto registrado.
 
 Biblioteca Virtual em Saúde do Ministério da Saúde http://bvsms.saude.gov.br
 
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-06.png)
-
 **GOVERNO FEDERAL**
-
-![](/privateassets/protocolos_guia_alimentar_fasciculo1_2021/protocolos_guia_alimentar_fasciculo1_2021.pdf-0028-08.png)
-
-![Página 28 do PDF para conferência](assets/protocolos_guia_alimentar_fasciculo1_2021/pagina-028-conferencia.png)
 
 ---

@@ -1,6 +1,6 @@
 # Corpus científico de Nutrição
 
-Esta etapa obtém os PDFs oficiais e produz transcrições em Markdown, com imagens e marcadores de todas as páginas. **Os dois documentos permanecem com revisão e aprovação pendentes.** Conversão e conferência amostral não tornam uma fonte elegível para responder aos usuários.
+Esta etapa obtém os PDFs oficiais e produz transcrições em Markdown, com marcadores e links a todas as páginas dos originais. **Os dois documentos permanecem com revisão e aprovação pendentes.** Conversão e conferência amostral não tornam uma fonte elegível para responder aos usuários.
 
 O corpus científico é separado dos dados pessoais. Não colocar aqui perfis, registros de hábitos/saúde, conversas, fotos, áudios ou PDFs enviados por usuários.
 
@@ -15,7 +15,7 @@ O catálogo é [`manifest.yaml`](manifest.yaml), mantendo `version: 1` e `source
 
 Consulta e obtenção: **03/11/2026**. O endereço do Guia informado no pedido redirecionou para autenticação; o arquivo foi obtido na BVS oficial. A edição foi identificada na capa e nos créditos, mas não foi possível comparar seus bytes com os do endereço indisponível. As fichas catalográficas indicam 156 e 26 páginas, respectivamente; o total físico inclui páginas adicionais. Os marcadores desta conversão usam sempre a posição física no PDF, começando em 1.
 
-Ambos os PDFs declaram **CC-BY-NC-SA-4.0** na página física 3: atribuição, uso não comercial e compartilhamento pela mesma licença. Originais, textos derivados e imagens mantêm a atribuição aos autores institucionais e essa licença. As transformações realizadas são extração, estruturação em Markdown, OCR pontual e correções de transcrição identificadas; não há endosso do Ministério ou da USP ao CULTIVA. A compatibilidade dessa licença com o uso futuro pretendido pelo produto permanece **pendente**.
+Ambos os PDFs declaram **CC-BY-NC-SA-4.0** na página física 3: atribuição, uso não comercial e compartilhamento pela mesma licença. Originais e textos derivados mantêm a atribuição aos autores institucionais e essa licença. As transformações realizadas são extração, estruturação em Markdown, OCR pontual e correções de transcrição identificadas; não há endosso do Ministério ou da USP ao CULTIVA. A compatibilidade dessa licença com o uso futuro pretendido pelo produto permanece **pendente**.
 
 ## Organização
 
@@ -25,7 +25,6 @@ corpus/
   nutricao/
     originais/       # PDFs obtidos, sem alteração dos bytes
     markdown/       # .md convertidos, ainda pendentes de revisão
-      assets/       # recortes e páginas de conferência por documento
     relatorios/     # JSON por documento: diagnóstico por página e hashes
   scripts/
     convert_pdfs.py
@@ -66,15 +65,17 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py \
   --source protocolos-guia-alimentar-fasciculo1-2021 --overwrite
 ```
 
-Sem `--overwrite`, saídas existentes são recusadas. Com essa opção, apenas Markdown, imagens e relatório da fonte selecionada são regenerados; **não a utilize sobre revisão manual ainda não preservada**. Originais existentes nunca são substituídos; divergência de hash exige investigar a edição e atualizar conscientemente o catálogo. O script não modifica o manifesto nem aprova fontes. Novos ajustes devem ficar em `scripts/config/` ou `scripts/ajustes/`, para sobreviver à regeneração.
+Sem `--overwrite`, saídas existentes são recusadas. Com essa opção, apenas Markdown e relatório da fonte selecionada são regenerados; **não a utilize sobre revisão manual ainda não preservada**. Originais existentes nunca são substituídos; divergência de hash exige investigar a edição e atualizar conscientemente o catálogo. O script não modifica o manifesto nem aprova fontes. Novos ajustes devem ficar em `scripts/config/` ou `scripts/ajustes/`, para sobreviver à regeneração.
+
+Imagens de conferência são renderizadas apenas em diretório temporário fora do repositório. O conversor não exporta imagens; os links `#page=N` permitem consultar figuras e diagramas no PDF original.
 
 ## Método e rastreabilidade
 
 1. Verificar assinatura PDF, integridade por SHA-256, quantidade de páginas e correspondência dos ajustes com o original.
-2. Extrair todas as páginas com PyMuPDF Layout, mantendo cabeçalhos, rodapés, texto em figuras e recortes visuais. Gerar títulos, parágrafos, listas e tabelas; sem resumir ou produzir orientações novas.
+2. Extrair todas as páginas com PyMuPDF Layout, mantendo cabeçalhos, rodapés e texto em figuras; sem exportar PNGs. Gerar títulos, parágrafos, listas e tabelas; sem resumir ou produzir orientações novas.
 3. Sinalizar páginas com menos de 150 caracteres nativos. A inspeção visual distingue páginas de fotografia/transição de texto que precisa de OCR. As decisões destes dois PDFs estão nas configurações. Em novos documentos, páginas esparsas sem decisão explícita passam por OCR integral e recebem aviso de revisão.
 4. Aplicar OCR em regiões delimitadas quando há texto visual ausente da camada nativa. Resultados auxiliares imprecisos ficam no relatório, sem se misturar às orientações. O selo da capa do Guia foi transcrito literalmente após falha do OCR, com registro explícito.
-5. Aplicar correções pontuais vinculadas ao hash do PDF. Substituições estritas falham se o trecho esperado mudar. As páginas recompostas ficam em `scripts/ajustes/`, e a imagem integral é anexada para conferência. Ajustes de estrutura não implicam revisão humana concluída.
+5. Aplicar correções pontuais vinculadas ao hash do PDF. Substituições estritas falham se o trecho esperado mudar. As páginas recompostas ficam em `scripts/ajustes/`, e o link da página leva ao PDF original para conferência. Ajustes de estrutura não implicam revisão humana concluída.
 6. Acrescentar `<!-- PDF_PAGE: N -->`, âncora `pagina-pdf-NNN` e link ao original em cada página. Notas editoriais são identificadas como notas de conversão.
 7. Produzir relatório com OCR bruto, avisos, diferenças lexicais, ajustes, hashes de scripts/configurações/arquivos e versões das ferramentas. Só gravar os derivados após concluir todas as páginas da fonte.
 
@@ -86,19 +87,19 @@ Amostra conferida pelo assistente contra páginas renderizadas; não é revisão
 
 | Documento / páginas | Verificação e resultado |
 |---|---|
-| Guia, 1 e 3 | Capa, edição e licença identificadas. Selo sem texto nativo teve OCR sem resultado útil; texto literal incluído por transcrição pontual e imagem preservada. |
+| Guia, 1 e 3 | Capa, edição e licença identificadas. Selo sem texto nativo teve OCR sem resultado útil; texto literal incluído por transcrição pontual e imagem disponível no PDF original. |
 | Guia, 51 | Dois blocos de orientação e parágrafos confrontados com a imagem; conteúdo textual preservado na amostra. |
-| Guia, 52 | A extração inicial misturava rótulos do diagrama. Recompostos os três grupos de alimentos em tabelas, com imagem integral para conferir as correspondências. |
+| Guia, 52 | A extração inicial misturava rótulos do diagrama. Recompostos os três grupos de alimentos em tabelas, com link à página original para conferir as correspondências. |
 | Guia, 148 | Conferidas as três colunas e as sete linhas da tabela de participantes/contribuições. Totais **436** usuários e **3125** contribuições preservados; capitalização automática de versaletes difere da aparência do original. |
 | Fascículo, 3 e 7 | Licença e Quadro 1 conferidos. Preservadas três colunas e quatro grupos de alimentos; corrigidos espaços indevidos entre palavras. |
-| Fascículo, 16–18 | Título, sequência de cinco instruções, opções do formulário e ramos SIM/NÃO do fluxograma conferidos. O extrator inicial duplicava números e perdia opções; transcrições pontuais corrigem esses casos. As setas e a geometria original permanecem nas imagens. |
+| Fascículo, 16–18 | Título, sequência de cinco instruções, opções do formulário e ramos SIM/NÃO do fluxograma conferidos. O extrator inicial duplicava números e perdia opções; transcrições pontuais corrigem esses casos. As setas e a geometria original permanecem no PDF original. |
 | Fascículo, 19 e 22 | Conferidos títulos e as orientações da amostra; a faixa **6 a 12 horas** da página 19 foi preservada. Corrigidas ordem dos títulos e marcas de tachado produzidas por barras decorativas. |
 
 Limitações registradas para revisão:
 
 - **Guia: páginas 1, 3, 4, 52, 148 e 158.** Selo/contracapa, ordem dos créditos em colunas, continuidade do sumário, diagrama e capitalização da tabela. O OCR dos logotipos da página 158 não é fiel; consultar imagem/PDF.
 - **Fascículo: páginas 3, 4, 7, 8, 16–24 e 28.** Créditos, sumário, tabelas, títulos, fluxograma e elementos gráficos. A miniatura da capa na página 8 e logotipos da página 28 não tiveram transcrição OCR confiável. Na página 24, palavras partidas da camada nativa produzem alertas que precisam ser conferidos no original.
-- Fotografias, marcas, códigos de barras e a disposição das figuras são preservados visualmente, sem descrição semântica gerada. Selos curvos e letras muito pequenas não têm transcrição automática integral. A estrutura hierárquica de títulos e a ordem em páginas complexas são inferidas e exigem revisão.
+- Fotografias, marcas, códigos de barras e a disposição das figuras continuam preservados nos PDFs originais, sem exportação para PNG ou descrição semântica gerada. Selos curvos e letras muito pequenas não têm transcrição automática integral. A estrutura hierárquica de títulos e a ordem em páginas complexas são inferidas e exigem revisão.
 - Os créditos públicos das publicações foram mantidos. A separação de dados pessoais se refere aos usuários do CULTIVA, não à supressão de atribuição bibliográfica.
 - O Fascículo é destinado à orientação por profissionais. Preservar seu conteúdo documental não autoriza o aplicativo a executar prescrições ou protocolos individualizados.
 
