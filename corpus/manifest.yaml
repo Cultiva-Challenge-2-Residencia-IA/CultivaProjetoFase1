@@ -634,6 +634,75 @@ sources:
 #     source: https://example.org/documento
 #     license: CC-BY-4.0
 #     version: "2026-01"
+  - id: crispim-sono-obesidade-abem-2007
+    title: "Relação entre sono e obesidade: uma revisão da literatura"
+    authors:
+      - Cibele Aparecida Crispim
+      - Ioná Zalcman
+      - Murilo Dáttilo
+      - Heloisa Guarita Padilha
+      - Sérgio Tufik
+      - Marco Túlio de Mello
+    institutions:
+      - Universidade Federal de São Paulo
+    journal: "Arquivos Brasileiros de Endocrinologia & Metabologia"
+    year: 2007
+    edition: "v. 51, n. 7, p. 1041-1049"
+    version: "2007-51-7"
+    doi: 10.1590/S0004-27302007000700004
+    source: https://www.scielo.br/j/abem/a/GQ8CpsS5gdGW5yzrRTHz8Yt/?lang=pt
+    download_url: https://www.scielo.br/j/abem/a/GQ8CpsS5gdGW5yzrRTHz8Yt/?format=pdf&lang=pt
+    retrieved_on: "2026-11-06"
+    license: CC-BY-NC-4.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License". O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/crispim_et_al_sono_obesidade_abem_2007.pdf
+    markdown_path: corpus/nutricao/markdown/crispim_et_al_sono_obesidade_abem_2007.md
+    report_path: corpus/nutricao/relatorios/crispim_et_al_sono_obesidade_abem_2007.json
+    sha256: 6e22a611b963ed42af2e52e36dfceb4f6a947c3bfd8c705f0a6162c533d2239a
+    pdf_pages: 9
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
+    purpose_note: "Revisão sobre como a redução do tempo de sono se associa à obesidade e a alterações do apetite e do metabolismo. Substitui o artigo \"O impacto da privação de sono e fadiga no comportamento alimentar\" (Revista de Nutrição), que não foi localizado."
+    scope_note: "Revisão de 2007, em que as evidências sobre sono e apetite avançaram depois. Mostra associações, não causalidade individual."
+  - id: fusco-ansiedade-sono-compulsao-reeusp-2020
+    title: "Ansiedade, qualidade do sono e compulsão alimentar em adultos com sobrepeso ou obesidade"
+    authors:
+      - Suzimar de Fátima Benato Fusco
+      - Stéfanie Cristina Pires Amancio
+      - Ana Paula Pancieri
+      - Maria Virginia Martins Faria Faddul Alves
+      - Wilza Carla Spiri
+      - Eliana Mara Braga
+    institutions:
+      - Universidade Estadual Paulista Júlio de Mesquita Filho
+      - Universidade Estadual de Campinas
+    journal: Revista da Escola de Enfermagem da USP
+    year: 2020
+    edition: "v. 54, e03656"
+    version: "2020-54"
+    doi: 10.1590/S1980-220X2019013903656
+    source: https://www.scielo.br/j/reeusp/a/VbCfRCz8XWkBF7bTnXhS44G/?lang=pt
+    download_url: https://www.scielo.br/j/reeusp/a/VbCfRCz8XWkBF7bTnXhS44G/?format=pdf&lang=pt
+    retrieved_on: "2026-11-06"
+    license: CC-BY-4.0
+    license_evidence:
+      location: página do artigo no SciELO (landing page)
+      description: A página declara "Open Access article distributed under the terms of the Creative Commons Attribution License" (creativecommons.org/licenses/by/4.0/). O PDF não traz a licença impressa.
+    original_path: corpus/nutricao/originais/fusco_et_al_ansiedade_sono_compulsao_reeusp_2020.pdf
+    markdown_path: corpus/nutricao/markdown/fusco_et_al_ansiedade_sono_compulsao_reeusp_2020.md
+    report_path: corpus/nutricao/relatorios/fusco_et_al_ansiedade_sono_compulsao_reeusp_2020.json
+    sha256: 58d3ad221f8672394df831f051a03f694e38d7bd627bdb9c1c212084e202a60e
+    pdf_pages: 8
+    conversion_status: concluida_com_ressalvas
+    review_status: pendente
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+    purpose_note: "Relaciona ansiedade, qualidade do sono e compulsão alimentar em adultos, apoiando a conexão entre sono, estresse e escolhas alimentares."
+    scope_note: "Estudo transversal com adultos com sobrepeso ou obesidade, entre 2015 e 2017. Não se generaliza para quem não tem esse perfil e não demonstra causalidade."
 
 # intended_use_license_review (decisão de 06/11/2026, ver corpus/README.md, seção "Decisão sobre licenças e uso das fontes"):
 #   compativel_cc_by: licença CC BY, que permite o uso com atribuição.

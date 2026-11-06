@@ -144,3 +144,27 @@ cfn-codigo-etica-conduta-nutricionista-2018:
     - '^E e o\. E\.$'
     - '^ooo E »'
     - '^CONSELHO FEDERAL DE NUTRICIONISTAS$'
+crispim-sono-obesidade-abem-2007:
+  drop_paragraphs:
+    - '^CIBELE APARECIDA CRISPIM'
+    - '^Reduction in sleep time'
+    - '^Keywords?:'
+    - '^Descritores'
+    - '^Unitermos'
+    - '^Endereço'
+    - '^Recebido em'
+    - '^Departamento de Psicobiologia'
+fusco-ansiedade-sono-compulsao-reeusp-2020:
+  drop_paragraphs:
+    - '^ARTIGO ORIGINAL'
+    - '^Anxiety, sleep quality'
+    - '^\d Universidade'
+    - '^DESCRIPTORS?'
+    - '^DESCRITORES'
+    - '^Anxiety; Obesity'
+    - '^Ansiedade; Obesidade'
+    - '^Como citar este artigo'
+    - 'orcid\.org'
+    - '^Suzimar de Fátima Benato Fusco'
+    - '^Autor correspondente'
+    - '^Universidade Estadual'
