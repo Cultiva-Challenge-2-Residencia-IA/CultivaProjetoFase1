@@ -179,11 +179,15 @@ def prepare(source: dict) -> dict:
     drop = [re.compile(p) for p in source_config.get("drop_paragraphs", [])]
     keep = frozenset(s.lower() for s in source_config.get("keep_sections", []))
     resume = tuple(re.compile(p) for p in source_config.get("resume_after_skip", []))
+    skip_pages = frozenset(source_config.get("skip_pages", []))
     records: list[dict] = []
     skipping, section = False, ""
     discarded_short = 0
     cleaned = []
     for page, raw in split_pages(markdown):
+        if page in skip_pages:
+            cleaned.append((page, []))
+            continue
         paragraphs, skipping, section = clean_page(raw, skipping, section, keep, resume)
         cleaned.append((page, [(s, p, t) for s, p, t in paragraphs if not any(rx.search(p) for rx in drop)]))
     # Cabeçalhos e rodapés correntes: parágrafo curto que se repete em várias páginas.

@@ -432,6 +432,7 @@ sources:
     intended_use_license_review: compativel_cc_by
     purpose_note: "Traz as barreiras percebidas (como falta de tempo e preparo) ao consumo de frutas e verduras, apoiando sugestões simples e viáveis. Substitui o título \"Barreiras para o consumo de frutas e hortaliças no Brasil\" (RSP), que não foi localizado."
     scope_note: Estudo transversal com 877 adultos de até 44 anos em Cambé (PR). Não se generaliza para o país.
+    data_quality_note: "Nas páginas 5 e 6 do PDF, as tabelas de odds ratio e intervalos de confiança saíram embaralhadas na extração (valores cortados e trocados entre colunas). Essas páginas foram excluídas dos Trechos (skip_pages em scripts/config/rag.yaml). Consultar os valores no PDF original."
   - id: jaime-frutas-hortalicas-brasil-rsp-2009
     title: "Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006"
     authors:

@@ -86,6 +86,7 @@ franca-psicologia-nutricao-comportamento-alimentar-epsic-2012:
     - '^Universidade de Brasília$'
     - '^Ministério da Aeronáutica$'
 santos-barreiras-frutas-verduras-csc-2019:
+  skip_pages: [5, 6]
   drop_paragraphs:
     - '^Perceived barriers'
     - 'orcid\.org'
