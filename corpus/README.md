@@ -1,6 +1,6 @@
 # Corpus científico de Nutrição
 
-Esta etapa obtém os PDFs oficiais e produz transcrições em Markdown, com marcadores e links a todas as páginas dos originais. **Os documentos permanecem com revisão e aprovação pendentes.** Conversão e conferência amostral não tornam uma fonte elegível para responder aos usuários.
+Esta etapa obtém os PDFs oficiais e produz transcrições em Markdown, com marcadores e links a todas as páginas dos originais. Documentos sem decisão registrada permanecem com revisão e aprovação pendentes; conversão e conferência amostral não tornam uma fonte elegível para responder aos usuários.
 
 O corpus científico é separado dos dados pessoais. Não colocar aqui perfis, registros de hábitos/saúde, conversas, fotos, áudios ou PDFs pessoais enviados por usuários do aplicativo. A inclusão bibliográfica solicitada nesta tarefa não incorpora registros pessoais ao corpus.
 
@@ -19,9 +19,9 @@ O catálogo é [`manifest.yaml`](manifest.yaml), mantendo `version: 1` e `source
 
 Consulta e obtenção dos dois documentos do Ministério da Saúde: **03/11/2026**. O endereço do Guia informado no pedido redirecionou para autenticação; o arquivo foi obtido na BVS oficial. A edição foi identificada na capa e nos créditos, mas não foi possível comparar seus bytes com os do endereço indisponível. As fichas catalográficas indicam 156 e 26 páginas, respectivamente; o total físico inclui páginas adicionais. Os marcadores desta conversão usam sempre a posição física no PDF, começando em 1.
 
-Os dois PDFs do Ministério da Saúde declaram **CC-BY-NC-SA-4.0** na página física 3: atribuição, uso não comercial e compartilhamento pela mesma licença. Originais e textos derivados mantêm a atribuição aos autores institucionais e essa licença. As transformações realizadas são extração, estruturação em Markdown, OCR pontual e correções de transcrição identificadas; não há endosso do Ministério ou da USP ao CULTIVA. A compatibilidade dessa licença com o uso futuro pretendido pelo produto permanece **pendente**.
+Os dois PDFs do Ministério da Saúde declaram **CC-BY-NC-SA-4.0** na página física 3: atribuição, uso não comercial e compartilhamento pela mesma licença. Originais e textos derivados mantêm a atribuição aos autores institucionais e essa licença. As transformações realizadas são extração, estruturação em Markdown, OCR pontual e correções de transcrição identificadas; não há endosso do Ministério ou da USP ao CULTIVA. A compatibilidade dessa licença com o uso pretendido pelo produto permanece **pendente**; esta atualização aprova somente Martins e Souza e Backes.
 
-Os dois artigos científicos têm licenças próprias, registradas em `manifest.yaml`: Souza e Backes (2020) é **CC-BY-4.0** (evidência na página física 10 do PDF) e Martins et al. (2013) é **CC-BY-NC-3.0**, conforme a página do artigo no SciELO, pois o PDF não traz a licença impressa. Nas duas, a compatibilidade com o uso pretendido pelo produto também está **pendente**.
+Os dois artigos científicos têm licenças próprias, registradas em `manifest.yaml`: Souza e Backes (2020) é **CC-BY-4.0** (evidência na página física 10 do PDF) e Martins et al. (2013) é **CC-BY-NC-3.0**, conforme a página do artigo no SciELO, pois o PDF não traz a licença impressa. A equipe registrou ambos como `revisado`/`aprovado`, com licença `compatível` somente para o uso acadêmico interno atual; isso não autoriza produto ou vitrine paga futura.
 
 O artigo de Martins et al. usa a classificação por extensão e propósito do processamento (base da NOVA), mas **não é o artigo original da classificação** (Monteiro et al., 2010, Cadernos de Saúde Pública). A revisão sistemática de Perez et al. (2021) citada no pedido inicial não foi localizada no Crossref e por isso não foi catalogada.
 
@@ -31,7 +31,7 @@ O PDF recebido é o **Guia alimentar de dietas vegetarianas para adultos**, de *
 
 O original recebido foi preservado byte a byte. Os endereços oficiais indexados [old.svb.org.br](https://old.svb.org.br/livros/guia-alimentar.pdf) e [veg.svb.org.br](https://veg.svb.org.br/livros/guia-alimentar.pdf) retornaram HTTP 404 na tentativa de download; a equivalência com uma cópia online permanece não confirmada. O manifesto registra a origem recebida e essa limitação, sem URL de download funcional presumida.
 
-A página 3 declara uma **permissão própria de reprodução parcial ou total com citação da fonte, sem venda ou qualquer fim comercial**. Não atribuir Creative Commons a esta fonte. A compatibilidade com o uso pretendido pelo CULTIVA permanece pendente.
+A página 3 declara uma **permissão própria de reprodução parcial ou total com citação da fonte, sem venda ou qualquer fim comercial**. Não atribuir Creative Commons a esta fonte. Para o uso acadêmico interno atual, a equipe registrou a compatibilidade limitada ao texto literal da permissão; produto ou vitrine paga permanece bloqueado.
 
 A relação com a adaptação a preferências vegetarianas é uma **hipótese de utilidade**, não resultado demonstrado pela conversão nem aprovação do requisito. O guia é de 2012 e contém conteúdo destinado a profissionais, inclusive prescrição nutricional: atualização científica, elegibilidade e compatibilidade com os limites educativos do produto exigem avaliação própria. Nenhuma recomendação clínica foi atualizada ou validada nesta transcrição.
 
@@ -65,7 +65,7 @@ Para regenerar somente este artigo (ajustes em `scripts/config/moreira-rodrigues
 corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --source moreira-rodrigues-conhecimento-nutricional-suplementacao-2014 --download-ocr --overwrite
 ```
 
-Revisão independente de fidelidade, avaliação científica, aprovação e compatibilidade da licença permanecem pendentes. Conferência pelo assistente não equivale à aprovação para uso pelo produto.
+Para Martins e Souza e Backes, a revisão humana e a aprovação para o escopo acadêmico interno foram registradas no relatório do issue #8. Isso não equivale a aprovação jurídica, científica ampla ou autorização para uso comercial pelo produto.
 
 ## Organização
 
@@ -133,7 +133,7 @@ A comparação lexical conta palavras da camada nativa que não aparecem no text
 
 ## Conferência amostral e limitações
 
-Amostra conferida pelo assistente contra páginas renderizadas; não é revisão humana integral. As páginas abaixo são físicas, sem descontar capas.
+Amostra técnica comparada com páginas renderizadas; não é revisão humana integral. As páginas abaixo são físicas, sem descontar capas.
 
 | Documento / páginas | Verificação e resultado |
 |---|---|
@@ -148,6 +148,16 @@ Amostra conferida pelo assistente contra páginas renderizadas; não é revisão
 | SVB, 23 | Os oito pares da Tabela 9 foram preservados como blocos sequenciais; bordas e cores ficam no PDF. |
 | SVB, 47 | Conferidos parágrafos, três colunas e cinco linhas de medidas caseiras, inclusive 125,0 g, 202,5 g, 1½ e 3½. |
 | SVB, 57 | Conferidas referências 1–20; corrigido espaço introduzido em URL quebrado entre linhas. Links históricos não tiveram disponibilidade validada. |
+
+### Revisão técnica do issue #8
+
+O relatório [`relatorios/revisao-issue-8.md`](nutricao/relatorios/revisao-issue-8.md) registra a revisão técnica das páginas físicas 5–7 de Martins et al. (2013) e 4, 7 e 8 de Souza e Backes (2020), além das evidências de licença, limitações de extração, recomendações e decisões em aberto. A conferência visual humana e a aprovação dessas duas fontes foram registradas para o escopo acadêmico interno, sem vantagem comercial. Isso não resolve a compatibilidade jurídica ou comercial de produto ou vitrine paga futura.
+
+Os alertas mais relevantes são a degradação estrutural das tabelas de Martins nas páginas 5–7, a cobertura lexical de 93,2% na página 7 de Souza e Backes e a cobertura de 77,7% na página 8. Esses artefatos não devem ser usados para cálculo, dados estruturados, RAG ou citação precisa sem conferência no PDF original.
+
+O relatório também contém o registro da conferência humana página a página e o checklist de rastreabilidade para licença e uso pretendido. A licença CC BY-NC 3.0 catalogada para Martins continua bloqueada para vitrine paga/uso comercial até análise jurídica ou autorização escrita; a CC BY 4.0 de Souza e Backes permite uso comercial em princípio, mas qualquer exploração futura exige nova análise dos elementos de terceiros. Esses limites não constituem aprovação jurídica.
+
+O escopo atual está delimitado a trabalho acadêmico interno, sem vantagem comercial. Para Martins e demais fontes com restrição NC, o uso acadêmico é compatível apenas em princípio e sob os termos da licença; o bloqueio para produto ou vitrine paga futura permanece. A CC-BY-NC-SA-4.0 exige atribuição, não comercialidade e compartilhamento pela mesma licença em adaptações. A permissão própria da SVB deve ser respeitada literalmente (reprodução com citação, sem venda ou fim comercial) e não deve ser tratada como Creative Commons.
 
 Limitações registradas para revisão:
 
@@ -184,7 +194,7 @@ Limitações:
 - Um parágrafo que continua na página seguinte é cortado na quebra de página. Cada metade vira Trecho de sua página.
 - A seção (`secao`) vem dos títulos que o extrator identificou. Em páginas de duas colunas ou com caixas ela pode estar imprecisa.
 - Os superscritos (`<sup>`) são removidos, o que também apaga expoentes legítimos como m².
-- Os Trechos copiam o `approval_status` do manifesto, hoje `pendente` em todas as fontes. Quem indexa deve decidir se aceita fontes pendentes e não deve apresentá-las como aprovadas.
+- Os Trechos copiam o `approval_status` do manifesto. Quem indexa deve respeitar os status por fonte e não deve apresentar fontes pendentes como aprovadas.
 - Não há embeddings nem índice: este passo só prepara o texto.
 
 ## Como incluir outro documento

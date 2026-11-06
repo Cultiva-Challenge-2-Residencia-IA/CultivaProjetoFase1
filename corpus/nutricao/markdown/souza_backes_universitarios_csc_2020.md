@@ -5,8 +5,8 @@ title: Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimen
 source: https://www.scielo.br/j/csc/a/ZzMLsShvSMNPwPttjKqtGSC/?lang=pt
 license: CC-BY-4.0
 source_sha256: 3c31861b720181790a0fb052c5ceb9036a02fa2ea5cf3ef826b54a599b4596a2
-review_status: pendente
-approval_status: pendente
+review_status: revisado
+approval_status: aprovado
 ---
 
 # Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimentação Saudável entre universitários de Porto Alegre, Brasil

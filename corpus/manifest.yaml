@@ -80,9 +80,9 @@ sources:
     pdf_pages: 10
     selection_note: Artigo da família NOVA com Monteiro como último autor; descreve os grupos por extensão e propósito do processamento e a tendência de ultraprocessados no Brasil. Não é o artigo original da classificação (Monteiro et al., 2010, Cadernos de Saúde Pública).
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
-    approval_status: pendente
-    intended_use_license_review: pendente
+    review_status: revisado
+    approval_status: aprovado
+    intended_use_license_review: compatível
   - id: souza-backes-universitarios-csc-2020
     title: Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimentação Saudável entre universitários de Porto Alegre, Brasil
     authors:
@@ -110,9 +110,9 @@ sources:
     pdf_pages: 10
     selection_note: Estudo com universitários (Porto Alegre) sobre autopercepção alimentar e adesão aos Dez Passos do Guia Alimentar. Substitui a revisão Perez et al. 2021, que não foi localizada no Crossref nem no índice da edição.
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
-    approval_status: pendente
-    intended_use_license_review: pendente
+    review_status: revisado
+    approval_status: aprovado
+    intended_use_license_review: compatível
   - id: guia-dietas-vegetarianas-svb-2012
     title: Guia alimentar de dietas vegetarianas para adultos
     institutions:

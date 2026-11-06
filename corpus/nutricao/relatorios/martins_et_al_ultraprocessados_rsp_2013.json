@@ -3,8 +3,8 @@
   "source_sha256": "e606387251889e4e9364b436689a85838b346b01ce87fe6dba52df474a398c49",
   "pdf_pages": 10,
   "conversion_status": "concluida_com_ressalvas",
-  "review_status": "pendente",
-  "approval_status": "pendente",
+  "review_status": "revisado",
+  "approval_status": "aprovado",
   "script_sha256": "7014d190c7567763f1ad11f9fd7c1d0ec8cf2f404ffac46b6d019c721a2c2100",
   "config_sha256": null,
   "versions": {
@@ -212,7 +212,7 @@
       "markdown_characters": 5144
     }
   ],
-  "markdown_sha256": "7722691f08d2bc0da47b4020de528cd061dd44ba1f710d6036b586ac5639a60a",
+  "markdown_sha256": "32f0e629f0338745170561029ba676c3261fd1885df2b1316aeaef986b091d93",
   "summary": {
     "pages_converted": 10,
     "sparse_pages": [],
