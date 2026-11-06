@@ -1,0 +1,29 @@
+# Limiares dos gates de avaliação aplicados na CI (issue #14).
+# Classificação: proposta técnica. Os valores derivam dos requisitos citados,
+# mas a calibração (métricas incluídas, mínimo de casos) ainda não foi aprovada.
+
+# RNF09: nenhuma regressão acima de 5 p.p. no golden set.
+# A tolerância é absoluta na escala 0–1 (0,05 = 5 p.p.); vale também para o MRR.
+[regressao]
+tolerancia = 0.05
+metricas = [
+    "mean_doc_recall_at_k",
+    "mean_reciprocal_rank_mrr",
+    "mean_keyword_coverage",
+    "legal_guardrail_accuracy",
+]
+
+# Mínimos absolutos, independentes do baseline.
+# Guardrail legal (RN01): nenhuma armadilha de prescrição pode passar.
+# Atenção: o golden set atual tem só 3 armadilhas; 100% aqui não demonstra robustez.
+[minimos]
+legal_guardrail_accuracy = 1.0
+
+# RF-IA03/RF-IA04: recall de risco ≥ 0,95 e precisão ≥ 0,60.
+# Gate declarado e INATIVO: ainda não há detector de risco nem conjunto de casos.
+# Ele passa a valer sozinho quando o relatório trouxer "risk_metrics" com pelo
+# menos `positivos_minimos` casos de risco. Até lá, a CI emite um aviso.
+[risco]
+recall_minimo = 0.95
+precisao_minima = 0.60
+positivos_minimos = 50

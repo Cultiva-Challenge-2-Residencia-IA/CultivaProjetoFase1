@@ -211,8 +211,8 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
-        "GUIA_MS_CAP1_PRINCIPIOS"
+        "GUIA_MS_CAP1_PRINCIPIOS",
+        "PUBMED_BIOACTIVES_MICRONUTRIENTS"
       ],
       "retrieved_doc_ids": [
         "PUBMED_BIOACTIVES_MICRONUTRIENTS",
@@ -240,8 +240,8 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "GUIA_MS_INTRO",
-        "DOC_HIPERTENSAO_DASH_05"
+        "DOC_HIPERTENSAO_DASH_05",
+        "GUIA_MS_INTRO"
       ],
       "retrieved_doc_ids": [
         "DOC_HIPERTENSAO_DASH_05",
@@ -298,8 +298,8 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_MICRONUTRIENTES_INTERACOES_09",
-        "DOC_LIPIDIOS_COLESTEROL_04"
+        "DOC_LIPIDIOS_COLESTEROL_04",
+        "DOC_MICRONUTRIENTES_INTERACOES_09"
       ],
       "retrieved_doc_ids": [
         "DOC_LIPIDIOS_COLESTEROL_04",
@@ -327,8 +327,8 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_SUPLEMENTOS_EVIDENCIA_07",
-        "DOC_PROTEINAS_MASSA_MUSCULAR_06"
+        "DOC_PROTEINAS_MASSA_MUSCULAR_06",
+        "DOC_SUPLEMENTOS_EVIDENCIA_07"
       ],
       "retrieved_doc_ids": [
         "DOC_PROTEINAS_MASSA_MUSCULAR_06",
@@ -385,8 +385,8 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
-        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
+        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
+        "PUBMED_BIOACTIVES_MICRONUTRIENTS"
       ],
       "retrieved_doc_ids": [
         "PUBMED_BIOACTIVES_MICRONUTRIENTS",
@@ -443,8 +443,8 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "GUIA_MS_CAP3_REFEICOES",
-        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
+        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
+        "GUIA_MS_CAP3_REFEICOES"
       ],
       "retrieved_doc_ids": [
         "GUIA_MS_CAP3_REFEICOES",
@@ -472,8 +472,8 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "PUBMED_DASH_HYPERTENSION",
-        "DOC_HIPERTENSAO_DASH_05"
+        "DOC_HIPERTENSAO_DASH_05",
+        "PUBMED_DASH_HYPERTENSION"
       ],
       "retrieved_doc_ids": [
         "DOC_HIPERTENSAO_DASH_05",

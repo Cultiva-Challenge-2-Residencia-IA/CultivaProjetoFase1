@@ -1,0 +1,112 @@
+# CI da issue #14: lint, testes, integridade do corpus e gates de avaliação.
+# Roda sem chaves de API: o benchmark usa síntese extrativa local, para ser determinístico.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  UV_VERSION: "0.11.16"
+  PYTHON_VERSION: "3.11"
+  # Garante execução offline: sem Groq e sem Ollama.
+  GROQ_API_KEY: ""
+  LLM_PROVIDER: groq
+
+jobs:
+  lint:
+    name: Lint (ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: uv sync --frozen
+      - run: uv run ruff check --output-format=github .
+
+  testes:
+    name: Testes (pytest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: uv sync --frozen
+      - run: uv run pytest -q
+
+  corpus:
+    name: Integridade do corpus
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Ambiente do pipeline de corpus
+        run: |
+          uv venv --python "$PYTHON_VERSION" .venv-corpus
+          uv pip install --python .venv-corpus -r corpus/scripts/requirements.txt
+      - name: verify_corpus.py (não aprova conteúdo)
+        run: .venv-corpus/bin/python corpus/scripts/verify_corpus.py
+
+  avaliacao:
+    name: Gates de avaliação
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: ${{ env.UV_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: uv sync --frozen
+
+      - name: Benchmark offline (duas execuções)
+        run: |
+          uv run python -m src.evaluation.run_benchmark --no-ollama
+          cp data/benchmark/baseline_report.json "$RUNNER_TEMP/execucao1.json"
+          uv run python -m src.evaluation.run_benchmark --no-ollama > /dev/null
+
+      - name: Determinismo do golden set
+        run: |
+          if ! cmp -s "$RUNNER_TEMP/execucao1.json" data/benchmark/baseline_report.json; then
+            echo "::error title=Benchmark não determinístico::duas execuções seguidas produziram relatórios diferentes"
+            diff "$RUNNER_TEMP/execucao1.json" data/benchmark/baseline_report.json | head -40
+            exit 1
+          fi
+
+      # Em PRs, a régua é o baseline da branch de destino: editar o baseline no próprio PR
+      # não afrouxa o gate. Se o destino ainda não tiver baseline, usa o do PR.
+      - name: Baseline de referência
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          BASELINE: eval/baselines/benchmark_offline.json
+        run: |
+          if [ -n "$BASE_REF" ] \
+            && git fetch --quiet --depth=1 origin "$BASE_REF" \
+            && git show "FETCH_HEAD:$BASELINE" > "$RUNNER_TEMP/baseline.json" 2>/dev/null; then
+            echo "Baseline: $BASE_REF"
+          else
+            cp "$BASELINE" "$RUNNER_TEMP/baseline.json"
+            echo "::notice title=Baseline::usando o baseline deste commit (destino sem baseline ou evento sem PR)"
+          fi
+
+      - name: Gates (RNF09, guardrail legal, risco RF-IA03)
+        run: |
+          uv run python -m src.evaluation.gate \
+            --report data/benchmark/baseline_report.json \
+            --baseline "$RUNNER_TEMP/baseline.json" \
+            --config eval/gates.toml
