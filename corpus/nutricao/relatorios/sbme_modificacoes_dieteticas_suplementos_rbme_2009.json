@@ -1,0 +1,195 @@
+{
+  "source_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+  "source_sha256": "62c7e8d81f47c013e2d5a2ccbd7585a809d83e3fc41a6ad537f36e609dff40c9",
+  "pdf_pages": 10,
+  "conversion_status": "concluida_com_ressalvas",
+  "review_status": "pendente",
+  "approval_status": "pendente",
+  "script_sha256": "7014d190c7567763f1ad11f9fd7c1d0ec8cf2f404ffac46b6d019c721a2c2100",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 5238,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99864,
+      "missing_native_tokens": {
+        "no": 1
+      },
+      "markdown_characters": 5287
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 6454,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99682,
+      "missing_native_tokens": {
+        "im": 1,
+        "no": 1,
+        "suplemento": 1
+      },
+      "markdown_characters": 6405
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 5987,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99894,
+      "missing_native_tokens": {
+        "no": 1
+      },
+      "markdown_characters": 5964
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 6366,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99574,
+      "missing_native_tokens": {
+        "4oc": 1,
+        "exaustão": 1,
+        "no": 1,
+        "prolongada": 1
+      },
+      "markdown_characters": 6403
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 6622,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99808,
+      "missing_native_tokens": {
+        "22oc": 1,
+        "no": 1
+      },
+      "markdown_characters": 6657
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 6279,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99646,
+      "missing_native_tokens": {
+        "academy": 1,
+        "no": 1,
+        "oc": 1
+      },
+      "markdown_characters": 6345
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 5837,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99882,
+      "missing_native_tokens": {
+        "no": 1
+      },
+      "markdown_characters": 5936
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 4766,
+      "method": "native",
+      "tables_detected": 2,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99846,
+      "missing_native_tokens": {
+        "no": 1
+      },
+      "markdown_characters": 4942
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 16597,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99854,
+      "missing_native_tokens": {
+        "13345": 1,
+        "dehydration": 1,
+        "no": 1,
+        "restrition": 1
+      },
+      "markdown_characters": 18848
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 10886,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99882,
+      "missing_native_tokens": {
+        "4th": 1,
+        "no": 1
+      },
+      "markdown_characters": 10825
+    }
+  ],
+  "markdown_sha256": "965e2a1e804798e6617e7ffbbf9c269c6130d501cf92c7f16117bfc993303bc1",
+  "summary": {
+    "pages_converted": 10,
+    "sparse_pages": [],
+    "ocr_pages": [],
+    "pages_with_tables_detected": [
+      4,
+      6,
+      8
+    ],
+    "pages_with_warnings": [],
+    "pages_with_adjustments": []
+  }
+}

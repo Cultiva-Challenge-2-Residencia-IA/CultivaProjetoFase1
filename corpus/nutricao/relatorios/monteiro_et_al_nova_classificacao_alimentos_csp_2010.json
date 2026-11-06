@@ -1,0 +1,178 @@
+{
+  "source_id": "monteiro-nova-classificacao-alimentos-csp-2010",
+  "source_sha256": "f468c52386c34f8b6cac0db15748c45cb07e84bd5885a6372353b55fa007c1f5",
+  "pdf_pages": 11,
+  "conversion_status": "concluida_com_ressalvas",
+  "review_status": "pendente",
+  "approval_status": "pendente",
+  "script_sha256": "7014d190c7567763f1ad11f9fd7c1d0ec8cf2f404ffac46b6d019c721a2c2100",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 3644,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3698
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 4842,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4804
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 5327,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 5238
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 4330,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4417
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 4854,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4753
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 2587,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2677
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 3915,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99802,
+      "missing_native_tokens": {
+        "household": 1,
+        "income": 1
+      },
+      "markdown_characters": 4024
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 5487,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 5423
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 4903,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4891
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 3008,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2967
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 3517,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3464
+    }
+  ],
+  "markdown_sha256": "530fef0a9c8f9c18e4477be04d706bd9eb1b1d4e83315a41f058fe7dc79c79f2",
+  "summary": {
+    "pages_converted": 11,
+    "sparse_pages": [],
+    "ocr_pages": [],
+    "pages_with_tables_detected": [
+      4,
+      6,
+      7
+    ],
+    "pages_with_warnings": [],
+    "pages_with_adjustments": []
+  }
+}
