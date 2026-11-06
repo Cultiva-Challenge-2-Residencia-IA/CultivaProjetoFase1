@@ -24,7 +24,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
   - id: protocolos-guia-alimentar-fasciculo1-2021
     title: "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta"
     institutions:
@@ -49,7 +49,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
   - id: martins-ultraprocessados-rsp-2013
     title: Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)
     authors:
@@ -82,7 +82,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
   - id: souza-backes-universitarios-csc-2020
     title: Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimentação Saudável entre universitários de Porto Alegre, Brasil
     authors:
@@ -112,7 +112,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_cc_by
   - id: guia-dietas-vegetarianas-svb-2012
     title: Guia alimentar de dietas vegetarianas para adultos
     institutions:
@@ -142,7 +142,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
     identity_note: Créditos identificam SVB e Eric Slywitch; não identificam autoria conjunta com SBAN. Posicionamento
       da SBAN não incluído nesta fonte.
   - id: moreira-rodrigues-conhecimento-nutricional-suplementacao-2014
@@ -177,7 +177,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: Contribui para contextualizar o consumo de suplementos, a autoindicação e a necessidade de orientação
       nutricional. Apoia as respostas educativas do CULTIVA relacionadas à RN02 e ao encaminhamento para profissionais.
     scope_note: Estudo transversal descritivo de 60 frequentadores de uma academia de Pelotas. Não comprova riscos
@@ -213,7 +213,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     purpose_note: Contextualiza dúvidas sobre jejum intermitente com revisão da literatura sobre metabolismo, lipídios, glicose e inflamação.
     scope_note: Revisão narrativa de 2013, com evidência majoritariamente de modelos animais e poucos estudos em humanos. Está em inglês; a busca por consultas em português não a encontra por palavras. Não autoriza orientar jejum individual (RN01).
   - id: salvi-estudantes-enfermagem-sono-reben-2020
@@ -245,7 +245,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_cc_by
     purpose_note: Traz o perfil de jovens universitários (idade média de 24 anos) que estudam e trabalham, com qualidade do sono, qualidade de vida e hábitos alimentares, o que contextualiza o público-alvo do CULTIVA.
     scope_note: Estudo transversal com 195 estudantes de enfermagem, 87,1% mulheres, em uma instituição. Não se generaliza para todos os universitários nem demonstra causalidade.
   - id: sban-agua-hidratacao-saude-2016
@@ -274,7 +274,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     sponsorship_note: Os rótulos de página do PDF trazem o nome de arquivo "45912-002_AF_Nestle_Folheto_Aguas_MaterialCientifico", o que sugere material produzido para a Nestlé. Patrocínio e conflito de interesse não foram esclarecidos; avaliar antes de aprovar a fonte (RN16).
     purpose_note: Resume o papel da água no corpo, balanço hídrico, recomendações, desidratação e composição da água, com referências nacionais e internacionais.
   - id: brisotto-depressao-ansiedade-estresse-rbtc-2022
@@ -305,7 +305,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     scope_note: Estudo transversal com 209 adultos; sintomas emocionais explicam parte da variação da alimentação emocional. Não demonstra causalidade e não autoriza orientar tratamento psicológico (RN01 a RN03).
   - id: abeso-posicionamento-tratamento-nutricional-obesidade-2022
     title: Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade
@@ -334,7 +334,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     scope_note: Documento destinado a profissionais de saúde, com condutas dietéticas e prescrição nutricional. Preservar o conteúdo não autoriza o aplicativo a prescrever dietas ou metas calóricas (RN01).
   - id: sbme-modificacoes-dieteticas-suplementos-rbme-2009
     title: "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde"
@@ -363,7 +363,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: "Consenso brasileiro de nutrição esportiva: reposição hídrica, suplementos e ação ergogênica. Apoia o cruzamento entre as abas de Nutrição e Saúde Física."
     scope_note: "Diretriz de 2009 para profissionais de saúde, com faixas, doses e comprovação de ação ergogênica. Pode estar desatualizada. Não autoriza o aplicativo a indicar suplementos nem doses (RN01)."
   - id: franca-psicologia-nutricao-comportamento-alimentar-epsic-2012
@@ -395,7 +395,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: "Aproxima psicologia e nutrição na mudança do comportamento alimentar. Substitui o artigo \"Comportamento alimentar e suas interfaces com a saúde e o estresse\", que não foi localizado no SciELO com esse título."
     scope_note: "Estudo com amostra pequena (11 participantes, conforme o resumo). Não se generaliza."
   - id: santos-barreiras-frutas-verduras-csc-2019
@@ -429,7 +429,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_cc_by
     purpose_note: "Traz as barreiras percebidas (como falta de tempo e preparo) ao consumo de frutas e verduras, apoiando sugestões simples e viáveis. Substitui o título \"Barreiras para o consumo de frutas e hortaliças no Brasil\" (RSP), que não foi localizado."
     scope_note: Estudo transversal com 877 adultos de até 44 anos em Cambé (PR). Não se generaliza para o país.
   - id: jaime-frutas-hortalicas-brasil-rsp-2009
@@ -461,7 +461,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: Fatores associados ao consumo de frutas e hortaliças com dados do Vigitel 2006. Complementa a fonte sobre barreiras.
     scope_note: Dados de 2006 das capitais brasileiras; o consumo pode ter mudado.
   - id: monteiro-nova-classificacao-alimentos-csp-2010
@@ -495,7 +495,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: "Artigo original da classificação NOVA, para explicar a diferença entre alimentos in natura, processados e ultraprocessados com base científica."
     scope_note: Proposta de 2010; a NOVA foi atualizada depois (2016 em diante).
   - id: louzada-ultraprocessados-perfil-nutricional-rsp-2015
@@ -532,7 +532,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: Mostra o perfil nutricional da dieta brasileira segundo o grau de processamento (POF 2008-2009).
     scope_note: "Estudo populacional de 2008-2009; mostra associação, não efeito individual."
   - id: louzada-ultraprocessados-micronutrientes-rsp-2015
@@ -569,7 +569,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: Mostra como o teor de micronutrientes cai conforme aumenta a participação de ultraprocessados na dieta.
     scope_note: "Estudo populacional de 2008-2009; mostra associação, não efeito individual."
   - id: rossetti-universitarios-consumo-alimentar-san-2015
@@ -598,7 +598,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: "Revisão dos fatores associados ao consumo alimentar de universitários brasileiros (renda, dupla jornada, curso, local de moradia). Substitui o artigo \"Fatores associados ao consumo alimentar de jovens adultos e universitários\", que não foi localizado."
     scope_note: Revisão de estudos de 2004 a 2014.
   - id: cfn-codigo-etica-conduta-nutricionista-2018
@@ -623,7 +623,7 @@ sources:
     conversion_status: concluida_com_ressalvas
     review_status: pendente
     approval_status: pendente
-    intended_use_license_review: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     purpose_note: "Define os limites legais de diagnóstico e prescrição dietética, base do guardrail do produto (RN01 a RN03)."
     supersession_note: "Fontes secundárias (Legisweb, nutritotal e a imprensa) informam que a Resolução CFN nº 856, de 25/04/2026, revoga esta e cria novo código, com seção sobre inteligência artificial; as datas de vigência divergem entre as fontes. O texto oficial da Resolução 856 não foi localizado no site do CFN e não foi catalogado. Confirmar a vigência antes de usar como regra."
 
@@ -634,3 +634,9 @@ sources:
 #     source: https://example.org/documento
 #     license: CC-BY-4.0
 #     version: "2026-01"
+
+# intended_use_license_review (decisão de 06/11/2026, ver corpus/README.md, seção "Decisão sobre licenças e uso das fontes"):
+#   compativel_cc_by: licença CC BY, que permite o uso com atribuição.
+#   compativel_uso_nao_comercial: licença ou permissão não comercial; compatível enquanto o projeto não tiver fins comerciais.
+#   risco_aceito_uso_academico_sem_fins_lucrativos: licença ausente, ambígua ou em conflito; o risco foi aceito para o uso acadêmico.
+# Nenhum valor aprova a fonte: review_status e approval_status seguem pendentes.

@@ -109,6 +109,34 @@ Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licen
 - **Não localizados:** o artigo sobre privação de sono e comportamento alimentar (Revista de Nutrição) e o texto exato "Comportamento alimentar e suas interfaces com a saúde e o estresse". O estudo de Penaforte et al. (Demetra, 2016), sobre estresse e comportamento alimentar de universitários, foi identificado, mas o servidor da revista não respondeu para o download.
 
 
+## Decisão sobre licenças e uso das fontes
+
+**Registrada em 06/11/2026, a pedido de Felipe de Jesus Rodrigues (Grupo 12).**
+
+**Decisão.** O repositório mantém os PDFs originais, os Markdown e os Trechos de todas as fontes do corpus, inclusive as de licença ausente, ambígua ou em conflito, e a equipe **assume o risco** de fazê-lo.
+
+**Justificativa.** O CULTIVA é um **projeto de aprendizado** da Residência em Inteligência Artificial, **sem fins lucrativos**, sem cobrança e sem exploração comercial. As fontes foram obtidas de acesso gratuito, e o uso é educacional: apoiar a prática de um RAG com citação de fonte. As licenças não comerciais (CC BY-NC, CC BY-NC-SA e a permissão da SVB) são compatíveis com esse uso enquanto ele não for comercial.
+
+**O que isso não é.** Aceitar o risco não é uma licença nem um parecer jurídico. Para as fontes sem licença declarada, vale o padrão de direitos reservados, e o respaldo é a finalidade acadêmica e a baixa probabilidade de reclamação, não uma permissão do titular. Ser gratuito para baixar não equivale a ser livre para redistribuir.
+
+**Situação por fonte** (campo `intended_use_license_review` do `manifest.yaml`):
+
+| Situação | Fontes |
+|---|---|
+| `compativel_cc_by` | Souza e Backes (2020), Salvi et al. (2020), Santos et al. (2019) |
+| `compativel_uso_nao_comercial` | Guia Alimentar, Fascículo 1, Guia da SVB, Moreira e Rodrigues, Martins et al., SBME, França et al., Jaime et al., Monteiro et al., Louzada et al. (duas), Rossetti |
+| `risco_aceito_uso_academico_sem_fins_lucrativos` | SBAN (Água, Hidratação e Saúde), Brisotto et al., ABESO (2022), Azevedo et al. (PDF com direitos reservados da Elsevier, página do SciELO com CC BY-NC), Código de Ética do CFN (ato oficial, interpretação a confirmar) |
+
+**Condições do aceite.**
+
+- Manter a atribuição completa dos autores e da instituição e o link da fonte nas respostas (RN04, RN17).
+- **Retirar o arquivo e os derivados do repositório sem discussão** se o titular dos direitos pedir. Quem receber o pedido deve registrá-lo aqui.
+- Não usar o corpus, o Markdown nem os Trechos fora deste projeto, nem em produto comercial.
+- Os derivados do Guia e do Fascículo (CC BY-NC-SA 4.0) permanecem sob a mesma licença.
+- O aceite não aprova nenhuma fonte: `review_status` e `approval_status` seguem pendentes, e a aprovação científica continua sendo outra decisão.
+
+**Quando reavaliar.** Antes de qualquer cobrança ou monetização, de ativar a vitrine paga de profissionais (RN12), de abrir o aplicativo a usuários externos em produção ou de publicar o corpus. Também se algum titular se manifestar. Alternativas já identificadas: a ABESO tem versão em inglês sob CC BY 4.0 (DOI 10.1186/s13098-023-01037-6), e é possível pedir autorização de reprodução à ABESO, à SBAN e à revista do Brisotto.
+
 ## Organização
 
 ```text
