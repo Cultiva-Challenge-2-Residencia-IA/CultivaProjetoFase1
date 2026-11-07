@@ -39,10 +39,18 @@ def health_check() -> dict:
         if consultant.graph_engine is not None
         else {}
     )
+    vector_stats = (
+        consultant.retriever.vector_store.get_stats()
+        if consultant.retriever.vector_store is not None
+        else {}
+    )
+    sources_inventory = consultant.chunker.get_curated_sources_inventory(consultant.chunks)
     return {
         "status": "ok",
-        "phase": "PHASE_2_HYBRID_RAG_PLUS_4LAYER_GRAPH_AND_TACO",
+        "phase": "PHASE_2_HYBRID_RAG_CHROMADB_PLUS_4LAYER_GRAPH_AND_TACO",
         "indexed_chunks": len(consultant.chunks),
+        "curated_source_documents_count": len(sources_inventory),
+        "vector_store": vector_stats,
         "taco_foods_loaded": len(consultant.taco_tool.foods) if consultant.taco_tool else 0,
         "knowledge_graph_stats": graph_stats,
         "llm_provider": consultant.llm_client.provider,
@@ -75,6 +83,17 @@ def cli_main() -> None:
         print(f"AVISO LEGAL       : {res.legal_compliance_notice}")
     print("-" * 76)
     print(f"MODELO UTILIZADO  : {res.model_used} | GRAU DE EVIDÊNCIA: {res.evidence_grade}")
+    print("\n[0] CHUNKS MAIS RELEVANTES RECUPERADOS (BANCO VETORIAL CHROMADB + BM25 + RRF):")
+    for idx, rc in enumerate(res.retrieved_chunks, start=1):
+        c = rc.chunk
+        snippet = c.raw_text[:220].replace("\n", " ") + ("..." if len(c.raw_text) > 220 else "")
+        print(
+            f"  {idx}. [{c.chunk_id}] {c.doc_id} | Seção: {c.section_path}\n"
+            f"     Scores -> Rerank: {rc.rerank_score:.4f} | RRF: {rc.rrf_score:.4f} | "
+            f"Vetorial (ChromaDB): {rc.vector_score:.4f} (rank={rc.vector_rank}) | "
+            f"BM25: {rc.bm25_score:.4f} (rank={rc.bm25_rank})\n"
+            f"     Trecho: \"{snippet}\""
+        )
     print(f"\n[1] SÍNTESE DA EVIDÊNCIA:\n{res.evidence_summary}")
     print(f"\n[2] MECANISMO FISIOLÓGICO:\n{res.physiological_mechanism}")
     if res.graph_paths:

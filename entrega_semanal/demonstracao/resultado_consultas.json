@@ -1,0 +1,657 @@
+[
+  {
+    "original_query": "Como a fibra solúvel da aveia age para reduzir o colesterol LDL e a glicemia?",
+    "effective_query": "Como a fibra solúvel da aveia age para reduzir o colesterol LDL e a glicemia?",
+    "guardrail_triggered": false,
+    "intent_category": "SAFE_EVIDENCE_QUERY",
+    "legal_compliance_notice": null,
+    "evidence_summary": "As fibras alimentares dividem-se funcionalmente conforme solubilidade, viscosidade e fermentabilidade. Fibras solúveis formadoras de gel viscoso — como a beta-glucana (presente na aveia e cevada), o psyllium (ispaghula) e as pectinas (frutas cítricas e maçã) — aumentam a viscosidade do quimo no intestino delgado. Esse mecanismo retarda o esvaziamento gástrico, reduz a difusão de enzimas digestivas sobre os carboidratos e sequestra ácidos biliares no lúmen intestinal, reduzindo comprovadamente (Evidência GRADE A, meta-análises de ECRs) tanto o pico glicêmico pós-prandial quanto o colesterol LDL sérico. Meta-análises de ensaios clínicos randomizados demonstram que o consumo populacional de 25g a 35g/dia de fibras alimentares totais (ou incremento de 10g a 15g/dia sobre o habitual), priorizando fontes de fibras solúveis (como aveia, leguminosas e psyllium), promove redução clinicamente significativa na hemoglobina glicada (HbA1c em média -0,4% a -0,6%) e na glicemia de jejum em adultos com pré-diabetes ou diabetes tipo 2 (Evidência GRADE A).",
+    "physiological_mechanism": "As fibras alimentares dividem-se funcionalmente conforme solubilidade, viscosidade e fermentabilidade. Fibras solúveis formadoras de gel viscoso — como a beta-glucana (presente na aveia e cevada), o psyllium (ispaghula) e as pectinas (frutas cítricas e maçã) — aumentam a viscosidade do quimo no intestino delgado. Esse mecanismo retarda o esvaziamento gástrico, reduz a difusão de enzimas digestivas sobre os carboidratos e sequestra ácidos biliares no lúmen intestinal, reduzindo comprovadamente (Evidência GRADE A, meta-análises de ECRs) tanto o pico glicêmico pós-prandial quanto o colesterol LDL sérico.\n\nCAMINHOS DO GRAFO CAUSAL DE 4 CAMADAS (NetworkX: Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho GRADE):\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Aveia em flocos e Cevada] ➔ [2. Composto: Beta-glucana (Fibra Solúvel Viscosa) (3,5g a 5,0g de beta-glucana por 100g de aveia (FooDB / TACO: 9,1g fibra total/100g))] ➔ [3. Mecanismo: Formação de gel viscoso no intestino delgado e sequestro luminal de ácidos biliares, forçando o fígado a captar colesterol sérico via receptores LDLR] ➔ [4. Desfecho (DECREASES): Colesterol LDL-c e Colesterol Não-HDL] | Protocolo: Ingestão populacional de pelo menos 3g/dia de beta-glucana de aveia ou cevada em meta-análises de ECRs\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Aveia em flocos, Psyllium e Leguminosas] ➔ [2. Composto: Fibras Solúveis Viscosas (Beta-glucana e Arabinoxilana) (Aveia: 9,1g fibra/100g; Psyllium: >70g fibra solúvel/100g (FooDB/TACO))] ➔ [3. Mecanismo: Aumento da viscosidade do quimo, retardo do esvaziamento gástrico e redução da difusão de enzimas alfa-amilase sobre o amido (sem elevar potássio sérico)] ➔ [4. Desfecho (DECREASES): Glicemia Pós-Prandial, Hemoglobina Glicada (HbA1c) e Resistência à Insulina (HOMA-IR)] | Protocolo: 25g a 35g/dia de fibras totais com ênfase em fibras solúveis nas principais refeições (-0,4% a -0,6% na HbA1c)\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal)] ➔ [2. Composto: Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia) (Azeite de oliva: ~73g MUFA/100g e 0 mg de potássio (TACO))] ➔ [3. Mecanismo: Melhora da fluidez de membrana e sinalização do receptor de insulina (reduzindo HOMA-IR) + redução da resistência vascular periférica pela restrição de sódio e inflamação endotelial, SEM aportar carga de potássio sérico] ➔ [4. Desfecho (DECREASES): Pressão Arterial e Resistência à Insulina (HOMA-IR) com Segurança na Doença Renal Crônica] | Protocolo: Estratégia segura para trade-off de hipertensão + resistência à insulina + restrição de potássio (DRC): redução de sódio/ultraprocessados + uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Óleos Vegetais, Castanhas, Amêndoas, Sementes e Grãos Integrais] ➔ [2. Composto: Fitoesteróis Vegetais (Beta-sitosterol, Campesterol e Estigmasterol) (Óleos vegetais, gergelim e castanhas: 150 a 400 mg de fitoesteróis/100g (FooDB))] ➔ [3. Mecanismo: Competição estrutural com o colesterol dietético e biliar pela incorporação nas micelas mistas no lúmen intestinal (transportador NPC1L1), reduzindo a absorção enterocítica de colesterol] ➔ [4. Desfecho (DECREASES): Colesterol LDL-c Plasmático] | Protocolo: Protocolos clínicos de 1,5g a 2,0g/dia de fitoesteróis promovem redução média de 8% a 12% no LDL-c | Contraindicações/Cautelas: Sitosterolemia familiar (condição genética rara)",
+    "protocol_findings": "Esse mecanismo retarda o esvaziamento gástrico, reduz a difusão de enzimas digestivas sobre os carboidratos e sequestra ácidos biliares no lúmen intestinal, reduzindo comprovadamente (Evidência GRADE A, meta-análises de ECRs) tanto o pico glicêmico pós-prandial quanto o colesterol LDL sérico. Meta-análises de ensaios clínicos randomizados demonstram que o consumo populacional de 25g a 35g/dia de fibras alimentares totais (ou incremento de 10g a 15g/dia sobre o habitual), priorizando fontes de fibras solúveis (como aveia, leguminosas e psyllium), promove redução clinicamente significativa na hemoglobina glicada (HbA1c em média -0,4% a -0,6%) e na glicemia de jejum em adultos com pré-diabetes ou diabetes tipo 2 (Evidência GRADE A).\n\nDADOS DETERMINÍSTICOS DA TABELA TACO (4ª Ed. Unicamp / TBCA-USP — Valores exatos por 100g de alimento):\n- Aveia, flocos, crua [Cereais e derivados]: Energia: 393.82 kcal | Proteína: 13.92 g | Fibra: 9.13 g | Fibra Alimentar (g): 9.13\n- Café, pó, torrado [Miscelâneas]: Energia: 418.62 kcal | Proteína: 14.7 g | Fibra: 51.23 g | Fibra Alimentar (g): 51.23\n- Coentro, folhas desidratadas [Verduras, hortaliças e derivados]: Energia: 309.07 kcal | Proteína: 20.88 g | Fibra: 37.29 g | Fibra Alimentar (g): 37.29\n- Feijão, roxo, cru [Leguminosas e derivados]: Energia: 331.41 kcal | Proteína: 22.17 g | Fibra: 33.84 g | Fibra Alimentar (g): 33.84\n- Linhaça, semente [Nozes e sementes]: Energia: 495.1 kcal | Proteína: 14.08 g | Fibra: 33.5 g | Fibra Alimentar (g): 33.5",
+    "food_sources_or_compounds": [
+      "Aveia (beta-glucana)",
+      "Psyllium",
+      "Feijão e leguminosas",
+      "Aveia em flocos e Cevada (Beta-glucana (Fibra Solúvel Viscosa))",
+      "Aveia em flocos, Psyllium e Leguminosas (Fibras Solúveis Viscosas (Beta-glucana e Arabinoxilana))",
+      "Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal) (Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia))",
+      "Óleos Vegetais, Castanhas, Amêndoas, Sementes e Grãos Integrais (Fitoesteróis Vegetais (Beta-sitosterol, Campesterol e Estigmasterol))",
+      "Aveia, flocos, crua",
+      "Café, pó, torrado",
+      "Coentro, folhas desidratadas",
+      "Feijão, roxo, cru",
+      "Linhaça, semente"
+    ],
+    "taco_records": [
+      {
+        "food_id": 7,
+        "description": "Aveia, flocos, crua",
+        "category": "Cereais e derivados",
+        "energy_kcal": 393.82,
+        "protein_g": 13.92,
+        "fiber_g": 9.13,
+        "nutrients_per_100g": {
+          "Fibra Alimentar (g)": 9.13
+        },
+        "source": "Tabela TACO 4ª Ed. (Unicamp) / TBCA-USP"
+      },
+      {
+        "food_id": 511,
+        "description": "Café, pó, torrado",
+        "category": "Miscelâneas",
+        "energy_kcal": 418.62,
+        "protein_g": 14.7,
+        "fiber_g": 51.23,
+        "nutrients_per_100g": {
+          "Fibra Alimentar (g)": 51.23
+        },
+        "source": "Tabela TACO 4ª Ed. (Unicamp) / TBCA-USP"
+      },
+      {
+        "food_id": 114,
+        "description": "Coentro, folhas desidratadas",
+        "category": "Verduras, hortaliças e derivados",
+        "energy_kcal": 309.07,
+        "protein_g": 20.88,
+        "fiber_g": 37.29,
+        "nutrients_per_100g": {
+          "Fibra Alimentar (g)": 37.29
+        },
+        "source": "Tabela TACO 4ª Ed. (Unicamp) / TBCA-USP"
+      },
+      {
+        "food_id": 574,
+        "description": "Feijão, roxo, cru",
+        "category": "Leguminosas e derivados",
+        "energy_kcal": 331.41,
+        "protein_g": 22.17,
+        "fiber_g": 33.84,
+        "nutrients_per_100g": {
+          "Fibra Alimentar (g)": 33.84
+        },
+        "source": "Tabela TACO 4ª Ed. (Unicamp) / TBCA-USP"
+      },
+      {
+        "food_id": 594,
+        "description": "Linhaça, semente",
+        "category": "Nozes e sementes",
+        "energy_kcal": 495.1,
+        "protein_g": 14.08,
+        "fiber_g": 33.5,
+        "nutrients_per_100g": {
+          "Fibra Alimentar (g)": 33.5
+        },
+        "source": "Tabela TACO 4ª Ed. (Unicamp) / TBCA-USP"
+      }
+    ],
+    "graph_paths": [
+      {
+        "path_id": "PATH_BETA_GLUCAN_LDL",
+        "food_node": "Aveia em flocos e Cevada",
+        "compound_node": "Beta-glucana (Fibra Solúvel Viscosa)",
+        "compound_concentration_info": "3,5g a 5,0g de beta-glucana por 100g de aveia (FooDB / TACO: 9,1g fibra total/100g)",
+        "mechanism_node": "Formação de gel viscoso no intestino delgado e sequestro luminal de ácidos biliares, forçando o fígado a captar colesterol sérico via receptores LDLR",
+        "outcome_node": "Colesterol LDL-c e Colesterol Não-HDL",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Ingestão populacional de pelo menos 3g/dia de beta-glucana de aveia ou cevada em meta-análises de ECRs",
+        "contraindications": [],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretriz Brasileira de Dislipidemias (SBC) / Meta-análises PubMed (GRADE A)"
+      },
+      {
+        "path_id": "PATH_BETA_GLUCAN_GLYCEMIA",
+        "food_node": "Aveia em flocos, Psyllium e Leguminosas",
+        "compound_node": "Fibras Solúveis Viscosas (Beta-glucana e Arabinoxilana)",
+        "compound_concentration_info": "Aveia: 9,1g fibra/100g; Psyllium: >70g fibra solúvel/100g (FooDB/TACO)",
+        "mechanism_node": "Aumento da viscosidade do quimo, retardo do esvaziamento gástrico e redução da difusão de enzimas alfa-amilase sobre o amido (sem elevar potássio sérico)",
+        "outcome_node": "Glicemia Pós-Prandial, Hemoglobina Glicada (HbA1c) e Resistência à Insulina (HOMA-IR)",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "25g a 35g/dia de fibras totais com ênfase em fibras solúveis nas principais refeições (-0,4% a -0,6% na HbA1c)",
+        "contraindications": [],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretriz da Sociedade Brasileira de Diabetes (SBD) / Meta-análises de ECRs"
+      },
+      {
+        "path_id": "PATH_MUFA_FIBER_BP_HOMA_DRC_SAFE",
+        "food_node": "Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal)",
+        "compound_node": "Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia)",
+        "compound_concentration_info": "Azeite de oliva: ~73g MUFA/100g e 0 mg de potássio (TACO)",
+        "mechanism_node": "Melhora da fluidez de membrana e sinalização do receptor de insulina (reduzindo HOMA-IR) + redução da resistência vascular periférica pela restrição de sódio e inflamação endotelial, SEM aportar carga de potássio sérico",
+        "outcome_node": "Pressão Arterial e Resistência à Insulina (HOMA-IR) com Segurança na Doença Renal Crônica",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Estratégia segura para trade-off de hipertensão + resistência à insulina + restrição de potássio (DRC): redução de sódio/ultraprocessados + uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente",
+        "contraindications": [],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretrizes SBC / SBD / KDIGO (Manejo Cardiometabólico na DRC)"
+      },
+      {
+        "path_id": "PATH_PHYTOSTEROLS_LDL",
+        "food_node": "Óleos Vegetais, Castanhas, Amêndoas, Sementes e Grãos Integrais",
+        "compound_node": "Fitoesteróis Vegetais (Beta-sitosterol, Campesterol e Estigmasterol)",
+        "compound_concentration_info": "Óleos vegetais, gergelim e castanhas: 150 a 400 mg de fitoesteróis/100g (FooDB)",
+        "mechanism_node": "Competição estrutural com o colesterol dietético e biliar pela incorporação nas micelas mistas no lúmen intestinal (transportador NPC1L1), reduzindo a absorção enterocítica de colesterol",
+        "outcome_node": "Colesterol LDL-c Plasmático",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Protocolos clínicos de 1,5g a 2,0g/dia de fitoesteróis promovem redução média de 8% a 12% no LDL-c",
+        "contraindications": [
+          "Sitosterolemia familiar (condição genética rara)"
+        ],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose (SBC)"
+      }
+    ],
+    "evidence_grade": "GRADE_A",
+    "citations": [
+      "[DOC_FIBRAS_MICROBIOTA_02] Fibras Alimentares, Viscosidade Intestinal e Modulação da Microbiota — Consenso Internacional de Gastroenterologia e Nutrição / Meta-análises PubMed (2024), Seção: 'Mecanismos Fisiológicos > Fibras Solúveis Viscosas vs. Insolúveis' (Evidência: GRADE_A | Licença: Síntese normativa interna baseada em diretrizes públicas)",
+      "[DOC_GLICEMIA_CARBOIDRATOS_03] Diretriz da Sociedade Brasileira de Diabetes: Manejo Nutricional da Glicemia e Resistência à Insulina — Sociedade Brasileira de Diabetes (SBD) (2024), Seção: 'Evidência Clínica > Ingestão de Fibras no Diabetes Tipo 2' (Evidência: GRADE_A | Licença: Síntese normativa interna baseada em diretrizes públicas)",
+      "[CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012] Guia alimentar de dietas vegetarianas para adultos — Sociedade Vegetariana Brasileira (2012), Seção: 'DERIVADOS DOS INTEGRAIS > Pág. PDF 55' (Evidência: GUIDELINE_CONSENSUS | Fonte ID: guia-dietas-vegetarianas-svb-2012 | URL/DOI: https://old.svb.org.br/livros/guia-alimentar.pdf | Licença: Permissão própria SVB: reprodução parcial ou total com citação da fonte, sem venda ou qualquer fim comercial.)",
+      "[PUBMED_FIBER_MICROBIOTA] Meta-Analyses & Systematic Reviews: Dietary Fiber, Beta-Glucan, Gut Microbiota and Short-Chain Fatty Acids — PubMed / NCBI Entrez (Meta-Analyses & Systematic Reviews) (2024), Seção: 'PMID:33762150 (Nutrition, metabolism, and cardiovascular diseases : NMCD, 2021 | DOI: 10.1016/j.numecd.2020.12.032)' (Evidência: GRADE_A | Fonte ID: PMID:33762150 | URL/DOI: https://doi.org/10.1016/j.numecd.2020.12.032 | Licença: pendente (PubMed/NCBI Entrez Abstract))",
+      "[KG_4LAYER_PICO_GRADE] Grafo de Conhecimento de 4 Camadas (NetworkX: 4 cadeias causais Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho)",
+      "[TACO_4ED_UNICAMP] Tabela Brasileira de Composição de Alimentos (TACO 4ª Edição - NEPA/Unicamp & TBCA-USP) — Consulta Determinística por 100g"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk": {
+          "chunk_id": "DOC_FIBRAS_MICROBIOTA_02_C01",
+          "doc_id": "DOC_FIBRAS_MICROBIOTA_02",
+          "title": "Fibras Alimentares, Viscosidade Intestinal e Modulação da Microbiota",
+          "source_organization": "Consenso Internacional de Gastroenterologia e Nutrição / Meta-análises PubMed",
+          "publication_year": 2024,
+          "clinical_domain": "Saúde Gastrointestinal, Saciedade e Metabolismo",
+          "evidence_level": "GRADE_A",
+          "section_path": "Mecanismos Fisiológicos > Fibras Solúveis Viscosas vs. Insolúveis",
+          "raw_text": "As fibras alimentares dividem-se funcionalmente conforme solubilidade, viscosidade e fermentabilidade. Fibras solúveis formadoras de gel viscoso — como a beta-glucana (presente na aveia e cevada), o psyllium (ispaghula) e as pectinas (frutas cítricas e maçã) — aumentam a viscosidade do quimo no intestino delgado. Esse mecanismo retarda o esvaziamento gástrico, reduz a difusão de enzimas digestivas sobre os carboidratos e sequestra ácidos biliares no lúmen intestinal, reduzindo comprovadamente (Evidência GRADE A, meta-análises de ECRs) tanto o pico glicêmico pós-prandial quanto o colesterol LDL sérico.",
+          "contextualized_text": "[Documento: Fibras Alimentares, Viscosidade Intestinal e Modulação da Microbiota | Fonte: Consenso Internacional de Gastroenterologia e Nutrição / Meta-análises PubMed (2024) | Domínio: Saúde Gastrointestinal, Saciedade e Metabolismo | Nível de Evidência: GRADE_A | Seção: Mecanismos Fisiológicos > Fibras Solúveis Viscosas vs. Insolúveis]\nAs fibras alimentares dividem-se funcionalmente conforme solubilidade, viscosidade e fermentabilidade. Fibras solúveis formadoras de gel viscoso — como a beta-glucana (presente na aveia e cevada), o psyllium (ispaghula) e as pectinas (frutas cítricas e maçã) — aumentam a viscosidade do quimo no intestino delgado. Esse mecanismo retarda o esvaziamento gástrico, reduz a difusão de enzimas digestivas sobre os carboidratos e sequestra ácidos biliares no lúmen intestinal, reduzindo comprovadamente (Evidência GRADE A, meta-análises de ECRs) tanto o pico glicêmico pós-prandial quanto o colesterol LDL sérico.",
+          "source_id": "DOC_FIBRAS_MICROBIOTA_02",
+          "source_url": "urn:cultiva:guideline-synthesis:DOC_FIBRAS_MICROBIOTA_02",
+          "license": "Síntese normativa interna baseada em diretrizes públicas",
+          "review_status": "pendente",
+          "page_number": null
+        },
+        "bm25_rank": 1,
+        "bm25_score": 138.9929,
+        "vector_rank": null,
+        "vector_score": 0.0,
+        "rrf_score": 0.009016,
+        "rerank_score": 0.290939
+      },
+      {
+        "chunk": {
+          "chunk_id": "DOC_GLICEMIA_CARBOIDRATOS_03_C02",
+          "doc_id": "DOC_GLICEMIA_CARBOIDRATOS_03",
+          "title": "Diretriz da Sociedade Brasileira de Diabetes: Manejo Nutricional da Glicemia e Resistência à Insulina",
+          "source_organization": "Sociedade Brasileira de Diabetes (SBD)",
+          "publication_year": 2024,
+          "clinical_domain": "Controle Glicêmico, Resistência à Insulina e Diabetes Tipo 2",
+          "evidence_level": "GRADE_A",
+          "section_path": "Evidência Clínica > Ingestão de Fibras no Diabetes Tipo 2",
+          "raw_text": "Meta-análises de ensaios clínicos randomizados demonstram que o consumo populacional de 25g a 35g/dia de fibras alimentares totais (ou incremento de 10g a 15g/dia sobre o habitual), priorizando fontes de fibras solúveis (como aveia, leguminosas e psyllium), promove redução clinicamente significativa na hemoglobina glicada (HbA1c em média -0,4% a -0,6%) e na glicemia de jejum em adultos com pré-diabetes ou diabetes tipo 2 (Evidência GRADE A).",
+          "contextualized_text": "[Documento: Diretriz da Sociedade Brasileira de Diabetes: Manejo Nutricional da Glicemia e Resistência à Insulina | Fonte: Sociedade Brasileira de Diabetes (SBD) (2024) | Domínio: Controle Glicêmico, Resistência à Insulina e Diabetes Tipo 2 | Nível de Evidência: GRADE_A | Seção: Evidência Clínica > Ingestão de Fibras no Diabetes Tipo 2]\nMeta-análises de ensaios clínicos randomizados demonstram que o consumo populacional de 25g a 35g/dia de fibras alimentares totais (ou incremento de 10g a 15g/dia sobre o habitual), priorizando fontes de fibras solúveis (como aveia, leguminosas e psyllium), promove redução clinicamente significativa na hemoglobina glicada (HbA1c em média -0,4% a -0,6%) e na glicemia de jejum em adultos com pré-diabetes ou diabetes tipo 2 (Evidência GRADE A).",
+          "source_id": "DOC_GLICEMIA_CARBOIDRATOS_03",
+          "source_url": "urn:cultiva:guideline-synthesis:DOC_GLICEMIA_CARBOIDRATOS_03",
+          "license": "Síntese normativa interna baseada em diretrizes públicas",
+          "review_status": "pendente",
+          "page_number": null
+        },
+        "bm25_rank": 2,
+        "bm25_score": 99.574,
+        "vector_rank": null,
+        "vector_score": 0.0,
+        "rrf_score": 0.008871,
+        "rerank_score": 0.213871
+      },
+      {
+        "chunk": {
+          "chunk_id": "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012_C142",
+          "doc_id": "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",
+          "title": "Guia alimentar de dietas vegetarianas para adultos",
+          "source_organization": "Sociedade Vegetariana Brasileira",
+          "publication_year": 2012,
+          "clinical_domain": "Planejamento Nutricional e Biodisponibilidade em Dietas Vegetarianas e Veganas",
+          "evidence_level": "GUIDELINE_CONSENSUS",
+          "section_path": "DERIVADOS DOS INTEGRAIS > Pág. PDF 55",
+          "raw_text": "Aveia em flocos crua; flocos de milho sem sal; flocos de milho; flocos de milho açucarados; creme de milho em pó; curau de milho verde em pó; farinha de centeio integral; farinha de milho amarela; fubá de milho cru; pão de aveia, forma; pão de soja; pão de milho, forma; pão de trigo integral, forma.",
+          "contextualized_text": "[Documento: Guia alimentar de dietas vegetarianas para adultos | Fonte: Sociedade Vegetariana Brasileira (2012) | Domínio: Planejamento Nutricional e Biodisponibilidade em Dietas Vegetarianas e Veganas | Nível de Evidência: GUIDELINE_CONSENSUS | Seção: DERIVADOS DOS INTEGRAIS > Pág. PDF 55]\nAveia em flocos crua; flocos de milho sem sal; flocos de milho; flocos de milho açucarados; creme de milho em pó; curau de milho verde em pó; farinha de centeio integral; farinha de milho amarela; fubá de milho cru; pão de aveia, forma; pão de soja; pão de milho, forma; pão de trigo integral, forma.",
+          "source_id": "guia-dietas-vegetarianas-svb-2012",
+          "source_url": "https://old.svb.org.br/livros/guia-alimentar.pdf",
+          "license": "Permissão própria SVB: reprodução parcial ou total com citação da fonte, sem venda ou qualquer fim comercial.",
+          "review_status": "pendente",
+          "page_number": 55
+        },
+        "bm25_rank": 3,
+        "bm25_score": 98.8534,
+        "vector_rank": null,
+        "vector_score": 0.0,
+        "rrf_score": 0.00873,
+        "rerank_score": 0.184115
+      },
+      {
+        "chunk": {
+          "chunk_id": "PUBMED_FIBER_MICROBIOTA_C02",
+          "doc_id": "PUBMED_FIBER_MICROBIOTA",
+          "title": "Meta-Analyses & Systematic Reviews: Dietary Fiber, Beta-Glucan, Gut Microbiota and Short-Chain Fatty Acids",
+          "source_organization": "PubMed / NCBI Entrez (Meta-Analyses & Systematic Reviews)",
+          "publication_year": 2024,
+          "clinical_domain": "Saúde Gastrointestinal, Fibras Solúveis (Beta-Glucana/Psyllium), Microbiota e AGCC",
+          "evidence_level": "GRADE_A",
+          "section_path": "PMID:33762150 (Nutrition, metabolism, and cardiovascular diseases : NMCD, 2021 | DOI: 10.1016/j.numecd.2020.12.032)",
+          "raw_text": "rapeseed/canola oil), with added plant sterols/stanols, and high in soluble fiber (e.g. oats, barley, and psyllium) caused at least moderate (i.e. 0.20-0.40 mmol/L) reductions in LDL cholesterol. Unfiltered coffee caused a moderate to large increase. Soy protein, tomatoes, flaxseeds, and almonds caused small reductions. With moderate evidence, avocados and turmeric caused moderate to large reductions. Pulses, hazelnuts, walnuts, high-fiber/wholegrain foods, and green tea caused small to moderate reductions, whereas sugar caused a small increase. Other identified foods were either neutral or had low or very low evidence regarding their effects. CONCLUSIONS: Several foods distinctly modify LDL cholesterol levels. The results may aid future guidelines and dietary advice for hypercholesterolemia.",
+          "contextualized_text": "[Documento: Meta-Analyses & Systematic Reviews: Dietary Fiber, Beta-Glucan, Gut Microbiota and Short-Chain Fatty Acids | Fonte: PubMed / NCBI Entrez (Meta-Analyses & Systematic Reviews) (2024) | Domínio: Saúde Gastrointestinal, Fibras Solúveis (Beta-Glucana/Psyllium), Microbiota e AGCC | Nível de Evidência: GRADE_A | Seção: PMID:33762150 (Nutrition, metabolism, and cardiovascular diseases : NMCD, 2021 | DOI: 10.1016/j.numecd.2020.12.032)]\nrapeseed/canola oil), with added plant sterols/stanols, and high in soluble fiber (e.g. oats, barley, and psyllium) caused at least moderate (i.e. 0.20-0.40 mmol/L) reductions in LDL cholesterol. Unfiltered coffee caused a moderate to large increase. Soy protein, tomatoes, flaxseeds, and almonds caused small reductions. With moderate evidence, avocados and turmeric caused moderate to large reductions. Pulses, hazelnuts, walnuts, high-fiber/wholegrain foods, and green tea caused small to moderate reductions, whereas sugar caused a small increase. Other identified foods were either neutral or had low or very low evidence regarding their effects. CONCLUSIONS: Several foods distinctly modify LDL cholesterol levels. The results may aid future guidelines and dietary advice for hypercholesterolemia.",
+          "source_id": "PMID:33762150",
+          "source_url": "https://doi.org/10.1016/j.numecd.2020.12.032",
+          "license": "pendente (PubMed/NCBI Entrez Abstract)",
+          "review_status": "pendente",
+          "page_number": null
+        },
+        "bm25_rank": null,
+        "bm25_score": 0.0,
+        "vector_rank": 1,
+        "vector_score": 0.4786,
+        "rrf_score": 0.007377,
+        "rerank_score": 0.183531
+      }
+    ],
+    "model_used": "local_extractive_synthesis",
+    "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO"
+  },
+  {
+    "original_query": "Quais são as quatro categorias de alimentos definidas pelo Guia Alimentar e por que os ultraprocessados prejudicam a saciedade?",
+    "effective_query": "Quais são as quatro categorias de alimentos definidas pelo Guia Alimentar e por que os ultraprocessados prejudicam a saciedade?",
+    "guardrail_triggered": false,
+    "intent_category": "SAFE_EVIDENCE_QUERY",
+    "legal_compliance_notice": null,
+    "evidence_summary": "Quatro categorias de alimentos, definidas de acordo com o tipo de processamento empregado na sua produção, são abrangidas pelas recomendações deste capítulo. A primeira reúne alimentos in natura ou minimamente processados. Alimentos in natura são aqueles obtidos diretamente de plantas ou de animais (como folhas e frutos ou ovos e leite) e adquiridos para consumo sem que tenham sofrido qualquer alteração após deixarem a natureza. Alimentos minimamente processados são alimentos in.",
+    "physiological_mechanism": "Quatro categorias de alimentos, definidas de acordo com o tipo de processamento empregado na sua produção, são abrangidas pelas recomendações deste capítulo. A primeira reúne alimentos in natura ou minimamente processados. Alimentos in natura são aqueles obtidos diretamente de plantas ou de animais (como folhas e frutos ou ovos e leite) e adquiridos para consumo sem que tenham sofrido qualquer alteração após deixarem a natureza. Alimentos minimamente processados são alimentos in.\n\nCAMINHOS DO GRAFO CAUSAL DE 4 CAMADAS (NetworkX: Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho GRADE):\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal)] ➔ [2. Composto: Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia) (Azeite de oliva: ~73g MUFA/100g e 0 mg de potássio (TACO))] ➔ [3. Mecanismo: Melhora da fluidez de membrana e sinalização do receptor de insulina (reduzindo HOMA-IR) + redução da resistência vascular periférica pela restrição de sódio e inflamação endotelial, SEM aportar carga de potássio sérico] ➔ [4. Desfecho (DECREASES): Pressão Arterial e Resistência à Insulina (HOMA-IR) com Segurança na Doença Renal Crônica] | Protocolo: Estratégia segura para trade-off de hipertensão + resistência à insulina + restrição de potássio (DRC): redução de sódio/ultraprocessados + uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Peixes Marinhos (Sardinha, Cavalinha e Salmão)] ➔ [2. Composto: Ácidos Graxos Ômega-3 de Cadeia Longa (EPA e DHA) (Sardinha e salmão: 1,2g a 2,5g de EPA+DHA por 100g (TACO / FooDB))] ➔ [3. Mecanismo: Ativação dos receptores nucleares hepáticos PPAR-alfa, estimulando a beta-oxidação peroxissomal/mitocondrial de ácidos graxos e inibindo a lipogênese e secreção hepática de VLDL] ➔ [4. Desfecho (DECREASES): Triglicerídeos Séricos e VLDL-c] | Protocolo: Consumo regular de pescados marinhos ricos em EPA/DHA associado à redução de açúcares livres e frutose industrial\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Combinação Arroz com Feijão, Ovos, Carnes Magras, Peixes e Laticínios] ➔ [2. Composto: Leucina e Perfil Completo de Aminoácidos Essenciais (Lisina + Metionina) (Complementação proteica: Feijão fornece Lisina e Arroz fornece Metionina (TACO / Guia Alimentar MS))] ➔ [3. Mecanismo: Atingimento do limiar intracelular de leucina que se liga ao sensor Sestrin2 e ativa a quinase mTORC1, disparando a tradução ribossomal e a síntese proteica miofibrilar (MPS)] ➔ [4. Desfecho (INCREASES): Síntese Proteica Muscular, Hipertrofia e Prevenção de Sarcopenia] | Protocolo: Fracionamento proteico em 3 a 4 refeições diárias (protocolos clínicos avaliam 1,2 a 2,0 g/kg/dia em treinamento resistido ou idosos com função renal preservada) | Contraindicações/Cautelas: Doença renal crônica não dialítica avançada exige controle proteico individualizado por nutricionista\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Frutas, Hortaliças, Feijões e Sementes em Alta Quantidade (Padrão DASH Padrão)] ➔ [2. Composto: Potássio Dietético em Alta Carga (3500 a 4700 mg/dia) (Semente de abóbora: 809 mg K/100g; Feijão preto cozido: 255 mg K/100g (TACO))] ➔ [3. Mecanismo: Estímulo da natriurese renal (excreção de sódio) e hiperpolarização da célula muscular lisa vascular dependente do endotélio] ➔ [4. Desfecho (DECREASES): Pressão Arterial Sistólica e Diastólica (e Potássio Sérico)] | Protocolo: Padrão alimentar DASH reduz PA sistólica em 6 a 11 mmHg em indivíduos com função renal normal | Contraindicações/Cautelas: Doença Renal Crônica (DRC) moderada a avançada (risco de hipercalemia / elevação perigosa do potássio sérico); Uso concomitante de diuréticos poupadores de potássio (espironolactona/amilorida) sem monitoramento médico",
+    "protocol_findings": "Quatro categorias de alimentos, definidas de acordo com o tipo de processamento empregado na sua produção, são abrangidas pelas recomendações deste capítulo. A primeira reúne alimentos in natura ou minimamente processados. Alimentos in natura são aqueles obtidos diretamente de plantas ou de animais (como folhas e frutos ou ovos e leite) e adquiridos para consumo sem que tenham sofrido qualquer alteração após deixarem a natureza. Alimentos minimamente processados são alimentos in. natura que, antes de sua aquisição, foram submetidos a alterações mínimas. Exemplos incluem grãos secos, polidos e empacotados ou moídos na forma de farinhas, raízes e tubérculos lavados, cortes de carne resfriados ou congelados e leite pasteurizado. A segunda categoria corresponde a produtos extraídos de alimentos in natura ou diretamente da natureza e usados pelas pessoas para temperar e cozinhar alimentos e criar preparações culinárias. Exemplos desses produtos são: óleos, gorduras, açúcar e sal. A terceira categoria corresponde a produtos fabricados essencialmente com a adição de sal ou açúcar a um alimento in natura ou minimamente processado, como legumes em conserva, frutas em calda, queijos e pães. A quarta categoria corresponde a produtos cuja fabricação envolve diversas etapas e técnicas de processamento e vários ingredientes, muitos deles de uso exclusivamente industrial. Exemplos incluem refrigerantes, biscoitos recheados, “salgadinhos de pacote” e “macarrão instantâneo”. A seguir, apresentamos as sugestões para o consumo das quatro categorias de alimentos consideradas por este guia.",
+    "food_sources_or_compounds": [
+      "Peixes marinhos (EPA e DHA - Ômega-3)",
+      "Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal) (Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia))",
+      "Peixes Marinhos (Sardinha, Cavalinha e Salmão) (Ácidos Graxos Ômega-3 de Cadeia Longa (EPA e DHA))",
+      "Combinação Arroz com Feijão, Ovos, Carnes Magras, Peixes e Laticínios (Leucina e Perfil Completo de Aminoácidos Essenciais (Lisina + Metionina))",
+      "Frutas, Hortaliças, Feijões e Sementes em Alta Quantidade (Padrão DASH Padrão) (Potássio Dietético em Alta Carga (3500 a 4700 mg/dia))"
+    ],
+    "taco_records": [],
+    "graph_paths": [
+      {
+        "path_id": "PATH_MUFA_FIBER_BP_HOMA_DRC_SAFE",
+        "food_node": "Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal)",
+        "compound_node": "Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia)",
+        "compound_concentration_info": "Azeite de oliva: ~73g MUFA/100g e 0 mg de potássio (TACO)",
+        "mechanism_node": "Melhora da fluidez de membrana e sinalização do receptor de insulina (reduzindo HOMA-IR) + redução da resistência vascular periférica pela restrição de sódio e inflamação endotelial, SEM aportar carga de potássio sérico",
+        "outcome_node": "Pressão Arterial e Resistência à Insulina (HOMA-IR) com Segurança na Doença Renal Crônica",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Estratégia segura para trade-off de hipertensão + resistência à insulina + restrição de potássio (DRC): redução de sódio/ultraprocessados + uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente",
+        "contraindications": [],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretrizes SBC / SBD / KDIGO (Manejo Cardiometabólico na DRC)"
+      },
+      {
+        "path_id": "PATH_OMEGA3_TRIGLYCERIDES",
+        "food_node": "Peixes Marinhos (Sardinha, Cavalinha e Salmão)",
+        "compound_node": "Ácidos Graxos Ômega-3 de Cadeia Longa (EPA e DHA)",
+        "compound_concentration_info": "Sardinha e salmão: 1,2g a 2,5g de EPA+DHA por 100g (TACO / FooDB)",
+        "mechanism_node": "Ativação dos receptores nucleares hepáticos PPAR-alfa, estimulando a beta-oxidação peroxissomal/mitocondrial de ácidos graxos e inibindo a lipogênese e secreção hepática de VLDL",
+        "outcome_node": "Triglicerídeos Séricos e VLDL-c",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Consumo regular de pescados marinhos ricos em EPA/DHA associado à redução de açúcares livres e frutose industrial",
+        "contraindications": [],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretriz Brasileira de Dislipidemias (SBC) / Meta-análises PubMed"
+      },
+      {
+        "path_id": "PATH_PROTEIN_LEUCINE_MTOR",
+        "food_node": "Combinação Arroz com Feijão, Ovos, Carnes Magras, Peixes e Laticínios",
+        "compound_node": "Leucina e Perfil Completo de Aminoácidos Essenciais (Lisina + Metionina)",
+        "compound_concentration_info": "Complementação proteica: Feijão fornece Lisina e Arroz fornece Metionina (TACO / Guia Alimentar MS)",
+        "mechanism_node": "Atingimento do limiar intracelular de leucina que se liga ao sensor Sestrin2 e ativa a quinase mTORC1, disparando a tradução ribossomal e a síntese proteica miofibrilar (MPS)",
+        "outcome_node": "Síntese Proteica Muscular, Hipertrofia e Prevenção de Sarcopenia",
+        "effect_direction": "INCREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Fracionamento proteico em 3 a 4 refeições diárias (protocolos clínicos avaliam 1,2 a 2,0 g/kg/dia em treinamento resistido ou idosos com função renal preservada)",
+        "contraindications": [
+          "Doença renal crônica não dialítica avançada exige controle proteico individualizado por nutricionista"
+        ],
+        "is_contraindicated_for_query": false,
+        "source_reference": "ISSN Position Stand: Protein and Exercise / ESPEN / Guia Alimentar MS"
+      },
+      {
+        "path_id": "PATH_DASH_POTASSIUM_BP",
+        "food_node": "Frutas, Hortaliças, Feijões e Sementes em Alta Quantidade (Padrão DASH Padrão)",
+        "compound_node": "Potássio Dietético em Alta Carga (3500 a 4700 mg/dia)",
+        "compound_concentration_info": "Semente de abóbora: 809 mg K/100g; Feijão preto cozido: 255 mg K/100g (TACO)",
+        "mechanism_node": "Estímulo da natriurese renal (excreção de sódio) e hiperpolarização da célula muscular lisa vascular dependente do endotélio",
+        "outcome_node": "Pressão Arterial Sistólica e Diastólica (e Potássio Sérico)",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Padrão alimentar DASH reduz PA sistólica em 6 a 11 mmHg em indivíduos com função renal normal",
+        "contraindications": [
+          "Doença Renal Crônica (DRC) moderada a avançada (risco de hipercalemia / elevação perigosa do potássio sérico)",
+          "Uso concomitante de diuréticos poupadores de potássio (espironolactona/amilorida) sem monitoramento médico"
+        ],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretrizes Brasileiras de Hipertensão Arterial (SBC) / AHA"
+      }
+    ],
+    "evidence_grade": "GUIDELINE_CONSENSUS",
+    "citations": [
+      "[GUIA_MS_CAP2_ESCOLHA_ALIMENTOS] Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) — Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014), Seção: 'Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 25' (Evidência: GUIDELINE_CONSENSUS | Fonte ID: guia-alimentar-populacao-brasileira-2014 | URL/DOI: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0)",
+      "[GUIA_MS_CAP2_ESCOLHA_ALIMENTOS] Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) — Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014), Seção: 'Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 26' (Evidência: GUIDELINE_CONSENSUS | Fonte ID: guia-alimentar-populacao-brasileira-2014 | URL/DOI: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0)",
+      "[GUIA_MS_CAP2_ESCOLHA_ALIMENTOS] Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) — Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014), Seção: 'Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 35' (Evidência: GUIDELINE_CONSENSUS | Fonte ID: guia-alimentar-populacao-brasileira-2014 | URL/DOI: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0)",
+      "[GUIA_MS_CAP2_ESCOLHA_ALIMENTOS] Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) — Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014), Seção: 'Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 49' (Evidência: GUIDELINE_CONSENSUS | Fonte ID: guia-alimentar-populacao-brasileira-2014 | URL/DOI: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0)",
+      "[KG_4LAYER_PICO_GRADE] Grafo de Conhecimento de 4 Camadas (NetworkX: 4 cadeias causais Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho)"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk": {
+          "chunk_id": "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS_C02",
+          "doc_id": "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
+          "title": "Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA)",
+          "source_organization": "Ministério da Saúde (Brasil) — 2ª Edição Oficial",
+          "publication_year": 2014,
+          "clinical_domain": "Classificação NOVA: Alimentos In Natura, Minimamente Processados, Processados, Ultraprocessados e Ingredientes Culinários",
+          "evidence_level": "GUIDELINE_CONSENSUS",
+          "section_path": "Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 25",
+          "raw_text": "Quatro categorias de alimentos, definidas de acordo com o tipo de processamento empregado na sua produção, são abrangidas pelas recomendações deste capítulo. A primeira reúne alimentos in natura ou minimamente processados. Alimentos in natura são aqueles obtidos diretamente de plantas ou de animais (como folhas e frutos ou ovos e leite) e adquiridos para consumo sem que tenham sofrido qualquer alteração após deixarem a natureza. Alimentos minimamente processados são alimentos in.",
+          "contextualized_text": "[Documento: Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) | Fonte: Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014) | Domínio: Classificação NOVA: Alimentos In Natura, Minimamente Processados, Processados, Ultraprocessados e Ingredientes Culinários | Nível de Evidência: GUIDELINE_CONSENSUS | Seção: Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 25]\nQuatro categorias de alimentos, definidas de acordo com o tipo de processamento empregado na sua produção, são abrangidas pelas recomendações deste capítulo. A primeira reúne alimentos in natura ou minimamente processados. Alimentos in natura são aqueles obtidos diretamente de plantas ou de animais (como folhas e frutos ou ovos e leite) e adquiridos para consumo sem que tenham sofrido qualquer alteração após deixarem a natureza. Alimentos minimamente processados são alimentos in.",
+          "source_id": "guia-alimentar-populacao-brasileira-2014",
+          "source_url": "https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf",
+          "license": "CC-BY-NC-SA-4.0",
+          "review_status": "pendente",
+          "page_number": 25
+        },
+        "bm25_rank": 1,
+        "bm25_score": 51.1721,
+        "vector_rank": 1,
+        "vector_score": 0.6001,
+        "rrf_score": 0.016393,
+        "rerank_score": 0.306393
+      },
+      {
+        "chunk": {
+          "chunk_id": "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS_C03",
+          "doc_id": "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
+          "title": "Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA)",
+          "source_organization": "Ministério da Saúde (Brasil) — 2ª Edição Oficial",
+          "publication_year": 2014,
+          "clinical_domain": "Classificação NOVA: Alimentos In Natura, Minimamente Processados, Processados, Ultraprocessados e Ingredientes Culinários",
+          "evidence_level": "GUIDELINE_CONSENSUS",
+          "section_path": "Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 26",
+          "raw_text": "natura que, antes de sua aquisição, foram submetidos a alterações mínimas. Exemplos incluem grãos secos, polidos e empacotados ou moídos na forma de farinhas, raízes e tubérculos lavados, cortes de carne resfriados ou congelados e leite pasteurizado. A segunda categoria corresponde a produtos extraídos de alimentos in natura ou diretamente da natureza e usados pelas pessoas para temperar e cozinhar alimentos e criar preparações culinárias. Exemplos desses produtos são: óleos, gorduras, açúcar e sal. A terceira categoria corresponde a produtos fabricados essencialmente com a adição de sal ou açúcar a um alimento in natura ou minimamente processado, como legumes em conserva, frutas em calda, queijos e pães. A quarta categoria corresponde a produtos cuja fabricação envolve diversas etapas e técnicas de processamento e vários ingredientes, muitos deles de uso exclusivamente industrial. Exemplos incluem refrigerantes, biscoitos recheados, “salgadinhos de pacote” e “macarrão instantâneo”. A seguir, apresentamos as sugestões para o consumo das quatro categorias de alimentos consideradas por este guia.",
+          "contextualized_text": "[Documento: Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) | Fonte: Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014) | Domínio: Classificação NOVA: Alimentos In Natura, Minimamente Processados, Processados, Ultraprocessados e Ingredientes Culinários | Nível de Evidência: GUIDELINE_CONSENSUS | Seção: Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 26]\nnatura que, antes de sua aquisição, foram submetidos a alterações mínimas. Exemplos incluem grãos secos, polidos e empacotados ou moídos na forma de farinhas, raízes e tubérculos lavados, cortes de carne resfriados ou congelados e leite pasteurizado. A segunda categoria corresponde a produtos extraídos de alimentos in natura ou diretamente da natureza e usados pelas pessoas para temperar e cozinhar alimentos e criar preparações culinárias. Exemplos desses produtos são: óleos, gorduras, açúcar e sal. A terceira categoria corresponde a produtos fabricados essencialmente com a adição de sal ou açúcar a um alimento in natura ou minimamente processado, como legumes em conserva, frutas em calda, queijos e pães. A quarta categoria corresponde a produtos cuja fabricação envolve diversas etapas e técnicas de processamento e vários ingredientes, muitos deles de uso exclusivamente industrial. Exemplos incluem refrigerantes, biscoitos recheados, “salgadinhos de pacote” e “macarrão instantâneo”. A seguir, apresentamos as sugestões para o consumo das quatro categorias de alimentos consideradas por este guia.",
+          "source_id": "guia-alimentar-populacao-brasileira-2014",
+          "source_url": "https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf",
+          "license": "CC-BY-NC-SA-4.0",
+          "review_status": "pendente",
+          "page_number": 26
+        },
+        "bm25_rank": 2,
+        "bm25_score": 41.1741,
+        "vector_rank": null,
+        "vector_score": 0.0,
+        "rrf_score": 0.008871,
+        "rerank_score": 0.288871
+      },
+      {
+        "chunk": {
+          "chunk_id": "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS_C20",
+          "doc_id": "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
+          "title": "Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA)",
+          "source_organization": "Ministério da Saúde (Brasil) — 2ª Edição Oficial",
+          "publication_year": 2014,
+          "clinical_domain": "Classificação NOVA: Alimentos In Natura, Minimamente Processados, Processados, Ultraprocessados e Ingredientes Culinários",
+          "evidence_level": "GUIDELINE_CONSENSUS",
+          "section_path": "Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 35",
+          "raw_text": "É verdade que esses produtos tendem a ser bastante acessíveis, tanto porque podem ser estocados por muito tempo, como porque, em geral, não são caros. Isso pode favorecer o uso excessivo. Mas, utilizados com moderação e apropriadamente combinados com alimentos in natura ou minimamente processados, permitem a criação de preparações culinárias variadas, saborosas e ainda nutricionalmente balanceadas. Como se verá no próximo capítulo deste guia, alimentos in natura ou minimamente processados e preparações culinárias feitas com base nesses alimentos e no uso de óleos, gorduras, sal e açúcar propiciam aos brasileiros uma alimentação de qualidade nutricional bastante superior à que seria propiciada por alimentos processados ou ultraprocessados, aos quais se referem as duas próximas recomendações.",
+          "contextualized_text": "[Documento: Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) | Fonte: Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014) | Domínio: Classificação NOVA: Alimentos In Natura, Minimamente Processados, Processados, Ultraprocessados e Ingredientes Culinários | Nível de Evidência: GUIDELINE_CONSENSUS | Seção: Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 35]\nÉ verdade que esses produtos tendem a ser bastante acessíveis, tanto porque podem ser estocados por muito tempo, como porque, em geral, não são caros. Isso pode favorecer o uso excessivo. Mas, utilizados com moderação e apropriadamente combinados com alimentos in natura ou minimamente processados, permitem a criação de preparações culinárias variadas, saborosas e ainda nutricionalmente balanceadas. Como se verá no próximo capítulo deste guia, alimentos in natura ou minimamente processados e preparações culinárias feitas com base nesses alimentos e no uso de óleos, gorduras, sal e açúcar propiciam aos brasileiros uma alimentação de qualidade nutricional bastante superior à que seria propiciada por alimentos processados ou ultraprocessados, aos quais se referem as duas próximas recomendações.",
+          "source_id": "guia-alimentar-populacao-brasileira-2014",
+          "source_url": "https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf",
+          "license": "CC-BY-NC-SA-4.0",
+          "review_status": "pendente",
+          "page_number": 35
+        },
+        "bm25_rank": 8,
+        "bm25_score": 37.1645,
+        "vector_rank": 7,
+        "vector_score": 0.5416,
+        "rrf_score": 0.014805,
+        "rerank_score": 0.284805
+      },
+      {
+        "chunk": {
+          "chunk_id": "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS_C46",
+          "doc_id": "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
+          "title": "Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA)",
+          "source_organization": "Ministério da Saúde (Brasil) — 2ª Edição Oficial",
+          "publication_year": 2014,
+          "clinical_domain": "Classificação NOVA: Alimentos In Natura, Minimamente Processados, Processados, Ultraprocessados e Ingredientes Culinários",
+          "evidence_level": "GUIDELINE_CONSENSUS",
+          "section_path": "Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 49",
+          "raw_text": "Limite o uso de alimentos processados, consumindo-os, em pequenas quantidades, como ingredientes de preparações culinárias ou como parte de refeições baseadas em alimentos in natura ou minimamente processados Os ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compotas de frutas, queijos e pães – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam.",
+          "contextualized_text": "[Documento: Guia Alimentar para a População Brasileira — Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) | Fonte: Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014) | Domínio: Classificação NOVA: Alimentos In Natura, Minimamente Processados, Processados, Ultraprocessados e Ingredientes Culinários | Nível de Evidência: GUIDELINE_CONSENSUS | Seção: Capítulo 2: A Escolha dos Alimentos (Classificação NOVA) > Pág. 49]\nLimite o uso de alimentos processados, consumindo-os, em pequenas quantidades, como ingredientes de preparações culinárias ou como parte de refeições baseadas em alimentos in natura ou minimamente processados Os ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compotas de frutas, queijos e pães – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam.",
+          "source_id": "guia-alimentar-populacao-brasileira-2014",
+          "source_url": "https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf",
+          "license": "CC-BY-NC-SA-4.0",
+          "review_status": "pendente",
+          "page_number": 49
+        },
+        "bm25_rank": 3,
+        "bm25_score": 39.5113,
+        "vector_rank": null,
+        "vector_score": 0.0,
+        "rrf_score": 0.00873,
+        "rerank_score": 0.27873
+      }
+    ],
+    "model_used": "local_extractive_synthesis",
+    "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL"
+  },
+  {
+    "original_query": "Tenho 78kg, 1,70m e pré-diabetes. Monte um cardápio completo de 1800 kcal com café da manhã, almoço e jantar para mim.",
+    "effective_query": "Quais são as evidências científicas populacionais, mecanismos fisiológicos e protocolos das diretrizes clínicas sobre: pré-diabetes, controle glicêmico, fibras solúveis, carga glicêmica, HbA1c, alimentos in natura ou minimamente processados e redução de ultraprocessados; diabetes tipo 2, controle glicêmico, fibras alimentares, HbA1c, alimentos in natura e restrição de ultraprocessados; exemplos de refeições brasileiras saudáveis no café da manhã, almoço e jantar com alimentos in natura?",
+    "guardrail_triggered": true,
+    "intent_category": "RESTRICTED_DIET_PRESCRIPTION",
+    "legal_compliance_notice": "Nota de Conformidade Legal (Lei Federal nº 8.234/1991, Art. 3º - CFN): A prescrição dietética individualizada (cardápios com quantidades, calorias e horários personalizados), o diagnóstico nutricional clínico e a prescrição posológica individual de suplementos são atividades privativas do nutricionista habilitado. Abaixo estão apresentadas exclusivamente as evidências científicas populacionais, os mecanismos fisiológicos e o que indicam as diretrizes oficiais sobre o tema.",
+    "evidence_summary": "Orientações específicas sobre a alimentação de vegetarianos, assim como no caso de outros tipos de restrição de alimentos, como a restrição ao consumo de leite ou de trigo, não são tratadas neste guia. Entretanto, as recomendações gerais quanto a basear a alimentação em alimentos in natura ou minimamente processados e a evitar alimentos ultraprocessados se aplicam a todos, incluindo os vegetarianos. de água. Quando a alimentação é baseada nesses alimentos e preparações, é usual que eles forneçam cerca de metade da água que precisamos ingerir.",
+    "physiological_mechanism": "Orientações específicas sobre a alimentação de vegetarianos, assim como no caso de outros tipos de restrição de alimentos, como a restrição ao consumo de leite ou de trigo, não são tratadas neste guia. Entretanto, as recomendações gerais quanto a basear a alimentação em alimentos in natura ou minimamente processados e a evitar alimentos ultraprocessados se aplicam a todos, incluindo os vegetarianos.\n\nCAMINHOS DO GRAFO CAUSAL DE 4 CAMADAS (NetworkX: Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho GRADE):\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal)] ➔ [2. Composto: Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia) (Azeite de oliva: ~73g MUFA/100g e 0 mg de potássio (TACO))] ➔ [3. Mecanismo: Melhora da fluidez de membrana e sinalização do receptor de insulina (reduzindo HOMA-IR) + redução da resistência vascular periférica pela restrição de sódio e inflamação endotelial, SEM aportar carga de potássio sérico] ➔ [4. Desfecho (DECREASES): Pressão Arterial e Resistência à Insulina (HOMA-IR) com Segurança na Doença Renal Crônica] | Protocolo: Estratégia segura para trade-off de hipertensão + resistência à insulina + restrição de potássio (DRC): redução de sódio/ultraprocessados + uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Aveia em flocos, Psyllium e Leguminosas] ➔ [2. Composto: Fibras Solúveis Viscosas (Beta-glucana e Arabinoxilana) (Aveia: 9,1g fibra/100g; Psyllium: >70g fibra solúvel/100g (FooDB/TACO))] ➔ [3. Mecanismo: Aumento da viscosidade do quimo, retardo do esvaziamento gástrico e redução da difusão de enzimas alfa-amilase sobre o amido (sem elevar potássio sérico)] ➔ [4. Desfecho (DECREASES): Glicemia Pós-Prandial, Hemoglobina Glicada (HbA1c) e Resistência à Insulina (HOMA-IR)] | Protocolo: 25g a 35g/dia de fibras totais com ênfase em fibras solúveis nas principais refeições (-0,4% a -0,6% na HbA1c)\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Café, Chá Preto/Mate junto às refeições e Grãos sem Remolho Prévio] ➔ [2. Composto: Taninos (Polifenóis) e Fitatos (Ácido Fítico) (Redução significativa de fitatos após remolho do feijão em água por 8 a 12h com descarte da água (FooDB))] ➔ [3. Mecanismo: Formação de complexos insolúveis de alta afinidade com o ferro não-heme no lúmen intestinal, impedindo sua captação pelo transportador DMT1] ➔ [4. Desfecho (INHIBITS_ABSORPTION): Absorção Intestinal de Ferro Não-Heme] | Protocolo: Realizar remolho das leguminosas por 8-12h antes do cozimento e espaçar café/chás ricos em taninos em pelo menos 1 a 2 horas das refeições principais\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Arroz, Batata, Mandioca e Feijão Cozidos e Resfriados] ➔ [2. Composto: Amido Resistente Tipo 3 (RS3) e Oligossacarídeos Fermentáveis (Aumento de 2x a 3x na fração de amido resistente após refrigeração por 12-24h (FooDB))] ➔ [3. Mecanismo: Retrogradação da amilose resistente à digestão no delgado + fermentação colônica gerando AGCC (Butirato e Propionato) que ativam GPR41/GPR43 e secretam GLP-1 e PYY (via segura para potássio sérico na doença renal)] ➔ [4. Desfecho (DECREASES): Resistência à Insulina (HOMA-IR), Pico Glicêmico e Pressão Arterial] | Protocolo: Cozimento seguido de resfriamento a 4°C por 12 a 24 horas antes do consumo (com ou sem reaquecimento leve)",
+    "protocol_findings": "Orientações específicas sobre a alimentação de vegetarianos, assim como no caso de outros tipos de restrição de alimentos, como a restrição ao consumo de leite ou de trigo, não são tratadas neste guia. Entretanto, as recomendações gerais quanto a basear a alimentação em alimentos in natura ou minimamente processados e a evitar alimentos ultraprocessados se aplicam a todos, incluindo os vegetarianos. de água. Quando a alimentação é baseada nesses alimentos e preparações, é usual que eles forneçam cerca de metade da água que precisamos ingerir. Diferentemente dos alimentos in natura ou minimamente processados e das preparações culinárias desses alimentos, os alimentos ultraprocessados são em geral escassos em água, exatamente para que durem mais nas prateleiras. Este é o caso de salgadinhos “de pacote” e biscoitos que costumam ter menos do que 5% de água na sua composição. Outros produtos como refrigerantes e vários tipos de bebidas adoçadas possuem alta proporção de água, mas contêm açúcar ou adoçantes artificiais e vários aditivos, razão pela qual não podem ser considerados fontes adequadas para hidratação. Finalmente Com a combinação de feijões, cereais, raízes, tubérculos, farinhas, macarrão, legumes, verduras, frutas, castanhas, leite, carnes, ovos, café, chá e água, os leitores deste guia poderão multiplicar indefinidamente os exemplos de refeições mostrados neste capítulo, criando alternativas saudáveis, diversificadas e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições.",
+    "food_sources_or_compounds": [
+      "Aveia (beta-glucana)",
+      "Psyllium",
+      "Feijão e leguminosas",
+      "Peixes marinhos (EPA e DHA - Ômega-3)",
+      "Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal) (Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia))",
+      "Aveia em flocos, Psyllium e Leguminosas (Fibras Solúveis Viscosas (Beta-glucana e Arabinoxilana))",
+      "Café, Chá Preto/Mate junto às refeições e Grãos sem Remolho Prévio (Taninos (Polifenóis) e Fitatos (Ácido Fítico))",
+      "Arroz, Batata, Mandioca e Feijão Cozidos e Resfriados (Amido Resistente Tipo 3 (RS3) e Oligossacarídeos Fermentáveis)"
+    ],
+    "taco_records": [],
+    "graph_paths": [
+      {
+        "path_id": "PATH_MUFA_FIBER_BP_HOMA_DRC_SAFE",
+        "food_node": "Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal)",
+        "compound_node": "Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia)",
+        "compound_concentration_info": "Azeite de oliva: ~73g MUFA/100g e 0 mg de potássio (TACO)",
+        "mechanism_node": "Melhora da fluidez de membrana e sinalização do receptor de insulina (reduzindo HOMA-IR) + redução da resistência vascular periférica pela restrição de sódio e inflamação endotelial, SEM aportar carga de potássio sérico",
+        "outcome_node": "Pressão Arterial e Resistência à Insulina (HOMA-IR) com Segurança na Doença Renal Crônica",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Estratégia segura para trade-off de hipertensão + resistência à insulina + restrição de potássio (DRC): redução de sódio/ultraprocessados + uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente",
+        "contraindications": [],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretrizes SBC / SBD / KDIGO (Manejo Cardiometabólico na DRC)"
+      },
+      {
+        "path_id": "PATH_BETA_GLUCAN_GLYCEMIA",
+        "food_node": "Aveia em flocos, Psyllium e Leguminosas",
+        "compound_node": "Fibras Solúveis Viscosas (Beta-glucana e Arabinoxilana)",
+        "compound_concentration_info": "Aveia: 9,1g fibra/100g; Psyllium: >70g fibra solúvel/100g (FooDB/TACO)",
+        "mechanism_node": "Aumento da viscosidade do quimo, retardo do esvaziamento gástrico e redução da difusão de enzimas alfa-amilase sobre o amido (sem elevar potássio sérico)",
+        "outcome_node": "Glicemia Pós-Prandial, Hemoglobina Glicada (HbA1c) e Resistência à Insulina (HOMA-IR)",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "25g a 35g/dia de fibras totais com ênfase em fibras solúveis nas principais refeições (-0,4% a -0,6% na HbA1c)",
+        "contraindications": [],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretriz da Sociedade Brasileira de Diabetes (SBD) / Meta-análises de ECRs"
+      },
+      {
+        "path_id": "PATH_IRON_INHIBITORS_TANNIN_PHYTATE",
+        "food_node": "Café, Chá Preto/Mate junto às refeições e Grãos sem Remolho Prévio",
+        "compound_node": "Taninos (Polifenóis) e Fitatos (Ácido Fítico)",
+        "compound_concentration_info": "Redução significativa de fitatos após remolho do feijão em água por 8 a 12h com descarte da água (FooDB)",
+        "mechanism_node": "Formação de complexos insolúveis de alta afinidade com o ferro não-heme no lúmen intestinal, impedindo sua captação pelo transportador DMT1",
+        "outcome_node": "Absorção Intestinal de Ferro Não-Heme",
+        "effect_direction": "INHIBITS_ABSORPTION",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Realizar remolho das leguminosas por 8-12h antes do cozimento e espaçar café/chás ricos em taninos em pelo menos 1 a 2 horas das refeições principais",
+        "contraindications": [],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Consenso de Biodisponibilidade de Micronutrientes / PubMed"
+      },
+      {
+        "path_id": "PATH_RESISTANT_STARCH_HOMA",
+        "food_node": "Arroz, Batata, Mandioca e Feijão Cozidos e Resfriados",
+        "compound_node": "Amido Resistente Tipo 3 (RS3) e Oligossacarídeos Fermentáveis",
+        "compound_concentration_info": "Aumento de 2x a 3x na fração de amido resistente após refrigeração por 12-24h (FooDB)",
+        "mechanism_node": "Retrogradação da amilose resistente à digestão no delgado + fermentação colônica gerando AGCC (Butirato e Propionato) que ativam GPR41/GPR43 e secretam GLP-1 e PYY (via segura para potássio sérico na doença renal)",
+        "outcome_node": "Resistência à Insulina (HOMA-IR), Pico Glicêmico e Pressão Arterial",
+        "effect_direction": "DECREASES",
+        "relationship_nature": "CAUSAL_ECR_META_ANALYSIS",
+        "evidence_grade": "GRADE_A",
+        "studied_protocol": "Cozimento seguido de resfriamento a 4°C por 12 a 24 horas antes do consumo (com ou sem reaquecimento leve)",
+        "contraindications": [],
+        "is_contraindicated_for_query": false,
+        "source_reference": "Diretriz SBD / Consenso de Microbiota e AGCC (PubMed Meta-Analyses)"
+      }
+    ],
+    "evidence_grade": "GRADE_A",
+    "citations": [
+      "[GUIA_MS_CAP3_REFEICOES] Guia Alimentar para a População Brasileira — Capítulo 3: Dos Alimentos à Refeição — Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014), Seção: 'Capítulo 3: Dos Alimentos à Refeição > Pág. 84' (Evidência: GUIDELINE_CONSENSUS | Fonte ID: guia-alimentar-populacao-brasileira-2014 | URL/DOI: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0)",
+      "[GUIA_MS_CAP3_REFEICOES] Guia Alimentar para a População Brasileira — Capítulo 3: Dos Alimentos à Refeição — Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014), Seção: 'Capítulo 3: Dos Alimentos à Refeição > Pág. 87' (Evidência: GUIDELINE_CONSENSUS | Fonte ID: guia-alimentar-populacao-brasileira-2014 | URL/DOI: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0)",
+      "[CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta — Ministério da Saúde, Universidade de São Paulo (2021), Seção: 'SUGESTÕES DE ALTERNATIVAS SAUDÁVEIS: > Pág. PDF 21' (Evidência: GUIDELINE_CONSENSUS | Fonte ID: protocolos-guia-alimentar-fasciculo1-2021 | URL/DOI: https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf | Licença: CC-BY-NC-SA-4.0)",
+      "[DOC_GLICEMIA_CARBOIDRATOS_03] Diretriz da Sociedade Brasileira de Diabetes: Manejo Nutricional da Glicemia e Resistência à Insulina — Sociedade Brasileira de Diabetes (SBD) (2024), Seção: 'Evidência Clínica > Ingestão de Fibras no Diabetes Tipo 2' (Evidência: GRADE_A | Licença: Síntese normativa interna baseada em diretrizes públicas)",
+      "[KG_4LAYER_PICO_GRADE] Grafo de Conhecimento de 4 Camadas (NetworkX: 4 cadeias causais Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho)"
+    ],
+    "retrieved_chunks": [
+      {
+        "chunk": {
+          "chunk_id": "GUIA_MS_CAP3_REFEICOES_C46",
+          "doc_id": "GUIA_MS_CAP3_REFEICOES",
+          "title": "Guia Alimentar para a População Brasileira — Capítulo 3: Dos Alimentos à Refeição",
+          "source_organization": "Ministério da Saúde (Brasil) — 2ª Edição Oficial",
+          "publication_year": 2014,
+          "clinical_domain": "Composição de Refeições Brasileiras, Café da Manhã, Almoço, Jantar, Grupos de Alimentos (Feijões, Cereais, Raízes, Hortaliças, Frutas, Carnes, Leite, Castanhas)",
+          "evidence_level": "GUIDELINE_CONSENSUS",
+          "section_path": "Capítulo 3: Dos Alimentos à Refeição > Pág. 84",
+          "raw_text": "Orientações específicas sobre a alimentação de vegetarianos, assim como no caso de outros tipos de restrição de alimentos, como a restrição ao consumo de leite ou de trigo, não são tratadas neste guia. Entretanto, as recomendações gerais quanto a basear a alimentação em alimentos in natura ou minimamente processados e a evitar alimentos ultraprocessados se aplicam a todos, incluindo os vegetarianos.",
+          "contextualized_text": "[Documento: Guia Alimentar para a População Brasileira — Capítulo 3: Dos Alimentos à Refeição | Fonte: Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014) | Domínio: Composição de Refeições Brasileiras, Café da Manhã, Almoço, Jantar, Grupos de Alimentos (Feijões, Cereais, Raízes, Hortaliças, Frutas, Carnes, Leite, Castanhas) | Nível de Evidência: GUIDELINE_CONSENSUS | Seção: Capítulo 3: Dos Alimentos à Refeição > Pág. 84]\nOrientações específicas sobre a alimentação de vegetarianos, assim como no caso de outros tipos de restrição de alimentos, como a restrição ao consumo de leite ou de trigo, não são tratadas neste guia. Entretanto, as recomendações gerais quanto a basear a alimentação em alimentos in natura ou minimamente processados e a evitar alimentos ultraprocessados se aplicam a todos, incluindo os vegetarianos.",
+          "source_id": "guia-alimentar-populacao-brasileira-2014",
+          "source_url": "https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf",
+          "license": "CC-BY-NC-SA-4.0",
+          "review_status": "pendente",
+          "page_number": 84
+        },
+        "bm25_rank": 2,
+        "bm25_score": 65.4869,
+        "vector_rank": null,
+        "vector_score": 0.0,
+        "rrf_score": 0.008871,
+        "rerank_score": 0.176014
+      },
+      {
+        "chunk": {
+          "chunk_id": "GUIA_MS_CAP3_REFEICOES_C50",
+          "doc_id": "GUIA_MS_CAP3_REFEICOES",
+          "title": "Guia Alimentar para a População Brasileira — Capítulo 3: Dos Alimentos à Refeição",
+          "source_organization": "Ministério da Saúde (Brasil) — 2ª Edição Oficial",
+          "publication_year": 2014,
+          "clinical_domain": "Composição de Refeições Brasileiras, Café da Manhã, Almoço, Jantar, Grupos de Alimentos (Feijões, Cereais, Raízes, Hortaliças, Frutas, Carnes, Leite, Castanhas)",
+          "evidence_level": "GUIDELINE_CONSENSUS",
+          "section_path": "Capítulo 3: Dos Alimentos à Refeição > Pág. 87",
+          "raw_text": "de água. Quando a alimentação é baseada nesses alimentos e preparações, é usual que eles forneçam cerca de metade da água que precisamos ingerir. Diferentemente dos alimentos in natura ou minimamente processados e das preparações culinárias desses alimentos, os alimentos ultraprocessados são em geral escassos em água, exatamente para que durem mais nas prateleiras. Este é o caso de salgadinhos “de pacote” e biscoitos que costumam ter menos do que 5% de água na sua composição. Outros produtos como refrigerantes e vários tipos de bebidas adoçadas possuem alta proporção de água, mas contêm açúcar ou adoçantes artificiais e vários aditivos, razão pela qual não podem ser considerados fontes adequadas para hidratação. Finalmente Com a combinação de feijões, cereais, raízes, tubérculos, farinhas, macarrão, legumes, verduras, frutas, castanhas, leite, carnes, ovos, café, chá e água, os leitores deste guia poderão multiplicar indefinidamente os exemplos de refeições mostrados neste capítulo, criando alternativas saudáveis, diversificadas e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições.",
+          "contextualized_text": "[Documento: Guia Alimentar para a População Brasileira — Capítulo 3: Dos Alimentos à Refeição | Fonte: Ministério da Saúde (Brasil) — 2ª Edição Oficial (2014) | Domínio: Composição de Refeições Brasileiras, Café da Manhã, Almoço, Jantar, Grupos de Alimentos (Feijões, Cereais, Raízes, Hortaliças, Frutas, Carnes, Leite, Castanhas) | Nível de Evidência: GUIDELINE_CONSENSUS | Seção: Capítulo 3: Dos Alimentos à Refeição > Pág. 87]\nde água. Quando a alimentação é baseada nesses alimentos e preparações, é usual que eles forneçam cerca de metade da água que precisamos ingerir. Diferentemente dos alimentos in natura ou minimamente processados e das preparações culinárias desses alimentos, os alimentos ultraprocessados são em geral escassos em água, exatamente para que durem mais nas prateleiras. Este é o caso de salgadinhos “de pacote” e biscoitos que costumam ter menos do que 5% de água na sua composição. Outros produtos como refrigerantes e vários tipos de bebidas adoçadas possuem alta proporção de água, mas contêm açúcar ou adoçantes artificiais e vários aditivos, razão pela qual não podem ser considerados fontes adequadas para hidratação. Finalmente Com a combinação de feijões, cereais, raízes, tubérculos, farinhas, macarrão, legumes, verduras, frutas, castanhas, leite, carnes, ovos, café, chá e água, os leitores deste guia poderão multiplicar indefinidamente os exemplos de refeições mostrados neste capítulo, criando alternativas saudáveis, diversificadas e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições.",
+          "source_id": "guia-alimentar-populacao-brasileira-2014",
+          "source_url": "https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf",
+          "license": "CC-BY-NC-SA-4.0",
+          "review_status": "pendente",
+          "page_number": 87
+        },
+        "bm25_rank": 4,
+        "bm25_score": 61.9021,
+        "vector_rank": null,
+        "vector_score": 0.0,
+        "rrf_score": 0.008594,
+        "rerank_score": 0.175737
+      },
+      {
+        "chunk": {
+          "chunk_id": "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021_C56",
+          "doc_id": "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021",
+          "title": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+          "source_organization": "Ministério da Saúde, Universidade de São Paulo",
+          "publication_year": 2021,
+          "clinical_domain": "Protocolos de Uso Clínico do Guia Alimentar para Adultos na Atenção Primária",
+          "evidence_level": "GUIDELINE_CONSENSUS",
+          "section_path": "SUGESTÕES DE ALTERNATIVAS SAUDÁVEIS: > Pág. PDF 21",
+          "raw_text": "- Valorize as três principais refeições do dia - café da manhã, almoço e jantar. No almoço e no jantar , oriente que o usuário consuma comida feita na hora , como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandioca, panquecas e tortas caseiras, entre outros.\n\n- Quando necessário, para as pequenas refeições , sugira o consumo de leite ou iogurte natural, acompanhados de alimentos in natura ou minimamente processados, como frutas frescas ou secas, castanhas, amendoim ou nozes, tapioca, pamonha, etc.\n\n- • Recomende evitar ter produtos ultraprocessados ao alcance da mão , seja em casa, seja no ambiente de trabalho ou estudo. Boas opções para ter ao alcance das mãos são frutas frescas ou secas e castanhas ou nozes.",
+          "contextualized_text": "[Documento: Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta | Fonte: Ministério da Saúde, Universidade de São Paulo (2021) | Domínio: Protocolos de Uso Clínico do Guia Alimentar para Adultos na Atenção Primária | Nível de Evidência: GUIDELINE_CONSENSUS | Seção: SUGESTÕES DE ALTERNATIVAS SAUDÁVEIS: > Pág. PDF 21]\n- Valorize as três principais refeições do dia - café da manhã, almoço e jantar. No almoço e no jantar , oriente que o usuário consuma comida feita na hora , como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandioca, panquecas e tortas caseiras, entre outros.\n\n- Quando necessário, para as pequenas refeições , sugira o consumo de leite ou iogurte natural, acompanhados de alimentos in natura ou minimamente processados, como frutas frescas ou secas, castanhas, amendoim ou nozes, tapioca, pamonha, etc.\n\n- • Recomende evitar ter produtos ultraprocessados ao alcance da mão , seja em casa, seja no ambiente de trabalho ou estudo. Boas opções para ter ao alcance das mãos são frutas frescas ou secas e castanhas ou nozes.",
+          "source_id": "protocolos-guia-alimentar-fasciculo1-2021",
+          "source_url": "https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf",
+          "license": "CC-BY-NC-SA-4.0",
+          "review_status": "pendente",
+          "page_number": 21
+        },
+        "bm25_rank": 7,
+        "bm25_score": 54.9752,
+        "vector_rank": null,
+        "vector_score": 0.0,
+        "rrf_score": 0.008209,
+        "rerank_score": 0.170888
+      },
+      {
+        "chunk": {
+          "chunk_id": "DOC_GLICEMIA_CARBOIDRATOS_03_C02",
+          "doc_id": "DOC_GLICEMIA_CARBOIDRATOS_03",
+          "title": "Diretriz da Sociedade Brasileira de Diabetes: Manejo Nutricional da Glicemia e Resistência à Insulina",
+          "source_organization": "Sociedade Brasileira de Diabetes (SBD)",
+          "publication_year": 2024,
+          "clinical_domain": "Controle Glicêmico, Resistência à Insulina e Diabetes Tipo 2",
+          "evidence_level": "GRADE_A",
+          "section_path": "Evidência Clínica > Ingestão de Fibras no Diabetes Tipo 2",
+          "raw_text": "Meta-análises de ensaios clínicos randomizados demonstram que o consumo populacional de 25g a 35g/dia de fibras alimentares totais (ou incremento de 10g a 15g/dia sobre o habitual), priorizando fontes de fibras solúveis (como aveia, leguminosas e psyllium), promove redução clinicamente significativa na hemoglobina glicada (HbA1c em média -0,4% a -0,6%) e na glicemia de jejum em adultos com pré-diabetes ou diabetes tipo 2 (Evidência GRADE A).",
+          "contextualized_text": "[Documento: Diretriz da Sociedade Brasileira de Diabetes: Manejo Nutricional da Glicemia e Resistência à Insulina | Fonte: Sociedade Brasileira de Diabetes (SBD) (2024) | Domínio: Controle Glicêmico, Resistência à Insulina e Diabetes Tipo 2 | Nível de Evidência: GRADE_A | Seção: Evidência Clínica > Ingestão de Fibras no Diabetes Tipo 2]\nMeta-análises de ensaios clínicos randomizados demonstram que o consumo populacional de 25g a 35g/dia de fibras alimentares totais (ou incremento de 10g a 15g/dia sobre o habitual), priorizando fontes de fibras solúveis (como aveia, leguminosas e psyllium), promove redução clinicamente significativa na hemoglobina glicada (HbA1c em média -0,4% a -0,6%) e na glicemia de jejum em adultos com pré-diabetes ou diabetes tipo 2 (Evidência GRADE A).",
+          "source_id": "DOC_GLICEMIA_CARBOIDRATOS_03",
+          "source_url": "urn:cultiva:guideline-synthesis:DOC_GLICEMIA_CARBOIDRATOS_03",
+          "license": "Síntese normativa interna baseada em diretrizes públicas",
+          "review_status": "pendente",
+          "page_number": null
+        },
+        "bm25_rank": 1,
+        "bm25_score": 90.5486,
+        "vector_rank": 1,
+        "vector_score": 0.5457,
+        "rrf_score": 0.016393,
+        "rerank_score": 0.149965
+      }
+    ],
+    "model_used": "local_extractive_synthesis",
+    "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL"
+  }
+]

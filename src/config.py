@@ -13,6 +13,21 @@ KNOWLEDGE_GRAPH_PATH = DATA_DIR / "raw" / "knowledge_graph" / "nutrition_4layer_
 BENCHMARK_QUESTIONS_PATH = DATA_DIR / "benchmark" / "eval_questions.json"
 BENCHMARK_REPORT_PATH = DATA_DIR / "benchmark" / "baseline_report.json"
 
+# Caminhos do Corpus Curado (Catálogo Oficial manifest.yaml e JSONLs de RAG)
+CORPUS_MANIFEST_PATH = PROJECT_ROOT / "corpus" / "manifest.yaml"
+CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
+
+# Configurações do Banco Vetorial Persistente (ChromaDB) e Modelo de Embeddings
+VECTOR_STORE_DIR = DATA_DIR / "vector_store" / "chroma_db"
+VECTOR_COLLECTION_NAME = os.getenv(
+    "VECTOR_COLLECTION_NAME", "cultiva_nutricao_evidencias"
+)
+EMBEDDING_MODEL_NAME = os.getenv(
+    "EMBEDDING_MODEL_NAME",
+    "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+)
+EMBEDDING_DIMENSION = int(os.getenv("EMBEDDING_DIMENSION", "384"))
+
 # Provedor de LLM ("groq", "ollama" ou "auto")
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq").lower()
 

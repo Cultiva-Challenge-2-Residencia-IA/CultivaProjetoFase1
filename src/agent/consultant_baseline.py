@@ -104,9 +104,17 @@ class NutritionConsultantBaseline:
             cite_key = f"{c.doc_id}:{c.section_path}"
             if cite_key not in seen_docs:
                 seen_docs.add(cite_key)
+                src_meta = []
+                if c.source_id and c.source_id != c.doc_id:
+                    src_meta.append(f"Fonte ID: {c.source_id}")
+                if c.source_url and not c.source_url.startswith("urn:"):
+                    src_meta.append(f"URL/DOI: {c.source_url}")
+                if c.license:
+                    src_meta.append(f"Licença: {c.license}")
+                meta_suffix = f" | {' | '.join(src_meta)}" if src_meta else ""
                 citations.append(
                     f"[{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), "
-                    f"Seção: '{c.section_path}' (Evidência: {c.evidence_level})"
+                    f"Seção: '{c.section_path}' (Evidência: {c.evidence_level}{meta_suffix})"
                 )
 
         if graph_paths:

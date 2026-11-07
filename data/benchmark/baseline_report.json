@@ -4,22 +4,22 @@
   "top_k": 4,
   "overall_metrics": {
     "mean_doc_recall_at_k": 0.9375,
-    "mean_reciprocal_rank_mrr": 0.9688,
-    "mean_keyword_coverage": 0.8677,
+    "mean_reciprocal_rank_mrr": 0.8958,
+    "mean_keyword_coverage": 0.8833,
     "legal_guardrail_accuracy": 1.0
   },
   "metrics_by_category": {
     "direct_guideline": {
       "questions": 6,
       "mean_doc_recall_at_k": 0.9167,
-      "mean_mrr": 0.9167,
-      "mean_keyword_coverage": 0.8,
+      "mean_mrr": 0.8333,
+      "mean_keyword_coverage": 0.8417,
       "guardrail_accuracy": 1.0
     },
     "multi_hop_and_composition_gap": {
       "questions": 7,
       "mean_doc_recall_at_k": 0.9286,
-      "mean_mrr": 1.0,
+      "mean_mrr": 0.9048,
       "mean_keyword_coverage": 0.9048,
       "guardrail_accuracy": 1.0
     },
@@ -47,12 +47,12 @@
       "retrieved_doc_ids": [
         "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
         "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "DOC_GUIA_NOVA_01",
-        "GUIA_MS_DEZ_PASSOS"
+        "GUIA_MS_DEZ_PASSOS",
+        "DOC_GUIA_NOVA_01"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
-      "keyword_coverage": 0.75,
+      "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
       "graph_paths_count": 4,
@@ -73,13 +73,13 @@
         "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS"
       ],
       "retrieved_doc_ids": [
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
         "GUIA_MS_DEZ_PASSOS",
-        "GUIA_MS_CAP3_REFEICOES"
+        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
+        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
+        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
+      "reciprocal_rank": 0.5,
       "keyword_coverage": 0.25,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
@@ -87,7 +87,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "baseadas em alimentos in natura ou minimamente processados. No caso do seu consumo, é importante consultar o rótulo dos produtos para dar preferência àqueles com menor teor de sal ou açúcar. alimentos ultraprocessados Evite alimentos ultrap"
+      "evidence_summary_preview": "Limitar o consumo de alimentos processados Os ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compota de frutas, pães e queijos – alteram de modo desfavorável a composição nutricional dos al"
     },
     {
       "id": "Q03_DIRECT",
@@ -104,8 +104,8 @@
       "retrieved_doc_ids": [
         "GUIA_MS_DEZ_PASSOS",
         "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS"
+        "CORPUS_SOUZA_BACKES_UNIVERSITARIOS_CSC_2020",
+        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -160,8 +160,8 @@
       "retrieved_doc_ids": [
         "GUIA_MS_CAP4_COMENSALIDADE",
         "GUIA_MS_CAP4_COMENSALIDADE",
-        "GUIA_MS_CAP4_COMENSALIDADE",
-        "GUIA_MS_CAP4_COMENSALIDADE"
+        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021",
+        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -172,7 +172,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "capítulo 4. O ato de comer e a comensalidade No capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refei"
+      "evidence_summary_preview": "Três orientações sobre o ato de comer e a comensalidade Comer com regularidade e com atenção Procure fazer suas refeições diárias em horários semelhantes. Evite “beliscar” nos intervalos entre as refeições. Coma sempre devagar e desfrute o "
     },
     {
       "id": "Q06_MULTIHOP_GAP",
@@ -187,9 +187,9 @@
       ],
       "retrieved_doc_ids": [
         "GUIA_MS_CAP3_REFEICOES",
+        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",
         "GUIA_MS_CAP3_REFEICOES",
-        "GUIA_MS_CAP3_REFEICOES",
-        "GUIA_MS_CAP3_REFEICOES"
+        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -211,8 +211,8 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
-        "GUIA_MS_CAP1_PRINCIPIOS"
+        "GUIA_MS_CAP1_PRINCIPIOS",
+        "PUBMED_BIOACTIVES_MICRONUTRIENTS"
       ],
       "retrieved_doc_ids": [
         "PUBMED_BIOACTIVES_MICRONUTRIENTS",
@@ -229,7 +229,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GRADE_A",
       "baseline_limitation_note": "Resolvido pelo Passo 3 (Grafo de 4 Camadas): conecta a matriz alimentar do Guia às vias moleculares FooDB/PubMed (Glicorafanina + Mirosinase ➔ Sulforafano ➔ Nrf2 e Curcumina + Piperina ➔ Inibição de glicuronidação 2000%).",
-      "evidence_summary_preview": "Further high-quality clinical trial studies are needed to firmly establish the clinical efficacy of the curcumin-piperine supplement. Concomitant administration of piperine 20 mg produced much higher concentrations from 0.25 to 1 h post dru"
+      "evidence_summary_preview": "Further high-quality clinical trial studies are needed to firmly establish the clinical efficacy of the curcumin-piperine supplement. Molecular dynamics simulations demonstrated that the N321D mutation in loopA of mutant DE9 enhanced loopA "
     },
     {
       "id": "Q08_MULTIHOP_GAP",
@@ -240,14 +240,14 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "GUIA_MS_INTRO",
-        "DOC_HIPERTENSAO_DASH_05"
+        "DOC_HIPERTENSAO_DASH_05",
+        "GUIA_MS_INTRO"
       ],
       "retrieved_doc_ids": [
         "DOC_HIPERTENSAO_DASH_05",
         "PUBMED_DASH_HYPERTENSION",
         "PUBMED_DASH_HYPERTENSION",
-        "DOC_HIPERTENSAO_DASH_05"
+        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012"
       ],
       "doc_recall_at_k": 0.5,
       "reciprocal_rank": 1.0,
@@ -269,13 +269,13 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_GLICEMIA_CARBOIDRATOS_03",
-        "GUIA_MS_CAP3_REFEICOES"
+        "GUIA_MS_CAP3_REFEICOES",
+        "DOC_GLICEMIA_CARBOIDRATOS_03"
       ],
       "retrieved_doc_ids": [
         "GUIA_MS_CAP3_REFEICOES",
         "GUIA_MS_CAP3_REFEICOES",
-        "DOC_GLICEMIA_CARBOIDRATOS_03",
+        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021",
         "DOC_GLICEMIA_CARBOIDRATOS_03"
       ],
       "doc_recall_at_k": 1.0,
@@ -304,8 +304,8 @@
       "retrieved_doc_ids": [
         "DOC_LIPIDIOS_COLESTEROL_04",
         "DOC_MICRONUTRIENTES_INTERACOES_09",
-        "DOC_MICRONUTRIENTES_INTERACOES_09",
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS"
+        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",
+        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -316,7 +316,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GRADE_A",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Para o manejo da hipertrigliceridemia, a redução de açúcares simples (especialmente frutose livre de bebidas açucaradas, que estimula a lipogênese hepática de novo) e de álcool é prioritária. Os ácidos graxos poli-insaturados ômega-3 de cad"
+      "evidence_summary_preview": "O principal determinante dietético da elevação do colesterol LDL plasmático não é o colesterol alimentar intrínseco (presente por exemplo na gema do ovo), mas sim o excesso de ácidos graxos saturados e ácidos graxos trans, que reduzem a exp"
     },
     {
       "id": "Q11_LEGAL_TRAP",
@@ -327,8 +327,8 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_SUPLEMENTOS_EVIDENCIA_07",
-        "DOC_PROTEINAS_MASSA_MUSCULAR_06"
+        "DOC_PROTEINAS_MASSA_MUSCULAR_06",
+        "DOC_SUPLEMENTOS_EVIDENCIA_07"
       ],
       "retrieved_doc_ids": [
         "DOC_PROTEINAS_MASSA_MUSCULAR_06",
@@ -419,9 +419,9 @@
       ],
       "retrieved_doc_ids": [
         "GUIA_MS_CAP3_REFEICOES",
+        "PUBMED_GLYCEMIC_DIABETES",
         "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "PUBMED_GLYCEMIC_DIABETES"
+        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -447,13 +447,13 @@
         "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
       ],
       "retrieved_doc_ids": [
+        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",
+        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",
         "GUIA_MS_CAP3_REFEICOES",
-        "GUIA_MS_CAP3_REFEICOES",
-        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS"
+        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
+      "reciprocal_rank": 0.3333,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 1,
@@ -461,7 +461,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre processamento térmico que exige o Grafo de 4 Camadas para explicar que a fervura inativa a enzima mirosinase, impedindo a conversão da glicorafanina em sulforafano.",
-      "evidence_summary_preview": "chuchu, brócolis, maxixe e abobrinha. São também usados com leite e açúcar na preparação de bolos, pudins e tortas doces. Como as carnes e os peixes, os ovos são ricos em proteínas de alta qualidade, em minerais e em vitaminas, especialment"
+      "evidence_summary_preview": "Legumes\n\nPimentão amarelo cru | 201,4\n\nPimentão vermelho cru | 158,2\n\nPimentão verde cru | 100,2\n\nVerduras\n\nCouve manteiga, refogada | 76,9\n\nBrócolis, cozido | 42\n\nMostarda, folha crua | 38,6\n\nFonte: Tabela Brasileira de Composição de Alime"
     },
     {
       "id": "Q16_NATURAL_GRAPH",
@@ -472,14 +472,14 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "PUBMED_DASH_HYPERTENSION",
-        "DOC_HIPERTENSAO_DASH_05"
+        "DOC_HIPERTENSAO_DASH_05",
+        "PUBMED_DASH_HYPERTENSION"
       ],
       "retrieved_doc_ids": [
         "DOC_HIPERTENSAO_DASH_05",
         "PUBMED_DASH_HYPERTENSION",
-        "DOC_HIPERTENSAO_DASH_05",
-        "PUBMED_DASH_HYPERTENSION"
+        "PUBMED_DASH_HYPERTENSION",
+        "DOC_HIPERTENSAO_DASH_05"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,

@@ -128,6 +128,8 @@ class HybridRetriever:
         rrf_k: int = RRF_K,
         weight_bm25: float = WEIGHT_BM25,
         weight_vector: float = WEIGHT_VECTOR,
+        use_vector_store: bool = True,
+        vector_mode: str = "chromadb_dense",
     ) -> None:
         if not chunks:
             raise ValueError("A lista de chunks para o HybridRetriever não pode estar vazia.")
@@ -138,6 +140,8 @@ class HybridRetriever:
         self.rrf_k = rrf_k
         self.weight_bm25 = weight_bm25
         self.weight_vector = weight_vector
+        self.use_vector_store = use_vector_store
+        self.vector_mode = vector_mode
 
         # 1. Construção do índice BM25
         self.tokenized_corpus = [
@@ -145,7 +149,7 @@ class HybridRetriever:
         ]
         self.bm25 = BM25Okapi(self.tokenized_corpus)
 
-        # 2. Construção do índice Vetorial Denso Local
+        # 2. Construção do índice Vetorial Auxiliar (TF-IDF + SVD/LSA)
         normalized_docs = [
             expand_clinical_synonyms(chunk.contextualized_text) for chunk in self.chunks
         ]
@@ -162,13 +166,23 @@ class HybridRetriever:
                 n_components=n_components, random_state=42
             )
             dense_vecs = self.svd.fit_transform(tfidf_matrix)
-            # Concatena representação densa LSA + TF-IDF normalizado para máxima precisão
             self.doc_vectors = normalize(dense_vecs)
             self.tfidf_matrix_norm = normalize(tfidf_matrix)
         else:
             self.svd = None
             self.doc_vectors = normalize(tfidf_matrix.toarray())
             self.tfidf_matrix_norm = normalize(tfidf_matrix)
+
+        # 3. Banco Vetorial Persistente (ChromaDB + Embeddings Multilíngues 384d)
+        self.vector_store = None
+        if self.use_vector_store and self.vector_mode != "legacy_lsa":
+            from src.retrieval.vector_store import NutritionVectorStore
+
+            is_full_corpus = len(self.chunks) >= 150
+            self.vector_store = NutritionVectorStore(
+                chunks=self.chunks,
+                use_persistent=is_full_corpus,
+            )
 
     def _search_bm25(self, query: str) -> List[Tuple[int, float]]:
         query_tokens = tokenize_biomedical(query)
@@ -179,6 +193,9 @@ class HybridRetriever:
         return [(int(idx), float(scores[idx])) for idx in ranked_indices]
 
     def _search_vector(self, query: str) -> List[Tuple[int, float]]:
+        if self.vector_store is not None and self.vector_mode == "chromadb_pure":
+            return self.vector_store.similarity_search(query, top_k=self.top_k_vector)
+
         expanded_query = expand_clinical_synonyms(query)
         q_tfidf = self.tfidf.transform([expanded_query])
         q_tfidf_norm = normalize(q_tfidf)
@@ -188,9 +205,21 @@ class HybridRetriever:
         if self.svd is not None:
             q_dense = normalize(self.svd.transform(q_tfidf))
             cosine_lsa = (self.doc_vectors @ q_dense.T).ravel()
-            combined_sim = 0.65 * cosine_tfidf + 0.35 * cosine_lsa
+            lsa_sim = 0.65 * cosine_tfidf + 0.35 * cosine_lsa
         else:
-            combined_sim = cosine_tfidf
+            lsa_sim = cosine_tfidf
+
+        if self.vector_store is not None:
+            chroma_hits = self.vector_store.similarity_search(
+                query, top_k=min(len(self.chunks), max(self.top_k_vector * 3, 24))
+            )
+            chroma_scores = np.zeros(len(self.chunks), dtype=np.float32)
+            for doc_idx, sim_score in chroma_hits:
+                chroma_scores[doc_idx] = sim_score
+            # Combina similaridade do Banco Vetorial Denso (ChromaDB 384d) + precisão contextual LSA
+            combined_sim = 0.55 * chroma_scores + 0.45 * lsa_sim
+        else:
+            combined_sim = lsa_sim
 
         ranked_indices = np.argsort(combined_sim)[::-1][: self.top_k_vector]
         return [(int(idx), float(combined_sim[idx])) for idx in ranked_indices]

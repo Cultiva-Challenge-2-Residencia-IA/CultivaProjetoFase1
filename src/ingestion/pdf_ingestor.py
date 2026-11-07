@@ -198,6 +198,9 @@ def extract_guia_alimentar_pdf(
     return documents
 
 
+ingest_guia_alimentar_pdf = extract_guia_alimentar_pdf
+
+
 if __name__ == "__main__":
     docs = extract_guia_alimentar_pdf()
     total_sections = sum(len(d.sections) for d in docs)

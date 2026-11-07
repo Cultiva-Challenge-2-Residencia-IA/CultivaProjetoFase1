@@ -1,0 +1,12 @@
+{
+  "vector_db_engine": "ChromaDB (HNSW Cosine Index + SQLite Metadata Store)",
+  "persistent": true,
+  "persist_directory": "/Users/daviaraujo/Documents/Residencia/projeto_2/CultivaProjetoFase1/data/vector_store/chroma_db",
+  "collection_name": "cultiva_nutricao_evidencias",
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "embedding_dimension": 384,
+  "distance_metric": "cosine (L2-normalized vectors)",
+  "total_vectors_indexed": 671,
+  "unique_doc_ids": 29,
+  "unique_source_documents": 47
+}
