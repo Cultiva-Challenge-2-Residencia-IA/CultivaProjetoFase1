@@ -83,6 +83,7 @@ sources:
     review_status: revisado
     approval_status: aprovado
     intended_use_license_review: compativel_uso_nao_comercial
+    data_quality_note: "Páginas 5 a 7: tabelas 1 a 3 com cabeçalhos, sobrescritos e colunas degradados na extração (revisão do issue #8). Excluídas dos Trechos (skip_pages em scripts/config/rag.yaml). Consultar os valores no PDF original."
   - id: souza-backes-universitarios-csc-2020
     title: Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimentação Saudável entre universitários de Porto Alegre, Brasil
     authors:
@@ -113,6 +114,7 @@ sources:
     review_status: revisado
     approval_status: aprovado
     intended_use_license_review: compativel_cc_by
+    data_quality_note: "Páginas 4, 7 e 8: Quadro 1 e Tabela 4 achatados na extração e página 8 com cobertura lexical de 77,7% (revisão do issue #8). Excluídas dos Trechos (skip_pages em scripts/config/rag.yaml). Consultar o PDF original."
   - id: guia-dietas-vegetarianas-svb-2012
     title: Guia alimentar de dietas vegetarianas para adultos
     institutions:
