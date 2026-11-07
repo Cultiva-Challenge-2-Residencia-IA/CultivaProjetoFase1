@@ -18,9 +18,10 @@
 
 - Priorize a preparação e a revisão das fontes de Nutrição. Esta etapa abrange contexto e organização; implementação de ingestão, RAG, agentes e infraestrutura depende de solicitação própria.
 - Adote a convenção descrita em `docs/contexto-projeto.md`: originais em `corpus/nutricao/originais/` e versões Markdown revisadas em `corpus/nutricao/markdown/`. Preserve os originais e a correspondência por identificador e versão.
-- Mantenha `corpus/manifest.yaml` como catálogo único das fontes, com a estrutura existente `version` e `sources`. Reutilize `id`, `source`, `license` e `version`; registre também `review_status` e os caminhos dos arquivos conforme o contexto. Não crie um catálogo paralelo `sources.yaml`.
+- Mantenha `corpus/manifest.yaml` como catálogo único das fontes, com a estrutura existente `version` e `sources`. Reutilize `id`, `source`, `license` e `version`; registre também `approval_status` e os caminhos dos arquivos conforme o contexto. Não crie um catálogo paralelo `sources.yaml`.
 - Toda fonte precisa manter origem verificável, licença, versão e status de revisão. Metadados ausentes ficam explicitamente pendentes; não suponha licença nem cadastre fontes fictícias.
 - A conversão para Markdown não aprova uma fonte. Confira texto, tabelas, unidades e referências contra o original; uso técnico exige revisão concluída, fonte aprovada e licença compatível com o uso pretendido (RN04, RN16, RN17, RF-IA01).
+- Licenças: a equipe registrou em 06/11/2026 um aceite de risco para o uso acadêmico e sem fins lucrativos (ver `corpus/README.md`). Isso não autoriza supor licença: continue registrando a licença real ou `pendente`, e não estenda o aceite a uso comercial, vitrine paga (RN12) ou publicação do corpus sem nova decisão.
 - Separe o corpus científico de dados pessoais: perfis, registros de hábitos/saúde, conversas, fotos, áudios e PDFs enviados por usuários não entram no corpus, no manifesto ou em seus derivados. O núcleo integrado de registros do produto não elimina essa separação.
 
 ## Verificação

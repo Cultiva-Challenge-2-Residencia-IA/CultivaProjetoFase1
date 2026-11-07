@@ -113,7 +113,7 @@ def cli_main() -> None:
                 f"  • {rec.description} ({rec.category}): {rec.energy_kcal} kcal, "
                 f"Proteína: {rec.protein_g}g, Fibra: {rec.fiber_g}g | {nutr_str}"
             )
-    print(f"\n[4] ALIMENTOS / COMPOSTOS RELACIONADOS:\n  • " + "\n  • ".join(res.food_sources_or_compounds))
+    print("\n[4] ALIMENTOS / COMPOSTOS RELACIONADOS:\n  • " + "\n  • ".join(res.food_sources_or_compounds))
     print("\n[5] CITAÇÕES RECUPERADAS (RAG HÍBRIDO):")
     for cite in res.citations:
         print(f"  - {cite}")

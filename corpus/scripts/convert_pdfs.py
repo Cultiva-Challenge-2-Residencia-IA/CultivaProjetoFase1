@@ -135,8 +135,8 @@ def convert(source: dict, args) -> dict:
     destinations = [markdown, report_path]
     if any(path.exists() for path in destinations) and not args.overwrite:
         raise FileExistsError("Saídas já existem; use --overwrite somente para regenerar derivados.")
-    if source.get("review_status") != "pendente" or source.get("approval_status", "pendente") != "pendente":
-        raise ValueError("Conversão requer status de revisão e aprovação pendentes no manifesto.")
+    if source.get("approval_status", "pendente") != "pendente":
+        raise ValueError("Conversão requer approval_status pendente no manifesto: fonte aprovada fica fixada.")
     config = read_yaml(repo_path(source["conversion_config"])) if source.get("conversion_config") else {}
     if config and config.get("sha256") != digest:
         raise ValueError("Ajustes não correspondem ao SHA-256 deste PDF.")
@@ -172,7 +172,6 @@ def convert(source: dict, args) -> dict:
         report = {
             "source_id": source["id"], "source_sha256": digest,
             "pdf_pages": len(doc), "conversion_status": "concluida_com_ressalvas",
-            "review_status": "pendente", "approval_status": "pendente",
             "script_sha256": sha256(Path(__file__)),
             "config_sha256": sha256(repo_path(source["conversion_config"])) if config else None,
             "versions": {name: importlib.metadata.version(name) for name in
@@ -191,7 +190,7 @@ def convert(source: dict, args) -> dict:
         output = [
             "---", yaml.safe_dump({"source_id": source["id"], "title": source["title"],
                 "source": source["source"], "license": source["license"],
-                "source_sha256": digest, "review_status": "pendente", "approval_status": "pendente"},
+                "source_sha256": digest},
                 allow_unicode=True, sort_keys=False).strip(), "---", "",
             f"# {source['title']}", "",
             f"Instituição(ões): {', '.join(source['institutions'])}. Edição: {source['version']}.", "",

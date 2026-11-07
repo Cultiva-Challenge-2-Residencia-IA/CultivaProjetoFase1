@@ -298,8 +298,8 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_MICRONUTRIENTES_INTERACOES_09",
-        "DOC_LIPIDIOS_COLESTEROL_04"
+        "DOC_LIPIDIOS_COLESTEROL_04",
+        "DOC_MICRONUTRIENTES_INTERACOES_09"
       ],
       "retrieved_doc_ids": [
         "DOC_LIPIDIOS_COLESTEROL_04",
@@ -385,8 +385,8 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
-        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
+        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
+        "PUBMED_BIOACTIVES_MICRONUTRIENTS"
       ],
       "retrieved_doc_ids": [
         "PUBMED_BIOACTIVES_MICRONUTRIENTS",
@@ -443,8 +443,8 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "GUIA_MS_CAP3_REFEICOES",
-        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
+        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
+        "GUIA_MS_CAP3_REFEICOES"
       ],
       "retrieved_doc_ids": [
         "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",

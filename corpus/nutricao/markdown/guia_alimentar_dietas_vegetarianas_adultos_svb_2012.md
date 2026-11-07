@@ -5,8 +5,6 @@ source: https://old.svb.org.br/livros/guia-alimentar.pdf
 license: 'Permissão própria SVB: reprodução parcial ou total com citação da fonte,
   sem venda ou qualquer fim comercial.'
 source_sha256: e59b55dbba23400046c8bab693cfe60e73daf218adeecaa09b2baae0f0f32914
-review_status: pendente
-approval_status: pendente
 ---
 
 # Guia alimentar de dietas vegetarianas para adultos

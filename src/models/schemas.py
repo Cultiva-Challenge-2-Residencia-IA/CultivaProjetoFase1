@@ -28,26 +28,12 @@ class DocumentChunk(BaseModel):
     section_path: str
     raw_text: str
     contextualized_text: str
-    source_id: Optional[str] = None
-    source_url: Optional[str] = None
-    license: Optional[str] = None
-    review_status: Optional[str] = "pendente"
-    page_number: Optional[int] = None
-
-
-class CuratedSourceRecord(BaseModel):
-    source_id: str
-    doc_id: str
-    title: str
-    source_organization: str
-    publication_year: int
-    clinical_domain: str
-    evidence_level: str
-    source_url: str
-    license: str
-    review_status: str
-    source_type: Literal["PDF_OFICIAL_CORPUS", "PUBMED_PEER_REVIEWED", "CLINICAL_SYNTHESIS"]
-    chunks_count: int = 0
+    # Metadados do corpus (ADR 0002). Ficam vazios nos documentos de data/raw.
+    pagina_pdf: Optional[int] = None
+    fonte_url: Optional[str] = None
+    doi: Optional[str] = None
+    licenca: Optional[str] = None
+    approval_status: Optional[str] = None
 
 
 class RetrievedChunk(BaseModel):

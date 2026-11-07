@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Cultiva-Challenge-2-Residencia-IA/CultivaProjetoFase1/corpus/schemas/trecho.schema.json",
+  "title": "Trecho do corpus (versão 1)",
+  "description": "Uma linha de corpus/nutricao/rag/*.jsonl. Contrato entre o corpus e o retriever (ADR 0002). Os campos vêm do manifesto, exceto pagina_pdf, secao e texto, que vêm da conversão.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "fonte_id", "titulo_fonte", "instituicoes", "ano", "tipo_fonte", "fonte_url", "doi", "pagina_pdf", "secao", "texto", "licenca", "approval_status"],
+  "properties": {
+    "id": {
+      "description": "Identificador estável do Trecho: <fonte_id>-p<página com 3 dígitos>-<número com 2 dígitos>.",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+-p[0-9]{3}-[0-9]{2}$"
+    },
+    "fonte_id": {
+      "description": "id da fonte no manifest.yaml.",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "titulo_fonte": { "description": "Título da fonte, para a citação.", "type": "string", "minLength": 1 },
+    "instituicoes": {
+      "description": "Instituições da fonte (institutions do manifesto).",
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "ano": { "description": "Ano de publicação (year do manifesto).", "type": "integer", "minimum": 1900, "maximum": 2100 },
+    "tipo_fonte": {
+      "description": "Tipo da fonte (source_type do manifesto). O retriever deriva o nível de evidência dele.",
+      "enum": ["diretriz", "norma", "revisao", "estudo"]
+    },
+    "fonte_url": {
+      "description": "Endereço da fonte, para o link clicável (RN17). Nulo quando a origem pública não foi identificada.",
+      "type": ["string", "null"],
+      "pattern": "^https?://"
+    },
+    "doi": { "description": "DOI da fonte, quando existir.", "type": ["string", "null"], "minLength": 1 },
+    "pagina_pdf": { "description": "Página física do PDF (base 1), a mesma dos marcadores do Markdown.", "type": "integer", "minimum": 1 },
+    "secao": { "description": "Seção do documento. Pode ser vazia quando não foi identificada.", "type": "string" },
+    "texto": { "description": "Texto do Trecho, limpo, dentro de uma única página.", "type": "string", "minLength": 1 },
+    "licenca": { "description": "Licença registrada no manifesto. Metadado: não entra no gate.", "type": "string", "minLength": 1 },
+    "approval_status": {
+      "description": "Status de aprovação da fonte. O gate de produção só deixa passar 'aprovado'.",
+      "enum": ["pendente", "aprovado"]
+    }
+  }
+}

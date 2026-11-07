@@ -38,18 +38,18 @@ Após cada alteração documental, rode `git diff --check`. `corpus/.venv/` e `c
 
 O fluxo atravessa vários arquivos, encadeados por hashes:
 
-1. **`corpus/manifest.yaml`**: catálogo único (`version: 1`, `sources`). Cada fonte declara `id`, `source`, `license`, `version`, `sha256`, `pdf_pages`, caminhos (`original_path`, `markdown_path`, `report_path`, `conversion_config`) e status (`conversion_status`, `review_status`, `approval_status`, `intended_use_license_review`). Não crie `sources.yaml`. Os scripts **leem** o manifesto, mas nunca o alteram.
+1. **`corpus/manifest.yaml`**: catálogo único (`version: 1`, `sources`). Cada fonte declara `id`, `source`, `license`, `version`, `sha256`, `pdf_pages`, caminhos (`original_path`, `markdown_path`, `report_path`, `conversion_config`) e status (`conversion_status`, `approval_status`, `intended_use_license_review`). Não crie `sources.yaml`. Os scripts **leem** o manifesto, mas nunca o alteram.
 2. **`corpus/nutricao/originais/*.pdf`**: bytes preservados. O hash precisa corresponder ao manifesto, e os originais nunca são sobrescritos.
 3. **`corpus/scripts/config/<fonte>.yaml`**: decisões por fonte, vinculadas ao SHA-256 do PDF (`sparse_page_decisions`, `ocr_regions`, `page_overrides`, `replacements`, `page_notes`, `strip_false_strikethrough_pages`). Substituições estritas falham se o trecho esperado mudar.
 4. **`corpus/scripts/ajustes/*.md`**: transcrições manuais de páginas problemáticas, referenciadas em `page_overrides`.
 5. **`convert_pdfs.py`** gera `nutricao/markdown/<nome>.md`, com `<!-- PDF_PAGE: N -->`, âncora `pagina-pdf-NNN` e link `...pdf#page=N` em cada página física (base 1, sem imagens exportadas). Também gera `nutricao/relatorios/<nome>.json`, com diagnóstico por página, OCR bruto, cobertura lexical (limiar de 98%, apenas diagnóstico) e hashes do PDF, Markdown, script, config e ajustes.
-6. **`verify_corpus.py`** recalcula os hashes e falha se: o PDF divergir; o **Markdown for editado após a conversão**; `convert_pdfs.py`, a configuração ou um ajuste mudar sem regeneração; marcadores/links de página faltarem ou estiverem fora de ordem; houver imagem `![]()`; ou `review_status`/`approval_status` forem diferentes de `pendente`.
+6. **`verify_corpus.py`** recalcula os hashes e falha se: o PDF divergir; o **Markdown for editado após a conversão**; `convert_pdfs.py`, a configuração ou um ajuste mudar sem regeneração; marcadores/links de página faltarem ou estiverem fora de ordem; ou houver imagem `![]()`. Ele não confere o `approval_status`.
 
 Consequências práticas:
 
 - Correções de transcrição devem ir para `config/` ou `ajustes/` e ser seguidas de `--source <id> --overwrite`. Edições diretas no `.md` quebram a verificação e são perdidas na regeneração.
 - Qualquer mudança em `convert_pdfs.py` invalida os relatórios de **todas** as fontes até que sejam regeneradas.
-- `convert_pdfs.py` se recusa a converter fontes cujo status não seja `pendente`, e o verificador exige `pendente`. Avançar a revisão ou aprovação exigirá adaptar os dois scripts. Essa decisão ainda está em aberto.
+- Há um único status de aprovação por fonte, `approval_status` (`pendente` ou `aprovado`), que vive só no manifesto (decisão de 06/11/2026; veja `corpus/README.md`). `convert_pdfs.py` se recusa a converter fonte com `approval_status` diferente de `pendente`, para não regenerar uma fonte aprovada por engano, e o verificador não exige nenhum status.
 - Para incluir uma nova fonte, siga a seção "Como incluir outro documento" em [corpus/README.md](corpus/README.md). Não copie a licença de outra fonte e use `pendente` quando ela for desconhecida.
 
 ## Inconsistência conhecida

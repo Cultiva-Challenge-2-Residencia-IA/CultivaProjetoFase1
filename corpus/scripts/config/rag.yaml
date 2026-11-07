@@ -1,12 +1,14 @@
 # Parágrafos descartados na preparação para o RAG (expressões regulares, por fonte).
 # Remove só metadados editoriais (autores, afiliações, resumo em inglês); nunca conteúdo científico.
 martins-ultraprocessados-rsp-2013:
+  skip_pages: [5, 6, 7]
   drop_paragraphs:
     - '^Ana Paula Bortoletto Martins'
     - '^Increased contribution of ultra-processed'
     - '^-?\s*(I|II|III)\s+(Núcleo|Departamento)'
     - '^Correspondência \| Correspondence'
 souza-backes-universitarios-csc-2020:
+  skip_pages: [4, 7, 8]
   drop_paragraphs:
     - '^Self-perception of food consumption'
     - 'orcid\.org'
@@ -20,3 +22,152 @@ moreira-rodrigues-conhecimento-nutricional-suplementacao-2014:
     - '^Fernanda Pedrotti Moreira'
     - '^1\. Departamento de Nutrição'
     - '@'
+azevedo-jejum-intermitente-ramb-2013:
+  keep_sections:
+    - abstract
+  drop_paragraphs:
+    - '^Revista da ASSOCIAÇÃO MÉDICA BRASILEIRA'
+    - '^www\.ramb\.org\.br'
+    - '^> [ab] '
+    - '^Article history'
+    - '^©'
+    - '^0104-4230'
+salvi-estudantes-enfermagem-sono-reben-2020:
+  drop_paragraphs:
+    - '^ARTIGO ORIGINAL'
+    - '^Profile of nursing students'
+    - '^Perfil de los estudiantes'
+    - 'ORCID'
+    - '^Descritores:'
+    - '^Como citar este artigo'
+    - '^I Universidade Federal'
+    - '^EDITOR CHEFE'
+abeso-posicionamento-tratamento-nutricional-obesidade-2022:
+  resume_after_skip:
+    - '^CAPÍTULO \d+\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ]{3,}'
+    - '^[A-ZÁÉÍÓÚÂÊÔÃÕÇ ,]{15,}$'
+  drop_paragraphs:
+    - '^\|?\s*(Apresenta|Métod)'
+    - '^DEPARTAMENTO DE NUTRIÇÃO DA ASSOCIAÇÃO BRASILEIRA'
+    - '^Ana Maria Pita Lottenberg Clarissa'
+    - '^Renata Bressan Pepe Ana Maria'
+    - '^Departamento de Nutrição ABESO$'
+    - '^Dados Internacionais de Catalogação'
+sban-agua-hidratacao-saude-2016:
+  drop_paragraphs:
+    - '^Água, Hidratação e Saúde Paula Schmidt'
+    - '^A Sociedade Brasileira de Alimentação e Nutrição \(SBAN\)'
+    - '^Estimular e divulgar conhecimentos'
+    - '^Realiza periodicamente reuniões'
+    - '^Mantém intercâmbio com associações'
+    - '^\d\.$'
+    - '^DRA?\. [A-ZÁÉÍÓÚ]'
+brisotto-depressao-ansiedade-estresse-rbtc-2022:
+  drop_paragraphs:
+    - '^P esquisa e mPírica'
+    - '^Revista Brasileira de Terapias Cognitivas'
+    - 'E-mail:'
+sbme-modificacoes-dieteticas-suplementos-rbme-2009:
+  drop_paragraphs:
+    - '^clíNIca MéDIca'
+    - '^Artigo originAl'
+    - '^coeditores:'
+    - '^Participantes:'
+    - '^Realização:'
+    - '^apoio:'
+    - '^editor:'
+    - '^editores:'
+    - '^Arnaldo José Hernandez e Ricardo'
+    - '^\d{1,3}\.\s+[A-ZÁÉÍÓÚ][\w-]+(\s+[A-Z]{1,3}[,.]|,\s+[A-Z]\.)'
+franca-psicologia-nutricao-comportamento-alimentar-epsic-2012:
+  drop_paragraphs:
+    - '^Cristineide Leandro'
+    - '^Marina Biaginni'
+    - '^Ana Paula Levindo'
+    - '^Elioenai Dornelles'
+    - '^Universidade de Brasília$'
+    - '^Ministério da Aeronáutica$'
+santos-barreiras-frutas-verduras-csc-2019:
+  skip_pages: [5, 6]
+  drop_paragraphs:
+    - '^Perceived barriers'
+    - 'orcid\.org'
+    - '^86038-350'
+    - '^Key words'
+    - '^2 Programa de Pós'
+jaime-frutas-hortalicas-brasil-rsp-2009:
+  drop_paragraphs:
+    - '^Patricia Constante Jaime'
+    - '^Erly Catarina'
+    - '^Deborah Carvalho'
+    - '^Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006$'
+    - '^Factors associated with'
+    - '^-?\s*(I|II|III|IV)\s+(Núcleo|Programa|Coordenação|Departamento)'
+    - '^Correspond'
+    - '^Recebido:'
+    - '^DESCRITORES'
+monteiro-nova-classificacao-alimentos-csp-2010:
+  drop_paragraphs:
+    - '^Uma nova classificação'
+    - '^Carlos Augusto Monteiro Renata'
+    - '^\d Faculdade'
+    - '^\d World Public'
+    - '^Correspondence'
+louzada-ultraprocessados-perfil-nutricional-rsp-2015:
+  drop_paragraphs:
+    - '^Maria Laura da Costa Louzada'
+    - '^Carlos Augusto Monteiro$'
+    - '^Ultra-processed foods and the nutritional'
+    - '^Impact of ultra-processed'
+    - '^-?\s*(I|II|III|IV|V|VI)\s+(Programa|Núcleo|Departamento|Coordenação|Faculdade)'
+    - '^Correspond'
+    - '^Recebido:'
+    - '^Artigo disponível em'
+    - '^DESCRITORES'
+louzada-ultraprocessados-micronutrientes-rsp-2015:
+  drop_paragraphs:
+    - '^Maria Laura da Costa Louzada'
+    - '^Carlos Augusto Monteiro$'
+    - '^Ultra-processed foods and the nutritional'
+    - '^Impact of ultra-processed'
+    - '^-?\s*(I|II|III|IV|V|VI)\s+(Programa|Núcleo|Departamento|Coordenação|Faculdade)'
+    - '^Correspond'
+    - '^Recebido:'
+    - '^Artigo disponível em'
+    - '^DESCRITORES'
+rossetti-universitarios-consumo-alimentar-san-2015:
+  drop_paragraphs:
+    - '^> 1 Doutoranda'
+    - '^Key-words'
+    - '^Palavras-chave'
+cfn-codigo-etica-conduta-nutricionista-2018:
+  drop_paragraphs:
+    - '^DE ri É$'
+    - '^e\. q o\. e E$'
+    - '^E e o\. E\.$'
+    - '^ooo E »'
+    - '^CONSELHO FEDERAL DE NUTRICIONISTAS$'
+crispim-sono-obesidade-abem-2007:
+  drop_paragraphs:
+    - '^CIBELE APARECIDA CRISPIM'
+    - '^Reduction in sleep time'
+    - '^Keywords?:'
+    - '^Descritores'
+    - '^Unitermos'
+    - '^Endereço'
+    - '^Recebido em'
+    - '^Departamento de Psicobiologia'
+fusco-ansiedade-sono-compulsao-reeusp-2020:
+  drop_paragraphs:
+    - '^ARTIGO ORIGINAL'
+    - '^Anxiety, sleep quality'
+    - '^\d Universidade'
+    - '^DESCRIPTORS?'
+    - '^DESCRITORES'
+    - '^Anxiety; Obesity'
+    - '^Ansiedade; Obesidade'
+    - '^Como citar este artigo'
+    - 'orcid\.org'
+    - '^Suzimar de Fátima Benato Fusco'
+    - '^Autor correspondente'
+    - '^Universidade Estadual'

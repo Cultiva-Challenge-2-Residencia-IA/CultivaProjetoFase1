@@ -5,8 +5,6 @@ title: Conhecimento nutricional e suplementação alimentar por praticantes de e
 source: https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?lang=pt
 license: CC-BY-NC-4.0
 source_sha256: 86dc9ecd4bf70e7a975d2b085922dcf972d0dbf0af7f40fcc29efe52bb85d25a
-review_status: pendente
-approval_status: pendente
 ---
 
 # Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos

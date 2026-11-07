@@ -1,0 +1,325 @@
+{
+  "source_id": "cfn-codigo-etica-conduta-nutricionista-2018",
+  "source_sha256": "d1b0f88f41cb181b4ec8778408c5fcbc59f5b819e346a554ca99225a557aab70",
+  "pdf_pages": 19,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "7ed0d384481b8d21382e4ad77c16adf4b16793d7c0cde6dbb9c0f2044ee49262",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": {
+    "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata",
+    "sha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 47,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": "DEri É\ne. q\no.e\nE\nE\ne\no.\nE.\nooo\nE\n»\nEtica e de Conduta\ndo Nutricionista\nCONSELHO FEDERAL\nDE NUTRICIONISTAS\n"
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 0.75,
+      "missing_native_tokens": {
+        "código": 1,
+        "ética": 1
+      },
+      "markdown_characters": 112
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 84,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": "CONSELHO FEDERAL DE NUTRICIONISTAS\nCÓDIGO DE ÉTICA E DE CONDUTA\nDO NUTRICIONISTA\n"
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 83
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 2367,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2342
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 2726,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99754,
+      "missing_native_tokens": {
+        "cecet": 1
+      },
+      "markdown_characters": 2682
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 2864,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2823
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 2300,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99683,
+      "missing_native_tokens": {
+        "providências1": 1
+      },
+      "markdown_characters": 2364
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 3401,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3422
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 3565,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3576
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 3154,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3189
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 3532,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3554
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 3370,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3394
+    },
+    {
+      "pdf_page": 12,
+      "native_characters": 3342,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3339
+    },
+    {
+      "pdf_page": 13,
+      "native_characters": 3276,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99787,
+      "missing_native_tokens": {
+        "formação": 1
+      },
+      "markdown_characters": 3307
+    },
+    {
+      "pdf_page": 14,
+      "native_characters": 3028,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3057
+    },
+    {
+      "pdf_page": 15,
+      "native_characters": 2949,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2985
+    },
+    {
+      "pdf_page": 16,
+      "native_characters": 2621,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99742,
+      "missing_native_tokens": {
+        "nutricionistas": 1
+      },
+      "markdown_characters": 2658
+    },
+    {
+      "pdf_page": 17,
+      "native_characters": 2853,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2967
+    },
+    {
+      "pdf_page": 18,
+      "native_characters": 1813,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1861
+    },
+    {
+      "pdf_page": 19,
+      "native_characters": 68,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": "e\nOoo.\n”oOÕÔÉÀ\nCONSELHO FEDERAL\nDE NUTRICIONISTAS\ncfn.org.br\n"
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 0.41667,
+      "missing_native_tokens": {
+        "34": 1,
+        "conduta": 1,
+        "código": 1,
+        "de": 1,
+        "do": 1,
+        "nutricionista": 1,
+        "ética": 1
+      },
+      "markdown_characters": 63
+    }
+  ],
+  "markdown_sha256": "e71bb6c7bf208b5920e62812b724cc47fb0b185afdbef98949686e71123b426b",
+  "summary": {
+    "pages_converted": 19,
+    "sparse_pages": [
+      1,
+      2,
+      19
+    ],
+    "ocr_pages": [
+      1,
+      2,
+      19
+    ],
+    "pages_with_tables_detected": [],
+    "pages_with_warnings": [
+      1,
+      2,
+      19
+    ],
+    "pages_with_adjustments": []
+  }
+}

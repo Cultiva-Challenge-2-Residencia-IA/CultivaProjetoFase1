@@ -1,0 +1,351 @@
+---
+source_id: brisotto-depressao-ansiedade-estresse-rbtc-2022
+title: Depressão, ansiedade e estresse e o comportamento alimentar
+source: http://www.rbtc.org.br/detalhe_artigo.asp?id=354
+license: pendente
+source_sha256: 184cf18f38d55369f40eb6960191b750f6a02a0e2b61adc5fe007363796c81e6
+---
+
+# Depressão, ansiedade e estresse e o comportamento alimentar
+
+Instituição(ões): Universidade do Vale do Rio dos Sinos. Edição: 2022-18-2.
+
+[PDF original preservado](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf) · [Relatório por página](../relatorios/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.json)
+
+> Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
+
+Marcadores usam a posição física no PDF, começando em 1; a numeração impressa pode diferir. Notas de conversão são identificadas como acréscimos editoriais. Figuras e composição visual podem ser conferidas no PDF pelos links de página.
+
+<a id="pagina-pdf-001"></a>
+<!-- PDF_PAGE: 1 -->
+## Página PDF 1
+
+[Conferir no original](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf#page=1)
+
+**<mark>P</mark> esquisa** **<mark>e</mark> mPírica** **<mark>| e</mark> mPirical** **<mark>r</mark> esearch**
+
+**Revista** Brasileira de **Terapias Cognitivas** 2022•18(2)•pp.153-160
+
+#### Marina Brisotto<sup>1</sup> Myllena Diessy Silva<sup>1</sup> Ilana Andretta<sup>1</sup>
+
+# **Depressão, ansiedade e estresse e o comportamento alimentar** **_Depression, anxiety and stress and eating behavior_**
+
+## Resumo
+
+Os sintomas de depressão, ansiedade e estresse podem contribuir para alimentação emocional. Pesquisas sinalizam ainda a existência de uma relação inversa entre esses sintomas e o comportamento alimentar saudável. O objetivo desse estudo é investigar as relações potenciais preditivas entre os sintomas de depressão, ansiedade e estresse e os escores de alimentação emocional e intuitiva.  Trata-se de um estudo quantitativo e explicativo, composto por 209 participantes maiores de 18 anos. Os participantes responderam o questionário sociodemográfíco, a Escala de Alimentação Emocional (EES), a Escala de Alimentação Intuitiva (IES-2) e a Escala para Depressão, Ansiedade e Estresse (DASS-21). Os resultados indicaram relações positivas e significativas entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional. Na análise de regressão linear simples, constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, 9,2% pelos sintomas de depressão e 4,7% pelos sintomas ansiosos. Verifica-se que os sintomas emocionais citados a cima podem explicar, individualmente, variações únicas na alimentação emocional. Sugere-se que esta relação possa ser melhor compreendida, com novos estudos que considerem outras variáveis mediadoras como, por exemplo, a regulação emocional, visto que esta última vem apresentando potencial preditivo para a alimentação emocional. **Palavras-chave:** Depressão. Ansiedade. Comportamento Alimentar
+
+## AbstRAct
+
+Symptoms of depression, anxiety and stress can all contribute to emotional eating. Research also indicates the existence of an inverse relationship between these symptoms and healthy eating behavior. The aim of this study is to investigate the potential predictive relationships between symptoms of depression, anxiety and stress and emotional and intuitive eating scores. This is a quantitative and explanatory study, comprising 209 participants over 18 years of age. Participants answered the sociodemographic questionnaire, the Emotional Eating Scale (EES), the Intuitive Eating Scale (IES-2) and the Depression, Anxiety and Stress Scale (DASS-21). The results indicated positive and significant relationships between emotional symptoms of anxiety, depression and stress and the total emotional eating score. In the simple linear regression analysis, it was found that 12% of the variation in emotional eating is explained by symptoms of stress, 9.2% by symptoms of depression and 4.7% by symptoms of anxiety. It appears that the emotional symptoms mentioned above can individually explain unique variations in emotional eating. It is suggested that this relationship can be better understood, with further studies that consider other mediating variables such as emotional regulation, as the latter has been showing predictive potential for emotional eating. **Keywords:** Depression. Anxiety. Feeding Behavior
+
+1 Universidade do Vale do Rio dos Sinos, Programa de Pós Graduação em Psicologia - São Leopoldo - Rio Grande do Sul - Brasil
+
+##### **Correspondência:**
+
+Myllena Diessy Silva. E-mail: myllena.diessy@gmail.com
+
+Este artigo foi submetido no SGP (Sistema de Gestão de Publicações) da RBTC em 12 de Agosto de 2021. cod. 240. Artigo aceito em 2 de Setembro de 2022.
+
+DOI: 10.5935/1808-5687.20220013
+
+153
+
+---
+
+<a id="pagina-pdf-002"></a>
+<!-- PDF_PAGE: 2 -->
+## Página PDF 2
+
+[Conferir no original](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf#page=2)
+
+**Revista** Brasileira de **Terapias Cognitivas** 2022•18(2)•pp.00-00
+
+### **INTRODUÇÃO**
+
+Os sintomas emocionais, como depressão, ansiedade e estresse apresentam altos percentuais na sociedade. De acordo com a Organização Pan-Americana de Saúde (OPAS), nos últimos dez anos o número de pessoas com depressão aumentou 18,4%, correspondendo a 322 milhões de indivíduos. No Brasil esta porcentagem é de 5,8%, sendo esta a maior taxa da América Latina. Quanto à ansiedade, o Brasil também lidera entre os países latinos, com 9,3% da população apresentando sintomas e transtornos ansiosos (OPAS, 2017). Já em relação ao estresse, as pesquisas da OPAS apontam que 90% da população mundial e 70 % da população brasileira estão estressados (OPAS, 2017).
+
+Para Rabello et al. (2020) quanto maior o Índice de Massa Corporal (IMC), maior são os sintomas de depressão, ansiedade e estresse nos indivíduos que apresentam sobrepeso. Dados apresentados pelo Instituto Brasileiro de Geografia e Estatística (IBGE, 2019) mostram que, em 2019, 14 milhões de pessoas maiores de 18 anos estavam obesas, sendo o percentual ainda maior para as pessoas com excesso de peso, correspondendo a 96 milhões de brasileiros. Diante do constante aumento dos níveis de obesidade no Brasil e no mundo, estudos têm revelado associações significativas entre emoções negativas e comportamentos alimentares disfuncionais, como por exemplo, a alimentação emocional (Van Strien et al., 2016).
+
+A alimentação emocional pode ser entendida como uma propensão a utilizar a comida como estratégia de alívio de emoções desconfortáveis (Van strien et al., 2016). Uma explicação para esta relação advém da perspectiva biológica. Wood et al., (2016) referem que existem indícios de que o consumo emocional de alimentos esteja associado à baixa atividade de áreas do córtex pré-frontal e maior atividade da ínsula, partes do cérebro responsáveis, respectivamente, pela capacidade de autocontrole e impulsos. Os mesmos pesquisadores referem ainda que estas áreas do cérebro fazem parte de um circuito complexo de recompensas que também está envolvido no uso de álcool e outras drogas (Wood et al., 2016). Dessa maneira, pode-se dizer que a ativação deste circuito através da alimentação emocional gera sensações prazerosas semelhantes ao uso do tabaco, que acabam por servir de reforçadoras do comportamento desadaptativo (Andretta et al., 2018).
+
+Neste sentido, pode-se entender que, ao alimentar-se induzido pelas emoções, o indivíduo teria um maior senso de urgência para comer e uma menor capacidade de autocontrole, resultando em sensações prazerosas, que acabam por servir como reforçadoras desse modo de alimentação considerado como desadaptativo (Wood et al., 2016). Segundo Catão e Tavares (2017), o ato de comer vai além de suprir a fome, sendo uma forma de satisfação que envolve outros fatores como, socioculturais e emocionais. Para esses autores, onde comemos, o que sentimos ao nos alimentarmos, as circunstâncias externas, o porquê comemos e até mesmo o que pensamos durante a nossas refeições é o que influencia o ato de comer.
+
+Ademais, autores como Penaforte et al. (2016), têm dado destaque a ideia de que esses fatores, muitas vezes, se sobrepõem aos mecanismos biológicos e podem ser considerados os gatilhos do processo de alimentação emocional. Além disso, cabe destacar que as intervenções motivacionais têm mostrado efetividade no tratamento de pessoas com transtornos alimentares (Garcia & Andretta, 2017).
+
+Na alimentação intuitiva a fome não é influenciada pela necessidade emocional (Almeida & Furtado, 2017). Para Brisotto e Andretta (2021), quanto mais o indivíduo identifica suas experiências internas e mantém um controle sobre o seu próprio comportamento em adversidades e desconfortos que vivencia maior é a probabilidade deste alimentar-se intuitivamente. Van Dyke e Drinkwater (2014) revelam em sua pesquisa que a alimentação intuitiva está relacionada a atitudes psicológicas saudáveis, menor IMC e manutenção do peso.
+
+Nesse sentido, diferente dos métodos convencionais nutricionais, como por exemplo dietas, que têm por objetivo somente a perda de peso, a prática da alimentação intuitiva em longo prazo tem se mostrado relevante para o incremento da saúde (Jardim, 2019). Schaefer e Magnusun (2014) confirmam este achado ao avaliarem os efeitos físicos e psicológicos dos programas de intervenção em comportamentos alimentares na abordagem não dietética com foco na alimentação intuitiva. Conforme os mesmos autores, a alimentação intuitiva se associa a melhorias nos hábitos alimentares, estilo de vida, imagem corporal e melhora na saúde psicológica medida pela depressão, ansiedade, ineficácia, autoestima, afeto negativo e qualidade de vida (Schaefer & Magnusun, 2014).
+
+Na direção oposta, pesquisas têm destacado as associações entre sintomas de depressão, estresse, ansiedade e o comportamento alimentar. A pesquisa de Macedo et al. (2018) demonstrou a existência de relações positivas entre sintomas de ansiedade e depressão com o comer emocional. Além disso, conforme Lira et al. (2020), esse tipo de alimentação também demonstra associação com o descontrole alimentar. Outros estudos revelaram associações entre altos níveis de estresse e o aumento do consumo de alimentos de baixo valor nutricional em jovens e maior alimentação emocional em mulheres e obesos de ambos os sexos (Castro et. al., 2020; Fusco et al., 2020; Paiva et al., 2021). Uma pesquisa realizada por Penaforte et al. (2016) com uma amostra de estudantes universitários encontrou associações entre maiores níveis de estresse e alimentação emocional, descontrole alimentar, assim como, uma maior frequência do consumo de _fastfood_ .
+
+Matos e Ferreira (2021), identificaram que o estresse tem sido um fator de risco para a ingestão de alimentos palatáveis ligados a um decréscimo do comportamento alimentar saudável, ou seja, da alimentação intuitiva. Já a investigação de Iannantuono e Tylka (2012) encontrou uma relação fraca, porém inversa entre sintomas depressivos e alimentação intuitiva, e a revisão sistemática realizada por Bruce e Ricciardelli (2016), sugere haver uma relação bidirecional entre afetos e alimentação intuitiva.
+
+154
+
+---
+
+<a id="pagina-pdf-003"></a>
+<!-- PDF_PAGE: 3 -->
+## Página PDF 3
+
+[Conferir no original](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf#page=3)
+
+**Revista** Brasileira de **Terapias Cognitivas** 2022•18(2)•pp.00-00
+
+De acordo com os achados desta revisão de literatura acima, não apenas os indivíduos tendem a alimentarem-se intuitivamente na ausência de afetos desconfortáveis, como também podem vivenciar mais sentimentos positivos como consequência deste estilo alimentar. Para Almeida e Furtado (2017) comer intuitivamente pode diminuir os níveis de estresse, resultando em níveis mais baixos de cortisol, hormônio esse relacionado ao ganho de peso.
+
+A maioria das pesquisas acerca do comportamento alimentar tem se focado em amostras de indivíduos obesos e demonstram que o conceito de alimentação emocional está fortemente relacionado ao ganho de peso (Biagio et al., 2020; Jesus et al., 2017; Ramalho et al., 2018). Entretanto, poucas pesquisas têm se dedicado a estudar a relação entre os afetos negativos e os comportamentos alimentares saudáveis, como a alimentação intuitiva, em populações com diferentes tipos de peso. (Bruce & Ricciardelli, 2016; Groesz et al., 2012; Iannantuono & Tylka, 2012). Dado o exposto, a presente pesquisa objetiva avaliar as relações e valores preditivos dos sintomas de ansiedade, estresse e depressão para os estilos alimentares emocional e intuitivo em uma amostra de brasileiros. Espera-se que esse estudo possa orientar os profissionais da área da saúde na promoção da saúde, levando em consideração para além do peso corporal, os aspectos emocionais e psicológicos envolvidos no comportamento alimentar emocional e intuitivo.
+
+### **MÉTODO**
+
+### **Delineamento**
+
+Trata-se de um estudo quantitativo, transversal, descritivo, explicativo e associativo. (Sampieri et al., 2013).
+
+### **ParticiPantes**
+
+A amostra foi selecionada por conveniência e acessada pela internet através da divulgação do estudo por meio de correspondência eletrônica (e-mail) e pela rede social Facebook. A população desta pesquisa foi constituída por 209 indivíduos, com idade igual ou superior a 18 anos. Como critério de inclusão foi considerado a participação de ambos os sexos, com idade mínima de 18 anos, sendo excluídos os participantes com idade inferior à indicada anteriormente ou que não haviam completado todos os instrumentos.
+
+A amostra foi composta em sua maioria por mulheres (89%, n = 186). Os homens representaram 11% da população (n= 23). Os participantes, em média, apresentaram renda superior a 4 salários mínimos (56%, n = 117), eram em sua maioria, pós-graduados (44,5%, n = 93) e residentes da região Sul do país (74,2%, n = 155). Com relação ao estado civil, 43,1% (n = 90) encontravam-se solteiros e 41,1% (n = 86) casados. 51,7% (n = 108) referiram praticar atividades físicas, enquanto que 28,2% (n = 59) disseram praticar alguma atividade meditativa pelo menos uma vez por semana.
+
+A respeito dos hábitos alimentares, a maior parte da amostra 88,5% (n = 185) sinalizou não estar realizando qualquer tipo de dieta, porém 71,8% (n = 150) disseram ter realizado dieta em algum momento da vida. 56% (n = 117) dos indivíduos classificaram sua alimentação como saudável na maior parte do tempo e 27,8% (n = 58) considera sua alimentação como pouco saudável. Além disso, 84,7% (n = 177) referiram não fazer uso de medicações psiquiátricas e 69,4% (n = 145) indicaram não realizar acompanhamento psicológico.
+
+### **instrumentos**
+
+### **_Questionário sociodemográfico_**
+
+Elaborado para esta pesquisa, o questionário tem como objetivo investigar dados sócio demográficos como idade, sexo, renda, e estado civil. Além disso, este também visa investigar, a realização de atividades físicas, atividade meditativa, realização de psicoterapia, uso de medicação psiquiátrica, por parte dos participantes a fim de conhecer melhor o perfil dos mesmos, suas práticas de autocuidado e autoconhecimento.
+
+### **_escala de alimentação emocional – ees_**
+
+### **_(arnow, Kenardy & agras, 1995)_**
+
+Desenvolvida por Arnow, Kenardy e Agras (1995), esta escala é composta por 25 itens que avaliam o quanto o ato de comer é motivado por emoções negativas. Os participantes são orientados a responder uma escala tipo _likert_ de quatro pontos _(_ 0 =Nenhuma vontade de comer a 4= irresistível vontade de comer), selecionando a melhor opção quanto a vontade que sentem de comer sob a influência das emoções listadas. A escala é dividida em três subescalas: raiva, ansiedade e depressão. As subescalas deste instrumento se correlacionam fortemente com as medidas de compulsão alimentar, demonstrando evidências de validade de construto (Arnow, Kenardy & Agras, 1995), o que permite a aplicação da versão em português que foi a utilizada neste estudo, apesar desta última estar em processo de adaptação por LucenaSantos, Oliveira. Para correção, foram utilizadas as orientações e pontos de cortes médios referidos por Arnow (1995) no estudo em que examinou o EES em uma amostra de indivíduos que relataram compulsão alimentar. Para a correção do total de alimentação emocional, somam-se todas as pontuações da escala. Maiores pontuações indicam maior alimentação emocional, sendo 100 a pontuação máxima. Para correção de cada subescala, somam-se os itens referentes a cada uma delas, considerando os seguintes pontos de corte: Subescala Raiva: 23.96; Subescala Ansiedade: 15.19 e Subescala Depressão: 12. Assim, os participantes foram classificados com alta alimentação emocional relacionada a raiva se sua pontuação fosse maior que 25,4; com alta alimentação emocional relacionada a ansiedade se sua pontuação fosse maior que 15.19 e com alta alimentação emocional relacionada a depressão se sua pontuação fosse acima de 12.
+
+155
+
+---
+
+<a id="pagina-pdf-004"></a>
+<!-- PDF_PAGE: 4 -->
+## Página PDF 4
+
+[Conferir no original](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf#page=4)
+
+**Revista** Brasileira de **Terapias Cognitivas** 2022•18(2)•pp.00-00
+
+Os alfas de Cronbach do instrumento para o presente estudo foram: Total: 0,94; Subescala Raiva: 0,90; Subescala Ansiedade: 0,87; Subescala Depressão: 0,81.
+
+### **_escala de alimentação intuitiva ies-2 (tylKa & Kroon van diest, 2013)_**
+
+A Escala de Alimentação Intuitiva 2, foi criada por Tylka e Vandiest em 2013 a partir da IES (versão original). Esta escala é composta por 23 itens e divide-se em quatro subescalas: 1) Comer por razões físicas ao invés de emocionais (EPR); 2) Permissão para comer sem restrições (UPE); 3) Confiança nas dicas internas de fome e saciedade (RHSC); 4) Escolha congruente entre corpo-comida (B-FCC). Altas pontuações sugerem altos níveis de alimentação intuitiva. Os alfas de Cronbach do instrumento para o presente estudo foram: Total: 0,77; UPE: 0,81; EPR: 0,69; RHSC: 0,74; B-FCC: 0,67. A versão da IES-2 em português que foi utilizada neste estudo está em processo de adaptação por Lucena-Santos, Oliveira e Pinto-Gouveia, no entanto a versão disponível do instrumento apresenta escores confiáveis e válidos com amostras de ambos os sexos, o que permite avaliar a tendência de diferentes populações em se alimentarem intuitivamente.
+
+### **_escala para depressão, ansiedade e estresse (dass-21)_**
+
+Traduzida e validada para o português do Brasil por Vignola e Tucci (2013), a DASS-21 é uma escala do tipo Likert de quatro pontos dividida em três subescalas compostas por sete questões cada uma. As subescalas apresentam independência entre si e seus escores podem ser corrigidos separadamente, no entanto para o escore final a pontuação dos escores da escala precisa ser multiplicada por dois. A classificação do instrumento varia à normal, médio, moderado, severo e extremamente severo. O Alfa de Cronbach para o presente estudo foi de 0,89 para a depressão, 0,96 para o estresse e 0,84 para a ansiedade, indicando uma boa consistência interna para cada subescala.
+
+### **ProceDimentos Éticos e De coleta**
+
+Este estudo foi aprovado pelo Comitê de Ética da Universidade do Vale do Rio dos Sinos, sob o parecer de número 2.715.285. Ademais, os princípios da ética em pesquisa com seres humanos foram respeitados em todas as etapas deste estudo e seguiram as diretrizes propostas pela Resolução nº. 510/2016 do Ministério da Saúde. A coleta de dados aconteceu pela internet através de formulários criados na plataforma Google Docs e a partir da divulgação da pesquisa por meio de correspondência eletrônica (e-mail) e da rede social Facebook, através de grupos com temas afins ao tema da pesquisa. Todas as pessoas que se adequaram ao perfil da amostra e aceitaram participar, consentiram com o Termo de Consentimento Livre e Esclarecido (TCLE).
+
+### **análise De DaDos**
+
+Inicialmente, foram realizadas análises descritivas para calcular as frequências e caracterizar a amostra. Realizou-se o teste de Kolmogorov-Smirnov o qual verificou a normalidade da amostra. Posteriormente, para avaliar a existência de associação linear entre os escores de ansiedade, estresse e depressão e os escores de alimentação emocional e intuitiva foi utilizado o coeficiente de Correlação de Pearson. A regressão múltipla foi realizada a fim de identificar o valor preditivo apenas dos sintomas emocionais para o escore total de EES (alimentação emocional), sendo que as variáveis que compuseram o modelo final foram as que apresentaram correlação significativa com a variável desfecho nas análises bivariadas. Os dados foram analisados com o software Statistical Package for the Social Sciences (SPSS), v. 22.0 (IBM Corp., 2013) considerando o nível de significância de 5%.
+
+### **RESULTADOS**
+
+Embora, em sua maioria, os sujeitos da pesquisa tenham sido mulheres, com elevado grau de escolaridade e residentes da região Sul do País, foram considerados todos os 209 participantes no cálculo da média de cada instrumento aplicado. Dessa maneira, a partir da pontuação total dos instrumentos, obteve-se um escore médio de 39,35 (DP= 20,211) para a EES; e de 3,18 (DP = 0,308) para a IES-2 e, a partir da pontuação de cada subescala do instrumento DAAS, obtiveram-se as seguintes médias: 7,75 (DP = 8,71) para a subescala ansiedade, 14,37 (DP = 9,96) para a subescala estresse e 8,39 (DP = 8,31) para a subescala depressão.
+
+A partir das análises bivariadas verificou-se a existência de relações positivas e significativas (fracas a moderadas) entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional. Por outro lado, não foram observadas associações significativas entre estes sintomas e a alimentação intuitiva, conforme pode ser visto na Tabela 1.
+
+Diante disso, seguiram-se as análises apenas com as variáveis que apresentaram correlações significativas entre si, no caso, escores de ansiedade, estresse e depressão e alimentação emocional. Objetivando-se, portanto, mensurar o valor preditivo de cada subescala separadamente (ansiedade, estresse e depressão) para o total de alimentação emocional, utilizou-se a análise de regressão linear simples, na qual constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, seguida pelos sintomas de depressão, que predizem 9,2% da tendência a alimentar-se motivado pelas emoções e, pelos sintomas ansiosos, que explicam 4,7% deste estilo alimentar específico.
+
+156
+
+---
+
+<a id="pagina-pdf-005"></a>
+<!-- PDF_PAGE: 5 -->
+## Página PDF 5
+
+[Conferir no original](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf#page=5)
+
+**Revista** Brasileira de **Terapias Cognitivas** 2022•18(2)•pp.00-00
+
+**Tabela 1.** Coeficientes de Correlação entre os escores de Ansiedade, Depressão e Estresse e os escores totais de Alimentação Emocional e Intuitiva (n = 209)
+
+||Alimentação|Emocional|Alimentaç|ão Intuitiva|
+|---|---|---|---|---|
+||r|p|R|p|
+|Dass – ansiedade|0,228**|0,001|0,032|0,649|
+|Dass – depressão|0,311**|0,000|- 0,044|0,525|
+|Dass - estresse|0,353**|0,000|0,008|0,910|
+
+Nota: *p < .05, **p < .01. Correlação de Fraca â moderada entre os coeficientes: Dass- estresse, Dass- depressão, Dass –ansiedade e o escore Alimentação Emocional
+
+**Tabela 2.** Valores Preditivos dos Sintomas de Estresse, Depressão e Ansiedade para a Alimentação Emocional
+
+||Coeficie|intes brutos|||||
+|---|---|---|---|---|---|---|
+|Preditores|B|Erro Padrão|Beta|T|Sig|R quadrado ajustado|
+|Dass – estresse|0,716|0,132|0,353|5,425|0,000|12%|
+|Dass – depressão|0,705|0,150|0,311|4,708|0,000|9,2%|
+|Dass – ansiedade|0,528|0,157|0,228|3.363|0,001|4,7%|
+
+Nota: Preditores (constante): Dass- estresse, Dass- depressão, Dass –ansiedade; Variável Dependente: Alimentação Emocional
+
+### **DISCUSSÃO**
+
+Este estudo teve como objetivo investigar as associações e potenciais valores preditivos dos sintomas de ansiedade, depressão e estresse para a alimentação emocional e intuitiva. Embora a relação entre os sintomas emocionais de ansiedade, depressão, estresse e a alimentação emocional terem sido baixas, foram significativas nesta pesquisa, o que mostra-se em consonância com achados anteriores ao constatar que, de fato, estes sintomas podem, em partes, influenciar este tipo específico de comportamento (Goossens et al., 2008; Schneider et al., 2012).
+
+Em relação aos sintomas de depressão, tanto as associações encontradas, quanto a capacidade desse estado para explicar 9,2% da variação na tendência a alimentarse emocionalmente sugerem que, quanto mais o indivíduo experiencia sintomas de depressão como apatia, tristeza excessiva, falta de ânimo e falta de sentido na vida, maior é a probabilidade do consumo de alimentos na tentativa de minimizar estes sentimentos. Os achados de Dingemans et al. (2015), mostram que o humor deprimido está associado de forma consistente a episódios de compulsão e ao próprio transtorno de compulsão alimentar. Em seu estudo, estes autores evidenciaram que as emoções negativas antecedem a ingestão compulsiva sendo que a sintomatologia depressiva diminui a capacidade do indivíduo de lidar com afeto negativo, reduzindo a capacidade de controle sobre o consumo alimentar (Dingemans et al., 2015).
+
+Para Barros et al., (2017) pessoas que experimentam sintomas depressivos tendem a buscar a alimentação, principalmente como fonte de prazer. Conforme estes autores, estudos longitudinais têm mostrado a natureza bidirecional entre os comportamentos nocivos à saúde física, como a alimentação inadequada, com a ocorrência de quadros depressivos. De fato, o consumo de alimentos palatáveis, gordurosos e/ou açucarados podem trazer sensações de bem-estar, uma vez
+
+que apresentam potencial para a liberação de determinados neurotransmissores relacionados a sensações prazerosas, as quais encontram-se em déficit nos sujeitos deprimidos (Wood et al., 2016).
+
+De forma semelhante, os achados a respeito da ansiedade e do estresse, que explicam unicamente e respectivamente, 4,7% e 12% no aumento da alimentação emocional, são ratificados pelo estudo de Fusco et al., (2020), no qual foram encontradas correlações significativas entre ambos os afetos negativos e a compulsão alimentar, que por vezes está relacionada a dificuldade de regulação emocional. No mesmo sentido, o estudo de Arbués et al. (2019) que avaliou o comportamento alimentar de universitários através do Índice de Alimentação Saudável (IAS) e da Escala de Ansiedade Depressão e Estresse (DASS-21), evidenciou o aumento no consumo de doces mediante os sintomas de ansiedade, depressão e estresse, sendo o maior percentual encontrado nas mulheres. Resultados semelhantes já haviam sido explanados por Ansari e Berg-Beckhoff (2015), os quais sinalizaram uma relação positiva entre maiores níveis de estresse e o aumento do consumo de _fast food_ em ambos os sexos, sendo, no entanto, as mulheres mais suscetíveis ao aumento da ingestão compulsiva de doces.
+
+Goosens et al., (2009), explicam que o comer emocional pode ser uma forma de indivíduos ansiosos tanto amenizarem a hiperexcitação, quanto pode ser utilizado uma estratégia de fuga desta experiência, já que ao engajarem-se em outros comportamentos, como a alimentação, o foco na emoção diminui, além de haver um incremento de sensações agradáveis. Macedo et al., (2018), referem, inclusive, que o comer emocional pode ser uma forma de indivíduos lidarem com momentos estressantes e provocadores de ansiedade, sendo o alimento um conforto para situações adversas uma vez que há o incremento de sensações agradáveis. Sendo assim o efeito desses dois afetos negativos, frente a um evento estressor, pode, por exemplo, também culminar em maior consumo de alimentos, visto a relação desses sintomas.
+
+157
+
+---
+
+<a id="pagina-pdf-006"></a>
+<!-- PDF_PAGE: 6 -->
+## Página PDF 6
+
+[Conferir no original](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf#page=6)
+
+**Revista** Brasileira de **Terapias Cognitivas** 2022•18(2)•pp.00-00
+
+Embora houvesse alguns indícios a respeito da relação inversa entre alimentação intuitiva e sintomas emocionais, bem como das associações positivas entre este estilo alimentar e bem-estar psicológico (Iannantuono & Tylka, 2012) a presente pesquisa não encontrou associações significativas entre estas variáveis indicando que, nesse estudo, os estados emocionais não apresentaram influência significativa sobre a tendência a alimentar-se intuitivamente. Uma explicação para este resultado encontra-se no fato da alimentação intuitiva enfatizar particularmente as percepções fisiológicas, como os sinais de fome e saciedade. Isso indica que, mesmo vivenciando uma emoção desagradável, a sensibilidade para perceber as dicas emitidas pelo corpo, bem como para respeitar e focar nestas percepções pode fazer com que o indivíduo não se distraia com as emoções e com outros estímulos externos e alimente-se, prioritariamente, quando está com fome e pare quando está satisfeito (Herbert et al., 2013)
+
+Herbert et al. (2007) explicam a ideia acima ao trazer à tona o conceito de interocepção, o qual diz respeito à capacidade de percepção e processamento dos sinais viscerais emitidos pelo corpo. Além disso, o conceito de interocepção tem se mostrado relevante para a explicação da alimentação intuitiva. Herbert et al., (2013) demonstraram em seu estudo que a sensibilidade para perceber e avaliar os sinais corporais não apenas explicou, em sua amostra, os escores totais da alimentação intuitiva, como também mediou a relação entre este estilo alimentar e IMC’s adequados. Para a Nutrição Comportamental, a alimentação intuitiva é uma ferramenta eficiente que possibilita que o indivíduo estabeleça sintonia com o alimento, com a sua mente e com seu corpo (Almeida & Furtado, 2017).
+
+Cabe lembrar ainda, que a amostra foi composta majoritariamente por mulheres, o que pode explicar parcialmente a não associação entre os sintomas emocionais e o comportamento alimentar intuitivo. A pesquisa de Bilici et al. (2018) teve como um dos seus objetivos investigar os efeitos das variáveis sociodemográficas na alimentação intuitiva. Os resultados desse estudo apontam que esse estilo alimentar é mais propenso no público feminino comparado ao masculino, sugerindo assim que as mulheres tendem a gerenciar melhor as suas emoções no comer (Bilici et al, 2018).
+
+### **CONSIDERAÇÕES FINAIS**
+
+A partir do presente estudo verificou-se que os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional. Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p. ex. regulação emocional) que, de acordo com estudos pregressos, também apresentam potencial preditivo para o comportamento alimentar em questão.
+
+Esta hipótese é reforçada pela ideia de que o problema da alimentação emocional não é a experiência da emoção em si, mas sim a inabilidade do sujeito para lidar com o desconforto que vivencia. Dessa maneira, sugere-se para futuros estudos a investigação da regulação emocional como mediador da relação entre sintomas emocionais e alimentação emocional.
+
+Ademais, o fato de não terem sido constatadas relações significativas entre as emoções e a alimentação intuitiva reforça ainda a necessidade de maiores investigações a fim de compreender a influência de outros fatores como a interocepção na promoção de comportamentos alimentares saudáveis. De qualquer forma, a presente pesquisa contribui para o incremento do conhecimento ao confirmar as relações entre os sintomas emocionais de depressão, ansiedade e estresse e a alimentação emocional em uma amostra em contexto regional. No entanto, o estudo também apresenta limitações que merecem ser destacadas.
+
+Uma limitação importante refere-se à realização da pesquisa através de formulários disponibilizados na internet. Ainda que esse formato tenha sido escolhido justamente por sua potencialidade para acessar um número maior de pessoas, entende-se que a pesquisa online impossibilita o esclarecimento direto de dúvidas, assim como impede maiores explicações acerca dos questionários, o que pode influenciar nas respostas dos mesmos. Dessa forma, indica-se a estudos futuros a coleta de dados presencial a fim de minimizar este tipo de situação. Além disso, os instrumentos baseados em autorrelato utilizados nessa pesquisa também podem ter contribuído para a existência de vieses. Entende-se que esta forma de avaliação possa instigar nos indivíduos respostas “aceitáveis”, ao invés de manifestarem comportamentos e emoções reais.
+
+Ademais, a prevalência de mulheres, sugere maior apreciação corporal por parte desse público, o que pode também pode estar relacionada com as características das participantes como, o alto nível educacional e socioeconômico das mesmas. Além disso, o elevado percentual de participantes que praticam atividades físicas e práticas meditativas aponta para uma tendência dos indivíduos buscarem no primeiro, prazer e vivacidade, e no segundo modos mais equilibrados de experienciar diferentes estados mentais e identificar pensamentos disfuncionais. Neste sentido, entende-se que estes percentuais podem ter oportunizado outros vieses nesse estudo, o que aponta para que futuras pesquisas levem em consideração essas características específicas em suas análises.
+
+Recomenda-se também que novas pesquisas busquem amostras mais heterogêneas, com diferentes perfis de gênero e idade, por exemplo, para garantir maior extensão dos resultados. Visando assim, maior representatividade da população brasileira, já que os participantes desse estudo foram recrutados em uma amostra não probabilística por conveniência.
+
+158
+
+---
+
+<a id="pagina-pdf-007"></a>
+<!-- PDF_PAGE: 7 -->
+## Página PDF 7
+
+[Conferir no original](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf#page=7)
+
+> **Nota de conversão — página 7:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+
+**Revista** Brasileira de **Terapias Cognitivas** 2022•18(2)•pp.00-00
+
+### **REFERÊNCIAS**
+
+- Almeida, C. B., & Furtado C. C. (2017). Comer intuitivo. _Revista Unilus Ensino e Pesquisa, 4(37),_ 38-46. Recuperado de http://revista.unilus. edu.br/index.php/ruep/article/view/925/u2017v14n37e925
+
+- Andretta, I., Limberger, J., Schneider, J., & Mello, L.T.N. (2018). Sintomas de Depressão, Ansiedade e Estresse em Usuários de Drogas em Comunidades Terapêuticas. _Psico USF 23 (2),_ 361-373. doi:10.1590/141382712018230214
+
+- Ansari, W. E & Berg-Beckhoff G. (2015). Nutritional Correlates of Perceived Stress among University Students in Egypt. _Int J Environ Res Public Health. 12(11),_ 14164-14176. doi: 10.3390/ijerph121114164
+
+- Arbués, E. R, Abadía, B. M.., López, J. M. G., Serrano, E. E., García, B. P., Vela, R. J., Portillo, S. G., & Guinoa, M. S. (2019). Comportamento alimentar e sua relação com estresse, ansiedade, depressão e insônia em estudantes universitários. _Hospital Nutrition_ ,36 (6), 1339-1345. doi:10.20960/nh.02641
+
+- Arnow, B., Kenardy, J., & Agras, W. S (1995). The Emotional Eating Scale: The development of a measure to assess coping with negative affect by eating. _The International Journal of Eating Disorders, 18 (1),_ 79-90. doi:10.1002/1098-108x(199507)18:1<79::aid-eat2260180109>3.0.co;2-v
+
+- Barros M. B. A., Lima M.G., Azevedo R.C.S., Medina L.B.P., Lopes C.S., Menezes P.R., & Malta, B. C., (2017). Depressão e comportamentos de saúde em adultos brasileiros – PNS 2013. _Revista de Saúde Pública, 51._ Recuperado de https://www.scielo.br/j/rsp/a/rJgc4vNn6tKZXqTSvV5DX Mb/?lang=pt&format=pdf
+
+- Biagio, L. D., Moreira, P., & Amaral, C. K. (2020). Comportamento alimentar em obesos e sua correlação com o tratamento nutricional. _Jornal Brasileiro de Psiquiatria 69 (3),_ 171-178. doi: 10.1590/00472085000000280
+
+- Bilici, S., Kocaadam, B., Mortas, H., Kucukerdonmez, O., & Koksal, E. (2018). Alimentação intuitiva na juventude: sua relação com o estado nutricional. _Revista de Nutrição_ , _31(6),_ 557-565. doi: 10.1590/167898652018000600005
+
+- Brisotto, M., & Andretta, I. (2021). Relações entre mindfulness, alimentação intuitiva e emocional em adultos. _Psicologia, saúde e doenças, 22 (1),_ 302-313. doi: 10.15309/21psd220125
+
+- Bruce, L. J., & Ricciardelli, L, A. (2016). A systematic review of the psychosocial correlates of intuitive eating among adult women. _Appetite_ , _96,_ 454-472. doi:10.1016/j.appet.2015.10.012
+
+- Castro, M. G. L., Souza, E. M., Netto, L. D. B., Pignaton, L. M. P., & Silva, M. S. (2020). Consumo alimentar, percepção de estresse e IMC dos estudantes do IFES campus Colatina. _Revista Ifesciência, 6(4),_ 215227. doi: 10.36524/ric.v6i4.843
+
+- Catão, L. G., & Tavares, R. L. (2017). Técnicas da nutrição comportamental no tratamento de transtornos alimentares. _Revista campo do saber, 3 (1),_ 244-260. Recuperado de https://periodicos.iesp.edu.br/index. php/campodosaber/article/view/259/219
+
+- Dingemans, A. E., Visser, H., Paul, L., & Furth, E. F. V. (2015). Set-shifting abilities, mood and loss of control over eating in binge eating disorder: An experimental study. _Psychiatry Research_ , 230 (2), 242-248. doi:10.1016/j.psychres.2015.09.001
+
+- Fusco, S. F. B., Amancio, S. C. P., Pancieri, A. P., Alves, M. V. M. F. F., Spiri, W. C., & Braga, E. M. (2020). Ansiedade, qualidade do sono e compulsão alimentar em adultos com sobrepeso ou obesidade. _Revista da Escola de Enfermagem da USP_ , 54, 1-8. doi: 10.1590/ S1980-220X2019013903656
+
+- Garcia, L. M., & Andretta, I. (2017). Revisão sistemática da aplicabilidade da entrevista motivacional no tratamento dos transtornos da alimentação. _Mudanças Psicologia da Saúde, 25 (2),_ 59-67. Recuperado de https://www.metodista.br/revistas/revistas-metodista/index.php/ MUD/article/view/7391/6062
+
+- Goossens, L., Braet, C., Van Vlierberghe, L., & Mels S. (2009). Loss of control over eating in overweight youngsters: the role of anxiety, depression and emotional eating _. Eur Eat Disord Ver, 17(1),_ 68-78. doi:10.1002/erv.892
+
+- Groesz, L. M., McCoy, S., Carl, J., Saslow, L., Stewart, J., Adler, N., & Epel, E. (2012). What is eating you? Stress and the drive to eat. _Appetite_ , _58(2),_ 717–721. doi:10.1016/j.appet.2011.11.028
+
+- Herbert, B. M., Blechert, J., Hautzinger, M., Matthias, E., & Herbert, C. (2013). Intuitive eating is associated with interoceptive sensitivity. Effects on body mass index. _Appetite_ , _70,_ 22–30.doi:10.1016/j.appet.2013.06.082
+
+- Herbert, B. M., Pollatos, O., & Schandry, R. (2007). Interoceptivesenstivity and emotion processing: An EEG study. _International Journal of Psychophysiology_ , _65(3),_ 214–227. doi: 10.1016/j.ijpsycho.2007.04.007
+
+- Iannantuono, A. C., & Tylka, T. L. (2012). Interpersonal and intrapersonal links to body appreciation in college women: an exploratory model. _Body Image, 9(2),_ 227-235. doi: 10.1016/j.bodyim.2012.01.004.
+
+- Instituto Brasileiro de Geografia e Estatística (2019). Pesquisa do IBGE mostra aumento da obesidade entre adultos. Recuperado de https:// www.gov.br/pt-br/noticias/saude-e-vigilancia-sanitaria/2020/10/ pesquisa-do-ibge-mostra-aumento-da-obesidade-entre-adultos
+
+- Jardim, A. T. (2019). A abordagem da alimentação intuitiva comparado a programas de emagrecimento tradicionais na perda de peso e desfechos em saúde. _Revista brasileira de obesidade, nutrição e emagrecimento, 13(80),_ 570-575. Recuperado de http://www.rbone. com.br/index.php/rbone/article/view/1017/852
+
+- Jesus, A. D., Barbosa, K. B. F., Souza, M. F. C., Conceição, A. M. S. (2017). Comportamento alimentar de pacientes de pré e pós-cirurgia bariátrica. _Revista brasileira de Obesidade, Nutrição e emagrecimento, 11(63),_ 187-196. Recuperado de https://dialnet.unirioja.es/servlet/ articulo?codigo=6125029
+
+- Lira, S. M., Paixão, Y. N., Lima, C. L. S., Holanda, M. O., Costa, J. T. G., Barboza, A. A. A., Coelho, L. C., & Canabrava, N. V. (2020). Comportamento alimentar em estudantes da saúde na cidade de Quixadá, CE. _Brazilian Journal of Health Reviwe_ , 3(3), 4864- 4875. doi:10.34119/ bjhrv3n3-071
+
+- Lovibond, P., &Lovibond, S. (1995). The structure of negative emotional states: Comparison of the depression anxiety stress scales (DASS) with the Beck Depression and Anxiety Inventories. _Behaviour Research and Therapy_ , _33(3),_ 335-343. doi: 10.1016/00057967(94)00075-u.
+
+- Macedo, N. L. S., Silva, E. B., Moura, R. L., Silva, J. C. C., Oliveira, N. D., Cordeiro, S. A., Souza, G. S. F., Dantas, E. N. A. (2018). Transtornos alimentares: fatores psicológicos envolvidos no processo de emagrecimento _. International Journal of Nutrology, 11_ . doi: 10.1055/s0038-1675068
+
+- Matos, S. M. R. & Ferreira, J. C. S. (2021). Stress and eating behavior. _Research, society and development, 10(_ 7), 1-11. doi: 10.33448/ rsd-v10i7.16726.
+
+- Organização pan-americana de saúde (2017). Depressão. Recuperado de https://www.paho.org/pt/topicos/depressao#:~:text=A%20 depress%C3%A3o%20%C3%A9%20um%20transtorno%20mental%20frequente.,a%20carga%20global%20de%20doen%C3%A7as
+
+159
+
+---
+
+<a id="pagina-pdf-008"></a>
+<!-- PDF_PAGE: 8 -->
+## Página PDF 8
+
+[Conferir no original](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf#page=8)
+
+**Revista** Brasileira de **Terapias Cognitivas** 2022•18(2)•pp.00-00
+
+- Paiva, Y. L. M., Cacau, L. T., Sampaio, H. A. C., Adrino, L. S., Carioca, A. A. F., Arruda, S. P. M., & Sabry, S. D. (2021). Apetite emocional em situações negativas e padrão alimentar de mulheres adultas. _Revista brasileira em promoção da saúde_ , 34, 1-11. doi: 10.5020/18061230.2021.10829
+
+- Penaforte, F. R., Matta, N. C., & Japur, C. C. (2016). Associação entre estresse e comportamento alimentar em estudantes universitários. _Alimentação, Nutrição & Saúde_ , _11(1),_ 225-237. doi: 10.12957/ demetra.2016.18592
+
+- Rabello, M. A. do E. S., Amorim, M. M. A., Franco, M. P. da S., Souza, W. A., & Monteze, N. M. (2020). Anxiety, depression and stress in excessive weight clients. _Research, Society and Development, 9(9),_ 1-16. doi: 10.33448/rsd-v9i9.6586
+
+- Ramalho, S., Marinho, A., Pinto-Bastos, A., Vieira, A., Magalhães, C., Silva, C., Pedras, S., Pucci, S., Myosés, R., Rodrigues, T., Lourdes, M., Conceição, E. (2018). Body mass index and disordered eating behaviors: a cross-sectional study of a community sample participating in na obesity awareness campaign. _Associação portuguesa de nutrição, 15,_ 6-11. doi: 10.21011/apn.2018.1502
+
+- Schaefer, J. T., & Magnuson, A. B. (2014). Review of Interventions that Promote Eating by Internal Cues. Journal Of The Academy Of Nutrition and Dietetics _. J Acad Nutr Diet, 114 (5),_ 734-760. doi:10.1016/j. jand.2013.12.024
+
+- Schneider, K. L., Panza, E., Appelhans, B. M., Whited, M. C., Oleski, J. L., & Pagoto, S. L. (2012). The Emotional Eating Scale: Can a selfreport measure predict observed emotional eating? _Appetite, 58(2),_ 563–566. doi:10.1016/j.appet.2012.01.012
+
+- Tylka, T. L., & Kroon Van Diest, A. M. (2013). The Intuitive Eating Scale-2: item refinement and psychometric evaluation with college women and men. _J CounsPsychol.,60(1),_ 137-53. doi: 10.1037/a0030893.
+
+- Van Dyke, N., & Drinkwater E. J. (2014). Relationships between intuitive eating and health indicators: literature review. _Public Health Nutr 17(8),_ 1757-1766. doi: 10.1017/S1368980013002139
+
+- Van Strien, T., Konttinen, H., Homberg, J. R., Engels, R. C. M. E., & Winkens, L. H. H. (2016). Emotional eating as a mediator between depression and weight gain. _Appetite, 100,_ 216–224. doi:10.1016/j.appet.2016.02.034
+
+- Vignola, R. C., & Tucci, A. M. (2013). Adaptation and validation of the depression, anxiety and stress scale (DASS) to Brazilian Portuguese. _Journal of Affective Disorders, 155,_ 104-109. doi: 10.1016/j. jad.2013.10.031.
+
+- Wood, S. M. W., Schembre, S. M., He, Q., Engelmann, J. M., Ames, S. L., & Bechara, A. (2016). Emotional eating and routine restraint scores are associated with activity in brain regions involved in urge and self-control. _Physiology & Behavior_ , _165,_ 405–412. doi:10.1016/j. physbeh.2016.08.024
+
+160
+
+---

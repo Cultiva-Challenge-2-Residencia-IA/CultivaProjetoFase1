@@ -1,0 +1,257 @@
+{
+  "source_id": "sban-agua-hidratacao-saude-2016",
+  "source_sha256": "788f285836b6e16d69449e8ee2059cfc9a1f29f2893421cbc7a2bc58ca64546f",
+  "pdf_pages": 16,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "7ed0d384481b8d21382e4ad77c16adf4b16793d7c0cde6dbb9c0f2044ee49262",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": {
+    "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata",
+    "sha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 186,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 197
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 81,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": "|\n45912-002 AF Nestle Folheto AguasMaterialCientifico.indd 2\n4\n11/18/16 9:39 pu\n"
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 0.8,
+      "missing_native_tokens": {
+        "aguas": 1,
+        "materialcientifico": 1,
+        "pm": 1
+      },
+      "markdown_characters": 79
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 1383,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1406
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 2699,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2787
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 2605,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2807
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 4789,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 5209
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 4135,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4348
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 4357,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99874,
+      "missing_native_tokens": {
+        "adequada": 1
+      },
+      "markdown_characters": 4788
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 3761,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3890
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 4819,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4976
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 3825,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3917
+    },
+    {
+      "pdf_page": 12,
+      "native_characters": 5092,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 5432
+    },
+    {
+      "pdf_page": 13,
+      "native_characters": 2234,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2209
+    },
+    {
+      "pdf_page": 14,
+      "native_characters": 7146,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 7322
+    },
+    {
+      "pdf_page": 15,
+      "native_characters": 216,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 219
+    },
+    {
+      "pdf_page": 16,
+      "native_characters": 171,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 179
+    }
+  ],
+  "markdown_sha256": "2ff710a5f421806a97059affeb95d482ec5ed7814cfbb56e2c49d4d959602ed1",
+  "summary": {
+    "pages_converted": 16,
+    "sparse_pages": [
+      2
+    ],
+    "ocr_pages": [
+      2
+    ],
+    "pages_with_tables_detected": [
+      5,
+      6,
+      8
+    ],
+    "pages_with_warnings": [
+      2
+    ],
+    "pages_with_adjustments": []
+  }
+}

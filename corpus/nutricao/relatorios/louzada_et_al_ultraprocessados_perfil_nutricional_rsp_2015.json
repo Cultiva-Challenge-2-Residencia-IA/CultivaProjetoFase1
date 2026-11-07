@@ -1,0 +1,264 @@
+{
+  "source_id": "louzada-ultraprocessados-perfil-nutricional-rsp-2015",
+  "source_sha256": "9c08e961e93a5f98b5bd53584f2cd7f6c93761b8fbf8f7030245f3e1efdbc733",
+  "pdf_pages": 11,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "7ed0d384481b8d21382e4ad77c16adf4b16793d7c0cde6dbb9c0f2044ee49262",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 3626,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98232,
+      "missing_native_tokens": {
+        "baraldii": 1,
+        "canellaii": 1,
+        "cannonii": 1,
+        "claroii": 1,
+        "levyii": 1,
+        "louzadai": 1,
+        "martinsii": 1,
+        "monteiroii": 1,
+        "moubaracii": 1
+      },
+      "markdown_characters": 3816
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 3943,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99645,
+      "missing_native_tokens": {
+        "países14": 1,
+        "países2": 1
+      },
+      "markdown_characters": 4000
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 5701,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 5718
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 5489,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 5451
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 2674,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98536,
+      "missing_native_tokens": {
+        "cereaisb": 1,
+        "foodd": 1,
+        "frutasa": 1,
+        "guloseimase": 1,
+        "processadosc": 1,
+        "semiprontosf": 1,
+        "ultraprocessadosg": 1
+      },
+      "markdown_characters": 2844
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 3031,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.94162,
+      "missing_native_tokens": {
+        "0h": 5,
+        "1h": 4,
+        "2h": 4,
+        "3h": 3,
+        "4h": 1,
+        "5h": 4,
+        "7h": 4,
+        "8h": 2,
+        "9h": 1,
+        "alimentos": 1,
+        "cereaisb": 1,
+        "de": 1,
+        "energia": 1,
+        "foodd": 1,
+        "frutasa": 1,
+        "guloseimase": 1,
+        "mistasc": 1,
+        "produtosg": 1,
+        "prontosf": 1,
+        "ultraprocessados": 1
+      },
+      "markdown_characters": 3531
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 4450,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98366,
+      "missing_native_tokens": {
+        "1f": 1,
+        "4a": 1,
+        "5b": 1,
+        "6a": 1,
+        "755f": 1
+      },
+      "markdown_characters": 4824
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 4524,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.94967,
+      "missing_native_tokens": {
+        "0": 1,
+        "05": 1,
+        "2b": 1,
+        "4b": 1,
+        "5b": 1,
+        "6b": 3,
+        "8b": 2,
+        "9b": 3,
+        "adolescentes": 1,
+        "alimentos": 2,
+        "brasil13": 1,
+        "conforme": 1,
+        "consumo": 2,
+        "crianças23": 1,
+        "da": 1,
+        "de": 1,
+        "do": 2,
+        "em": 1,
+        "indicador": 1,
+        "linear": 1,
+        "metabólica": 1,
+        "para": 1,
+        "países3": 1,
+        "quintis": 1,
+        "síndrome": 1,
+        "tendência": 1,
+        "total": 1,
+        "ultraprocessados": 2,
+        "variação": 1
+      },
+      "markdown_characters": 4787
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 5418,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 5407
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 3946,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3946
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 4708,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9954,
+      "missing_native_tokens": {
+        "alimentos": 1,
+        "de": 1,
+        "peixe": 1
+      },
+      "markdown_characters": 4957
+    }
+  ],
+  "markdown_sha256": "0966fe8586edbefe01a700c033e0637f21edd8d8a0b2d9d397e193ae4be5e992",
+  "summary": {
+    "pages_converted": 11,
+    "sparse_pages": [],
+    "ocr_pages": [],
+    "pages_with_tables_detected": [
+      5,
+      6,
+      7,
+      8,
+      11
+    ],
+    "pages_with_warnings": [
+      6,
+      8
+    ],
+    "pages_with_adjustments": []
+  }
+}
