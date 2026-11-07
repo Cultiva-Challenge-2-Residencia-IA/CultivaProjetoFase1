@@ -2,7 +2,7 @@
 
 **Data da revisão:** 2026-11-06  
 **Escopo:** conferência das páginas físicas Martins et al. (5–7) e Souza e Backes (4, 7 e 8), rastreabilidade das conversões e análise documental das licenças e do uso pretendido.  
-**Status das fontes revisadas:** Martins et al. e Souza e Backes estão `revisado`/`aprovado`, com licença `compatível` apenas para o escopo acadêmico interno definido pela equipe. As demais fontes do corpus não são alteradas por este relatório.
+**Status das fontes revisadas:** Martins et al. e Souza e Backes estão com `approval_status: aprovado` (status único, decisão de 06/11/2026), apenas para o escopo acadêmico interno definido pela equipe. A licença está em `intended_use_license_review` (`compativel_uso_nao_comercial` e `compativel_cc_by`). As demais fontes do corpus não são alteradas por este relatório.
 
 ## Método e evidências
 
@@ -14,7 +14,7 @@ Foram consultados:
 - as entradas correspondentes em `corpus/manifest.yaml`;
 - a página de origem dos artigos na SciELO, conforme os links do manifesto.
 
-Os marcadores `PDF_PAGE` e os links `#page=N` usam a posição física do PDF, começando em 1. Esta revisão técnica comparou os Markdown, os relatórios de conversão e as referências às páginas físicas solicitadas. A equipe registrou a conferência humana das seis páginas no escopo atual. A aprovação é limitada à revisão documental e ao uso acadêmico interno; não equivale a aprovação jurídica para exploração comercial futura.
+Os marcadores `PDF_PAGE` e os links `#page=N` usam a posição física do PDF, começando em 1. Esta revisão técnica comparou os Markdown, os relatórios de conversão e as referências às páginas físicas solicitadas. A autora do PR #25 (AkaeRanni) declarou ter comparado as seis páginas com o PDF original em 06/11/2026; essa comparação não foi repetida na revisão do PR. A aprovação é limitada à revisão documental e ao uso acadêmico interno; não equivale a aprovação jurídica para exploração comercial futura.
 
 ## Martins et al. (2013)
 
@@ -24,13 +24,13 @@ Os marcadores `PDF_PAGE` e os links `#page=N` usam a posição física do PDF, c
 
 | Página física | Evidência observada | Limitação da conversão |
 |---:|---|---|
-| 5 | Texto de resultados e Tabela 1, com grupos de alimentos, médias e erros-padrão para 2002–2003 e 2008–2009. Os valores principais aparecem no Markdown. | O relatório registra cobertura lexical de 95,0% e uma tabela detectada. Cabeçalhos e períodos ficaram partidos (`Pe\|ríodo`, `2002-2\|003`, `2008-20\|09`); sobrescritos e notas estatísticas podem se fundir a números. A nota também contém `três grandes grandes grupos`, que precisa ser confrontado com o PDF. |
+| 5 | Texto de resultados e Tabela 1, com grupos de alimentos, médias e erros-padrão para 2002–2003 e 2008–2009. Os valores principais aparecem no Markdown. | O relatório registra cobertura lexical de 95,0% e uma tabela detectada. Cabeçalhos e períodos ficaram partidos (`Pe\|ríodo`, `2002-2\|003`, `2008-20\|09`); sobrescritos e notas estatísticas podem se fundir a números. A repetição em `três grandes grandes grupos` está no próprio PDF (erro de digitação do original), não na conversão. |
 | 6 | Texto de resultados e Tabela 2 por quintos de renda, com grupos processados e ultraprocessados. | Cobertura lexical de 95,6%. Cabeçalhos foram degradados (`it d`, `Quno e`, períodos partidos) e a associação entre marcadores `a` e células não é segura no Markdown. Não usar a tabela para cálculo sem voltar ao PDF. |
 | 7 | Continuação dos resultados e Tabela 3 das áreas metropolitanas de 1987–1988 a 2008–2009. As tendências textuais gerais estão preservadas. | Cobertura lexical de 96,0%. A tabela extensa tem marcadores fundidos (`processadosb`, `processadosc`, `0a`, `1a` etc.); a relação espacial entre texto, colunas e notas não é confiável apenas no Markdown. |
 
 **Conclusão técnica:** o texto corrido e as tendências gerais parecem recuperáveis, mas as Tabelas 1–3 não estão prontas para uso quantitativo ou citação precisa sem conferência direta dos cabeçalhos, sobrescritos, notas e posição das colunas no original.
 
-**Conferência humana registrada:** as páginas 5–7 foram comparadas no PDF original, linha a linha, para confirmar cabeçalhos, colunas, sobrescritos, notas e legibilidade. A transcrição Markdown continua com as limitações estruturais descritas e não deve ser usada quantitativamente sem preservar essa referência ao PDF.
+**Conferência humana declarada (AkaeRanni, 06/11/2026):** as páginas 5–7 foram comparadas no PDF original, linha a linha, para confirmar cabeçalhos, colunas, sobrescritos, notas e legibilidade. A transcrição Markdown continua com as limitações estruturais descritas e não deve ser usada quantitativamente sem preservar essa referência ao PDF.
 
 ## Souza e Backes (2020)
 
@@ -46,7 +46,16 @@ Os marcadores `PDF_PAGE` e os links `#page=N` usam a posição física do PDF, c
 
 **Conclusão técnica:** o artigo pode ser localizado e compreendido como fonte documental, mas o Quadro 1, a Tabela 4 e especialmente a página 8 não devem alimentar RAG, análise quantitativa ou resposta citada sem revisão no PDF original.
 
-**Conferência humana registrada:** as páginas 4, 7 e 8 foram comparadas no PDF original para confirmar a estrutura do quadro/tabela, a posição dos asteriscos e a ordem integral do texto em duas colunas. A página 8 continua sendo a maior ressalva para extração textual porque a cobertura lexical registrada é 77,7%.
+**Conferência humana declarada (AkaeRanni, 06/11/2026):** as páginas 4, 7 e 8 foram comparadas no PDF original para confirmar a estrutura do quadro/tabela, a posição dos asteriscos e a ordem integral do texto em duas colunas. A página 8 continua sendo a maior ressalva para extração textual porque a cobertura lexical registrada é 77,7%.
+
+## Páginas excluídas dos Trechos
+
+Como o relatório conclui que estas páginas não devem alimentar o RAG sem conferência no PDF, elas ficam de fora dos Trechos (`skip_pages` em `corpus/scripts/config/rag.yaml`, com a ressalva em `data_quality_note` no manifesto). A exclusão tira também o texto corrido que estiver nessas páginas.
+
+| Fonte | Páginas excluídas | Motivo | Trechos antes e depois |
+|---|---|---|---|
+| Martins et al. (2013) | 5, 6 e 7 | Tabelas 1 a 3 com cabeçalhos, sobrescritos e colunas degradados | 44 e 34 |
+| Souza e Backes (2020) | 4, 7 e 8 | Quadro 1 e Tabela 4 achatados e página 8 com cobertura lexical de 77,7% | 40 e 24 |
 
 ## Licenças e uso pretendido
 
@@ -75,34 +84,23 @@ Esta é uma análise documental, não aconselhamento jurídico. A própria Creat
 
 ## Checklist operacional para a parte humana
 
-- [x] **Martins, página 5:** comparar a Tabela 1 linha a linha; confirmar períodos, média, erro-padrão, sobrescritos e notas; decidir se `três grandes grandes grupos` é erro do PDF ou da conversão.
+- [x] **Martins, página 5:** comparar a Tabela 1 linha a linha; confirmar períodos, média, erro-padrão, sobrescritos e notas; o `três grandes grandes grupos` está no próprio PDF (erro do original), não na conversão.
 - [x] **Martins, página 6:** comparar a Tabela 2; confirmar `Quinto de renda`, períodos, médias, erros-padrão e sobrescritos; conferir a transição entre texto e tabela.
 - [x] **Martins, página 7:** comparar a Tabela 3; confirmar quatro períodos, média/erro-padrão, notas e continuidade; verificar que nenhum valor foi deslocado de coluna.
 - [x] **Souza e Backes, página 4:** conferir as quatro colunas do Quadro 1 e a associação entre cada passo, pergunta e critério; validar especialmente `<2 vezes na semana`, “três refeições” e “feiras agroecológicas”.
 - [x] **Souza e Backes, página 7:** conferir P1–P10, categorias, percentuais, asteriscos `*`/`**` e nota dos testes.
 - [x] **Souza e Backes, página 8:** comparar todos os parágrafos e referências com o original; registrar qualquer palavra, número ou referência ausente. A cobertura de 77,7% exige conferência integral antes de RAG ou citação.
-- [x] Registrar nome, data, versão do PDF/SHA-256, páginas conferidas, divergências, decisão e evidência usada.
-- [x] Descrever o uso real para cada derivado: armazenamento interno, conversão Markdown, RAG, exibição de trechos, tabelas/figuras, treinamento, exportação e/ou vitrine paga.
+- [ ] Registrar nome, data, versão do PDF/SHA-256, páginas conferidas, divergências, decisão e evidência usada. (parcial: data 06/11/2026, SHA-256 no manifesto, páginas listadas acima e uma divergência, o texto repetido do original; o nome do revisor além da autoria do PR #25 não está registrado)
+- [ ] Descrever o uso real para cada derivado: armazenamento interno, conversão Markdown, RAG, exibição de trechos, tabelas/figuras, treinamento, exportação e/ou vitrine paga. (parcial: veja "Escopo atual e bloqueio futuro")
 - [x] Para Martins, marcar **bloqueado para vitrine paga/uso comercial até análise jurídica ou autorização escrita**, por causa da licença CC BY-NC 3.0.
-- [x] Para Souza e Backes, confirmar atribuição CC BY 4.0, link da licença, indicação de alterações e ausência de linguagem de patrocínio/endosso.
-- [x] Inventariar figuras, tabelas, fotografias, logotipos, referências e dados de terceiros e verificar se cada item está coberto.
-- [x] Definir texto e local da atribuição no produto; preservar DOI, URL, autores, título, periódico, licença e indicação de adaptação/conversão.
-- [x] Registrar responsável, data, fundamento e escopo. Não alterar `review_status`/`approval_status` sem decisão formal autorizada.
-
-Comandos antes do commit:
-
-```bash
-git diff --check
-git status --short
-git diff -- corpus/manifest.yaml
-git diff -- corpus/README.md corpus/nutricao/relatorios/revisao-issue-8.md
-```
-
-O diff do manifesto deve ficar vazio.
+- [ ] Para Souza e Backes, confirmar atribuição CC BY 4.0, link da licença, indicação de alterações e ausência de linguagem de patrocínio/endosso. (sem evidência neste relatório)
+- [ ] Inventariar figuras, tabelas, fotografias, logotipos, referências e dados de terceiros e verificar se cada item está coberto. (sem evidência neste relatório)
+- [ ] Definir texto e local da atribuição no produto; preservar DOI, URL, autores, título, periódico, licença e indicação de adaptação/conversão. (fica para quando houver produto)
+- [x] Decisão formal: aprovação por qualquer pessoa do projeto, em PR (decisão de 06/11/2026, seção "Aprovação das fontes" do `corpus/README.md`), registrada no PR #25.
 
 ## Decisões ainda abertas
 
 - A aprovação registrada é documental e limitada ao uso acadêmico interno; não é aprovação jurídica ou autorização comercial.
-- O uso atual foi definido pelo usuário como trabalho acadêmico interno, sem vantagem comercial. A equipe ainda precisa definir separadamente qualquer uso futuro pelo produto ou por vitrine paga.
+- O uso atual foi definido pela equipe (decisão de 06/11/2026) como trabalho acadêmico interno, sem vantagem comercial. A equipe ainda precisa definir separadamente qualquer uso futuro pelo produto ou por vitrine paga.
 - A conferência visual humana das páginas solicitadas foi registrada. A cobertura lexical de 77,7% na página 8 e as limitações das tabelas continuam exigindo referência ao PDF para uso estruturado ou citação precisa.
-- Os status de Martins e Souza e Backes foram avançados para `revisado`, `aprovado` e `compatível` no escopo acadêmico interno; as demais fontes permanecem com seus status anteriores.
+- A aprovação (`approval_status: aprovado`) das duas fontes vale só para o escopo acadêmico interno. O `review_status` foi abolido em favor de um status único, e as demais fontes seguem `pendente`.
