@@ -22,6 +22,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = ROOT / "corpus/nutricao/rag"
 CONFIG_PATH = ROOT / "corpus/scripts/config/rag.yaml"
+SCHEMA_PATH = ROOT / "corpus/schemas/trecho.schema.json"
 TARGET_CHARS = 1000
 MAX_CHARS = 1400
 MIN_CHARS = 80
@@ -43,6 +44,12 @@ NOISE_LINE = re.compile(
     re.I,
 )
 PAGE_MARK = re.compile(r"<!-- PDF_PAGE: (\d+) -->")
+
+
+def tipos_de_fonte() -> list[str]:
+    """Tipos de fonte aceitos, lidos do JSON Schema do Trecho (fonte única do contrato)."""
+    schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+    return schema["properties"]["tipo_fonte"]["enum"]
 
 
 def sha256_text(text: str) -> str:
@@ -174,6 +181,12 @@ def prepare(source: dict) -> dict:
     if sha256_text(markdown) != report["markdown_sha256"]:
         raise ValueError(f"Markdown mudou após a conversão: {markdown_path.name}")
 
+    if source.get("source_type") not in tipos_de_fonte():
+        raise ValueError(
+            f"source_type ausente ou inválido em {source['id']}: {source.get('source_type')!r} "
+            f"(aceitos: {', '.join(tipos_de_fonte())})"
+        )
+    fonte_url = source["source"] if str(source["source"]).startswith(("http://", "https://")) else None
     config = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8")) or {}
     source_config = config.get(source["id"], {})
     drop = [re.compile(p) for p in source_config.get("drop_paragraphs", [])]
@@ -208,6 +221,11 @@ def prepare(source: dict) -> dict:
                 "id": f"{source['id']}-p{page:03d}-{number:02d}",
                 "fonte_id": source["id"],
                 "titulo_fonte": source["title"],
+                "instituicoes": list(source["institutions"]),
+                "ano": int(source["year"]),
+                "tipo_fonte": source["source_type"],
+                "fonte_url": fonte_url,
+                "doi": source.get("doi"),
                 "pagina_pdf": page,
                 "secao": chunk_section,
                 "texto": text,

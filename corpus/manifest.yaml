@@ -7,6 +7,7 @@ sources:
     year: 2014
     edition: 2ª edição, 1ª reimpressão
     version: "2014-2ed-1reimpr"
+    source_type: diretriz
     source: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf
     download_url: https://bvsms.saude.gov.br/bvs/publicacoes/guia_alimentar_populacao_brasileira_2ed.pdf
     access_note: O endereço informado redirecionou para autenticação. Obtida na BVS a 2ª edição, 1ª reimpressão, de 2014; não foi possível comparar os bytes com o endereço informado.
@@ -32,6 +33,7 @@ sources:
     year: 2021
     edition: 1ª edição, versão eletrônica
     version: "2021-1ed"
+    source_type: diretriz
     source: https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf
     download_url: https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf
     retrieved_on: "2026-11-03"
@@ -63,6 +65,7 @@ sources:
     year: 2013
     edition: "v. 47, n. 4, p. 656-665"
     version: "2013-47-4"
+    source_type: estudo
     doi: 10.1590/S0034-8910.2013047004968
     source: https://www.scielo.br/j/rsp/a/VxDyNppnrq8vv6jQtZfSsRP/?lang=pt
     download_url: https://www.scielo.br/j/rsp/a/VxDyNppnrq8vv6jQtZfSsRP/?format=pdf&lang=pt
@@ -93,6 +96,7 @@ sources:
     year: 2020
     edition: "v. 25, n. 11, p. 4463-4472"
     version: "2020-25-11"
+    source_type: estudo
     doi: 10.1590/1413-812320202511.35582018
     source: https://www.scielo.br/j/csc/a/ZzMLsShvSMNPwPttjKqtGSC/?lang=pt
     download_url: https://www.scielo.br/j/csc/a/ZzMLsShvSMNPwPttjKqtGSC/?format=pdf&lang=pt
@@ -120,6 +124,7 @@ sources:
     year: 2012
     edition: pendente; número de edição não identificado
     version: '2012'
+    source_type: diretriz
     source: https://old.svb.org.br/livros/guia-alimentar.pdf
     supplied_filename: guia-alimentar.pdf
     access_note: Original fornecido pelo solicitante. URLs oficiais indexadas old.svb.org.br/livros/guia-alimentar.pdf
@@ -153,6 +158,7 @@ sources:
     year: 2014
     edition: volume 20, número 5, setembro/outubro, páginas 370–373
     version: 2014-v20-n5-p370-373
+    source_type: estudo
     doi: 10.1590/1517-86922014200500795
     source: https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?lang=pt
     download_url: https://www.scielo.br/j/rbme/a/6jY5gFm9DgdYjjGx7TsNQ5R/?format=pdf&lang=pt
@@ -192,6 +198,7 @@ sources:
     year: 2013
     edition: "v. 59, n. 2, p. 167-173"
     version: "2013-59-2"
+    source_type: revisao
     language: en
     doi: 10.1016/j.ramb.2012.09.003
     source: https://www.scielo.br/j/ramb/a/t4WdR3Hf36jwhLdtywQ77vf/?lang=en
@@ -224,6 +231,7 @@ sources:
     year: 2020
     edition: "v. 73, supl. 1, e20190365"
     version: "2020-73-s1"
+    source_type: estudo
     doi: 10.1590/0034-7167-2019-0365
     source: https://www.scielo.br/j/reben/a/SKHWrVrjcT9ppdYJ5tHT5pL/?lang=pt
     download_url: https://www.scielo.br/j/reben/a/SKHWrVrjcT9ppdYJ5tHT5pL/?format=pdf&lang=pt
@@ -253,6 +261,7 @@ sources:
     year: 2016
     edition: documento técnico; ano inferido da data de criação do PDF (18/11/2016), pois o ano de publicação não está impresso
     version: "2016"
+    source_type: diretriz
     source: "pendente: origem pública não identificada; PDF recebido da equipe (branch feat/nutricao-rag-mvp)"
     supplied_filename: AguaHidratacaoESaude.pdf
     access_note: Arquivo fornecido pela equipe. Não foi localizada a URL de origem nem confirmada a equivalência dos bytes com uma cópia pública.
@@ -282,6 +291,7 @@ sources:
     year: 2022
     edition: "v. 18, n. 2, p. 153-160"
     version: "2022-18-2"
+    source_type: estudo
     doi: 10.5935/1808-5687.20220013
     source: http://www.rbtc.org.br/detalhe_artigo.asp?id=354
     supplied_filename: DepressaoAnsiedadeEstresseAlimentacao.pdf
@@ -311,6 +321,7 @@ sources:
     year: 2022
     edition: 1ª edição, São Paulo, ABESO, 2022 (ISBN 978-85-93044-01-4)
     version: "2022-1ed"
+    source_type: diretriz
     source: "pendente: origem pública não identificada; PDF recebido da equipe (branch feat/nutricao-rag-mvp)"
     supplied_filename: posicionamento_2022-alterado-nov-22-1.pdf
     access_note: Arquivo fornecido pela equipe. Não foi localizada a URL de origem nem confirmada a equivalência dos bytes com uma cópia pública.
@@ -338,6 +349,7 @@ sources:
     year: 2009
     edition: "v. 15, n. 3, supl., p. 2-12 (diretriz da SBME; os dois nomes são os editores)"
     version: "2009-15-3s"
+    source_type: diretriz
     doi: 10.1590/S1517-86922009000400001
     source: https://www.scielo.br/j/rbme/a/4Y4gRJxwpZjVT4PsXRxtH9k/?lang=pt
     download_url: https://www.scielo.br/j/rbme/a/4Y4gRJxwpZjVT4PsXRxtH9k/?format=pdf&lang=pt
@@ -369,6 +381,7 @@ sources:
     year: 2012
     edition: "v. 17, n. 2, p. 337-345"
     version: "2012-17-2"
+    source_type: estudo
     doi: 10.1590/S1413-294X2012000200019
     source: https://www.scielo.br/j/epsic/a/rTfZMqP9HwXxBhjdFkwBmBC/?lang=pt
     download_url: https://www.scielo.br/j/epsic/a/rTfZMqP9HwXxBhjdFkwBmBC/?format=pdf&lang=pt
@@ -402,6 +415,7 @@ sources:
     year: 2019
     edition: "v. 24, n. 7, p. 2461-2470"
     version: "2019-24-7"
+    source_type: estudo
     doi: 10.1590/1413-81232018247.19992017
     source: https://www.scielo.br/j/csc/a/LSm9mRVdJnBCpF7zvPXxsSP/?lang=pt
     download_url: https://www.scielo.br/j/csc/a/LSm9mRVdJnBCpF7zvPXxsSP/?format=pdf&lang=pt
@@ -434,6 +448,7 @@ sources:
     year: 2009
     edition: "v. 43, supl. 2, p. 57-64"
     version: "2009-43-s2"
+    source_type: estudo
     doi: 10.1590/S0034-89102009000900008
     source: https://www.scielo.br/j/rsp/a/nSLrmKkbfjXMF4XbhgGcqcx/?lang=pt
     download_url: https://www.scielo.br/j/rsp/a/nSLrmKkbfjXMF4XbhgGcqcx/?format=pdf&lang=pt
@@ -467,6 +482,7 @@ sources:
     year: 2010
     edition: "v. 26, n. 11, p. 2039-2049"
     version: "2010-26-11"
+    source_type: revisao
     doi: 10.1590/S0102-311X2010001100005
     source: https://www.scielo.br/j/csp/a/fQWy8tBbJkMFhGq6gPzsGkb/?lang=pt
     download_url: https://www.scielo.br/j/csp/a/fQWy8tBbJkMFhGq6gPzsGkb/?format=pdf&lang=pt
@@ -503,6 +519,7 @@ sources:
     year: 2015
     edition: "v. 49, art. 38"
     version: "2015-49-38"
+    source_type: estudo
     doi: 10.1590/S0034-8910.2015049006132
     source: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt
     download_url: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?format=pdf&lang=pt
@@ -539,6 +556,7 @@ sources:
     year: 2015
     edition: "v. 49, art. 45"
     version: "2015-49-45"
+    source_type: estudo
     doi: 10.1590/S0034-8910.2015049006211
     source: https://www.scielo.br/j/rsp/a/ffxtXJygXWTrgxwyHgvqFKz/?lang=pt
     download_url: https://www.scielo.br/j/rsp/a/ffxtXJygXWTrgxwyHgvqFKz/?format=pdf&lang=pt
@@ -567,6 +585,7 @@ sources:
     year: 2015
     edition: "v. 22, n. 2"
     version: "2015-22-2"
+    source_type: revisao
     doi: 10.20396/san.v22i2.8642509
     source: https://periodicos.sbu.unicamp.br/ojs/index.php/san/article/view/8642509
     download_url: https://periodicos.sbu.unicamp.br/ojs/index.php/san/article/download/8642509/10030
@@ -592,6 +611,7 @@ sources:
     year: 2018
     edition: "Resolução CFN nº 599, de 25 de fevereiro de 2018"
     version: "2018-res599"
+    source_type: norma
     source: http://www.cfn.org.br/wp-content/uploads/2018/04/codigo-de-etica.pdf
     download_url: http://www.cfn.org.br/wp-content/uploads/2018/04/codigo-de-etica.pdf
     retrieved_on: "2026-11-05"
@@ -632,6 +652,7 @@ sources:
     year: 2007
     edition: "v. 51, n. 7, p. 1041-1049"
     version: "2007-51-7"
+    source_type: revisao
     doi: 10.1590/S0004-27302007000700004
     source: https://www.scielo.br/j/abem/a/GQ8CpsS5gdGW5yzrRTHz8Yt/?lang=pt
     download_url: https://www.scielo.br/j/abem/a/GQ8CpsS5gdGW5yzrRTHz8Yt/?format=pdf&lang=pt
@@ -666,6 +687,7 @@ sources:
     year: 2020
     edition: "v. 54, e03656"
     version: "2020-54"
+    source_type: estudo
     doi: 10.1590/S1980-220X2019013903656
     source: https://www.scielo.br/j/reeusp/a/VbCfRCz8XWkBF7bTnXhS44G/?lang=pt
     download_url: https://www.scielo.br/j/reeusp/a/VbCfRCz8XWkBF7bTnXhS44G/?format=pdf&lang=pt
@@ -690,3 +712,9 @@ sources:
 #   compativel_uso_nao_comercial: licença ou permissão não comercial; compatível enquanto o projeto não tiver fins comerciais.
 #   risco_aceito_uso_academico_sem_fins_lucrativos: licença ausente, ambígua ou em conflito; o risco foi aceito para o uso acadêmico.
 # Nenhum valor aprova a fonte: o approval_status segue pendente, exceto em Martins et al. e Souza e Backes (revisão do issue #8).
+
+# source_type (decisão de 07/11/2026, ADR 0002): tipo da fonte, do qual o retriever deriva o nível de evidência.
+#   diretriz: guia, posicionamento, consenso ou documento técnico de órgão oficial ou sociedade profissional.
+#   norma: resolução ou regulamento (por exemplo, o Código de Ética do CFN).
+#   revisao: revisão da literatura ou artigo conceitual.
+#   estudo: estudo primário (transversal, populacional, quase-experimental).
