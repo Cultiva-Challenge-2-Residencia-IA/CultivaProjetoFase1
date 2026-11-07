@@ -1,0 +1,162 @@
+{
+  "source_id": "rossetti-universitarios-consumo-alimentar-san-2015",
+  "source_sha256": "d3c60423aa7159c5b4784b3d112064536b5c7d039673bc3867827bce71225638",
+  "pdf_pages": 8,
+  "conversion_status": "concluida_com_ressalvas",
+  "review_status": "pendente",
+  "approval_status": "pendente",
+  "script_sha256": "7014d190c7567763f1ad11f9fd7c1d0ec8cf2f404ffac46b6d019c721a2c2100",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 4090,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9962,
+      "missing_native_tokens": {
+        "college": 1,
+        "rossetti1": 1
+      },
+      "markdown_characters": 3797
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 4577,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4749
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 3345,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98488,
+      "missing_native_tokens": {
+        "da": 1,
+        "de": 1,
+        "et": 1,
+        "fast": 1,
+        "feitosa": 1,
+        "food": 1,
+        "pirâmide": 1
+      },
+      "markdown_characters": 3679
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 2775,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98421,
+      "missing_native_tokens": {
+        "cansian": 1,
+        "et": 3,
+        "gorgulho": 1,
+        "pacheco": 1
+      },
+      "markdown_characters": 3070
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 3122,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98371,
+      "missing_native_tokens": {
+        "campus": 2,
+        "do": 2,
+        "et": 1,
+        "no": 1,
+        "peso": 1,
+        "vettori": 1
+      },
+      "markdown_characters": 3345
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 4373,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4608
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 4349,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4463
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 4311,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4326
+    }
+  ],
+  "markdown_sha256": "d247afaa37969329cd047477046bf0ff5e99539f4d0d4ba2209bc0dd9ba9d791",
+  "summary": {
+    "pages_converted": 8,
+    "sparse_pages": [],
+    "ocr_pages": [],
+    "pages_with_tables_detected": [
+      3,
+      4,
+      5
+    ],
+    "pages_with_warnings": [],
+    "pages_with_adjustments": []
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "source_id": "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012",
+  "source_sha256": "81b1b1c273af68bf9522c24e6a2968942174c391c0b88bb4050f8e4b0a99b5d7",
+  "pdf_pages": 9,
+  "conversion_status": "concluida_com_ressalvas",
+  "review_status": "pendente",
+  "approval_status": "pendente",
+  "script_sha256": "7014d190c7567763f1ad11f9fd7c1d0ec8cf2f404ffac46b6d019c721a2c2100",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 4097,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99656,
+      "missing_native_tokens": {
+        "m2": 2
+      },
+      "markdown_characters": 4190
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 6772,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 6682
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 3836,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3813
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 6432,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 6365
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 4416,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4485
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 4609,
+      "method": "native",
+      "tables_detected": 2,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95115,
+      "missing_native_tokens": {
+        "0": 1,
+        "05": 1,
+        "4": 1,
+        "5": 1,
+        "alimentos": 1,
+        "consumo": 1,
+        "de": 3,
+        "desvio": 2,
+        "diário": 1,
+        "do": 3,
+        "dos": 1,
+        "e": 1,
+        "final": 2,
+        "grupo": 3,
+        "grupos": 2,
+        "início": 3,
+        "m2": 1,
+        "média": 1,
+        "n": 1,
+        "no": 2,
+        "padrão": 2,
+        "psicoeducativo": 1,
+        "tabela": 1
+      },
+      "markdown_characters": 4594
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 6654,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 6576
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 7370,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 7532
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 1136,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1151
+    }
+  ],
+  "markdown_sha256": "cc8ad4b5781b48b7baeed37c9598b6f6ae0c0b0b03f70fbddf88e74eece48932",
+  "summary": {
+    "pages_converted": 9,
+    "sparse_pages": [],
+    "ocr_pages": [],
+    "pages_with_tables_detected": [
+      3,
+      5,
+      6
+    ],
+    "pages_with_warnings": [
+      6
+    ],
+    "pages_with_adjustments": []
+  }
+}

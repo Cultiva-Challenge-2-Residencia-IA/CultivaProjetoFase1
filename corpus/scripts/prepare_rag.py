@@ -32,12 +32,13 @@ RUNNING_HEADER_MIN_PAGES = 4
 # Aceita numeração antes do título ("9. BIBLIOGRAFIA", "9.BIBLIOGRAFIA").
 SKIPPED_SECTIONS = re.compile(
     r"^(\d+(\.\d+)*\.?\s*)?"
-    r"(refer[eê]ncias( bibliogr[aá]ficas)?|bibliografia|colaboradores|abstract|resumen|[ií]ndice|sum[aá]rio)$",
+    r"(refer[eê]ncias( bibliogr[aá]ficas)?|references?|bibliografia|colaboradores|abstract|resumen|[ií]ndice|sum[aá]rio"
+    r"|fomento|agradecimentos|acknowledge?ments?|conflitos? de interesses?|conflicts? of interest)$",
     re.I,
 )
 # Linhas de cabeçalho/rodapé de periódico e numeração solta.
 NOISE_LINE = re.compile(
-    r"^(\d{1,4}|DOI:?\s*\S+|Artigos? Originais?|artigo article"
+    r"^(\d{1,4}|CAP[ÍI]TULO \d+|.*\.indd( \d+)?.*|DOI:?\s*\S+|Artigos? Originais?|artigo article"
     r"|Rev Saúde Pública \d{4};.*|Ciênc\.? Saúde Colet.*)$",
     re.I,
 )
@@ -61,7 +62,14 @@ def split_pages(markdown: str) -> list[tuple[int, str]]:
     return [(int(parts[i]), parts[i + 1]) for i in range(1, len(parts), 2)]
 
 
+def collapse_spaced_letters(title: str) -> str:
+    """Junta títulos com letras separadas por espaço ("r e f e r e n c e s")."""
+    tokens = title.split()
+    return "".join(tokens) if len(tokens) > 2 and all(len(t) == 1 for t in tokens) else title
+
+
 def clean_inline(line: str) -> str:
+    line = re.sub(r"<!--.*?-->", "", line)
     line = re.sub(r"<sup>.*?</sup>", "", line)
     line = re.sub(r"<br\s*/?>", " ", line)
     line = re.sub(r"</?[a-z][^>]*>", "", line)
@@ -74,7 +82,9 @@ def clean_inline(line: str) -> str:
     return unicodedata.normalize("NFC", line)
 
 
-def clean_page(raw: str, skipping: bool, section: str) -> tuple[list[tuple[str, str, bool]], bool, str]:
+def clean_page(raw: str, skipping: bool, section: str,
+               keep_sections: frozenset[str] = frozenset(),
+               resume: tuple[re.Pattern, ...] = ()) -> tuple[list[tuple[str, str, bool]], bool, str]:
     """Devolve (seção, parágrafo, é_linha_de_tabela), se segue em seção descartada e a seção corrente."""
     paragraphs: list[tuple[str, str, bool]] = []
     current: list[str] = []
@@ -95,12 +105,15 @@ def clean_page(raw: str, skipping: bool, section: str) -> tuple[list[tuple[str, 
         heading = re.match(r"^#{1,6}\s+(.*)$", stripped)
         if heading:
             flush()
-            title = clean_inline(heading.group(1))
-            skipping = bool(SKIPPED_SECTIONS.match(title.strip(" .:")))
+            title = collapse_spaced_letters(clean_inline(heading.group(1)))
+            name = title.strip(" .:")
+            skipping = bool(SKIPPED_SECTIONS.match(name)) and name.lower() not in keep_sections
             if title and not skipping:
                 section = title
             continue
         if skipping:
+            if resume and any(rx.match(clean_inline(stripped)) for rx in resume):
+                skipping, section = False, clean_inline(stripped)
             continue
         if re.match(r"^\|[\s:|-]+\|?$", stripped):  # separador de tabela
             continue
@@ -162,13 +175,20 @@ def prepare(source: dict) -> dict:
         raise ValueError(f"Markdown mudou após a conversão: {markdown_path.name}")
 
     config = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8")) or {}
-    drop = [re.compile(p) for p in config.get(source["id"], {}).get("drop_paragraphs", [])]
+    source_config = config.get(source["id"], {})
+    drop = [re.compile(p) for p in source_config.get("drop_paragraphs", [])]
+    keep = frozenset(s.lower() for s in source_config.get("keep_sections", []))
+    resume = tuple(re.compile(p) for p in source_config.get("resume_after_skip", []))
+    skip_pages = frozenset(source_config.get("skip_pages", []))
     records: list[dict] = []
     skipping, section = False, ""
     discarded_short = 0
     cleaned = []
     for page, raw in split_pages(markdown):
-        paragraphs, skipping, section = clean_page(raw, skipping, section)
+        if page in skip_pages:
+            cleaned.append((page, []))
+            continue
+        paragraphs, skipping, section = clean_page(raw, skipping, section, keep, resume)
         cleaned.append((page, [(s, p, t) for s, p, t in paragraphs if not any(rx.search(p) for rx in drop)]))
     # Cabeçalhos e rodapés correntes: parágrafo curto que se repete em várias páginas.
     # Linhas de tabela ficam de fora: cabeçalhos de coluna repetidos são conteúdo.

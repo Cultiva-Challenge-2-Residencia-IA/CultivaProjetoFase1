@@ -97,6 +97,10 @@ Para os futuros registros em `sources`, adote os seguintes metadados. Os campos 
 
 Registre junto ao Markdown o responsável, a data e as observações da revisão, incluindo limitações e ajustes editoriais. Lacunas de origem, licença ou versão devem permanecer visíveis e impedir a liberação até serem resolvidas. Não criar um catálogo paralelo `sources.yaml`: esse nome aparece na arquitetura provisória, cujo esquema continua pendente; o catálogo adotado neste repositório é o manifesto existente.
 
+### Licenças e aceite de risco (06/11/2026)
+
+A equipe decidiu manter no repositório as cópias e os derivados de todas as fontes do corpus, inclusive as de licença ausente ou ambígua, **assumindo o risco**, porque o CULTIVA é um **projeto de aprendizado sem fins lucrativos**. Isso não é licença nem parecer jurídico, e não aprova nenhuma fonte (revisão e aprovação seguem pendentes). A decisão, a justificativa, as condições (atribuição, retirada imediata a pedido do titular, sem uso comercial) e os gatilhos de reavaliação (como a vitrine paga, RN12) estão em [`corpus/README.md`](../corpus/README.md), seção "Decisão sobre licenças e uso das fontes".
+
 ### Separação de dados pessoais
 
 O corpus científico é a base de referências aprovadas, **separada dos dados pessoais dos usuários**. Perfis, metas individuais, registros de hábitos e saúde, conversas, fotos, áudios e PDFs enviados por usuários pertencem ao domínio de dados pessoais e não devem ser incluídos em `corpus/`, no manifesto ou nos derivados do corpus, como chunks, embeddings e índices científicos. Um PDF recebido de usuário não se torna fonte científica por ter sido convertido para Markdown.

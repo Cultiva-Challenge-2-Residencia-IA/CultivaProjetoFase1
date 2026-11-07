@@ -1,0 +1,125 @@
+{
+  "source_id": "azevedo-jejum-intermitente-ramb-2013",
+  "source_sha256": "ca1c6d6d00dd20b8e3e22c767a287e9e7d6d843e8525b9805342dd0c28eb3ccd",
+  "pdf_pages": 7,
+  "conversion_status": "concluida_com_ressalvas",
+  "review_status": "pendente",
+  "approval_status": "pendente",
+  "script_sha256": "7014d190c7567763f1ad11f9fd7c1d0ec8cf2f404ffac46b6d019c721a2c2100",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 3655,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3873
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 5578,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99874,
+      "missing_native_tokens": {
+        "m2": 1
+      },
+      "markdown_characters": 5747
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 6598,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 6772
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 3788,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4003
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 6615,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 6824
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 6606,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 6666
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 2448,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2472
+    }
+  ],
+  "markdown_sha256": "0f2895498c6494c88b2aaf97b3eb7010ec104d4f9089e1e762b61908100ba0c6",
+  "summary": {
+    "pages_converted": 7,
+    "sparse_pages": [],
+    "ocr_pages": [],
+    "pages_with_tables_detected": [],
+    "pages_with_warnings": [],
+    "pages_with_adjustments": []
+  }
+}

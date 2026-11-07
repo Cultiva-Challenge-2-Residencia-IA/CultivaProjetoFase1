@@ -92,7 +92,7 @@ def evaluate_baseline(
                 "guardrail_triggered": response.guardrail_triggered,
                 "expect_guardrail_trigger": expect_guardrail,
                 "guardrail_accurate": is_guardrail_accurate,
-                "expected_doc_ids": list(expected_docs),
+                "expected_doc_ids": sorted(expected_docs),
                 "retrieved_doc_ids": retrieved_doc_ids,
                 "doc_recall_at_k": round(doc_recall, 4),
                 "reciprocal_rank": round(rr, 4),
