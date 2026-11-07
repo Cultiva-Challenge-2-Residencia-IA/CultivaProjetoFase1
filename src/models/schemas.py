@@ -28,6 +28,12 @@ class DocumentChunk(BaseModel):
     section_path: str
     raw_text: str
     contextualized_text: str
+    # Metadados do corpus (ADR 0002). Ficam vazios nos documentos de data/raw.
+    pagina_pdf: Optional[int] = None
+    fonte_url: Optional[str] = None
+    doi: Optional[str] = None
+    licenca: Optional[str] = None
+    approval_status: Optional[str] = None
 
 
 class RetrievedChunk(BaseModel):

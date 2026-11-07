@@ -265,7 +265,7 @@ corpus/.venv/bin/python corpus/scripts/prepare_rag.py                       # to
 corpus/.venv/bin/python corpus/scripts/prepare_rag.py --source <id-da-fonte> # uma fonte
 ```
 
-Campos: `id`, `fonte_id`, `titulo_fonte`, `pagina_pdf`, `secao`, `texto`, `licenca`, `approval_status`. O `pagina_pdf` é a posição física no PDF, a mesma dos marcadores e dos links do Markdown, para a citação apontar a página.
+Campos: `id`, `fonte_id`, `titulo_fonte`, `instituicoes`, `ano`, `tipo_fonte`, `fonte_url`, `doi`, `pagina_pdf`, `secao`, `texto`, `licenca`, `approval_status`. O formato é o do [`schemas/trecho.schema.json`](schemas/trecho.schema.json) e do [ADR 0002](../docs/adrs/0002-contrato-corpus-retriever.md), validado no CI por `tests/test_contrato.py`. O `tipo_fonte` vem do `source_type` do manifesto (`diretriz`, `norma`, `revisao` ou `estudo`), obrigatório em toda fonte. O `pagina_pdf` é a posição física no PDF, a mesma dos marcadores e dos links do Markdown, para a citação apontar a página.
 
 O que o script faz:
 
@@ -286,7 +286,7 @@ Limitações:
 ## Como incluir outro documento
 
 1. Obter o PDF de origem verificável; manter seus bytes em `nutricao/originais/`, com nome que identifique a edição. Conferir a licença no próprio documento e registrar a página da evidência; usar `pendente` quando desconhecida.
-2. Adicionar uma entrada em `manifest.yaml`, reaproveitando os campos existentes. Informar `id`, `title`, `institutions`, `year`, `edition`, `version`, `source`, `license`, `original_path`, `markdown_path` e `report_path`; registrar `sha256` e `pdf_pages` após inspeção. Usar `approval_status: pendente`. Não copiar a licença das fontes atuais por suposição.
+2. Adicionar uma entrada em `manifest.yaml`, reaproveitando os campos existentes. Informar `id`, `title`, `institutions`, `year`, `edition`, `version`, `source_type`, `source`, `license`, `original_path`, `markdown_path` e `report_path`; registrar `sha256` e `pdf_pages` após inspeção. Usar `approval_status: pendente`. Não copiar a licença das fontes atuais por suposição.
 3. Se o arquivo estiver ausente e houver autorização de obtenção, preencher `download_url` para usar `--download`. A assinatura PDF impede aceitar uma página HTML de login como documento.
 4. Executar a conversão com `--source ID`. Inspecionar os alertas de pouco texto e os layouts mistos: a presença de texto nativo não exclui texto dentro de imagens. Adicionar, quando necessário, `conversion_config` seguindo os exemplos e vinculando o arquivo ao SHA-256 do PDF.
 5. Conferir páginas com OCR, tabelas, unidades, referências e colunas. Registrar perdas por página; manter ajustes literais reproduzíveis e pendências explícitas. Aprovação científica e análise de uso/licença são decisões separadas da extração.
