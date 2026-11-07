@@ -5,8 +5,6 @@ title: Barreiras percebidas para o consumo de frutas e de verduras ou legumes em
 source: https://www.scielo.br/j/csc/a/LSm9mRVdJnBCpF7zvPXxsSP/?lang=pt
 license: CC-BY-4.0
 source_sha256: 4eaea7e2ed37a8d6e78fe0c6d1ce5842ff3b5e290d229f11944a69eff101b7e5
-review_status: pendente
-approval_status: pendente
 ---
 
 # Barreiras percebidas para o consumo de frutas e de verduras ou legumes em adultos brasileiros

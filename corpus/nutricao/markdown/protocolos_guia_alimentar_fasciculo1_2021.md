@@ -6,8 +6,6 @@ title: 'Fascículo 1: Protocolos de uso do Guia Alimentar para a população bra
 source: https://bvsms.saude.gov.br/bvs/publicacoes/protocolos_guia_alimentar_fasciculo1.pdf
 license: CC-BY-NC-SA-4.0
 source_sha256: 627765d1bd2ba2b66c415a12c6f733a6974961b4ab38757fb1d8ed4f83a2e033
-review_status: pendente
-approval_status: pendente
 ---
 
 # Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta

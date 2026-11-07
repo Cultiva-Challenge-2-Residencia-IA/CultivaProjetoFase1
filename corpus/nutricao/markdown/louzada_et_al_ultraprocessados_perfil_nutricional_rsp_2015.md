@@ -4,8 +4,6 @@ title: Alimentos ultraprocessados e perfil nutricional da dieta no Brasil
 source: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt
 license: CC-BY-NC-3.0
 source_sha256: 9c08e961e93a5f98b5bd53584f2cd7f6c93761b8fbf8f7030245f3e1efdbc733
-review_status: pendente
-approval_status: pendente
 ---
 
 # Alimentos ultraprocessados e perfil nutricional da dieta no Brasil

@@ -5,8 +5,6 @@ title: Ansiedade, qualidade do sono e compulsão alimentar em adultos com sobrep
 source: https://www.scielo.br/j/reeusp/a/VbCfRCz8XWkBF7bTnXhS44G/?lang=pt
 license: CC-BY-4.0
 source_sha256: 58d3ad221f8672394df831f051a03f694e38d7bd627bdb9c1c212084e202a60e
-review_status: pendente
-approval_status: pendente
 ---
 
 # Ansiedade, qualidade do sono e compulsão alimentar em adultos com sobrepeso ou obesidade

@@ -1,12 +1,14 @@
 # Parágrafos descartados na preparação para o RAG (expressões regulares, por fonte).
 # Remove só metadados editoriais (autores, afiliações, resumo em inglês); nunca conteúdo científico.
 martins-ultraprocessados-rsp-2013:
+  skip_pages: [5, 6, 7]
   drop_paragraphs:
     - '^Ana Paula Bortoletto Martins'
     - '^Increased contribution of ultra-processed'
     - '^-?\s*(I|II|III)\s+(Núcleo|Departamento)'
     - '^Correspondência \| Correspondence'
 souza-backes-universitarios-csc-2020:
+  skip_pages: [4, 7, 8]
   drop_paragraphs:
     - '^Self-perception of food consumption'
     - 'orcid\.org'

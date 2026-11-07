@@ -5,8 +5,6 @@ title: 'Ingestão dietética e fatores associados ao consumo alimentar de univer
 source: https://periodicos.sbu.unicamp.br/ojs/index.php/san/article/view/8642509
 license: CC-BY-NC-4.0
 source_sha256: d3c60423aa7159c5b4784b3d112064536b5c7d039673bc3867827bce71225638
-review_status: pendente
-approval_status: pendente
 ---
 
 # Ingestão dietética e fatores associados ao consumo alimentar de universitários brasileiros: uma revisão

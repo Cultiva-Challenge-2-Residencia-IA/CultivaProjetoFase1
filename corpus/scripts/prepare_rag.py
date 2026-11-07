@@ -212,7 +212,6 @@ def prepare(source: dict) -> dict:
                 "secao": chunk_section,
                 "texto": text,
                 "licenca": source["license"],
-                "review_status": source["review_status"],
                 "approval_status": source["approval_status"],
             })
 

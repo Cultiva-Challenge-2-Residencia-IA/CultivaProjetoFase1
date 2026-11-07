@@ -4,8 +4,6 @@ title: Participação crescente de produtos ultraprocessados na dieta brasileira
 source: https://www.scielo.br/j/rsp/a/VxDyNppnrq8vv6jQtZfSsRP/?lang=pt
 license: CC-BY-NC-3.0
 source_sha256: e606387251889e4e9364b436689a85838b346b01ce87fe6dba52df474a398c49
-review_status: pendente
-approval_status: pendente
 ---
 
 # Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)

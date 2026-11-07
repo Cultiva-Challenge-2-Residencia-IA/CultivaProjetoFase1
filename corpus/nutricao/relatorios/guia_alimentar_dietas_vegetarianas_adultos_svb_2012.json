@@ -3,9 +3,7 @@
   "source_sha256": "e59b55dbba23400046c8bab693cfe60e73daf218adeecaa09b2baae0f0f32914",
   "pdf_pages": 66,
   "conversion_status": "concluida_com_ressalvas",
-  "review_status": "pendente",
-  "approval_status": "pendente",
-  "script_sha256": "7014d190c7567763f1ad11f9fd7c1d0ec8cf2f404ffac46b6d019c721a2c2100",
+  "script_sha256": "7ed0d384481b8d21382e4ad77c16adf4b16793d7c0cde6dbb9c0f2044ee49262",
   "config_sha256": "fe47d75e408114ca531da75e9e09c20e1e5b6013fc615e5c257c76542938cdfd",
   "versions": {
     "PyMuPDF": "2.1",
@@ -866,7 +864,7 @@
       "markdown_characters": 52
     }
   ],
-  "markdown_sha256": "580a99b7fe6bcfe45119d00551760f11cf575eafbd5777e76e69fe54c6a55af3",
+  "markdown_sha256": "54b28fa9b1ba323c3a3becf087f7ce5d04c8bbcecc88b596568ed3d5cf09ebfc",
   "summary": {
     "pages_converted": 66,
     "sparse_pages": [

@@ -22,7 +22,6 @@ sources:
     sha256: c9abefded671cafe914193c04f808df25dfaa315e5e744e477163fe24407f139
     pdf_pages: 158
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
   - id: protocolos-guia-alimentar-fasciculo1-2021
@@ -47,7 +46,6 @@ sources:
     sha256: 627765d1bd2ba2b66c415a12c6f733a6974961b4ab38757fb1d8ed4f83a2e033
     pdf_pages: 28
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
   - id: martins-ultraprocessados-rsp-2013
@@ -80,9 +78,9 @@ sources:
     pdf_pages: 10
     selection_note: Artigo da família NOVA com Monteiro como último autor; descreve os grupos por extensão e propósito do processamento e a tendência de ultraprocessados no Brasil. Não é o artigo original da classificação (Monteiro et al., 2010, Cadernos de Saúde Pública).
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: compativel_uso_nao_comercial
+    data_quality_note: "Páginas 5 a 7: tabelas 1 a 3 com cabeçalhos, sobrescritos e colunas degradados na extração (revisão do issue #8). Excluídas dos Trechos (skip_pages em scripts/config/rag.yaml). Consultar os valores no PDF original."
   - id: souza-backes-universitarios-csc-2020
     title: Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimentação Saudável entre universitários de Porto Alegre, Brasil
     authors:
@@ -110,9 +108,9 @@ sources:
     pdf_pages: 10
     selection_note: Estudo com universitários (Porto Alegre) sobre autopercepção alimentar e adesão aos Dez Passos do Guia Alimentar. Substitui a revisão Perez et al. 2021, que não foi localizada no Crossref nem no índice da edição.
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: compativel_cc_by
+    data_quality_note: "Páginas 4, 7 e 8: Quadro 1 e Tabela 4 achatados na extração e página 8 com cobertura lexical de 77,7% (revisão do issue #8). Excluídas dos Trechos (skip_pages em scripts/config/rag.yaml). Consultar o PDF original."
   - id: guia-dietas-vegetarianas-svb-2012
     title: Guia alimentar de dietas vegetarianas para adultos
     institutions:
@@ -140,7 +138,6 @@ sources:
     sha256: e59b55dbba23400046c8bab693cfe60e73daf218adeecaa09b2baae0f0f32914
     pdf_pages: 66
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     identity_note: Créditos identificam SVB e Eric Slywitch; não identificam autoria conjunta com SBAN. Posicionamento
@@ -175,7 +172,6 @@ sources:
     sha256: 86dc9ecd4bf70e7a975d2b085922dcf972d0dbf0af7f40fcc29efe52bb85d25a
     pdf_pages: 4
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: Contribui para contextualizar o consumo de suplementos, a autoindicação e a necessidade de orientação
@@ -211,7 +207,6 @@ sources:
     sha256: ca1c6d6d00dd20b8e3e22c767a287e9e7d6d843e8525b9805342dd0c28eb3ccd
     pdf_pages: 7
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     purpose_note: Contextualiza dúvidas sobre jejum intermitente com revisão da literatura sobre metabolismo, lipídios, glicose e inflamação.
@@ -243,7 +238,6 @@ sources:
     sha256: a61141b82a239756c27be9708139d3cc4389d0b3aa0ad1b0fa5765e16087b401
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_cc_by
     purpose_note: Traz o perfil de jovens universitários (idade média de 24 anos) que estudam e trabalham, com qualidade do sono, qualidade de vida e hábitos alimentares, o que contextualiza o público-alvo do CULTIVA.
@@ -272,7 +266,6 @@ sources:
     sha256: 788f285836b6e16d69449e8ee2059cfc9a1f29f2893421cbc7a2bc58ca64546f
     pdf_pages: 16
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     sponsorship_note: Os rótulos de página do PDF trazem o nome de arquivo "45912-002_AF_Nestle_Folheto_Aguas_MaterialCientifico", o que sugere material produzido para a Nestlé. Patrocínio e conflito de interesse não foram esclarecidos; avaliar antes de aprovar a fonte (RN16).
@@ -303,7 +296,6 @@ sources:
     sha256: 184cf18f38d55369f40eb6960191b750f6a02a0e2b61adc5fe007363796c81e6
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     scope_note: Estudo transversal com 209 adultos; sintomas emocionais explicam parte da variação da alimentação emocional. Não demonstra causalidade e não autoriza orientar tratamento psicológico (RN01 a RN03).
@@ -332,7 +324,6 @@ sources:
     sha256: 2ae0ecb1a590aba3999442083a63b7e7d7b3804856cc2d07ff215aecd5efdaad
     pdf_pages: 260
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     scope_note: Documento destinado a profissionais de saúde, com condutas dietéticas e prescrição nutricional. Preservar o conteúdo não autoriza o aplicativo a prescrever dietas ou metas calóricas (RN01).
@@ -361,7 +352,6 @@ sources:
     sha256: 62c7e8d81f47c013e2d5a2ccbd7585a809d83e3fc41a6ad537f36e609dff40c9
     pdf_pages: 10
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: "Consenso brasileiro de nutrição esportiva: reposição hídrica, suplementos e ação ergogênica. Apoia o cruzamento entre as abas de Nutrição e Saúde Física."
@@ -393,7 +383,6 @@ sources:
     sha256: 81b1b1c273af68bf9522c24e6a2968942174c391c0b88bb4050f8e4b0a99b5d7
     pdf_pages: 9
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: "Aproxima psicologia e nutrição na mudança do comportamento alimentar. Substitui o artigo \"Comportamento alimentar e suas interfaces com a saúde e o estresse\", que não foi localizado no SciELO com esse título."
@@ -427,7 +416,6 @@ sources:
     sha256: 4eaea7e2ed37a8d6e78fe0c6d1ce5842ff3b5e290d229f11944a69eff101b7e5
     pdf_pages: 10
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_cc_by
     purpose_note: "Traz as barreiras percebidas (como falta de tempo e preparo) ao consumo de frutas e verduras, apoiando sugestões simples e viáveis. Substitui o título \"Barreiras para o consumo de frutas e hortaliças no Brasil\" (RSP), que não foi localizado."
@@ -460,7 +448,6 @@ sources:
     sha256: 66b6884d3b6d1ebc651a8c0dd67e2f1afc01cfac708cc7388f3e0f8c2b1dc376
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: Fatores associados ao consumo de frutas e hortaliças com dados do Vigitel 2006. Complementa a fonte sobre barreiras.
@@ -494,7 +481,6 @@ sources:
     sha256: f468c52386c34f8b6cac0db15748c45cb07e84bd5885a6372353b55fa007c1f5
     pdf_pages: 11
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: "Artigo original da classificação NOVA, para explicar a diferença entre alimentos in natura, processados e ultraprocessados com base científica."
@@ -531,7 +517,6 @@ sources:
     sha256: 9c08e961e93a5f98b5bd53584f2cd7f6c93761b8fbf8f7030245f3e1efdbc733
     pdf_pages: 11
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: Mostra o perfil nutricional da dieta brasileira segundo o grau de processamento (POF 2008-2009).
@@ -568,7 +553,6 @@ sources:
     sha256: 95d0a7cc7c42765caa81713b93430f1b95a37578e215ffba3f73787718f5fe9e
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: Mostra como o teor de micronutrientes cai conforme aumenta a participação de ultraprocessados na dieta.
@@ -597,7 +581,6 @@ sources:
     sha256: d3c60423aa7159c5b4784b3d112064536b5c7d039673bc3867827bce71225638
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: "Revisão dos fatores associados ao consumo alimentar de universitários brasileiros (renda, dupla jornada, curso, local de moradia). Substitui o artigo \"Fatores associados ao consumo alimentar de jovens adultos e universitários\", que não foi localizado."
@@ -622,7 +605,6 @@ sources:
     sha256: d1b0f88f41cb181b4ec8778408c5fcbc59f5b819e346a554ca99225a557aab70
     pdf_pages: 19
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     purpose_note: "Define os limites legais de diagnóstico e prescrição dietética, base do guardrail do produto (RN01 a RN03)."
@@ -664,7 +646,6 @@ sources:
     sha256: 6e22a611b963ed42af2e52e36dfceb4f6a947c3bfd8c705f0a6162c533d2239a
     pdf_pages: 9
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_uso_nao_comercial
     purpose_note: "Revisão sobre como a redução do tempo de sono se associa à obesidade e a alterações do apetite e do metabolismo. Substitui o artigo \"O impacto da privação de sono e fadiga no comportamento alimentar\" (Revista de Nutrição), que não foi localizado."
@@ -699,7 +680,6 @@ sources:
     sha256: 58d3ad221f8672394df831f051a03f694e38d7bd627bdb9c1c212084e202a60e
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
-    review_status: pendente
     approval_status: pendente
     intended_use_license_review: compativel_cc_by
     purpose_note: "Relaciona ansiedade, qualidade do sono e compulsão alimentar em adultos, apoiando a conexão entre sono, estresse e escolhas alimentares."
@@ -709,4 +689,4 @@ sources:
 #   compativel_cc_by: licença CC BY, que permite o uso com atribuição.
 #   compativel_uso_nao_comercial: licença ou permissão não comercial; compatível enquanto o projeto não tiver fins comerciais.
 #   risco_aceito_uso_academico_sem_fins_lucrativos: licença ausente, ambígua ou em conflito; o risco foi aceito para o uso acadêmico.
-# Nenhum valor aprova a fonte: review_status e approval_status seguem pendentes.
+# Nenhum valor aprova a fonte: o approval_status segue pendente, exceto em Martins et al. e Souza e Backes (revisão do issue #8).

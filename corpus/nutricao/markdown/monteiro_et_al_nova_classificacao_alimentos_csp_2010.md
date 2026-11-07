@@ -5,8 +5,6 @@ title: Uma nova classificação de alimentos baseada na extensão e propósito d
 source: https://www.scielo.br/j/csp/a/fQWy8tBbJkMFhGq6gPzsGkb/?lang=pt
 license: CC-BY-NC-4.0
 source_sha256: f468c52386c34f8b6cac0db15748c45cb07e84bd5885a6372353b55fa007c1f5
-review_status: pendente
-approval_status: pendente
 ---
 
 # Uma nova classificação de alimentos baseada na extensão e propósito do seu processamento
