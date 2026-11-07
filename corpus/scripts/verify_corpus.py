@@ -44,9 +44,6 @@ def verify() -> None:
         for number in pages:
             if f".pdf#page={number})" not in text:
                 raise ValueError(f"Link ao PDF ausente na página {number}.")
-        for key in ["review_status", "approval_status"]:
-            if report.get(key) != source.get(key):
-                raise ValueError(f"Status divergente entre manifesto e relatório: {key}")
         print(f"OK {source['id']}: {count} páginas; SHA-256, marcadores e links ao PDF conferidos; sem imagens exportadas.")
     print("Esta verificação estrutural não substitui revisão de fidelidade ou aprovação das fontes.")
 

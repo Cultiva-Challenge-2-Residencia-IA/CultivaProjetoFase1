@@ -5,8 +5,6 @@ title: 'Modificações dietéticas, reposição hídrica, suplementos alimentare
 source: https://www.scielo.br/j/rbme/a/4Y4gRJxwpZjVT4PsXRxtH9k/?lang=pt
 license: CC-BY-NC-4.0
 source_sha256: 62c7e8d81f47c013e2d5a2ccbd7585a809d83e3fc41a6ad537f36e609dff40c9
-review_status: pendente
-approval_status: pendente
 ---
 
 # Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde

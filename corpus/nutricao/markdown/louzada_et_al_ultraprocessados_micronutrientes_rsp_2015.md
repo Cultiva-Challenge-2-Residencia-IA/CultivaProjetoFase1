@@ -5,8 +5,6 @@ title: Impacto de alimentos ultraprocessados sobre o teor de micronutrientes da 
 source: https://www.scielo.br/j/rsp/a/ffxtXJygXWTrgxwyHgvqFKz/?lang=pt
 license: CC-BY-NC-3.0
 source_sha256: 95d0a7cc7c42765caa81713b93430f1b95a37578e215ffba3f73787718f5fe9e
-review_status: pendente
-approval_status: pendente
 ---
 
 # Impacto de alimentos ultraprocessados sobre o teor de micronutrientes da dieta no Brasil

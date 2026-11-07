@@ -4,8 +4,6 @@ title: Depressão, ansiedade e estresse e o comportamento alimentar
 source: http://www.rbtc.org.br/detalhe_artigo.asp?id=354
 license: pendente
 source_sha256: 184cf18f38d55369f40eb6960191b750f6a02a0e2b61adc5fe007363796c81e6
-review_status: pendente
-approval_status: pendente
 ---
 
 # Depressão, ansiedade e estresse e o comportamento alimentar

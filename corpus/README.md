@@ -1,6 +1,6 @@
 # Corpus científico de Nutrição
 
-Esta etapa obtém os PDFs oficiais e produz transcrições em Markdown, com marcadores e links a todas as páginas dos originais. Documentos sem decisão registrada permanecem com revisão e aprovação pendentes; conversão e conferência amostral não tornam uma fonte elegível para responder aos usuários.
+Esta etapa obtém os PDFs oficiais e produz transcrições em Markdown, com marcadores e links a todas as páginas dos originais. Documentos sem decisão registrada permanecem com aprovação pendente; conversão e conferência amostral não tornam uma fonte elegível para responder aos usuários.
 
 O corpus científico é separado dos dados pessoais. Não colocar aqui perfis, registros de hábitos/saúde, conversas, fotos, áudios ou PDFs pessoais enviados por usuários do aplicativo. A inclusão bibliográfica solicitada nesta tarefa não incorpora registros pessoais ao corpus.
 
@@ -136,9 +136,22 @@ Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licen
 - **Retirar o arquivo e os derivados do repositório sem discussão** se o titular dos direitos pedir. Quem receber o pedido deve registrá-lo aqui.
 - Não usar o corpus, o Markdown nem os Trechos fora deste projeto, nem em produto comercial.
 - Os derivados do Guia e do Fascículo (CC BY-NC-SA 4.0) permanecem sob a mesma licença.
-- O aceite de risco não aprova nenhuma fonte por si só: `review_status` e `approval_status` seguem pendentes, exceto Martins et al. e Souza e Backes, cuja revisão e aprovação para o escopo acadêmico interno estão em `nutricao/relatorios/revisao-issue-8.md`. A aprovação científica das demais continua sendo outra decisão.
+- O aceite de risco não aprova nenhuma fonte por si só: o `approval_status` segue `pendente`, exceto em Martins et al. e Souza e Backes, cuja aprovação para o escopo acadêmico interno está em `nutricao/relatorios/revisao-issue-8.md`. A aprovação das demais é outra decisão (veja "Aprovação das fontes").
 
 **Quando reavaliar.** Antes de qualquer cobrança ou monetização, de ativar a vitrine paga de profissionais (RN12), de abrir o aplicativo a usuários externos em produção ou de publicar o corpus. Também se algum titular se manifestar. Alternativas já identificadas: a ABESO tem versão em inglês sob CC BY 4.0 (DOI 10.1186/s13098-023-01037-6), e é possível pedir autorização de reprodução à ABESO, à SBAN e à revista do Brisotto.
+
+## Aprovação das fontes
+
+Decisões de 06/11/2026.
+
+- **Status único.** A elegibilidade de uma fonte é o `approval_status` do manifesto, com `pendente` ou `aprovado`. O `review_status` foi abolido: não aparece mais no manifesto, nos Markdown, nos relatórios nem nos Trechos. O `conversion_status` continua descrevendo a conversão.
+- **O que `aprovado` significa.** A fonte foi conferida e pode alimentar o RAG. Não é aprovação jurídica nem científica ampla. A **licença não entra no gate**: fica em `intended_use_license_review` e vale o aceite de risco da seção anterior.
+- **Quem aprova.** Qualquer pessoa do projeto.
+- **Como.** Todas as fontes de uma vez, em um PR de aprovação do corpus depois de uma revisão geral. Exceção registrada: Martins et al. e Souza e Backes foram aprovadas antes, no PR #25 (issue #8).
+- **Critério mínimo.** Checklist curta (origem verificável, documento vigente, sem conflito de interesse evidente e escopo adequado) e conferência de uma amostra de páginas contra o PDF, incluindo as de tabela.
+- **Páginas inconfiáveis.** As que a revisão apontar como inconfiáveis saem dos Trechos com `skip_pages` em `scripts/config/rag.yaml`, e a ressalva vai em `data_quality_note` no manifesto.
+- **Regeneração.** O `convert_pdfs.py` recusa fonte aprovada. Para regenerar uma, volte o `approval_status` para `pendente` e reaprove depois.
+- **Registro.** A revisão fica em `nutricao/relatorios/` (por exemplo, `revisao-issue-8.md`). O `verify_corpus.py` confere hashes e marcadores, não o status.
 
 ## Organização
 
@@ -252,7 +265,7 @@ corpus/.venv/bin/python corpus/scripts/prepare_rag.py                       # to
 corpus/.venv/bin/python corpus/scripts/prepare_rag.py --source <id-da-fonte> # uma fonte
 ```
 
-Campos: `id`, `fonte_id`, `titulo_fonte`, `pagina_pdf`, `secao`, `texto`, `licenca`, `review_status`, `approval_status`. O `pagina_pdf` é a posição física no PDF, a mesma dos marcadores e dos links do Markdown, para a citação apontar a página.
+Campos: `id`, `fonte_id`, `titulo_fonte`, `pagina_pdf`, `secao`, `texto`, `licenca`, `approval_status`. O `pagina_pdf` é a posição física no PDF, a mesma dos marcadores e dos links do Markdown, para a citação apontar a página.
 
 O que o script faz:
 
@@ -273,7 +286,7 @@ Limitações:
 ## Como incluir outro documento
 
 1. Obter o PDF de origem verificável; manter seus bytes em `nutricao/originais/`, com nome que identifique a edição. Conferir a licença no próprio documento e registrar a página da evidência; usar `pendente` quando desconhecida.
-2. Adicionar uma entrada em `manifest.yaml`, reaproveitando os campos existentes. Informar `id`, `title`, `institutions`, `year`, `edition`, `version`, `source`, `license`, `original_path`, `markdown_path` e `report_path`; registrar `sha256` e `pdf_pages` após inspeção. Usar `review_status: pendente` e `approval_status: pendente`. Não copiar a licença das fontes atuais por suposição.
+2. Adicionar uma entrada em `manifest.yaml`, reaproveitando os campos existentes. Informar `id`, `title`, `institutions`, `year`, `edition`, `version`, `source`, `license`, `original_path`, `markdown_path` e `report_path`; registrar `sha256` e `pdf_pages` após inspeção. Usar `approval_status: pendente`. Não copiar a licença das fontes atuais por suposição.
 3. Se o arquivo estiver ausente e houver autorização de obtenção, preencher `download_url` para usar `--download`. A assinatura PDF impede aceitar uma página HTML de login como documento.
 4. Executar a conversão com `--source ID`. Inspecionar os alertas de pouco texto e os layouts mistos: a presença de texto nativo não exclui texto dentro de imagens. Adicionar, quando necessário, `conversion_config` seguindo os exemplos e vinculando o arquivo ao SHA-256 do PDF.
 5. Conferir páginas com OCR, tabelas, unidades, referências e colunas. Registrar perdas por página; manter ajustes literais reproduzíveis e pendências explícitas. Aprovação científica e análise de uso/licença são decisões separadas da extração.

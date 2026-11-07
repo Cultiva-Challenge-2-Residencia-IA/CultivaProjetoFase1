@@ -4,8 +4,6 @@ title: Effects of intermittent fasting on metabolism in men
 source: https://www.scielo.br/j/ramb/a/t4WdR3Hf36jwhLdtywQ77vf/?lang=en
 license: CC-BY-NC-4.0
 source_sha256: ca1c6d6d00dd20b8e3e22c767a287e9e7d6d843e8525b9805342dd0c28eb3ccd
-review_status: pendente
-approval_status: pendente
 ---
 
 # Effects of intermittent fasting on metabolism in men

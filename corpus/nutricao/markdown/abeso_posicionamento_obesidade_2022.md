@@ -5,8 +5,6 @@ source: 'pendente: origem pública não identificada; PDF recebido da equipe (br
   feat/nutricao-rag-mvp)'
 license: pendente
 source_sha256: 2ae0ecb1a590aba3999442083a63b7e7d7b3804856cc2d07ff215aecd5efdaad
-review_status: pendente
-approval_status: pendente
 ---
 
 # Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade

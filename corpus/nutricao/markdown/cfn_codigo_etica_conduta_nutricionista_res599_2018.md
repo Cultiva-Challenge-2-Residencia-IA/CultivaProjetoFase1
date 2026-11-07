@@ -4,8 +4,6 @@ title: Código de Ética e de Conduta do Nutricionista (Resolução CFN nº 599/
 source: http://www.cfn.org.br/wp-content/uploads/2018/04/codigo-de-etica.pdf
 license: pendente
 source_sha256: d1b0f88f41cb181b4ec8778408c5fcbc59f5b819e346a554ca99225a557aab70
-review_status: pendente
-approval_status: pendente
 ---
 
 # Código de Ética e de Conduta do Nutricionista (Resolução CFN nº 599/2018)

@@ -4,8 +4,6 @@ title: Contribuições da psicologia e da nutrição para a mudança do comporta
 source: https://www.scielo.br/j/epsic/a/rTfZMqP9HwXxBhjdFkwBmBC/?lang=pt
 license: CC-BY-NC-4.0
 source_sha256: 81b1b1c273af68bf9522c24e6a2968942174c391c0b88bb4050f8e4b0a99b5d7
-review_status: pendente
-approval_status: pendente
 ---
 
 # Contribuições da psicologia e da nutrição para a mudança do comportamento alimentar

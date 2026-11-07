@@ -5,8 +5,6 @@ source: 'pendente: origem pública não identificada; PDF recebido da equipe (br
   feat/nutricao-rag-mvp)'
 license: pendente
 source_sha256: 788f285836b6e16d69449e8ee2059cfc9a1f29f2893421cbc7a2bc58ca64546f
-review_status: pendente
-approval_status: pendente
 ---
 
 # Água, Hidratação e Saúde

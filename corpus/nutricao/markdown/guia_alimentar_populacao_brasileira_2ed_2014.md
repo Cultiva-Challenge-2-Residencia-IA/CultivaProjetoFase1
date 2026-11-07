@@ -4,8 +4,6 @@ title: Guia alimentar para a população brasileira
 source: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf
 license: CC-BY-NC-SA-4.0
 source_sha256: c9abefded671cafe914193c04f808df25dfaa315e5e744e477163fe24407f139
-review_status: pendente
-approval_status: pendente
 ---
 
 # Guia alimentar para a população brasileira

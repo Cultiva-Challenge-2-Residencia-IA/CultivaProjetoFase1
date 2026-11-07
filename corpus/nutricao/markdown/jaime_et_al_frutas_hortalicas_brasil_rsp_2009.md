@@ -4,8 +4,6 @@ title: Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006
 source: https://www.scielo.br/j/rsp/a/nSLrmKkbfjXMF4XbhgGcqcx/?lang=pt
 license: CC-BY-NC-4.0
 source_sha256: 66b6884d3b6d1ebc651a8c0dd67e2f1afc01cfac708cc7388f3e0f8c2b1dc376
-review_status: pendente
-approval_status: pendente
 ---
 
 # Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006

@@ -4,8 +4,6 @@ title: 'Relação entre sono e obesidade: uma revisão da literatura'
 source: https://www.scielo.br/j/abem/a/GQ8CpsS5gdGW5yzrRTHz8Yt/?lang=pt
 license: CC-BY-NC-4.0
 source_sha256: 6e22a611b963ed42af2e52e36dfceb4f6a947c3bfd8c705f0a6162c533d2239a
-review_status: pendente
-approval_status: pendente
 ---
 
 # Relação entre sono e obesidade: uma revisão da literatura

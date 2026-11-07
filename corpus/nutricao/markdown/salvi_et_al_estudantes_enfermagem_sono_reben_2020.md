@@ -5,8 +5,6 @@ title: 'Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e h
 source: https://www.scielo.br/j/reben/a/SKHWrVrjcT9ppdYJ5tHT5pL/?lang=pt
 license: CC-BY-4.0
 source_sha256: a61141b82a239756c27be9708139d3cc4389d0b3aa0ad1b0fa5765e16087b401
-review_status: pendente
-approval_status: pendente
 ---
 
 # Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares
