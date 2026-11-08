@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline
+from src.rag.corpus_loader import inventario_de_fontes
 from src.config import TOP_K_FINAL
 from src.models.schemas import ConsultantResponse
 
@@ -44,7 +45,7 @@ def health_check() -> dict:
         if consultant.retriever.vector_store is not None
         else {}
     )
-    sources_inventory = consultant.chunker.get_curated_sources_inventory(consultant.chunks)
+    sources_inventory = inventario_de_fontes(consultant.chunks)
     return {
         "status": "ok",
         "phase": "PHASE_2_HYBRID_RAG_CHROMADB_PLUS_4LAYER_GRAPH_AND_TACO",

@@ -296,6 +296,9 @@ def main() -> int:
         if manifest.get("version") != 1 or not isinstance(manifest.get("sources"), list):
             raise ValueError("Manifesto precisa ter version: 1 e sources como lista.")
         sources = [s for s in manifest["sources"] if not args.source or s["id"] == args.source]
+        if args.source and sources and sources[0].get("kind", "pdf") != "pdf":
+            raise ValueError("Fonte sem PDF: os Trechos dela são gerados pelo prepare_rag.py.")
+        sources = [s for s in sources if s.get("kind", "pdf") == "pdf"]
         if not sources:
             raise ValueError("Nenhuma fonte selecionada.")
         if len({s["id"] for s in sources}) != len(sources):

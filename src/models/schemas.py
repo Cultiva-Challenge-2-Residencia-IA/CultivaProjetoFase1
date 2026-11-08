@@ -36,6 +36,23 @@ class DocumentChunk(BaseModel):
     approval_status: Optional[str] = None
 
 
+class CuratedSourceRecord(BaseModel):
+    """Uma fonte da base curada, para o inventário da entrega (uma linha por fonte do manifesto)."""
+
+    fonte_id: str
+    kind: str
+    tipo_fonte: str
+    title: str
+    source_organization: str
+    publication_year: int
+    evidence_level: str
+    fonte_url: Optional[str] = None
+    doi: Optional[str] = None
+    licenca: str
+    approval_status: str
+    chunks_count: int = 0
+
+
 class RetrievedChunk(BaseModel):
     chunk: DocumentChunk
     bm25_rank: Optional[int] = None

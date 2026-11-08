@@ -1,3 +1,4 @@
+import hashlib
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -6,6 +7,7 @@ import numpy as np
 from sklearn.preprocessing import normalize
 
 from src.config import (
+    PROJECT_ROOT,
     EMBEDDING_DIMENSION,
     EMBEDDING_MODEL_NAME,
     VECTOR_COLLECTION_NAME,
@@ -15,6 +17,23 @@ from src.models.schemas import DocumentChunk
 from src.retrieval.hybrid_retriever import expand_clinical_synonyms
 
 _FASTEMBED_MODEL_CACHE: Dict[str, Any] = {}
+
+
+def _caminho_relativo(caminho: Path) -> str:
+    """Caminho relativo à raiz do projeto, para não gravar o caminho da máquina em artefatos."""
+    try:
+        return str(Path(caminho).resolve().relative_to(PROJECT_ROOT))
+    except ValueError:
+        return str(caminho)
+
+
+def impressao_digital(chunks: List[DocumentChunk], modelo: str) -> str:
+    """Hash do modelo e do conteúdo indexado. Muda quando o corpus ou o modelo mudam."""
+    h = hashlib.sha256(modelo.encode())
+    for c in chunks:
+        h.update(c.chunk_id.encode())
+        h.update(c.contextualized_text.encode())
+    return h.hexdigest()
 
 
 def _get_fastembed_model(model_name: str) -> Any:
@@ -76,7 +95,10 @@ class NutritionVectorStore:
             c.chunk_id: idx for idx, c in enumerate(chunks)
         }
         self.persist_directory = persist_directory
-        self.collection_name = collection_name
+        # A coleção leva a impressão digital do conteúdo: um corpus ou modelo diferente gera
+        # outra coleção, em vez de reaproveitar vetores de uma versão anterior.
+        self.fingerprint = impressao_digital(chunks, embedding_model_name)
+        self.collection_name = f"{collection_name}_{self.fingerprint[:12]}"
         self.embedding_model_name = embedding_model_name
         self.use_persistent = use_persistent and (persist_directory is not None)
 
@@ -133,17 +155,18 @@ class NutritionVectorStore:
                 {
                     "chunk_id": c.chunk_id,
                     "doc_id": c.doc_id,
-                    "source_id": c.source_id or c.doc_id,
+                    "fonte_id": c.doc_id,
                     "title": c.title,
                     "source_organization": c.source_organization,
                     "publication_year": int(c.publication_year),
                     "clinical_domain": c.clinical_domain,
                     "evidence_level": c.evidence_level,
                     "section_path": c.section_path,
-                    "source_url": c.source_url or "",
-                    "license": c.license or "pendente",
-                    "review_status": c.review_status or "pendente",
-                    "page_number": int(c.page_number) if c.page_number is not None else -1,
+                    "fonte_url": c.fonte_url or "",
+                    "doi": c.doi or "",
+                    "licenca": c.licenca or "pendente",
+                    "approval_status": c.approval_status or "pendente",
+                    "pagina_pdf": int(c.pagina_pdf) if c.pagina_pdf is not None else -1,
                 }
                 for c in batch_chunks
             ]
@@ -197,13 +220,14 @@ class NutritionVectorStore:
 
     def get_stats(self) -> Dict[str, Any]:
         """Retorna estatísticas auditáveis do Banco Vetorial persistido."""
-        unique_sources = {c.source_id or c.doc_id for c in self.chunks}
+        unique_sources = {c.doc_id for c in self.chunks}
         unique_docs = {c.doc_id for c in self.chunks}
         return {
             "vector_db_engine": "ChromaDB (HNSW Cosine Index + SQLite Metadata Store)",
             "persistent": self.use_persistent,
-            "persist_directory": str(self.persist_directory) if self.persist_directory else "in-memory",
+            "persist_directory": _caminho_relativo(self.persist_directory) if self.persist_directory else "in-memory",
             "collection_name": self.collection_name,
+            "content_fingerprint": self.fingerprint,
             "embedding_model": self.embedding_model_name,
             "embedding_dimension": self.embedder.dimension,
             "distance_metric": "cosine (L2-normalized vectors)",

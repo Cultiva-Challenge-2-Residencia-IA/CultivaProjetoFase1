@@ -248,6 +248,58 @@ def prepare(source: dict) -> dict:
     }
 
 
+# Prefixo que o ingest_pubmed_evidence.py põe em cada resumo: "Estudo: <título> (PMID:<n> (...)). "
+RESUMO_PREFIXO = re.compile(r"^Estudo:\s*.+?\(PMID:(\d+).*?\)\)\.\s*", re.S)
+
+
+def prepare_resumos(sources: list[dict]) -> dict:
+    """Trechos dos resumos do PubMed (kind: resumo_pubmed), todos num único JSONL, sem página."""
+    por_pmid = {str(s["pmid"]): s for s in sources}
+    destinos = {s["rag_path"] for s in sources}
+    if len(destinos) != 1:
+        raise ValueError("Os resumos do PubMed devem compartilhar o mesmo rag_path.")
+    textos: dict[str, str] = {}
+    for raw_path in sorted({s["raw_path"] for s in sources}):
+        raw = repo_path(raw_path)
+        esperados = {s["raw_sha256"] for s in sources if s["raw_path"] == raw_path}
+        if hashlib.sha256(raw.read_bytes()).hexdigest() not in esperados:
+            raise ValueError(f"JSON de origem divergente do manifesto: {raw_path}")
+        for documento in json.loads(raw.read_text(encoding="utf-8")):
+            for secao in documento["sections"]:
+                achado = RESUMO_PREFIXO.match(secao["text"])
+                if achado and achado.group(1) in por_pmid and achado.group(1) not in textos:
+                    textos[achado.group(1)] = secao["text"][achado.end():].strip()
+    faltando = sorted(set(por_pmid) - set(textos))
+    if faltando:
+        raise ValueError(f"Resumos não encontrados no JSON de origem: PMID {', '.join(faltando)}")
+
+    records: list[dict] = []
+    for pmid, source in por_pmid.items():
+        if source.get("source_type") not in tipos_de_fonte():
+            raise ValueError(f"source_type ausente ou inválido em {source['id']}: {source.get('source_type')!r}")
+        paragrafos = [("Resumo", clean_inline(textos[pmid]))]
+        for number, (_, text) in enumerate(chunk_page(paragrafos), 1):
+            records.append({
+                "id": f"{source['id']}-resumo-{number:02d}",
+                "fonte_id": source["id"],
+                "titulo_fonte": source["title"],
+                "instituicoes": list(source["institutions"]),
+                "ano": int(source["year"]),
+                "tipo_fonte": source["source_type"],
+                "fonte_url": source["source"],
+                "doi": source.get("doi"),
+                "pagina_pdf": None,
+                "secao": "Resumo",
+                "texto": text,
+                "licenca": source["license"],
+                "approval_status": source["approval_status"],
+            })
+    output = repo_path(destinos.pop())
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records), encoding="utf-8")
+    return {"arquivo": str(output.relative_to(ROOT)), "fontes": len(por_pmid), "trechos": len(records)}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", default="corpus/manifest.yaml")
@@ -259,7 +311,12 @@ def main() -> int:
         if not sources:
             raise ValueError("Nenhuma fonte selecionada.")
         for source in sources:
-            print(f"{source['id']}: {json.dumps(prepare(source), ensure_ascii=False)}")
+            if source.get("kind", "pdf") == "pdf":
+                print(f"{source['id']}: {json.dumps(prepare(source), ensure_ascii=False)}")
+        if any(s.get("kind", "pdf") == "resumo_pubmed" for s in sources):
+            # Os resumos compartilham um único JSONL: regenera todos juntos.
+            resumos = [s for s in manifest["sources"] if s.get("kind", "pdf") == "resumo_pubmed"]
+            print(f"resumos do PubMed: {json.dumps(prepare_resumos(resumos), ensure_ascii=False)}")
         return 0
     except (OSError, ValueError, KeyError) as exc:
         print(f"ERRO: {exc}", file=sys.stderr)

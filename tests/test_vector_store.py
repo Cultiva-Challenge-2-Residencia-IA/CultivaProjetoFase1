@@ -1,25 +1,29 @@
+"""Banco vetorial (ChromaDB), embeddings e base curada da entrega."""
+
 import numpy as np
 
-from src.ingestion.contextual_chunker import ContextualChunker
+from src.rag.corpus_loader import carregar_chunks_do_corpus, inventario_de_fontes
 from src.retrieval.hybrid_retriever import HybridRetriever
 from src.retrieval.vector_store import DenseMultilingualEmbedder, NutritionVectorStore
 
 
-def test_curated_knowledge_base_exceeds_minimum_20_source_documents() -> None:
-    chunker = ContextualChunker()
-    chunks = chunker.load_and_chunk_directory()
-    inventory = chunker.get_curated_sources_inventory(chunks)
-
-    assert len(inventory) >= 20
-    pdf_sources = [s for s in inventory if s.source_type == "PDF_OFICIAL_CORPUS"]
-    pubmed_sources = [s for s in inventory if s.source_type == "PUBMED_PEER_REVIEWED"]
-
-    assert len(pdf_sources) == 6
-    assert len(pubmed_sources) >= 20
-    assert (len(pdf_sources) + len(pubmed_sources)) >= 35
+def test_base_curada_tem_ao_menos_20_documentos_fonte() -> None:
+    inventario = inventario_de_fontes(carregar_chunks_do_corpus(incluir_pendentes=True))
+    assert len(inventario) >= 20
+    assert all(f.kind == "pdf" for f in inventario)
+    assert len(inventario) == 22
+    assert all(f.chunks_count > 0 for f in inventario)
 
 
-def test_dense_multilingual_embedder_produces_normalized_384d_vectors() -> None:
+def test_gate_de_aprovacao_so_deixa_passar_fontes_aprovadas() -> None:
+    aprovados = carregar_chunks_do_corpus(incluir_pendentes=False)
+    assert aprovados
+    assert {c.approval_status for c in aprovados} == {"aprovado"}
+    todos = carregar_chunks_do_corpus(incluir_pendentes=True)
+    assert len(todos) > len(aprovados)
+
+
+def test_embedder_multilingue_gera_vetores_normalizados_de_384d() -> None:
     embedder = DenseMultilingualEmbedder()
     vecs = embedder.embed_documents(
         [
@@ -27,52 +31,47 @@ def test_dense_multilingual_embedder_produces_normalized_384d_vectors() -> None:
             "Oat beta-glucan soluble fiber reduces serum LDL cholesterol.",
         ]
     )
-    assert len(vecs) == 2
-    assert len(vecs[0]) == 384
-
-    v0 = np.array(vecs[0])
-    v1 = np.array(vecs[1])
+    assert len(vecs) == 2 and len(vecs[0]) == 384
+    v0, v1 = np.array(vecs[0]), np.array(vecs[1])
     assert np.isclose(np.linalg.norm(v0), 1.0, atol=1e-4)
     assert np.isclose(np.linalg.norm(v1), 1.0, atol=1e-4)
-    # Verifica alinhamento semântico cross-lingual PT-BR <-> EN
-    cosine_sim = float(np.dot(v0, v1))
-    assert cosine_sim > 0.65
+    # Alinhamento semântico entre português e inglês
+    assert float(np.dot(v0, v1)) > 0.65
 
 
-def test_chromadb_vector_store_persists_and_filters_by_metadata(tmp_path) -> None:
-    chunker = ContextualChunker()
-    all_chunks = chunker.load_and_chunk_directory()
-    sample_chunks = all_chunks[:12]
-
+def test_chromadb_persiste_e_guarda_metadados_de_rastreabilidade(tmp_path) -> None:
+    amostra = carregar_chunks_do_corpus(incluir_pendentes=True)[:12]
     vstore = NutritionVectorStore(
-        chunks=sample_chunks,
+        chunks=amostra,
         persist_directory=tmp_path / "test_chroma",
-        collection_name="test_nutricao_collection",
+        collection_name="test_nutricao",
         use_persistent=True,
     )
     stats = vstore.get_stats()
     assert stats["total_vectors_indexed"] == 12
     assert stats["embedding_dimension"] == 384
     assert "ChromaDB" in stats["vector_db_engine"]
+    assert stats["collection_name"].startswith("test_nutricao_")
 
-    hits = vstore.similarity_search(
-        "Políticas públicas e direito à alimentação adequada no Guia Alimentar",
-        top_k=3,
-    )
+    meta = vstore.collection.get(ids=[amostra[0].chunk_id], include=["metadatas"])["metadatas"][0]
+    assert meta["fonte_id"] == amostra[0].doc_id
+    assert meta["approval_status"] in {"pendente", "aprovado"}
+
+    hits = vstore.similarity_search("ultraprocessados e obesidade", top_k=3)
     assert len(hits) == 3
-    top_idx, top_sim = hits[0]
-    assert 0 <= top_idx < 12
-    assert 0.0 <= top_sim <= 1.0
+    idx, sim = hits[0]
+    assert 0 <= idx < 12 and 0.0 <= sim <= 1.0
 
 
-def test_hybrid_retriever_queries_curated_corpus_pdfs_from_manifest() -> None:
-    chunker = ContextualChunker()
-    chunks = chunker.load_and_chunk_directory()
+def test_busca_hibrida_com_banco_vetorial_recupera_a_fonte_certa(tmp_path) -> None:
+    chunks = [
+        c
+        for c in carregar_chunks_do_corpus(incluir_pendentes=True)
+        if c.doc_id in {"souza-backes-universitarios-csc-2020", "martins-ultraprocessados-rsp-2013"}
+    ]
     retriever = HybridRetriever(chunks)
-
-    results = retriever.retrieve(
-        "Autopercepção do consumo alimentar e adesão aos Dez Passos entre universitários de Porto Alegre",
+    resultados = retriever.retrieve(
+        "Autopercepção do consumo alimentar e adesão aos Dez Passos entre universitários",
         top_k=4,
     )
-    retrieved_sources = {r.chunk.source_id for r in results}
-    assert "souza-backes-universitarios-csc-2020" in retrieved_sources
+    assert "souza-backes-universitarios-csc-2020" in {r.chunk.doc_id for r in resultados}

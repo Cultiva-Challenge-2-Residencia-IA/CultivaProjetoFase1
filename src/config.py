@@ -17,6 +17,15 @@ BENCHMARK_REPORT_PATH = DATA_DIR / "benchmark" / "baseline_report.json"
 CORPUS_MANIFEST_PATH = PROJECT_ROOT / "corpus" / "manifest.yaml"
 CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
 
+# Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
+# "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".
+INCLUDE_PENDING_SOURCES = os.getenv("CULTIVA_INCLUIR_PENDENTES", "false").strip().lower() in (
+    "1",
+    "true",
+    "sim",
+    "yes",
+)
+
 # Configurações do Banco Vetorial Persistente (ChromaDB) e Modelo de Embeddings
 VECTOR_STORE_DIR = DATA_DIR / "vector_store" / "chroma_db"
 VECTOR_COLLECTION_NAME = os.getenv(

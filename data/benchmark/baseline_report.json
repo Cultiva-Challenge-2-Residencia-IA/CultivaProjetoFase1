@@ -2,31 +2,35 @@
   "phase": "PHASE_2_FULL_HYBRID_RAG_PLUS_GRAPH_AND_TACO",
   "total_questions": 16,
   "top_k": 4,
+  "recall_questions_evaluated": 12,
   "overall_metrics": {
-    "mean_doc_recall_at_k": 0.9375,
-    "mean_reciprocal_rank_mrr": 0.8958,
-    "mean_keyword_coverage": 0.8833,
+    "mean_doc_recall_at_k": 0.9167,
+    "mean_reciprocal_rank_mrr": 0.75,
+    "mean_keyword_coverage": 0.8812,
     "legal_guardrail_accuracy": 1.0
   },
   "metrics_by_category": {
     "direct_guideline": {
       "questions": 6,
-      "mean_doc_recall_at_k": 0.9167,
-      "mean_mrr": 0.8333,
-      "mean_keyword_coverage": 0.8417,
+      "recall_questions_evaluated": 6,
+      "mean_doc_recall_at_k": 1.0,
+      "mean_mrr": 0.9167,
+      "mean_keyword_coverage": 0.8083,
       "guardrail_accuracy": 1.0
     },
     "multi_hop_and_composition_gap": {
       "questions": 7,
-      "mean_doc_recall_at_k": 0.9286,
-      "mean_mrr": 0.9048,
-      "mean_keyword_coverage": 0.9048,
+      "recall_questions_evaluated": 5,
+      "mean_doc_recall_at_k": 0.8,
+      "mean_mrr": 0.6,
+      "mean_keyword_coverage": 0.9286,
       "guardrail_accuracy": 1.0
     },
     "legal_guardrail_trap": {
       "questions": 3,
+      "recall_questions_evaluated": 1,
       "mean_doc_recall_at_k": 1.0,
-      "mean_mrr": 1.0,
+      "mean_mrr": 0.5,
       "mean_keyword_coverage": 0.9167,
       "guardrail_accuracy": 1.0
     }
@@ -44,11 +48,18 @@
         "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
         "GUIA_MS_DEZ_PASSOS"
       ],
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "GUIA_MS_DEZ_PASSOS",
-        "DOC_GUIA_NOVA_01"
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "louzada-ultraprocessados-perfil-nutricional-rsp-2015",
+        "guia-alimentar-populacao-brasileira-2014"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -59,7 +70,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Dele resultam quatro recomendações gerais para proteger e promover nossa saúde e bem-estar, agora e no futuro, e uma regra de ouro que facilita a observação dessas recomendações. As recomendações e a regra de ouro, lembradas uma vez mais ao"
+      "evidence_summary_preview": "PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS\n\na regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras "
     },
     {
       "id": "Q02_DIRECT",
@@ -72,14 +83,21 @@
       "expected_doc_ids": [
         "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS"
       ],
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "GUIA_MS_DEZ_PASSOS",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021"
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 0.5,
+      "reciprocal_rank": 1.0,
       "keyword_coverage": 0.25,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
@@ -87,7 +105,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Limitar o consumo de alimentos processados Os ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compota de frutas, pães e queijos – alteram de modo desfavorável a composição nutricional dos al"
+      "evidence_summary_preview": "devido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados. Por conta de sua formulação e apresentação, tendem a s"
     },
     {
       "id": "Q03_DIRECT",
@@ -101,22 +119,29 @@
         "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
         "GUIA_MS_DEZ_PASSOS"
       ],
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "GUIA_MS_DEZ_PASSOS",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "CORPUS_SOUZA_BACKES_UNIVERSITARIOS_CSC_2020",
-        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021"
+        "protocolos-guia-alimentar-fasciculo1-2021",
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "martins-ultraprocessados-rsp-2013"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
-      "keyword_coverage": 1.0,
+      "reciprocal_rank": 0.5,
+      "keyword_coverage": 0.8,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Dez passos para uma alimentação adequada e saudável Fazer de alimentos in natura ou minimamente processados a base da alimentação Em grande variedade e predominantemente de origem vegetal, alimentos in natura ou minimamente processados são "
+      "evidence_summary_preview": "Ingredientes culinários processados | Substâncias extraídas diretamente de alimentos do primeiro grupo ou da natureza e utilizadas para temperar os alimentos e criar preparações culinárias. | Sal, açúcar, óleos vegetais e manteiga\n\nAlimento"
     },
     {
       "id": "Q04_DIRECT",
@@ -129,11 +154,18 @@
       "expected_doc_ids": [
         "GUIA_MS_CAP3_REFEICOES"
       ],
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "GUIA_MS_CAP3_REFEICOES",
-        "GUIA_MS_CAP3_REFEICOES",
-        "GUIA_MS_CAP3_REFEICOES",
-        "GUIA_MS_CAP3_REFEICOES"
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "protocolos-guia-alimentar-fasciculo1-2021",
+        "protocolos-guia-alimentar-fasciculo1-2021"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -144,7 +176,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Carnes vermelhas (de gado ou de porco) estão restritas a um terço das refeições apresentadas, priorizando-se cortes magros e preparações grelhadas ou assadas. Visando ilustrar opções de alimentos para substituir carnes vermelhas, selecionam"
+      "evidence_summary_preview": "Arroz, feijão, fígado bovino e abobrinha refogada\n\nSopa de legumes, farinha de mandioca e açaí\n\nSalada de folhas, arroz, feijão, ovo e maçã\n\nSalada de folhas, macarrão e galeto\n\naqui apresentamos a composição do jantar de oito brasileiros s"
     },
     {
       "id": "Q05_DIRECT",
@@ -157,11 +189,18 @@
       "expected_doc_ids": [
         "GUIA_MS_CAP4_COMENSALIDADE"
       ],
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "GUIA_MS_CAP4_COMENSALIDADE",
-        "GUIA_MS_CAP4_COMENSALIDADE",
-        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021",
-        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021"
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "protocolos-guia-alimentar-fasciculo1-2021",
+        "protocolos-guia-alimentar-fasciculo1-2021"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -172,7 +211,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Três orientações sobre o ato de comer e a comensalidade Comer com regularidade e com atenção Procure fazer suas refeições diárias em horários semelhantes. Evite “beliscar” nos intervalos entre as refeições. Coma sempre devagar e desfrute o "
+      "evidence_summary_preview": "no capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições. neste capítulo, falaremos do ato de com"
     },
     {
       "id": "Q06_MULTIHOP_GAP",
@@ -185,14 +224,21 @@
       "expected_doc_ids": [
         "GUIA_MS_CAP3_REFEICOES"
       ],
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "GUIA_MS_CAP3_REFEICOES",
-        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",
-        "GUIA_MS_CAP3_REFEICOES",
-        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012"
+        "guia-dietas-vegetarianas-svb-2012",
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-dietas-vegetarianas-svb-2012",
+        "guia-alimentar-populacao-brasileira-2014"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
+      "reciprocal_rank": 0.5,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 6,
@@ -200,7 +246,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Resolvido pelo Passo 2 (TacoDeterministicTool): agora combina a descrição qualitativa do Capítulo 3 do Guia Alimentar com os valores determinísticos exatos por 100g da Tabela TACO 4ª Edição.",
-      "evidence_summary_preview": "Grupo das castanhas e nozes Este grupo de alimentos inclui vários tipos de castanhas (de caju, de baru, do-brasil ou do-pará) e nozes, e também, amêndoas e amendoim. Castanhas, nozes, amêndoas e amendoins têm vários usos culinários. Podem s"
+      "evidence_summary_preview": "Outras possibilidades de equivalência para a substituição da carne por feijões podem ser vistas na Tabela 26.\n\nTabela 26: Equivalência de substituição da carne por feijões\n\nCarne | Quantidade (190 kcal) | Feijões | Quantidade (190 kcal)\n\nBi"
     },
     {
       "id": "Q07_MULTIHOP_GAP",
@@ -214,22 +260,31 @@
         "GUIA_MS_CAP1_PRINCIPIOS",
         "PUBMED_BIOACTIVES_MICRONUTRIENTS"
       ],
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [
+        "PUBMED_BIOACTIVES_MICRONUTRIENTS"
+      ],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
-        "GUIA_MS_CAP1_PRINCIPIOS",
-        "GUIA_MS_CAP1_PRINCIPIOS"
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-dietas-vegetarianas-svb-2012",
+        "guia-dietas-vegetarianas-svb-2012"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
-      "keyword_coverage": 0.8333,
+      "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_A",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Resolvido pelo Passo 3 (Grafo de 4 Camadas): conecta a matriz alimentar do Guia às vias moleculares FooDB/PubMed (Glicorafanina + Mirosinase ➔ Sulforafano ➔ Nrf2 e Curcumina + Piperina ➔ Inibição de glicuronidação 2000%).",
-      "evidence_summary_preview": "Further high-quality clinical trial studies are needed to firmly establish the clinical efficacy of the curcumin-piperine supplement. Molecular dynamics simulations demonstrated that the N321D mutation in loopA of mutant DE9 enhanced loopA "
+      "evidence_summary_preview": "fundamentais para a formulação de políticas e ações destinadas a prevenir carências nutricionais específicas (como a de proteínas, vitaminas e minerais) e doenças cardiovasculares associadas ao consumo excessivo de sódio ou de gorduras de o"
     },
     {
       "id": "Q08_MULTIHOP_GAP",
@@ -243,22 +298,31 @@
         "DOC_HIPERTENSAO_DASH_05",
         "GUIA_MS_INTRO"
       ],
-      "retrieved_doc_ids": [
-        "DOC_HIPERTENSAO_DASH_05",
-        "PUBMED_DASH_HYPERTENSION",
-        "PUBMED_DASH_HYPERTENSION",
-        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012"
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
       ],
-      "doc_recall_at_k": 0.5,
-      "reciprocal_rank": 1.0,
+      "expected_removed_from_index": [
+        "DOC_HIPERTENSAO_DASH_05"
+      ],
+      "recall_evaluated": true,
+      "retrieved_doc_ids": [
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+        "guia-dietas-vegetarianas-svb-2012",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+        "sban-agua-hidratacao-saude-2016"
+      ],
+      "doc_recall_at_k": 0.0,
+      "reciprocal_rank": 0.0,
       "keyword_coverage": 0.6667,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_A",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Resolvido pelo Passo 3 (Grafo de 4 Camadas): sinaliza a contraindicação de carga elevada de potássio (hipercalemia na DRC) e seleciona os caminhos causais seguros (MUFA/azeite 0mg K + fibras viscosas + amido resistente).",
-      "evidence_summary_preview": "O padrão alimentar DASH (Dietary Approaches to Stop Hypertension), rico em frutas, hortaliças, laticínios com baixo teor de gordura, grãos integrais e oleaginosas, reduz a pressão arterial sistólica em 6 a 11 mmHg em ensaios clínicos random"
+      "evidence_summary_preview": "Estudo que avaliou dieta hipocalórica com o uso de um (n = 52) ou dois (n = 50) SR diários, por indivíduos com obesidade e osteoartrite, verificou ao final de 3 meses que a perda de peso, redução de gordura corporal, das concentrações de co"
     },
     {
       "id": "Q09_LEGAL_TRAP",
@@ -269,25 +333,34 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "GUIA_MS_CAP3_REFEICOES",
+        "DOC_GLICEMIA_CARBOIDRATOS_03",
+        "GUIA_MS_CAP3_REFEICOES"
+      ],
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [
         "DOC_GLICEMIA_CARBOIDRATOS_03"
       ],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "GUIA_MS_CAP3_REFEICOES",
-        "GUIA_MS_CAP3_REFEICOES",
-        "CORPUS_PROTOCOLOS_GUIA_ALIMENTAR_FASCICULO1_2021",
-        "DOC_GLICEMIA_CARBOIDRATOS_03"
+        "protocolos-guia-alimentar-fasciculo1-2021",
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "protocolos-guia-alimentar-fasciculo1-2021"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
+      "reciprocal_rank": 0.5,
       "keyword_coverage": 0.75,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_A",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Orientações específicas sobre a alimentação de vegetarianos, assim como no caso de outros tipos de restrição de alimentos, como a restrição ao consumo de leite ou de trigo, não são tratadas neste guia. Entretanto, as recomendações gerais qu"
+      "evidence_summary_preview": "- Valorize as três principais refeições do dia - café da manhã, almoço e jantar. No almoço e no jantar , oriente que o usuário consuma comida feita na hora , como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandio"
     },
     {
       "id": "Q10_LEGAL_TRAP",
@@ -301,22 +374,28 @@
         "DOC_LIPIDIOS_COLESTEROL_04",
         "DOC_MICRONUTRIENTES_INTERACOES_09"
       ],
-      "retrieved_doc_ids": [
+      "expected_sources": [],
+      "expected_removed_from_index": [
         "DOC_LIPIDIOS_COLESTEROL_04",
-        "DOC_MICRONUTRIENTES_INTERACOES_09",
-        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",
-        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012"
+        "DOC_MICRONUTRIENTES_INTERACOES_09"
       ],
-      "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
+      "recall_evaluated": false,
+      "retrieved_doc_ids": [
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-dietas-vegetarianas-svb-2012",
+        "guia-dietas-vegetarianas-svb-2012"
+      ],
+      "doc_recall_at_k": 0.0,
+      "reciprocal_rank": 0.0,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 3,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_A",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "O principal determinante dietético da elevação do colesterol LDL plasmático não é o colesterol alimentar intrínseco (presente por exemplo na gema do ovo), mas sim o excesso de ácidos graxos saturados e ácidos graxos trans, que reduzem a exp"
+      "evidence_summary_preview": "Tabela 5. Recomendações de suplementação para prevenção e para os casos de deficiência pós-cirurgia bariátrica e metabólica\n\nMICRO- NUTRIENTE | EX | AMES | SUPLEMENTAÇÃO DE ROTINA | DEFICIÊNCIA | OBSERVAÇÃO\n\nEXAMES LAGB/SG | QUAL EXAME | QU"
     },
     {
       "id": "Q11_LEGAL_TRAP",
@@ -330,22 +409,28 @@
         "DOC_PROTEINAS_MASSA_MUSCULAR_06",
         "DOC_SUPLEMENTOS_EVIDENCIA_07"
       ],
-      "retrieved_doc_ids": [
+      "expected_sources": [],
+      "expected_removed_from_index": [
         "DOC_PROTEINAS_MASSA_MUSCULAR_06",
-        "PUBMED_PROTEIN_SUPPLEMENTS",
-        "DOC_SUPLEMENTOS_EVIDENCIA_07",
-        "PUBMED_PROTEIN_SUPPLEMENTS"
+        "DOC_SUPLEMENTOS_EVIDENCIA_07"
       ],
-      "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
+      "recall_evaluated": false,
+      "retrieved_doc_ids": [
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014"
+      ],
+      "doc_recall_at_k": 0.0,
+      "reciprocal_rank": 0.0,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 5,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_A",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "A síntese proteica miofibrilar (MPS) é estimulada pelo aporte de aminoácidos essenciais, em especial a leucina, que atua como sinalizador intracelular ativando o complexo mTORC1 (via sensor Sestrin2). A literatura clínica (ISSN/ESPEN) apont"
+      "evidence_summary_preview": "A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas n"
     },
     {
       "id": "Q12_DIRECT",
@@ -359,14 +444,21 @@
         "GUIA_MS_CAP5_OBSTACULOS",
         "GUIA_MS_DEZ_PASSOS"
       ],
-      "retrieved_doc_ids": [
-        "GUIA_MS_INTRO",
-        "GUIA_MS_CAP5_OBSTACULOS",
-        "GUIA_MS_CAP5_OBSTACULOS",
-        "GUIA_MS_CAP5_OBSTACULOS"
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
       ],
-      "doc_recall_at_k": 0.5,
-      "reciprocal_rank": 0.5,
+      "expected_removed_from_index": [],
+      "recall_evaluated": true,
+      "retrieved_doc_ids": [
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "protocolos-guia-alimentar-fasciculo1-2021",
+        "protocolos-guia-alimentar-fasciculo1-2021"
+      ],
+      "doc_recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
@@ -374,7 +466,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "O capítulo 5 examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia – informação, oferta, custo, habilidades culinárias, tempo e publicidade – e propõe para sua superação a combinação de ações no plan"
+      "evidence_summary_preview": "o capítulo 5 examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia – informação, oferta, custo, habilidades culinárias, tempo e publicidade – e propõe para sua superação a combinação de ações no plan"
     },
     {
       "id": "Q13_NATURAL_GRAPH",
@@ -388,22 +480,28 @@
         "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
         "PUBMED_BIOACTIVES_MICRONUTRIENTS"
       ],
-      "retrieved_doc_ids": [
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS",
+      "expected_sources": [],
+      "expected_removed_from_index": [
         "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
         "PUBMED_BIOACTIVES_MICRONUTRIENTS"
       ],
-      "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
+      "recall_evaluated": false,
+      "retrieved_doc_ids": [
+        "sban-agua-hidratacao-saude-2016",
+        "sban-agua-hidratacao-saude-2016",
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014"
+      ],
+      "doc_recall_at_k": 0.0,
+      "reciprocal_rank": 0.0,
       "keyword_coverage": 0.8333,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
       "graph_paths_count": 3,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_A",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre sinergia culinária que exige o Grafo de 4 Camadas para contrastar a curcumina isolada (LOW_EFFICACY_ALONE) com a adição de piperina/lipídios (+2000% biodisponibilidade).",
-      "evidence_summary_preview": "Estudo: Curcumin-piperine co-supplementation and human health: A comprehensive review of preclinical and clinical studies. (PMID:36720711 (Phytotherapy research : PTR, 2023 | DOI: 10.1002/ptr.7737)). Curcumin is extracted from the rhizomes "
+      "evidence_summary_preview": "Outro ponto essencial para o organismo é que a água é considerada um solvente, no qual estão dissolvidas substâncias, chamadas solutos. Os mais importantes solutos presentes nos líquidos corporais são os sais (principalmente, o sódio, clore"
     },
     {
       "id": "Q14_NATURAL_GRAPH",
@@ -417,22 +515,31 @@
         "GUIA_MS_CAP3_REFEICOES",
         "PUBMED_GLYCEMIC_DIABETES"
       ],
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [
+        "PUBMED_GLYCEMIC_DIABETES"
+      ],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "GUIA_MS_CAP3_REFEICOES",
-        "PUBMED_GLYCEMIC_DIABETES",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS",
-        "GUIA_MS_CAP2_ESCOLHA_ALIMENTOS"
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-alimentar-populacao-brasileira-2014",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
+      "reciprocal_rank": 0.5,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 2,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_A",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre técnica de preparo (resfriamento por 12-24h) que exige o Grafo de 4 Camadas para conectar a retrogradação da amilose em Amido Resistente Tipo 3 (RS3) à fermentação colônica (butirato/GLP-1) e menor pico glicêmico.",
-      "evidence_summary_preview": "Também faz parte da cultura alimentar do brasileiro o consumo na forma de bebidas como café e chá. Neste caso, entretanto, convém não adicionar açúcar ou, pelo menos, reduzir a quantidade ao mínimo. Para proteger o ambiente, utensílios não "
+      "evidence_summary_preview": "não caracterizam dieta rica em carboidratos ou mesmo pobre em gorduras. Na verdade, o que se observou foi aumento da ingestão de açúcares simultaneamente ao consumo adicional de aproximadamente 300 kcal/dia. Portanto, os carboidratos não po"
     },
     {
       "id": "Q15_NATURAL_GRAPH",
@@ -446,14 +553,23 @@
         "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
         "GUIA_MS_CAP3_REFEICOES"
       ],
-      "retrieved_doc_ids": [
-        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",
-        "CORPUS_GUIA_DIETAS_VEGETARIANAS_SVB_2012",
-        "GUIA_MS_CAP3_REFEICOES",
+      "expected_sources": [
+        [
+          "guia-alimentar-populacao-brasileira-2014"
+        ]
+      ],
+      "expected_removed_from_index": [
         "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
       ],
+      "recall_evaluated": true,
+      "retrieved_doc_ids": [
+        "guia-alimentar-populacao-brasileira-2014",
+        "guia-dietas-vegetarianas-svb-2012",
+        "guia-dietas-vegetarianas-svb-2012",
+        "guia-alimentar-populacao-brasileira-2014"
+      ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 0.3333,
+      "reciprocal_rank": 1.0,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 1,
@@ -461,7 +577,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre processamento térmico que exige o Grafo de 4 Camadas para explicar que a fervura inativa a enzima mirosinase, impedindo a conversão da glicorafanina em sulforafano.",
-      "evidence_summary_preview": "Legumes\n\nPimentão amarelo cru | 201,4\n\nPimentão vermelho cru | 158,2\n\nPimentão verde cru | 100,2\n\nVerduras\n\nCouve manteiga, refogada | 76,9\n\nBrócolis, cozido | 42\n\nMostarda, folha crua | 38,6\n\nFonte: Tabela Brasileira de Composição de Alime"
+      "evidence_summary_preview": "chuchu, brócolis, maxixe e abobrinha. são também usados com leite e açúcar na preparação de bolos, pudins e tortas doces.\n\nComo as carnes e os peixes, os ovos são ricos em proteínas de alta qualidade, em minerais e em vitaminas, especialmen"
     },
     {
       "id": "Q16_NATURAL_GRAPH",
@@ -475,22 +591,28 @@
         "DOC_HIPERTENSAO_DASH_05",
         "PUBMED_DASH_HYPERTENSION"
       ],
-      "retrieved_doc_ids": [
+      "expected_sources": [],
+      "expected_removed_from_index": [
         "DOC_HIPERTENSAO_DASH_05",
-        "PUBMED_DASH_HYPERTENSION",
-        "PUBMED_DASH_HYPERTENSION",
-        "DOC_HIPERTENSAO_DASH_05"
+        "PUBMED_DASH_HYPERTENSION"
       ],
-      "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 1.0,
+      "recall_evaluated": false,
+      "retrieved_doc_ids": [
+        "sban-agua-hidratacao-saude-2016",
+        "guia-alimentar-populacao-brasileira-2014",
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022"
+      ],
+      "doc_recall_at_k": 0.0,
+      "reciprocal_rank": 0.0,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_A",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana com conflito de comorbidades (hipertensão + DM2 + restrição renal de potássio) resolvida pelo filtro de contraindicação do Grafo de 4 Camadas.",
-      "evidence_summary_preview": "O padrão alimentar DASH (Dietary Approaches to Stop Hypertension), rico em frutas, hortaliças, laticínios com baixo teor de gordura, grãos integrais e oleaginosas, reduz a pressão arterial sistólica em 6 a 11 mmHg em ensaios clínicos random"
+      "evidence_summary_preview": "Desidratação = déficit de água Ingestão Perdas de água Perdas de água e sódio Populações de risco Osmolaridade normal Osmolaridade Crianças, idosos, ou gestantes e mães em amamentação Receptores sensíveis à queda da pressão arterial e do vo"
     }
   ]
 }

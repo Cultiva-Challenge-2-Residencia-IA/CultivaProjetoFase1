@@ -3,7 +3,7 @@ from src.evaluation.run_benchmark import evaluate_baseline
 
 
 def test_consultant_baseline_end_to_end_safe_query_on_guia_alimentar() -> None:
-    consultant = NutritionConsultantBaseline(enable_ollama=False)
+    consultant = NutritionConsultantBaseline(enable_ollama=False, incluir_pendentes=True)
     response = consultant.consult(
         "Como utilizar óleos, gorduras, sal e açúcar nas preparações culinárias segundo o Guia Alimentar?"
     )
@@ -20,7 +20,7 @@ def test_consultant_baseline_end_to_end_safe_query_on_guia_alimentar() -> None:
 
 
 def test_consultant_baseline_end_to_end_restricted_query() -> None:
-    consultant = NutritionConsultantBaseline(enable_ollama=False)
+    consultant = NutritionConsultantBaseline(enable_ollama=False, incluir_pendentes=True)
     response = consultant.consult(
         "Tenho 80kg e pré-diabetes. Monte um cardápio completo de 1800 kcal para mim."
     )
@@ -43,7 +43,7 @@ def test_benchmark_evaluation_achieves_high_recall_and_perfect_legal_compliance(
 
 
 def test_groq_api_client_synthesis(monkeypatch) -> None:
-    consultant = NutritionConsultantBaseline(enable_ollama=True)
+    consultant = NutritionConsultantBaseline(enable_ollama=True, incluir_pendentes=True)
     consultant.llm_client.provider = "groq"
     consultant.llm_client.groq_api_key = "gsk_test_fake_key"
     consultant.llm_client.enable_groq = True

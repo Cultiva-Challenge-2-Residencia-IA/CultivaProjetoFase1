@@ -79,8 +79,32 @@ def test_trecho_vira_chunk_preservando_pagina_link_e_status():
     assert "Guia de exemplo" in chunk.contextualized_text
 
 
+def test_resumo_sem_pagina_vira_chunk():
+    # Resumos (kind: resumo_pubmed) não têm página. Nenhuma fonte usa esse tipo hoje (issue #28).
+    trecho = {
+        "id": "pubmed-12345-resumo-01",
+        "fonte_id": "pubmed-12345",
+        "titulo_fonte": "Meta-analysis of an example",
+        "instituicoes": ["Example Journal"],
+        "ano": 2020,
+        "tipo_fonte": "metanalise",
+        "fonte_url": "https://pubmed.ncbi.nlm.nih.gov/12345/",
+        "doi": "10.1000/exemplo",
+        "pagina_pdf": None,
+        "secao": "Resumo",
+        "texto": "BACKGROUND: example.",
+        "licenca": "pendente",
+        "approval_status": "pendente",
+    }
+    Draft202012Validator(SCHEMA).validate(trecho)
+    chunk = trecho_para_chunk(trecho)
+    assert chunk.pagina_pdf is None
+    assert chunk.section_path == trecho["secao"]
+    assert chunk.evidence_level == NIVEL_DE_EVIDENCIA[trecho["tipo_fonte"]]
+
+
 def test_secao_vazia_usa_so_a_pagina():
-    trecho = next(t for _, t in _trechos())
+    trecho = next(t for _, t in _trechos() if t["pagina_pdf"] is not None)
     trecho = {**trecho, "secao": ""}
     assert trecho_para_chunk(trecho).section_path == f"pág. {trecho['pagina_pdf']}"
 
@@ -88,7 +112,8 @@ def test_secao_vazia_usa_so_a_pagina():
 @pytest.fixture(scope="module")
 def retriever_do_corpus():
     chunks = [trecho_para_chunk(t) for _, t in _trechos()]
-    return HybridRetriever(chunks)
+    # Sem o banco vetorial denso: este teste cobre o contrato, não os embeddings.
+    return HybridRetriever(chunks, use_vector_store=False)
 
 
 def test_retriever_cumpre_a_interface(retriever_do_corpus):
@@ -100,6 +125,6 @@ def test_recuperacao_devolve_fonte_pagina_e_respeita_o_limite_por_documento(retr
     assert 1 <= len(resultados) <= 4
     contagem: dict[str, int] = {}
     for item in resultados:
-        assert item.chunk.pagina_pdf and item.chunk.doc_id
+        assert item.chunk.doc_id and item.chunk.section_path
         contagem[item.chunk.doc_id] = contagem.get(item.chunk.doc_id, 0) + 1
     assert max(contagem.values()) <= 2
