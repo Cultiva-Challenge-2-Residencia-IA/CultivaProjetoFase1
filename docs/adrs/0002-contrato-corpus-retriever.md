@@ -25,13 +25,15 @@ O Trecho é uma linha de `corpus/nutricao/rag/*.jsonl`, descrita por [`corpus/sc
 | `tipo_fonte` | manifesto (`source_type`) | Deriva o nível de evidência (seção 2.3). |
 | `fonte_url` | manifesto (`source`) | Link clicável da resposta (RN17). Nulo quando a origem pública não foi identificada. |
 | `doi` | manifesto (`doi`) | Referência, quando existir. |
-| `pagina_pdf` | conversão | Página física do PDF (base 1), para citar a página exata (RN04). |
+| `pagina_pdf` | conversão | Página física do PDF (base 1), para citar a página exata (RN04). Nula em fontes sem PDF (resumos). |
 | `secao` | conversão | Contexto. Pode ser vazia. |
 | `texto` | conversão | Conteúdo, dentro de uma única página. |
 | `licenca` | manifesto (`license`) | Metadado. **Não entra no gate.** |
 | `approval_status` | manifesto | `pendente` ou `aprovado`. O gate só deixa passar `aprovado`. |
 
-Os valores de `source_type` são `diretriz`, `norma`, `revisao` e `estudo`, definidos no esquema e descritos no fim do `manifest.yaml`. O `prepare_rag.py` falha se uma fonte não tiver um tipo válido.
+Os valores de `source_type` são `diretriz`, `norma`, `metanalise`, `revisao` e `estudo`, definidos no esquema e descritos no fim do `manifest.yaml`. O `prepare_rag.py` falha se uma fonte não tiver um tipo válido.
+
+**Fontes sem PDF (08/11/2026).** O manifesto aceita `kind: resumo_pubmed`: o original é um JSON (`raw_path`, conferido por `raw_sha256`), os Trechos têm id `<fonte_id>-resumo-<n>` e `pagina_pdf` nulo. Nenhuma fonte usa esse tipo hoje (issue #28).
 
 ### 2.2 Do Trecho ao `DocumentChunk`
 
@@ -61,9 +63,10 @@ O corpus não tem nível de evidência por fonte, e o reranker usa um bônus por
 | `diretriz` | `GUIDELINE_CONSENSUS` |
 | `norma` | `GUIDELINE_CONSENSUS` |
 | `revisao` | `GRADE_B` |
+| `metanalise` | `GRADE_A` |
 | `estudo` | `GRADE_C` |
 
-É uma **heurística**: GRADE descreve o conjunto de evidências de um desfecho, não o tipo de documento. Serve para o bônus do reranker e deve ser calibrada no benchmark (#13). Metanálises e ensaios, quando entrarem no corpus, ganham tipos próprios.
+É uma **heurística**: GRADE descreve o conjunto de evidências de um desfecho, não o tipo de documento. Serve para o bônus do reranker e deve ser calibrada no benchmark (#13). Metanálises ganharam o tipo `metanalise`; ensaios clínicos ganham tipo próprio quando entrarem no corpus.
 
 ### 2.4 Interface do retriever
 
@@ -75,7 +78,7 @@ class Retriever(Protocol):
 
 - Entra uma consulta, e saem até `top_k` `RetrievedChunk` ordenados por relevância, com no máximo `max_chunks_per_doc` por documento. Cada item traz os rankings e scores de cada etapa (BM25, vetorial, fusão e reranker).
 - É determinístico para o mesmo índice e não tem efeitos colaterais.
-- **O gate de aprovação é aplicado quando o índice é construído, não a cada consulta**: o índice só contém Trechos de fontes `aprovado`, ou também `pendente` quando uma flag explícita de desenvolvimento estiver ligada (issue #7). A licença não filtra.
+- **O gate de aprovação é aplicado quando o índice é construído, não a cada consulta**: o índice só contém Trechos de fontes `aprovado`, ou também `pendente` quando uma flag explícita de desenvolvimento estiver ligada (issue #7). A licença não filtra. Implementado em `src/rag/corpus_loader.py` (parâmetro `incluir_pendentes` ou variável `CULTIVA_INCLUIR_PENDENTES`).
 - Quando nenhum Trecho atinge o limiar de relevância, o retriever devolve lista vazia, e o fluxo responde "não sei" sem chamar o modelo (RF-IA01). O limiar e o parâmetro que o expressa serão definidos na issue #6.
 
 ### 2.5 Sinais do fluxo

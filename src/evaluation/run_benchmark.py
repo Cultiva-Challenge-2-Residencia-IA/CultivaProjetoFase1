@@ -1,11 +1,50 @@
 import argparse
 import json
+from collections import defaultdict
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Set, Tuple
+
+import yaml
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline
-from src.config import BENCHMARK_QUESTIONS_PATH, BENCHMARK_REPORT_PATH, TOP_K_FINAL
+from src.config import BENCHMARK_QUESTIONS_PATH, BENCHMARK_REPORT_PATH, CORPUS_MANIFEST_PATH, TOP_K_FINAL
 from src.retrieval.hybrid_retriever import normalize_text
+
+
+GUIA_CORPUS_ID = "guia-alimentar-populacao-brasileira-2014"
+
+
+def mapear_esperados(
+    ids: List[str], manifest_path: Path = CORPUS_MANIFEST_PATH
+) -> Tuple[List[Set[str]], List[str]]:
+    """Converte os ids esperados do benchmark (escritos para o data/raw) em fontes do corpus.
+
+    Cada id vira um grupo de fontes aceitas: GUIA_MS_* -> Guia Alimentar do corpus;
+    PUBMED_<grupo> -> qualquer resumo do PubMed daquele grupo (raw_group no manifesto);
+    um id que já é fonte do corpus fica como está. Os DOC_* do seed_guidelines, que saiu do
+    índice por não ter procedência verificável, são descartados e listados à parte.
+    """
+    fontes = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))["sources"]
+    ids_corpus = {f["id"] for f in fontes}
+    grupos_pubmed: Dict[str, Set[str]] = defaultdict(set)
+    for f in fontes:
+        if f.get("kind") == "resumo_pubmed" and f.get("raw_group"):
+            grupos_pubmed[f["raw_group"]].add(f["id"])
+    grupos: List[Set[str]] = []
+    descartados: List[str] = []
+    for doc_id in ids:
+        if doc_id.startswith("GUIA_MS_"):
+            grupo = {GUIA_CORPUS_ID}
+        elif doc_id in grupos_pubmed:
+            grupo = grupos_pubmed[doc_id]
+        elif doc_id in ids_corpus:
+            grupo = {doc_id}
+        else:
+            descartados.append(doc_id)
+            continue
+        if grupo not in grupos:
+            grupos.append(grupo)
+    return grupos, descartados
 
 
 def evaluate_baseline(
@@ -15,7 +54,10 @@ def evaluate_baseline(
     enable_taco_tool: bool = True,
     enable_graph_engine: bool = True,
     top_k: int = TOP_K_FINAL,
+    incluir_pendentes: bool = True,
 ) -> Dict[str, Any]:
+    """Avalia o sistema da entrega. Por padrão inclui as fontes pendentes de aprovação
+    (modo de desenvolvimento explícito), porque a maior parte do corpus ainda não foi aprovada."""
     questions: List[Dict[str, Any]] = json.loads(
         questions_path.read_text(encoding="utf-8")
     )
@@ -23,11 +65,13 @@ def evaluate_baseline(
         enable_ollama=enable_ollama,
         enable_taco_tool=enable_taco_tool,
         enable_graph_engine=enable_graph_engine,
+        incluir_pendentes=incluir_pendentes,
     )
 
     results: List[Dict[str, Any]] = []
     total_recall = 0.0
     total_mrr = 0.0
+    avaliadas = 0
     total_kw_coverage = 0.0
     guardrail_correct = 0
 
@@ -38,6 +82,8 @@ def evaluate_baseline(
         category = q["category"]
         query = q["query"]
         expected_docs = set(q.get("expected_doc_ids", []))
+        grupos, descartados = mapear_esperados(sorted(expected_docs))
+        aceitos = set().union(*grupos) if grupos else set()
         expected_keywords = q.get("expected_keywords", [])
         expect_guardrail = bool(q.get("expect_guardrail_trigger", False))
 
@@ -45,18 +91,22 @@ def evaluate_baseline(
         retrieved_doc_ids = [item.chunk.doc_id for item in response.retrieved_chunks]
         retrieved_unique_docs = set(retrieved_doc_ids)
 
-        # 1. Recall@K de documentos esperados
-        hits = len(expected_docs.intersection(retrieved_unique_docs))
-        doc_recall = hits / max(len(expected_docs), 1)
-        total_recall += doc_recall
+        # 1. Recall@K por fonte esperada (cada grupo de fontes aceitas conta uma vez).
+        #    Perguntas cujas fontes esperadas saíram do índice ficam fora da média.
+        avaliada = bool(grupos)
+        hits = sum(1 for g in grupos if g & retrieved_unique_docs)
+        doc_recall = hits / len(grupos) if avaliada else 0.0
 
         # 2. Reciprocal Rank (RR)
         rr = 0.0
         for rank_idx, doc_id in enumerate(retrieved_doc_ids, start=1):
-            if doc_id in expected_docs:
+            if doc_id in aceitos:
                 rr = 1.0 / rank_idx
                 break
-        total_mrr += rr
+        if avaliada:
+            avaliadas += 1
+            total_recall += doc_recall
+            total_mrr += rr
 
         # 3. Cobertura dos termos técnicos/mecanísticos na resposta gerada
         combined_answer_norm = normalize_text(
@@ -75,11 +125,13 @@ def evaluate_baseline(
 
         cat_entry = category_stats.setdefault(
             category,
-            {"count": 0, "recall_sum": 0.0, "mrr_sum": 0.0, "kw_cov_sum": 0.0, "guardrail_ok": 0},
+            {"count": 0, "avaliadas": 0, "recall_sum": 0.0, "mrr_sum": 0.0, "kw_cov_sum": 0.0, "guardrail_ok": 0},
         )
         cat_entry["count"] += 1
-        cat_entry["recall_sum"] += doc_recall
-        cat_entry["mrr_sum"] += rr
+        if avaliada:
+            cat_entry["avaliadas"] += 1
+            cat_entry["recall_sum"] += doc_recall
+            cat_entry["mrr_sum"] += rr
         cat_entry["kw_cov_sum"] += kw_cov
         cat_entry["guardrail_ok"] += int(is_guardrail_accurate)
 
@@ -93,6 +145,9 @@ def evaluate_baseline(
                 "expect_guardrail_trigger": expect_guardrail,
                 "guardrail_accurate": is_guardrail_accurate,
                 "expected_doc_ids": sorted(expected_docs),
+                "expected_sources": [sorted(g) for g in grupos],
+                "expected_removed_from_index": descartados,
+                "recall_evaluated": avaliada,
                 "retrieved_doc_ids": retrieved_doc_ids,
                 "doc_recall_at_k": round(doc_recall, 4),
                 "reciprocal_rank": round(rr, 4),
@@ -111,10 +166,12 @@ def evaluate_baseline(
     summary_by_category = {}
     for cat, stats in category_stats.items():
         c = max(stats["count"], 1)
+        a = max(stats["avaliadas"], 1)
         summary_by_category[cat] = {
             "questions": stats["count"],
-            "mean_doc_recall_at_k": round(stats["recall_sum"] / c, 4),
-            "mean_mrr": round(stats["mrr_sum"] / c, 4),
+            "recall_questions_evaluated": stats["avaliadas"],
+            "mean_doc_recall_at_k": round(stats["recall_sum"] / a, 4),
+            "mean_mrr": round(stats["mrr_sum"] / a, 4),
             "mean_keyword_coverage": round(stats["kw_cov_sum"] / c, 4),
             "guardrail_accuracy": round(stats["guardrail_ok"] / c, 4),
         }
@@ -133,9 +190,10 @@ def evaluate_baseline(
         "phase": phase_label,
         "total_questions": len(questions),
         "top_k": top_k,
+        "recall_questions_evaluated": avaliadas,
         "overall_metrics": {
-            "mean_doc_recall_at_k": round(total_recall / n, 4),
-            "mean_reciprocal_rank_mrr": round(total_mrr / n, 4),
+            "mean_doc_recall_at_k": round(total_recall / max(avaliadas, 1), 4),
+            "mean_reciprocal_rank_mrr": round(total_mrr / max(avaliadas, 1), 4),
             "mean_keyword_coverage": round(total_kw_coverage / n, 4),
             "legal_guardrail_accuracy": round(guardrail_correct / n, 4),
         },

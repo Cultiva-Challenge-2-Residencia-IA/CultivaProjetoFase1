@@ -9,9 +9,12 @@ from src.retrieval.hybrid_retriever import (
     tokenize_biomedical,
 )
 from src.retrieval.taco_tool import TacoDeterministicTool
+from src.retrieval.vector_store import DenseMultilingualEmbedder, NutritionVectorStore
 
 __all__ = [
     "HybridRetriever",
+    "NutritionVectorStore",
+    "DenseMultilingualEmbedder",
     "TacoDeterministicTool",
     "CLINICAL_SYNONYMS",
     "EVIDENCE_GRADE_BONUS",

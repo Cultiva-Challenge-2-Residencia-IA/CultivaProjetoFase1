@@ -15,6 +15,7 @@ from src.models.schemas import DocumentChunk, RetrievedChunk
 NIVEL_DE_EVIDENCIA = {
     "diretriz": "GUIDELINE_CONSENSUS",
     "norma": "GUIDELINE_CONSENSUS",
+    "metanalise": "GRADE_A",
     "revisao": "GRADE_B",
     "estudo": "GRADE_C",
 }
@@ -42,7 +43,11 @@ class Retriever(Protocol):
 def trecho_para_chunk(trecho: Mapping[str, Any]) -> DocumentChunk:
     """Converte um Trecho do corpus em DocumentChunk, preservando página, link e status."""
     secao = trecho["secao"].strip()
-    section_path = f"{secao} (pág. {trecho['pagina_pdf']})" if secao else f"pág. {trecho['pagina_pdf']}"
+    pagina = trecho["pagina_pdf"]
+    if pagina is None:
+        section_path = secao or "resumo"
+    else:
+        section_path = f"{secao} (pág. {pagina})" if secao else f"pág. {pagina}"
     organizacao = "; ".join(trecho["instituicoes"])
     nivel = NIVEL_DE_EVIDENCIA[trecho["tipo_fonte"]]
     cabecalho = ContextualChunker.build_context_header(

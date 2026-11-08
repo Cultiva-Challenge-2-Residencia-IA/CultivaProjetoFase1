@@ -3,9 +3,9 @@
   "total_questions": 16,
   "top_k": 4,
   "overall_metrics": {
-    "mean_doc_recall_at_k": 0.9375,
-    "mean_reciprocal_rank_mrr": 0.9688,
-    "mean_keyword_coverage": 0.8677,
+    "mean_doc_recall_at_k": 0.9167,
+    "mean_reciprocal_rank_mrr": 0.75,
+    "mean_keyword_coverage": 0.8812,
     "legal_guardrail_accuracy": 1.0
   }
 }

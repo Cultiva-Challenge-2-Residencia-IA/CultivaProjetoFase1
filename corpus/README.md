@@ -265,7 +265,7 @@ corpus/.venv/bin/python corpus/scripts/prepare_rag.py                       # to
 corpus/.venv/bin/python corpus/scripts/prepare_rag.py --source <id-da-fonte> # uma fonte
 ```
 
-Campos: `id`, `fonte_id`, `titulo_fonte`, `instituicoes`, `ano`, `tipo_fonte`, `fonte_url`, `doi`, `pagina_pdf`, `secao`, `texto`, `licenca`, `approval_status`. O formato é o do [`schemas/trecho.schema.json`](schemas/trecho.schema.json) e do [ADR 0002](../docs/adrs/0002-contrato-corpus-retriever.md), validado no CI por `tests/test_contrato.py`. O `tipo_fonte` vem do `source_type` do manifesto (`diretriz`, `norma`, `revisao` ou `estudo`), obrigatório em toda fonte. O `pagina_pdf` é a posição física no PDF, a mesma dos marcadores e dos links do Markdown, para a citação apontar a página.
+Campos: `id`, `fonte_id`, `titulo_fonte`, `instituicoes`, `ano`, `tipo_fonte`, `fonte_url`, `doi`, `pagina_pdf`, `secao`, `texto`, `licenca`, `approval_status`. O formato é o do [`schemas/trecho.schema.json`](schemas/trecho.schema.json) e do [ADR 0002](../docs/adrs/0002-contrato-corpus-retriever.md), validado no CI por `tests/test_contrato.py`. O `tipo_fonte` vem do `source_type` do manifesto (`diretriz`, `norma`, `metanalise`, `revisao` ou `estudo`), obrigatório em toda fonte. Fontes sem PDF (`kind: resumo_pubmed`) geram Trechos sem página, num único JSONL indicado em `rag_path`. Nenhuma fonte usa esse tipo hoje: os resumos do PubMed ficaram fora da entrega de 09/11/2026 (issue #28). O `pagina_pdf` é a posição física no PDF, a mesma dos marcadores e dos links do Markdown, para a citação apontar a página.
 
 O que o script faz:
 

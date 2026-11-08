@@ -718,3 +718,8 @@ sources:
 #   norma: resolução ou regulamento (por exemplo, o Código de Ética do CFN).
 #   revisao: revisão da literatura ou artigo conceitual.
 #   estudo: estudo primário (transversal, populacional, quase-experimental).
+
+# kind (decisão de 08/11/2026): pdf (padrão, pipeline de conversão completo) ou resumo_pubmed
+#   (resumo do PubMed, sem PDF: o original é o JSON em raw_path, conferido por raw_sha256,
+#   e os Trechos ficam em rag_path). Nenhuma fonte usa resumo_pubmed hoje: os 31 resumos do
+#   PubMed ficaram fora da entrega de 09/11/2026 (em inglês, só o resumo) e voltam pela issue #28.

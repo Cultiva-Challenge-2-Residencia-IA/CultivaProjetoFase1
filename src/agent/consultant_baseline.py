@@ -3,8 +3,9 @@ from typing import List, Optional
 
 from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
-from src.config import GUIDELINES_DIR, TOP_K_FINAL
+from src.config import INCLUDE_PENDING_SOURCES, TOP_K_FINAL
 from src.ingestion.contextual_chunker import ContextualChunker
+from src.rag.corpus_loader import carregar_chunks_do_corpus
 from src.models.schemas import (
     CausalGraphPath,
     ConsultantResponse,
@@ -25,18 +26,23 @@ class NutritionConsultantBaseline:
 
     def __init__(
         self,
-        guidelines_path: Path = GUIDELINES_DIR,
+        guidelines_path: Optional[Path] = None,
         chunks: Optional[List[DocumentChunk]] = None,
+        incluir_pendentes: bool = INCLUDE_PENDING_SOURCES,
         enable_ollama: bool = True,
         enable_taco_tool: bool = True,
         enable_graph_engine: bool = True,
     ) -> None:
         self.chunker = ContextualChunker()
-        self.chunks = (
-            chunks
-            if chunks is not None
-            else self.chunker.load_and_chunk_json(guidelines_path)
-        )
+        # Base padrão: Trechos do corpus curado (ADR 0002), com o gate de aprovação.
+        # `guidelines_path` mantém o modo legado sobre data/raw, usado só em testes antigos.
+        if chunks is not None:
+            self.chunks = chunks
+        elif guidelines_path is not None:
+            self.chunks = self.chunker.load_and_chunk_json(guidelines_path)
+        else:
+            self.chunks = carregar_chunks_do_corpus(incluir_pendentes=incluir_pendentes)
+        self.incluir_pendentes = incluir_pendentes
         self.retriever = HybridRetriever(self.chunks)
         self.guardrail = LegalGuardrail()
         self.llm_client = LocalLLMClient(enable_ollama=enable_ollama)
@@ -104,9 +110,20 @@ class NutritionConsultantBaseline:
             cite_key = f"{c.doc_id}:{c.section_path}"
             if cite_key not in seen_docs:
                 seen_docs.add(cite_key)
+                src_meta = []
+                link = c.fonte_url or (f"https://doi.org/{c.doi}" if c.doi else None)
+                if link:
+                    src_meta.append(f"Link: {link}")
+                if c.doi:
+                    src_meta.append(f"DOI: {c.doi}")
+                if c.licenca:
+                    src_meta.append(f"Licença: {c.licenca}")
+                if c.approval_status:
+                    src_meta.append(f"Aprovação: {c.approval_status}")
+                meta_suffix = f" | {' | '.join(src_meta)}" if src_meta else ""
                 citations.append(
                     f"[{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), "
-                    f"Seção: '{c.section_path}' (Evidência: {c.evidence_level})"
+                    f"Seção: '{c.section_path}' (Evidência: {c.evidence_level}{meta_suffix})"
                 )
 
         if graph_paths:

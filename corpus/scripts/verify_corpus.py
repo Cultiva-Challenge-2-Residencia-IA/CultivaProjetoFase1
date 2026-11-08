@@ -13,6 +13,11 @@ import pymupdf
 def verify() -> None:
     manifest = read_yaml(ROOT / "corpus/manifest.yaml")
     for source in manifest["sources"]:
+        if source.get("kind", "pdf") == "resumo_pubmed":
+            raw = repo_path(source["raw_path"])
+            if sha256(raw) != source["raw_sha256"]:
+                raise ValueError(f"JSON de origem divergente: {source['id']}")
+            continue
         original = repo_path(source["original_path"])
         markdown = repo_path(source["markdown_path"])
         report = json.loads(repo_path(source["report_path"]).read_text(encoding="utf-8"))
@@ -45,6 +50,9 @@ def verify() -> None:
             if f".pdf#page={number})" not in text:
                 raise ValueError(f"Link ao PDF ausente na página {number}.")
         print(f"OK {source['id']}: {count} páginas; SHA-256, marcadores e links ao PDF conferidos; sem imagens exportadas.")
+    resumos = [s for s in manifest["sources"] if s.get("kind", "pdf") == "resumo_pubmed"]
+    if resumos:
+        print(f"OK {len(resumos)} resumos do PubMed: SHA-256 do JSON de origem conferido.")
     print("Esta verificação estrutural não substitui revisão de fidelidade ou aprovação das fontes.")
 
 
