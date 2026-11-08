@@ -1,7 +1,10 @@
 """Banco vetorial (ChromaDB), embeddings e base curada da entrega."""
 
+import json
+
 import numpy as np
 
+from src.config import BENCHMARK_QUESTIONS_PATH
 from src.rag.corpus_loader import carregar_chunks_do_corpus, inventario_de_fontes
 from src.retrieval.hybrid_retriever import HybridRetriever
 from src.retrieval.vector_store import DenseMultilingualEmbedder, NutritionVectorStore
@@ -77,21 +80,34 @@ def test_busca_hibrida_com_banco_vetorial_recupera_a_fonte_certa(tmp_path) -> No
     assert "souza-backes-universitarios-csc-2020" in {r.chunk.doc_id for r in resultados}
 
 
-def test_busca_densa_e_exata_e_igual_ao_recarregar_o_indice(tmp_path) -> None:
-    amostra = carregar_chunks_do_corpus(incluir_pendentes=True)[:200]
+
+def test_hnsw_recupera_os_mesmos_vizinhos_da_busca_exata_e_e_estavel(tmp_path) -> None:
+    """O HNSW é aproximado: com `ef_search` adequado, o top-24 deve coincidir com a busca
+    exata e não variar ao recarregar o índice persistido (requisito do gate de determinismo)."""
+    chunks = carregar_chunks_do_corpus()
     kwargs = dict(
-        chunks=amostra,
-        persist_directory=tmp_path / "chroma_det",
-        collection_name="test_det",
+        chunks=chunks,
+        persist_directory=tmp_path / "chroma_hnsw",
+        collection_name="test_hnsw",
         use_persistent=True,
     )
-    consulta = "consumo de ultraprocessados e obesidade em adultos"
-    primeira = NutritionVectorStore(**kwargs).similarity_search(consulta, top_k=24)
-    recarregada = NutritionVectorStore(**kwargs).similarity_search(consulta, top_k=24)
-    assert primeira == recarregada
+    consultas = [
+        q["query"]
+        for q in json.loads(BENCHMARK_QUESTIONS_PATH.read_text(encoding="utf-8"))
+    ]
+    construida = NutritionVectorStore(**kwargs)
+    recarregada = NutritionVectorStore(**kwargs)
 
-    vstore = NutritionVectorStore(**kwargs)
-    q = np.asarray(vstore.embedder.embed_query(consulta))
-    sims = vstore._matriz_de_embeddings() @ q
-    esperados = [int(i) for i in np.argsort(-sims, kind="stable")[:24]]
-    assert [i for i, _ in primeira] == esperados
+    ids = [c.chunk_id for c in chunks]
+    res = construida.collection.get(ids=ids, include=["embeddings"])
+    por_id = dict(zip(res["ids"], res["embeddings"]))
+    matriz = np.asarray([por_id[i] for i in ids])
+
+    acertos = 0
+    for consulta in consultas:
+        hnsw = construida.similarity_search(consulta, top_k=24)
+        assert recarregada.similarity_search(consulta, top_k=24) == hnsw
+        q = np.asarray(construida.embedder.embed_query(consulta))
+        exatos = set(np.argsort(-(matriz @ q))[:24].tolist())
+        acertos += len(exatos & {i for i, _ in hnsw})
+    assert acertos / (24 * len(consultas)) >= 0.99
