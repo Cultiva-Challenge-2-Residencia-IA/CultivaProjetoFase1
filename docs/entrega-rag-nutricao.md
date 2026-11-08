@@ -1,198 +1,153 @@
-# Documentação Técnica da Entrega — RAG de Nutrição Baseada em Evidências (`CultivaProjetoFase1`)
+# Entrega: RAG de Nutrição com base curada, banco vetorial e rastreabilidade de fontes
 
-Este documento consolida todos os **Artefatos**, a **Demonstração** e a **Documentação** (Diagrama de Arquitetura e Pipeline de Ingestão de Dados) solicitados para a entrega da etapa de Recuperação de Informação, Fundamentação das Respostas e Rastreabilidade das Fontes do projeto **CULTIVA**.
+> **Estado das fontes.** As 22 fontes do corpus estão catalogadas em [`corpus/manifest.yaml`](../corpus/manifest.yaml). Duas estão aprovadas (`approval_status: aprovado`) e 20 seguem `pendente`. Esta entrega roda em **modo de desenvolvimento explícito**, que indexa também as pendentes (flag `incluir_pendentes`, ADR 0002 e issue #7). Em produção, só fontes aprovadas entram no índice. O uso das fontes segue o aceite de risco de licenças para projeto acadêmico sem fins lucrativos ([`corpus/README.md`](../corpus/README.md)).
 
-> [!IMPORTANT]
-> **Conformidade Ético-Legal e Estado de Revisão (`AGENTS.md` e Lei Federal nº 8.234/1991)**
-> * O CULTIVA tem finalidade estritamente **educativa e organizacional**: não diagnostica, não prescreve dietas, cardápios individualizados, metas calóricas ou posologia de suplementos, e não substitui nutricionistas ou médicos (RN01–RN04, RF-IA01, RF-IA02 e Art. 3º da Lei nº 8.234/1991).
-> * As fontes catalogadas em [`corpus/manifest.yaml`](../corpus/manifest.yaml) e indexadas no banco vetorial mantêm explicitamente o status `review_status: pendente` e `approval_status: pendente`. O uso nesta entrega destina-se à validação técnica do pipeline de recuperação de informação, fundamentação e rastreabilidade.
-> * O corpus científico é rigorosamente separado de quaisquer dados pessoais de usuários.
+Os números deste documento foram gerados pelo sistema, não escritos à mão: `uv run python -m src.demo_entrega --salvar-artefatos` regrava os artefatos em [`entrega_semanal/`](../entrega_semanal/), e `uv run python -m src.evaluation.run_benchmark --no-ollama` regrava o benchmark.
 
----
+## 1. Artefatos
 
-## 1. Artefatos Entregues
+### 1.1 Base de conhecimento curada (22 documentos-fonte)
 
-### 1.1. Base de Conhecimento Curada e Mínimo de 20 Documentos-Fonte
+A base é o corpus de Nutrição: **22 documentos-fonte em PDF** (mínimo exigido: 20), convertidos e divididos em **1873 Trechos**. Cada fonte tem origem, licença, versão e SHA-256 do PDF no manifesto, e o `verify_corpus.py` confere a cadeia de hashes no CI (job "Integridade do corpus").
 
-A base de conhecimento unifica as fontes auditadas por SHA-256 de [`corpus/manifest.yaml`](../corpus/manifest.yaml) (`corpus/nutricao/rag/*.jsonl`) com os artigos científicos revisados por pares coletados via API oficial da NCBI Entrez (`PubMed`) e diretrizes clínicas em `data/raw/guidelines/`, totalizando **47 documentos-fonte únicos** (**37 documentos-fonte primários verificáveis** com PDF/SHA-256 ou `PMID`/`DOI` + **10 sínteses normativas** de diretrizes clínicas), gerando **671 chunks contextualizados**.
+Ficaram **fora** do índice:
 
-#### Resumo da Base por Categoria de Fonte
+- as 10 "sínteses normativas" de `data/raw/guidelines/seed_guidelines.json`, que não têm origem verificável;
+- a cópia do Guia Alimentar em `data/raw` (o Guia entra pelo corpus, com página e hash);
+- os 31 resumos do PubMed, por estarem em inglês e serem só resumos. O pipeline já aceita esse tipo de fonte (`kind: resumo_pubmed`), e a reinclusão é a issue #28.
 
-| Categoria da Fonte | Documentos-Fonte Únicos | Chunks Gerados | Rastreabilidade Primária |
-| :--- | :---: | :---: | :--- |
-| **1. PDFs Oficiais Curados (`corpus/manifest.yaml`)** | **6** | 620 | Hash SHA-256 do PDF original, página física exata (`pagina_pdf`), URL oficial (BVS/SciELO/SVB) e licença verificada por página. |
-| **2. Meta-Análises e Revisões Sistemáticas (`PubMed / NCBI Entrez`)** | **31** | 34 | Identificador único `PMID`, `DOI` oficial (`https://doi.org/...`), título do estudo, periódico, ano de publicação e nível `GRADE_A`. |
-| **3. Sínteses Normativas de Diretrizes Clínicas (`SBD, SBC, ISSN, IOC`)** | **10** | 17 | Identificador de diretriz (`DOC_*`), organização emissora, domínio clínico e seção temática. |
-| **Total Consolidado no Índice RAG** | **47 documentos-fonte** ($\ge 20$ exigidos) | **671 chunks** | **100% dos chunks vinculados a `source_id`, `doc_id`, `section_path` e `evidence_level`.** |
+| # | Fonte (`fonte_id`) | Tipo | Ano | Trechos | Licença | Aprovação |
+|---:|---|---|---:|---:|---|---|
+| 1 | Posicionamento sobre o tratamento nutricional do sobrepeso e da obesid… (`abeso-posicionamento-tratamento-nutricional-obesidade-2022`) | diretriz | 2022 | 501 | pendente | pendente |
+| 2 | Guia alimentar para a população brasileira (`guia-alimentar-populacao-brasileira-2014`) | diretriz | 2014 | 339 | CC-BY-NC-SA-4.0 | pendente |
+| 3 | Guia alimentar de dietas vegetarianas para adultos (`guia-dietas-vegetarianas-svb-2012`) | diretriz | 2012 | 165 | permissão própria (SVB) | pendente |
+| 4 | Fascículo 1: Protocolos de uso do Guia Alimentar para a população bras… (`protocolos-guia-alimentar-fasciculo1-2021`) | diretriz | 2021 | 87 | CC-BY-NC-SA-4.0 | pendente |
+| 5 | Água, Hidratação e Saúde (`sban-agua-hidratacao-saude-2016`) | diretriz | 2016 | 55 | pendente | pendente |
+| 6 | Modificações dietéticas, reposição hídrica, suplementos alimentares e … (`sbme-modificacoes-dieteticas-suplementos-rbme-2009`) | diretriz | 2009 | 103 | CC-BY-NC-4.0 | pendente |
+| 7 | Código de Ética e de Conduta do Nutricionista (Resolução CFN nº 599/20… (`cfn-codigo-etica-conduta-nutricionista-2018`) | norma | 2018 | 59 | pendente | pendente |
+| 8 | Effects of intermittent fasting on metabolism in men (`azevedo-jejum-intermitente-ramb-2013`) | revisao | 2013 | 38 | CC-BY-NC-4.0 | pendente |
+| 9 | Relação entre sono e obesidade: uma revisão da literatura (`crispim-sono-obesidade-abem-2007`) | revisao | 2007 | 32 | CC-BY-NC-4.0 | pendente |
+| 10 | Uma nova classificação de alimentos baseada na extensão e propósito do… (`monteiro-nova-classificacao-alimentos-csp-2010`) | revisao | 2010 | 53 | CC-BY-NC-4.0 | pendente |
+| 11 | Ingestão dietética e fatores associados ao consumo alimentar de univer… (`rossetti-universitarios-consumo-alimentar-san-2015`) | revisao | 2015 | 33 | CC-BY-NC-4.0 | pendente |
+| 12 | Depressão, ansiedade e estresse e o comportamento alimentar (`brisotto-depressao-ansiedade-estresse-rbtc-2022`) | estudo | 2022 | 43 | pendente | pendente |
+| 13 | Contribuições da psicologia e da nutrição para a mudança do comportame… (`franca-psicologia-nutricao-comportamento-alimentar-epsic-2012`) | estudo | 2012 | 39 | CC-BY-NC-4.0 | pendente |
+| 14 | Ansiedade, qualidade do sono e compulsão alimentar em adultos com sobr… (`fusco-ansiedade-sono-compulsao-reeusp-2020`) | estudo | 2020 | 43 | CC-BY-4.0 | pendente |
+| 15 | Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006 (`jaime-frutas-hortalicas-brasil-rsp-2009`) | estudo | 2009 | 32 | CC-BY-NC-4.0 | pendente |
+| 16 | Impacto de alimentos ultraprocessados sobre o teor de micronutrientes … (`louzada-ultraprocessados-micronutrientes-rsp-2015`) | estudo | 2015 | 37 | CC-BY-NC-3.0 | pendente |
+| 17 | Alimentos ultraprocessados e perfil nutricional da dieta no Brasil (`louzada-ultraprocessados-perfil-nutricional-rsp-2015`) | estudo | 2015 | 48 | CC-BY-NC-3.0 | pendente |
+| 18 | Participação crescente de produtos ultraprocessados na dieta brasileir… (`martins-ultraprocessados-rsp-2013`) | estudo | 2013 | 34 | CC-BY-NC-3.0 | aprovado |
+| 19 | Conhecimento nutricional e suplementação alimentar por praticantes de … (`moreira-rodrigues-conhecimento-nutricional-suplementacao-2014`) | estudo | 2014 | 29 | CC-BY-NC-4.0 | pendente |
+| 20 | Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e… (`salvi-estudantes-enfermagem-sono-reben-2020`) | estudo | 2020 | 38 | CC-BY-4.0 | pendente |
+| 21 | Barreiras percebidas para o consumo de frutas e de verduras ou legumes… (`santos-barreiras-frutas-verduras-csc-2019`) | estudo | 2019 | 41 | CC-BY-4.0 | pendente |
+| 22 | Autopercepção do consumo alimentar e adesão aos Dez Passos para Alimen… (`souza-backes-universitarios-csc-2020`) | estudo | 2020 | 24 | CC-BY-4.0 | aprovado |
 
-#### Catálogo Verificável dos Documentos-Fonte Primários (PDFs Oficiais + Artigos PubMed)
+Tipos de fonte (campo `source_type`, do qual o nível de evidência é derivado): diretriz e norma viram `GUIDELINE_CONSENSUS`, revisão vira `GRADE_B` e estudo vira `GRADE_C` (heurística do [ADR 0002](adrs/0002-contrato-corpus-retriever.md), a calibrar no benchmark).
 
-| # | `source_id` | Tipo | Título / Referência Principal | Instituição / Periódico (Ano) | Licença | Status Revisão |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 01 | `guia-alimentar-populacao-brasileira-2014` | PDF Oficial | *Guia alimentar para a população brasileira (2ª ed.)* | Ministério da Saúde (2014) | `CC-BY-NC-SA-4.0` | `pendente` |
-| 02 | `protocolos-guia-alimentar-fasciculo1-2021` | PDF Oficial | *Fascículo 1: Protocolos de uso do Guia Alimentar (população adulta)* | Ministério da Saúde / USP (2021) | `CC-BY-NC-SA-4.0` | `pendente` |
-| 03 | `martins-ultraprocessados-rsp-2013` | PDF Oficial | *Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)* (`DOI: 10.1590/S0034-8910.2013047004968`) | Revista de Saúde Pública / SciELO (2013) | `CC-BY-NC-3.0` | `pendente` |
-| 04 | `souza-backes-universitarios-csc-2020` | PDF Oficial | *Autopercepção do consumo alimentar e adesão aos Dez Passos entre universitários de Porto Alegre* (`DOI: 10.1590/1413-812320202511.35582018`) | Ciência & Saúde Coletiva / SciELO (2020) | `CC-BY-4.0` | `pendente` |
-| 05 | `guia-dietas-vegetarianas-svb-2012` | PDF Oficial | *Guia alimentar de dietas vegetarianas para adultos* | Sociedade Vegetariana Brasileira — SVB (2012) | Permissão própria SVB (não comercial) | `pendente` |
-| 06 | `moreira-rodrigues-conhecimento-nutricional-suplementacao-2014` | PDF Oficial | *Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos* (`DOI: 10.1590/1517-86922014200500795`) | Rev. Bras. Med. Esporte / SciELO (2014) | `CC-BY-NC-4.0` | `pendente` |
-| 07 | `PMID:33762150` | PubMed (`GRADE_A`) | *The effects of foods on LDL cholesterol levels: A systematic review* (`DOI: 10.1016/j.numecd.2020.12.032`) | NMCD / PubMed (2021) | `pendente` | `pendente` |
-| 08 | `PMID:30239559` | PubMed (`GRADE_A`) | *Effect of psyllium (Plantago ovata) fiber on LDL cholesterol and non-HDL cholesterol* | PubMed / NCBI Entrez (2018) | `pendente` | `pendente` |
-| 09 | `PMID:37163454` | PubMed (`GRADE_A`) | *Psyllium is a natural nonfermented gel-forming fiber that is effective in metabolic syndrome* | PubMed / NCBI Entrez (2023) | `pendente` | `pendente` |
-| 10 | `PMID:25411276` | PubMed (`GRADE_A`) | *Cholesterol-lowering effects of oat β-glucan: a meta-analysis of randomized controlled trials* | PubMed / NCBI Entrez (2014) | `pendente` | `pendente` |
-| 11 | `PMID:33162192` | PubMed (`GRADE_A`) | *Effects of soluble fiber supplementation on glycemic control in type 2 diabetes* | PubMed / NCBI Entrez (2021) | `pendente` | `pendente` |
-| 12 | `PMID:37513574` | PubMed (`GRADE_A`) | *Effect of Dietary Approaches on Glycemic Control in Patients with Type 2 Diabetes* | PubMed / NCBI Entrez (2023) | `pendente` | `pendente` |
-| 13 | `PMID:31374573` | PubMed (`GRADE_A`) | *Low-glycemic index diets as an intervention for diabetes: a systematic review and meta-analysis* | PubMed / NCBI Entrez (2019) | `pendente` | `pendente` |
-| 14 | `PMID:40458173` | PubMed (`GRADE_A`) | *Comparative efficacy of dietary interventions for glycemic control and insulin resistance* | PubMed / NCBI Entrez (2025) | `pendente` | `pendente` |
-| 15 | `PMID:32428300` | PubMed (`GRADE_A`) | *Reduction in saturated fat intake for cardiovascular disease (Cochrane Systematic Review)* | Cochrane / PubMed (2020) | `pendente` | `pendente` |
-| 16 | `PMID:32114706` | PubMed (`GRADE_A`) | *Omega-3 fatty acids for the primary and secondary prevention of cardiovascular disease* | Cochrane / PubMed (2020) | `pendente` | `pendente` |
-| 17 | `PMID:29807048` | PubMed (`GRADE_A`) | *Portfolio Dietary Pattern and Cardiovascular Disease: A Systematic Review and Meta-Analysis* | PubMed / NCBI Entrez (2018) | `pendente` | `pendente` |
-| 18 | `PMID:35988871` | PubMed (`GRADE_A`) | *A network meta-analysis on the comparative effect of nutraceuticals and phytosterols on lipids* | PubMed / NCBI Entrez (2022) | `pendente` | `pendente` |
-| 19 | `PMID:32330233` | PubMed (`GRADE_A`) | *Dietary Approaches to Stop Hypertension (DASH) Diet and Blood Pressure Reduction* | PubMed / NCBI Entrez (2020) | `pendente` | `pendente` |
-| 20 | `PMID:37513679` | PubMed (`GRADE_A`) | *Adherence to the DASH Diet and Risk of Hypertension: A Systematic Review and Meta-Analysis* | PubMed / NCBI Entrez (2023) | `pendente` | `pendente` |
-| 21–37 | `PMID:27924137` a `PMID:38299473` | PubMed (`GRADE_A`) | *Mais 17 meta-análises/revisões sistemáticas (Nitratos, Creatina/Função Renal, Leucina/Sarcopenia, Curcumina/Piperina, Sulforafano, Ferro/Vitamina C)* | PubMed / NCBI Entrez (2016–2025) | `pendente` | `pendente` |
+### 1.2 Estratégia de chunking
 
-*(Além dos 37 documentos primários acima, a base inclui os 10 documentos de síntese de diretrizes `DOC_GUIA_NOVA_01` a `DOC_HIDRATACAO_SONO_CRONO_10` e a ferramenta determinística com os 597 alimentos da Tabela TACO 4ª Ed. Unicamp).*
+1. **Conversão** (`corpus/scripts/convert_pdfs.py`): cada PDF vira Markdown com um marcador por página física e link para a página no original. Páginas sem texto passam por OCR, e cada conversão gera um relatório com cobertura lexical por página.
+2. **Limpeza e divisão** (`corpus/scripts/prepare_rag.py`): remove marcadores, notas de conversão, cabeçalhos e rodapés repetidos, bibliografia, metadados editoriais e ligaturas quebradas. Divide em Trechos de **cerca de 1.000 caracteres (máximo de 1.400)**, cortando em fronteira de frase e **sem atravessar página nem seção**. Páginas que a revisão marcou como inconfiáveis (tabelas corrompidas) ficam fora (`skip_pages`).
+3. **Contrato** ([`corpus/schemas/trecho.schema.json`](../corpus/schemas/trecho.schema.json) e ADR 0002): cada Trecho carrega `id` estável, fonte, página do PDF, seção, licença, link, DOI e status de aprovação. O CI valida todos os Trechos contra o esquema.
+4. **Cabeçalho contextual na indexação** (`src/rag/contrato.py`): antes de indexar, cada Trecho recebe o cabeçalho `[Documento | Fonte (ano) | Domínio | Nível de evidência | Seção (pág.)]`, que entra no BM25 e no embedding.
 
----
+A página e a seção nunca são misturadas entre Trechos. É isso que permite citar a página exata do PDF em cada resposta.
 
-### 1.2. Descrição da Estratégia de Chunking
+### 1.3 Estratégia de embeddings
 
-A estratégia de fatiamento foi desenhada especificamente para documentos científicos e clínicos de nutrição, combinando **Chunking Sensível à Página e Seção (*Page-Aware & Section-Aware Chunking*)** com **Injeção de Cabeçalho Contextual (*Contextual Retrieval*)**, implementada em [`corpus/scripts/prepare_rag.py`](../corpus/scripts/prepare_rag.py) e [`src/ingestion/contextual_chunker.py`](../src/ingestion/contextual_chunker.py):
+- **Modelo:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`, multilíngue, **384 dimensões**, vetores normalizados (L2) e similaridade por cosseno.
+- **Execução local** (biblioteca `fastembed`, ONNX): nenhum texto sai da máquina, o que atende ao RNF05.
+- **Busca híbrida** (`src/retrieval/hybrid_retriever.py`): BM25 léxico com sinônimos clínicos, mais a similaridade densa do ChromaDB combinada com TF-IDF/LSA, fundidos por **Reciprocal Rank Fusion**, seguidos de reranker (sobreposição de termos e nível de evidência) e de diversificação (no máximo 2 Trechos por documento).
+- **Ainda não feito:** comparar pelo menos dois modelos em português no golden set (issue #15).
 
-1. **Higienização e Remoção de Ruído Editorial (`prepare_rag.py`):**
-   * Antes de fatiar os documentos convertidos de PDF para Markdown, o pipeline descarta automaticamente seções sem valor clínico para resposta (Sumário, Índice, Referências Bibliográficas, Créditos de Colaboradores e *Abstracts* duplicados em língua estrangeira), remove cabeçalhos/rodapés repetitivos (linhas curtas que se repetem em $\ge 4$ páginas) e corrige ligaturas tipográficas quebradas pela extração do PDF (ex.: `"signifi cativo"` $\rightarrow$ `"significativo"`).
-2. **Preservação de Fronteira Física de Página e Seção:**
-   * Nenhum trecho de documento PDF atravessa a fronteira de uma seção ou de uma página física (`<!-- PDF_PAGE: N -->`). Parágrafos curtos da mesma página e seção são agrupados até o limite de **`max_chars_per_chunk = 1200` caracteres** (mínimo de `80` e teto estrito de `1400` caracteres).
-   * Quando um parágrafo longo excede `1200` caracteres, o método [`ContextualChunker._split_long_text`](../src/ingestion/contextual_chunker.py#L71-L94) divide o texto exclusivamente nas **fronteiras de sentença (`. `)**, evitando palavras ou raciocínios truncados ao meio.
-3. **Injeção de Cabeçalho Contextual (*Contextual Retrieval Header*):**
-   * Em documentos longos (como o Guia Alimentar de 158 páginas), um parágrafo isolado frequentemente perde o sujeito ou o contexto normativo. Para resolver isso, [`ContextualChunker.build_context_header`](../src/ingestion/contextual_chunker.py#L56-L69) prefixa cada chunk com seus metadados estruturais antes da geração do embedding e da indexação léxica:
-   ```text
-   [Documento: <Título> | Fonte: <Instituição/Periódico> (<Ano>) | Domínio: <Domínio Clínico> | Nível de Evidência: <GRADE> | Seção: <Capítulo/Seção > Pág. PDF N>]
-   <Texto limpo do trecho>
-   ```
+### 1.4 Banco vetorial
 
----
+- **ChromaDB** persistente (`PersistentClient`) em `data/vector_store/chroma_db`, com índice **HNSW por cosseno**.
+- **Coleção versionada pelo conteúdo:** o nome da coleção leva a impressão digital do modelo e dos Trechos (`cultiva_nutricao_evidencias_b7d1dace6866`). Se o corpus ou o modelo mudarem, uma coleção nova é criada, em vez de reaproveitar vetores antigos.
+- **Metadados por vetor:** `fonte_id`, título, instituição, ano, nível de evidência, seção, página do PDF, link, DOI, licença e status de aprovação.
+- **Total indexado:** 1873 vetores de 22 documentos-fonte.
 
-### 1.3. Descrição da Estratégia de Embeddings e Busca Híbrida
+## 2. Documentação
 
-A estratégia de representação vetorial e recuperação ([`src/retrieval/vector_store.py`](../src/retrieval/vector_store.py) e [`src/retrieval/hybrid_retriever.py`](../src/retrieval/hybrid_retriever.py)) resolve dois desafios centrais do domínio biomédico brasileiro: o **alinhamento semântico *cross-lingual* (PT-BR $\leftrightarrow$ EN)** e a **precisão em siglas bioquímicas exatas**:
-
-1. **Modelo de Embeddings Densos Multilíngues (`DenseMultilingualEmbedder`):**
-   * **Modelo:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` executado localmente via runtime ONNX (`fastembed`).
-   * **Dimensionalidade e Normalização:** Gera vetores densos de **384 dimensões** submetidos à **normalização L2 estrita** ($\hat{\mathbf{v}} = \frac{\mathbf{v}}{\|\mathbf{v}\|_2}$), garantindo que o produto interno equivalha exatamente à similaridade de cosseno no intervalo $[-1, 1]$.
-   * **Capacidade Cross-Lingual:** Projeta consultas em português e documentos em português (Guia Alimentar, SciELO, SVB) ou inglês (meta-análises do PubMed) no mesmo espaço vetorial semântico (similaridade de cosseno $> 0.65$ para sentenças equivalentes PT-EN).
-2. **Enriquecimento de Sinônimos Clínicos e Representação Auxiliar LSA:**
-   * Antes da vetorização da consulta, [`expand_clinical_synonyms`](../src/retrieval/hybrid_retriever.py#L87-L96) mapeia expressões coloquiais (ex.: *"açúcar no sangue"*, *"colesterol ruim"*, *"pressão alta"*) para descritores clínicos (`glicemia`, `hba1c`, `ldl`, `dash`).
-   * O score vetorial combina a similaridade densa do banco vetorial ChromaDB (`55%`) com a similaridade contextual `TF-IDF (1-2 gramas) + TruncatedSVD/LSA` (`45%`), preservando alta sensibilidade tanto para paráfrases semânticas quanto para termos compostos específicos.
-3. **Fusão Híbrida via Reciprocal Rank Fusion (RRF) + Reranker Clínico GRADE:**
-   * O sistema executa em paralelo a busca vetorial (`Top-8`) e a busca léxica biomédica `BM25Okapi` (`Top-8`), fundindo as posições pelos pesos $w_{\text{BM25}} = 0.55$ e $w_{\text{Vector}} = 0.45$ ($k = 60$):
-     $$\text{RRF}(d) = \frac{0.55}{60 + \text{rank}_{\text{BM25}}(d)} + \frac{0.45}{60 + \text{rank}_{\text{Vector}}(d)}$$
-   * Em seguida, o **Reranker Clínico** adiciona bônus de cobertura de entidades da consulta e ponderação por nível de evidência (`GRADE_A`: $+0.08$, `GUIDELINE_CONSENSUS`: $+0.06$, `GRADE_B`: $+0.05$), aplicando **Diversificação Documental** (`MAX_CHUNKS_PER_DOC = 2`) para entregar os `TOP_K_FINAL = 4` chunks mais relevantes e diversos.
-
----
-
-### 1.4. Implementação do Banco Vetorial (`ChromaDB`)
-
-O banco vetorial foi implementado em [`src/retrieval/vector_store.py`](../src/retrieval/vector_store.py) através da classe [`NutritionVectorStore`](../src/retrieval/vector_store.py#L56-L199):
-
-* **Tecnologia:** **ChromaDB (`chromadb.PersistentClient`)** com persistência local em disco no diretório `data/vector_store/chroma_db`.
-* **Estrutura do Índice:** Grafo de navegação hierárquica **HNSW (`hnsw:space = "cosine"`)** acoplado a banco relacional SQLite para armazenamento de documentos e filtragem de metadados (`where`).
-* **Esquema de Metadados Persistidos por Vetor:**
-  * `chunk_id`, `doc_id`, `source_id` (ID único no catálogo ou `PMID`), `title`, `source_organization`, `publication_year`, `clinical_domain`, `evidence_level`, `section_path`, `source_url`, `license`, `review_status` e `page_number`.
-* **Idempotência e Reuso Rápido:** Na inicialização (`_ensure_indexed`), o `NutritionVectorStore` verifica se os `671` vetores já estão gravados na coleção `cultiva_nutricao_evidencias` em disco; quando presentes, reutiliza o índice imediatamente sem recomputar embeddings.
-
----
-
-## 2. Documentação Arquitetural
-
-### 2.1. Pipeline de Ingestão de Dados
+### 2.1 Pipeline de ingestão
 
 ```mermaid
 flowchart LR
-    subgraph "1. Fontes de Dados (>= 47 Documentos-Fonte)"
-        PDF["6 PDFs Oficiais (MS, USP, SciELO, SVB)\ncorpus/nutricao/originais/*.pdf"]
-        PM["31 Artigos Reais do PubMed (API Entrez)\nPMID + DOI + Abstracts"]
-        SYN["10 Sínteses de Diretrizes (SBD, SBC, ISSN, IOC)\ndata/raw/guidelines/seed_guidelines.json"]
-        TACO["Tabela TACO 4ª Ed. / TBCA (597 Alimentos)\ndata/raw/taco/taco_raw.json"]
-    end
-
-    subgraph "2. Extração, Auditoria e Limpeza"
-        CONV["convert_pdfs.py + verify_corpus.py\nValidação SHA-256 + Markdown paginado"]
-        PREP["prepare_rag.py\nRemoção de sumários/referências/rodapés\ncorpus/nutricao/rag/*.jsonl"]
-        ING["pdf_ingestor.py & pubmed_ingestor.py\ndata/raw/guidelines/*.json"]
-    end
-
-    subgraph "3. Contextual Chunking"
-        CC["ContextualChunker (src/ingestion/contextual_chunker.py)\n• Fronteira de página/seção e sentença (<= 1200 chars)\n• Cabeçalho [Doc | Fonte | Ano | Domínio | GRADE | Seção/Pág]\n• Metadados (source_id, URL/DOI, licença, review_status)"]
-    end
-
-    subgraph "4. Vetorização e Persistência"
-        EMB["DenseMultilingualEmbedder\nparaphrase-multilingual-MiniLM-L12-v2\n(384d, Normalização L2)"]
-        CHROMA[("Banco Vetorial Persistente ChromaDB\nÍndice HNSW Cosine + Metadados SQLite\ndata/vector_store/chroma_db (671 vetores)")]
-        BM25[("Índice Léxico Biomédico\nBM25Okapi em Memória")]
-    end
-
-    PDF --> CONV --> PREP --> CC
-    PDF --> ING --> CC
-    PM --> ING
-    SYN --> CC
-    CC --> EMB --> CHROMA
-    CC --> BM25
+    M["corpus/manifest.yaml<br/>22 fontes: origem, licença,<br/>SHA-256, source_type, aprovação"] --> C
+    P["PDFs originais<br/>corpus/nutricao/originais"] --> C["convert_pdfs.py<br/>Markdown por página + OCR<br/>+ relatório de cobertura"]
+    C --> V{"verify_corpus.py<br/>cadeia de hashes (CI)"}
+    C --> R["prepare_rag.py<br/>limpeza + Trechos de ~1000 caracteres<br/>sem atravessar página nem seção"]
+    R --> J["Trechos JSONL<br/>corpus/nutricao/rag<br/>(validados pelo JSON Schema no CI)"]
+    J --> G{"Gate de aprovação<br/>aprovado, ou também pendente<br/>com a flag de desenvolvimento"}
+    G --> T["trecho_para_chunk<br/>cabeçalho contextual +<br/>nível de evidência pelo tipo"]
+    T --> E["Embeddings multilíngues<br/>MiniLM-L12, 384d (local)"]
+    E --> DB[("ChromaDB HNSW cosseno<br/>coleção por impressão digital")]
+    T --> B[("Índice BM25")]
 ```
 
-### 2.2. Diagrama de Arquitetura (Consulta, Recuperação, Fundamentação e Guardrails)
+### 2.2 Arquitetura de consulta
 
 ```mermaid
 flowchart TD
-    USER["Consulta do Usuário\n(CLI / FastAPI POST /consult)"] --> IG["1. Input Guardrail & Reframing PICO\n(src/agent/guardrails.py — Lei Federal nº 8.234/91)\nIntercepta prescrição/diagnóstico/posologia individual"]
-    IG -->|"Query Segura ou Reenquadrada"| ORCH["2. Orquestrador Central\n(NutritionConsultantBaseline.consult)"]
-
-    subgraph "3. Motor de Recuperação Híbrida (src/retrieval/)"
-        ORCH --> HR["HybridRetriever"]
-        HR --> VDB[("Banco Vetorial ChromaDB\nBusca Semântica HNSW 384d + LSA (Top-8)")]
-        HR --> LEX[("Índice BM25Okapi\nBusca Léxica + Sinônimos Clínicos (Top-8)")]
-        VDB & LEX --> RRF["Fusão Reciprocal Rank Fusion (RRF)\n(0.55 BM25 + 0.45 Vetorial, k=60)"]
-        RRF --> RER["Reranker Clínico GRADE + Diversificação\n(Máx. 2 chunks/doc ➔ Top-4 Chunks)"]
-    end
-
-    subgraph "Ferramentas Determinísticas Complementares"
-        ORCH --> TACO_T["TacoDeterministicTool\n(Valores exatos por 100g em 597 alimentos)"]
-        ORCH --> KG_T["CausalKnowledgeGraphEngine (NetworkX)\n(Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho GRADE\n+ Filtro de Contraindicações ex: DRC/Potássio)"]
-    end
-
-    RER & TACO_T & KG_T --> LLM["4. Geração Fundamentada no Conteúdo Recuperado\n(src/agent/llm_client.py: Groq API ➔ Ollama ➔ Extrativo Local)"]
-    LLM --> OG["5. Output Guardrail\n(Sanitização de expressões imperativas/prescritivas)"]
-    OG --> RESP["6. Resposta Auditável (ConsultantResponse)\n• Chunks recuperados + Scores (Vetorial, BM25, RRF, Rerank)\n• Resposta fundamentada (Síntese, Mecanismo, Protocolos)\n• Evidência completa das fontes (Doc ID, Fonte ID, Pág/Seção, URL/DOI, Licença)"]
+    Q["Consulta do usuário"] --> GE["Guardrail de entrada<br/>(Lei 8.234/1991: dieta, dose e diagnóstico<br/>são reenquadrados para evidência populacional)"]
+    GE --> HR["Recuperação híbrida<br/>BM25 + ChromaDB/LSA + RRF<br/>+ reranker + diversificação"]
+    DB[("ChromaDB")] --> HR
+    B[("BM25")] --> HR
+    HR --> K["Top-4 Trechos<br/>com fonte, página, link e status"]
+    K --> S["Síntese fundamentada<br/>(Groq ou Ollama; sem LLM, síntese extrativa)<br/>+ Tabela TACO + Grafo causal"]
+    S --> GS["Guardrail de saída<br/>(remove linguagem prescritiva)"]
+    GS --> R["Resposta + citações rastreáveis<br/>(fonte, seção, página, link, licença, aprovação)"]
 ```
 
----
+O fluxo segue a arquitetura provisória da documentação do projeto, com duas diferenças registradas: o banco vetorial é ChromaDB em vez de pgvector, e o portão de risco (CVV 188) ainda não existe (issue #9).
 
-## 3. Demonstração e Avaliação Empírica
-
-### 3.1. Como Executar a Demonstração Completa
-
-Para executar o script oficial de demonstração que exibe a auditoria dos artefatos ($\ge 20$ fontes, chunking, embeddings, banco vetorial ChromaDB) seguida das consultas com os **4 passos exigidos** (*Consulta submetida*, *Recuperação dos chunks mais relevantes*, *Resposta fundamentada* e *Evidência das fontes*):
+## 3. Demonstração
 
 ```bash
-# Demonstração completa (3 casos de teste: Diretriz Oficial, Evidência Biomédica e Guardrail Legal):
-uv run python -m src.demo_entrega
-
-# Demonstração com uma consulta personalizada:
-uv run python -m src.demo_entrega "Como a fibra solúvel da aveia age para reduzir o colesterol LDL e a glicemia?"
+uv run python -m src.demo_entrega                            # 3 consultas de exemplo
+uv run python -m src.demo_entrega "Sua pergunta aqui"        # uma consulta própria
+uv run python -m src.demo_entrega --salvar-artefatos         # regrava entrega_semanal/
 ```
 
-### 3.2. Resultados Quantitativos no Benchmark e Estudo de Ablação (`run_benchmark.py`)
+Cada consulta mostra as quatro etapas pedidas: (A) a consulta submetida e o guardrail; (B) os Trechos recuperados com fonte, página e os scores de cada etapa da busca; (C) a resposta fundamentada; (D) as citações das fontes usadas. O log completo está em [`entrega_semanal/demonstracao/log_demonstracao_consultas.txt`](../entrega_semanal/demonstracao/log_demonstracao_consultas.txt), e as respostas estruturadas, em `resultado_consultas.json`.
 
-Avaliação executada sobre as 16 questões do conjunto de validação (`data/benchmark/eval_questions.json`) com **671 chunks (47 documentos-fonte)** indexados no **ChromaDB**:
+Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinística). Com uma chave da Groq no `.env` ou um Ollama local, a etapa C passa a ser gerada pelo modelo, sempre a partir dos mesmos Trechos.
 
-| Configuração Avaliada | Document Recall@4 | Mean Reciprocal Rank (MRR) | Cobertura Geral de Conceitos | Cobertura Multi-Hop / TACO / Grafo | Precisão Guardrail (Lei 8.234/91) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **1. Passo 1: Só RAG Híbrido (ChromaDB + BM25)** | `93.8%` | `0.8750` | `50.5%` | `14.8%` | `100.0%` |
-| **2. Passo 2: RAG Híbrido + Tabela TACO** | `93.8%` | `0.8750` | `55.5%` | `26.2%` | `100.0%` |
-| **3. Passo 3: RAG (ChromaDB + BM25) + TACO + Grafo 4 Camadas** | **`93.8%`** | **`0.8750`** | **`88.3%`** | **`90.5%`** | **`100.0%` (16/16)** |
+| Caso | Consulta | O que mostra |
+|---|---|---|
+| 1 | Fibra solúvel da aveia, colesterol LDL e glicemia | Recuperação de evidência sobre fibras (posicionamento da ABESO, guias). |
+| 2 | Quatro categorias de alimentos do Guia e ultraprocessados | Recuperação no Guia Alimentar e nos artigos de Martins e Louzada, com página. |
+| 3 | Pedido de cardápio de 1.800 kcal para pré-diabetes | Guardrail legal: o pedido é reenquadrado, com o aviso da Lei 8.234/1991. |
 
-### 3.3. Limitações Conhecidas e Registro Crítico (`AGENTS.md`)
+### 3.1 Avaliação (benchmark offline)
 
-1. **Status de Revisão e Licenças (`corpus/manifest.yaml`):** Conforme verificado por `corpus/scripts/verify_corpus.py`, os 6 documentos convertidos de PDF e os resumos do PubMed permanecem com `review_status: pendente` e `approval_status: pendente`. A compatibilidade de licenças não comerciais (`CC-BY-NC-SA-4.0`, `CC-BY-NC-3.0`, `CC-BY-NC-4.0` e permissão SVB) com eventual uso comercial futuro do produto continua pendente de decisão jurídica/institucional.
-2. **Cobertura de Artigos PubMed:** Os 31 estudos do PubMed indexados via API NCBI Entrez contêm os metadados oficiais (`PMID`, `DOI`, título, periódico, ano) e o texto integral dos resumos estruturados (*abstracts*), não os PDFs completos dos artigos pagos/fechados.
-3. **Diferença entre Presença de Citação e Fundamentação Semântica:** Na ausência de chave `GROQ_API_KEY` ou daemon `Ollama` ativo, o cliente (`LocalLLMClient`) utiliza o modo determinístico extrativo (`local_extractive_synthesis`), que garante 0% de alucinação fora do corpus, mas produz texto menos fluido que o modelo generativo parametrizado.
+`run_benchmark.py` sobre as 16 perguntas de `data/benchmark/eval_questions.json`, sem LLM:
+
+| Métrica | Valor |
+|---|---|
+| Recall@4 por fonte | 91.7% (em 12 das 16 perguntas) |
+| MRR | 0.750 |
+| Cobertura de termos esperados | 88.1% |
+| Acurácia do guardrail legal | 100% |
+
+- As perguntas foram escritas para o `data/raw`. Os ids esperados foram mapeados para as fontes do corpus (Guia por capítulo vira o Guia inteiro). As 4 perguntas que dependiam só do `seed_guidelines` ou do PubMed ficaram fora da média de recall, e o relatório as lista.
+- O recall agora é por fonte e não por capítulo, então os números **não são comparáveis** aos da versão anterior (93,8% com 47 fontes).
+- O conjunto é pequeno e tem só 3 armadilhas de prescrição. O benchmark v2 é a issue #13.
+
+## 4. Limitações conhecidas
+
+- **Reranker e idioma:** o bônus por sobreposição de termos favorece Trechos em português. Isso foi um dos motivos para deixar o PubMed (em inglês) fora desta entrega. A calibração é a issue #13.
+- **Aprovação das fontes:** 20 das 22 fontes seguem pendentes, e a demonstração usa o modo de desenvolvimento. O PR único de aprovação é a issue #8.
+- **Licenças:** fontes com licença não comercial ou pendente são usadas sob o aceite de risco para projeto acadêmico. A ABESO, a SBAN e o artigo de Brisotto não declaram licença.
+- **Código de Ética do CFN:** a versão de 2018 provavelmente foi revogada pela Resolução CFN 856/2026, ainda sem texto oficial localizado.
+- **Extração:** há defeitos conhecidos (versaletes do Guia, uma página do Crispim) nas issues #26 e #27.
+
+## 5. Relação com as issues
+
+| Issue | Situação neste PR |
+|---|---|
+| #4 Integrar os JSONL do corpus | Feita: `src/rag/corpus_loader.py` carrega os Trechos pelo contrato do ADR 0002. |
+| #7 Filtrar por fonte aprovada | Feita: gate no momento de montar o índice, com a flag `incluir_pendentes` (ou `CULTIVA_INCLUIR_PENDENTES=true`). |
+| #15 Embeddings e banco vetorial | Parcial: modelo multilíngue local e ChromaDB. Falta comparar modelos em português. |
+| #11 Rastreabilidade | Parcial: citações com página, link, DOI, licença e status. A impressão digital da coleção é um primeiro passo para o `corpus_version`. |
+| #13 Benchmark v2 | Parcial: ids esperados mapeados para as fontes do corpus. O conjunto continua o mesmo. |
+| #28 PubMed e TACO no corpus | Decidido para esta entrega: PubMed fora. O suporte a resumos no pipeline está pronto. |

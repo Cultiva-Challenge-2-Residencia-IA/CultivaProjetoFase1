@@ -1,12 +1,18 @@
 {
   "vector_db_engine": "ChromaDB (HNSW Cosine Index + SQLite Metadata Store)",
   "persistent": true,
-  "persist_directory": "/Users/daviaraujo/Documents/Residencia/projeto_2/CultivaProjetoFase1/data/vector_store/chroma_db",
-  "collection_name": "cultiva_nutricao_evidencias",
+  "persist_directory": "data/vector_store/chroma_db",
+  "collection_name": "cultiva_nutricao_evidencias_b7d1dace6866",
+  "content_fingerprint": "b7d1dace686624fbc048f9fab3e5182bdf31c3aec6675ccbfa66805b57a04104",
   "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
   "embedding_dimension": 384,
   "distance_metric": "cosine (L2-normalized vectors)",
-  "total_vectors_indexed": 671,
-  "unique_doc_ids": 29,
-  "unique_source_documents": 47
+  "total_vectors_indexed": 1873,
+  "unique_doc_ids": 22,
+  "unique_source_documents": 22,
+  "trechos_indexados": 1873,
+  "documentos_fonte": 22,
+  "fontes_pdf": 22,
+  "resumos_pubmed": 0,
+  "inclui_fontes_pendentes": true
 }

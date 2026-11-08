@@ -15,39 +15,13 @@ Implementação completa de um consultor de nutrição baseado em evidências ci
 
 ## Resumo dos Artefatos da Entrega
 
-1. **Base de Conhecimento Curada (`>= 20` Documentos-Fonte):**
-   * **47 documentos-fonte únicos** (**37 documentos-fonte primários verificáveis** + **10 sínteses normativas**), totalizando **671 chunks contextualizados**:
-     * **6 Documentos Oficiais Completos em PDF** catalogados em [`corpus/manifest.yaml`](corpus/manifest.yaml) e auditados por SHA-256 (*Guia Alimentar MS 2014*, *Fascículo 1 MS/USP 2021*, *Martins et al. SciELO 2013*, *Souza & Backes SciELO 2020*, *Guia Vegetariano SVB 2012* e *Moreira & Rodrigues SciELO 2014*).
-     * **31 Meta-Análises e Revisões Sistemáticas Reais do PubMed** (coletadas via API NCBI Entrez com `PMID` e `DOI` individuais verificáveis).
-     * **10 Sínteses Normativas de Diretrizes Clínicas** (SBD, SBC, ISSN, IOC) + **597 Alimentos da Tabela TACO 4ª Edição (Unicamp) / TBCA-USP**.
-2. **Estratégia de Chunking (`corpus/scripts/prepare_rag.py` & `src/ingestion/contextual_chunker.py`):**
-   * **Page-Aware & Section-Aware Chunking:** Limpeza de sumários, referências e rodapés repetitivos; preservação estrita das fronteiras de página física (`pagina_pdf`) e seção; limite de `1200` caracteres cortado exclusivamente em fronteiras de sentença.
-   * **Contextual Retrieval Header:** Injeção automática do cabeçalho `[Documento | Fonte (Ano) | Domínio | Nível de Evidência GRADE | Seção/Pág]` em cada chunk.
-3. **Estratégia de Embeddings (`src/retrieval/vector_store.py` & `src/retrieval/hybrid_retriever.py`):**
-   * Modelo denso multilíngue **`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`** (`384` dimensões, normalização L2 para similaridade de cosseno) permitindo busca *cross-lingual* (PT-BR $\leftrightarrow$ EN), combinado com representação contextual LSA e fundido ao índice léxico `BM25Okapi` via **Reciprocal Rank Fusion (RRF, $k=60$)** + Reranker Clínico `GRADE` + Diversificação Documental (`MAX_CHUNKS_PER_DOC=2`).
-4. **Banco Vetorial Persistente (`src/retrieval/vector_store.py`):**
-   * Implementado com **ChromaDB (`PersistentClient`)** em `data/vector_store/chroma_db`, utilizando índice **HNSW (`cosine`)** e armazenamento relacional de metadados (`source_id`, `doc_id`, `evidence_level`, `license`, `review_status`, `page_number`).
+Detalhes, números gerados pelo sistema, diagramas e limitações em [`docs/entrega-rag-nutricao.md`](docs/entrega-rag-nutricao.md).
 
----
-
-## Diagrama de Arquitetura e Pipeline de Ingestão
-
-```mermaid
-flowchart TD
-    subgraph "Pipeline de Ingestão e Indexação"
-        SRC["47 Documentos-Fonte\n(6 PDFs Oficiais + 31 Artigos PubMed + 10 Diretrizes)"] --> CHK["ContextualChunker + prepare_rag.py\n(671 Chunks c/ Cabeçalho Contextual e Pág/PMID)"]
-        CHK --> EMB["DenseMultilingualEmbedder\n(paraphrase-multilingual-MiniLM-L12-v2 | 384d L2)"]
-        EMB --> VDB[("Banco Vetorial Persistente\nChromaDB HNSW (data/vector_store/chroma_db)")]
-        CHK --> BM25[("Índice Léxico Biomédico\nBM25Okapi")]
-    end
-
-    Q["Consulta do Usuário"] --> IG["1. Input Guardrail & Reframing PICO\n(src/agent/guardrails.py — Lei 8.234/91)"]
-    IG --> RET["2. Recuperação Híbrida (HybridRetriever)"]
-    VDB & BM25 --> RET
-    RET -->|"RRF + Reranker GRADE + Diversificação"| TOPK["Top-4 Chunks Mais Relevantes"]
-    TOPK --> SYN["3. Síntese Fundamentada + Tabela TACO + Grafo 4 Camadas\n(src/agent/llm_client.py + Output Guardrail)"]
-    SYN --> OUT["4. Resposta Fundamentada + Evidência Rastreável das Fontes"]
-```
+1. **Base de conhecimento curada:** 22 documentos-fonte em PDF (mínimo exigido: 20), catalogados em [`corpus/manifest.yaml`](corpus/manifest.yaml) com origem, licença e SHA-256, divididos em 1.873 Trechos. O `seed_guidelines` (sem origem verificável) e os resumos do PubMed (em inglês) ficaram fora do índice.
+2. **Chunking:** `corpus/scripts/prepare_rag.py` gera Trechos de cerca de 1.000 caracteres sem atravessar página nem seção, no formato do [ADR 0002](docs/adrs/0002-contrato-corpus-retriever.md), com cabeçalho contextual na indexação.
+3. **Embeddings:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (384 dimensões, cosseno), executado localmente, combinado ao BM25 por RRF.
+4. **Banco vetorial:** ChromaDB persistente em `data/vector_store/chroma_db`, índice HNSW por cosseno, coleção versionada pela impressão digital do conteúdo e metadados de rastreabilidade (fonte, página, link, licença, aprovação).
+5. **Gate de aprovação:** por padrão só fontes `aprovado` entram no índice. A demonstração e o benchmark usam a flag de desenvolvimento, que inclui as pendentes (`CULTIVA_INCLUIR_PENDENTES=true` na API e na CLI).
 
 ---
 
@@ -68,7 +42,7 @@ uv run python -m src.demo_entrega
 uv run python -m src.demo_entrega "Como a fibra solúvel da aveia age para reduzir o colesterol LDL e a glicemia?"
 ```
 
-### 3. Rodar a suíte de testes automatizados (26 testes)
+### 3. Rodar a suíte de testes automatizados
 ```bash
 uv run pytest -v
 ```
