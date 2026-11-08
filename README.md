@@ -17,11 +17,11 @@ Implementação completa de um consultor de nutrição baseado em evidências ci
 
 Detalhes, números gerados pelo sistema, diagramas e limitações em [`docs/entrega-rag-nutricao.md`](docs/entrega-rag-nutricao.md).
 
-1. **Base de conhecimento curada:** 22 documentos-fonte em PDF (mínimo exigido: 20), catalogados em [`corpus/manifest.yaml`](corpus/manifest.yaml) com origem, licença e SHA-256, divididos em 1.873 Trechos. O `seed_guidelines` (sem origem verificável) e os resumos do PubMed (em inglês) ficaram fora do índice.
+1. **Base de conhecimento curada:** 21 documentos-fonte aprovados (mínimo exigido: 20) de 22 catalogados em [`corpus/manifest.yaml`](corpus/manifest.yaml) com origem e SHA-256, somando 1.818 Trechos no índice. A SBAN segue pendente; o `seed_guidelines` (sem origem verificável) e os resumos do PubMed (em inglês) ficaram fora do índice.
 2. **Chunking:** `corpus/scripts/prepare_rag.py` gera Trechos de cerca de 1.000 caracteres sem atravessar página nem seção, no formato do [ADR 0002](docs/adrs/0002-contrato-corpus-retriever.md), com cabeçalho contextual na indexação.
 3. **Embeddings:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (384 dimensões, cosseno), executado localmente, combinado ao BM25 por RRF.
-4. **Banco vetorial:** ChromaDB persistente em `data/vector_store/chroma_db`, índice HNSW por cosseno, coleção versionada pela impressão digital do conteúdo e metadados de rastreabilidade (fonte, página, link, licença, aprovação).
-5. **Gate de aprovação:** por padrão só fontes `aprovado` entram no índice. A demonstração e o benchmark usam a flag de desenvolvimento, que inclui as pendentes (`CULTIVA_INCLUIR_PENDENTES=true` na API e na CLI).
+4. **Banco vetorial:** ChromaDB persistente em `data/vector_store/chroma_db`, índice HNSW por cosseno, coleção versionada pela impressão digital do conteúdo e metadados de rastreabilidade (fonte, página, link, aprovação).
+5. **Gate de aprovação:** só fontes `aprovado` entram no índice, inclusive na demonstração e no benchmark. Para testar com as pendentes, use `CULTIVA_INCLUIR_PENDENTES=true` (API e CLI).
 
 ---
 
