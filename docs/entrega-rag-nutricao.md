@@ -63,6 +63,7 @@ A página e a seção nunca são misturadas entre Trechos. É isso que permite c
 ### 1.4 Banco vetorial
 
 - **ChromaDB** persistente (`PersistentClient`) em `data/vector_store/chroma_db`, com índice **HNSW por cosseno**.
+- **Busca densa exata:** sem filtro, a similaridade é calculada sobre todos os embeddings persistidos (força bruta, como um índice *flat*). O HNSW é aproximado e devolvia vizinhos diferentes a cada carga do índice, o que quebrava o determinismo do benchmark no CI. Com cerca de 1.800 vetores, a busca exata custa uma multiplicação de matriz; o HNSW volta a fazer sentido quando o corpus crescer para centenas de milhares de vetores.
 - **Coleção versionada pelo conteúdo:** o nome da coleção leva a impressão digital do modelo e dos Trechos (`cultiva_nutricao_evidencias_3d5b208fa9b6`). Se o corpus ou o modelo mudarem, uma coleção nova é criada, em vez de reaproveitar vetores antigos.
 - **Metadados por vetor:** `fonte_id`, título, instituição, ano, nível de evidência, seção, página do PDF, link, DOI, licença e status de aprovação.
 - **Total indexado:** 1818 vetores de 21 documentos-fonte (só fontes aprovadas).

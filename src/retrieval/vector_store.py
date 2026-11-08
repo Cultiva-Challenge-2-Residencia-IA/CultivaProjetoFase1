@@ -119,6 +119,16 @@ class NutritionVectorStore:
             },
         )
         self._ensure_indexed()
+        self._matriz: Optional[np.ndarray] = None
+
+    def _matriz_de_embeddings(self) -> np.ndarray:
+        """Embeddings persistidos, na ordem de `self.chunks`, carregados uma vez por processo."""
+        if self._matriz is None:
+            ids = [c.chunk_id for c in self.chunks]
+            res = self.collection.get(ids=ids, include=["embeddings"])
+            por_id = dict(zip(res["ids"], res["embeddings"]))
+            self._matriz = np.asarray([por_id[i] for i in ids], dtype=np.float64)
+        return self._matriz
 
     def _ensure_indexed(self) -> int:
         """
@@ -187,14 +197,25 @@ class NutritionVectorStore:
         where: Optional[Dict[str, Any]] = None,
     ) -> List[Tuple[int, float]]:
         """
-        Executa busca por similaridade semântica (HNSW Cosine) no ChromaDB.
+        Busca por similaridade de cosseno sobre os embeddings persistidos no ChromaDB.
         Retorna lista de tuplas (chunk_index, cosine_similarity_score).
+
+        Sem filtro, a busca é exata (força bruta sobre a matriz de embeddings, como um
+        índice "flat"): o HNSW é aproximado e devolve vizinhos diferentes a cada carga do
+        índice, o que torna o benchmark não determinístico. Com poucos milhares de vetores,
+        a busca exata custa uma multiplicação de matriz. Empates são desfeitos pela ordem
+        dos chunks. Com filtro `where`, usa o índice HNSW do ChromaDB.
         """
         if not self.chunks:
             return []
 
         n_results = min(top_k, len(self.chunks))
         query_vec = self.embedder.embed_query(query)
+
+        if not where:
+            sims = self._matriz_de_embeddings() @ np.asarray(query_vec, dtype=np.float64)
+            ordem = np.lexsort((np.arange(len(sims)), -sims))[:n_results]
+            return [(int(i), max(0.0, float(sims[i]))) for i in ordem]
 
         query_kwargs: Dict[str, Any] = {
             "query_embeddings": [query_vec],

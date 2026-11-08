@@ -527,8 +527,8 @@
       "retrieved_doc_ids": [
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
         "guia-alimentar-populacao-brasileira-2014",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
-        "guia-alimentar-populacao-brasileira-2014"
+        "guia-alimentar-populacao-brasileira-2014",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 0.5,
