@@ -11,7 +11,7 @@ PARTE 1 — AUDITORIA DOS ARTEFATOS DA ENTREGA (BASE CURADA, CHUNKING, EMBEDDING
 4. Estratégia de Embeddings    : sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 (384 dimensões, cosine (L2-normalized vectors))
 5. Banco Vetorial Implementado : ChromaDB (HNSW Cosine Index + SQLite Metadata Store)
    • Persistência em Disco     : data/vector_store/chroma_db
-   • Coleção / Vetores Ativos  : cultiva_nutricao_evidencias_3d5b208fa9b6 (1818 vetores persistidos)
+   • Coleção / Vetores Ativos  : cultiva_nutricao_evidencias_c7c9608eec6c (1818 vetores persistidos)
 --------------------------------------------------------------------------------------------
 CATÁLOGO DOS DOCUMENTOS-FONTE INDEXADOS (21):
   01. [abeso-posicionamento-tratamento-nutricional-obesidade-2022] (pdf | diretriz | 2022) Posicionamento sobre o tratamento nutricional do sobrepeso... | 501 Trechos | Licença: pendente | Aprovação: aprovado

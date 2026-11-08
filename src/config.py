@@ -36,6 +36,10 @@ EMBEDDING_MODEL_NAME = os.getenv(
     "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
 )
 EMBEDDING_DIMENSION = int(os.getenv("EMBEDDING_DIMENSION", "384"))
+# Parâmetros do índice HNSW do ChromaDB. Com os padrões, a busca aproximada perdia vizinhos
+# e variava a cada carga do índice; com 200, o top-24 coincide com a busca exata no corpus atual.
+HNSW_EF_CONSTRUCTION = int(os.getenv("HNSW_EF_CONSTRUCTION", "200"))
+HNSW_EF_SEARCH = int(os.getenv("HNSW_EF_SEARCH", "200"))
 
 # Provedor de LLM ("groq", "ollama" ou "auto")
 LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq").lower()

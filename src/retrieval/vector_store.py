@@ -10,6 +10,8 @@ from src.config import (
     PROJECT_ROOT,
     EMBEDDING_DIMENSION,
     EMBEDDING_MODEL_NAME,
+    HNSW_EF_CONSTRUCTION,
+    HNSW_EF_SEARCH,
     VECTOR_COLLECTION_NAME,
     VECTOR_STORE_DIR,
 )
@@ -27,9 +29,23 @@ def _caminho_relativo(caminho: Path) -> str:
         return str(caminho)
 
 
+def configuracao_hnsw() -> Dict[str, Any]:
+    """Configuração do índice HNSW (cosseno) usada ao criar a coleção."""
+    return {
+        "space": "cosine",
+        "ef_construction": HNSW_EF_CONSTRUCTION,
+        "ef_search": HNSW_EF_SEARCH,
+    }
+
+
 def impressao_digital(chunks: List[DocumentChunk], modelo: str) -> str:
-    """Hash do modelo e do conteúdo indexado. Muda quando o corpus ou o modelo mudam."""
+    """Hash do modelo, da configuração do HNSW e do conteúdo indexado.
+
+    Muda quando o corpus, o modelo ou o índice mudam, para não reaproveitar uma coleção
+    construída com outros parâmetros.
+    """
     h = hashlib.sha256(modelo.encode())
+    h.update(repr(sorted(configuracao_hnsw().items())).encode())
     for c in chunks:
         h.update(c.chunk_id.encode())
         h.update(c.contextualized_text.encode())
@@ -112,23 +128,13 @@ class NutritionVectorStore:
 
         self.collection = self.client.get_or_create_collection(
             name=self.collection_name,
+            configuration={"hnsw": configuracao_hnsw()},
             metadata={
-                "hnsw:space": "cosine",
                 "embedding_model": self.embedding_model_name,
                 "dimension": str(self.embedder.dimension),
             },
         )
         self._ensure_indexed()
-        self._matriz: Optional[np.ndarray] = None
-
-    def _matriz_de_embeddings(self) -> np.ndarray:
-        """Embeddings persistidos, na ordem de `self.chunks`, carregados uma vez por processo."""
-        if self._matriz is None:
-            ids = [c.chunk_id for c in self.chunks]
-            res = self.collection.get(ids=ids, include=["embeddings"])
-            por_id = dict(zip(res["ids"], res["embeddings"]))
-            self._matriz = np.asarray([por_id[i] for i in ids], dtype=np.float64)
-        return self._matriz
 
     def _ensure_indexed(self) -> int:
         """
@@ -197,25 +203,15 @@ class NutritionVectorStore:
         where: Optional[Dict[str, Any]] = None,
     ) -> List[Tuple[int, float]]:
         """
-        Busca por similaridade de cosseno sobre os embeddings persistidos no ChromaDB.
+        Busca por similaridade de cosseno no índice HNSW do ChromaDB.
         Retorna lista de tuplas (chunk_index, cosine_similarity_score).
-
-        Sem filtro, a busca é exata (força bruta sobre a matriz de embeddings, como um
-        índice "flat"): o HNSW é aproximado e devolve vizinhos diferentes a cada carga do
-        índice, o que torna o benchmark não determinístico. Com poucos milhares de vetores,
-        a busca exata custa uma multiplicação de matriz. Empates são desfeitos pela ordem
-        dos chunks. Com filtro `where`, usa o índice HNSW do ChromaDB.
+        A qualidade da busca aproximada depende de `ef_search` (ver `configuracao_hnsw`).
         """
         if not self.chunks:
             return []
 
         n_results = min(top_k, len(self.chunks))
         query_vec = self.embedder.embed_query(query)
-
-        if not where:
-            sims = self._matriz_de_embeddings() @ np.asarray(query_vec, dtype=np.float64)
-            ordem = np.lexsort((np.arange(len(sims)), -sims))[:n_results]
-            return [(int(i), max(0.0, float(sims[i]))) for i in ordem]
 
         query_kwargs: Dict[str, Any] = {
             "query_embeddings": [query_vec],
@@ -252,6 +248,7 @@ class NutritionVectorStore:
             "embedding_model": self.embedding_model_name,
             "embedding_dimension": self.embedder.dimension,
             "distance_metric": "cosine (L2-normalized vectors)",
+            "hnsw": configuracao_hnsw(),
             "total_vectors_indexed": self.collection.count(),
             "unique_doc_ids": len(unique_docs),
             "unique_source_documents": len(unique_sources),

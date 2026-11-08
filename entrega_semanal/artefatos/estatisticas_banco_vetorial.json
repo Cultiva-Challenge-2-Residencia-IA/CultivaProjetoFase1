@@ -2,11 +2,16 @@
   "vector_db_engine": "ChromaDB (HNSW Cosine Index + SQLite Metadata Store)",
   "persistent": true,
   "persist_directory": "data/vector_store/chroma_db",
-  "collection_name": "cultiva_nutricao_evidencias_3d5b208fa9b6",
-  "content_fingerprint": "3d5b208fa9b64693050f54b6ac4001acc423c8faa965ff845153c03cdd37a277",
+  "collection_name": "cultiva_nutricao_evidencias_c7c9608eec6c",
+  "content_fingerprint": "c7c9608eec6ca358f4f5d0de1f3b1582a163228c101cce08e070a9bbffb663d9",
   "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
   "embedding_dimension": 384,
   "distance_metric": "cosine (L2-normalized vectors)",
+  "hnsw": {
+    "space": "cosine",
+    "ef_construction": 200,
+    "ef_search": 200
+  },
   "total_vectors_indexed": 1818,
   "unique_doc_ids": 21,
   "unique_source_documents": 21,

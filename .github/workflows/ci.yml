@@ -74,7 +74,14 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
       - run: uv sync --frozen
 
-      - name: Benchmark offline (duas execuções)
+      # A primeira execução só constrói o índice HNSW do ChromaDB e é descartada. As duas
+      # seguintes usam o mesmo índice persistido, então o gate de determinismo compara o
+      # pipeline (BM25, fusão, reranker e síntese), não a construção do índice aproximado.
+      # A qualidade do HNSW frente à busca exata é coberta pelo pytest.
+      - name: Construir o índice vetorial
+        run: uv run python -m src.evaluation.run_benchmark --no-ollama > /dev/null
+
+      - name: Benchmark offline (duas execuções no mesmo índice)
         run: |
           uv run python -m src.evaluation.run_benchmark --no-ollama
           cp data/benchmark/baseline_report.json "$RUNNER_TEMP/execucao1.json"
