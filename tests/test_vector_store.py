@@ -75,3 +75,23 @@ def test_busca_hibrida_com_banco_vetorial_recupera_a_fonte_certa(tmp_path) -> No
         top_k=4,
     )
     assert "souza-backes-universitarios-csc-2020" in {r.chunk.doc_id for r in resultados}
+
+
+def test_busca_densa_e_exata_e_igual_ao_recarregar_o_indice(tmp_path) -> None:
+    amostra = carregar_chunks_do_corpus(incluir_pendentes=True)[:200]
+    kwargs = dict(
+        chunks=amostra,
+        persist_directory=tmp_path / "chroma_det",
+        collection_name="test_det",
+        use_persistent=True,
+    )
+    consulta = "consumo de ultraprocessados e obesidade em adultos"
+    primeira = NutritionVectorStore(**kwargs).similarity_search(consulta, top_k=24)
+    recarregada = NutritionVectorStore(**kwargs).similarity_search(consulta, top_k=24)
+    assert primeira == recarregada
+
+    vstore = NutritionVectorStore(**kwargs)
+    q = np.asarray(vstore.embedder.embed_query(consulta))
+    sims = vstore._matriz_de_embeddings() @ q
+    esperados = [int(i) for i in np.argsort(-sims, kind="stable")[:24]]
+    assert [i for i, _ in primeira] == esperados

@@ -7,7 +7,13 @@ from typing import Any, Dict, List, Set, Tuple
 import yaml
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline
-from src.config import BENCHMARK_QUESTIONS_PATH, BENCHMARK_REPORT_PATH, CORPUS_MANIFEST_PATH, TOP_K_FINAL
+from src.config import (
+    BENCHMARK_QUESTIONS_PATH,
+    BENCHMARK_REPORT_PATH,
+    CORPUS_MANIFEST_PATH,
+    INCLUDE_PENDING_SOURCES,
+    TOP_K_FINAL,
+)
 from src.retrieval.hybrid_retriever import normalize_text
 
 
@@ -54,10 +60,10 @@ def evaluate_baseline(
     enable_taco_tool: bool = True,
     enable_graph_engine: bool = True,
     top_k: int = TOP_K_FINAL,
-    incluir_pendentes: bool = True,
+    incluir_pendentes: bool = INCLUDE_PENDING_SOURCES,
 ) -> Dict[str, Any]:
-    """Avalia o sistema da entrega. Por padrão inclui as fontes pendentes de aprovação
-    (modo de desenvolvimento explícito), porque a maior parte do corpus ainda não foi aprovada."""
+    """Avalia o sistema da entrega sobre o índice padrão, só com fontes aprovadas.
+    Fontes pendentes entram apenas com CULTIVA_INCLUIR_PENDENTES=true."""
     questions: List[Dict[str, Any]] = json.loads(
         questions_path.read_text(encoding="utf-8")
     )

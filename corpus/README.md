@@ -136,7 +136,7 @@ Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licen
 - **Retirar o arquivo e os derivados do repositório sem discussão** se o titular dos direitos pedir. Quem receber o pedido deve registrá-lo aqui.
 - Não usar o corpus, o Markdown nem os Trechos fora deste projeto, nem em produto comercial.
 - Os derivados do Guia e do Fascículo (CC BY-NC-SA 4.0) permanecem sob a mesma licença.
-- O aceite de risco não aprova nenhuma fonte por si só: o `approval_status` segue `pendente`, exceto em Martins et al. e Souza e Backes, cuja aprovação para o escopo acadêmico interno está em `nutricao/relatorios/revisao-issue-8.md`. A aprovação das demais é outra decisão (veja "Aprovação das fontes").
+- O aceite de risco não aprova nenhuma fonte por si só: a aprovação é outra decisão (veja "Aprovação das fontes"). Martins et al. e Souza e Backes foram aprovadas em `nutricao/relatorios/revisao-issue-8.md`; outras 19 fontes, em `nutricao/relatorios/revisao-aprovacao-corpus.md`. A SBAN segue `pendente`.
 
 **Quando reavaliar.** Antes de qualquer cobrança ou monetização, de ativar a vitrine paga de profissionais (RN12), de abrir o aplicativo a usuários externos em produção ou de publicar o corpus. Também se algum titular se manifestar. Alternativas já identificadas: a ABESO tem versão em inglês sob CC BY 4.0 (DOI 10.1186/s13098-023-01037-6), e é possível pedir autorização de reprodução à ABESO, à SBAN e à revista do Brisotto.
 
@@ -148,6 +148,7 @@ Decisões de 06/11/2026.
 - **O que `aprovado` significa.** A fonte foi conferida e pode alimentar o RAG. Não é aprovação jurídica nem científica ampla. A **licença não entra no gate**: fica em `intended_use_license_review` e vale o aceite de risco da seção anterior.
 - **Quem aprova.** Qualquer pessoa do projeto.
 - **Como.** Todas as fontes de uma vez, em um PR de aprovação do corpus depois de uma revisão geral. Exceção registrada: Martins et al. e Souza e Backes foram aprovadas antes, no PR #25 (issue #8).
+- **Situação em 08/11/2026.** O PR de aprovação do corpus aprovou 19 fontes, duas com ressalva em `data_quality_note` (Guia da SVB: origem online não confirmada; Código do CFN: vigência não confirmada). A **SBAN (Água, Hidratação e Saúde) segue `pendente`** por conflito de interesse evidente (material aparentemente produzido para a Nestlé, RN16). Com isso, 21 das 22 fontes estão aprovadas. Revisão e método em [`nutricao/relatorios/revisao-aprovacao-corpus.md`](nutricao/relatorios/revisao-aprovacao-corpus.md).
 - **Critério mínimo.** Checklist curta (origem verificável, documento vigente, sem conflito de interesse evidente e escopo adequado) e conferência de uma amostra de páginas contra o PDF, incluindo as de tabela.
 - **Páginas inconfiáveis.** As que a revisão apontar como inconfiáveis saem dos Trechos com `skip_pages` em `scripts/config/rag.yaml`, e a ressalva vai em `data_quality_note` no manifesto.
 - **Regeneração.** O `convert_pdfs.py` recusa fonte aprovada. Para regenerar uma, volte o `approval_status` para `pendente` e reaprove depois.

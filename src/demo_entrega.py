@@ -168,8 +168,8 @@ def salvar_artefatos(consultant: NutritionConsultantBaseline, respostas, log: st
 def main() -> None:
     args = [a for a in sys.argv[1:] if a != "--salvar-artefatos"]
     salvar = "--salvar-artefatos" in sys.argv[1:]
-    # Demonstração em modo de desenvolvimento: inclui as fontes ainda pendentes de aprovação.
-    consultant = NutritionConsultantBaseline(enable_ollama=True, incluir_pendentes=True)
+    # Índice padrão: só fontes aprovadas, salvo CULTIVA_INCLUIR_PENDENTES=true.
+    consultant = NutritionConsultantBaseline(enable_ollama=True)
     tee = _Tee(sys.stdout)
     respostas = []
     with contextlib.redirect_stdout(tee):

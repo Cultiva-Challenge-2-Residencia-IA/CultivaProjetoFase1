@@ -311,7 +311,7 @@
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
         "guia-dietas-vegetarianas-svb-2012",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
-        "sban-agua-hidratacao-saude-2016"
+        "guia-dietas-vegetarianas-svb-2012"
       ],
       "doc_recall_at_k": 0.0,
       "reciprocal_rank": 0.0,
@@ -487,10 +487,10 @@
       ],
       "recall_evaluated": false,
       "retrieved_doc_ids": [
-        "sban-agua-hidratacao-saude-2016",
-        "sban-agua-hidratacao-saude-2016",
         "guia-alimentar-populacao-brasileira-2014",
-        "guia-alimentar-populacao-brasileira-2014"
+        "guia-alimentar-populacao-brasileira-2014",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+        "guia-dietas-vegetarianas-svb-2012"
       ],
       "doc_recall_at_k": 0.0,
       "reciprocal_rank": 0.0,
@@ -501,7 +501,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre sinergia culinária que exige o Grafo de 4 Camadas para contrastar a curcumina isolada (LOW_EFFICACY_ALONE) com a adição de piperina/lipídios (+2000% biodisponibilidade).",
-      "evidence_summary_preview": "Outro ponto essencial para o organismo é que a água é considerada um solvente, no qual estão dissolvidas substâncias, chamadas solutos. Os mais importantes solutos presentes nos líquidos corporais são os sais (principalmente, o sódio, clore"
+      "evidence_summary_preview": "Água pura\n\nÁgua com limão\n\na água é essencial para a manutenção da vida. sem ela, não sobrevivemos mais do que poucos dias. o total de água existente no corpo dos seres humanos corresponde a 75% do peso na infância e a mais da metade na ida"
     },
     {
       "id": "Q14_NATURAL_GRAPH",
@@ -598,10 +598,10 @@
       ],
       "recall_evaluated": false,
       "retrieved_doc_ids": [
-        "sban-agua-hidratacao-saude-2016",
-        "guia-alimentar-populacao-brasileira-2014",
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022"
+        "guia-alimentar-populacao-brasileira-2014",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+        "guia-dietas-vegetarianas-svb-2012"
       ],
       "doc_recall_at_k": 0.0,
       "reciprocal_rank": 0.0,
@@ -612,7 +612,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana com conflito de comorbidades (hipertensão + DM2 + restrição renal de potássio) resolvida pelo filtro de contraindicação do Grafo de 4 Camadas.",
-      "evidence_summary_preview": "Desidratação = déficit de água Ingestão Perdas de água Perdas de água e sódio Populações de risco Osmolaridade normal Osmolaridade Crianças, idosos, ou gestantes e mães em amamentação Receptores sensíveis à queda da pressão arterial e do vo"
+      "evidence_summary_preview": "As reservas de eletrólitos, como a concentração de sódio no sangue, por exemplo, são muito bem reguladas pelos rins através de respostas hormonais da aldosterona e vasopressina. Porém, em muitas situações de exercício intenso e prolongado e"
     }
   ]
 }
