@@ -1,6 +1,6 @@
 # Entrega: RAG de Nutrição com base curada, banco vetorial e rastreabilidade de fontes
 
-> **Estado das fontes.** As 22 fontes do corpus estão catalogadas em [`corpus/manifest.yaml`](../corpus/manifest.yaml). Duas estão aprovadas (`approval_status: aprovado`) e 20 seguem `pendente`. Esta entrega roda em **modo de desenvolvimento explícito**, que indexa também as pendentes (flag `incluir_pendentes`, ADR 0002 e issue #7). Em produção, só fontes aprovadas entram no índice. O uso das fontes segue o aceite de risco de licenças para projeto acadêmico sem fins lucrativos ([`corpus/README.md`](../corpus/README.md)).
+> **Estado das fontes.** As 22 fontes do corpus estão catalogadas em [`corpus/manifest.yaml`](../corpus/manifest.yaml). Na data da entrega, duas estavam aprovadas (`approval_status: aprovado`) e 20 seguiam `pendente`; depois, o PR de aprovação do corpus aprovou mais 19, e só a SBAN segue `pendente` ([`revisao-aprovacao-corpus.md`](../corpus/nutricao/relatorios/revisao-aprovacao-corpus.md)). Os números desta entrega foram medidos antes dessa aprovação. Esta entrega roda em **modo de desenvolvimento explícito**, que indexa também as pendentes (flag `incluir_pendentes`, ADR 0002 e issue #7). Em produção, só fontes aprovadas entram no índice. O uso das fontes segue o aceite de risco de licenças para projeto acadêmico sem fins lucrativos ([`corpus/README.md`](../corpus/README.md)).
 
 Os números deste documento foram gerados pelo sistema, não escritos à mão: `uv run python -m src.demo_entrega --salvar-artefatos` regrava os artefatos em [`entrega_semanal/`](../entrega_semanal/), e `uv run python -m src.evaluation.run_benchmark --no-ollama` regrava o benchmark.
 
@@ -136,7 +136,7 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 ## 4. Limitações conhecidas
 
 - **Reranker e idioma:** o bônus por sobreposição de termos favorece Trechos em português. Isso foi um dos motivos para deixar o PubMed (em inglês) fora desta entrega. A calibração é a issue #13.
-- **Aprovação das fontes:** 20 das 22 fontes seguem pendentes, e a demonstração usa o modo de desenvolvimento. O PR único de aprovação é a issue #8.
+- **Aprovação das fontes:** na entrega, 20 das 22 fontes estavam pendentes, e a demonstração usou o modo de desenvolvimento. O PR de aprovação do corpus aprovou mais 19; a SBAN segue pendente por conflito de interesse.
 - **Licenças:** fontes com licença não comercial ou pendente são usadas sob o aceite de risco para projeto acadêmico. A ABESO, a SBAN e o artigo de Brisotto não declaram licença.
 - **Código de Ética do CFN:** a versão de 2018 provavelmente foi revogada pela Resolução CFN 856/2026, ainda sem texto oficial localizado.
 - **Extração:** há defeitos conhecidos (versaletes do Guia, uma página do Crispim) nas issues #26 e #27.
