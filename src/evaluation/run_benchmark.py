@@ -61,18 +61,24 @@ def evaluate_baseline(
     enable_graph_engine: bool = True,
     top_k: int = TOP_K_FINAL,
     incluir_pendentes: bool = INCLUDE_PENDING_SOURCES,
+    consultant: NutritionConsultantBaseline | None = None,
+    write_report: bool = True,
 ) -> Dict[str, Any]:
     """Avalia o sistema da entrega sobre o índice padrão, só com fontes aprovadas.
-    Fontes pendentes entram apenas com CULTIVA_INCLUIR_PENDENTES=true."""
+    Fontes pendentes entram apenas com CULTIVA_INCLUIR_PENDENTES=true.
+
+    `consultant` permite reaproveitar um índice já construído (ablação); com
+    `write_report=False` o relatório só é devolvido, sem regravar o arquivo."""
     questions: List[Dict[str, Any]] = json.loads(
         questions_path.read_text(encoding="utf-8")
     )
-    consultant = NutritionConsultantBaseline(
-        enable_ollama=enable_ollama,
-        enable_taco_tool=enable_taco_tool,
-        enable_graph_engine=enable_graph_engine,
-        incluir_pendentes=incluir_pendentes,
-    )
+    if consultant is None:
+        consultant = NutritionConsultantBaseline(
+            enable_ollama=enable_ollama,
+            enable_taco_tool=enable_taco_tool,
+            enable_graph_engine=enable_graph_engine,
+            incluir_pendentes=incluir_pendentes,
+        )
 
     results: List[Dict[str, Any]] = []
     total_recall = 0.0
@@ -207,10 +213,11 @@ def evaluate_baseline(
         "question_results": results,
     }
 
-    report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(
-        json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
+    if write_report:
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(
+            json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
     return report
 
 

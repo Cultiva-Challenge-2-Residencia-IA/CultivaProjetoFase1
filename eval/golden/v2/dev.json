@@ -133,9 +133,10 @@
           "guia-alimentar-populacao-brasileira-2014-p106-01",
           "guia-alimentar-populacao-brasileira-2014-p142-03",
           "protocolos-guia-alimentar-fasciculo1-2021-p022-05",
-          "souza-backes-universitarios-csc-2020-p002-03"
+          "souza-backes-universitarios-csc-2020-p002-03",
+          "protocolos-guia-alimentar-fasciculo1-2021-p019-06"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 1 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -190,9 +191,11 @@
           "guia-alimentar-populacao-brasileira-2014-p039-02",
           "guia-alimentar-populacao-brasileira-2014-p042-01",
           "guia-alimentar-populacao-brasileira-2014-p069-02",
-          "guia-alimentar-populacao-brasileira-2014-p085-02"
+          "guia-alimentar-populacao-brasileira-2014-p085-02",
+          "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p007-07",
+          "monteiro-nova-classificacao-alimentos-csp-2010-p003-05"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 2 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -286,9 +289,10 @@
           "protocolos-guia-alimentar-fasciculo1-2021-p015-04",
           "protocolos-guia-alimentar-fasciculo1-2021-p017-03",
           "protocolos-guia-alimentar-fasciculo1-2021-p018-01",
-          "protocolos-guia-alimentar-fasciculo1-2021-p018-03"
+          "protocolos-guia-alimentar-fasciculo1-2021-p018-03",
+          "cfn-codigo-etica-conduta-nutricionista-2018-p018-01"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 1 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -445,9 +449,10 @@
         "julgados_irrelevantes": [
           "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p148-02",
           "guia-dietas-vegetarianas-svb-2012-p011-04",
-          "guia-dietas-vegetarianas-svb-2012-p013-04"
+          "guia-dietas-vegetarianas-svb-2012-p013-04",
+          "guia-dietas-vegetarianas-svb-2012-p019-01"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 1 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -543,9 +548,11 @@
           "martins-ultraprocessados-rsp-2013-p001-03",
           "martins-ultraprocessados-rsp-2013-p001-05",
           "martins-ultraprocessados-rsp-2013-p004-07",
-          "martins-ultraprocessados-rsp-2013-p008-01"
+          "martins-ultraprocessados-rsp-2013-p008-01",
+          "guia-alimentar-populacao-brasileira-2014-p047-03",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 2 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -590,6 +597,10 @@
           "guia-alimentar-populacao-brasileira-2014-p051-01": {
             "nota": 1,
             "citacao": "devido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgad"
+          },
+          "guia-alimentar-populacao-brasileira-2014-p044-03": {
+            "nota": 1,
+            "citacao": "a elevada quantidade de calorias por grama"
           }
         },
         "julgados_irrelevantes": [
@@ -598,9 +609,11 @@
           "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p001-03",
           "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p003-06",
           "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p004-03",
-          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-02"
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-02",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p004-06",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 3 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -702,6 +715,10 @@
           "santos-barreiras-frutas-verduras-csc-2019-p009-05": {
             "nota": 1,
             "citacao": "os preços dos alimentos"
+          },
+          "santos-barreiras-frutas-verduras-csc-2019-p008-02": {
+            "nota": 2,
+            "citacao": "falta de tempo para ir ao mercado/feira com frequência"
           }
         },
         "julgados_irrelevantes": [
@@ -709,9 +726,11 @@
           "santos-barreiras-frutas-verduras-csc-2019-p002-05",
           "santos-barreiras-frutas-verduras-csc-2019-p003-03",
           "santos-barreiras-frutas-verduras-csc-2019-p004-05",
-          "santos-barreiras-frutas-verduras-csc-2019-p009-02"
+          "santos-barreiras-frutas-verduras-csc-2019-p009-02",
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p005-04",
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p006-03"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 3 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente; nota de santos-barreiras-frutas-verduras-csc-2019-p008-02 elevada de 1 para 2 na revisão do PR #42 (feliperodri0)"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -764,13 +783,17 @@
           "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-01": {
             "nota": 1,
             "citacao": "Tabela 1. Coeficientes de Correlação entre os escores de Ansiedade, Depressão e Estresse e"
+          },
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-07": {
+            "nota": 2,
+            "citacao": "relações positivas e significativas (fracas a moderadas)"
           }
         },
         "julgados_irrelevantes": [
           "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-08",
           "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-02"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 1 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -820,9 +843,11 @@
           "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p002-05",
           "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-03",
           "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-04",
-          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-04"
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-04",
+          "guia-dietas-vegetarianas-svb-2012-p022-02",
+          "guia-dietas-vegetarianas-svb-2012-p023-02"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 2 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -968,6 +993,10 @@
           "cfn-codigo-etica-conduta-nutricionista-2018-p012-05": {
             "nota": 1,
             "citacao": "III – Quando da prescrição dietética, orientação para consumo ou compra institucional, hav"
+          },
+          "cfn-codigo-etica-conduta-nutricionista-2018-p012-02": {
+            "nota": 1,
+            "citacao": "desde que utilize mais de uma marca, empresa ou indústria do mesmo tipo"
           }
         },
         "julgados_irrelevantes": [
@@ -976,9 +1005,10 @@
           "guia-dietas-vegetarianas-svb-2012-p022-04",
           "guia-dietas-vegetarianas-svb-2012-p023-01",
           "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p001-02",
-          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-03"
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-03",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p187-01"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 2 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [

@@ -33,15 +33,24 @@
           "protocolos-guia-alimentar-fasciculo1-2021-p024-02": {
             "nota": 1,
             "citacao": "- Recomende que o usuário encare o ato de comer como um momento privilegiado de prazer, on"
+          },
+          "guia-alimentar-populacao-brasileira-2014-p093-03": {
+            "nota": 1,
+            "citacao": "conceder a nosso organismo o tempo necessário"
+          },
+          "protocolos-guia-alimentar-fasciculo1-2021-p024-03": {
+            "nota": 1,
+            "citacao": "consumidas com atenção e sem pressa favorecem a digestão"
           }
         },
         "julgados_irrelevantes": [
           "guia-alimentar-populacao-brasileira-2014-p013-02",
           "guia-alimentar-populacao-brasileira-2014-p104-02",
           "guia-alimentar-populacao-brasileira-2014-p140-02",
-          "guia-alimentar-populacao-brasileira-2014-p140-03"
+          "guia-alimentar-populacao-brasileira-2014-p140-03",
+          "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p007-02"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 3 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -374,9 +383,10 @@
           "salvi-estudantes-enfermagem-sono-reben-2020-p003-01",
           "salvi-estudantes-enfermagem-sono-reben-2020-p004-01",
           "salvi-estudantes-enfermagem-sono-reben-2020-p005-01",
-          "salvi-estudantes-enfermagem-sono-reben-2020-p006-03"
+          "salvi-estudantes-enfermagem-sono-reben-2020-p006-03",
+          "salvi-estudantes-enfermagem-sono-reben-2020-p002-05"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 1 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
