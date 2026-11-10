@@ -4,7 +4,9 @@
 Não altera os .md convertidos, o manifesto nem os status de revisão. Cada Trecho
 pertence a uma única página física do PDF, para que a citação aponte a página exata.
 Os status de revisão e aprovação são copiados do manifesto: quem indexa decide se
-aceita fontes pendentes.
+aceita fontes pendentes. Cada execução atualiza `rag/geracao.json` com os hashes de
+tudo de que o JSONL depende (Markdown ou JSON de origem, este script, a seção da fonte
+no `rag.yaml` e o próprio JSONL), conferidos por `verify_trechos.py`.
 """
 
 from __future__ import annotations
@@ -21,6 +23,8 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = ROOT / "corpus/nutricao/rag"
+GENERATION_PATH = OUTPUT_DIR / "geracao.json"
+SCRIPT_PATH = Path(__file__).resolve()
 CONFIG_PATH = ROOT / "corpus/scripts/config/rag.yaml"
 SCHEMA_PATH = ROOT / "corpus/schemas/trecho.schema.json"
 TARGET_CHARS = 1000
@@ -54,6 +58,42 @@ def tipos_de_fonte() -> list[str]:
 
 def sha256_text(text: str) -> str:
     return hashlib.sha256(text.encode()).hexdigest()
+
+
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def load_rag_config() -> dict:
+    return yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8")) or {}
+
+
+def source_config_sha256(config: dict, source_id: str) -> str:
+    """Hash só da seção da fonte no rag.yaml: mudar outra fonte não invalida esta."""
+    return sha256_text(json.dumps(config.get(source_id, {}), ensure_ascii=False, sort_keys=True))
+
+
+def generation_entry(output: Path, origin: dict, config: dict, source_id: str, trechos: int) -> dict:
+    return {
+        "jsonl_path": str(output.relative_to(ROOT)),
+        "jsonl_sha256": sha256_file(output),
+        **origin,
+        "prepare_rag_sha256": sha256_file(SCRIPT_PATH),
+        "rag_config_sha256": source_config_sha256(config, source_id),
+        "trechos": trechos,
+    }
+
+
+def load_generation() -> dict:
+    if not GENERATION_PATH.exists():
+        return {"versao": 1, "fontes": {}}
+    return json.loads(GENERATION_PATH.read_text(encoding="utf-8"))
+
+
+def write_generation(generation: dict) -> None:
+    generation["fontes"] = dict(sorted(generation["fontes"].items()))
+    GENERATION_PATH.parent.mkdir(parents=True, exist_ok=True)
+    GENERATION_PATH.write_text(json.dumps(generation, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def repo_path(value: str) -> Path:
@@ -224,7 +264,7 @@ def chunk_page(paragraphs: list[tuple[str, str]]) -> list[tuple[str, str]]:
     return chunks
 
 
-def prepare(source: dict) -> dict:
+def prepare(source: dict) -> tuple[dict, dict]:
     markdown_path = repo_path(source["markdown_path"])
     markdown = markdown_path.read_text(encoding="utf-8")
     report = json.loads(repo_path(source["report_path"]).read_text(encoding="utf-8"))
@@ -237,7 +277,7 @@ def prepare(source: dict) -> dict:
             f"(aceitos: {', '.join(tipos_de_fonte())})"
         )
     fonte_url = source["source"] if str(source["source"]).startswith(("http://", "https://")) else None
-    config = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8")) or {}
+    config = load_rag_config()
     source_config = config.get(source["id"], {})
     drop = [re.compile(p) for p in source_config.get("drop_paragraphs", [])]
     keep = frozenset(s.lower() for s in source_config.get("keep_sections", []))
@@ -289,7 +329,9 @@ def prepare(source: dict) -> dict:
         "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records), encoding="utf-8"
     )
     sizes = sorted(len(r["texto"]) for r in records)
-    return {
+    entry = generation_entry(output, {"markdown_sha256": report["markdown_sha256"]}, config,
+                             source["id"], len(records))
+    return entry, {
         "arquivo": str(output.relative_to(ROOT)),
         "trechos": len(records),
         "descartados_curtos": discarded_short,
@@ -302,7 +344,7 @@ def prepare(source: dict) -> dict:
 RESUMO_PREFIXO = re.compile(r"^Estudo:\s*.+?\(PMID:(\d+).*?\)\)\.\s*", re.S)
 
 
-def prepare_resumos(sources: list[dict]) -> dict:
+def prepare_resumos(sources: list[dict]) -> tuple[dict[str, dict], dict]:
     """Trechos dos resumos do PubMed (kind: resumo_pubmed), todos num único JSONL, sem página."""
     por_pmid = {str(s["pmid"]): s for s in sources}
     destinos = {s["rag_path"] for s in sources}
@@ -347,7 +389,13 @@ def prepare_resumos(sources: list[dict]) -> dict:
     output = repo_path(destinos.pop())
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records), encoding="utf-8")
-    return {"arquivo": str(output.relative_to(ROOT)), "fontes": len(por_pmid), "trechos": len(records)}
+    config = load_rag_config()
+    entries = {
+        s["id"]: generation_entry(output, {"raw_sha256": s["raw_sha256"]}, config, s["id"],
+                                  sum(r["fonte_id"] == s["id"] for r in records))
+        for s in sources
+    }
+    return entries, {"arquivo": str(output.relative_to(ROOT)), "fontes": len(por_pmid), "trechos": len(records)}
 
 
 def main() -> int:
@@ -360,13 +408,21 @@ def main() -> int:
         sources = [s for s in manifest["sources"] if not args.source or s["id"] == args.source]
         if not sources:
             raise ValueError("Nenhuma fonte selecionada.")
+        generation = load_generation()
+        if not args.source:
+            generation["fontes"] = {}
         for source in sources:
             if source.get("kind", "pdf") == "pdf":
-                print(f"{source['id']}: {json.dumps(prepare(source), ensure_ascii=False)}")
+                entry, summary = prepare(source)
+                generation["fontes"][source["id"]] = entry
+                print(f"{source['id']}: {json.dumps(summary, ensure_ascii=False)}")
         if any(s.get("kind", "pdf") == "resumo_pubmed" for s in sources):
             # Os resumos compartilham um único JSONL: regenera todos juntos.
             resumos = [s for s in manifest["sources"] if s.get("kind", "pdf") == "resumo_pubmed"]
-            print(f"resumos do PubMed: {json.dumps(prepare_resumos(resumos), ensure_ascii=False)}")
+            entries, summary = prepare_resumos(resumos)
+            generation["fontes"].update(entries)
+            print(f"resumos do PubMed: {json.dumps(summary, ensure_ascii=False)}")
+        write_generation(generation)
         return 0
     except (OSError, ValueError, KeyError) as exc:
         print(f"ERRO: {exc}", file=sys.stderr)

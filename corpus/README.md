@@ -152,7 +152,7 @@ Decisões de 06/11/2026.
 - **Critério mínimo.** Checklist curta (origem verificável, documento vigente, sem conflito de interesse evidente e escopo adequado) e conferência de uma amostra de páginas contra o PDF, incluindo as de tabela.
 - **Páginas inconfiáveis.** As que a revisão apontar como inconfiáveis saem dos Trechos com `skip_pages` em `scripts/config/rag.yaml`, e a ressalva vai em `data_quality_note` no manifesto.
 - **Regeneração.** O `convert_pdfs.py` recusa fonte aprovada. Para regenerar uma, volte o `approval_status` para `pendente` e reaprove depois.
-- **Registro.** A revisão fica em `nutricao/relatorios/` (por exemplo, `revisao-issue-8.md`). O `verify_corpus.py` confere hashes e marcadores, não o status.
+- **Registro.** A revisão fica em `nutricao/relatorios/` (por exemplo, `revisao-issue-8.md`). O `verify_corpus.py` não aprova nada: só confere que os Trechos copiam o status atual do manifesto.
 
 ## Organização
 
@@ -165,7 +165,9 @@ corpus/
     relatorios/     # JSON por documento: diagnóstico por página e hashes
   scripts/
     convert_pdfs.py
+    prepare_rag.py
     verify_corpus.py
+    verify_trechos.py
     requirements.txt
     config/         # decisões de OCR e correções vinculadas ao SHA-256
     ajustes/        # transcrições pontuais de páginas problemáticas
@@ -275,6 +277,16 @@ O que o script faz:
 - Repara ligaturas quebradas pela extração ("signifi cativo" vira "significativo").
 - Divide em Trechos de cerca de 1000 caracteres (máximo de 1400 nos parágrafos longos), **sem atravessar página nem seção**. Tabelas ficam com uma linha por linha.
 - Confere o SHA-256 do `.md` contra o relatório e gera saída determinística: rodar de novo produz arquivos idênticos.
+- Registra em `nutricao/rag/geracao.json`, por fonte, o SHA-256 do JSONL e de tudo de que ele depende: o `.md` (ou o JSON de origem, nos resumos do PubMed), o próprio `prepare_rag.py` e a seção da fonte no `rag.yaml`. Sem `--source`, o registro é refeito do zero; com `--source`, só a entrada da fonte muda.
+
+O `verify_corpus.py` chama o `scripts/verify_trechos.py`, que falha, dizendo qual fonte regenerar, quando:
+
+- uma fonte do manifesto não tem JSONL, ou um JSONL não corresponde a nenhuma fonte;
+- o JSONL foi editado à mão, ou o `.md`, o `prepare_rag.py` ou a seção da fonte no `rag.yaml` mudaram depois da geração;
+- algum campo copiado do manifesto (`approval_status`, `licenca`, título, instituições, ano, tipo, URL, DOI) diverge do manifesto atual;
+- um Trecho aponta `pagina_pdf` fora do intervalo de páginas do PDF, ou o `id` não corresponde à fonte e à página.
+
+Consequência prática: ao mudar o `approval_status` de uma fonte, ou qualquer campo dela no manifesto, rode `prepare_rag.py --source <id>` no mesmo PR. A mesma regra vale para mudanças no `prepare_rag.py` (regenerar todas) ou no `rag.yaml`.
 
 Limitações:
 
