@@ -88,8 +88,11 @@ O código do reranker e do TF-IDF/LSA continua no `HybridRetriever`, para reprod
 - **Revisão do PR #42:** a nota de `santos-barreiras-frutas-verduras-csc-2019-p008-02` em V2-REC-20 subiu de 1 para 2. Isso muda só o nDCG do dev das variantes A0 a A7 (e o acerto completo de A6); A8 e a decisão não mudam. A tabela acima já tem os valores novos.
 - **O v1 ainda é a régua do gate**, e as 12 perguntas avaliadas esperam só o Guia. A troca do gate para o v2 segue pendente.
 
+## Decisão sobre o Fascículo 1
+
+Em 10/11/2026 o grupo aprovou, sem objeções, a proposta de **não** tratar o Fascículo 1 como equivalente ao Guia no v1: a equivalência por conteúdo já é tratada no v2, que deve substituir o v1 no gate. Registro e motivo em [`data/benchmark/README.md`](../../data/benchmark/README.md).
+
 ## Pendências
 
-- Decidir se o Fascículo 1 vale como equivalente ao Guia nas perguntas do v1 (critério da #35). A ablação traz o MRR com e sem a equivalência; a decisão é da equipe.
 - Revisar os 22 julgamentos novos.
 - Confirmar o ganho num conjunto novo, que não tenha sido visto.
