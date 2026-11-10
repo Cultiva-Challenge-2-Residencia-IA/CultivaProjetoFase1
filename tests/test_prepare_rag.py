@@ -1,6 +1,5 @@
 """Limpeza de ênfase e validação/normalização de seções em prepare_rag.py."""
 
-import glob
 import importlib.util
 import json
 from pathlib import Path
