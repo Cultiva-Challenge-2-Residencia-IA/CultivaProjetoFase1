@@ -29,6 +29,9 @@ def mapear_esperados(
     PUBMED_<grupo> -> qualquer resumo do PubMed daquele grupo (raw_group no manifesto);
     um id que já é fonte do corpus fica como está. Os DOC_* do seed_guidelines, que saiu do
     índice por não ter procedência verificável, são descartados e listados à parte.
+
+    O Fascículo 1 não entra como equivalente ao Guia: decisão do grupo na issue #35, registrada
+    em data/benchmark/README.md (a equivalência por conteúdo fica com o benchmark v2).
     """
     fontes = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))["sources"]
     ids_corpus = {f["id"] for f in fontes}
