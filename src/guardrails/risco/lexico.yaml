@@ -1,0 +1,67 @@
+# Léxico do detector de risco (RF-IA03). Classificação: proposta técnica.
+# REVISÃO PENDENTE por profissional de saúde (issue #10). Não usar com usuários reais antes disso.
+#
+# As expressões regulares são aplicadas ao texto em minúsculas e sem acentos.
+# O detector prioriza o recall (meta >= 0,95): na dúvida, a mensagem de acolhimento aparece.
+# Por isso não há tratamento de negação: "não aguento mais viver" contém "não" e é sinal de risco.
+# `excecao` descarta a regra quando o texto também casa com ela (por exemplo, vômito por intoxicação).
+
+versao: 1
+revisao: pendente
+categorias:
+  ideacao_suicida:
+    - '\b(me|se) matar\b'
+    - '\bmatar-me\b'
+    - '\bsuicid'
+    - '\b(quero|queria|vou) morrer\b'
+    - '\bprefiro morrer\b'
+    - '\bse eu morresse\b'
+    - '\btirar (a )?(minha )?(propria )?vida\b'
+    - '\bacabar com (a )?minha (propria )?vida\b'
+    - '\bnao (aguento|quero|consigo) mais viver\b'
+    - '\bcansad[oa] de viver\b'
+    - '\bsentido (em|de) (continuar )?viv'
+    - '\b(a )?vida nao vale (mais )?a pena\b'
+    - '\b(dormir|deitar) e nao acordar\b'
+    - '\b(mundo|todos|familia) (seria|ficaria|ficariam|seriam) melhor(es)? sem mim\b'
+    - '\b(sentiria|sentiriam) (a )?minha falta\b'
+    - '\bsumir para sempre\b'
+    - '\bdesaparecer (e nunca mais|para sempre)\b'
+    - '\bnao quero mais estar aqui\b'
+    - '\b(dar um fim|por um fim|acabar) (em|com) tudo\b'
+    - '\bcarta de despedida\b'
+    - '\b(dose|quantidade|remedio|remedios).{0,30}\bque mata\b'
+    - '\bdesisti de (tudo|viver)\b'
+  autolesao:
+    - '\bme (corto|cortar|cortei|cortando)\b'
+    - '\bcortes? n[oa]s? (braco|bracos|perna|pernas|pulso|pulsos|coxa|coxas)\b'
+    - '\bme (machuc\w*|ferir|firo|feri|ferindo|queim\w*|arranh\w*|belisc\w*|castig\w*|punir|puno)\b'
+    - '\bautoles'
+    - '\bautomutil'
+    - '\bbat(o|er) (a|com a) cabeca na parede\b'
+  comportamento_alimentar_de_risco:
+    - padrao: '\bvomit\w* (depois|apos) (de )?(comer|cada refeicao|as refeicoes)\b'
+      excecao: '\b(estragad\w*|intoxicac\w*|virose|enjoo|gravidez|alergia)\b'
+    - '\b(provoc\w*|induz\w*) (o )?vomit'
+    - '\bforc\w* a vomitar\b'
+    - '\bvomit\w* escondid'
+    - '\bdedo na garganta\b'
+    - '\b(colocar|por|botar) tudo (para|pra) fora\b'
+    - '\b(laxante|diuretico)s?\b.{0,60}\b(emagrec\w*|perder peso|nao engordar|secar|pesagem|perder \d+ ?kg)\b'
+    - '\b(emagrec\w*|perder peso|nao engordar)\b.{0,60}\b(laxante|diuretico)s?\b'
+    - '\blaxantes? todo dia\b'
+    - '\bdias sem comer\b'
+    - '\bpasso o dia (todo|inteiro) sem comer\b'
+    - '\bpara nao comer\b'
+    - '\bparar de comer de vez\b'
+    - '\b(paro|deixo|parei|deixei) de comer\b(?! (doce|doces|carne|acucar|pao|fritura|ultraprocessad))'
+    - '\bso (uma|um|1) \w+ por dia\b'
+    - '\bate desmaiar\b'
+    - '\bdesmaiei de fome\b'
+    - '\bmastig\w* e cusp'
+    - '\bremedio (para|pra) (tirar|inibir|cortar) a fome\b'
+    - '\bjejum (de agua )?(por|de) (uma|1|duas|2|tres|3) semanas?\b'
+    - '\b(pavor|medo) de comer\b'
+    - '\bodeio (o )?meu corpo\b'
+    - '\bnojent[oa] depois de comer\b'
+    - '\bcompensar o que comi\b'

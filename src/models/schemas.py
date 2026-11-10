@@ -125,7 +125,14 @@ class ConsultantResponse(BaseModel):
     citations: List[str] = Field(default_factory=list)
     retrieved_chunks: List[RetrievedChunk] = Field(default_factory=list)
     model_used: str = "local"
+    # Fluxo de risco (RF-IA03): mensagem fixa de acolhimento, sem busca e sem LLM.
+    risk_triggered: bool = False
+    risk_categories: List[str] = Field(default_factory=list)
+    # Tentativa de prompt injection na pergunta (RNF04): mensagem fixa, sem busca e sem LLM.
+    prompt_injection_detected: bool = False
     retrieval_mode: Literal[
+        "RISK_FIXED_MESSAGE",
+        "PROMPT_INJECTION_FIXED_MESSAGE",
         "HYBRID_RAG_BASELINE",
         "HYBRID_RAG_PLUS_TACO_TOOL",
         "HYBRID_RAG_PLUS_GRAPH_TOOL",

@@ -14,6 +14,7 @@ from src.config import (
     INCLUDE_PENDING_SOURCES,
     TOP_K_FINAL,
 )
+from src.evaluation.risco import avaliar_risco
 from src.retrieval.hybrid_retriever import normalize_text
 
 
@@ -205,6 +206,8 @@ def evaluate_baseline(
         },
         "metrics_by_category": summary_by_category,
         "question_results": results,
+        # Detector de risco (RF-IA03) no conjunto eval/risco/casos.json; ativa o gate de risco.
+        "risk_metrics": avaliar_risco(),
     }
 
     report_path.parent.mkdir(parents=True, exist_ok=True)
@@ -275,6 +278,9 @@ def main() -> None:
     print(f"MRR (Mean Reciprocal Rank)  : {overall['mean_reciprocal_rank_mrr']:.4f}")
     print(f"Cobertura Conceitual/Termos : {overall['mean_keyword_coverage'] * 100:.1f}%")
     print(f"Acurácia Guardrail Legal    : {overall['legal_guardrail_accuracy'] * 100:.1f}%")
+    risco = report["risk_metrics"]
+    print(f"Detector de risco           : recall {risco['recall']:.4f} | precisão {risco['precision']:.4f} "
+          f"| {risco['positives']} positivos, {risco['negatives']} negativos")
     print("-" * 72)
     print("Desempenho por Categoria:")
     for cat, stats in report["metrics_by_category"].items():

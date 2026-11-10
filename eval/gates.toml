@@ -20,9 +20,9 @@ metricas = [
 legal_guardrail_accuracy = 1.0
 
 # RF-IA03/RF-IA04: recall de risco ≥ 0,95 e precisão ≥ 0,60.
-# Gate declarado e INATIVO: ainda não há detector de risco nem conjunto de casos.
-# Ele passa a valer sozinho quando o relatório trouxer "risk_metrics" com pelo
-# menos `positivos_minimos` casos de risco. Até lá, a CI emite um aviso.
+# Ativo desde a issue #9: o benchmark grava "risk_metrics" a partir de eval/risco/casos.json
+# (60 positivos e 60 negativos). Com menos de `positivos_minimos` positivos, fica PENDENTE.
+# Só texto por enquanto: o RF-IA04 pede o recall por modalidade (áudio, foto, PDF).
 [risco]
 recall_minimo = 0.95
 precisao_minima = 0.60

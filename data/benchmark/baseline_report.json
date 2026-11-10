@@ -614,5 +614,23 @@
       "baseline_limitation_note": "Pergunta cotidiana com conflito de comorbidades (hipertensão + DM2 + restrição renal de potássio) resolvida pelo filtro de contraindicação do Grafo de 4 Camadas.",
       "evidence_summary_preview": "As reservas de eletrólitos, como a concentração de sódio no sangue, por exemplo, são muito bem reguladas pelos rins através de respostas hormonais da aldosterona e vasopressina. Porém, em muitas situações de exercício intenso e prolongado e"
     }
-  ]
+  ],
+  "risk_metrics": {
+    "positives": 60,
+    "negatives": 60,
+    "recall": 1.0,
+    "precision": 0.9836,
+    "true_positives": 60,
+    "false_positives": 1,
+    "false_negatives": 0,
+    "recall_por_categoria": {
+      "autolesao": 1.0,
+      "comportamento_alimentar_de_risco": 1.0,
+      "ideacao_suicida": 1.0
+    },
+    "falsos_negativos": [],
+    "falsos_positivos": [
+      "RIS-NEG-57"
+    ]
+  }
 }

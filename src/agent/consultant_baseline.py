@@ -1,9 +1,11 @@
 from pathlib import Path
 from typing import List, Optional
 
-from src.agent.guardrails import LegalGuardrail
+from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE, LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
 from src.config import INCLUDE_PENDING_SOURCES, TOP_K_FINAL
+from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
+from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
 from src.models.schemas import (
@@ -55,7 +57,45 @@ class NutritionConsultantBaseline:
             CausalKnowledgeGraphEngine() if enable_graph_engine else None
         )
 
+    def _resposta_fixa(self, user_query: str, mensagem: str, **campos) -> ConsultantResponse:
+        """Resposta sem busca e sem LLM (fluxo de risco e prompt injection)."""
+        return ConsultantResponse(
+            original_query=user_query,
+            effective_query=user_query,
+            evidence_summary=mensagem,
+            physiological_mechanism="",
+            protocol_findings="",
+            evidence_grade="N/A",
+            model_used="mensagem_fixa",
+            **campos,
+        )
+
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:
+        # 0. Risco antes de tudo (RF-IA03, RNF29): interrompe o fluxo com mensagem fixa.
+        risco = detectar_risco(user_query)
+        if risco.risco:
+            return self._resposta_fixa(
+                user_query,
+                MENSAGEM_ACOLHIMENTO,
+                guardrail_triggered=False,
+                intent_category="RISK_SUPPORT",
+                risk_triggered=True,
+                risk_categories=risco.categorias,
+                retrieval_mode="RISK_FIXED_MESSAGE",
+            )
+
+        # 0.1 Prompt injection na pergunta (RNF04): recusa fixa, sem repassar o pedido ao LLM.
+        if has_prompt_injection(user_query):
+            return self._resposta_fixa(
+                user_query,
+                MENSAGEM_INJECAO,
+                guardrail_triggered=True,
+                intent_category="PROMPT_INJECTION_BLOCKED",
+                legal_compliance_notice=LAW_8234_COMPLIANCE_NOTICE,
+                prompt_injection_detected=True,
+                retrieval_mode="PROMPT_INJECTION_FIXED_MESSAGE",
+            )
+
         # 1. Input Guardrail & Reframing (Conformidade com Lei nº 8.234/91)
         assessment = self.guardrail.assess_and_reframe(user_query)
         effective_query = assessment.reframed_population_query

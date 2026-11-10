@@ -8,7 +8,7 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
 
 - O CULTIVA é um app de apoio educativo/organizacional (18+) em Nutrição, Saúde Física e Estudos. A IA **não** diagnostica nem prescreve.
 - Requisitos (RN, RF-A, RF-IA, RNF) e a arquitetura vêm do repositório [Documentacao-Cultiva](https://github.com/Cultiva-Challenge-2-Residencia-IA/Documentacao-Cultiva). A arquitetura é uma **proposta provisória, ainda não validada**. Classifique as afirmações em: requisito aprovado / documentado, aprovação não confirmada / proposta técnica / hipótese.
-- Etapa atual: **aba Nutrição**, com o corpus e o RAG implementados (entrega da semana 2, PRs #30 a #33). Saúde Física, Estudos, o detector de risco (issue #9) e a infraestrutura de produção ainda não existem; não os implemente sem pedido explícito.
+- Etapa atual: **aba Nutrição**, com o corpus e o RAG implementados (entrega da semana 2, PRs #30 a #33). Saúde Física, Estudos e a infraestrutura de produção ainda não existem; não os implemente sem pedido explícito. O portão de risco (issue #9) existe só para texto, com léxico pendente de revisão por profissional de saúde (issue #10).
 - Escreva em português do Brasil, como o restante do repositório.
 
 ## Estado real do código
@@ -86,6 +86,8 @@ Consequências práticas:
 
 ## Arquitetura do RAG de Nutrição
 
+**Portões antes da busca** (`consultant_baseline.py`, issue #9): primeiro o detector de risco (`src/guardrails/risco/`, léxico em `lexico.yaml`, RF-IA03), que responde com a mensagem fixa de acolhimento (CVV 188) sem busca nem LLM; depois o detector de prompt injection (`src/guardrails/injection/`, RNF04), com recusa fixa. O que vai ao LLM leva a pergunta com dados pessoais mascarados (`src/guardrails/pii/`, RNF05) e os Trechos delimitados como dado.
+
 1. **Carga e gate** (`src/rag/corpus_loader.py`): lê os Trechos JSONL e só aceita fontes `aprovado` (hoje 21 de 22; a SBAN está `pendente`). Com `CULTIVA_INCLUIR_PENDENTES=true`, aceita também as pendentes. A licença não entra no gate.
 2. **Contrato** (`src/rag/contrato.py`, ADR 0002): `trecho_para_chunk` adiciona o cabeçalho contextual e deriva o nível de evidência do `source_type`.
 3. **Busca híbrida** (`HybridRetriever`): BM25 com sinônimos clínicos e busca densa que combina ChromaDB (embeddings `paraphrase-multilingual-MiniLM-L12-v2`, 384d, locais via fastembed) com TF-IDF/LSA. As listas são fundidas por RRF e reordenadas pelo reranker (sobreposição de termos e bônus por nível de evidência), com no máximo 2 Trechos por documento.
@@ -95,7 +97,7 @@ Consequências práticas:
 ## CI (`.github/workflows/ci.yml`)
 
 - Obrigatórios: ruff, pytest e integridade do corpus (`verify_corpus.py`).
-- Informativo: "Gates de avaliação". Uma execução do benchmark só constrói o índice e é descartada; duas execuções seguintes no mesmo índice precisam gerar relatórios idênticos (determinismo). Depois, `gate.py` compara as métricas com o baseline da branch de destino (regressão máxima de 5 p.p., guardrail legal em 100%). O gate de risco fica `PENDENTE` até existir o detector (issue #9).
+- Informativo: "Gates de avaliação". Uma execução do benchmark só constrói o índice e é descartada; duas execuções seguintes no mesmo índice precisam gerar relatórios idênticos (determinismo). Depois, `gate.py` compara as métricas com o baseline da branch de destino (regressão máxima de 5 p.p., guardrail legal em 100%). O gate de risco (recall ≥ 0,95 e precisão ≥ 0,60) usa o `risk_metrics` do relatório, calculado sobre `eval/risco/casos.json` (`src/evaluation/risco.py`).
 
 Consequências práticas do RAG:
 
