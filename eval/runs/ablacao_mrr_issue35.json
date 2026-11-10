@@ -1,11 +1,14 @@
 {
   "criterios": "eval/runs/ablacao_mrr_issue35_criterios.md",
-  "golden_set": "data/benchmark/eval_questions.json",
-  "observacao": "Medido dentro da amostra; o holdout é idêntico ao conjunto de desenvolvimento.",
+  "golden_set": {
+    "v1": "data/benchmark/eval_questions.json",
+    "v2": "eval/golden/v2/{dev,test}.json"
+  },
+  "observacao": "v1: medido dentro da amostra (o holdout antigo é idêntico ao dev). v2: escolher pelo dev e confirmar no test.",
   "variantes": [
     {
       "id": "A0",
-      "descricao": "Configuração atual",
+      "descricao": "Configuração anterior à #35",
       "hipotese": "referência",
       "parametros": {
         "peso_bm25": 0.55,
@@ -122,6 +125,55 @@
           "guia-dietas-vegetarianas-svb-2012",
           "guia-alimentar-populacao-brasileira-2014"
         ]
+      },
+      "v2": {
+        "por_split": {
+          "dev": {
+            "acerto_trecho_at_k": 0.8889,
+            "acerto_completo_at_k": 0.6111,
+            "mrr_trecho": 0.662,
+            "ndcg_trecho_at_k": 0.419,
+            "cobertura_termos": 0.7353,
+            "guardrail_acuracia": 0.8519
+          },
+          "test": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.75,
+            "mrr_trecho": 0.9167,
+            "ndcg_trecho_at_k": 0.5191,
+            "cobertura_termos": 0.875,
+            "guardrail_acuracia": 1.0
+          }
+        },
+        "nao_julgados": {},
+        "rr_por_caso": {
+          "V2-REC-01": 1.0,
+          "V2-REC-02": 1.0,
+          "V2-REC-04": 1.0,
+          "V2-REC-05": 0.25,
+          "V2-REC-07": 0.3333333333333333,
+          "V2-REC-08": 1.0,
+          "V2-REC-10": 1.0,
+          "V2-REC-11": 1.0,
+          "V2-REC-13": 0.5,
+          "V2-REC-14": 0.0,
+          "V2-REC-16": 0.5,
+          "V2-REC-17": 1.0,
+          "V2-REC-19": 0.3333333333333333,
+          "V2-REC-20": 0.5,
+          "V2-REC-22": 1.0,
+          "V2-REC-23": 0.5,
+          "V2-ADV-04": 1.0,
+          "V2-GRA-01": 0.0,
+          "V2-REC-03": 1.0,
+          "V2-REC-06": 1.0,
+          "V2-REC-09": 1.0,
+          "V2-REC-12": 1.0,
+          "V2-REC-15": 0.3333333333333333,
+          "V2-REC-18": 1.0,
+          "V2-REC-21": 1.0,
+          "V2-ADV-03": 1.0
+        }
       }
     },
     {
@@ -243,6 +295,55 @@
           "guia-dietas-vegetarianas-svb-2012",
           "guia-alimentar-populacao-brasileira-2014"
         ]
+      },
+      "v2": {
+        "por_split": {
+          "dev": {
+            "acerto_trecho_at_k": 0.9444,
+            "acerto_completo_at_k": 0.6667,
+            "mrr_trecho": 0.6759,
+            "ndcg_trecho_at_k": 0.4465,
+            "cobertura_termos": 0.7647,
+            "guardrail_acuracia": 0.8519
+          },
+          "test": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.75,
+            "mrr_trecho": 1.0,
+            "ndcg_trecho_at_k": 0.5403,
+            "cobertura_termos": 0.875,
+            "guardrail_acuracia": 1.0
+          }
+        },
+        "nao_julgados": {},
+        "rr_por_caso": {
+          "V2-REC-01": 1.0,
+          "V2-REC-02": 1.0,
+          "V2-REC-04": 1.0,
+          "V2-REC-05": 0.25,
+          "V2-REC-07": 0.3333333333333333,
+          "V2-REC-08": 1.0,
+          "V2-REC-10": 1.0,
+          "V2-REC-11": 1.0,
+          "V2-REC-13": 0.5,
+          "V2-REC-14": 0.25,
+          "V2-REC-16": 1.0,
+          "V2-REC-17": 0.5,
+          "V2-REC-19": 0.3333333333333333,
+          "V2-REC-20": 0.5,
+          "V2-REC-22": 1.0,
+          "V2-REC-23": 0.5,
+          "V2-ADV-04": 1.0,
+          "V2-GRA-01": 0.0,
+          "V2-REC-03": 1.0,
+          "V2-REC-06": 1.0,
+          "V2-REC-09": 1.0,
+          "V2-REC-12": 1.0,
+          "V2-REC-15": 1.0,
+          "V2-REC-18": 1.0,
+          "V2-REC-21": 1.0,
+          "V2-ADV-03": 1.0
+        }
       }
     },
     {
@@ -364,6 +465,55 @@
           "guia-alimentar-populacao-brasileira-2014",
           "guia-alimentar-populacao-brasileira-2014"
         ]
+      },
+      "v2": {
+        "por_split": {
+          "dev": {
+            "acerto_trecho_at_k": 0.9444,
+            "acerto_completo_at_k": 0.6111,
+            "mrr_trecho": 0.7222,
+            "ndcg_trecho_at_k": 0.4402,
+            "cobertura_termos": 0.7353,
+            "guardrail_acuracia": 0.8519
+          },
+          "test": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.875,
+            "mrr_trecho": 0.8542,
+            "ndcg_trecho_at_k": 0.5042,
+            "cobertura_termos": 0.875,
+            "guardrail_acuracia": 1.0
+          }
+        },
+        "nao_julgados": {},
+        "rr_por_caso": {
+          "V2-REC-01": 1.0,
+          "V2-REC-02": 1.0,
+          "V2-REC-04": 1.0,
+          "V2-REC-05": 0.3333333333333333,
+          "V2-REC-07": 0.5,
+          "V2-REC-08": 0.3333333333333333,
+          "V2-REC-10": 1.0,
+          "V2-REC-11": 1.0,
+          "V2-REC-13": 1.0,
+          "V2-REC-14": 0.0,
+          "V2-REC-16": 0.5,
+          "V2-REC-17": 1.0,
+          "V2-REC-19": 0.5,
+          "V2-REC-20": 0.5,
+          "V2-REC-22": 1.0,
+          "V2-REC-23": 1.0,
+          "V2-ADV-04": 0.3333333333333333,
+          "V2-GRA-01": 1.0,
+          "V2-REC-03": 1.0,
+          "V2-REC-06": 1.0,
+          "V2-REC-09": 1.0,
+          "V2-REC-12": 1.0,
+          "V2-REC-15": 0.3333333333333333,
+          "V2-REC-18": 1.0,
+          "V2-REC-21": 0.5,
+          "V2-ADV-03": 1.0
+        }
       }
     },
     {
@@ -485,6 +635,55 @@
           "guia-alimentar-populacao-brasileira-2014",
           "guia-alimentar-populacao-brasileira-2014"
         ]
+      },
+      "v2": {
+        "por_split": {
+          "dev": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.6667,
+            "mrr_trecho": 0.7269,
+            "ndcg_trecho_at_k": 0.4645,
+            "cobertura_termos": 0.7353,
+            "guardrail_acuracia": 0.8519
+          },
+          "test": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.75,
+            "mrr_trecho": 0.9375,
+            "ndcg_trecho_at_k": 0.4912,
+            "cobertura_termos": 0.875,
+            "guardrail_acuracia": 1.0
+          }
+        },
+        "nao_julgados": {},
+        "rr_por_caso": {
+          "V2-REC-01": 1.0,
+          "V2-REC-02": 1.0,
+          "V2-REC-04": 1.0,
+          "V2-REC-05": 0.3333333333333333,
+          "V2-REC-07": 0.5,
+          "V2-REC-08": 0.3333333333333333,
+          "V2-REC-10": 1.0,
+          "V2-REC-11": 1.0,
+          "V2-REC-13": 1.0,
+          "V2-REC-14": 0.25,
+          "V2-REC-16": 1.0,
+          "V2-REC-17": 0.3333333333333333,
+          "V2-REC-19": 0.5,
+          "V2-REC-20": 0.5,
+          "V2-REC-22": 1.0,
+          "V2-REC-23": 1.0,
+          "V2-ADV-04": 0.3333333333333333,
+          "V2-GRA-01": 1.0,
+          "V2-REC-03": 1.0,
+          "V2-REC-06": 1.0,
+          "V2-REC-09": 1.0,
+          "V2-REC-12": 1.0,
+          "V2-REC-15": 1.0,
+          "V2-REC-18": 1.0,
+          "V2-REC-21": 0.5,
+          "V2-ADV-03": 1.0
+        }
       }
     },
     {
@@ -606,6 +805,55 @@
           "guia-dietas-vegetarianas-svb-2012",
           "guia-alimentar-populacao-brasileira-2014"
         ]
+      },
+      "v2": {
+        "por_split": {
+          "dev": {
+            "acerto_trecho_at_k": 0.8889,
+            "acerto_completo_at_k": 0.6111,
+            "mrr_trecho": 0.662,
+            "ndcg_trecho_at_k": 0.4144,
+            "cobertura_termos": 0.7353,
+            "guardrail_acuracia": 0.8519
+          },
+          "test": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.75,
+            "mrr_trecho": 0.8542,
+            "ndcg_trecho_at_k": 0.4988,
+            "cobertura_termos": 0.875,
+            "guardrail_acuracia": 1.0
+          }
+        },
+        "nao_julgados": {},
+        "rr_por_caso": {
+          "V2-REC-01": 1.0,
+          "V2-REC-02": 1.0,
+          "V2-REC-04": 1.0,
+          "V2-REC-05": 0.25,
+          "V2-REC-07": 0.3333333333333333,
+          "V2-REC-08": 1.0,
+          "V2-REC-10": 1.0,
+          "V2-REC-11": 1.0,
+          "V2-REC-13": 0.5,
+          "V2-REC-14": 0.0,
+          "V2-REC-16": 0.5,
+          "V2-REC-17": 1.0,
+          "V2-REC-19": 0.3333333333333333,
+          "V2-REC-20": 0.5,
+          "V2-REC-22": 1.0,
+          "V2-REC-23": 0.5,
+          "V2-ADV-04": 1.0,
+          "V2-GRA-01": 0.0,
+          "V2-REC-03": 1.0,
+          "V2-REC-06": 1.0,
+          "V2-REC-09": 0.5,
+          "V2-REC-12": 1.0,
+          "V2-REC-15": 0.3333333333333333,
+          "V2-REC-18": 1.0,
+          "V2-REC-21": 1.0,
+          "V2-ADV-03": 1.0
+        }
       }
     },
     {
@@ -727,6 +975,55 @@
           "guia-dietas-vegetarianas-svb-2012",
           "guia-alimentar-populacao-brasileira-2014"
         ]
+      },
+      "v2": {
+        "por_split": {
+          "dev": {
+            "acerto_trecho_at_k": 0.8889,
+            "acerto_completo_at_k": 0.6667,
+            "mrr_trecho": 0.6481,
+            "ndcg_trecho_at_k": 0.3976,
+            "cobertura_termos": 0.7059,
+            "guardrail_acuracia": 0.8519
+          },
+          "test": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.625,
+            "mrr_trecho": 0.8542,
+            "ndcg_trecho_at_k": 0.4711,
+            "cobertura_termos": 0.875,
+            "guardrail_acuracia": 1.0
+          }
+        },
+        "nao_julgados": {},
+        "rr_por_caso": {
+          "V2-REC-01": 1.0,
+          "V2-REC-02": 0.5,
+          "V2-REC-04": 1.0,
+          "V2-REC-05": 0.5,
+          "V2-REC-07": 0.3333333333333333,
+          "V2-REC-08": 1.0,
+          "V2-REC-10": 1.0,
+          "V2-REC-11": 1.0,
+          "V2-REC-13": 0.5,
+          "V2-REC-14": 0.0,
+          "V2-REC-16": 0.5,
+          "V2-REC-17": 1.0,
+          "V2-REC-19": 0.3333333333333333,
+          "V2-REC-20": 0.5,
+          "V2-REC-22": 1.0,
+          "V2-REC-23": 0.5,
+          "V2-ADV-04": 1.0,
+          "V2-GRA-01": 0.0,
+          "V2-REC-03": 1.0,
+          "V2-REC-06": 1.0,
+          "V2-REC-09": 0.5,
+          "V2-REC-12": 1.0,
+          "V2-REC-15": 0.3333333333333333,
+          "V2-REC-18": 1.0,
+          "V2-REC-21": 1.0,
+          "V2-ADV-03": 1.0
+        }
       }
     },
     {
@@ -848,6 +1145,55 @@
           "guia-dietas-vegetarianas-svb-2012",
           "guia-alimentar-populacao-brasileira-2014"
         ]
+      },
+      "v2": {
+        "por_split": {
+          "dev": {
+            "acerto_trecho_at_k": 0.8889,
+            "acerto_completo_at_k": 0.6667,
+            "mrr_trecho": 0.6065,
+            "ndcg_trecho_at_k": 0.4144,
+            "cobertura_termos": 0.7941,
+            "guardrail_acuracia": 0.8519
+          },
+          "test": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.625,
+            "mrr_trecho": 0.6354,
+            "ndcg_trecho_at_k": 0.4169,
+            "cobertura_termos": 0.875,
+            "guardrail_acuracia": 1.0
+          }
+        },
+        "nao_julgados": {},
+        "rr_por_caso": {
+          "V2-REC-01": 1.0,
+          "V2-REC-02": 1.0,
+          "V2-REC-04": 0.5,
+          "V2-REC-05": 0.25,
+          "V2-REC-07": 0.3333333333333333,
+          "V2-REC-08": 1.0,
+          "V2-REC-10": 1.0,
+          "V2-REC-11": 1.0,
+          "V2-REC-13": 0.5,
+          "V2-REC-14": 0.0,
+          "V2-REC-16": 0.5,
+          "V2-REC-17": 0.5,
+          "V2-REC-19": 0.3333333333333333,
+          "V2-REC-20": 0.5,
+          "V2-REC-22": 1.0,
+          "V2-REC-23": 0.5,
+          "V2-ADV-04": 1.0,
+          "V2-GRA-01": 0.0,
+          "V2-REC-03": 0.5,
+          "V2-REC-06": 0.5,
+          "V2-REC-09": 0.25,
+          "V2-REC-12": 1.0,
+          "V2-REC-15": 0.3333333333333333,
+          "V2-REC-18": 1.0,
+          "V2-REC-21": 0.5,
+          "V2-ADV-03": 1.0
+        }
       }
     },
     {
@@ -969,6 +1315,55 @@
           "guia-dietas-vegetarianas-svb-2012",
           "guia-alimentar-populacao-brasileira-2014"
         ]
+      },
+      "v2": {
+        "por_split": {
+          "dev": {
+            "acerto_trecho_at_k": 0.8889,
+            "acerto_completo_at_k": 0.5556,
+            "mrr_trecho": 0.6852,
+            "ndcg_trecho_at_k": 0.3891,
+            "cobertura_termos": 0.7647,
+            "guardrail_acuracia": 0.8519
+          },
+          "test": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.75,
+            "mrr_trecho": 0.9167,
+            "ndcg_trecho_at_k": 0.5028,
+            "cobertura_termos": 0.875,
+            "guardrail_acuracia": 1.0
+          }
+        },
+        "nao_julgados": {},
+        "rr_por_caso": {
+          "V2-REC-01": 1.0,
+          "V2-REC-02": 1.0,
+          "V2-REC-04": 1.0,
+          "V2-REC-05": 0.5,
+          "V2-REC-07": 0.3333333333333333,
+          "V2-REC-08": 1.0,
+          "V2-REC-10": 1.0,
+          "V2-REC-11": 1.0,
+          "V2-REC-13": 0.5,
+          "V2-REC-14": 0.0,
+          "V2-REC-16": 0.5,
+          "V2-REC-17": 1.0,
+          "V2-REC-19": 0.5,
+          "V2-REC-20": 0.5,
+          "V2-REC-22": 1.0,
+          "V2-REC-23": 0.5,
+          "V2-ADV-04": 1.0,
+          "V2-GRA-01": 0.0,
+          "V2-REC-03": 1.0,
+          "V2-REC-06": 1.0,
+          "V2-REC-09": 1.0,
+          "V2-REC-12": 1.0,
+          "V2-REC-15": 0.3333333333333333,
+          "V2-REC-18": 1.0,
+          "V2-REC-21": 1.0,
+          "V2-ADV-03": 1.0
+        }
       }
     },
     {
@@ -1090,6 +1485,55 @@
           "guia-alimentar-populacao-brasileira-2014",
           "guia-alimentar-populacao-brasileira-2014"
         ]
+      },
+      "v2": {
+        "por_split": {
+          "dev": {
+            "acerto_trecho_at_k": 0.9444,
+            "acerto_completo_at_k": 0.6667,
+            "mrr_trecho": 0.7315,
+            "ndcg_trecho_at_k": 0.4574,
+            "cobertura_termos": 0.7059,
+            "guardrail_acuracia": 0.8519
+          },
+          "test": {
+            "acerto_trecho_at_k": 1.0,
+            "acerto_completo_at_k": 0.75,
+            "mrr_trecho": 1.0,
+            "ndcg_trecho_at_k": 0.4786,
+            "cobertura_termos": 0.875,
+            "guardrail_acuracia": 1.0
+          }
+        },
+        "nao_julgados": {},
+        "rr_por_caso": {
+          "V2-REC-01": 1.0,
+          "V2-REC-02": 1.0,
+          "V2-REC-04": 1.0,
+          "V2-REC-05": 0.5,
+          "V2-REC-07": 0.5,
+          "V2-REC-08": 0.25,
+          "V2-REC-10": 1.0,
+          "V2-REC-11": 1.0,
+          "V2-REC-13": 1.0,
+          "V2-REC-14": 0.25,
+          "V2-REC-16": 1.0,
+          "V2-REC-17": 0.3333333333333333,
+          "V2-REC-19": 1.0,
+          "V2-REC-20": 0.0,
+          "V2-REC-22": 1.0,
+          "V2-REC-23": 1.0,
+          "V2-ADV-04": 0.3333333333333333,
+          "V2-GRA-01": 1.0,
+          "V2-REC-03": 1.0,
+          "V2-REC-06": 1.0,
+          "V2-REC-09": 1.0,
+          "V2-REC-12": 1.0,
+          "V2-REC-15": 1.0,
+          "V2-REC-18": 1.0,
+          "V2-REC-21": 1.0,
+          "V2-ADV-03": 1.0
+        }
       }
     }
   ]

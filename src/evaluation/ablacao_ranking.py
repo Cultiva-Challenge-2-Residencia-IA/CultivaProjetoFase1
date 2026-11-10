@@ -1,8 +1,9 @@
 """Ablação do ranking da busca híbrida (issue #35).
 
-Mede, sobre o mesmo índice e o mesmo golden set, o efeito de cada componente do
+Mede, sobre o mesmo índice, o efeito de cada componente do
 ranking: bônus de evidência, sobreposição de termos, pesos do RRF e a mistura densa
-ChromaDB + TF-IDF/LSA. Só mede: não muda a configuração padrão.
+ChromaDB + TF-IDF/LSA, no benchmark v1 (régua do gate atual) e no v2 (dev para
+escolher, test para confirmar). Só mede: não muda a configuração padrão.
 
 Critérios definidos antes da execução: eval/runs/ablacao_mrr_issue35_criterios.md.
 
@@ -14,19 +15,20 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Any, Callable, Dict, List
+from typing import Any, Dict, List
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline
+from src.evaluation import benchmark_v2
 from src.evaluation.run_benchmark import GUIA_CORPUS_ID, evaluate_baseline
-from src.retrieval import hybrid_retriever
 from src.retrieval.hybrid_retriever import HybridRetriever
 
 SAIDA_PADRAO = Path("eval/runs/ablacao_mrr_issue35.json")
 FASCICULO_ID = "protocolos-guia-alimentar-fasciculo1-2021"
-PESO_SOBREPOSICAO_ATUAL = 0.25
+# A0 reproduz a configuração anterior à #35, para manter a comparação fixa mesmo com o padrão novo.
+A0 = {"peso_bm25": 0.55, "peso_denso": 0.45, "modo_denso": "chromadb_dense", "sobreposicao": 0.25, "bonus": True}
 
 VARIANTES: List[Dict[str, Any]] = [
-    {"id": "A0", "descricao": "Configuração atual", "hipotese": "referência"},
+    {"id": "A0", "descricao": "Configuração anterior à #35", "hipotese": "referência"},
     {"id": "A1", "descricao": "Sem bônus de evidência", "hipotese": "H1", "bonus": False},
     {"id": "A2", "descricao": "Sem sobreposição de termos", "hipotese": "H1", "sobreposicao": 0.0},
     {"id": "A3", "descricao": "RRF puro (sem bônus e sem sobreposição)", "hipotese": "H1",
@@ -44,20 +46,6 @@ VARIANTES: List[Dict[str, Any]] = [
 ]
 
 
-def _rerank(peso_sobreposicao: float, bonus: bool) -> Callable:
-    """Mesmo cálculo de HybridRetriever._clinical_rerank_score, com componentes ajustáveis."""
-
-    def score(self, query_tokens, chunk, chunk_tokens, rrf_score):
-        if not query_tokens:
-            return rrf_score
-        q_set = set(query_tokens)
-        overlap = len(q_set & set(chunk_tokens)) / max(len(q_set), 1)
-        grade = hybrid_retriever.EVIDENCE_GRADE_BONUS.get(chunk.evidence_level, 0.0) if bonus else 0.0
-        return float(rrf_score + peso_sobreposicao * overlap + grade)
-
-    return score
-
-
 def mrr_alternativo(report: Dict[str, Any], equivalentes: Dict[str, set]) -> float:
     """MRR aceitando fontes equivalentes (ex.: Fascículo 1 no lugar do Guia). Só informativo."""
     total, n = 0.0, 0
@@ -73,6 +61,23 @@ def mrr_alternativo(report: Dict[str, Any], equivalentes: Dict[str, set]) -> flo
     return round(total / max(n, 1), 4)
 
 
+METRICAS_V2 = ("acerto_trecho_at_k", "acerto_completo_at_k", "mrr_trecho", "ndcg_trecho_at_k",
+               "cobertura_termos", "guardrail_acuracia")
+
+
+def avaliar_v2(consultor: NutritionConsultantBaseline, k: int = 4) -> Dict[str, Any]:
+    """Benchmark v2 reaproveitando o índice. Trecho não julgado no top-k conta como
+    irrelevante; a lista sai no resultado para ser julgada antes de comparar variantes."""
+    casos = benchmark_v2.carregar_casos()
+    resultados = [benchmark_v2.avaliar_caso(c, consultor.consult(c["pergunta"], top_k=k), k) for c in casos]
+    rel = benchmark_v2.montar_relatorio(casos, resultados, k)
+    return {
+        "por_split": {s: {m: rel["por_split"][s][m] for m in METRICAS_V2} for s in benchmark_v2.SPLITS},
+        "nao_julgados": {r["id"]: r["nao_julgados_no_top_k"] for r in resultados if r.get("nao_julgados_no_top_k")},
+        "rr_por_caso": {r["id"]: r["rr_trecho"] for r in resultados if "rr_trecho" in r},
+    }
+
+
 def rodar(saida: Path = SAIDA_PADRAO) -> Dict[str, Any]:
     consultor = NutritionConsultantBaseline(enable_ollama=False)
     retriever: HybridRetriever = consultor.retriever
@@ -80,26 +85,29 @@ def rodar(saida: Path = SAIDA_PADRAO) -> Dict[str, Any]:
         "peso_bm25": retriever.weight_bm25,
         "peso_denso": retriever.weight_vector,
         "modo_denso": retriever.vector_mode,
+        "sobreposicao": retriever.peso_sobreposicao,
+        "bonus": retriever.bonus_evidencia,
     }
     equivalentes = {GUIA_CORPUS_ID: {FASCICULO_ID}}
     resultados = []
     try:
         for v in VARIANTES:
-            retriever.weight_bm25 = v.get("peso_bm25", original["peso_bm25"])
-            retriever.weight_vector = v.get("peso_denso", original["peso_denso"])
-            retriever.vector_mode = v.get("modo_denso", original["modo_denso"])
-            HybridRetriever._clinical_rerank_score = _rerank(
-                v.get("sobreposicao", PESO_SOBREPOSICAO_ATUAL), v.get("bonus", True)
-            )
+            cfg = {**A0, **{k: v[k] for k in A0 if k in v}}
+            retriever.weight_bm25 = cfg["peso_bm25"]
+            retriever.weight_vector = cfg["peso_denso"]
+            retriever.vector_mode = cfg["modo_denso"]
+            retriever.peso_sobreposicao = cfg["sobreposicao"]
+            retriever.bonus_evidencia = cfg["bonus"]
             rep = evaluate_baseline(enable_ollama=False, consultant=consultor, write_report=False)
+            v2 = avaliar_v2(consultor)
             resultados.append({
                 **{k: v[k] for k in ("id", "descricao", "hipotese")},
                 "parametros": {
                     "peso_bm25": retriever.weight_bm25,
                     "peso_denso": retriever.weight_vector,
                     "modo_denso": retriever.vector_mode,
-                    "peso_sobreposicao": v.get("sobreposicao", PESO_SOBREPOSICAO_ATUAL),
-                    "bonus_evidencia": v.get("bonus", True),
+                    "peso_sobreposicao": retriever.peso_sobreposicao,
+                    "bonus_evidencia": retriever.bonus_evidencia,
                 },
                 "geral": rep["overall_metrics"],
                 "mrr_fasciculo_equivalente": mrr_alternativo(rep, equivalentes),
@@ -113,17 +121,20 @@ def rodar(saida: Path = SAIDA_PADRAO) -> Dict[str, Any]:
                 "top4_por_pergunta": {
                     q["id"]: q["retrieved_doc_ids"] for q in rep["question_results"] if q["recall_evaluated"]
                 },
+                "v2": v2,
             })
     finally:
         retriever.weight_bm25 = original["peso_bm25"]
         retriever.weight_vector = original["peso_denso"]
         retriever.vector_mode = original["modo_denso"]
-        HybridRetriever._clinical_rerank_score = _ORIGINAL_RERANK
+        retriever.peso_sobreposicao = original["sobreposicao"]
+        retriever.bonus_evidencia = original["bonus"]
 
     relatorio = {
         "criterios": "eval/runs/ablacao_mrr_issue35_criterios.md",
-        "golden_set": "data/benchmark/eval_questions.json",
-        "observacao": "Medido dentro da amostra; o holdout é idêntico ao conjunto de desenvolvimento.",
+        "golden_set": {"v1": "data/benchmark/eval_questions.json", "v2": "eval/golden/v2/{dev,test}.json"},
+        "observacao": "v1: medido dentro da amostra (o holdout antigo é idêntico ao dev). "
+                      "v2: escolher pelo dev e confirmar no test.",
         "variantes": resultados,
     }
     saida.parent.mkdir(parents=True, exist_ok=True)
@@ -131,7 +142,7 @@ def rodar(saida: Path = SAIDA_PADRAO) -> Dict[str, Any]:
     return relatorio
 
 
-_ORIGINAL_RERANK = HybridRetriever._clinical_rerank_score
+_CASOS_V2 = benchmark_v2.carregar_casos()
 
 
 def main() -> None:
@@ -146,6 +157,15 @@ def main() -> None:
               f"{g['mean_reciprocal_rank_mrr']:6.4f} {v['mrr_fasciculo_equivalente']:6.4f} "
               f"{g['mean_keyword_coverage']:7.4f} {g['legal_guardrail_accuracy']:6.4f}")
     print("MRR* = MRR aceitando o Fascículo 1 como equivalente ao Guia (só informativo).")
+    print()
+    print(f"{'Id':3} {'v2':4} {'Trecho':>7} {'Compl.':>7} {'MRR':>6} {'nDCG':>6} {'Termos':>7} {'Guard':>6} {'NãoJulg':>8}")
+    for v in rel["variantes"]:
+        for split, m in v["v2"]["por_split"].items():
+            nj = sum(len(t) for c, t in v["v2"]["nao_julgados"].items()
+                     if any(r["id"] == c and r["split"] == split for r in _CASOS_V2))
+            print(f"{v['id']:3} {split:4} {m['acerto_trecho_at_k']:7.4f} {m['acerto_completo_at_k']:7.4f} "
+                  f"{m['mrr_trecho']:6.4f} {m['ndcg_trecho_at_k']:6.4f} {m['cobertura_termos']:7.4f} "
+                  f"{m['guardrail_acuracia']:6.4f} {nj:8d}")
     print(f"Relatório: {args.saida}")
 
 

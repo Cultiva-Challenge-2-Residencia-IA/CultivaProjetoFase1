@@ -10,6 +10,9 @@ from sklearn.preprocessing import normalize
 
 from src.config import (
     MAX_CHUNKS_PER_DOC,
+    MODO_DENSO,
+    RERANK_BONUS_EVIDENCIA,
+    RERANK_PESO_SOBREPOSICAO,
     RRF_K,
     TOP_K_BM25,
     TOP_K_FINAL,
@@ -117,7 +120,9 @@ class HybridRetriever:
     1. Índice Léxico BM25 (termos exatos, siglas, biomarcadores e compostos).
     2. Índice Vetorial Denso Local (TF-IDF n-gramas + SVD/LSA normalizado por cosseno).
     3. Reciprocal Rank Fusion (RRF) combinando rankings léxico e semântico.
-    4. Reranker clínico leve por cobertura de entidades e grau de evidência GRADE.
+    4. Reranker opcional por sobreposição de termos e grau de evidência GRADE. Desligado
+       por padrão desde a issue #35: na escala original ele decidia o ranking sozinho,
+       porque valia cerca de 10 vezes a fusão RRF.
     """
 
     def __init__(
@@ -129,7 +134,9 @@ class HybridRetriever:
         weight_bm25: float = WEIGHT_BM25,
         weight_vector: float = WEIGHT_VECTOR,
         use_vector_store: bool = True,
-        vector_mode: str = "chromadb_dense",
+        vector_mode: str = MODO_DENSO,
+        peso_sobreposicao: float = RERANK_PESO_SOBREPOSICAO,
+        bonus_evidencia: bool = RERANK_BONUS_EVIDENCIA,
     ) -> None:
         if not chunks:
             raise ValueError("A lista de chunks para o HybridRetriever não pode estar vazia.")
@@ -142,6 +149,8 @@ class HybridRetriever:
         self.weight_vector = weight_vector
         self.use_vector_store = use_vector_store
         self.vector_mode = vector_mode
+        self.peso_sobreposicao = peso_sobreposicao
+        self.bonus_evidencia = bonus_evidencia
 
         # 1. Construção do índice BM25
         self.tokenized_corpus = [
@@ -236,8 +245,8 @@ class HybridRetriever:
         q_set = set(query_tokens)
         c_set = set(chunk_tokens)
         overlap_ratio = len(q_set.intersection(c_set)) / max(len(q_set), 1)
-        grade_bonus = EVIDENCE_GRADE_BONUS.get(chunk.evidence_level, 0.0)
-        return float(rrf_score + (0.25 * overlap_ratio) + grade_bonus)
+        grade_bonus = EVIDENCE_GRADE_BONUS.get(chunk.evidence_level, 0.0) if self.bonus_evidencia else 0.0
+        return float(rrf_score + (self.peso_sobreposicao * overlap_ratio) + grade_bonus)
 
     def retrieve(
         self,

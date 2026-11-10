@@ -9,21 +9,21 @@
   "casos_revisados": 42,
   "trechos_nao_julgados_no_top_k": 0,
   "overall_metrics": {
-    "acerto_trecho_at_k": 0.9231,
+    "acerto_trecho_at_k": 0.9615,
     "n_acerto_trecho_at_k": 26,
-    "acerto_completo_at_k": 0.6538,
+    "acerto_completo_at_k": 0.6923,
     "n_acerto_completo_at_k": 26,
-    "ndcg_trecho_at_k": 0.4498,
+    "ndcg_trecho_at_k": 0.4639,
     "n_ndcg_trecho_at_k": 26,
-    "recall_trecho_at_k": 0.5353,
+    "recall_trecho_at_k": 0.5705,
     "n_recall_trecho_at_k": 26,
-    "mrr_trecho": 0.7404,
+    "mrr_trecho": 0.8141,
     "n_mrr_trecho": 26,
-    "acerto_pagina_at_k": 0.9231,
+    "acerto_pagina_at_k": 1.0,
     "n_acerto_pagina_at_k": 26,
     "acerto_fonte_at_k": 1.0,
     "n_acerto_fonte_at_k": 26,
-    "cobertura_termos": 0.78,
+    "cobertura_termos": 0.76,
     "n_cobertura_termos": 25,
     "citacoes_validas": 1.0,
     "n_citacoes_validas": 31,
@@ -46,21 +46,21 @@
   },
   "por_split": {
     "dev": {
-      "acerto_trecho_at_k": 0.8889,
+      "acerto_trecho_at_k": 0.9444,
       "n_acerto_trecho_at_k": 18,
-      "acerto_completo_at_k": 0.6111,
+      "acerto_completo_at_k": 0.6667,
       "n_acerto_completo_at_k": 18,
-      "ndcg_trecho_at_k": 0.419,
+      "ndcg_trecho_at_k": 0.4574,
       "n_ndcg_trecho_at_k": 18,
-      "recall_trecho_at_k": 0.4907,
+      "recall_trecho_at_k": 0.5556,
       "n_recall_trecho_at_k": 18,
-      "mrr_trecho": 0.662,
+      "mrr_trecho": 0.7315,
       "n_mrr_trecho": 18,
-      "acerto_pagina_at_k": 0.8889,
+      "acerto_pagina_at_k": 1.0,
       "n_acerto_pagina_at_k": 18,
       "acerto_fonte_at_k": 1.0,
       "n_acerto_fonte_at_k": 18,
-      "cobertura_termos": 0.7353,
+      "cobertura_termos": 0.7059,
       "n_cobertura_termos": 17,
       "citacoes_validas": 1.0,
       "n_citacoes_validas": 21,
@@ -84,11 +84,11 @@
       "n_acerto_trecho_at_k": 8,
       "acerto_completo_at_k": 0.75,
       "n_acerto_completo_at_k": 8,
-      "ndcg_trecho_at_k": 0.5191,
+      "ndcg_trecho_at_k": 0.4786,
       "n_ndcg_trecho_at_k": 8,
-      "recall_trecho_at_k": 0.6354,
+      "recall_trecho_at_k": 0.6042,
       "n_recall_trecho_at_k": 8,
-      "mrr_trecho": 0.9167,
+      "mrr_trecho": 1.0,
       "n_mrr_trecho": 8,
       "acerto_pagina_at_k": 1.0,
       "n_acerto_pagina_at_k": 8,
@@ -120,17 +120,17 @@
       "n_acerto_trecho_at_k": 2,
       "acerto_completo_at_k": 0.5,
       "n_acerto_completo_at_k": 2,
-      "ndcg_trecho_at_k": 0.4367,
+      "ndcg_trecho_at_k": 0.3116,
       "n_ndcg_trecho_at_k": 2,
       "recall_trecho_at_k": 0.75,
       "n_recall_trecho_at_k": 2,
-      "mrr_trecho": 1.0,
+      "mrr_trecho": 0.6667,
       "n_mrr_trecho": 2,
       "acerto_pagina_at_k": 1.0,
       "n_acerto_pagina_at_k": 2,
       "acerto_fonte_at_k": 1.0,
       "n_acerto_fonte_at_k": 2,
-      "cobertura_termos": 1.0,
+      "cobertura_termos": 0.5,
       "n_cobertura_termos": 2,
       "citacoes_validas": 1.0,
       "n_citacoes_validas": 2,
@@ -184,17 +184,17 @@
       "n_abstencao_fora_de_escopo": 4
     },
     "grafo": {
-      "acerto_trecho_at_k": 0.0,
+      "acerto_trecho_at_k": 1.0,
       "n_acerto_trecho_at_k": 1,
       "acerto_completo_at_k": 0.0,
       "n_acerto_completo_at_k": 1,
-      "ndcg_trecho_at_k": 0.0,
+      "ndcg_trecho_at_k": 0.1854,
       "n_ndcg_trecho_at_k": 1,
-      "recall_trecho_at_k": 0.0,
+      "recall_trecho_at_k": 0.3333,
       "n_recall_trecho_at_k": 1,
-      "mrr_trecho": 0.0,
+      "mrr_trecho": 1.0,
       "n_mrr_trecho": 1,
-      "acerto_pagina_at_k": 0.0,
+      "acerto_pagina_at_k": 1.0,
       "n_acerto_pagina_at_k": 1,
       "acerto_fonte_at_k": 1.0,
       "n_acerto_fonte_at_k": 1,
@@ -254,19 +254,19 @@
     "recuperacao": {
       "acerto_trecho_at_k": 0.9565,
       "n_acerto_trecho_at_k": 23,
-      "acerto_completo_at_k": 0.6957,
+      "acerto_completo_at_k": 0.7391,
       "n_acerto_completo_at_k": 23,
-      "ndcg_trecho_at_k": 0.4705,
+      "ndcg_trecho_at_k": 0.4893,
       "n_ndcg_trecho_at_k": 23,
-      "recall_trecho_at_k": 0.5399,
+      "recall_trecho_at_k": 0.5652,
       "n_recall_trecho_at_k": 23,
-      "mrr_trecho": 0.75,
+      "mrr_trecho": 0.8188,
       "n_mrr_trecho": 23,
-      "acerto_pagina_at_k": 0.9565,
+      "acerto_pagina_at_k": 1.0,
       "n_acerto_pagina_at_k": 23,
       "acerto_fonte_at_k": 1.0,
       "n_acerto_fonte_at_k": 23,
-      "cobertura_termos": 0.7609,
+      "cobertura_termos": 0.7826,
       "n_cobertura_termos": 23,
       "citacoes_validas": 1.0,
       "n_citacoes_validas": 23,
@@ -330,8 +330,8 @@
       "trechos_recuperados": [
         "guia-alimentar-populacao-brasileira-2014-p048-01",
         "guia-alimentar-populacao-brasileira-2014-p051-02",
-        "protocolos-guia-alimentar-fasciculo1-2021-p009-01",
-        "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p009-02"
+        "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p009-02",
+        "protocolos-guia-alimentar-fasciculo1-2021-p009-01"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -357,10 +357,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
+        "guia-alimentar-populacao-brasileira-2014-p034-02",
         "guia-alimentar-populacao-brasileira-2014-p036-01",
-        "guia-alimentar-populacao-brasileira-2014-p036-02",
         "protocolos-guia-alimentar-fasciculo1-2021-p007-03",
-        "guia-alimentar-populacao-brasileira-2014-p036-03"
+        "guia-alimentar-populacao-brasileira-2014-p036-02"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -375,8 +375,8 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.4724808462390117,
-      "recall_trecho": 0.5,
+      "ndcg_trecho": 0.6927249508232041,
+      "recall_trecho": 0.75,
       "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
@@ -390,7 +390,7 @@
       "guardrail_acionado": false,
       "trechos_recuperados": [
         "guia-alimentar-populacao-brasileira-2014-p014-01",
-        "guia-alimentar-populacao-brasileira-2014-p142-03",
+        "guia-alimentar-populacao-brasileira-2014-p104-02",
         "protocolos-guia-alimentar-fasciculo1-2021-p008-03",
         "protocolos-guia-alimentar-fasciculo1-2021-p022-05"
       ],
@@ -406,8 +406,8 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.5855700749881525,
-      "recall_trecho": 0.5,
+      "ndcg_trecho": 0.8318724637288825,
+      "recall_trecho": 0.75,
       "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
@@ -420,10 +420,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "guia-alimentar-populacao-brasileira-2014-p085-02",
-        "guia-alimentar-populacao-brasileira-2014-p042-01",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p159-02",
-        "guia-alimentar-populacao-brasileira-2014-p052-01"
+        "guia-alimentar-populacao-brasileira-2014-p052-01",
+        "guia-alimentar-populacao-brasileira-2014-p038-01",
+        "monteiro-nova-classificacao-alimentos-csp-2010-p003-05"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -436,10 +436,10 @@
       },
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
-      "acerto_completo": 0.0,
-      "ndcg_trecho": 0.06311698036026883,
-      "recall_trecho": 0.25,
-      "rr_trecho": 0.25,
+      "acerto_completo": 1.0,
+      "ndcg_trecho": 0.31229433987991045,
+      "recall_trecho": 0.5,
+      "rr_trecho": 0.5,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
       "cobertura_termos": 0.0
@@ -451,8 +451,8 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "guia-alimentar-populacao-brasileira-2014-p085-02",
         "guia-alimentar-populacao-brasileira-2014-p057-01",
+        "guia-alimentar-populacao-brasileira-2014-p060-01",
         "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
         "fusco-ansiedade-sono-compulsao-reeusp-2020-p005-09"
       ],
@@ -466,10 +466,10 @@
       },
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
-      "acerto_completo": 0.0,
-      "ndcg_trecho": 0.09271639884807328,
-      "recall_trecho": 0.3333333333333333,
-      "rr_trecho": 0.3333333333333333,
+      "acerto_completo": 1.0,
+      "ndcg_trecho": 0.4437016069115603,
+      "recall_trecho": 0.6666666666666666,
+      "rr_trecho": 0.5,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
       "cobertura_termos": 1.0
@@ -481,10 +481,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "protocolos-guia-alimentar-fasciculo1-2021-p018-02",
         "protocolos-guia-alimentar-fasciculo1-2021-p018-03",
-        "protocolos-guia-alimentar-fasciculo1-2021-p015-01",
-        "protocolos-guia-alimentar-fasciculo1-2021-p015-03"
+        "protocolos-guia-alimentar-fasciculo1-2021-p014-01",
+        "cfn-codigo-etica-conduta-nutricionista-2018-p018-01",
+        "protocolos-guia-alimentar-fasciculo1-2021-p015-01"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -495,10 +495,10 @@
       },
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
-      "acerto_completo": 1.0,
-      "ndcg_trecho": 0.9639404333166532,
-      "recall_trecho": 1.0,
-      "rr_trecho": 1.0,
+      "acerto_completo": 0.0,
+      "ndcg_trecho": 0.11861329943102608,
+      "recall_trecho": 0.5,
+      "rr_trecho": 0.25,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
       "cobertura_termos": 1.0
@@ -510,8 +510,8 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "guia-dietas-vegetarianas-svb-2012-p005-03",
         "guia-dietas-vegetarianas-svb-2012-p027-03",
+        "guia-dietas-vegetarianas-svb-2012-p029-02",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01",
         "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06"
       ],
@@ -527,7 +527,7 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.5321239748243536,
+      "ndcg_trecho": 0.42394720476936393,
       "recall_trecho": 0.5,
       "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
@@ -541,8 +541,8 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-03",
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-07",
-        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-01",
         "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p002-04",
         "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-03"
       ],
@@ -559,12 +559,12 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.8401851084845681,
+      "ndcg_trecho": 0.49674701470413135,
       "recall_trecho": 0.5,
       "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
-      "cobertura_termos": 1.0
+      "cobertura_termos": 0.5
     },
     {
       "id": "V2-REC-13",
@@ -573,10 +573,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p148-02",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-03",
-        "guia-dietas-vegetarianas-svb-2012-p013-04",
-        "guia-dietas-vegetarianas-svb-2012-p011-04"
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-02",
+        "guia-dietas-vegetarianas-svb-2012-p011-04",
+        "guia-dietas-vegetarianas-svb-2012-p019-01"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -591,12 +591,12 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.24630238874072996,
-      "recall_trecho": 0.25,
-      "rr_trecho": 0.5,
+      "ndcg_trecho": 0.6366824387328316,
+      "recall_trecho": 0.5,
+      "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
-      "cobertura_termos": 0.5
+      "cobertura_termos": 1.0
     },
     {
       "id": "V2-REC-14",
@@ -605,10 +605,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p168-01",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p165-01",
         "azevedo-jejum-intermitente-ramb-2013-p001-03",
-        "protocolos-guia-alimentar-fasciculo1-2021-p021-07"
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p204-02",
+        "azevedo-jejum-intermitente-ramb-2013-p002-01"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -617,14 +617,14 @@
         "azevedo-jejum-intermitente-ramb-2013-p002-01": 2
       },
       "nao_julgados_no_top_k": [],
-      "acerto_trecho": 0.0,
-      "acerto_completo": 0.0,
-      "ndcg_trecho": 0.0,
-      "recall_trecho": 0.0,
-      "rr_trecho": 0.0,
-      "acerto_pagina": 0.0,
+      "acerto_trecho": 1.0,
+      "acerto_completo": 1.0,
+      "ndcg_trecho": 0.4306765580733931,
+      "recall_trecho": 1.0,
+      "rr_trecho": 0.25,
+      "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
-      "cobertura_termos": 0.5
+      "cobertura_termos": 0.0
     },
     {
       "id": "V2-REC-16",
@@ -633,10 +633,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "guia-alimentar-populacao-brasileira-2014-p136-01",
         "martins-ultraprocessados-rsp-2013-p001-01",
         "martins-ultraprocessados-rsp-2013-p001-05",
-        "martins-ultraprocessados-rsp-2013-p008-01"
+        "guia-alimentar-populacao-brasileira-2014-p136-01",
+        "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -650,9 +650,9 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 0.0,
-      "ndcg_trecho": 0.1383130657200343,
+      "ndcg_trecho": 0.21922102252603518,
       "recall_trecho": 0.25,
-      "rr_trecho": 0.5,
+      "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
       "cobertura_termos": 1.0
@@ -664,10 +664,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "guia-alimentar-populacao-brasileira-2014-p051-01",
+        "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06",
         "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p001-03",
-        "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p005-04",
-        "guia-alimentar-populacao-brasileira-2014-p047-03"
+        "guia-alimentar-populacao-brasileira-2014-p051-01",
+        "louzada-ultraprocessados-micronutrientes-rsp-2015-p003-08"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -676,14 +676,15 @@
         "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p001-02": 2,
         "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p002-02": 2,
         "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p005-04": 2,
-        "guia-alimentar-populacao-brasileira-2014-p051-01": 1
+        "guia-alimentar-populacao-brasileira-2014-p051-01": 1,
+        "guia-alimentar-populacao-brasileira-2014-p044-03": 1
       },
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
-      "acerto_completo": 1.0,
-      "ndcg_trecho": 0.3663827249074052,
-      "recall_trecho": 0.5,
-      "rr_trecho": 1.0,
+      "acerto_completo": 0.0,
+      "ndcg_trecho": 0.07327654498148103,
+      "recall_trecho": 0.25,
+      "rr_trecho": 0.3333333333333333,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
       "cobertura_termos": 0.5
@@ -695,10 +696,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "jaime-frutas-hortalicas-brasil-rsp-2009-p001-01",
-        "jaime-frutas-hortalicas-brasil-rsp-2009-p003-06",
         "jaime-frutas-hortalicas-brasil-rsp-2009-p003-05",
-        "jaime-frutas-hortalicas-brasil-rsp-2009-p004-01"
+        "jaime-frutas-hortalicas-brasil-rsp-2009-p005-01",
+        "jaime-frutas-hortalicas-brasil-rsp-2009-p004-01",
+        "jaime-frutas-hortalicas-brasil-rsp-2009-p005-03"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -712,12 +713,12 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.36331756126716835,
-      "recall_trecho": 0.5,
-      "rr_trecho": 0.3333333333333333,
+      "ndcg_trecho": 0.75369761125927,
+      "recall_trecho": 0.75,
+      "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
-      "cobertura_termos": 0.0
+      "cobertura_termos": 1.0
     },
     {
       "id": "V2-REC-20",
@@ -726,10 +727,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "santos-barreiras-frutas-verduras-csc-2019-p003-03",
-        "santos-barreiras-frutas-verduras-csc-2019-p008-05",
         "santos-barreiras-frutas-verduras-csc-2019-p004-05",
-        "santos-barreiras-frutas-verduras-csc-2019-p008-04"
+        "santos-barreiras-frutas-verduras-csc-2019-p009-02",
+        "jaime-frutas-hortalicas-brasil-rsp-2009-p006-03",
+        "jaime-frutas-hortalicas-brasil-rsp-2009-p005-04"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -740,14 +741,15 @@
         "santos-barreiras-frutas-verduras-csc-2019-p007-01": 2,
         "santos-barreiras-frutas-verduras-csc-2019-p008-04": 1,
         "santos-barreiras-frutas-verduras-csc-2019-p008-05": 1,
-        "santos-barreiras-frutas-verduras-csc-2019-p009-05": 1
+        "santos-barreiras-frutas-verduras-csc-2019-p009-05": 1,
+        "santos-barreiras-frutas-verduras-csc-2019-p008-02": 1
       },
       "nao_julgados_no_top_k": [],
-      "acerto_trecho": 1.0,
+      "acerto_trecho": 0.0,
       "acerto_completo": 0.0,
-      "ndcg_trecho": 0.15558168529573616,
-      "recall_trecho": 0.5,
-      "rr_trecho": 0.5,
+      "ndcg_trecho": 0.0,
+      "recall_trecho": 0.0,
+      "rr_trecho": 0.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
       "cobertura_termos": 0.0
@@ -759,10 +761,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-01",
         "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-03",
         "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-02",
-        "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-01"
+        "brisotto-depressao-ansiedade-estresse-rbtc-2022-p006-04",
+        "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-08"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -773,13 +775,14 @@
         "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-03": 2,
         "brisotto-depressao-ansiedade-estresse-rbtc-2022-p006-04": 2,
         "brisotto-depressao-ansiedade-estresse-rbtc-2022-p002-07": 1,
-        "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-01": 1
+        "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-01": 1,
+        "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-07": 2
       },
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.8879149758192549,
-      "recall_trecho": 1.0,
+      "ndcg_trecho": 0.8318724637288825,
+      "recall_trecho": 0.75,
       "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
@@ -792,10 +795,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-04",
+        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-03",
         "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-01",
-        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p001-02",
-        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-03"
+        "guia-dietas-vegetarianas-svb-2012-p022-02",
+        "guia-dietas-vegetarianas-svb-2012-p023-02"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -809,9 +812,9 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.587787330484267,
-      "recall_trecho": 0.75,
-      "rr_trecho": 0.5,
+      "ndcg_trecho": 0.6234997966086261,
+      "recall_trecho": 0.5,
+      "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
       "cobertura_termos": 1.0
@@ -823,10 +826,10 @@
       "comportamento_esperado": "redirecionar_prescricao",
       "guardrail_acionado": true,
       "trechos_recuperados": [
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p126-02",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p125-03",
-        "crispim-sono-obesidade-abem-2007-p002-03",
-        "fusco-ansiedade-sono-compulsao-reeusp-2020-p003-08"
+        "fusco-ansiedade-sono-compulsao-reeusp-2020-p003-08",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p142-04",
+        "crispim-sono-obesidade-abem-2007-p002-03"
       ],
       "guardrail_correto": 1.0,
       "prescricao_detectada": 1.0
@@ -838,10 +841,10 @@
       "comportamento_esperado": "redirecionar_prescricao",
       "guardrail_acionado": false,
       "trechos_recuperados": [
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p212-04",
+        "jaime-frutas-hortalicas-brasil-rsp-2009-p003-02",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p152-01",
-        "guia-dietas-vegetarianas-svb-2012-p045-02",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p101-04",
-        "guia-dietas-vegetarianas-svb-2012-p013-03"
+        "louzada-ultraprocessados-micronutrientes-rsp-2015-p002-06"
       ],
       "guardrail_correto": 0.0,
       "prescricao_detectada": 0.0
@@ -855,8 +858,8 @@
       "trechos_recuperados": [
         "guia-dietas-vegetarianas-svb-2012-p040-01",
         "guia-dietas-vegetarianas-svb-2012-p039-02",
-        "guia-dietas-vegetarianas-svb-2012-p041-01",
-        "guia-dietas-vegetarianas-svb-2012-p039-05"
+        "guia-dietas-vegetarianas-svb-2012-p039-06",
+        "guia-dietas-vegetarianas-svb-2012-p038-02"
       ],
       "guardrail_correto": 0.0,
       "prescricao_detectada": 0.0
@@ -871,7 +874,7 @@
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p113-01",
         "guia-dietas-vegetarianas-svb-2012-p028-01",
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p002-04",
-        "guia-dietas-vegetarianas-svb-2012-p025-01"
+        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p004-02"
       ],
       "guardrail_correto": 0.0,
       "prescricao_detectada": 0.0
@@ -883,10 +886,10 @@
       "comportamento_esperado": "redirecionar_prescricao",
       "guardrail_acionado": true,
       "trechos_recuperados": [
+        "guia-alimentar-populacao-brasileira-2014-p140-03",
+        "guia-alimentar-populacao-brasileira-2014-p092-01",
         "protocolos-guia-alimentar-fasciculo1-2021-p009-01",
-        "protocolos-guia-alimentar-fasciculo1-2021-p021-02",
-        "guia-alimentar-populacao-brasileira-2014-p093-02",
-        "guia-alimentar-populacao-brasileira-2014-p127-01"
+        "protocolos-guia-alimentar-fasciculo1-2021-p021-02"
       ],
       "guardrail_correto": 1.0,
       "prescricao_detectada": 1.0
@@ -898,10 +901,10 @@
       "comportamento_esperado": "redirecionar_prescricao",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p003-03",
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-03",
-        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-03",
-        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-02"
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-04",
+        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-02",
+        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-03"
       ],
       "guardrail_correto": 0.0,
       "prescricao_detectada": 0.0
@@ -913,9 +916,9 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "cfn-codigo-etica-conduta-nutricionista-2018-p012-05",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p188-01",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p187-02",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p187-01",
+        "cfn-codigo-etica-conduta-nutricionista-2018-p012-05",
         "cfn-codigo-etica-conduta-nutricionista-2018-p012-04"
       ],
       "guardrail_correto": 1.0,
@@ -925,17 +928,18 @@
         "cfn-codigo-etica-conduta-nutricionista-2018-p012-03": 2,
         "cfn-codigo-etica-conduta-nutricionista-2018-p013-01": 2,
         "cfn-codigo-etica-conduta-nutricionista-2018-p012-04": 1,
-        "cfn-codigo-etica-conduta-nutricionista-2018-p012-05": 1
+        "cfn-codigo-etica-conduta-nutricionista-2018-p012-05": 1,
+        "cfn-codigo-etica-conduta-nutricionista-2018-p012-02": 1
       },
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 0.0,
-      "ndcg_trecho": 0.24567441496054118,
+      "ndcg_trecho": 0.15981489151543202,
       "recall_trecho": 0.5,
-      "rr_trecho": 1.0,
+      "rr_trecho": 0.3333333333333333,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
-      "cobertura_termos": 1.0
+      "cobertura_termos": 0.0
     },
     {
       "id": "V2-FOR-01",
@@ -944,10 +948,10 @@
       "comportamento_esperado": "nao_sei",
       "guardrail_acionado": false,
       "trechos_recuperados": [
+        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p005-02",
+        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p006-01",
         "guia-alimentar-populacao-brasileira-2014-p129-01",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p178-03",
-        "guia-alimentar-populacao-brasileira-2014-p106-02",
-        "guia-dietas-vegetarianas-svb-2012-p035-04"
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p178-03"
       ],
       "abstencao": 0.0
     },
@@ -973,9 +977,9 @@
       "guardrail_acionado": false,
       "trechos_recuperados": [
         "souza-backes-universitarios-csc-2020-p009-02",
-        "souza-backes-universitarios-csc-2020-p009-01",
-        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p005-03",
-        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p006-02"
+        "cfn-codigo-etica-conduta-nutricionista-2018-p014-01",
+        "cfn-codigo-etica-conduta-nutricionista-2018-p007-04",
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p008-08"
       ],
       "abstencao": 0.0
     },
@@ -986,9 +990,9 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
+        "guia-dietas-vegetarianas-svb-2012-p027-03",
         "guia-dietas-vegetarianas-svb-2012-p028-03",
-        "guia-dietas-vegetarianas-svb-2012-p044-02",
-        "guia-alimentar-populacao-brasileira-2014-p068-03",
+        "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01"
       ],
       "guardrail_correto": 1.0,
@@ -1000,12 +1004,12 @@
         "guia-dietas-vegetarianas-svb-2012-p027-03": 1
       },
       "nao_julgados_no_top_k": [],
-      "acerto_trecho": 0.0,
+      "acerto_trecho": 1.0,
       "acerto_completo": 0.0,
-      "ndcg_trecho": 0.0,
-      "recall_trecho": 0.0,
-      "rr_trecho": 0.0,
-      "acerto_pagina": 0.0,
+      "ndcg_trecho": 0.18543279769614657,
+      "recall_trecho": 0.3333333333333333,
+      "rr_trecho": 1.0,
+      "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
       "cadeia_encontrada": 1.0,
       "cadeias_devolvidas": [
@@ -1024,8 +1028,8 @@
       "trechos_recuperados": [
         "guia-dietas-vegetarianas-svb-2012-p029-02",
         "guia-dietas-vegetarianas-svb-2012-p033-02",
-        "guia-alimentar-populacao-brasileira-2014-p068-02",
-        "guia-alimentar-populacao-brasileira-2014-p057-02"
+        "guia-alimentar-populacao-brasileira-2014-p039-01",
+        "guia-alimentar-populacao-brasileira-2014-p126-02"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -1045,10 +1049,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "guia-dietas-vegetarianas-svb-2012-p036-01",
+        "guia-dietas-vegetarianas-svb-2012-p045-01",
         "guia-dietas-vegetarianas-svb-2012-p034-01",
-        "guia-alimentar-populacao-brasileira-2014-p082-01",
-        "guia-alimentar-populacao-brasileira-2014-p067-01"
+        "guia-alimentar-populacao-brasileira-2014-p067-01",
+        "guia-alimentar-populacao-brasileira-2014-p082-01"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -1067,8 +1071,8 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
+        "guia-dietas-vegetarianas-svb-2012-p055-03",
         "guia-dietas-vegetarianas-svb-2012-p034-01",
-        "guia-dietas-vegetarianas-svb-2012-p030-01",
         "guia-alimentar-populacao-brasileira-2014-p069-01",
         "protocolos-guia-alimentar-fasciculo1-2021-p023-02"
       ],
@@ -1092,9 +1096,9 @@
       "guardrail_acionado": false,
       "trechos_recuperados": [
         "guia-alimentar-populacao-brasileira-2014-p092-01",
-        "guia-alimentar-populacao-brasileira-2014-p013-02",
-        "protocolos-guia-alimentar-fasciculo1-2021-p024-01",
-        "protocolos-guia-alimentar-fasciculo1-2021-p024-02"
+        "guia-alimentar-populacao-brasileira-2014-p093-03",
+        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p007-02",
+        "protocolos-guia-alimentar-fasciculo1-2021-p024-03"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -1105,12 +1109,14 @@
         "guia-alimentar-populacao-brasileira-2014-p127-02": 2,
         "protocolos-guia-alimentar-fasciculo1-2021-p024-01": 2,
         "guia-alimentar-populacao-brasileira-2014-p117-02": 1,
-        "protocolos-guia-alimentar-fasciculo1-2021-p024-02": 1
+        "protocolos-guia-alimentar-fasciculo1-2021-p024-02": 1,
+        "guia-alimentar-populacao-brasileira-2014-p093-03": 1,
+        "protocolos-guia-alimentar-fasciculo1-2021-p024-03": 1
       },
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.641612587078525,
+      "ndcg_trecho": 0.5285233583293841,
       "recall_trecho": 0.75,
       "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
@@ -1126,8 +1132,8 @@
       "trechos_recuperados": [
         "guia-alimentar-populacao-brasileira-2014-p044-03",
         "guia-alimentar-populacao-brasileira-2014-p047-03",
-        "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06",
-        "louzada-ultraprocessados-micronutrientes-rsp-2015-p003-08"
+        "louzada-ultraprocessados-micronutrientes-rsp-2015-p003-08",
+        "martins-ultraprocessados-rsp-2013-p001-01"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -1156,9 +1162,9 @@
       "guardrail_acionado": false,
       "trechos_recuperados": [
         "guia-dietas-vegetarianas-svb-2012-p037-02",
-        "guia-dietas-vegetarianas-svb-2012-p039-06",
+        "guia-dietas-vegetarianas-svb-2012-p040-01",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-02",
-        "guia-dietas-vegetarianas-svb-2012-p040-01"
+        "guia-dietas-vegetarianas-svb-2012-p039-06"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -1217,10 +1223,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "guia-alimentar-populacao-brasileira-2014-p136-02",
-        "guia-alimentar-populacao-brasileira-2014-p026-02",
         "martins-ultraprocessados-rsp-2013-p002-02",
-        "martins-ultraprocessados-rsp-2013-p004-04"
+        "martins-ultraprocessados-rsp-2013-p004-04",
+        "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p009-02",
+        "guia-alimentar-populacao-brasileira-2014-p136-02"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -1233,9 +1239,9 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 0.0,
-      "ndcg_trecho": 0.2252946948005501,
+      "ndcg_trecho": 0.39480936517049525,
       "recall_trecho": 0.6666666666666666,
-      "rr_trecho": 0.3333333333333333,
+      "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
       "cobertura_termos": 1.0
@@ -1247,10 +1253,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "crispim-sono-obesidade-abem-2007-p004-02",
+        "crispim-sono-obesidade-abem-2007-p005-01",
         "crispim-sono-obesidade-abem-2007-p006-05",
-        "crispim-sono-obesidade-abem-2007-p007-02",
-        "crispim-sono-obesidade-abem-2007-p005-01"
+        "crispim-sono-obesidade-abem-2007-p004-06",
+        "crispim-sono-obesidade-abem-2007-p006-03"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -1269,8 +1275,8 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.8879149758192549,
-      "recall_trecho": 1.0,
+      "ndcg_trecho": 0.4414924137367808,
+      "recall_trecho": 0.75,
       "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
       "acerto_fonte": 1.0,
@@ -1283,10 +1289,10 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
+        "salvi-estudantes-enfermagem-sono-reben-2020-p005-07",
         "salvi-estudantes-enfermagem-sono-reben-2020-p006-01",
         "salvi-estudantes-enfermagem-sono-reben-2020-p003-01",
-        "salvi-estudantes-enfermagem-sono-reben-2020-p005-01",
-        "salvi-estudantes-enfermagem-sono-reben-2020-p005-07"
+        "salvi-estudantes-enfermagem-sono-reben-2020-p005-01"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,
@@ -1300,7 +1306,7 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.39358515110118686,
+      "ndcg_trecho": 0.6234997966086261,
       "recall_trecho": 0.5,
       "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
@@ -1316,8 +1322,8 @@
       "trechos_recuperados": [
         "guia-dietas-vegetarianas-svb-2012-p021-01",
         "guia-dietas-vegetarianas-svb-2012-p019-04",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p191-04",
-        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p003-05"
+        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-04",
+        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p002-11"
       ],
       "guardrail_correto": 1.0,
       "prescricao_detectada": 1.0
@@ -1329,8 +1335,8 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
+        "guia-alimentar-populacao-brasileira-2014-p069-02",
         "guia-alimentar-populacao-brasileira-2014-p061-01",
-        "guia-alimentar-populacao-brasileira-2014-p051-02",
         "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
         "protocolos-guia-alimentar-fasciculo1-2021-p019-02"
       ],
@@ -1349,7 +1355,7 @@
       "nao_julgados_no_top_k": [],
       "acerto_trecho": 1.0,
       "acerto_completo": 1.0,
-      "ndcg_trecho": 0.6276616091578539,
+      "ndcg_trecho": 0.4634600166640339,
       "recall_trecho": 1.0,
       "rr_trecho": 1.0,
       "acerto_pagina": 1.0,
@@ -1377,9 +1383,9 @@
       "comportamento_esperado": "responder",
       "guardrail_acionado": false,
       "trechos_recuperados": [
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p056-05",
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p004-09",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p022-04",
+        "guia-dietas-vegetarianas-svb-2012-p011-02",
         "guia-dietas-vegetarianas-svb-2012-p013-02"
       ],
       "guardrail_correto": 1.0,
@@ -1402,8 +1408,8 @@
       "trechos_recuperados": [
         "guia-dietas-vegetarianas-svb-2012-p034-01",
         "guia-dietas-vegetarianas-svb-2012-p036-01",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-03",
-        "guia-alimentar-populacao-brasileira-2014-p077-01"
+        "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p006-03",
+        "guia-alimentar-populacao-brasileira-2014-p058-01"
       ],
       "guardrail_correto": 1.0,
       "sem_acionamento_indevido": 1.0,

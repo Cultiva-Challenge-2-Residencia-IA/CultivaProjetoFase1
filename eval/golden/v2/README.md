@@ -85,6 +85,7 @@ n = 26 casos com recuperação; dev 18 e test 8.
 
 Leitura:
 
+- **Atualização (#35):** com o ranking novo (RRF puro sobre BM25 + ChromaDB), o MRR por Trecho foi de 0,740 para 0,814, o acerto de Trecho de 92,3% para 96,2% e a cobertura de termos de 78,0% para 76,0%. Para isso, 22 Trechos trazidos pelas variantes da ablação foram julgados (campo `pool` dos casos; revisão humana pendente). Detalhes em `eval/runs/ablacao_mrr_issue35.md`.
 - Quase sempre vem algum Trecho útil, mas o Trecho que responde por completo está no top-4 em 65% dos casos e raramente em 1º lugar (nDCG 0,45). O problema está na ordenação, não em achar a fonte, que é o foco da #35.
 - Falhas de busca que continuam:
   - REC-05 (o que são alimentos processados): os Trechos que definem estão fora do top-4.
