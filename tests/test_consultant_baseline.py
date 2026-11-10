@@ -47,6 +47,7 @@ def test_groq_api_client_synthesis(monkeypatch) -> None:
     consultant.llm_client.provider = "groq"
     consultant.llm_client.groq_api_key = "gsk_test_fake_key"
     consultant.llm_client.enable_groq = True
+    consultant.llm_client.allow_external_llm = True
 
     def fake_call_groq(model_name: str, user_prompt: str):
         assert model_name == "openai/gpt-oss-120b"
@@ -62,6 +63,71 @@ def test_groq_api_client_synthesis(monkeypatch) -> None:
     res = consultant.consult("Como a fibra solúvel da aveia reduz o colesterol LDL?")
     assert res.model_used == "groq:openai/gpt-oss-120b"
     assert "beta-glucana" in res.evidence_summary.lower()
+
+
+def test_groq_prompt_masks_common_personal_identifiers(monkeypatch) -> None:
+    import httpx
+
+    from src.agent.llm_client import LocalLLMClient
+
+    captured_payload = {}
+
+    class FakeResponse:
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return {
+                "choices": [
+                    {
+                        "message": {
+                            "content": '{"evidence_summary": "ok"}'
+                        }
+                    }
+                ]
+            }
+
+    class FakeHttpClient:
+        def __init__(self, timeout):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def post(self, url, headers, json):
+            captured_payload.update(json)
+            return FakeResponse()
+
+    monkeypatch.setattr(httpx, "Client", FakeHttpClient)
+    client = LocalLLMClient(groq_api_key="test-key", enable_groq=True)
+    client._call_groq_model(
+        "test-model",
+        "Meu nome é Ana Silva, meu CPF é 123.456.789-09, telefone (11) 99999-1234 "
+        "e e-mail ana@example.com.",
+    )
+
+    sent_prompt = captured_payload["messages"][1]["content"]
+    assert "Ana Silva" not in sent_prompt
+    assert "123.456.789-09" not in sent_prompt
+    assert "99999-1234" not in sent_prompt
+    assert "ana@example.com" not in sent_prompt
+    assert sent_prompt.count("[DADO PESSOAL REMOVIDO]") >= 4
+
+
+def test_groq_key_does_not_enable_external_provider_by_default() -> None:
+    from src.agent.llm_client import LocalLLMClient
+
+    client = LocalLLMClient(
+        provider="groq",
+        groq_api_key="test-key",
+        enable_groq=True,
+        allow_external_llm=False,
+    )
+
+    assert client.is_groq_available() is False
 
 
 def test_unified_cultiva_package_structure() -> None:

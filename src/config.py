@@ -42,7 +42,13 @@ HNSW_EF_CONSTRUCTION = int(os.getenv("HNSW_EF_CONSTRUCTION", "200"))
 HNSW_EF_SEARCH = int(os.getenv("HNSW_EF_SEARCH", "200"))
 
 # Provedor de LLM ("groq", "ollama" ou "auto")
-LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq").lower()
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama").lower()
+ALLOW_EXTERNAL_LLM = os.getenv("ALLOW_EXTERNAL_LLM", "false").strip().lower() in (
+    "1",
+    "true",
+    "sim",
+    "yes",
+)
 
 # Configurações da API Gratuita Groq (https://console.groq.com)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
