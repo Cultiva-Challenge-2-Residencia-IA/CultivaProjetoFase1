@@ -8,7 +8,7 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
 
 - O CULTIVA é um app de apoio educativo/organizacional (18+) em Nutrição, Saúde Física e Estudos. A IA **não** diagnostica nem prescreve.
 - Requisitos (RN, RF-A, RF-IA, RNF) e a arquitetura vêm do repositório [Documentacao-Cultiva](https://github.com/Cultiva-Challenge-2-Residencia-IA/Documentacao-Cultiva). A arquitetura é uma **proposta provisória, ainda não validada**. Classifique as afirmações em: requisito aprovado / documentado, aprovação não confirmada / proposta técnica / hipótese.
-- Etapa atual: **aba Nutrição**, com o corpus e o RAG implementados (entrega da semana 2, PRs #30 a #33). Saúde Física, Estudos e a infraestrutura de produção ainda não existem; não os implemente sem pedido explícito. O portão de risco (issue #9) existe só para texto, com léxico pendente de revisão por profissional de saúde (issue #10).
+- Etapa atual: **aba Nutrição**, com o corpus e o RAG implementados (entrega da semana 2, PRs #30 a #33). Saúde Física, Estudos e a infraestrutura de produção ainda não existem; não os implemente sem pedido explícito. O portão de risco (issue #9) existe só para texto; o léxico e a mensagem de acolhimento foram revisados pela equipe, sem profissional de saúde.
 - Escreva em português do Brasil, como o restante do repositório.
 
 ## Estado real do código

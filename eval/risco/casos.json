@@ -3,9 +3,9 @@
   "descricao": "Casos de avaliação do detector de risco (RF-IA03). Positivos nas três categorias do requisito; negativos difíceis com expressões idiomáticas e temas próximos (jejum, vômito por intoxicação, laxante para intestino preso).",
   "autoria": {
     "autor": "rascunho-claude",
-    "revisao": "pendente",
-    "revisor": null,
-    "nota": "Escritos antes do léxico, pelo mesmo autor. Precisam de revisão do grupo e do profissional de saúde da #10, e de casos escritos por outras pessoas."
+    "revisao": "revisado",
+    "revisor": "feliperodri0",
+    "nota": "Escritos antes do léxico, pelo mesmo autor, e revisados pela equipe em 10/11/2026 (sem profissional de saúde). Casos escritos por outras pessoas ainda ajudariam a medir a generalização."
   },
   "casos": [
     {

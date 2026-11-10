@@ -1,7 +1,7 @@
 """Mensagem fixa de acolhimento do fluxo de risco (RF-IA03).
 
 Texto fixo, nunca gerado por IA, sem aconselhamento clínico.
-REVISÃO PENDENTE por profissional de saúde (issue #10).
+Revisada pela equipe em 10/11/2026, sem profissional de saúde (não houve acesso a um).
 """
 
 MENSAGEM_ACOLHIMENTO = (

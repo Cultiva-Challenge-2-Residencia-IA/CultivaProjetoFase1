@@ -1,5 +1,6 @@
 # Léxico do detector de risco (RF-IA03). Classificação: proposta técnica.
-# REVISÃO PENDENTE por profissional de saúde (issue #10). Não usar com usuários reais antes disso.
+# Revisado pela equipe em 10/11/2026, sem profissional de saúde (não houve acesso a um).
+# Qualquer mudança aqui deve ser revisada no PR e medida em eval/risco/casos.json.
 #
 # As expressões regulares são aplicadas ao texto em minúsculas e sem acentos.
 # O detector prioriza o recall (meta >= 0,95): na dúvida, a mensagem de acolhimento aparece.
@@ -7,7 +8,7 @@
 # `excecao` descarta a regra quando o texto também casa com ela (por exemplo, vômito por intoxicação).
 
 versao: 1
-revisao: pendente
+revisao: equipe
 categorias:
   ideacao_suicida:
     - '\b(me|se) matar\b'

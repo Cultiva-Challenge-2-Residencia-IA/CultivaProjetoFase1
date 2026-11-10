@@ -1,7 +1,7 @@
 """Detector de sinais de risco (RF-IA03): ideação suicida, autolesão e comportamento alimentar de risco.
 
 Determinístico e sem chamada externa, para responder dentro do p95 de 3 s (RNF29). O léxico
-fica em `lexico.yaml`, separado do código, para a revisão por profissional de saúde (issue #10).
+fica em `lexico.yaml`, separado do código, para ser revisado sem mexer na lógica.
 """
 
 from __future__ import annotations
