@@ -616,11 +616,11 @@
     }
   ],
   "risk_metrics": {
-    "positives": 60,
+    "positives": 61,
     "negatives": 60,
     "recall": 1.0,
-    "precision": 0.9836,
-    "true_positives": 60,
+    "precision": 0.9839,
+    "true_positives": 61,
     "false_positives": 1,
     "false_negatives": 0,
     "recall_por_categoria": {
@@ -628,9 +628,27 @@
       "comportamento_alimentar_de_risco": 1.0,
       "ideacao_suicida": 1.0
     },
+    "detectados_so_por_similaridade": 0,
     "falsos_negativos": [],
     "falsos_positivos": [
       "RIS-NEG-57"
     ]
+  },
+  "risk_metrics_holdout": {
+    "positives": 19,
+    "negatives": 4,
+    "recall": 1.0,
+    "precision": 1.0,
+    "true_positives": 19,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "recall_por_categoria": {
+      "autolesao": 1.0,
+      "comportamento_alimentar_de_risco": 1.0,
+      "ideacao_suicida": 1.0
+    },
+    "detectados_so_por_similaridade": 0,
+    "falsos_negativos": [],
+    "falsos_positivos": []
   }
 }

@@ -89,7 +89,7 @@ Consequências práticas:
 
 ## Arquitetura do RAG de Nutrição
 
-**Portões antes da busca** (`consultant_baseline.py`, issue #9): primeiro o detector de risco (`src/guardrails/risco/`, léxico em `lexico.yaml`, RF-IA03), que responde com a mensagem fixa de acolhimento (CVV 188) sem busca nem LLM; depois o detector de prompt injection (`src/guardrails/injection/`, RNF04), com recusa fixa. O que vai ao LLM leva a pergunta com dados pessoais mascarados (`src/guardrails/pii/`, RNF05) e os Trechos delimitados como dado.
+**Portões antes da busca** (`consultant_baseline.py`, issue #9): primeiro o detector de risco (`src/guardrails/risco/`, RF-IA03), com duas camadas locais: léxico (`lexico.yaml`) e similaridade por embeddings com os exemplos de `exemplos.yaml` (só ideação suicida e autolesão, limiar `RISCO_LIMIAR_SIMILARIDADE`). Ele responde com a mensagem fixa de acolhimento (CVV 188) sem busca nem LLM; depois o detector de prompt injection (`src/guardrails/injection/`, RNF04), com recusa fixa. O que vai ao LLM leva a pergunta com dados pessoais mascarados (`src/guardrails/pii/`, RNF05) e os Trechos delimitados como dado.
 
 1. **Carga e gate** (`src/rag/corpus_loader.py`): lê os Trechos JSONL e só aceita fontes `aprovado` (hoje 21 de 22; a SBAN está `pendente`). Com `CULTIVA_INCLUIR_PENDENTES=true`, aceita também as pendentes. A licença não entra no gate.
 2. **Contrato** (`src/rag/contrato.py`, ADR 0002): `trecho_para_chunk` adiciona o cabeçalho contextual e deriva o nível de evidência do `source_type`.
@@ -100,7 +100,7 @@ Consequências práticas:
 ## CI (`.github/workflows/ci.yml`)
 
 - Obrigatórios: ruff, pytest e integridade do corpus (`verify_corpus.py`).
-- Informativo: "Gates de avaliação". Uma execução do benchmark só constrói o índice e é descartada; duas execuções seguintes no mesmo índice precisam gerar relatórios idênticos (determinismo). Depois, `gate.py` compara as métricas com o baseline da branch de destino (regressão máxima de 5 p.p., guardrail legal em 100%). O gate de risco (recall ≥ 0,95 e precisão ≥ 0,60) usa o `risk_metrics` do relatório, calculado sobre `eval/risco/casos.json` (`src/evaluation/risco.py`).
+- Informativo: "Gates de avaliação". Uma execução do benchmark só constrói o índice e é descartada; duas execuções seguintes no mesmo índice precisam gerar relatórios idênticos (determinismo). Depois, `gate.py` compara as métricas com o baseline da branch de destino (regressão máxima de 5 p.p., guardrail legal em 100%). O gate de risco exige recall ≥ 0,95 no conjunto de desenvolvimento (`eval/risco/casos.json`, também com precisão ≥ 0,60) e no holdout (`eval/risco/holdout.json`), que é escrito por quem não escreveu o léxico; veja `eval/risco/README.md`.
 
 Consequências práticas do RAG:
 
