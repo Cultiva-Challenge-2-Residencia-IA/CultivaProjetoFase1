@@ -177,9 +177,9 @@
           "approval_status": "aprovado"
         },
         "bm25_rank": 3,
-        "bm25_score": 112.5373,
+        "bm25_score": 112.5492,
         "vector_rank": 1,
-        "vector_score": 0.4142,
+        "vector_score": 0.4141,
         "rrf_score": 0.016107,
         "rerank_score": 0.201107
       },
@@ -202,9 +202,9 @@
           "approval_status": "aprovado"
         },
         "bm25_rank": 6,
-        "bm25_score": 107.0606,
+        "bm25_score": 107.0726,
         "vector_rank": 2,
-        "vector_score": 0.3856,
+        "vector_score": 0.3853,
         "rrf_score": 0.015591,
         "rerank_score": 0.200591
       },
@@ -227,7 +227,7 @@
           "approval_status": "aprovado"
         },
         "bm25_rank": 2,
-        "bm25_score": 129.6911,
+        "bm25_score": 129.7027,
         "vector_rank": null,
         "vector_score": 0.0,
         "rrf_score": 0.008871,
@@ -252,7 +252,7 @@
           "approval_status": "aprovado"
         },
         "bm25_rank": 1,
-        "bm25_score": 137.5274,
+        "bm25_score": 137.5379,
         "vector_rank": null,
         "vector_score": 0.0,
         "rrf_score": 0.009016,
@@ -350,7 +350,7 @@
     "citations": [
       "[guia-alimentar-populacao-brasileira-2014] Guia alimentar para a população brasileira — Ministério da Saúde (2014), Seção: 'Óleos, gordurAs, sAl e AçúcAr (pág. 36)' (Evidência: GUIDELINE_CONSENSUS | Link: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0 | Aprovação: aprovado)",
       "[guia-alimentar-populacao-brasileira-2014] Guia alimentar para a população brasileira — Ministério da Saúde (2014), Seção: 'Limitar o ConsUmo (pág. 127)' (Evidência: GUIDELINE_CONSENSUS | Link: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0 | Aprovação: aprovado)",
-      "[martins-ultraprocessados-rsp-2013] Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009) — Universidade de São Paulo; Universidade Federal de Minas Gerais (2013), Seção: 'INTRODUÇÃO (pág. 2)' (Evidência: GRADE_C | Link: https://www.scielo.br/j/rsp/a/VxDyNppnrq8vv6jQtZfSsRP/?lang=pt | DOI: 10.1590/S0034-8910.2013047004968 | Licença: CC-BY-NC-3.0 | Aprovação: aprovado)",
+      "[louzada-ultraprocessados-perfil-nutricional-rsp-2015] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil — Universidade de São Paulo (2015), Seção: 'ANExO (pág. 11)' (Evidência: GRADE_C | Link: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt | DOI: 10.1590/S0034-8910.2015049006132 | Licença: CC-BY-NC-3.0 | Aprovação: aprovado)",
       "[louzada-ultraprocessados-perfil-nutricional-rsp-2015] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil — Universidade de São Paulo (2015), Seção: 'RESULTADOS (pág. 4)' (Evidência: GRADE_C | Link: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt | DOI: 10.1590/S0034-8910.2015049006132 | Licença: CC-BY-NC-3.0 | Aprovação: aprovado)",
       "[KG_4LAYER_PICO_GRADE] Grafo de Conhecimento de 4 Camadas (NetworkX: 4 cadeias causais Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho)"
     ],
@@ -374,7 +374,7 @@
           "approval_status": "aprovado"
         },
         "bm25_rank": 1,
-        "bm25_score": 52.643,
+        "bm25_score": 52.5911,
         "vector_rank": null,
         "vector_score": 0.0,
         "rrf_score": 0.009016,
@@ -399,36 +399,36 @@
           "approval_status": "aprovado"
         },
         "bm25_rank": 2,
-        "bm25_score": 52.3662,
+        "bm25_score": 52.3042,
         "vector_rank": 5,
-        "vector_score": 0.5615,
+        "vector_score": 0.5613,
         "rrf_score": 0.015794,
         "rerank_score": 0.275794
       },
       {
         "chunk": {
-          "chunk_id": "martins-ultraprocessados-rsp-2013-p002-02",
-          "doc_id": "martins-ultraprocessados-rsp-2013",
-          "title": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)",
-          "source_organization": "Universidade de São Paulo; Universidade Federal de Minas Gerais",
-          "publication_year": 2013,
+          "chunk_id": "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-02",
+          "doc_id": "louzada-ultraprocessados-perfil-nutricional-rsp-2015",
+          "title": "Alimentos ultraprocessados e perfil nutricional da dieta no Brasil",
+          "source_organization": "Universidade de São Paulo",
+          "publication_year": 2015,
           "clinical_domain": "nutricao",
           "evidence_level": "GRADE_C",
-          "section_path": "INTRODUÇÃO (pág. 2)",
-          "raw_text": "Uma classificação de itens do consumo alimentar foi elaborada com base na extensão e propósito do processamento de alimentos. Essa classificação agrupa os itens de consumo em três grupos: alimentos in natura ou minimamente processados; ingredientes culinários processados; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados. Os produtos ultraprocessados são essencialmente formulações da indústria, na maioria ou totalmente feitos a partir de ingredientes e contendo pouco ou nenhum alimento integral, enquanto os produtos processados são alimentos integrais preservados em",
-          "contextualized_text": "[Documento: Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009) | Fonte: Universidade de São Paulo; Universidade Federal de Minas Gerais (2013) | Domínio: nutricao | Nível de Evidência: GRADE_C | Seção: INTRODUÇÃO (pág. 2)]\nUma classificação de itens do consumo alimentar foi elaborada com base na extensão e propósito do processamento de alimentos. Essa classificação agrupa os itens de consumo em três grupos: alimentos in natura ou minimamente processados; ingredientes culinários processados; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados. Os produtos ultraprocessados são essencialmente formulações da indústria, na maioria ou totalmente feitos a partir de ingredientes e contendo pouco ou nenhum alimento integral, enquanto os produtos processados são alimentos integrais preservados em",
-          "pagina_pdf": 2,
-          "fonte_url": "https://www.scielo.br/j/rsp/a/VxDyNppnrq8vv6jQtZfSsRP/?lang=pt",
-          "doi": "10.1590/S0034-8910.2013047004968",
+          "section_path": "ANExO (pág. 11)",
+          "raw_text": "As preparações culinárias baseadas nesses alimentos incluem o alimento in natura ou minimamente processado usado como item principal da receita e todos os demais ingredientes, incluindo ingredientes culinários como óleos, gorduras, açúcar e sal, outros alimentos in natura ou minimamente processados (como alho e cebola) e mesmo alimentos processados ou ultraprocessados (como queijos e embutidos) quando são incluídos como itens secundários das preparações culinárias.",
+          "contextualized_text": "[Documento: Alimentos ultraprocessados e perfil nutricional da dieta no Brasil | Fonte: Universidade de São Paulo (2015) | Domínio: nutricao | Nível de Evidência: GRADE_C | Seção: ANExO (pág. 11)]\nAs preparações culinárias baseadas nesses alimentos incluem o alimento in natura ou minimamente processado usado como item principal da receita e todos os demais ingredientes, incluindo ingredientes culinários como óleos, gorduras, açúcar e sal, outros alimentos in natura ou minimamente processados (como alho e cebola) e mesmo alimentos processados ou ultraprocessados (como queijos e embutidos) quando são incluídos como itens secundários das preparações culinárias.",
+          "pagina_pdf": 11,
+          "fonte_url": "https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt",
+          "doi": "10.1590/S0034-8910.2015049006132",
           "licenca": "CC-BY-NC-3.0",
           "approval_status": "aprovado"
         },
-        "bm25_rank": 8,
-        "bm25_score": 48.6674,
+        "bm25_rank": 3,
+        "bm25_score": 50.6778,
         "vector_rank": null,
         "vector_score": 0.0,
-        "rrf_score": 0.008088,
-        "rerank_score": 0.218088
+        "rrf_score": 0.00873,
+        "rerank_score": 0.20873
       },
       {
         "chunk": {
@@ -448,12 +448,12 @@
           "licenca": "CC-BY-NC-3.0",
           "approval_status": "aprovado"
         },
-        "bm25_rank": 3,
-        "bm25_score": 50.4637,
+        "bm25_rank": 4,
+        "bm25_score": 50.402,
         "vector_rank": null,
         "vector_score": 0.0,
-        "rrf_score": 0.00873,
-        "rerank_score": 0.20873
+        "rrf_score": 0.008594,
+        "rerank_score": 0.208594
       }
     ],
     "model_used": "local_extractive_synthesis",
@@ -566,7 +566,7 @@
           "approval_status": "aprovado"
         },
         "bm25_rank": 1,
-        "bm25_score": 82.3927,
+        "bm25_score": 82.3028,
         "vector_rank": null,
         "vector_score": 0.0,
         "rrf_score": 0.009016,
@@ -591,7 +591,7 @@
           "approval_status": "aprovado"
         },
         "bm25_rank": 4,
-        "bm25_score": 70.8393,
+        "bm25_score": 70.7489,
         "vector_rank": null,
         "vector_score": 0.0,
         "rrf_score": 0.008594,
@@ -616,7 +616,7 @@
           "approval_status": "aprovado"
         },
         "bm25_rank": 3,
-        "bm25_score": 74.4934,
+        "bm25_score": 74.3368,
         "vector_rank": null,
         "vector_score": 0.0,
         "rrf_score": 0.00873,
@@ -640,12 +640,12 @@
           "licenca": "CC-BY-NC-SA-4.0",
           "approval_status": "aprovado"
         },
-        "bm25_rank": 5,
-        "bm25_score": 61.0127,
+        "bm25_rank": 6,
+        "bm25_score": 60.8748,
         "vector_rank": null,
         "vector_score": 0.0,
-        "rrf_score": 0.008462,
-        "rerank_score": 0.122033
+        "rrf_score": 0.008333,
+        "rerank_score": 0.121905
       }
     ],
     "model_used": "local_extractive_synthesis",

@@ -115,13 +115,63 @@ def collapse_spaced_letters(title: str) -> str:
     return "".join(tokens) if len(tokens) > 2 and all(len(t) == 1 for t in tokens) else title
 
 
+# Palavra com "_" que não é ênfase: URL, caminho ou nome de arquivo
+# ("guia_alimentar_populacao_brasileira_2ed.pdf", "Dietary_Guidelines_for_Americans").
+PROTECTED_TOKEN = re.compile(
+    r"://|www\.|[/?=&]|\.(pdf|html?|jsp|aspx?|php|docx?|xlsx?)\b|\w_\w+_\w", re.I
+)
+# Par de marcadores de ênfase (itálico/negrito) com o mesmo delimitador dos dois lados.
+EMPHASIS_PAIR = re.compile(r"(\*{1,3}|_{1,3})([^*_\n]+?)\1")
+NO_SPACE_BEFORE = set(" \t([{\"'“‘/-<>=≤≥±+%")
+NO_SPACE_AFTER = set(" \t.,;:!?)]}\"'”’/-<>=≤≥±+%")
+
+
+def strip_emphasis(line: str) -> str:
+    """Remove marcadores de ênfase sem colar a ênfase às palavras vizinhas.
+
+    O conversor às vezes gera itálico sem espaço ("Alimentos_in natura_ou"); apagar só os
+    "_" produziria "Alimentosin naturaou". URLs e nomes de arquivo mantêm seus "_".
+    """
+    protected: list[str] = []
+
+    def protect(match: re.Match) -> str:
+        token = match.group(0)
+        core = token.strip("*_`")
+        if not re.search(r"\w_\w", core) or not PROTECTED_TOKEN.search(core):
+            return token
+        protected.append(core)
+        return f"\x00{len(protected) - 1}\x00"
+
+    # Asteriscos escapados ("\*\*", marca de nota) e pares vazios ("****") não são ênfase.
+    line = re.sub(r"\\[*`]", "", line)
+    line = re.sub(r"(\*{2,3}|_{2,3})\1", "", line)
+    line = re.sub(r"\S+", protect, line)
+
+    def unwrap(match: re.Match) -> str:
+        text, start, end = match.string, match.start(), match.end()
+        inner = match.group(2)
+        before = " " if start > 0 and text[start - 1] not in NO_SPACE_BEFORE else ""
+        after = " " if end < len(text) and text[end] not in NO_SPACE_AFTER else ""
+        # Negrito partindo uma sigla ("**IDAT**E"): maiúsculas dos dois lados, sem espaço.
+        if before and (inner[0] in NO_SPACE_AFTER or text[start - 1].isupper() and inner[0].isupper()):
+            before = ""
+        if after and text[end].isupper() and inner[-1].isupper():
+            after = ""
+        return f"{before}{match.group(2)}{after}"
+
+    line = EMPHASIS_PAIR.sub(unwrap, line)
+    # Marcadores sem par: "*" e "`" saem; "_" só sai na borda de palavra.
+    line = re.sub(r"[*`]{1,3}|(?<!\w)_+|_+(?!\w)", "", line)
+    return re.sub(r"\x00(\d+)\x00", lambda m: protected[int(m.group(1))], line)
+
+
 def clean_inline(line: str) -> str:
     line = re.sub(r"<!--.*?-->", "", line)
     line = re.sub(r"<sup>.*?</sup>", "", line)
     line = re.sub(r"<br\s*/?>", " ", line)
     line = re.sub(r"</?[a-z][^>]*>", "", line)
     line = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", line)
-    line = re.sub(r"[*_`]{1,3}", "", line)
+    line = strip_emphasis(line)
     # Ligaturas quebradas pela extração do PDF ("signifi cativo" -> "significativo").
     line = re.sub(r"(?<=[A-Za-zà-ú])(ffi|ffl|fi|fl) (?=[a-zà-ú]+\b)", r"\1", line)
     line = re.sub(r"(?<![A-Za-zà-ú])(fi|fl) (?=[a-zà-ú]{3,})", r"\1", line)
