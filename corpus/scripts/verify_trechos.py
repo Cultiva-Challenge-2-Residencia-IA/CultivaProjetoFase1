@@ -28,6 +28,8 @@ from prepare_rag import (
 
 MANIFEST_PATH = ROOT / "corpus/manifest.yaml"
 COMANDO = "corpus/.venv/bin/python corpus/scripts/prepare_rag.py --source {id}"
+COMANDO_TODAS = "corpus/.venv/bin/python corpus/scripts/prepare_rag.py"
+CHAVE_SCRIPT = "prepare_rag.py"
 
 
 def _campos_do_manifesto(source: dict) -> dict:
@@ -87,9 +89,12 @@ def _conferir_trechos(source: dict, trechos: list[dict], esperado: int) -> list[
 
 
 def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
-                          generation_path: Path = GENERATION_PATH,
-                          rag_dir: Path = OUTPUT_DIR) -> dict[str, list[str]]:
-    """Problemas encontrados, agrupados por id de fonte (ou pelo caminho de um JSONL órfão)."""
+                          generation_path: Path | None = None,
+                          rag_dir: Path | None = None) -> dict[str, list[str]]:
+    """Problemas encontrados, agrupados por id de fonte, pelo caminho de um JSONL órfão ou,
+    quando o próprio prepare_rag.py mudou, numa entrada única `prepare_rag.py`."""
+    generation_path = generation_path or GENERATION_PATH
+    rag_dir = rag_dir or OUTPUT_DIR
     if not generation_path.exists():
         return {"geracao.json": [f"{generation_path.relative_to(root)} ausente; rode prepare_rag.py sem --source"]}
     geracao = json.loads(generation_path.read_text(encoding="utf-8"))["fontes"]
@@ -98,6 +103,7 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
     problemas: dict[str, list[str]] = defaultdict(list)
     cache_jsonl: dict[Path, list[dict]] = {}
     ids_manifesto = {s["id"] for s in manifest["sources"]}
+    script_desatualizado: list[str] = []
 
     for source in manifest["sources"]:
         sid = source["id"]
@@ -109,16 +115,17 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
         if not jsonl.exists():
             problemas[sid].append(f"JSONL ausente: {entrada['jsonl_path']}")
             continue
-        if sha256_file(jsonl) != entrada["jsonl_sha256"]:
-            problemas[sid].append("JSONL editado depois da geração")
+        # Com o script mudado, o JSONL será regenerado de qualquer forma: o aviso fica só no script.
+        if entrada["prepare_rag_sha256"] != script_sha:
+            script_desatualizado.append(sid)
+        elif sha256_file(jsonl) != entrada["jsonl_sha256"]:
+            problemas[sid].append("JSONL diferente do registrado em geracao.json (editado à mão ou gerado sem registrar)")
         if source.get("kind", "pdf") == "pdf":
             atual = sha256_file(root / source["markdown_path"])
             if entrada.get("markdown_sha256") != atual:
                 problemas[sid].append("Markdown mudou depois da geração dos Trechos")
         elif entrada.get("raw_sha256") != source["raw_sha256"]:
             problemas[sid].append("JSON de origem do PubMed mudou depois da geração dos Trechos")
-        if entrada["prepare_rag_sha256"] != script_sha:
-            problemas[sid].append("prepare_rag.py mudou depois da geração dos Trechos")
         if entrada["rag_config_sha256"] != source_config_sha256(config, sid):
             problemas[sid].append("seção da fonte no rag.yaml mudou depois da geração dos Trechos")
         if jsonl not in cache_jsonl:
@@ -126,6 +133,9 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
         trechos = [t for t in cache_jsonl[jsonl] if t.get("fonte_id") == sid]
         problemas[sid].extend(_conferir_trechos(source, trechos, entrada["trechos"]))
 
+    if script_desatualizado:
+        problemas[CHAVE_SCRIPT].append(
+            f"prepare_rag.py mudou depois da geração dos Trechos de {len(script_desatualizado)} fonte(s)")
     for sid in sorted(set(geracao) - ids_manifesto):
         problemas[sid].append("registro em geracao.json de fonte que não está no manifesto")
     referenciados = {(root / e["jsonl_path"]).resolve() for sid, e in geracao.items() if sid in ids_manifesto}
@@ -149,7 +159,9 @@ def verify(manifest: dict | None = None) -> None:
         for chave, lista in sorted(problemas.items()):
             linhas.append(f"- {chave}:")
             linhas.extend(f"    {p}" for p in lista)
-            if chave in ids:
+            if chave == CHAVE_SCRIPT:
+                linhas.append(f"    regenerar todas: {COMANDO_TODAS}")
+            elif chave in ids:
                 linhas.append(f"    regenerar: {COMANDO.format(id=chave)}")
         raise ValueError("\n".join(linhas))
     total = sum(len(_ler_jsonl(p)) for p in OUTPUT_DIR.glob("*.jsonl"))

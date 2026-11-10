@@ -73,16 +73,30 @@ def test_pagina_fora_do_pdf(manifesto):
 def test_jsonl_editado_a_mao(manifesto, tmp_path):
     geracao = _geracao_alterada(tmp_path, GUIA, jsonl_sha256="0" * 64)
     problemas = verify_trechos.problemas_dos_trechos(manifesto, generation_path=geracao)
-    assert problemas[GUIA] == ["JSONL editado depois da geração"]
+    assert problemas[GUIA] == ["JSONL diferente do registrado em geracao.json (editado à mão ou gerado sem registrar)"]
 
 
 def test_script_ou_config_alterados_depois_da_geracao(manifesto, tmp_path):
-    geracao = _geracao_alterada(tmp_path, GUIA, prepare_rag_sha256="0" * 64, rag_config_sha256="0" * 64)
+    geracao = _geracao_alterada(tmp_path, GUIA, prepare_rag_sha256="0" * 64, rag_config_sha256="0" * 64,
+                                jsonl_sha256="0" * 64)
     problemas = verify_trechos.problemas_dos_trechos(manifesto, generation_path=geracao)
-    assert problemas[GUIA] == [
-        "prepare_rag.py mudou depois da geração dos Trechos",
-        "seção da fonte no rag.yaml mudou depois da geração dos Trechos",
-    ]
+    assert problemas["prepare_rag.py"] == ["prepare_rag.py mudou depois da geração dos Trechos de 1 fonte(s)"]
+    assert problemas[GUIA] == ["seção da fonte no rag.yaml mudou depois da geração dos Trechos"]
+
+
+def test_script_alterado_pede_regenerar_todas_uma_vez(manifesto, tmp_path, monkeypatch):
+    geracao = json.loads(verify_trechos.GENERATION_PATH.read_text(encoding="utf-8"))
+    for entrada in geracao["fontes"].values():
+        entrada["prepare_rag_sha256"] = "0" * 64
+    caminho = tmp_path / "geracao.json"
+    caminho.write_text(json.dumps(geracao), encoding="utf-8")
+    monkeypatch.setattr(verify_trechos, "GENERATION_PATH", caminho)
+    with pytest.raises(ValueError) as erro:
+        verify_trechos.verify(manifesto)
+    mensagem = str(erro.value)
+    assert mensagem.count("prepare_rag.py mudou") == 1
+    assert f"regenerar todas: {verify_trechos.COMANDO_TODAS}\n" in mensagem + "\n"
+    assert "--source" not in mensagem
 
 
 def test_fonte_sem_jsonl_gerado(manifesto, tmp_path):
