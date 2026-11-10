@@ -12,6 +12,9 @@ TACO_RAW_PATH = DATA_DIR / "raw" / "taco" / "taco_raw.json"
 KNOWLEDGE_GRAPH_PATH = DATA_DIR / "raw" / "knowledge_graph" / "nutrition_4layer_graph.json"
 BENCHMARK_QUESTIONS_PATH = DATA_DIR / "benchmark" / "eval_questions.json"
 BENCHMARK_REPORT_PATH = DATA_DIR / "benchmark" / "baseline_report.json"
+# Benchmark v2 (issue #13): golden set com Trecho e página esperados, dev e test separados.
+GOLDEN_V2_DIR = PROJECT_ROOT / "eval" / "golden" / "v2"
+BENCHMARK_V2_REPORT_PATH = DATA_DIR / "benchmark" / "benchmark_v2_report.json"
 
 # Caminhos do Corpus Curado (Catálogo Oficial manifest.yaml e JSONLs de RAG)
 CORPUS_MANIFEST_PATH = PROJECT_ROOT / "corpus" / "manifest.yaml"
