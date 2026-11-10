@@ -8,6 +8,7 @@ import sys
 
 from convert_pdfs import ROOT, read_yaml, repo_path, sha256, validate_pdf
 import pymupdf
+import verify_trechos
 
 
 def verify() -> None:
@@ -53,6 +54,7 @@ def verify() -> None:
     resumos = [s for s in manifest["sources"] if s.get("kind", "pdf") == "resumo_pubmed"]
     if resumos:
         print(f"OK {len(resumos)} resumos do PubMed: SHA-256 do JSON de origem conferido.")
+    verify_trechos.verify(manifest)
     print("Esta verificação estrutural não substitui revisão de fidelidade ou aprovação das fontes.")
 
 

@@ -76,9 +76,10 @@ A página e a seção nunca são misturadas entre Trechos. É isso que permite c
 flowchart LR
     M["corpus/manifest.yaml<br/>22 fontes: origem,<br/>SHA-256, source_type, aprovação"] --> C
     P["PDFs originais<br/>corpus/nutricao/originais"] --> C["convert_pdfs.py<br/>Markdown por página + OCR<br/>+ relatório de cobertura"]
-    C --> V{"verify_corpus.py<br/>cadeia de hashes (CI)"}
+    C --> V{"verify_corpus.py<br/>cadeia de hashes do PDF<br/>aos Trechos (CI)"}
     C --> R["prepare_rag.py<br/>limpeza + Trechos de ~1000 caracteres<br/>sem atravessar página nem seção"]
     R --> J["Trechos JSONL<br/>corpus/nutricao/rag<br/>(validados pelo JSON Schema no CI)"]
+    J -.-> V
     J --> G{"Gate de aprovação<br/>só aprovado por padrão<br/>(21 de 22 fontes)"}
     G --> T["trecho_para_chunk<br/>cabeçalho contextual +<br/>nível de evidência pelo tipo"]
     T --> E["Embeddings multilíngues<br/>MiniLM-L12, 384d (local)"]
