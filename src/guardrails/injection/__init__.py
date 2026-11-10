@@ -24,6 +24,14 @@ PROMPT_INJECTION_PATTERNS = [
     r"\besque[cs]a a lei( 8\.?234)?\b",
     r"\b(mostre|mostra|revele|revela|imprima|repita|repete)\b.{0,30}\b(seu|o) (prompt|instrucoes|instrucoes do sistema|system prompt)\b",
     r"\bsystem prompt\b",
+    # Ampliação pedida na revisão do PR #41.
+    r"\b(aja|atue|age|comporte-se|se comporte|responda|fale)\b.{0,15}\bcomo (se fosse )?(um |uma |meu |minha |o |a )?(nutricionista|medic[oa]|doutor[a]?|especialista)\b",
+    r"\besquec[ae] (tudo )?o que (te |lhe )?(disseram|falaram|mandaram|foi dito|ensinaram)\b",
+    r"\b(voce|vc) (nao tem|esta sem|ficou sem) (mais )?(limites|regras|restricoes|filtros)\b",
+    r"\bcomo se nao (houvesse|existisse|tivesse) (a |nenhuma )?(lei|regra|regras|restric\w*)\b",
+    r"\b(ignore|disregard|forget)\b.{0,20}\b(previous|prior|above|all|your)\b.{0,20}\b(instructions|rules|prompts?)\b",
+    r"\b(act|pretend|behave)\b.{0,10}\b(as|to be|like)\b.{0,15}\b(nutritionist|dietitian|doctor|physician)\b",
+    r"\b(jailbreak|no (rules|restrictions|limits))\b",
 ]
 
 MENSAGEM_INJECAO = (

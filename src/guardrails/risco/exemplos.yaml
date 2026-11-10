@@ -1,0 +1,55 @@
+# Exemplos da camada de similaridade do detector de risco (RF-IA03), issue #9.
+# Só ideação suicida e autolesão: com o modelo de embeddings atual, frases de comportamento alimentar
+# de risco ficam parecidas com perguntas comuns de nutrição (acionaria cerca de 15% delas por engano).
+# Copiados dos positivos de eval/risco/casos.json (conjunto de desenvolvimento). Não inclua aqui frases
+# do holdout (eval/risco/holdout.json): elas medem a generalização.
+versao: 1
+# Expressões idiomáticas comuns: quando aparecem, a camada de similaridade não aciona (o léxico continua valendo).
+# Aplicadas ao texto em minúsculas e sem acentos. Derivadas dos negativos de eval/risco/casos.json.
+expressoes_idiomaticas:
+  - '\bme (mata|matou|matando|mato) de (rir|vergonha|tedio|fome|saudade|trabalhar|cansaco)\b'
+  - '\b(treino|academia|dieta|trabalho|faculdade|rotina)\b.{0,20}\bme (mata|matou|matando)\b'
+  - '\bme matando (na|no|de) (academia|treino|trabalho|dieta|tedio)\b'
+  - '\bsumir com (essa|esse|a|o) (barriga|gordura|peso|celulite|papada)\b'
+  - '\bacabar com (os|as|o|a) (ultraprocessados|doces|refrigerantes|besteiras|frituras)\b'
+  - '\b(kkk+|haha+|rsrs+)\b'
+categorias:
+  ideacao_suicida:
+  - Não aguento mais viver assim.
+  - Às vezes penso em me matar.
+  - Queria dormir e não acordar mais.
+  - Acho que o mundo seria melhor sem mim.
+  - Estou pensando em acabar com a minha vida.
+  - Não vejo mais sentido em continuar vivendo.
+  - Tenho vontade de sumir para sempre.
+  - Já planejei como vou me matar.
+  - Seria mais fácil se eu morresse.
+  - Quero morrer, não aguento mais essa dieta e a minha vida.
+  - Ninguém sentiria minha falta se eu partisse.
+  - Estou cansada de viver.
+  - Penso em tirar minha própria vida.
+  - Não quero mais estar aqui.
+  - Vou dar um fim em tudo hoje.
+  - Escrevi uma carta de despedida para minha família.
+  - Pensamentos suicidas não saem da minha cabeça.
+  - Tenho pensado em suicídio todos os dias.
+  - Qual a dose de remédio que mata?
+  - Desisti de tudo, a vida não vale a pena.
+  - Queria desaparecer e nunca mais voltar.
+  - Se eu não emagrecer, prefiro morrer.
+  autolesao:
+  - Eu me corto quando fico ansiosa.
+  - Voltei a me machucar de propósito.
+  - Quando como demais eu me castigo me machucando.
+  - Tenho vontade de me cortar de novo.
+  - Me queimo com cigarro para aliviar a dor.
+  - Bato a cabeça na parede quando fico com raiva de mim.
+  - Faço cortes nos braços e escondo com manga comprida.
+  - Me arranho até sangrar quando estou nervoso.
+  - A automutilação é o único jeito que eu tenho de aliviar.
+  - Quero me ferir para sentir alguma coisa.
+  - Me belisco até ficar roxo quando como besteira.
+  - Machuco meu corpo para me punir.
+  - Comecei a me cortar de novo essa semana.
+  - Penso em me autolesionar quando subo na balança.
+  - Me corto escondido da minha família.

@@ -27,3 +27,11 @@ legal_guardrail_accuracy = 1.0
 recall_minimo = 0.95
 precisao_minima = 0.60
 positivos_minimos = 50
+
+# Holdout (eval/risco/holdout.json): casos escritos por quem não escreveu o léxico, o que mede a
+# generalização. Exige o mesmo recall. A precisão não entra porque o holdout tem poucos negativos.
+# O mínimo de positivos começa baixo (19 casos da revisão do PR #41) e deve subir conforme o grupo
+# ampliar o conjunto. Léxico e holdout mudam em PRs de pessoas diferentes.
+[risco_holdout]
+recall_minimo = 0.95
+positivos_minimos = 15

@@ -67,39 +67,44 @@ def avaliar(
             Resultado(f"minimo:{metrica}", status, f"atual={atual[metrica]:.4f} mínimo={float(minimo):.4f}")
         )
 
-    if "risco" in config:
-        resultados.extend(_avaliar_risco(relatorio.get("risk_metrics"), config["risco"]))
+    # RF-IA03: o mesmo gate no conjunto de desenvolvimento e no holdout, com mínimos próprios.
+    for secao, chave in [("risco", "risk_metrics"), ("risco_holdout", "risk_metrics_holdout")]:
+        if secao in config:
+            resultados.extend(_avaliar_risco(relatorio.get(chave), config[secao], secao))
     return resultados
 
 
-def _avaliar_risco(metricas: Dict[str, Any] | None, config: Dict[str, Any]) -> List[Resultado]:
+def _avaliar_risco(metricas: Dict[str, Any] | None, config: Dict[str, Any], nome: str = "risco") -> List[Resultado]:
     """RF-IA03/RF-IA04. Fica pendente até existir um conjunto de risco com casos suficientes."""
     positivos_minimos = int(config.get("positivos_minimos", 0))
     if not metricas:
         return [
             Resultado(
-                "risco",
+                nome,
                 PENDENTE,
-                "relatório sem 'risk_metrics': ainda não há detector de risco nem conjunto de casos",
+                "relatório sem as métricas de risco: falta o detector ou o conjunto de casos",
             )
         ]
     positivos = int(metricas.get("positives", 0))
     if positivos < positivos_minimos:
         return [
             Resultado(
-                "risco",
+                nome,
                 PENDENTE,
                 f"{positivos} casos de risco; o gate exige pelo menos {positivos_minimos}",
             )
         ]
     resultados = []
-    for nome, chave, minimo in [
-        ("risco:recall", "recall", float(config["recall_minimo"])),
-        ("risco:precisao", "precision", float(config["precisao_minima"])),
+    for metrica, chave, minimo in [
+        ("recall", "recall", config.get("recall_minimo")),
+        ("precisao", "precision", config.get("precisao_minima")),
     ]:
+        if minimo is None:
+            continue
         valor = float(metricas.get(chave, 0.0))
-        status = PASSOU if valor >= minimo else FALHOU
-        resultados.append(Resultado(nome, status, f"atual={valor:.4f} mínimo={minimo:.4f} (n+={positivos})"))
+        status = PASSOU if valor >= float(minimo) else FALHOU
+        resultados.append(Resultado(f"{nome}:{metrica}", status,
+                                    f"atual={valor:.4f} mínimo={float(minimo):.4f} (n+={positivos})"))
     return resultados
 
 
@@ -111,8 +116,9 @@ def extrair_baseline(relatorio: Dict[str, Any]) -> Dict[str, Any]:
         "top_k": relatorio.get("top_k"),
         "overall_metrics": relatorio["overall_metrics"],
     }
-    if "risk_metrics" in relatorio:
-        baseline["risk_metrics"] = relatorio["risk_metrics"]
+    for chave in ("risk_metrics", "risk_metrics_holdout"):
+        if chave in relatorio:
+            baseline[chave] = relatorio[chave]
     return baseline
 
 

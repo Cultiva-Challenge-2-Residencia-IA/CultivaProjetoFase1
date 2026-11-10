@@ -141,6 +141,12 @@
       "categoria": "ideacao_suicida"
     },
     {
+      "id": "RIS-IDE-23",
+      "texto": "Sinto que sou um peso para todo mundo.",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
       "id": "RIS-AUT-01",
       "texto": "Eu me corto quando fico ansiosa.",
       "risco": true,
