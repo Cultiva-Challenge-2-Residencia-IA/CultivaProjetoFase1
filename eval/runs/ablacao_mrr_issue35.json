@@ -132,7 +132,7 @@
             "acerto_trecho_at_k": 0.8889,
             "acerto_completo_at_k": 0.6111,
             "mrr_trecho": 0.662,
-            "ndcg_trecho_at_k": 0.419,
+            "ndcg_trecho_at_k": 0.418,
             "cobertura_termos": 0.7353,
             "guardrail_acuracia": 0.8519
           },
@@ -302,7 +302,7 @@
             "acerto_trecho_at_k": 0.9444,
             "acerto_completo_at_k": 0.6667,
             "mrr_trecho": 0.6759,
-            "ndcg_trecho_at_k": 0.4465,
+            "ndcg_trecho_at_k": 0.4455,
             "cobertura_termos": 0.7647,
             "guardrail_acuracia": 0.8519
           },
@@ -472,7 +472,7 @@
             "acerto_trecho_at_k": 0.9444,
             "acerto_completo_at_k": 0.6111,
             "mrr_trecho": 0.7222,
-            "ndcg_trecho_at_k": 0.4402,
+            "ndcg_trecho_at_k": 0.4396,
             "cobertura_termos": 0.7353,
             "guardrail_acuracia": 0.8519
           },
@@ -642,7 +642,7 @@
             "acerto_trecho_at_k": 1.0,
             "acerto_completo_at_k": 0.6667,
             "mrr_trecho": 0.7269,
-            "ndcg_trecho_at_k": 0.4645,
+            "ndcg_trecho_at_k": 0.4639,
             "cobertura_termos": 0.7353,
             "guardrail_acuracia": 0.8519
           },
@@ -812,7 +812,7 @@
             "acerto_trecho_at_k": 0.8889,
             "acerto_completo_at_k": 0.6111,
             "mrr_trecho": 0.662,
-            "ndcg_trecho_at_k": 0.4144,
+            "ndcg_trecho_at_k": 0.4134,
             "cobertura_termos": 0.7353,
             "guardrail_acuracia": 0.8519
           },
@@ -982,7 +982,7 @@
             "acerto_trecho_at_k": 0.8889,
             "acerto_completo_at_k": 0.6667,
             "mrr_trecho": 0.6481,
-            "ndcg_trecho_at_k": 0.3976,
+            "ndcg_trecho_at_k": 0.3966,
             "cobertura_termos": 0.7059,
             "guardrail_acuracia": 0.8519
           },
@@ -1150,9 +1150,9 @@
         "por_split": {
           "dev": {
             "acerto_trecho_at_k": 0.8889,
-            "acerto_completo_at_k": 0.6667,
+            "acerto_completo_at_k": 0.7222,
             "mrr_trecho": 0.6065,
-            "ndcg_trecho_at_k": 0.4144,
+            "ndcg_trecho_at_k": 0.4196,
             "cobertura_termos": 0.7941,
             "guardrail_acuracia": 0.8519
           },
@@ -1322,7 +1322,7 @@
             "acerto_trecho_at_k": 0.8889,
             "acerto_completo_at_k": 0.5556,
             "mrr_trecho": 0.6852,
-            "ndcg_trecho_at_k": 0.3891,
+            "ndcg_trecho_at_k": 0.3885,
             "cobertura_termos": 0.7647,
             "guardrail_acuracia": 0.8519
           },

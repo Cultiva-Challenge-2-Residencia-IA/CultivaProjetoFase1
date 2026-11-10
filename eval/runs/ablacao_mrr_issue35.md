@@ -44,13 +44,13 @@ MRR* aceita o Fascículo 1 como equivalente ao Guia. É só informativo: a régu
 
 | Id | Split | Trecho@4 | Completo@4 | MRR | nDCG | Termos | Guardrail |
 |---|---|---:|---:|---:|---:|---:|---:|
-| A0 | dev | 0,889 | 0,611 | 0,662 | 0,419 | 0,735 | 0,852 |
-| A1 | dev | 0,944 | 0,667 | 0,676 | 0,447 | 0,765 | 0,852 |
+| A0 | dev | 0,889 | 0,611 | 0,662 | 0,418 | 0,735 | 0,852 |
+| A1 | dev | 0,944 | 0,667 | 0,676 | 0,446 | 0,765 | 0,852 |
 | A2 | dev | 0,944 | 0,611 | 0,722 | 0,440 | 0,735 | 0,852 |
-| A3 | dev | 1,000 | 0,667 | 0,727 | 0,465 | 0,735 | 0,852 |
-| A4 | dev | 0,889 | 0,611 | 0,662 | 0,414 | 0,735 | 0,852 |
-| A5 | dev | 0,889 | 0,667 | 0,648 | 0,398 | 0,706 | 0,852 |
-| A6 | dev | 0,889 | 0,667 | 0,607 | 0,414 | 0,794 | 0,852 |
+| A3 | dev | 1,000 | 0,667 | 0,727 | 0,464 | 0,735 | 0,852 |
+| A4 | dev | 0,889 | 0,611 | 0,662 | 0,413 | 0,735 | 0,852 |
+| A5 | dev | 0,889 | 0,667 | 0,648 | 0,397 | 0,706 | 0,852 |
+| A6 | dev | 0,889 | 0,722 | 0,607 | 0,420 | 0,794 | 0,852 |
 | A7 | dev | 0,889 | 0,556 | 0,685 | 0,389 | 0,765 | 0,852 |
 | **A8** | **dev** | **0,944** | **0,667** | **0,732** | **0,457** | **0,706** | **0,852** |
 | A0 | test | 1,000 | 0,750 | 0,917 | 0,519 | 0,875 | 1,000 |
@@ -85,6 +85,7 @@ O código do reranker e do TF-IDF/LSA continua no `HybridRetriever`, para reprod
 - **Amostras pequenas:** 12 perguntas no v1, 18 casos de recuperação no dev e 8 no test do v2. Uma pergunta muda o MRR em 5 a 12 p.p.
 - **O test do v2 não é mais cego** para esta escolha: os números de A3 foram vistos na revisão do #40, antes da regra final. O ganho é **hipótese**, não resultado confirmado.
 - **Julgamentos novos sem revisão humana:** 22 Trechos foram julgados nesta issue (16 nota 0, 5 nota 1, 1 nota 2), registrados no campo `pool` de cada caso. Como Trecho não julgado conta como irrelevante, sem eles as variantes novas seriam penalizadas.
+- **Revisão do PR #42:** a nota de `santos-barreiras-frutas-verduras-csc-2019-p008-02` em V2-REC-20 subiu de 1 para 2. Isso muda só o nDCG do dev das variantes A0 a A7 (e o acerto completo de A6); A8 e a decisão não mudam. A tabela acima já tem os valores novos.
 - **O v1 ainda é a régua do gate**, e as 12 perguntas avaliadas esperam só o Guia. A troca do gate para o v2 segue pendente.
 
 ## Pendências

@@ -717,7 +717,7 @@
             "citacao": "os preços dos alimentos"
           },
           "santos-barreiras-frutas-verduras-csc-2019-p008-02": {
-            "nota": 1,
+            "nota": 2,
             "citacao": "falta de tempo para ir ao mercado/feira com frequência"
           }
         },
@@ -730,7 +730,7 @@
           "jaime-frutas-hortalicas-brasil-rsp-2009-p005-04",
           "jaime-frutas-hortalicas-brasil-rsp-2009-p006-03"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 3 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 3 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente; nota de santos-barreiras-frutas-verduras-csc-2019-p008-02 elevada de 1 para 2 na revisão do PR #42 (feliperodri0)"
       },
       "geracao": {
         "termos_obrigatorios": [
