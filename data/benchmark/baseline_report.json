@@ -59,7 +59,7 @@
         "guia-alimentar-populacao-brasileira-2014",
         "guia-alimentar-populacao-brasileira-2014",
         "louzada-ultraprocessados-perfil-nutricional-rsp-2015",
-        "guia-alimentar-populacao-brasileira-2014"
+        "louzada-ultraprocessados-perfil-nutricional-rsp-2015"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -528,7 +528,7 @@
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
         "guia-alimentar-populacao-brasileira-2014",
         "guia-alimentar-populacao-brasileira-2014",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022"
+        "guia-dietas-vegetarianas-svb-2012"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 0.5,

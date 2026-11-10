@@ -64,7 +64,7 @@ A página e a seção nunca são misturadas entre Trechos. É isso que permite c
 
 - **ChromaDB** persistente (`PersistentClient`) em `data/vector_store/chroma_db`, com índice **HNSW por cosseno**.
 - **Parâmetros do HNSW:** `ef_construction` e `ef_search` em 200 (`src/config.py`). Com os padrões do ChromaDB, a busca aproximada perdia vizinhos e variava a cada carga do índice, o que quebrava o determinismo do benchmark no CI. Com 200, o top-24 das 16 perguntas coincide com a busca exata, e um teste (`tests/test_vector_store.py`) exige pelo menos 99% de coincidência e o mesmo resultado ao recarregar o índice.
-- **Coleção versionada pelo conteúdo:** o nome da coleção leva a impressão digital do modelo e dos Trechos (`cultiva_nutricao_evidencias_c7c9608eec6c`), que inclui os parâmetros do HNSW. Se o corpus, o modelo ou o índice mudarem, uma coleção nova é criada, em vez de reaproveitar vetores antigos.
+- **Coleção versionada pelo conteúdo:** o nome da coleção leva a impressão digital do modelo e dos Trechos (`cultiva_nutricao_evidencias_7eea3ce9298a`), que inclui os parâmetros do HNSW. Se o corpus, o modelo ou o índice mudarem, uma coleção nova é criada, em vez de reaproveitar vetores antigos.
 - **Metadados por vetor:** `fonte_id`, título, instituição, ano, nível de evidência, seção, página do PDF, link, DOI, licença e status de aprovação.
 - **Total indexado:** 1818 vetores de 21 documentos-fonte (só fontes aprovadas).
 
