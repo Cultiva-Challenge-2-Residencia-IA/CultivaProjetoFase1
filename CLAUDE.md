@@ -23,7 +23,7 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
   - `src/config.py`: caminhos e parâmetros, quase todos sobrescrevíveis por variável de ambiente.
 - `src/agents/nutricao/`, `src/rag/{chunking,reranker,retriever,verificador}/` e `src/guardrails/*/` são fachadas que reexportam ou complementam os módulos acima. `src/agents/{estudos,fisica,sincronizador}/`, `src/api/` e `src/broker/` ainda contêm apenas `.gitkeep`.
 - **Testes** em `tests/` (pytest, inclusive o contrato do Trecho contra o JSON Schema) e **lint** com ruff.
-- **Avaliação:** perguntas em `data/benchmark/eval_questions.json`, relatório em `data/benchmark/baseline_report.json`, baseline do gate em `eval/baselines/benchmark_offline.json` e limites em `eval/gates.toml`. O `eval/golden/` ainda não é usado pelo benchmark (benchmark v2, issue #13).
+- **Avaliação:** perguntas em `data/benchmark/eval_questions.json`, relatório em `data/benchmark/baseline_report.json`, baseline do gate em `eval/baselines/benchmark_offline.json` e limites em `eval/gates.toml`. O benchmark v2 (issue #13) fica em `eval/golden/v2/` (golden set com Trecho e página esperados, `dev` e `test`) e `src/evaluation/benchmark_v2.py`, com relatório em `data/benchmark/benchmark_v2_report.json`. Ele ainda não é gate do CI: o gate continua no v1. `eval/golden/dev` e `eval/golden/test` são cópias das 16 perguntas do v1.
 
 ## Comandos (na raiz do repositório)
 
@@ -36,6 +36,9 @@ uv run pytest -q
 
 # Benchmark offline, determinístico, sem LLM (regrava data/benchmark/baseline_report.json)
 uv run python -m src.evaluation.run_benchmark --no-ollama
+
+# Benchmark v2 (Trecho e página esperados; regrava data/benchmark/benchmark_v2_report.json)
+uv run python -m src.evaluation.benchmark_v2 --no-ollama
 uv run python -m src.evaluation.gate --report data/benchmark/baseline_report.json \
   --baseline eval/baselines/benchmark_offline.json --config eval/gates.toml
 
