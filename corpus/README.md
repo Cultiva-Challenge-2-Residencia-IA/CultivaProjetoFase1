@@ -296,6 +296,10 @@ Limitações:
 - Os Trechos copiam o `approval_status` do manifesto. Quem indexa deve respeitar os status por fonte e não deve apresentar fontes pendentes como aprovadas.
 - Não há embeddings nem índice: este passo só prepara o texto.
 
+## Busca e seleção de novas fontes
+
+O protocolo para localizar candidatos, registrar buscas e selecionar fontes está em [`protocolo-busca-selecao.md`](protocolo-busca-selecao.md). O modelo de registro e a busca piloto PubMed ficam em [`nutricao/relatorios/buscas/`](nutricao/relatorios/buscas/). O protocolo complementa a checklist abaixo: resultado de busca e triagem não equivalem a revisão, aprovação ou inclusão no manifesto.
+
 ## Como incluir outro documento
 
 1. Obter o PDF de origem verificável; manter seus bytes em `nutricao/originais/`, com nome que identifique a edição. Conferir a licença no próprio documento e registrar a página da evidência; usar `pendente` quando desconhecida.
