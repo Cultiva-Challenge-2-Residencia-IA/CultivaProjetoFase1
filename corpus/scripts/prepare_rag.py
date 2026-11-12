@@ -115,6 +115,37 @@ def collapse_spaced_letters(title: str) -> str:
     return "".join(tokens) if len(tokens) > 2 and all(len(t) == 1 for t in tokens) else title
 
 
+# Títulos inválidos que decorrem de artefatos de extração do PDF: referências
+# numéricas, fragmentos de frases, classificações de evidência ou legendas.
+INVALID_HEADING = re.compile(
+    r"\[\d+\]"                                            # referências numéricas [121], [110]
+    r"|^\([A-Za-zÀ-Úà-ú]+.*?\d{4}\)$"                     # citações parentéticas soltas (arnow, Kenardy & agras, 1995)
+    r"|\b(N[íi]vel de evid[êe]ncia|Classe de recomenda[çc][ãa]o)\b"   # fragmentos de classificação de evidência
+    r"|^\d{4}\s+minist[eé]rio\s+da\s+sa[uú]de"            # 2006 ministério da saúde.
+    r"|^[A-Za-zÀ-Úà-ú]+,\s+[A-Z]\.\s+.*?\b\d{4}\b"        # citações bibliográficas soltas
+    r"|^Aprova o C[óo]digo de [ÉE]tica"                   # ementa de resolução
+    r"|^(Assim, a carne vermelha|acompanhamento individualizado|idoneidade dos servi[çc]os)\b"
+    r"|^Tabela\s+\d+[:.]"                                 # legendas de tabela convertidas em título
+    r"|©|todos os direitos reservados",
+    re.I,
+)
+
+
+def normalize_title(title: str) -> str:
+    """Normaliza título de seção: letras espaçadas, cedilha solta e pontuação final."""
+    title = collapse_spaced_letters(title)
+    # Cola cedilha separada por espaço ("RECOMENDA Ç ÃO" -> "RECOMENDAÇÃO", "DEFINI Ç ÕES" -> "DEFINIÇÕES")
+    title = re.sub(r"(?<=[A-Za-zÀ-Úà-ú])\s+([çÇ])\s+(?=[A-Za-zÀ-Úà-ú])", r"\1", title)
+    return title.rstrip(" .")
+
+
+def is_invalid_heading(title: str) -> bool:
+    """Identifica títulos inválidos gerados por artefatos de extração do PDF."""
+    if not title or len(title) > 250:
+        return True
+    return bool(INVALID_HEADING.search(title))
+
+
 # Palavra com "_" que não é ênfase: URL, caminho ou nome de arquivo
 # ("guia_alimentar_populacao_brasileira_2ed.pdf", "Dietary_Guidelines_for_Americans").
 PROTECTED_TOKEN = re.compile(
@@ -191,6 +222,8 @@ def clean_page(raw: str, skipping: bool, section: str,
             paragraphs.append((section, " ".join(current), False))
             current.clear()
 
+    last_valid_section = ""
+
     for line in raw.splitlines():
         stripped = line.strip()
         if (not stripped or stripped == "---" or stripped.startswith("<a id=")
@@ -202,15 +235,21 @@ def clean_page(raw: str, skipping: bool, section: str,
         heading = re.match(r"^#{1,6}\s+(.*)$", stripped)
         if heading:
             flush()
-            title = collapse_spaced_letters(clean_inline(heading.group(1)))
+            raw_title = clean_inline(heading.group(1))
+            if is_invalid_heading(raw_title):
+                section = last_valid_section
+                continue
+            title = normalize_title(raw_title)
             name = title.strip(" .:")
             skipping = bool(SKIPPED_SECTIONS.match(name)) and name.lower() not in keep_sections
             if title and not skipping:
                 section = title
+                last_valid_section = title
             continue
         if skipping:
             if resume and any(rx.match(clean_inline(stripped)) for rx in resume):
-                skipping, section = False, clean_inline(stripped)
+                skipping, section = False, normalize_title(clean_inline(stripped))
+                last_valid_section = section
             continue
         if re.match(r"^\|[\s:|-]+\|?$", stripped):  # separador de tabela
             continue
