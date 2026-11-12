@@ -16,7 +16,7 @@
 
 ## Etapa atual: corpus e RAG de Nutrição
 
-- O corpus de Nutrição e o RAG que o consome estão implementados (21 de 22 fontes aprovadas). O trabalho atual é melhorar a recuperação e a avaliação do RAG de Nutrição (issues #13, #15 e #28). Outras abas, o detector de risco e a infraestrutura de produção dependem de solicitação própria.
+- O corpus de Nutrição e o RAG que o consome estão implementados (21 de 22 fontes aprovadas). O trabalho atual é melhorar a recuperação e a avaliação do RAG de Nutrição (issues #13, #15 e #28). Outras abas e a infraestrutura de produção dependem de solicitação própria. O portão de risco (#9) existe para texto; mudanças no léxico ou na mensagem de acolhimento precisam ser revisadas no PR e medidas nos dois conjuntos de `eval/risco/`. O léxico e o holdout mudam em PRs de pessoas diferentes (`eval/risco/README.md`).
 - Adote a convenção descrita em `docs/contexto-projeto.md`: originais em `corpus/nutricao/originais/` e versões Markdown revisadas em `corpus/nutricao/markdown/`. Preserve os originais e a correspondência por identificador e versão.
 - Mantenha `corpus/manifest.yaml` como catálogo único das fontes, com a estrutura existente `version` e `sources`. Reutilize `id`, `source`, `license` e `version`; registre também `approval_status` e os caminhos dos arquivos conforme o contexto. Não crie um catálogo paralelo `sources.yaml`.
 - Toda fonte precisa manter origem verificável, licença, versão e status de revisão. Metadados ausentes ficam explicitamente pendentes; não suponha licença nem cadastre fontes fictícias.

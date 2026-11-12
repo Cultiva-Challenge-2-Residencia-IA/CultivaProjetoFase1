@@ -14,6 +14,7 @@ from src.config import (
     INCLUDE_PENDING_SOURCES,
     TOP_K_FINAL,
 )
+from src.evaluation.risco import avaliar_risco, avaliar_risco_holdout
 from src.retrieval.hybrid_retriever import normalize_text
 
 
@@ -214,6 +215,10 @@ def evaluate_baseline(
         },
         "metrics_by_category": summary_by_category,
         "question_results": results,
+        # Detector de risco (RF-IA03) no conjunto eval/risco/casos.json; ativa o gate de risco.
+        "risk_metrics": avaliar_risco(),
+        # Holdout: casos de quem não escreveu o léxico; mede a generalização do detector.
+        "risk_metrics_holdout": avaliar_risco_holdout(),
     }
 
     if write_report:
@@ -285,6 +290,10 @@ def main() -> None:
     print(f"MRR (Mean Reciprocal Rank)  : {overall['mean_reciprocal_rank_mrr']:.4f}")
     print(f"Cobertura Conceitual/Termos : {overall['mean_keyword_coverage'] * 100:.1f}%")
     print(f"Acurácia Guardrail Legal    : {overall['legal_guardrail_accuracy'] * 100:.1f}%")
+    risco = report["risk_metrics"]
+    for nome, risco in [("desenvolvimento", report["risk_metrics"]), ("holdout", report["risk_metrics_holdout"])]:
+        print(f"Risco ({nome:15s}): recall {risco['recall']:.4f} | precisão {risco['precision']:.4f} "
+              f"| {risco['positives']} positivos, {risco['negatives']} negativos")
     print("-" * 72)
     print("Desempenho por Categoria:")
     for cat, stats in report["metrics_by_category"].items():

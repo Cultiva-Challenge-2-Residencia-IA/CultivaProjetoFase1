@@ -101,7 +101,7 @@ flowchart TD
     GS --> R["Resposta + citações rastreáveis<br/>(fonte, seção, página, link, aprovação)"]
 ```
 
-O fluxo segue a arquitetura provisória da documentação do projeto, com duas diferenças registradas: o banco vetorial é ChromaDB em vez de pgvector, e o portão de risco (CVV 188) ainda não existe (issue #9).
+O fluxo segue a arquitetura provisória da documentação do projeto, com uma diferença registrada: o banco vetorial é ChromaDB em vez de pgvector. O portão de risco (CVV 188, issue #9) roda antes da busca, só para texto, com léxico e mensagem revisados pela equipe (sem profissional de saúde).
 
 ## 3. Demonstração
 

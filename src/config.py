@@ -18,6 +18,9 @@ BENCHMARK_V2_REPORT_PATH = DATA_DIR / "benchmark" / "benchmark_v2_report.json"
 
 # Caminhos do Corpus Curado (Catálogo Oficial manifest.yaml e JSONLs de RAG)
 CORPUS_MANIFEST_PATH = PROJECT_ROOT / "corpus" / "manifest.yaml"
+# Casos do detector de risco (RF-IA03), avaliados junto com o benchmark (issue #9).
+RISCO_CASOS_PATH = PROJECT_ROOT / "eval" / "risco" / "casos.json"
+RISCO_HOLDOUT_PATH = PROJECT_ROOT / "eval" / "risco" / "holdout.json"
 CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
