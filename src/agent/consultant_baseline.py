@@ -3,7 +3,8 @@ from typing import List, Optional
 
 from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE, LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
-from src.config import INCLUDE_PENDING_SOURCES, TOP_K_FINAL
+from src.config import ABSTENCAO_LIMIAR_COSSENO, INCLUDE_PENDING_SOURCES, TOP_K_FINAL
+from src.rag.abstencao import MENSAGEM_NAO_SEI, sem_evidencia
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.ingestion.contextual_chunker import ContextualChunker
@@ -58,7 +59,7 @@ class NutritionConsultantBaseline:
         )
 
     def _resposta_fixa(self, user_query: str, mensagem: str, **campos) -> ConsultantResponse:
-        """Resposta sem busca e sem LLM (fluxo de risco e prompt injection)."""
+        """Resposta sem LLM (risco, prompt injection e "não sei")."""
         return ConsultantResponse(
             original_query=user_query,
             effective_query=user_query,
@@ -123,6 +124,23 @@ class NutritionConsultantBaseline:
             graph_paths, graph_context_str = self.graph_engine.traverse_for_query(
                 search_query, max_paths=4
             )
+
+        # 4.1 "Não sei" (RF-IA01): sem evidência no corpus, resposta fixa sem LLM. Se o grafo ou a
+        #     TACO tiverem resultado, responde só com eles, sem os Trechos abaixo do limiar.
+        similaridade = round(self.retriever.similaridade_maxima(search_query), 4)
+        if sem_evidencia(similaridade, ABSTENCAO_LIMIAR_COSSENO):
+            if not taco_records and not graph_paths:
+                return self._resposta_fixa(
+                    user_query,
+                    MENSAGEM_NAO_SEI,
+                    guardrail_triggered=assessment.is_restricted_by_law_8234,
+                    intent_category="NO_EVIDENCE",
+                    legal_compliance_notice=assessment.legal_notice_required,
+                    abstencao=True,
+                    similaridade_maxima=similaridade,
+                    retrieval_mode="ABSTENTION_FIXED_MESSAGE",
+                )
+            retrieved = []
 
         # 5. Síntese Baseada em Evidências (Modelo Local Ollama / Extrativo + Grafo + TACO)
         synthesis, model_used = self.llm_client.generate_structured_synthesis(
@@ -210,4 +228,5 @@ class NutritionConsultantBaseline:
             retrieved_chunks=retrieved,
             model_used=model_used,
             retrieval_mode=mode,
+            similaridade_maxima=similaridade,
         )

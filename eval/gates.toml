@@ -35,3 +35,10 @@ positivos_minimos = 50
 [risco_holdout]
 recall_minimo = 0.95
 positivos_minimos = 15
+
+# RF-IA01 ("não sei", issue #6), sobre eval/abstencao/casos.json.
+# Fora de Nutrição: limiar de cosseno separa bem. Recusa indevida: no máximo 5% das perguntas que
+# o sistema deve responder. Nutrição fora do corpus fica sem mínimo: o cosseno não separa esse caso.
+[abstencao]
+nao_sei_fora_de_nutricao = 0.90
+respostas_esperadas = 0.95

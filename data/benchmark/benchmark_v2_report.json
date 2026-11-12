@@ -41,7 +41,7 @@
     "n_taco_acuracia": 3
   },
   "metricas_informativas": {
-    "abstencao_fora_de_escopo": 0.0,
+    "abstencao_fora_de_escopo": 0.25,
     "n_abstencao_fora_de_escopo": 4
   },
   "por_split": {
@@ -76,7 +76,7 @@
       "n_grafo_composto_proibido_ausente": 0,
       "taco_acuracia": 1.0,
       "n_taco_acuracia": 2,
-      "abstencao_fora_de_escopo": 0.0,
+      "abstencao_fora_de_escopo": 0.3333,
       "n_abstencao_fora_de_escopo": 3
     },
     "test": {
@@ -180,7 +180,7 @@
       "n_grafo_composto_proibido_ausente": 0,
       "taco_acuracia": null,
       "n_taco_acuracia": 0,
-      "abstencao_fora_de_escopo": 0.0,
+      "abstencao_fora_de_escopo": 0.25,
       "n_abstencao_fora_de_escopo": 4
     },
     "grafo": {
@@ -964,13 +964,8 @@
       "split": "dev",
       "comportamento_esperado": "nao_sei",
       "guardrail_acionado": false,
-      "trechos_recuperados": [
-        "souza-backes-universitarios-csc-2020-p009-02",
-        "souza-backes-universitarios-csc-2020-p009-01",
-        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p008-08",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p083-03"
-      ],
-      "abstencao": 0.0
+      "trechos_recuperados": [],
+      "abstencao": 1.0
     },
     {
       "id": "V2-GRA-01",

@@ -252,6 +252,14 @@ class HybridRetriever:
         grade_bonus = EVIDENCE_GRADE_BONUS.get(chunk.evidence_level, 0.0) if self.bonus_evidencia else 0.0
         return float(rrf_score + (self.peso_sobreposicao * overlap_ratio) + grade_bonus)
 
+    def similaridade_maxima(self, query: str) -> float:
+        """Cosseno do Trecho mais próximo na busca densa: o sinal absoluto do "não sei" (#6).
+
+        O limiar foi calibrado com o ChromaDB (`chromadb_pure`); em outros modos densos a escala muda.
+        """
+        resultados = self._search_vector(query)
+        return float(resultados[0][1]) if resultados else 0.0
+
     def retrieve(
         self,
         query: str,
