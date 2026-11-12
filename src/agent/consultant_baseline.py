@@ -1,8 +1,17 @@
+import hashlib
+import inspect
 from pathlib import Path
 from typing import List, Optional
 
 from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
+from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
+from src.agent.traceability import (
+    corpus_fingerprint,
+    new_response_id,
+    passages_fingerprint,
+    save_response_trace,
+)
 from src.config import INCLUDE_PENDING_SOURCES, TOP_K_FINAL
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
@@ -153,7 +162,11 @@ class NutritionConsultantBaseline:
         else:
             mode = "HYBRID_RAG_BASELINE"
 
-        return ConsultantResponse(
+        fontes_version, trechos_usados = passages_fingerprint(
+            (item.chunk for item in retrieved)
+        )
+        response = ConsultantResponse(
+            response_id=new_response_id(),
             original_query=user_query,
             effective_query=effective_query,
             guardrail_triggered=assessment.is_restricted_by_law_8234,
@@ -170,4 +183,13 @@ class NutritionConsultantBaseline:
             retrieved_chunks=retrieved,
             model_used=model_used,
             retrieval_mode=mode,
+            corpus_version=corpus_fingerprint(self.chunks),
+            prompt_version=hashlib.sha256(
+                (SYSTEM_PROMPT_CONSULTANT + inspect.getsource(LocalLLMClient._build_user_prompt)).encode("utf-8")
+            ).hexdigest(),
+            model_version=model_used,
+            fontes_version=fontes_version,
+            trechos_usados=trechos_usados,
         )
+        save_response_trace(response)
+        return response

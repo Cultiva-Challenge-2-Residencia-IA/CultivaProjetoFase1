@@ -1,12 +1,13 @@
 import sys
 from typing import Optional
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline
 from src.rag.corpus_loader import inventario_de_fontes
 from src.config import TOP_K_FINAL
 from src.models.schemas import ConsultantResponse
+from src.agent.traceability import register_incorrect_feedback
 
 app = FastAPI(
     title="Consultor Científico de Nutrição Baseado em Evidências (Fase 1 - Baseline RAG Híbrido)",
@@ -30,6 +31,11 @@ def get_consultant() -> NutritionConsultantBaseline:
 class ConsultRequest(BaseModel):
     query: str = Field(..., min_length=3, description="Dúvida geral de consulta nutricional")
     top_k: int = Field(default=TOP_K_FINAL, ge=1, le=10)
+
+
+class IncorrectAnswerFeedback(BaseModel):
+    response_id: str = Field(..., min_length=1)
+    detail: Optional[str] = Field(default=None, max_length=2000)
 
 
 @app.get("/health")
@@ -66,6 +72,13 @@ def health_check() -> dict:
 def consult_endpoint(request: ConsultRequest) -> ConsultantResponse:
     consultant = get_consultant()
     return consultant.consult(request.query, top_k=request.top_k)
+
+
+@app.post("/feedback/incorrect")
+def incorrect_answer_feedback(request: IncorrectAnswerFeedback) -> dict:
+    if not register_incorrect_feedback(request.response_id, request.detail):
+        raise HTTPException(status_code=404, detail="Resposta não encontrada para este response_id.")
+    return {"status": "registrado", "response_id": request.response_id}
 
 
 def cli_main() -> None:

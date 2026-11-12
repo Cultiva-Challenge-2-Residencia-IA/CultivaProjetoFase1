@@ -63,6 +63,14 @@ class RetrievedChunk(BaseModel):
     rerank_score: float = 0.0
 
 
+class UsedPassage(BaseModel):
+    id: str
+    fonte_id: str
+    pagina_pdf: Optional[int] = None
+    link: Optional[str] = None
+    titulo: str
+
+
 class GuardrailAssessment(BaseModel):
     intent_category: Literal[
         "SAFE_EVIDENCE_QUERY",
@@ -110,6 +118,7 @@ class CausalGraphPath(BaseModel):
 
 
 class ConsultantResponse(BaseModel):
+    response_id: str
     original_query: str
     effective_query: str
     guardrail_triggered: bool
@@ -131,3 +140,8 @@ class ConsultantResponse(BaseModel):
         "HYBRID_RAG_PLUS_GRAPH_TOOL",
         "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
     ] = "HYBRID_RAG_BASELINE"
+    corpus_version: str
+    prompt_version: str
+    model_version: str
+    fontes_version: str
+    trechos_usados: List[UsedPassage] = Field(default_factory=list)

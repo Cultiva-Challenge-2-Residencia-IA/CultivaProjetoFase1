@@ -19,6 +19,7 @@ BENCHMARK_V2_REPORT_PATH = DATA_DIR / "benchmark" / "benchmark_v2_report.json"
 # Caminhos do Corpus Curado (Catálogo Oficial manifest.yaml e JSONLs de RAG)
 CORPUS_MANIFEST_PATH = PROJECT_ROOT / "corpus" / "manifest.yaml"
 CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
+TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / "traceability.sqlite3")))
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
 # "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".
