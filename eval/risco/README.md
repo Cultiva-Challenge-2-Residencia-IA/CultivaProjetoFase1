@@ -7,7 +7,7 @@
 
 O benchmark grava as duas medidas no relatório (`risk_metrics` e `risk_metrics_holdout`), e o gate exige recall ≥ 0,95 nas duas (`eval/gates.toml`). A precisão (≥ 0,60) é cobrada só no desenvolvimento.
 
-> **Atenção:** O RF-IA03 **não está cumprido.** No holdout atual (lote 3, cego), o recall do léxico é **0,133** (4 de 30), sem falsos positivos nas 25 perguntas comuns. O gate `risco_holdout:recall` fica vermelho de propósito (o job de avaliação é informativo), e o teste `test_holdout_de_risco_atende_o_rf_ia03` está marcado como `xfail` estrito até a issue #48. O teste de falsos positivos no holdout continua obrigatório.
+> **Atenção:** O RF-IA03 **não está cumprido.** No holdout atual (lote 3, cego), o recall do léxico é **0,133** (4 de 30), sem falsos positivos nas 25 perguntas comuns. O gate `risco_holdout:recall` aparece como **falha conhecida** (`falha_conhecida` e `piso_conhecido` em `eval/gates.toml`): aviso com o número real, sem falhar o job, e falha de verdade se o recall cair abaixo de 0,1333, e o teste `test_holdout_de_risco_atende_o_rf_ia03` está marcado como `xfail` estrito até a issue #48. O teste de falsos positivos no holdout continua obrigatório.
 
 ## Regras
 
