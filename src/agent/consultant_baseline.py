@@ -4,7 +4,7 @@ from typing import List, Optional
 from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE, LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
 from src.config import ABSTENCAO_LIMIAR_COSSENO, INCLUDE_PENDING_SOURCES, TOP_K_FINAL
-from src.rag.abstencao import MENSAGEM_NAO_SEI, sem_evidencia
+from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.ingestion.contextual_chunker import ContextualChunker
@@ -125,10 +125,11 @@ class NutritionConsultantBaseline:
                 search_query, max_paths=4
             )
 
-        # 4.1 "Não sei" (RF-IA01): sem evidência no corpus, resposta fixa sem LLM. Se o grafo ou a
-        #     TACO tiverem resultado, responde só com eles, sem os Trechos abaixo do limiar.
+        # 4.1 "Não sei" (RF-IA01): pergunta fora do domínio de Nutrição (cosseno baixo e nenhum termo
+        #     de Nutrição) recebe resposta fixa, sem LLM. Se o grafo ou a TACO tiverem resultado,
+        #     responde só com eles. Dentro do domínio, o fluxo segue com os Trechos que a busca achou.
         similaridade = round(self.retriever.similaridade_maxima(search_query), 4)
-        if sem_evidencia(similaridade, ABSTENCAO_LIMIAR_COSSENO):
+        if fora_do_dominio(user_query, similaridade, ABSTENCAO_LIMIAR_COSSENO):
             if not taco_records and not graph_paths:
                 return self._resposta_fixa(
                     user_query,

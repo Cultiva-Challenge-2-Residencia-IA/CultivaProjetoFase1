@@ -4,8 +4,8 @@ Gera o bloco `abstention_metrics` do relatório do benchmark, lido pelo gate `[a
 
 - `nao_sei_fora_de_nutricao`: perguntas fora do domínio que recebem "não sei";
 - `respostas_esperadas`: perguntas que o sistema deve responder e responde (recusa indevida = 1 - isso);
-- `nao_sei_nutricao_fora_do_corpus`: temas de Nutrição sem Trecho no corpus. Informativo: o cosseno
-  não separa esse caso (ver eval/abstencao/README.md).
+- `nao_sei_nutricao_fora_do_corpus`: temas de Nutrição sem Trecho no corpus. Informativo: nenhum
+  sinal local separa esse caso (ver eval/abstencao/README.md e a issue #52).
 """
 
 from __future__ import annotations

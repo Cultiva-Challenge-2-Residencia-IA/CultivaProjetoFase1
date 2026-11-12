@@ -10,8 +10,8 @@ from src.agent.consultant_baseline import NutritionConsultantBaseline
 from src.agent.guardrails import LegalGuardrail
 from src.config import ABSTENCAO_LIMIAR_COSSENO
 from src.evaluation.gate import FALHOU, PASSOU, PENDENTE, avaliar
-from src.models.schemas import CausalGraphPath
-from src.rag.abstencao import MENSAGEM_NAO_SEI, sem_evidencia
+from src.models.schemas import CausalGraphPath, DocumentChunk, RetrievedChunk
+from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio, tem_termo_de_nutricao
 
 RAIZ = Path(__file__).resolve().parents[1]
 
@@ -34,6 +34,14 @@ def _consultor(similaridade, caminhos_grafo=()):
     return consultor
 
 
+def _trecho():
+    return RetrievedChunk(chunk=DocumentChunk(
+        chunk_id="azevedo-jejum-intermitente-ramb-2013-p002-01", doc_id="azevedo-jejum-intermitente-ramb-2013",
+        title="Jejum intermitente", source_organization="RAMB", publication_year=2013, clinical_domain="nutricao",
+        evidence_level="GRADE_B", section_path="Resumo", raw_text="melhor adesão ao jejum intermitente",
+        contextualized_text=""))
+
+
 def _caminho():
     return CausalGraphPath(
         path_id="PATH_X", food_node="Cúrcuma", compound_node="Curcumina", mechanism_node="m",
@@ -41,9 +49,27 @@ def _caminho():
         evidence_grade="GRADE_B", studied_protocol="p", source_reference="r")
 
 
-def test_limiar():
-    assert sem_evidencia(ABSTENCAO_LIMIAR_COSSENO - 0.01, ABSTENCAO_LIMIAR_COSSENO)
-    assert not sem_evidencia(ABSTENCAO_LIMIAR_COSSENO, ABSTENCAO_LIMIAR_COSSENO)
+def test_fora_do_dominio_exige_os_dois_sinais():
+    baixo, alto = ABSTENCAO_LIMIAR_COSSENO - 0.1, ABSTENCAO_LIMIAR_COSSENO + 0.1
+    assert fora_do_dominio("Como faço para tirar o passaporte?", baixo, ABSTENCAO_LIMIAR_COSSENO)
+    assert not fora_do_dominio("Como faço para tirar o passaporte?", alto, ABSTENCAO_LIMIAR_COSSENO)
+    # Persona Rafael (Premissa 2): cosseno 0,24, mas o corpus responde (Azevedo et al., 2013).
+    assert not fora_do_dominio("Jejum intermitente funciona?", 0.24, ABSTENCAO_LIMIAR_COSSENO)
+
+
+@pytest.mark.parametrize("pergunta", [
+    "Jejum intermitente funciona?", "Como ler o rótulo para identificar um ultraprocessado?",
+    "Lanchar entre as refeições faz mal?", "Dormir pouco pode me fazer engordar?", "Qual a importância de beber água?",
+])
+def test_perguntas_de_nutricao_tem_termo_do_dominio(pergunta):
+    assert tem_termo_de_nutricao(pergunta)
+
+
+@pytest.mark.parametrize("pergunta", [
+    "Como faço para tirar o passaporte?", "Qual a capital da Austrália?", "Me explica o teorema de Pitágoras",
+])
+def test_perguntas_fora_de_nutricao_nao_tem_termo_do_dominio(pergunta):
+    assert not tem_termo_de_nutricao(pergunta)
 
 
 def test_sem_evidencia_responde_nao_sei_sem_chamar_o_llm():
@@ -65,10 +91,21 @@ def test_com_evidencia_segue_o_fluxo_normal():
     consultor.llm_client.generate_structured_synthesis.assert_called_once()
 
 
-def test_sem_trecho_mas_com_grafo_responde_so_com_o_grafo():
-    """Decisão de 12/11/2026: grafo ou TACO com resultado respondem mesmo sem Trecho no limiar."""
+def test_pergunta_de_nutricao_com_cosseno_baixo_mantem_os_trechos_da_busca():
+    """Revisão do PR #51: o BM25 acha a evidência que o cosseno não vê; ela não pode ser descartada."""
+    consultor = _consultor(similaridade=0.24)
+    trecho = _trecho()
+    consultor.retriever.retrieve.return_value = [trecho]
+    resposta = consultor.consult("Jejum intermitente funciona?")
+    assert resposta.abstencao is False
+    assert consultor.llm_client.generate_structured_synthesis.call_args.kwargs["retrieved_chunks"] == [trecho]
+
+
+def test_fora_do_dominio_mas_com_grafo_responde_so_com_o_grafo():
+    """Decisão de 12/11/2026: grafo ou TACO com resultado respondem mesmo sem evidência do corpus."""
     consultor = _consultor(similaridade=0.10, caminhos_grafo=[_caminho()])
-    resposta = consultor.consult("Cúrcuma com pimenta-do-reino é melhor absorvida?")
+    consultor.retriever.retrieve.return_value = [_trecho()]
+    resposta = consultor.consult("Isso funciona mesmo?")
     assert resposta.abstencao is False
     argumentos = consultor.llm_client.generate_structured_synthesis.call_args.kwargs
     assert argumentos["retrieved_chunks"] == []

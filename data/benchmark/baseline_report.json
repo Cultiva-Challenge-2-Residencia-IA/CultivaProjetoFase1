@@ -651,13 +651,13 @@
   },
   "abstention_metrics": {
     "limiar_cosseno": 0.4,
-    "casos": 58,
-    "nao_sei_fora_de_nutricao": 0.9375,
-    "nao_sei_nutricao_fora_do_corpus": 0.05,
+    "casos": 96,
+    "nao_sei_fora_de_nutricao": 0.8846,
+    "nao_sei_nutricao_fora_do_corpus": 0.0357,
     "respostas_esperadas": 1.0,
     "por_split": {
       "dev": {
-        "nao_sei_fora_de_nutricao": 0.9091,
+        "nao_sei_fora_de_nutricao": 0.8571,
         "nao_sei_nutricao_fora_do_corpus": 0.0,
         "respostas_esperadas": 1.0
       },
@@ -669,7 +669,9 @@
     },
     "recusas_indevidas": [],
     "fora_de_nutricao_respondidos": [
-      "ABS-FNU-10"
+      "ABS-FNU-10",
+      "ABS-FNU-17",
+      "ABS-FNU-18"
     ]
   }
 }
