@@ -14,6 +14,7 @@ from src.config import (
     INCLUDE_PENDING_SOURCES,
     TOP_K_FINAL,
 )
+from src.evaluation.risco import avaliar_risco, avaliar_risco_holdout
 from src.retrieval.hybrid_retriever import normalize_text
 
 
@@ -29,6 +30,9 @@ def mapear_esperados(
     PUBMED_<grupo> -> qualquer resumo do PubMed daquele grupo (raw_group no manifesto);
     um id que já é fonte do corpus fica como está. Os DOC_* do seed_guidelines, que saiu do
     índice por não ter procedência verificável, são descartados e listados à parte.
+
+    O Fascículo 1 não entra como equivalente ao Guia: decisão do grupo na issue #35, registrada
+    em data/benchmark/README.md (a equivalência por conteúdo fica com o benchmark v2).
     """
     fontes = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))["sources"]
     ids_corpus = {f["id"] for f in fontes}
@@ -61,18 +65,24 @@ def evaluate_baseline(
     enable_graph_engine: bool = True,
     top_k: int = TOP_K_FINAL,
     incluir_pendentes: bool = INCLUDE_PENDING_SOURCES,
+    consultant: NutritionConsultantBaseline | None = None,
+    write_report: bool = True,
 ) -> Dict[str, Any]:
     """Avalia o sistema da entrega sobre o índice padrão, só com fontes aprovadas.
-    Fontes pendentes entram apenas com CULTIVA_INCLUIR_PENDENTES=true."""
+    Fontes pendentes entram apenas com CULTIVA_INCLUIR_PENDENTES=true.
+
+    `consultant` permite reaproveitar um índice já construído (ablação); com
+    `write_report=False` o relatório só é devolvido, sem regravar o arquivo."""
     questions: List[Dict[str, Any]] = json.loads(
         questions_path.read_text(encoding="utf-8")
     )
-    consultant = NutritionConsultantBaseline(
-        enable_ollama=enable_ollama,
-        enable_taco_tool=enable_taco_tool,
-        enable_graph_engine=enable_graph_engine,
-        incluir_pendentes=incluir_pendentes,
-    )
+    if consultant is None:
+        consultant = NutritionConsultantBaseline(
+            enable_ollama=enable_ollama,
+            enable_taco_tool=enable_taco_tool,
+            enable_graph_engine=enable_graph_engine,
+            incluir_pendentes=incluir_pendentes,
+        )
 
     results: List[Dict[str, Any]] = []
     total_recall = 0.0
@@ -205,12 +215,17 @@ def evaluate_baseline(
         },
         "metrics_by_category": summary_by_category,
         "question_results": results,
+        # Detector de risco (RF-IA03) no conjunto eval/risco/casos.json; ativa o gate de risco.
+        "risk_metrics": avaliar_risco(),
+        # Holdout: casos de quem não escreveu o léxico; mede a generalização do detector.
+        "risk_metrics_holdout": avaliar_risco_holdout(),
     }
 
-    report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(
-        json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8"
-    )
+    if write_report:
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(
+            json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
     return report
 
 
@@ -275,6 +290,10 @@ def main() -> None:
     print(f"MRR (Mean Reciprocal Rank)  : {overall['mean_reciprocal_rank_mrr']:.4f}")
     print(f"Cobertura Conceitual/Termos : {overall['mean_keyword_coverage'] * 100:.1f}%")
     print(f"Acurácia Guardrail Legal    : {overall['legal_guardrail_accuracy'] * 100:.1f}%")
+    risco = report["risk_metrics"]
+    for nome, risco in [("desenvolvimento", report["risk_metrics"]), ("holdout", report["risk_metrics_holdout"])]:
+        print(f"Risco ({nome:15s}): recall {risco['recall']:.4f} | precisão {risco['precision']:.4f} "
+              f"| {risco['positives']} positivos, {risco['negatives']} negativos")
     print("-" * 72)
     print("Desempenho por Categoria:")
     for cat, stats in report["metrics_by_category"].items():

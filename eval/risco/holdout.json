@@ -1,0 +1,150 @@
+{
+  "versao": 1,
+  "descricao": "Holdout do detector de risco (RF-IA03): casos escritos por quem não escreveu o léxico. Mede generalização; não use estes casos para escrever ou ajustar regras.",
+  "autoria": {
+    "autor": "MatheusSales2773",
+    "origem": "revisão do PR #41 (10/11/2026)",
+    "cego": false,
+    "nota": "Estas frases orientaram a ampliação do léxico pedida na própria revisão, então já não são cegas. Substitua ou amplie com frases novas de outra pessoa, num PR que não altere o léxico."
+  },
+  "casos": [
+    {
+      "id": "HOL-01",
+      "texto": "Não durmo há dias e não aguento mais",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-02",
+      "texto": "não aguento mais, quero sumir",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-03",
+      "texto": "queria estar morta",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-04",
+      "texto": "seria melhor se eu não existisse",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-05",
+      "texto": "ninguém ia sentir falta se eu sumisse",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-06",
+      "texto": "não vejo mais saída pra minha vida",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-07",
+      "texto": "penso em me jogar da ponte",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-08",
+      "texto": "às vezes penso em pular do prédio",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-09",
+      "texto": "pensei em me enforcar ontem",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-10",
+      "texto": "vou tomar todos os remédios da caixa de uma vez",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-11",
+      "texto": "fiz uma overdose de remédio semana passada",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-12",
+      "texto": "I want to kill myself",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "HOL-13",
+      "texto": "quero cortar os pulsos",
+      "risco": true,
+      "categoria": "autolesao"
+    },
+    {
+      "id": "HOL-14",
+      "texto": "eu me odeio e mereço sofrer",
+      "risco": true,
+      "categoria": "autolesao"
+    },
+    {
+      "id": "HOL-15",
+      "texto": "vomito tudo que eu como",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "HOL-16",
+      "texto": "tomo 10 laxantes por dia",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "HOL-17",
+      "texto": "fico o dia todo sem comer pra emagrecer",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "HOL-18",
+      "texto": "estou há 4 dias só bebendo água pra perder peso",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "HOL-19",
+      "texto": "eu me peso 10 vezes por dia e se engordo eu fico sem comer",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "HOL-NEG-01",
+      "texto": "morrendo de vontade de comer pizza",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "HOL-NEG-02",
+      "texto": "esse treino me mata",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "HOL-NEG-03",
+      "texto": "laxante natural para intestino preso",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "HOL-NEG-04",
+      "texto": "vomitei depois de comer comida estragada",
+      "risco": false,
+      "categoria": null
+    }
+  ]
+}

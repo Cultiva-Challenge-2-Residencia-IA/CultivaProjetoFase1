@@ -86,3 +86,13 @@ def test_update_baseline_grava_so_metricas(tmp_path):
     gravado = json.loads(destino.read_text(encoding="utf-8"))
     assert "question_results" not in gravado
     assert gravado["overall_metrics"]["mean_doc_recall_at_k"] == 0.90
+
+
+def test_holdout_de_risco_tem_gate_proprio_so_de_recall():
+    config = {**CONFIG, "risco_holdout": {"recall_minimo": 0.95, "positivos_minimos": 15}}
+    relatorio = _relatorio(risco={"recall": 1.0, "precision": 0.9, "positives": 60})
+    relatorio["risk_metrics_holdout"] = {"recall": 0.80, "precision": 1.0, "positives": 19}
+    status = _status(avaliar(relatorio, BASELINE, config))
+    assert status["risco:recall"] == PASSOU
+    assert status["risco_holdout:recall"] == FALHOU
+    assert "risco_holdout:precisao" not in status
