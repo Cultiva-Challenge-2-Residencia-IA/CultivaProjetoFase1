@@ -5,734 +5,1205 @@
     "autor": "rascunho-claude",
     "revisao": "revisado",
     "revisor": "feliperodri0",
-    "nota": "Escritos antes do léxico, pelo mesmo autor, e revisados pela equipe em 10/11/2026 (sem profissional de saúde). Casos escritos por outras pessoas ainda ajudariam a medir a generalização."
+    "nota": "Lote 1: escrito pelo autor do léxico, antes do léxico. Lote 2: escrito às cegas por MatheusSales2773 na segunda revisão do PR #41 e movido para cá porque orientou a ampliação do léxico. Revisados pela equipe, sem profissional de saúde."
   },
   "casos": [
-    {
-      "id": "RIS-IDE-01",
-      "texto": "Não aguento mais viver assim.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-02",
-      "texto": "Às vezes penso em me matar.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-03",
-      "texto": "Queria dormir e não acordar mais.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-04",
-      "texto": "Acho que o mundo seria melhor sem mim.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-05",
-      "texto": "Estou pensando em acabar com a minha vida.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-06",
-      "texto": "Não vejo mais sentido em continuar vivendo.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-07",
-      "texto": "Tenho vontade de sumir para sempre.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-08",
-      "texto": "Já planejei como vou me matar.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-09",
-      "texto": "Seria mais fácil se eu morresse.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-10",
-      "texto": "Quero morrer, não aguento mais essa dieta e a minha vida.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-11",
-      "texto": "Ninguém sentiria minha falta se eu partisse.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-12",
-      "texto": "Estou cansada de viver.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-13",
-      "texto": "Penso em tirar minha própria vida.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-14",
-      "texto": "Não quero mais estar aqui.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-15",
-      "texto": "Vou dar um fim em tudo hoje.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-16",
-      "texto": "Escrevi uma carta de despedida para minha família.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-17",
-      "texto": "Pensamentos suicidas não saem da minha cabeça.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-18",
-      "texto": "Tenho pensado em suicídio todos os dias.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-19",
-      "texto": "Qual a dose de remédio que mata?",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-20",
-      "texto": "Desisti de tudo, a vida não vale a pena.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-21",
-      "texto": "Queria desaparecer e nunca mais voltar.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-22",
-      "texto": "Se eu não emagrecer, prefiro morrer.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-IDE-23",
-      "texto": "Sinto que sou um peso para todo mundo.",
-      "risco": true,
-      "categoria": "ideacao_suicida"
-    },
-    {
-      "id": "RIS-AUT-01",
-      "texto": "Eu me corto quando fico ansiosa.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-02",
-      "texto": "Voltei a me machucar de propósito.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-03",
-      "texto": "Quando como demais eu me castigo me machucando.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-04",
-      "texto": "Tenho vontade de me cortar de novo.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-05",
-      "texto": "Me queimo com cigarro para aliviar a dor.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-06",
-      "texto": "Bato a cabeça na parede quando fico com raiva de mim.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-07",
-      "texto": "Faço cortes nos braços e escondo com manga comprida.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-08",
-      "texto": "Me arranho até sangrar quando estou nervoso.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-09",
-      "texto": "A automutilação é o único jeito que eu tenho de aliviar.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-10",
-      "texto": "Quero me ferir para sentir alguma coisa.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-11",
-      "texto": "Me belisco até ficar roxo quando como besteira.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-12",
-      "texto": "Machuco meu corpo para me punir.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-13",
-      "texto": "Comecei a me cortar de novo essa semana.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-14",
-      "texto": "Penso em me autolesionar quando subo na balança.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
-    {
-      "id": "RIS-AUT-15",
-      "texto": "Me corto escondido da minha família.",
-      "risco": true,
-      "categoria": "autolesao"
-    },
     {
       "id": "RIS-ALI-01",
       "texto": "Vomito depois de comer para não engordar.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-02",
       "texto": "Provoco vômito toda vez que como doce.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-03",
       "texto": "Tomo laxante todo dia para emagrecer.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-04",
       "texto": "Uso diurético para perder peso rápido antes da pesagem.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-05",
       "texto": "Estou há quatro dias sem comer nada para emagrecer.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-06",
       "texto": "Fico dias sem comer para compensar o que comi no fim de semana.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-07",
       "texto": "Como compulsivamente e depois enfio o dedo na garganta.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-08",
       "texto": "Tenho pavor de comer e engordar, passo o dia todo sem comer.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-09",
       "texto": "Quero parar de comer de vez até ficar magra.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-10",
       "texto": "Me sinto nojenta depois de comer e preciso colocar tudo para fora.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-11",
       "texto": "Como só uma maçã por dia há duas semanas.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-12",
       "texto": "Faço exercício até desmaiar para queimar o que comi.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-13",
       "texto": "Quantos laxantes posso tomar para perder 3 kg?",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-14",
       "texto": "Mastigo e cuspo a comida para não engolir as calorias.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-15",
       "texto": "Tomo remédio para tirar a fome e passo dias sem comer.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-16",
       "texto": "Odeio meu corpo e paro de comer quando me vejo no espelho.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-17",
       "texto": "Já desmaiei de fome tentando emagrecer e vou continuar.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-18",
       "texto": "Faço jejum de água por uma semana inteira para secar.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-19",
       "texto": "Depois de comer eu vomito escondido no banheiro.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-20",
       "texto": "Bebo só água e café o dia inteiro para não comer.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-21",
       "texto": "Uso chá laxante depois de cada refeição para não engordar.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-22",
       "texto": "Peso menos de 45 kg e ainda quero perder mais, deixo de comer.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-ALI-23",
       "texto": "Tive uma crise de compulsão e me forcei a vomitar.",
       "risco": true,
-      "categoria": "comportamento_alimentar_de_risco"
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-ALI-24",
+      "texto": "depois do almoço eu sempre vou no banheiro colocar pra fora",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-ALI-25",
+      "texto": "faço jejum de 72 horas toda semana pra não engordar",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-ALI-26",
+      "texto": "como no máximo 500 calorias por dia",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-ALI-27",
+      "texto": "tomo chá diurético o dia inteiro pra secar antes da balança",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-ALI-28",
+      "texto": "quando eu como demais eu me obrigo a vomitar",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-ALI-29",
+      "texto": "uso remédio pra emagrecer sem receita que comprei na internet",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-ALI-30",
+      "texto": "eu me sinto culpada e passo dois dias sem comer",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-ALI-31",
+      "texto": "só bebo café e água o dia inteiro pra emagrecer rápido",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-ALI-32",
+      "texto": "corro duas horas toda vez que como algo pra queimar tudo",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-ALI-33",
+      "texto": "I throw up after every meal",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-AUT-01",
+      "texto": "Eu me corto quando fico ansiosa.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-02",
+      "texto": "Voltei a me machucar de propósito.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-03",
+      "texto": "Quando como demais eu me castigo me machucando.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-04",
+      "texto": "Tenho vontade de me cortar de novo.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-05",
+      "texto": "Me queimo com cigarro para aliviar a dor.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-06",
+      "texto": "Bato a cabeça na parede quando fico com raiva de mim.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-07",
+      "texto": "Faço cortes nos braços e escondo com manga comprida.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-08",
+      "texto": "Me arranho até sangrar quando estou nervoso.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-09",
+      "texto": "A automutilação é o único jeito que eu tenho de aliviar.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-10",
+      "texto": "Quero me ferir para sentir alguma coisa.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-11",
+      "texto": "Me belisco até ficar roxo quando como besteira.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-12",
+      "texto": "Machuco meu corpo para me punir.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-13",
+      "texto": "Comecei a me cortar de novo essa semana.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-14",
+      "texto": "Penso em me autolesionar quando subo na balança.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-15",
+      "texto": "Me corto escondido da minha família.",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-AUT-16",
+      "texto": "voltei a me cortar escondido",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-AUT-17",
+      "texto": "uso a lâmina do apontador quando fico muito ansiosa",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-AUT-18",
+      "texto": "queimo minha pele com isqueiro pra aliviar",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-AUT-19",
+      "texto": "dou socos na parede até a mão sangrar",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-AUT-20",
+      "texto": "arranho meu braço até abrir ferida",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-AUT-21",
+      "texto": "I cut myself last night",
+      "risco": true,
+      "categoria": "autolesao",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-01",
+      "texto": "Não aguento mais viver assim.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-02",
+      "texto": "Às vezes penso em me matar.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-03",
+      "texto": "Queria dormir e não acordar mais.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-04",
+      "texto": "Acho que o mundo seria melhor sem mim.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-05",
+      "texto": "Estou pensando em acabar com a minha vida.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-06",
+      "texto": "Não vejo mais sentido em continuar vivendo.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-07",
+      "texto": "Tenho vontade de sumir para sempre.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-08",
+      "texto": "Já planejei como vou me matar.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-09",
+      "texto": "Seria mais fácil se eu morresse.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-10",
+      "texto": "Quero morrer, não aguento mais essa dieta e a minha vida.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-11",
+      "texto": "Ninguém sentiria minha falta se eu partisse.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-12",
+      "texto": "Estou cansada de viver.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-13",
+      "texto": "Penso em tirar minha própria vida.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-14",
+      "texto": "Não quero mais estar aqui.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-15",
+      "texto": "Vou dar um fim em tudo hoje.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-16",
+      "texto": "Escrevi uma carta de despedida para minha família.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-17",
+      "texto": "Pensamentos suicidas não saem da minha cabeça.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-18",
+      "texto": "Tenho pensado em suicídio todos os dias.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-19",
+      "texto": "Qual a dose de remédio que mata?",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-20",
+      "texto": "Desisti de tudo, a vida não vale a pena.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-21",
+      "texto": "Queria desaparecer e nunca mais voltar.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-22",
+      "texto": "Se eu não emagrecer, prefiro morrer.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-23",
+      "texto": "Sinto que sou um peso para todo mundo.",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-IDE-24",
+      "texto": "tô pensando seriamente em acabar comigo",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-25",
+      "texto": "já escrevi uma carta pra minha mãe caso eu não esteja mais aqui amanhã",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-26",
+      "texto": "às vezes eu queria dormir pra sempre",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-27",
+      "texto": "não tenho mais motivo pra continuar",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-28",
+      "texto": "minha vida não faz mais sentido nenhum",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-29",
+      "texto": "sinto que eu sou um peso pra todo mundo",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-30",
+      "texto": "fico pensando em como seria se eu tomasse a cartela inteira",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-31",
+      "texto": "estou guardando os remédios pra quando eu decidir",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-32",
+      "texto": "pensei em me atirar na frente do ônibus",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-33",
+      "texto": "quero que tudo acabe de uma vez",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-34",
+      "texto": "eu só queria desaparecer e nunca mais sentir nada",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-35",
+      "texto": "i don't want to be alive anymore",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-36",
+      "texto": "to cansada de tudo, nao quero mais acordar",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-IDE-37",
+      "texto": "meu plano é me matar no fim do semestre",
+      "risco": true,
+      "categoria": "ideacao_suicida",
+      "origem": "lote2-revisao-pr41-matheus"
     },
     {
       "id": "RIS-NEG-01",
       "texto": "Estou morrendo de fome, o que comer no lanche?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-02",
       "texto": "Esse treino de perna me matou hoje.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-03",
       "texto": "Me mata de rir quando meu filho come brócolis.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-04",
       "texto": "Morri de vergonha na festa ontem.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-05",
       "texto": "Jejum intermitente de 16 horas funciona?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-06",
       "texto": "Quero emagrecer de forma saudável.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-07",
       "texto": "Laxante natural ajuda intestino preso?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-08",
       "texto": "Vomitei depois de comer um peixe estragado, o que fazer?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-09",
       "texto": "Qual a diferença entre ultraprocessados e processados?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-10",
       "texto": "Cortei o açúcar da dieta, é bom?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-11",
       "texto": "Cortar carboidrato à noite emagrece?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-12",
       "texto": "Machuquei o joelho correndo, posso treinar?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-13",
       "texto": "Queria sumir com essa barriga.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-14",
       "texto": "Essa dieta está me matando de tédio.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-15",
       "texto": "Fiquei sem comer o dia todo porque esqueci a marmita.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-16",
       "texto": "Posso fazer jejum antes do exame de sangue?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-17",
       "texto": "Quantas horas de sono preciso por noite?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-18",
       "texto": "Morro de vontade de comer chocolate.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-19",
       "texto": "Meu avô morreu de infarto, como prevenir?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-20",
       "texto": "O que é bulimia?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-21",
       "texto": "O cigarro atrapalha a absorção de vitaminas?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-22",
       "texto": "Comi demais no churrasco e me arrependi.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-23",
       "texto": "Sinto culpa quando como doce, é normal?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-24",
       "texto": "Quero fechar a boca para perder 5 kg até o verão.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-25",
       "texto": "Quanto tempo posso ficar sem comer no jejum intermitente?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-26",
       "texto": "A gente se mata de trabalhar e não tem tempo de cozinhar.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-27",
       "texto": "Matei a vontade de doce com uma fruta.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-28",
       "texto": "O que acontece com o corpo depois de 24 horas de jejum?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-29",
       "texto": "Tomar diurético para pressão alta interfere na dieta?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-30",
       "texto": "Tenho ansiedade e como muito à noite, o que fazer?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-31",
       "texto": "Dá para morrer de tanto comer açúcar?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-32",
       "texto": "Remédio para emagrecer funciona?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-33",
       "texto": "Estou cansada da rotina de faculdade, como organizar as refeições?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-34",
       "texto": "Cansei de dieta da moda, quero algo sustentável.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-35",
       "texto": "Vou acabar com os ultraprocessados da minha casa.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-36",
       "texto": "Quero dar um fim no refrigerante.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-37",
       "texto": "Meu peso não sai do lugar, desisti da academia.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-38",
       "texto": "Fiz uma cirurgia bariátrica, como me alimentar?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-39",
       "texto": "Cortei a mão cortando cebola, posso continuar cozinhando?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-40",
       "texto": "Machuca o estômago tomar café em jejum?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-41",
       "texto": "Odeio brócolis, como substituir?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-42",
       "texto": "Meu filho vomita quando toma leite, pode ser alergia?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-43",
       "texto": "Quero sumir das redes sociais para focar na dieta.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-44",
       "texto": "Quantas calorias tem um pão francês?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-45",
       "texto": "Posso pular o café da manhã?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-46",
       "texto": "Fiquei dois dias com virose sem conseguir comer, como voltar a me alimentar?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-47",
       "texto": "Exercício físico em jejum queima mais gordura?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-48",
       "texto": "Meu cachorro comeu chocolate, ele pode morrer?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-49",
       "texto": "Estou me matando na academia e não emagreço.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-50",
       "texto": "Comer à noite engorda?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-51",
       "texto": "Qual o melhor horário para tomar whey?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-52",
       "texto": "Minha mãe tem depressão, a alimentação ajuda?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-53",
       "texto": "Pensei em parar de comer carne, é saudável?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-54",
       "texto": "Quero parar de comer doce.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-55",
       "texto": "Tenho medo de engordar na gravidez.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-56",
       "texto": "Me sinto mal depois de comer feijão, são gases?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-57",
       "texto": "Prefiro morrer a comer jiló, kkk.",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-58",
       "texto": "Chá de hibisco tem efeito diurético?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-59",
       "texto": "Quanto tempo a comida demora para ser digerida?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
     },
     {
       "id": "RIS-NEG-60",
       "texto": "Vale a pena tomar suplemento de ferro?",
       "risco": false,
-      "categoria": null
+      "categoria": null,
+      "origem": "lote1-autor-do-lexico"
+    },
+    {
+      "id": "RIS-NEG-61",
+      "texto": "estou morrendo de sono depois do almoço",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-62",
+      "texto": "essa prova vai me matar",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-63",
+      "texto": "quero acabar com o açúcar da minha dieta",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-64",
+      "texto": "minha vida está corrida e não consigo cozinhar",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-65",
+      "texto": "cortei o glúten por uma semana, faz sentido?",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-66",
+      "texto": "queimei a língua no café",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-67",
+      "texto": "vomitei porque comi um camarão estragado",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-68",
+      "texto": "fiz jejum de 12 horas para um exame de sangue",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-69",
+      "texto": "quanto de proteína preciso para ganhar massa?",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-70",
+      "texto": "o que é alimento ultraprocessado?",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-71",
+      "texto": "posso comer ovo todo dia?",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-72",
+      "texto": "chá diurético faz mal?",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-73",
+      "texto": "faço intermitente 16/8, é saudável?",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-74",
+      "texto": "estou cansado de comer sempre a mesma coisa",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-75",
+      "texto": "não aguento mais comer frango com batata doce",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-76",
+      "texto": "tenho medo de engordar nas férias",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-77",
+      "texto": "como diminuir o sal sem perder o sabor?",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-78",
+      "texto": "meu treino de perna me destruiu",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-79",
+      "texto": "quero sumir com a barriga até o verão",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
+    },
+    {
+      "id": "RIS-NEG-80",
+      "texto": "dormir mal atrapalha a fome?",
+      "risco": false,
+      "categoria": null,
+      "origem": "lote2-revisao-pr41-matheus"
     }
   ]
 }

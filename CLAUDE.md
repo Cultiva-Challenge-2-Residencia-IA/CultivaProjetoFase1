@@ -89,7 +89,7 @@ Consequências práticas:
 
 ## Arquitetura do RAG de Nutrição
 
-**Portões antes da busca** (`consultant_baseline.py`, issue #9): primeiro o detector de risco (`src/guardrails/risco/`, RF-IA03), com duas camadas locais: léxico (`lexico.yaml`) e similaridade por embeddings com os exemplos de `exemplos.yaml` (só ideação suicida e autolesão, limiar `RISCO_LIMIAR_SIMILARIDADE`). Ele responde com a mensagem fixa de acolhimento (CVV 188) sem busca nem LLM; depois o detector de prompt injection (`src/guardrails/injection/`, RNF04), com recusa fixa. O que vai ao LLM leva a pergunta com dados pessoais mascarados (`src/guardrails/pii/`, RNF05) e os Trechos delimitados como dado.
+**Portões antes da busca** (`consultant_baseline.py`, issue #9): primeiro o detector de risco (`src/guardrails/risco/`, RF-IA03), por léxico e regras locais (`lexico.yaml`, inclusive regras com número para jejum, calorias e quantidade de remédios). Ele responde com a mensagem fixa de acolhimento (CVV 188) sem busca nem LLM; depois o detector de prompt injection (`src/guardrails/injection/`, RNF04), com recusa fixa. O que vai ao LLM leva a pergunta com dados pessoais mascarados (`src/guardrails/pii/`, RNF05) e os Trechos delimitados como dado.
 
 1. **Carga e gate** (`src/rag/corpus_loader.py`): lê os Trechos JSONL e só aceita fontes `aprovado` (hoje 21 de 22; a SBAN está `pendente`). Com `CULTIVA_INCLUIR_PENDENTES=true`, aceita também as pendentes. A licença não entra no gate.
 2. **Contrato** (`src/rag/contrato.py`, ADR 0002): `trecho_para_chunk` adiciona o cabeçalho contextual e deriva o nível de evidência do `source_type`.

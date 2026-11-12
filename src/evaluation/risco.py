@@ -22,11 +22,8 @@ def avaliar_risco(caminho: Path = RISCO_CASOS_PATH) -> Dict[str, Any]:
     vp = fp = fn = vn = 0
     falsos_negativos, falsos_positivos = [], []
     por_categoria: Dict[str, Dict[str, int]] = {}
-    so_similaridade = 0
     for caso in casos:
-        avaliacao = detectar_risco(caso["texto"])
-        detectado = avaliacao.risco
-        so_similaridade += int(caso["risco"] and avaliacao.camadas == ["similaridade"])
+        detectado = detectar_risco(caso["texto"]).risco
         if caso["risco"]:
             estat = por_categoria.setdefault(caso["categoria"], {"positivos": 0, "detectados": 0})
             estat["positivos"] += 1
@@ -52,8 +49,6 @@ def avaliar_risco(caminho: Path = RISCO_CASOS_PATH) -> Dict[str, Any]:
         "recall_por_categoria": {
             cat: round(e["detectados"] / e["positivos"], 4) for cat, e in sorted(por_categoria.items())
         },
-        # Positivos que só a camada de similaridade pegou (o léxico sozinho teria perdido).
-        "detectados_so_por_similaridade": so_similaridade,
         "falsos_negativos": falsos_negativos,
         "falsos_positivos": falsos_positivos,
     }

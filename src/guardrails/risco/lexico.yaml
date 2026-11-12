@@ -6,15 +6,19 @@
 # O detector prioriza o recall (meta >= 0,95): na dúvida, a mensagem de acolhimento aparece.
 # Por isso não há tratamento de negação: "não aguento mais viver" contém "não" e é sinal de risco.
 # `excecao` descarta a regra quando o texto também casa com ela (por exemplo, vômito por intoxicação).
+# Regras com o grupo `(?P<n>...)` só acionam se o número estiver entre `minimo` e `maximo`
+# (por exemplo, jejum de 36 horas ou mais, ou 800 calorias por dia ou menos).
 
 versao: 1
 revisao: equipe
 categorias:
   ideacao_suicida:
-    - '\b(me|se) matar\b'
+    - padrao: '\b(me|se) matar\b'
+      excecao: '\b(vai|vao|ia|iam|vai acabar) me matar\b|\bme matar de (rir|trabalhar|estudar|treinar)\b'
     - '\bmatar-me\b'
     - '\bsuicid'
-    - '\b(quero|queria|vou) morrer\b'
+    - padrao: '\b(quero|queria|vou) morrer\b'
+      excecao: '\bmorrer de (fome|rir|sono|vergonha|calor|frio|saudade|tedio|cansaco|preguica|vontade|medo)\b'
     - '\bprefiro morrer\b'
     - '\bse eu morresse\b'
     - '\btirar (a )?(minha )?(propria )?vida\b'
@@ -49,6 +53,23 @@ categorias:
     - '\b(a cartela|a caixa) (inteira|toda) de (remedio|remedios|comprimidos)\b'
     - '\b(kill myself|want to die|end my life|suicide|suicidal)\b'
     - '\bsou (um|uma) (peso|fardo) (para|pra)\b'
+    # Lote 2 (revisão às cegas do PR #41) e testes manuais: padrões gerais, não as frases literais.
+    - '\bacabar comigo\b'
+    - '\b(caso|se|quando) eu nao (esteja|estiver|estivesse) mais aqui\b'
+    - '\b(dormir|sumir|descansar|desaparecer|apagar) (pra|para) sempre\b'
+    - '\b(sem|nao tenho|nao ha|nao tem|perdi o) (mais )?(motivo|razao|sentido|vontade) (pra|para|de) (continuar|viver|existir)\b'
+    - '\b(vida|viver|existir) (nao faz|perdeu|sem|nao tem) (mais )?(sentido|razao|graca nenhuma)\b'
+    - '\b(tomasse|tomar|tomei|engolir|engoli|tomaria) (a|uma|todas? as?) (cartela|caixa|cartelas|caixas)\b'
+    - '\b(cartela|caixa) (inteira|toda) de\b'
+    - '\b(guardando|juntando|acumulando|escondendo) (os |uns |alguns |meus )?(remedios|comprimidos|capsulas)\b'
+    - '\b(quero|queria) que tudo (acabe|termine|acabasse|terminasse)\b'
+    - '\bnao (quero|queria) mais (acordar|existir)\b'
+    - '\bdesviver\b'
+    - padrao: '\b(quero|queria) (viver|ir|passar|estar) (do|pro|para o|no) outro lado\b'
+      excecao: '\boutro lado d[oa] (mundo|cidade|pais|rua|oceano|rio)\b'
+    - padrao: '\b(?P<n>\d{2,}) (comprimidos|remedios|capsulas|rivotril|clonazepam|diazepam|alprazolam|zolpidem|fluoxetina|sertralina|amitriptilina|paracetamol|dipirona)\b'
+      minimo: 10
+    - '\b(don.?t|do not) want to (be alive|live)\b'
   autolesao:
     - '\bme (corto|cortar|cortei|cortando)\b'
     - '\bcortes? n[oa]s? (braco|bracos|perna|pernas|pulso|pulsos|coxa|coxas)\b'
@@ -60,6 +81,11 @@ categorias:
     - '\bme odeio\b'
     - '\bmereco sofrer\b'
     - '\b(self[- ]?harm|cut myself|hurt myself)\b'
+    - '\b(uso|usei|pego|peguei|passo|passei) (a |uma )?(lamina|gilete|estilete|navalha)\b'
+    - '\b(queimo|queimei|queimando) (a |minha |meu |a minha )?(pele|braco|bracos|perna|pernas|mao|maos)\b'
+    - '\b(socos?|murros?) na parede\b'
+    - '\bate (a mao |o braco |a pele )?(sangrar|abrir ferida|ficar em carne viva)\b'
+    - '\b(arranho|arranhei|corto|cortei|belisco) (o |meu |minha |a )?(braco|bracos|perna|pernas|pele|pulso|coxa)\b'
   comportamento_alimentar_de_risco:
     - padrao: '\bvomit\w* (depois|apos) (de )?(comer|cada refeicao|as refeicoes)\b'
       excecao: '\b(estragad\w*|intoxicac\w*|virose|enjoo|gravidez|alergia)\b'
@@ -68,7 +94,7 @@ categorias:
     - '\bvomit\w* escondid'
     - '\bdedo na garganta\b'
     - '\b(colocar|por|botar) tudo (para|pra) fora\b'
-    - '\b(laxante|diuretico)s?\b.{0,60}\b(emagrec\w*|perder peso|nao engordar|secar|pesagem|perder \d+ ?kg)\b'
+    - '\b(laxante|diuretico)s?\b.{0,60}\b(emagrec\w*|perder peso|nao engordar|secar|pesagem|balanca|perder \d+ ?kg)\b'
     - '\b(emagrec\w*|perder peso|nao engordar)\b.{0,60}\b(laxante|diuretico)s?\b'
     - '\blaxantes? todo dia\b'
     - '\bdias sem comer\b'
@@ -81,6 +107,21 @@ categorias:
     - '\b(emagrec\w*|perder peso|nao engordar)\b.{0,40}\bsem comer\b'
     - '\b(fico|passo) sem comer\b'
     - '\bdias (so|apenas) (bebendo|tomando) agua\b'
+    - '\b(banheiro|depois de comer|apos comer|depois d[oa] (almoco|jantar|janta|cafe|refeicao))\b.{0,50}\b(colocar|por|botar|jogar) (tudo )?(pra|para) fora\b'
+    - '\b(me obrigo|me obriguei|me forco|me forcei|me faco) a vomitar\b'
+    - padrao: '\bjejum de (?P<n>\d+) ?(h|hs|horas)\b'
+      excecao: '\bexame\b'
+      minimo: 36
+    - padrao: '\bjejum de (?P<n>\d+) dias\b'
+      minimo: 2
+    - padrao: '\b(?P<n>\d{2,4}) ?(calorias|kcal|cal)( (por|ao|no) dia|/dia)\b'
+      maximo: 800
+    - '\b(remedio|remedios|inibidor de apetite|anfetamina|sibutramina)\b.{0,40}\bsem receita\b'
+    - '\bsem receita\b.{0,40}\b(emagrec\w*|perder peso|inibidor de apetite)\b'
+    - '\bso (bebo|tomo) (cafe|agua|cha)\b.{0,40}\b(emagrec\w*|perder peso|nao comer|secar)\b'
+    - '\b(corro|treino|malho|pedalo|faco exercicio)\b.{0,50}\b(pra|para) (queimar|compensar|gastar) (tudo|o que (eu )?comi)\b'
+    - '\b(toda vez|sempre) que (eu )?(como|comer)\b.{0,50}\b(queimar|vomit\w*|compensar|pra fora)\b'
+    - '\b(throw up|purge|vomit) after (every |each )?(meal|eating)\b'
     - '\bso (bebendo|tomando) agua\b.{0,40}\b(emagrec\w*|perder peso|secar)\b'
     - '\bparar de comer de vez\b'
     - '\b(paro|deixo|parei|deixei) de comer\b(?! (doce|doces|carne|acucar|pao|fritura|ultraprocessad))'
