@@ -103,18 +103,25 @@ def test_groq_prompt_masks_common_personal_identifiers(monkeypatch) -> None:
 
     monkeypatch.setattr(httpx, "Client", FakeHttpClient)
     client = LocalLLMClient(groq_api_key="test-key", enable_groq=True)
-    client._call_groq_model(
-        "test-model",
+    prompt = client._build_user_prompt(
         "Meu nome é Ana Silva, meu CPF é 123.456.789-09, telefone (11) 99999-1234 "
-        "e e-mail ana@example.com.",
+        "e e-mail ana@example.com. Quantas calorias devo comer?",
+        [],
+        # Evidência com anos e faixas: não pode ser confundida com telefone nem mascarada.
+        taco_context_str="POF 1987-2009: consumo médio entre 1500-2000 kcal por dia.",
     )
+    client._call_groq_model("test-model", prompt)
 
     sent_prompt = captured_payload["messages"][1]["content"]
-    assert "Ana Silva" not in sent_prompt
-    assert "123.456.789-09" not in sent_prompt
-    assert "99999-1234" not in sent_prompt
-    assert "ana@example.com" not in sent_prompt
-    assert sent_prompt.count("[DADO PESSOAL REMOVIDO]") >= 4
+    for dado in ("Ana Silva", "123.456.789-09", "99999-1234", "ana@example.com"):
+        assert dado not in sent_prompt
+    for marcador in ("[NOME]", "[CPF]", "[TELEFONE]", "[EMAIL]"):
+        assert marcador in sent_prompt
+    assert "POF 1987-2009: consumo médio entre 1500-2000 kcal por dia." in sent_prompt
+    # O prompt de sistema também segue intacto.
+    from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
+
+    assert captured_payload["messages"][0]["content"] == SYSTEM_PROMPT_CONSULTANT
 
 
 def test_groq_key_does_not_enable_external_provider_by_default() -> None:

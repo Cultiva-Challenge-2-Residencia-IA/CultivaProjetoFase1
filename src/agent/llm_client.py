@@ -41,24 +41,6 @@ Responda ESTRITAMENTE em formato JSON válido com as seguintes chaves:
   "evidence_grade": "Grau de evidência predominante nas fontes (ex: GRADE_A, GRADE_B, GUIDELINE_CONSENSUS)"
 }"""
 
-_PERSONAL_DATA_PATTERNS = (
-    re.compile(r"\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b"),
-    re.compile(r"(?<!\d)\d{3}\.?\d{3}\.?\d{3}-?\d{2}(?!\d)"),
-    re.compile(r"(?<!\d)(?:\+?55\s*)?(?:\(?\d{2}\)?\s*)?9?\d{4}[-.\s]?\d{4}(?!\d)"),
-    re.compile(
-        r"(?i)(\b(?:meu nome(?: completo)?(?: é|:)|me chamo|chamo-me)\s+)"
-        r"[A-ZÀ-ÖØ-Þ][\wÀ-ÖØ-öø-ÿ'-]*(?:\s+[A-ZÀ-ÖØ-Þ][\wÀ-ÖØ-öø-ÿ'-]*){0,3}"
-    ),
-)
-
-
-def mask_personal_data(text: str) -> str:
-    """Mask common direct identifiers before sending a prompt to an external provider."""
-    masked = text
-    for pattern in _PERSONAL_DATA_PATTERNS:
-        masked = pattern.sub("[DADO PESSOAL REMOVIDO]", masked)
-    return masked
-
 
 class LocalLLMClient:
     """Cliente Ollama local, com Groq externa opcional e fallback extrativo."""
@@ -153,13 +135,10 @@ class LocalLLMClient:
                 response = client.post(
                     f"{self.groq_base_url}/chat/completions",
                     headers=headers,
-                    json={
-                        **payload,
-                        "messages": [
-                            {"role": message["role"], "content": mask_personal_data(message["content"])}
-                            for message in payload["messages"]
-                        ],
-                    },
+                    # A pergunta já vem mascarada de _build_user_prompt (RNF05). Os Trechos, a TACO e o
+                    # grafo não passam pela máscara: são texto público, e mascarar anos e faixas
+                    # ("1987-2009", "1500-2000 kcal") corromperia a evidência enviada ao modelo.
+                    json=payload,
                 )
                 response.raise_for_status()
                 data = response.json()

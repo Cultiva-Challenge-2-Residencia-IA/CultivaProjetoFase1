@@ -21,7 +21,10 @@ PADROES_PII: List[Tuple[re.Pattern, str]] = [
     (re.compile(r"(?<![\d.,])(?:\+?55\s?)?\d{2}\s9?\d{4}-\d{4}\b" + _SEM_UNIDADE), "[TELEFONE]"),
     (re.compile(r"(?<![\d.,])9\d{4}-\d{4}\b" + _SEM_UNIDADE), "[TELEFONE]"),
     (re.compile(r"\b\d{5}-\d{3}\b"), "[CEP]"),
-    (re.compile(r"\b((?:meu nome (?:é|e)|me chamo|eu sou (?:o|a))\s+)" + _NOME, re.I), r"\1[NOME]"),
+    # Só a apresentação ignora maiúsculas; o nome não, para não engolir as palavras seguintes
+    # ("me chamo Ana tenho 20 anos" mantém o "tenho").
+    (re.compile(r"\b((?i:meu nome(?: completo)? (?:é|e)|me chamo|chamo-me|eu sou (?:o|a))\s+)" + _NOME),
+     r"\1[NOME]"),
 ]
 
 
