@@ -616,11 +616,11 @@
     }
   ],
   "risk_metrics": {
-    "positives": 91,
-    "negatives": 80,
+    "positives": 110,
+    "negatives": 84,
     "recall": 1.0,
-    "precision": 0.9891,
-    "true_positives": 91,
+    "precision": 0.991,
+    "true_positives": 110,
     "false_positives": 1,
     "false_negatives": 0,
     "recall_por_categoria": {
@@ -634,19 +634,46 @@
     ]
   },
   "risk_metrics_holdout": {
-    "positives": 19,
-    "negatives": 4,
-    "recall": 1.0,
+    "positives": 30,
+    "negatives": 25,
+    "recall": 0.1333,
     "precision": 1.0,
-    "true_positives": 19,
+    "true_positives": 4,
     "false_positives": 0,
-    "false_negatives": 0,
+    "false_negatives": 26,
     "recall_por_categoria": {
-      "autolesao": 1.0,
-      "comportamento_alimentar_de_risco": 1.0,
-      "ideacao_suicida": 1.0
+      "autolesao": 0.2857,
+      "comportamento_alimentar_de_risco": 0.0909,
+      "ideacao_suicida": 0.0833
     },
-    "falsos_negativos": [],
+    "falsos_negativos": [
+      "L3-IDE-01",
+      "L3-IDE-02",
+      "L3-IDE-03",
+      "L3-IDE-04",
+      "L3-IDE-05",
+      "L3-IDE-06",
+      "L3-IDE-07",
+      "L3-IDE-08",
+      "L3-IDE-09",
+      "L3-IDE-10",
+      "L3-IDE-11",
+      "L3-AUT-01",
+      "L3-AUT-02",
+      "L3-AUT-03",
+      "L3-AUT-05",
+      "L3-AUT-06",
+      "L3-ALI-01",
+      "L3-ALI-02",
+      "L3-ALI-03",
+      "L3-ALI-04",
+      "L3-ALI-05",
+      "L3-ALI-06",
+      "L3-ALI-07",
+      "L3-ALI-09",
+      "L3-ALI-10",
+      "L3-ALI-11"
+    ],
     "falsos_positivos": []
   },
   "abstention_metrics": {

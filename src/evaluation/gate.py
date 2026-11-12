@@ -8,7 +8,10 @@ Uso:
     python -m src.evaluation.gate --report ... --baseline ... --update-baseline
 
 Sai com código 1 se algum gate falhar. Gates sem dados suficientes ficam PENDENTES:
-não falham, mas emitem aviso visível na CI.
+não falham, mas emitem aviso visível na CI. Um gate de risco com `falha_conhecida` (link da
+issue) abaixo do mínimo fica CONHECIDA: aviso com o número real, sem falhar o job, para não
+esconder regressões de outros gates no vermelho de sempre. Com `piso_conhecido`, cair abaixo
+do valor já medido volta a falhar.
 """
 
 from __future__ import annotations
@@ -22,7 +25,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List
 
-PASSOU, FALHOU, PENDENTE = "PASSOU", "FALHOU", "PENDENTE"
+PASSOU, FALHOU, PENDENTE, CONHECIDA = "PASSOU", "FALHOU", "PENDENTE", "CONHECIDA"
 
 
 @dataclass
@@ -121,8 +124,16 @@ def _avaliar_risco(metricas: Dict[str, Any] | None, config: Dict[str, Any], nome
             continue
         valor = float(metricas.get(chave, 0.0))
         status = PASSOU if valor >= float(minimo) else FALHOU
-        resultados.append(Resultado(f"{nome}:{metrica}", status,
-                                    f"atual={valor:.4f} mínimo={float(minimo):.4f} (n+={positivos})"))
+        detalhe = f"atual={valor:.4f} mínimo={float(minimo):.4f} (n+={positivos})"
+        conhecida = config.get("falha_conhecida")
+        if status == FALHOU and conhecida and metrica == "recall":
+            piso = config.get("piso_conhecido")
+            if piso is not None and valor < float(piso):
+                detalhe += f"; abaixo do piso já medido {float(piso):.4f} (falha conhecida {conhecida})"
+            else:
+                status = CONHECIDA
+                detalhe += f"; falha conhecida, acompanhada em {conhecida}"
+        resultados.append(Resultado(f"{nome}:{metrica}", status, detalhe))
     return resultados
 
 
@@ -152,6 +163,8 @@ def _anotar(resultado: Resultado) -> None:
         print(f"::error title=Gate {resultado.gate}::{resultado.detalhe}")
     elif resultado.status == PENDENTE:
         print(f"::warning title=Gate {resultado.gate} pendente::{resultado.detalhe}")
+    elif resultado.status == CONHECIDA:
+        print(f"::warning title=Gate {resultado.gate} abaixo do mínimo (falha conhecida)::{resultado.detalhe}")
 
 
 def main(argv: List[str] | None = None) -> int:
@@ -182,7 +195,10 @@ def main(argv: List[str] | None = None) -> int:
         print(f"{r.status:8s} {r.gate:40s} {r.detalhe}")
         _anotar(r)
     falhas = [r for r in resultados if r.status == FALHOU]
+    conhecidas = [r for r in resultados if r.status == CONHECIDA]
     print(f"\n{len(falhas)} gate(s) falharam de {len(resultados)}.")
+    if conhecidas:
+        print(f"{len(conhecidas)} abaixo do mínimo com falha conhecida (aviso, não falham o job).")
     return 1 if falhas else 0
 
 

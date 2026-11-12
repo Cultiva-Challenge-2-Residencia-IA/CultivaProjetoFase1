@@ -20,7 +20,8 @@ env:
   PYTHON_VERSION: "3.11"
   # Garante execução offline: sem Groq e sem Ollama.
   GROQ_API_KEY: ""
-  LLM_PROVIDER: groq
+  LLM_PROVIDER: ollama
+  ALLOW_EXTERNAL_LLM: "false"
 
 jobs:
   lint:

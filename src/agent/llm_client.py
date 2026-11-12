@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Optional, Tuple
 import httpx
 
 from src.config import (
+    ALLOW_EXTERNAL_LLM,
     GROQ_API_KEY,
     GROQ_BASE_URL,
     GROQ_FALLBACK_MODEL,
@@ -42,8 +43,7 @@ Responda ESTRITAMENTE em formato JSON válido com as seguintes chaves:
 
 
 class LocalLLMClient:
-    """Cliente de geração via API gratuita Groq (llama-3.3-70b-versatile / llama-3.1-8b-instant),
-    com suporte opcional a Ollama local e fallback determinístico extrativo."""
+    """Cliente Ollama local, com Groq externa opcional e fallback extrativo."""
 
     def __init__(
         self,
@@ -59,6 +59,7 @@ class LocalLLMClient:
         groq_fallback_model: str = GROQ_FALLBACK_MODEL,
         groq_timeout: float = GROQ_TIMEOUT,
         enable_groq: Optional[bool] = None,
+        allow_external_llm: bool = ALLOW_EXTERNAL_LLM,
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.primary_model = primary_model
@@ -73,9 +74,10 @@ class LocalLLMClient:
         self.groq_fallback_model = groq_fallback_model
         self.groq_timeout = groq_timeout
         self.enable_groq = enable_ollama if enable_groq is None else enable_groq
+        self.allow_external_llm = allow_external_llm
 
     def is_groq_available(self) -> bool:
-        return bool(self.enable_groq and self.groq_api_key)
+        return bool(self.allow_external_llm and self.enable_groq and self.groq_api_key)
 
     def is_ollama_available(self) -> bool:
         if not self.enable_ollama:
@@ -133,6 +135,9 @@ class LocalLLMClient:
                 response = client.post(
                     f"{self.groq_base_url}/chat/completions",
                     headers=headers,
+                    # A pergunta já vem mascarada de _build_user_prompt (RNF05). Os Trechos, a TACO e o
+                    # grafo não passam pela máscara: são texto público, e mascarar anos e faixas
+                    # ("1987-2009", "1500-2000 kcal") corromperia a evidência enviada ao modelo.
                     json=payload,
                 )
                 response.raise_for_status()
@@ -327,9 +332,8 @@ class LocalLLMClient:
         graph_context_str: str = "",
     ) -> Tuple[Dict[str, Any], str]:
         """
-        Gera a síntese estruturada usando preferencialmente a API gratuita Groq
-        (llama-3.3-70b-versatile -> llama-3.1-8b-instant), com fallback opcional para Ollama
-        local (qwen2.5:7b -> qwen2.5:3b) e enriquecimento determinístico.
+        Gera a síntese localmente por padrão; Groq exige opt-in explícito e
+        a síntese extrativa determinística permanece como fallback final.
         """
         extractive = self.synthesize_extractive_fallback(
             query,
@@ -351,7 +355,7 @@ class LocalLLMClient:
             graph_context_str=graph_context_str,
         )
 
-        # 1. Tenta primeiro via API gratuita Groq (quando GROQ_API_KEY estiver configurada)
+        # 1. Tenta Groq somente quando o envio externo foi explicitamente habilitado.
         if groq_ready:
             for model_name in [self.groq_model, self.groq_fallback_model]:
                 if not model_name:

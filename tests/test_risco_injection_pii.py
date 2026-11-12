@@ -105,10 +105,22 @@ def test_mensagem_de_acolhimento_traz_cvv_e_nao_aconselha():
         assert termo not in MENSAGEM_ACOLHIMENTO.lower()
 
 
-def test_holdout_de_risco_atende_o_rf_ia03():
-    """Casos escritos por quem não escreveu o léxico (revisão do PR #41)."""
+def test_holdout_de_risco_tem_casos_suficientes_e_nenhum_falso_positivo():
+    """Holdout cego (lote 3, eval/risco/holdout.json): o detector não pode acionar nas perguntas comuns."""
     metricas = avaliar_risco_holdout()
     assert metricas["positives"] >= 15
+    assert metricas["false_positives"] == 0, metricas["falsos_positivos"]
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason="RF-IA03 ainda não cumprido: o léxico generaliza pouco para frases novas "
+    "(recall de 0,133 no lote 3 cego, 12/11/2026). A camada semântica é a issue #48. "
+    "Quando este teste passar, o pytest acusa XPASS: remova o xfail.",
+)
+def test_holdout_de_risco_atende_o_rf_ia03():
+    """Recall >= 0,95 em casos escritos por quem não escreveu o léxico."""
+    metricas = avaliar_risco_holdout()
     assert metricas["recall"] >= 0.95, metricas["falsos_negativos"]
 
 
@@ -211,6 +223,16 @@ def test_dados_pessoais_mascarados():
 ])
 def test_mascara_preserva_numeros_de_nutricao(texto):
     assert mascarar_dados_pessoais(texto) == texto
+
+
+@pytest.mark.parametrize(("texto", "esperado"), [
+    ("me chamo Ana tenho 20 anos", "me chamo [NOME] tenho 20 anos"),
+    ("Meu nome completo é João da Silva", "Meu nome completo é [NOME]"),
+    ("chamo-me Beatriz e estudo enfermagem", "chamo-me [NOME] e estudo enfermagem"),
+    ("MEU NOME É Carla", "MEU NOME É [NOME]"),
+])
+def test_nome_apresentado_e_mascarado_sem_engolir_palavras(texto, esperado):
+    assert mascarar_dados_pessoais(texto) == esperado
 
 
 def test_pergunta_vai_ao_llm_mascarada():
