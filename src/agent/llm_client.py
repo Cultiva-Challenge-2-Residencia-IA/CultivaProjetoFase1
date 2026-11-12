@@ -17,11 +17,22 @@ from src.config import (
     OLLAMA_TIMEOUT,
 )
 from src.models.schemas import RetrievedChunk
+from src.observabilidade import observacao
 
-SYSTEM_PROMPT_CONSULTANT = """Você é um Consultor Científico de Nutrição Baseado em Evidências.
+_PAPEL_COM_CONTEXTO = """Você é um Consultor Científico de Nutrição Baseado em Evidências.
 Sua função é responder dúvidas gerais de nutrição baseando-se EXCLUSIVAMENTE nos trechos de diretrizes clínicas e estudos científicos fornecidos no contexto.
 
-REGRAS OBRIGATÓRIAS DE CONFORMIDADE LEGAL (Lei Federal nº 8.234/1991 - CFN):
+"""
+
+# Linha de base dos experimentos de ablação (src/evaluation/langfuse_experimento.py):
+# o LLM responde só com o próprio conhecimento, sem Trechos, grafo nem TACO.
+# Não é um modo do produto, que sempre responde a partir das fontes.
+_PAPEL_SEM_CONTEXTO = """Você é um Consultor Científico de Nutrição Baseado em Evidências.
+Sua função é responder dúvidas gerais de nutrição com base no conhecimento científico consolidado (diretrizes clínicas e estudos), em nível populacional.
+
+"""
+
+_REGRAS_E_FORMATO = """REGRAS OBRIGATÓRIAS DE CONFORMIDADE LEGAL (Lei Federal nº 8.234/1991 - CFN):
 1. NUNCA prescreva dietas, cardápios, quantidades em gramas personalizadas ou horários de refeições para o indivíduo.
 2. NUNCA faça diagnóstico clínico ou prescreva posologia individualizada de suplementos.
 3. Apresente apenas o que os estudos clínicos e diretrizes mostram em nível populacional, explicando o mecanismo fisiológico, o grau de evidência (GRADE) e os alimentos ou compostos estudados.
@@ -34,6 +45,9 @@ Responda ESTRITAMENTE em formato JSON válido com as seguintes chaves:
   "food_sources_or_compounds": ["lista de alimentos ou compostos bioativos citados nos trechos"],
   "evidence_grade": "Grau de evidência predominante nas fontes (ex: GRADE_A, GRADE_B, GUIDELINE_CONSENSUS)"
 }"""
+
+SYSTEM_PROMPT_CONSULTANT = _PAPEL_COM_CONTEXTO + _REGRAS_E_FORMATO
+SYSTEM_PROMPT_SEM_CONTEXTO = _PAPEL_SEM_CONTEXTO + _REGRAS_E_FORMATO
 
 
 class LocalLLMClient:
@@ -68,6 +82,9 @@ class LocalLLMClient:
         self.groq_fallback_model = groq_fallback_model
         self.groq_timeout = groq_timeout
         self.enable_groq = enable_ollama if enable_groq is None else enable_groq
+        # JSON devolvido pelo LLM na última síntese, antes da mistura com o texto extrativo
+        # (None quando a síntese foi extrativa). Usado pelos experimentos de avaliação.
+        self.ultima_sintese_llm: Optional[Dict[str, Any]] = None
 
     def is_groq_available(self) -> bool:
         return bool(self.enable_groq and self.groq_api_key)
@@ -105,7 +122,9 @@ class LocalLLMClient:
             "Elabore a resposta em JSON seguindo rigorosamente o esquema solicitado e usando os termos técnicos, cadeias do Grafo Causal e valores da Tabela TACO presentes nas fontes."
         )
 
-    def _call_groq_model(self, model_name: str, user_prompt: str) -> Optional[Dict[str, Any]]:
+    def _call_groq_model(
+        self, model_name: str, user_prompt: str, system_prompt: str = SYSTEM_PROMPT_CONSULTANT
+    ) -> Optional[Dict[str, Any]]:
         if not self.groq_api_key:
             return None
         headers = {
@@ -115,37 +134,57 @@ class LocalLLMClient:
         payload = {
             "model": model_name,
             "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT_CONSULTANT},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
             "response_format": {"type": "json_object"},
             "temperature": 0.1,
         }
-        try:
-            with httpx.Client(timeout=self.groq_timeout) as client:
-                response = client.post(
-                    f"{self.groq_base_url}/chat/completions",
-                    headers=headers,
-                    json=payload,
-                )
-                response.raise_for_status()
-                data = response.json()
-                choices = data.get("choices", [])
-                if not choices:
-                    return None
-                content = choices[0].get("message", {}).get("content", "")
-                parsed = json.loads(content)
-                if isinstance(parsed, dict) and "evidence_summary" in parsed:
-                    return parsed
-        except Exception:
-            return None
+        with observacao(
+            "groq",
+            tipo="generation",
+            model=model_name,
+            input=payload["messages"],
+            model_parameters={"temperature": 0.1, "response_format": "json_object"},
+        ) as obs:
+            try:
+                with httpx.Client(timeout=self.groq_timeout) as client:
+                    response = client.post(
+                        f"{self.groq_base_url}/chat/completions",
+                        headers=headers,
+                        json=payload,
+                    )
+                    response.raise_for_status()
+                    data = response.json()
+                    usage = data.get("usage") or {}
+                    obs.update(
+                        usage_details={
+                            "input": int(usage.get("prompt_tokens") or 0),
+                            "output": int(usage.get("completion_tokens") or 0),
+                        }
+                    )
+                    choices = data.get("choices", [])
+                    if not choices:
+                        obs.update(level="WARNING", status_message="Resposta sem choices")
+                        return None
+                    content = choices[0].get("message", {}).get("content", "")
+                    obs.update(output=content)
+                    parsed = json.loads(content)
+                    if isinstance(parsed, dict) and "evidence_summary" in parsed:
+                        return parsed
+                    obs.update(level="WARNING", status_message="JSON fora do esquema esperado")
+            except Exception as exc:
+                obs.update(level="ERROR", status_message=f"{type(exc).__name__}: {exc}")
+                return None
         return None
 
-    def _call_ollama_model(self, model_name: str, user_prompt: str) -> Optional[Dict[str, Any]]:
+    def _call_ollama_model(
+        self, model_name: str, user_prompt: str, system_prompt: str = SYSTEM_PROMPT_CONSULTANT
+    ) -> Optional[Dict[str, Any]]:
         payload = {
             "model": model_name,
             "messages": [
-                {"role": "system", "content": SYSTEM_PROMPT_CONSULTANT},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
             "format": "json",
@@ -154,17 +193,33 @@ class LocalLLMClient:
                 "temperature": 0.1,
             },
         }
-        try:
-            with httpx.Client(timeout=self.timeout) as client:
-                response = client.post(f"{self.base_url}/api/chat", json=payload)
-                response.raise_for_status()
-                data = response.json()
-                content = data.get("message", {}).get("content", "")
-                parsed = json.loads(content)
-                if isinstance(parsed, dict) and "evidence_summary" in parsed:
-                    return parsed
-        except Exception:
-            return None
+        with observacao(
+            "ollama",
+            tipo="generation",
+            model=model_name,
+            input=payload["messages"],
+            model_parameters={"temperature": 0.1, "format": "json"},
+        ) as obs:
+            try:
+                with httpx.Client(timeout=self.timeout) as client:
+                    response = client.post(f"{self.base_url}/api/chat", json=payload)
+                    response.raise_for_status()
+                    data = response.json()
+                    obs.update(
+                        usage_details={
+                            "input": int(data.get("prompt_eval_count") or 0),
+                            "output": int(data.get("eval_count") or 0),
+                        }
+                    )
+                    content = data.get("message", {}).get("content", "")
+                    obs.update(output=content)
+                    parsed = json.loads(content)
+                    if isinstance(parsed, dict) and "evidence_summary" in parsed:
+                        return parsed
+                    obs.update(level="WARNING", status_message="JSON fora do esquema esperado")
+            except Exception as exc:
+                obs.update(level="ERROR", status_message=f"{type(exc).__name__}: {exc}")
+                return None
         return None
 
     @staticmethod
@@ -282,6 +337,31 @@ class LocalLLMClient:
         }
 
     @staticmethod
+    def _lista_de_textos(valor: Any) -> List[str]:
+        """O LLM às vezes devolve objetos em vez de textos na lista de alimentos; a resposta
+        (ConsultantResponse) exige textos, e um objeto derrubaria a consulta."""
+        if not isinstance(valor, list):
+            return []
+        return [
+            item if isinstance(item, str) else json.dumps(item, ensure_ascii=False)
+            for item in valor
+            if item not in (None, "")
+        ]
+
+    @staticmethod
+    def _normalizar_resposta_llm(llm_result: Dict[str, Any]) -> Dict[str, Any]:
+        """Resposta do LLM no formato da síntese, sem mistura com o texto extrativo."""
+        return {
+            "evidence_summary": str(llm_result.get("evidence_summary") or ""),
+            "physiological_mechanism": str(llm_result.get("physiological_mechanism") or ""),
+            "protocol_findings": str(llm_result.get("protocol_findings") or ""),
+            "food_sources_or_compounds": LocalLLMClient._lista_de_textos(
+                llm_result.get("food_sources_or_compounds")
+            ),
+            "evidence_grade": str(llm_result.get("evidence_grade") or "N/A"),
+        }
+
+    @staticmethod
     def _merge_llm_with_extractive(
         llm_result: Dict[str, Any],
         extractive: Dict[str, Any],
@@ -302,10 +382,8 @@ class LocalLLMClient:
             ).strip(),
             "protocol_findings": llm_protocol,
             "food_sources_or_compounds": (
-                llm_result.get("food_sources_or_compounds")
-                if isinstance(llm_result.get("food_sources_or_compounds"), list)
-                and llm_result.get("food_sources_or_compounds")
-                else extractive["food_sources_or_compounds"]
+                LocalLLMClient._lista_de_textos(llm_result.get("food_sources_or_compounds"))
+                or extractive["food_sources_or_compounds"]
             ),
             "evidence_grade": str(
                 llm_result.get("evidence_grade") or extractive["evidence_grade"]
@@ -324,12 +402,16 @@ class LocalLLMClient:
         (llama-3.3-70b-versatile -> llama-3.1-8b-instant), com fallback opcional para Ollama
         local (qwen2.5:7b -> qwen2.5:3b) e enriquecimento determinístico.
         """
+        self.ultima_sintese_llm = None
         extractive = self.synthesize_extractive_fallback(
             query,
             retrieved_chunks,
             taco_context_str=taco_context_str,
             graph_context_str=graph_context_str,
         )
+        # Sem nenhum contexto só acontece na linha de base "LLM puro" dos experimentos: o prompt
+        # não exige Trechos e não há texto extrativo para misturar à resposta.
+        sem_contexto = not retrieved_chunks and not taco_context_str and not graph_context_str
 
         groq_ready = self.provider in ("groq", "auto") and self.is_groq_available()
         ollama_ready = self.provider in ("ollama", "auto", "groq") and self.is_ollama_available()
@@ -337,35 +419,43 @@ class LocalLLMClient:
         if not groq_ready and not ollama_ready:
             return extractive, "local_extractive_synthesis"
 
-        user_prompt = self._build_user_prompt(
-            query,
-            retrieved_chunks,
-            taco_context_str=taco_context_str,
-            graph_context_str=graph_context_str,
-        )
+        if sem_contexto:
+            user_prompt = (
+                f"PERGUNTA DE CONSULTA NUTRICIONAL:\n{query}\n\n"
+                "Elabore a resposta em JSON seguindo rigorosamente o esquema solicitado."
+            )
+            extra: Dict[str, Any] = {"system_prompt": SYSTEM_PROMPT_SEM_CONTEXTO}
+        else:
+            user_prompt = self._build_user_prompt(
+                query,
+                retrieved_chunks,
+                taco_context_str=taco_context_str,
+                graph_context_str=graph_context_str,
+            )
+            extra = {}
+
+        def finalizar(llm_result: Dict[str, Any]) -> Dict[str, Any]:
+            self.ultima_sintese_llm = llm_result
+            if sem_contexto:
+                return self._normalizar_resposta_llm(llm_result)
+            return self._merge_llm_with_extractive(llm_result, extractive, taco_context_str)
 
         # 1. Tenta primeiro via API gratuita Groq (quando GROQ_API_KEY estiver configurada)
         if groq_ready:
             for model_name in [self.groq_model, self.groq_fallback_model]:
                 if not model_name:
                     continue
-                llm_result = self._call_groq_model(model_name, user_prompt)
+                llm_result = self._call_groq_model(model_name, user_prompt, **extra)
                 if llm_result:
-                    merged = self._merge_llm_with_extractive(
-                        llm_result, extractive, taco_context_str
-                    )
-                    return merged, f"groq:{model_name}"
+                    return finalizar(llm_result), f"groq:{model_name}"
 
         # 2. Fallback para Ollama local caso configurado/disponível
         if ollama_ready:
             for model_name in [self.primary_model, self.fallback_model]:
                 if not model_name:
                     continue
-                llm_result = self._call_ollama_model(model_name, user_prompt)
+                llm_result = self._call_ollama_model(model_name, user_prompt, **extra)
                 if llm_result:
-                    merged = self._merge_llm_with_extractive(
-                        llm_result, extractive, taco_context_str
-                    )
-                    return merged, f"ollama:{model_name}"
+                    return finalizar(llm_result), f"ollama:{model_name}"
 
         return extractive, "local_extractive_synthesis"

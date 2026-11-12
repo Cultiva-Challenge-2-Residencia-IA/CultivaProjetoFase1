@@ -81,3 +81,12 @@ MAX_CHUNKS_PER_DOC = int(os.getenv("MAX_CHUNKS_PER_DOC", "2"))
 MODO_DENSO = os.getenv("MODO_DENSO", "chromadb_pure")
 RERANK_PESO_SOBREPOSICAO = float(os.getenv("RERANK_PESO_SOBREPOSICAO", "0.0"))
 RERANK_BONUS_EVIDENCIA = os.getenv("RERANK_BONUS_EVIDENCIA", "false").strip().lower() in {"1", "true", "sim"}
+
+# Observabilidade (proposta técnica, ainda não documentada na Documentacao-Cultiva).
+# Desligada por padrão: só envia traces ao Langfuse com CULTIVA_LANGFUSE=true e as chaves
+# LANGFUSE_PUBLIC_KEY e LANGFUSE_SECRET_KEY definidas (LANGFUSE_BASE_URL escolhe o servidor).
+LANGFUSE_ATIVO = (
+    os.getenv("CULTIVA_LANGFUSE", "false").strip().lower() in {"1", "true", "sim", "yes"}
+    and bool(os.getenv("LANGFUSE_PUBLIC_KEY", "").strip())
+    and bool(os.getenv("LANGFUSE_SECRET_KEY", "").strip())
+)

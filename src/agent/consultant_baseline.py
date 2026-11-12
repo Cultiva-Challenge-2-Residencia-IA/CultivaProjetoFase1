@@ -6,10 +6,12 @@ from src.agent.llm_client import LocalLLMClient
 from src.config import INCLUDE_PENDING_SOURCES, TOP_K_FINAL
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
+from src.observabilidade import atributos_do_trace, observacao, resumo_trechos
 from src.models.schemas import (
     CausalGraphPath,
     ConsultantResponse,
     DocumentChunk,
+    RetrievedChunk,
     TacoFoodNutrientRecord,
 )
 from src.retrieval.graph_engine import CausalKnowledgeGraphEngine
@@ -32,6 +34,7 @@ class NutritionConsultantBaseline:
         enable_ollama: bool = True,
         enable_taco_tool: bool = True,
         enable_graph_engine: bool = True,
+        enable_rag: bool = True,
     ) -> None:
         self.chunker = ContextualChunker()
         # Base padrão: Trechos do corpus curado (ADR 0002), com o gate de aprovação.
@@ -48,6 +51,8 @@ class NutritionConsultantBaseline:
         self.llm_client = LocalLLMClient(enable_ollama=enable_ollama)
         self.enable_taco_tool = enable_taco_tool
         self.enable_graph_engine = enable_graph_engine
+        # Desligar a busca só faz sentido nos experimentos de ablação (linha de base "LLM puro").
+        self.enable_rag = enable_rag
         self.taco_tool: Optional[TacoDeterministicTool] = (
             TacoDeterministicTool() if enable_taco_tool else None
         )
@@ -56,8 +61,42 @@ class NutritionConsultantBaseline:
         )
 
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:
+        # Com a observabilidade desligada (padrão), os blocos abaixo são no-ops.
+        with atributos_do_trace(trace_name="consulta_nutricao", tags=["nutricao"]), observacao(
+            "consult", input={"query": user_query, "top_k": top_k}
+        ) as raiz:
+            resposta = self._consultar(user_query, top_k)
+            raiz.update(
+                output={
+                    "evidence_summary": resposta.evidence_summary,
+                    "evidence_grade": resposta.evidence_grade,
+                    "citations": resposta.citations,
+                },
+                metadata={
+                    "model_used": resposta.model_used,
+                    "retrieval_mode": resposta.retrieval_mode,
+                    "guardrail_triggered": resposta.guardrail_triggered,
+                    "intent_category": str(resposta.intent_category),
+                },
+            )
+            raiz.score_trace(
+                name="guardrail_lei_8234",
+                value=1.0 if resposta.guardrail_triggered else 0.0,
+                data_type="NUMERIC",
+            )
+            return resposta
+
+    def _consultar(self, user_query: str, top_k: int) -> ConsultantResponse:
         # 1. Input Guardrail & Reframing (Conformidade com Lei nº 8.234/91)
-        assessment = self.guardrail.assess_and_reframe(user_query)
+        with observacao("guardrail_entrada", tipo="guardrail", input={"query": user_query}) as obs:
+            assessment = self.guardrail.assess_and_reframe(user_query)
+            obs.update(
+                output={
+                    "restrito_lei_8234": assessment.is_restricted_by_law_8234,
+                    "intent_category": str(assessment.intent_category),
+                    "query_reformulada": assessment.reframed_population_query,
+                }
+            )
         effective_query = assessment.reframed_population_query
 
         # 2. Recuperação Híbrida (BM25 + Vetorial Local + RRF + Reranker + Diversificação)
@@ -66,42 +105,67 @@ class NutritionConsultantBaseline:
             if assessment.is_restricted_by_law_8234
             else effective_query
         )
-        retrieved = self.retriever.retrieve(search_query, top_k=top_k)
+        retrieved: List[RetrievedChunk] = []
+        if self.enable_rag:
+            with observacao("retrieve", tipo="retriever", input={"query": search_query, "top_k": top_k}) as obs:
+                retrieved = self.retriever.retrieve(search_query, top_k=top_k)
+                obs.update(output=resumo_trechos(retrieved))
 
         # 3. Ferramenta Determinística da Tabela TACO (Passo 2)
         taco_records: List[TacoFoodNutrientRecord] = []
         taco_context_str = ""
         if self.taco_tool is not None:
-            taco_records, taco_context_str = self.taco_tool.auto_query_from_question(
-                search_query
-            )
+            with observacao("taco", tipo="tool", input={"query": search_query}) as obs:
+                taco_records, taco_context_str = self.taco_tool.auto_query_from_question(
+                    search_query
+                )
+                obs.update(output=[rec.description for rec in taco_records])
 
         # 4. Travessia no Grafo de Conhecimento de 4 Camadas (Passo 3 - NetworkX)
         graph_paths: List[CausalGraphPath] = []
         graph_context_str = ""
         if self.graph_engine is not None:
-            graph_paths, graph_context_str = self.graph_engine.traverse_for_query(
-                search_query, max_paths=4
-            )
+            with observacao("grafo_causal", tipo="tool", input={"query": search_query}) as obs:
+                graph_paths, graph_context_str = self.graph_engine.traverse_for_query(
+                    search_query, max_paths=4
+                )
+                obs.update(output=graph_context_str)
 
         # 5. Síntese Baseada em Evidências (Modelo Local Ollama / Extrativo + Grafo + TACO)
-        synthesis, model_used = self.llm_client.generate_structured_synthesis(
-            query=effective_query,
-            retrieved_chunks=retrieved,
-            taco_context_str=taco_context_str,
-            graph_context_str=graph_context_str,
-        )
+        with observacao("sintese", input={"query": effective_query}) as obs:
+            synthesis, model_used = self.llm_client.generate_structured_synthesis(
+                query=effective_query,
+                retrieved_chunks=retrieved,
+                taco_context_str=taco_context_str,
+                graph_context_str=graph_context_str,
+            )
+            obs.update(output=synthesis, metadata={"model_used": model_used})
+            # Scores do trace para filtrar e montar painéis no Langfuse.
+            obs.score_trace(name="modelo_usado", value=model_used, data_type="CATEGORICAL")
+            obs.score_trace(
+                name="sintese_extrativa",
+                value=1.0 if model_used == "local_extractive_synthesis" else 0.0,
+                data_type="NUMERIC",
+            )
 
         # 6. Output Guardrail (Sanitização contra linguagem prescritiva individual)
-        evidence_summary = self.guardrail.sanitize_output_text(
-            str(synthesis.get("evidence_summary", ""))
-        )
-        physiological_mechanism = self.guardrail.sanitize_output_text(
-            str(synthesis.get("physiological_mechanism", ""))
-        )
-        protocol_findings = self.guardrail.sanitize_output_text(
-            str(synthesis.get("protocol_findings", ""))
-        )
+        with observacao("guardrail_saida", tipo="guardrail") as obs:
+            brutos = {
+                campo: str(synthesis.get(campo, ""))
+                for campo in ("evidence_summary", "physiological_mechanism", "protocol_findings")
+            }
+            sanitizados = {
+                campo: self.guardrail.sanitize_output_text(texto)
+                for campo, texto in brutos.items()
+            }
+            alterados = [campo for campo in brutos if brutos[campo] != sanitizados[campo]]
+            obs.update(output={"campos_alterados": alterados})
+            obs.score_trace(
+                name="guardrail_saida_alterou", value=1.0 if alterados else 0.0, data_type="NUMERIC"
+            )
+        evidence_summary = sanitizados["evidence_summary"]
+        physiological_mechanism = sanitizados["physiological_mechanism"]
+        protocol_findings = sanitizados["protocol_findings"]
 
         citations: List[str] = []
         seen_docs = set()
