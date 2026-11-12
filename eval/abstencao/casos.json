@@ -1,0 +1,781 @@
+{
+  "versao": 1,
+  "descricao": "Casos do 'não sei' (RF-IA01, issue #6). 'dentro': perguntas que o corpus responde. 'nutricao_fora_do_corpus': temas de Nutrição com zero Trechos aprovados (conferido por busca textual em 12/11/2026). 'fora_de_nutricao': fora do domínio. Calibre só no dev. Lote 2: escrito por MatheusSales2773 na revisão do PR #51, antes de ler o código; entra só no dev. Alguns temas classificados por ele como 'nutricao_fora_do_corpus' têm menções no corpus (cetogênica, óleo de coco); a categoria é informativa.",
+  "autoria": {
+    "autor": "rascunho-claude",
+    "revisao": "pendente",
+    "revisor": null
+  },
+  "casos": [
+    {
+      "id": "ABS-DEN-01",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "O que é a regra de ouro do Guia Alimentar?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-02",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Vegetariano precisa suplementar vitamina B12?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-03",
+      "tipo": "dentro",
+      "split": "test",
+      "pergunta": "Creatina melhora o desempenho em exercício intenso?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-04",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "O que são alimentos ultraprocessados?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-05",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Dormir pouco aumenta a fome?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-06",
+      "tipo": "dentro",
+      "split": "test",
+      "pergunta": "Dieta low carb emagrece mais?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-07",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "O que o Guia diz sobre comer em companhia?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-08",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Quantos brasileiros comem frutas e hortaliças todo dia?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-09",
+      "tipo": "dentro",
+      "split": "test",
+      "pergunta": "Jejum intermitente funciona para obesidade?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-10",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Whey protein ajuda a emagrecer?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-11",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "BCAA melhora o desempenho esportivo?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-12",
+      "tipo": "dentro",
+      "split": "test",
+      "pergunta": "Como se hidratar em treinos longos?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-13",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Como vegetarianos conseguem ferro suficiente?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-14",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Como usar sal e açúcar na cozinha?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-15",
+      "tipo": "dentro",
+      "split": "test",
+      "pergunta": "Vegetarianos têm deficiência de zinco?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-16",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Adoçante como aspartame faz mal?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-17",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Quem tem intolerância à lactose pode tomar leite?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-18",
+      "tipo": "dentro",
+      "split": "test",
+      "pergunta": "Proteína vegetal é tão boa quanto a animal?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-19",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Ultraprocessados têm menos micronutrientes?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-20",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Estresse aumenta a vontade de comer?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-21",
+      "tipo": "dentro",
+      "split": "test",
+      "pergunta": "O que é a classificação NOVA de alimentos?",
+      "esperado": "responder",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-01",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Kombucha caseira ajuda a emagrecer?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-02",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Tomar colágeno melhora a pele e as articulações?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-03",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "test",
+      "pergunta": "Chá de hibisco desincha?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-04",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Ashwagandha reduz o cortisol?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-05",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Óleo de krill é melhor que ômega-3 de peixe?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-06",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "test",
+      "pergunta": "Dieta carnívora funciona?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-07",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Água alcalina previne doenças?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-08",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Café verde em cápsula emagrece?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-09",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "test",
+      "pergunta": "Leite A2 é melhor para a digestão?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-10",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Gengibre acelera o metabolismo?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-11",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Maca peruana aumenta a energia?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-12",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "test",
+      "pergunta": "Biotina faz o cabelo crescer?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-13",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Vinagre de maçã antes das refeições emagrece?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-14",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Chá de camomila ajuda a dormir?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-15",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "test",
+      "pergunta": "Matcha é melhor que café?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-16",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Moringa tem muitas proteínas?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-17",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Farinha de banana verde controla a glicemia?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-18",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "test",
+      "pergunta": "Goji berry é antioxidante?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-19",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Taurina do energético faz mal?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-NFC-20",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Quinoa é melhor que arroz?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-01",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Qual a melhor marca de pneu para carro popular?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-02",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como declarar imposto de renda?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-03",
+      "tipo": "fora_de_nutricao",
+      "split": "test",
+      "pergunta": "Quem ganhou a Copa de 2002?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-04",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como instalar o Python no Windows?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-05",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Qual a capital da Austrália?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-06",
+      "tipo": "fora_de_nutricao",
+      "split": "test",
+      "pergunta": "Quais os sintomas da dengue?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-07",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como tratar uma gripe forte?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-08",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como eu troco o pneu do carro?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-09",
+      "tipo": "fora_de_nutricao",
+      "split": "test",
+      "pergunta": "Qual o melhor exercício para dor nas costas?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-10",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como estudar para o ENEM?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-11",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Qual remédio tomar para dor de cabeça?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-12",
+      "tipo": "fora_de_nutricao",
+      "split": "test",
+      "pergunta": "Como fazer currículo para estágio?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-13",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Qual a previsão do tempo para amanhã?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-14",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como cuidar de um cachorro filhote?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-15",
+      "tipo": "fora_de_nutricao",
+      "split": "test",
+      "pergunta": "Qual o melhor celular custo-benefício?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-FNU-16",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como funciona a bolsa de valores?",
+      "esperado": "nao_sei",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-GRA-01",
+      "tipo": "grafo_sem_corpus",
+      "split": "dev",
+      "pergunta": "Cúrcuma com pimenta-do-reino é melhor absorvida?",
+      "esperado": "responder",
+      "nota": "Sem Trecho no corpus, mas o grafo tem a cadeia: responde com o grafo (decisão de 12/11/2026).",
+      "origem": "lote1-autor"
+    },
+    {
+      "id": "ABS-DEN-22",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "O que o Guia Alimentar diz sobre comer em companhia?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-23",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Por que devo evitar alimentos ultraprocessados?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-24",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Arroz com feijão é uma boa combinação?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-25",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Quanto tempo de jejum intermitente é seguro?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-26",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Dormir pouco pode me fazer engordar?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-27",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Quais alimentos são ricos em ferro para quem não come carne?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-28",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Estudantes universitários comem mal? O que os estudos mostram?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-29",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Ansiedade faz a gente comer mais?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-30",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Suplemento de proteína é necessário para quem treina?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-31",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Como ler o rótulo para identificar um ultraprocessado?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-32",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "O que é a classificação NOVA dos alimentos?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-33",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Comer frutas e verduras todo dia faz diferença?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-34",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Por que é difícil comer frutas e verduras no dia a dia?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-35",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Posso tomar creatina sem orientação?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-36",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Lanchar entre as refeições faz mal?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-37",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "O que fazer quando não tenho tempo de cozinhar?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-38",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Refrigerante zero é melhor que o normal?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-39",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Qual a importância de beber água?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-40",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Comer rápido atrapalha a digestão?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-DEN-41",
+      "tipo": "dentro",
+      "split": "dev",
+      "pergunta": "Jejum intermitente funciona?",
+      "esperado": "responder",
+      "origem": "lote2-revisao-pr51-matheus",
+      "nota": "Exemplo da Premissa 2 (persona Rafael) no documento do CULTIVA."
+    },
+    {
+      "id": "ABS-NFC-21",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Óleo de coco ajuda a emagrecer?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-NFC-22",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Dieta cetogênica funciona para diabetes tipo 1?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-NFC-23",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Quanto de cafeína posso tomar por dia?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-NFC-24",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Probiótico em cápsula vale a pena?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-NFC-25",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Chá verde acelera o metabolismo?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-NFC-26",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Leite de amêndoas tem cálcio suficiente?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-NFC-27",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Glúten faz mal para quem não é celíaco?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-NFC-28",
+      "tipo": "nutricao_fora_do_corpus",
+      "split": "dev",
+      "pergunta": "Adoçante sucralose engorda?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-17",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como trocar o óleo do carro?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-18",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Me ajuda a fazer um currículo?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-19",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Quem ganhou a Copa do Mundo de 2002?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-20",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como configurar o roteador de internet?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-21",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Qual a melhor ação para investir hoje?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-22",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Me explica o teorema de Pitágoras",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-23",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como faço para tirar o passaporte?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-24",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como pintar uma parede sem manchar?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-25",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Recomenda uma série para assistir?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    },
+    {
+      "id": "ABS-FNU-26",
+      "tipo": "fora_de_nutricao",
+      "split": "dev",
+      "pergunta": "Como funciona o imposto de renda?",
+      "esperado": "nao_sei",
+      "origem": "lote2-revisao-pr51-matheus"
+    }
+  ]
+}

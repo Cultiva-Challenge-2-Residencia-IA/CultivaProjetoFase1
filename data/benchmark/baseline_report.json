@@ -675,5 +675,30 @@
       "L3-ALI-11"
     ],
     "falsos_positivos": []
+  },
+  "abstention_metrics": {
+    "limiar_cosseno": 0.4,
+    "casos": 96,
+    "nao_sei_fora_de_nutricao": 0.8846,
+    "nao_sei_nutricao_fora_do_corpus": 0.0357,
+    "respostas_esperadas": 1.0,
+    "por_split": {
+      "dev": {
+        "nao_sei_fora_de_nutricao": 0.8571,
+        "nao_sei_nutricao_fora_do_corpus": 0.0,
+        "respostas_esperadas": 1.0
+      },
+      "test": {
+        "nao_sei_fora_de_nutricao": 1.0,
+        "nao_sei_nutricao_fora_do_corpus": 0.1667,
+        "respostas_esperadas": 1.0
+      }
+    },
+    "recusas_indevidas": [],
+    "fora_de_nutricao_respondidos": [
+      "ABS-FNU-10",
+      "ABS-FNU-17",
+      "ABS-FNU-18"
+    ]
   }
 }

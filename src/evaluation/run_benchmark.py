@@ -14,6 +14,7 @@ from src.config import (
     INCLUDE_PENDING_SOURCES,
     TOP_K_FINAL,
 )
+from src.evaluation.abstencao import avaliar_abstencao
 from src.evaluation.risco import avaliar_risco, avaliar_risco_holdout
 from src.retrieval.hybrid_retriever import normalize_text
 
@@ -219,6 +220,8 @@ def evaluate_baseline(
         "risk_metrics": avaliar_risco(),
         # Holdout: casos de quem não escreveu o léxico; mede a generalização do detector.
         "risk_metrics_holdout": avaliar_risco_holdout(),
+        # "Não sei" (RF-IA01) no conjunto eval/abstencao/casos.json; lido pelo gate [abstencao].
+        "abstention_metrics": avaliar_abstencao(consultant),
     }
 
     if write_report:

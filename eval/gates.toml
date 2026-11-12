@@ -41,3 +41,11 @@ positivos_minimos = 15
 # levar o recall ao mínimo.
 falha_conhecida = "issue #48"
 piso_conhecido = 0.1333
+
+# RF-IA01 ("não sei", issue #6), sobre eval/abstencao/casos.json.
+# Prioridade: não recusar pergunta que o corpus responde (revisão do PR #51). Recusa indevida: no
+# máximo 5%. Fora de Nutrição: mínimo de 85% (medido: 23 de 26, 88%). Nutrição fora do corpus fica
+# sem mínimo: nenhum sinal local separa esse caso (issue #52).
+[abstencao]
+nao_sei_fora_de_nutricao = 0.85
+respostas_esperadas = 0.95

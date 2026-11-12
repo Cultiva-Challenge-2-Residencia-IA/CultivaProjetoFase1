@@ -70,10 +70,28 @@ def avaliar(
             Resultado(f"minimo:{metrica}", status, f"atual={atual[metrica]:.4f} mínimo={float(minimo):.4f}")
         )
 
+    if "abstencao" in config:
+        resultados.extend(_avaliar_abstencao(relatorio.get("abstention_metrics"), config["abstencao"]))
+
     # RF-IA03: o mesmo gate no conjunto de desenvolvimento e no holdout, com mínimos próprios.
     for secao, chave in [("risco", "risk_metrics"), ("risco_holdout", "risk_metrics_holdout")]:
         if secao in config:
             resultados.extend(_avaliar_risco(relatorio.get(chave), config[secao], secao))
+    return resultados
+
+
+def _avaliar_abstencao(metricas: Dict[str, Any] | None, minimos: Dict[str, Any]) -> List[Resultado]:
+    """RF-IA01: mínimos sobre o bloco `abstention_metrics` do relatório."""
+    if not metricas:
+        return [Resultado("abstencao", PENDENTE, "relatório sem 'abstention_metrics'")]
+    resultados = []
+    for metrica, minimo in minimos.items():
+        valor = metricas.get(metrica)
+        if valor is None:
+            resultados.append(Resultado(f"abstencao:{metrica}", FALHOU, "métrica ausente no relatório"))
+            continue
+        status = PASSOU if float(valor) >= float(minimo) else FALHOU
+        resultados.append(Resultado(f"abstencao:{metrica}", status, f"atual={float(valor):.4f} mínimo={float(minimo):.4f}"))
     return resultados
 
 
@@ -127,7 +145,7 @@ def extrair_baseline(relatorio: Dict[str, Any]) -> Dict[str, Any]:
         "top_k": relatorio.get("top_k"),
         "overall_metrics": relatorio["overall_metrics"],
     }
-    for chave in ("risk_metrics", "risk_metrics_holdout"):
+    for chave in ("risk_metrics", "risk_metrics_holdout", "abstention_metrics"):
         if chave in relatorio:
             baseline[chave] = relatorio[chave]
     return baseline
