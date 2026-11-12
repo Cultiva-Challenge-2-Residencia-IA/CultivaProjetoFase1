@@ -225,6 +225,16 @@ def test_mascara_preserva_numeros_de_nutricao(texto):
     assert mascarar_dados_pessoais(texto) == texto
 
 
+@pytest.mark.parametrize(("texto", "esperado"), [
+    ("me chamo Ana tenho 20 anos", "me chamo [NOME] tenho 20 anos"),
+    ("Meu nome completo é João da Silva", "Meu nome completo é [NOME]"),
+    ("chamo-me Beatriz e estudo enfermagem", "chamo-me [NOME] e estudo enfermagem"),
+    ("MEU NOME É Carla", "MEU NOME É [NOME]"),
+])
+def test_nome_apresentado_e_mascarado_sem_engolir_palavras(texto, esperado):
+    assert mascarar_dados_pessoais(texto) == esperado
+
+
 def test_pergunta_vai_ao_llm_mascarada():
     prompt = LocalLLMClient(enable_ollama=False)._build_user_prompt(
         "Meu nome é João Souza e meu e-mail é joao@exemplo.com. Feijão tem ferro?", [])
