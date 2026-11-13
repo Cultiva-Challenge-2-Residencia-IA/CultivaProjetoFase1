@@ -3,6 +3,7 @@
 import hashlib
 import json
 import sqlite3
+from functools import lru_cache
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
@@ -11,6 +12,7 @@ from uuid import uuid4
 import yaml
 
 from src.config import CORPUS_MANIFEST_PATH, CORPUS_RAG_DIR, TRACEABILITY_DB_PATH
+from src.guardrails.pii import mascarar_dados_pessoais
 from src.models.schemas import DocumentChunk, UsedPassage
 
 
@@ -56,16 +58,29 @@ def corpus_fingerprint(
     return _canonical_digest(payload)
 
 
+def corpus_version_do_indice(chunks: Iterable[DocumentChunk]) -> str:
+    """`corpus_version` do índice; no modo legado (data/raw, sem JSONL), o hash dos ids dos chunks."""
+    chunks = list(chunks)
+    try:
+        return corpus_fingerprint(chunks)
+    except (ValueError, OSError):
+        return "legado:" + _canonical_digest(sorted(chunk.chunk_id for chunk in chunks))
+
+
+@lru_cache(maxsize=4)
+def _fontes_do_manifesto(manifest_path: str, mtime_ns: int) -> dict[str, dict]:
+    """Fontes do manifesto por id, lidas uma vez por versão do arquivo (a chave inclui o mtime)."""
+    manifest = yaml.safe_load(Path(manifest_path).read_text(encoding="utf-8"))
+    return {source["id"]: source for source in manifest["sources"]}
+
+
 def passages_fingerprint(
     chunks: Iterable[DocumentChunk], manifest_path: Path = CORPUS_MANIFEST_PATH
 ) -> tuple[str, list[UsedPassage]]:
     chunks = list(chunks)
     source_ids = {chunk.doc_id for chunk in chunks}
-    manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
-    refs = sorted(
-        (source for source in manifest["sources"] if source["id"] in source_ids),
-        key=lambda source: source["id"],
-    )
+    fontes = _fontes_do_manifesto(str(manifest_path), manifest_path.stat().st_mtime_ns)
+    refs = [fontes[source_id] for source_id in sorted(source_ids) if source_id in fontes]
     return _canonical_digest(refs), [
         UsedPassage(
             id=c.chunk_id,
@@ -112,6 +127,9 @@ def register_incorrect_feedback(response_id: str, detail: str | None, db_path: P
     with sqlite3.connect(db_path) as connection:
         cursor = connection.execute(
             "UPDATE response_trace SET feedback = ? WHERE response_id = ?",
-            (json.dumps({"tipo": "resposta_incorreta", "detalhe": detail}, ensure_ascii=False), response_id),
+            # RNF05: o comentário é texto livre e pode ter dados pessoais; grava mascarado.
+            (json.dumps({"tipo": "resposta_incorreta",
+                         "detalhe": mascarar_dados_pessoais(detail) if detail else None}, ensure_ascii=False),
+             response_id),
         )
         return cursor.rowcount == 1

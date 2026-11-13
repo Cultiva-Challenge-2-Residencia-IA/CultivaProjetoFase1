@@ -7,7 +7,7 @@ from src.agent.consultant_baseline import NutritionConsultantBaseline
 from src.rag.corpus_loader import inventario_de_fontes
 from src.config import TOP_K_FINAL
 from src.models.schemas import ConsultantResponse
-from src.agent.traceability import register_incorrect_feedback
+from src.agent.traceability import register_incorrect_feedback, save_response_trace
 
 app = FastAPI(
     title="Consultor Científico de Nutrição Baseado em Evidências (Fase 1 - Baseline RAG Híbrido)",
@@ -71,7 +71,10 @@ def health_check() -> dict:
 @app.post("/consult", response_model=ConsultantResponse)
 def consult_endpoint(request: ConsultRequest) -> ConsultantResponse:
     consultant = get_consultant()
-    return consultant.consult(request.query, top_k=request.top_k)
+    response = consultant.consult(request.query, top_k=request.top_k)
+    # Rastreabilidade (#11): grava o registro aqui, onde o botão de "resposta incorreta" o usa.
+    save_response_trace(response)
+    return response
 
 
 @app.post("/feedback/incorrect")
