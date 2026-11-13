@@ -45,7 +45,7 @@ Copiar este arquivo por pergunta/tema e busca. Um registro por execução/base; 
 
 **Indicadores do fluxo (descrever denominador e etapa):** duplicidade = __%; rendimento da triagem = __%; textos integrais obtidos/procurados = __%; candidatos aprovados/avaliados = __%. Não comparar percentuais entre temas/bases sem registrar diferenças de estratégia e elegibilidade.
 
-**Motivos de exclusão e n:** fora de escopo __; população __; desenho/desfecho __; versão/vigência __; duplicata __; sem texto integral __; procedência __; conflito de interesse __; licença __; qualidade/conversão __; outro __.
+**Motivos de exclusão e n:** fora de escopo __; população __; desenho/desfecho __; versão/vigência __; duplicata __; sem texto integral __; procedência __; conflito de interesse __; qualidade/conversão __; outro __. Licença não é motivo de exclusão; registrar a condição real ou `pendente` no registro individual.
 
 ## Decisões por registro candidato
 
@@ -55,7 +55,7 @@ Copiar este arquivo por pergunta/tema e busca. Um registro por execução/base; 
 
 ## Avaliação e limitações
 
-- Checklist de procedência/vigência/escopo/COI/licença:
+- Checklist de procedência/vigência/escopo/COI; licença real ou `pendente` (metadado, não critério eliminatório):
 - AGREE II (se diretriz): versão, avaliadores, domínios, divergências; não inventar corte não aprovado:
 - GRADE (se reportado): desfecho, categoria, trecho/página e fonte; distinguir certeza por desfecho da qualidade global da publicação:
 - Revisão humana da conversão e correspondência com original:
