@@ -6,3 +6,5 @@ __pycache__/
 .DS_Store
 data/processed/*.pkl
 data/vector_store/
+# Registro de rastreabilidade das respostas (#11), gerado pela API
+data/traceability.sqlite3*
