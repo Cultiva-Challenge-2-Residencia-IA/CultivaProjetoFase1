@@ -4,6 +4,9 @@ Léxico e regras (`lexico.yaml`), locais, determinísticos e sem dependência ex
 milissegundos (RNF29) e não falham por rede ou modelo. O léxico fica fora do código para ser
 revisado sem mexer na lógica.
 
+É o piso: no consultor, quando ele não aciona, a camada LLM local de `classificador_llm.py` é
+consultada (issue #48, eval/risco/llm_resultados.md).
+
 Camadas semânticas avaliadas e descartadas em 12/11/2026 (eval/risco/README.md): similaridade por
 embeddings (alarmes falsos em perguntas comuns, sem ganho de recall) e NLI zero-shot multilíngue.
 """
