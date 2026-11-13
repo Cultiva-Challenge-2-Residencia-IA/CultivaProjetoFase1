@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentação do projeto (requisitos e arquitetura)
+    url: https://github.com/Cultiva-Challenge-2-Residencia-IA/Documentacao-Cultiva
+    about: Mudanças em requisitos (RN, RF-A, RF-IA, RNF) e na arquitetura são discutidas no repositório de documentação.

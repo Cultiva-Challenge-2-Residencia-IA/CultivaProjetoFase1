@@ -1,0 +1,41 @@
+name: Decisão
+description: Uma escolha que a equipe precisa tomar (abordagem, provedor, escopo), com opções e recomendação.
+title: "Decidir "
+labels: [decisao]
+body:
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto
+      description: O que motivou a decisão e o que está bloqueado até ela ser tomada. Traga evidência (números, testes, links).
+    validations:
+      required: true
+  - type: textarea
+    id: opcoes
+    attributes:
+      label: Opções
+      description: Cada opção com prós, contras e custo. Inclua o padrão de mercado quando houver.
+      value: |
+        | Opção | Prós | Contras |
+        |---|---|---|
+        |  |  |  |
+    validations:
+      required: true
+  - type: textarea
+    id: recomendacao
+    attributes:
+      label: Recomendação
+      description: Qual opção você sugere e por quê. Deixe claro o que é requisito aprovado e o que é proposta técnica ou hipótese.
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de aceite
+      description: Em geral, a decisão registrada (no ADR, na documentação ou na própria issue) e o que muda depois dela.
+      value: |
+        - [ ] Decisão registrada, com o motivo
+        - [ ] 
+  - type: textarea
+    id: referencias
+    attributes:
+      label: Referências
+      description: Requisitos, issues, PRs e ADRs relacionados.
