@@ -8,7 +8,10 @@ Uso:
     python -m src.evaluation.gate --report ... --baseline ... --update-baseline
 
 Sai com código 1 se algum gate falhar. Gates sem dados suficientes ficam PENDENTES:
-não falham, mas emitem aviso visível na CI.
+não falham, mas emitem aviso visível na CI. Um gate de risco com `falha_conhecida` (link da
+issue) abaixo do mínimo fica CONHECIDA: aviso com o número real, sem falhar o job, para não
+esconder regressões de outros gates no vermelho de sempre. Com `piso_conhecido`, cair abaixo
+do valor já medido volta a falhar.
 """
 
 from __future__ import annotations
@@ -22,7 +25,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List
 
-PASSOU, FALHOU, PENDENTE = "PASSOU", "FALHOU", "PENDENTE"
+PASSOU, FALHOU, PENDENTE, CONHECIDA = "PASSOU", "FALHOU", "PENDENTE", "CONHECIDA"
 
 
 @dataclass
@@ -67,39 +70,70 @@ def avaliar(
             Resultado(f"minimo:{metrica}", status, f"atual={atual[metrica]:.4f} mínimo={float(minimo):.4f}")
         )
 
-    if "risco" in config:
-        resultados.extend(_avaliar_risco(relatorio.get("risk_metrics"), config["risco"]))
+    if "abstencao" in config:
+        resultados.extend(_avaliar_abstencao(relatorio.get("abstention_metrics"), config["abstencao"]))
+
+    # RF-IA03: o mesmo gate no conjunto de desenvolvimento e no holdout, com mínimos próprios.
+    for secao, chave in [("risco", "risk_metrics"), ("risco_holdout", "risk_metrics_holdout")]:
+        if secao in config:
+            resultados.extend(_avaliar_risco(relatorio.get(chave), config[secao], secao))
     return resultados
 
 
-def _avaliar_risco(metricas: Dict[str, Any] | None, config: Dict[str, Any]) -> List[Resultado]:
+def _avaliar_abstencao(metricas: Dict[str, Any] | None, minimos: Dict[str, Any]) -> List[Resultado]:
+    """RF-IA01: mínimos sobre o bloco `abstention_metrics` do relatório."""
+    if not metricas:
+        return [Resultado("abstencao", PENDENTE, "relatório sem 'abstention_metrics'")]
+    resultados = []
+    for metrica, minimo in minimos.items():
+        valor = metricas.get(metrica)
+        if valor is None:
+            resultados.append(Resultado(f"abstencao:{metrica}", FALHOU, "métrica ausente no relatório"))
+            continue
+        status = PASSOU if float(valor) >= float(minimo) else FALHOU
+        resultados.append(Resultado(f"abstencao:{metrica}", status, f"atual={float(valor):.4f} mínimo={float(minimo):.4f}"))
+    return resultados
+
+
+def _avaliar_risco(metricas: Dict[str, Any] | None, config: Dict[str, Any], nome: str = "risco") -> List[Resultado]:
     """RF-IA03/RF-IA04. Fica pendente até existir um conjunto de risco com casos suficientes."""
     positivos_minimos = int(config.get("positivos_minimos", 0))
     if not metricas:
         return [
             Resultado(
-                "risco",
+                nome,
                 PENDENTE,
-                "relatório sem 'risk_metrics': ainda não há detector de risco nem conjunto de casos",
+                "relatório sem as métricas de risco: falta o detector ou o conjunto de casos",
             )
         ]
     positivos = int(metricas.get("positives", 0))
     if positivos < positivos_minimos:
         return [
             Resultado(
-                "risco",
+                nome,
                 PENDENTE,
                 f"{positivos} casos de risco; o gate exige pelo menos {positivos_minimos}",
             )
         ]
     resultados = []
-    for nome, chave, minimo in [
-        ("risco:recall", "recall", float(config["recall_minimo"])),
-        ("risco:precisao", "precision", float(config["precisao_minima"])),
+    for metrica, chave, minimo in [
+        ("recall", "recall", config.get("recall_minimo")),
+        ("precisao", "precision", config.get("precisao_minima")),
     ]:
+        if minimo is None:
+            continue
         valor = float(metricas.get(chave, 0.0))
-        status = PASSOU if valor >= minimo else FALHOU
-        resultados.append(Resultado(nome, status, f"atual={valor:.4f} mínimo={minimo:.4f} (n+={positivos})"))
+        status = PASSOU if valor >= float(minimo) else FALHOU
+        detalhe = f"atual={valor:.4f} mínimo={float(minimo):.4f} (n+={positivos})"
+        conhecida = config.get("falha_conhecida")
+        if status == FALHOU and conhecida and metrica == "recall":
+            piso = config.get("piso_conhecido")
+            if piso is not None and valor < float(piso):
+                detalhe += f"; abaixo do piso já medido {float(piso):.4f} (falha conhecida {conhecida})"
+            else:
+                status = CONHECIDA
+                detalhe += f"; falha conhecida, acompanhada em {conhecida}"
+        resultados.append(Resultado(f"{nome}:{metrica}", status, detalhe))
     return resultados
 
 
@@ -111,8 +145,9 @@ def extrair_baseline(relatorio: Dict[str, Any]) -> Dict[str, Any]:
         "top_k": relatorio.get("top_k"),
         "overall_metrics": relatorio["overall_metrics"],
     }
-    if "risk_metrics" in relatorio:
-        baseline["risk_metrics"] = relatorio["risk_metrics"]
+    for chave in ("risk_metrics", "risk_metrics_holdout", "abstention_metrics"):
+        if chave in relatorio:
+            baseline[chave] = relatorio[chave]
     return baseline
 
 
@@ -128,6 +163,8 @@ def _anotar(resultado: Resultado) -> None:
         print(f"::error title=Gate {resultado.gate}::{resultado.detalhe}")
     elif resultado.status == PENDENTE:
         print(f"::warning title=Gate {resultado.gate} pendente::{resultado.detalhe}")
+    elif resultado.status == CONHECIDA:
+        print(f"::warning title=Gate {resultado.gate} abaixo do mínimo (falha conhecida)::{resultado.detalhe}")
 
 
 def main(argv: List[str] | None = None) -> int:
@@ -158,7 +195,10 @@ def main(argv: List[str] | None = None) -> int:
         print(f"{r.status:8s} {r.gate:40s} {r.detalhe}")
         _anotar(r)
     falhas = [r for r in resultados if r.status == FALHOU]
+    conhecidas = [r for r in resultados if r.status == CONHECIDA]
     print(f"\n{len(falhas)} gate(s) falharam de {len(resultados)}.")
+    if conhecidas:
+        print(f"{len(conhecidas)} abaixo do mínimo com falha conhecida (aviso, não falham o job).")
     return 1 if falhas else 0
 
 

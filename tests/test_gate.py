@@ -1,6 +1,6 @@
 import json
 
-from src.evaluation.gate import FALHOU, PASSOU, PENDENTE, avaliar, main
+from src.evaluation.gate import CONHECIDA, FALHOU, PASSOU, PENDENTE, avaliar, main
 
 CONFIG = {
     "regressao": {"tolerancia": 0.05, "metricas": ["mean_doc_recall_at_k", "legal_guardrail_accuracy"]},
@@ -86,3 +86,46 @@ def test_update_baseline_grava_so_metricas(tmp_path):
     gravado = json.loads(destino.read_text(encoding="utf-8"))
     assert "question_results" not in gravado
     assert gravado["overall_metrics"]["mean_doc_recall_at_k"] == 0.90
+
+
+def test_holdout_de_risco_tem_gate_proprio_so_de_recall():
+    config = {**CONFIG, "risco_holdout": {"recall_minimo": 0.95, "positivos_minimos": 15}}
+    relatorio = _relatorio(risco={"recall": 1.0, "precision": 0.9, "positives": 60})
+    relatorio["risk_metrics_holdout"] = {"recall": 0.80, "precision": 1.0, "positives": 19}
+    status = _status(avaliar(relatorio, BASELINE, config))
+    assert status["risco:recall"] == PASSOU
+    assert status["risco_holdout:recall"] == FALHOU
+    assert "risco_holdout:precisao" not in status
+
+
+
+CONFIG_CONHECIDA = {**CONFIG, "risco_holdout": {"recall_minimo": 0.95, "positivos_minimos": 15,
+                                                "falha_conhecida": "issue #48", "piso_conhecido": 0.1333}}
+
+
+def _com_holdout(recall):
+    relatorio = _relatorio(risco={"recall": 1.0, "precision": 0.9, "positives": 60})
+    relatorio["risk_metrics_holdout"] = {"recall": recall, "precision": 1.0, "positives": 30}
+    return relatorio
+
+
+def test_falha_conhecida_vira_aviso_e_nao_falha_o_job(tmp_path):
+    assert _status(avaliar(_com_holdout(0.1333), BASELINE, CONFIG_CONHECIDA))["risco_holdout:recall"] == CONHECIDA
+    rel, base, cfg = tmp_path / "r.json", tmp_path / "b.json", tmp_path / "g.toml"
+    rel.write_text(json.dumps(_com_holdout(0.1333)), encoding="utf-8")
+    base.write_text(json.dumps(BASELINE), encoding="utf-8")
+    cfg.write_text(
+        "[regressao]\ntolerancia = 0.05\nmetricas = [\"mean_doc_recall_at_k\"]\n"
+        "[risco_holdout]\nrecall_minimo = 0.95\npositivos_minimos = 15\n"
+        "falha_conhecida = \"issue #48\"\npiso_conhecido = 0.1333\n",
+        encoding="utf-8",
+    )
+    assert main(["--report", str(rel), "--baseline", str(base), "--config", str(cfg)]) == 0
+
+
+def test_falha_conhecida_abaixo_do_piso_volta_a_falhar():
+    assert _status(avaliar(_com_holdout(0.10), BASELINE, CONFIG_CONHECIDA))["risco_holdout:recall"] == FALHOU
+
+
+def test_falha_conhecida_que_passa_vira_passou():
+    assert _status(avaliar(_com_holdout(0.96), BASELINE, CONFIG_CONHECIDA))["risco_holdout:recall"] == PASSOU

@@ -8,7 +8,7 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
 
 - O CULTIVA é um app de apoio educativo/organizacional (18+) em Nutrição, Saúde Física e Estudos. A IA **não** diagnostica nem prescreve.
 - Requisitos (RN, RF-A, RF-IA, RNF) e a arquitetura vêm do repositório [Documentacao-Cultiva](https://github.com/Cultiva-Challenge-2-Residencia-IA/Documentacao-Cultiva). A arquitetura é uma **proposta provisória, ainda não validada**. Classifique as afirmações em: requisito aprovado / documentado, aprovação não confirmada / proposta técnica / hipótese.
-- Etapa atual: **aba Nutrição**, com o corpus e o RAG implementados (entrega da semana 2, PRs #30 a #33). Saúde Física, Estudos, o detector de risco (issue #9) e a infraestrutura de produção ainda não existem; não os implemente sem pedido explícito.
+- Etapa atual: **aba Nutrição**, com o corpus e o RAG implementados (entrega da semana 2, PRs #30 a #33). Saúde Física, Estudos e a infraestrutura de produção ainda não existem; não os implemente sem pedido explícito. O portão de risco (issue #9) existe só para texto; o léxico e a mensagem de acolhimento foram revisados pela equipe, sem profissional de saúde.
 - Escreva em português do Brasil, como o restante do repositório.
 
 ## Estado real do código
@@ -89,16 +89,19 @@ Consequências práticas:
 
 ## Arquitetura do RAG de Nutrição
 
+**Portões antes da busca** (`consultant_baseline.py`, issue #9): primeiro o detector de risco (`src/guardrails/risco/`, RF-IA03), por léxico e regras locais (`lexico.yaml`, inclusive regras com número para jejum, calorias e quantidade de remédios). Ele responde com a mensagem fixa de acolhimento (CVV 188) sem busca nem LLM; depois o detector de prompt injection (`src/guardrails/injection/`, RNF04), com recusa fixa. O que vai ao LLM leva a pergunta com dados pessoais mascarados (`src/guardrails/pii/`, RNF05) e os Trechos delimitados como dado.
+
 1. **Carga e gate** (`src/rag/corpus_loader.py`): lê os Trechos JSONL e só aceita fontes `aprovado` (hoje 21 de 22; a SBAN está `pendente`). Com `CULTIVA_INCLUIR_PENDENTES=true`, aceita também as pendentes. A licença não entra no gate.
 2. **Contrato** (`src/rag/contrato.py`, ADR 0002): `trecho_para_chunk` adiciona o cabeçalho contextual e deriva o nível de evidência do `source_type`.
 3. **Busca híbrida** (`HybridRetriever`): BM25 com sinônimos clínicos e busca densa no ChromaDB (embeddings `paraphrase-multilingual-MiniLM-L12-v2`, 384d, locais via fastembed), fundidas por RRF, com no máximo 2 Trechos por documento. O reranker (sobreposição de termos e bônus por nível de evidência) e a mistura densa com TF-IDF/LSA existem, mas estão desligados por padrão desde a #35 (`MODO_DENSO`, `RERANK_PESO_SOBREPOSICAO`, `RERANK_BONUS_EVIDENCIA` em `src/config.py`): na escala original o reranker valia cerca de 10 vezes a fusão e decidia o ranking sozinho. Para comparar configurações, use `uv run python -m src.evaluation.ablacao_ranking` (v1 e v2 no mesmo índice); antes de comparar, julgue os Trechos que aparecerem como não julgados.
 4. **Banco vetorial** (`vector_store.py`): ChromaDB persistente em `data/vector_store/chroma_db`, índice HNSW por cosseno com `ef_construction` e `ef_search` em 200 (`HNSW_EF_*` em `src/config.py`). O nome da coleção leva uma impressão digital do modelo, da configuração do HNSW e dos Trechos.
-5. **Resposta** (`consultant_baseline.py`): guardrail de entrada (Lei 8.234/1991), síntese a partir dos Trechos, TACO e grafo causal, guardrail de saída e citações com fonte, página e link.
+5. **"Não sei"** (`src/rag/abstencao.py`, issue #6, RF-IA01): só quando a pergunta está fora do domínio, isto é, o cosseno do Trecho mais próximo no ChromaDB fica abaixo de `ABSTENCAO_LIMIAR_COSSENO` **e** a pergunta não tem termo do vocabulário de Nutrição (`TERMOS_NUTRICAO`). A resposta é fixa, sem LLM (`abstencao=True`); com resultado do grafo ou da TACO, responde só com eles. O cosseno sozinho recusava perguntas que o corpus responde ("Jejum intermitente funciona?"). Temas de Nutrição ausentes do corpus continuam sendo respondidos (`eval/abstencao/README.md`, issue #52).
+6. **Resposta** (`consultant_baseline.py`): guardrail de entrada (Lei 8.234/1991), síntese a partir dos Trechos, TACO e grafo causal, guardrail de saída e citações com fonte, página e link.
 
 ## CI (`.github/workflows/ci.yml`)
 
 - Obrigatórios: ruff, pytest e integridade do corpus (`verify_corpus.py`).
-- Informativo: "Gates de avaliação". Uma execução do benchmark só constrói o índice e é descartada; duas execuções seguintes no mesmo índice precisam gerar relatórios idênticos (determinismo). Depois, `gate.py` compara as métricas com o baseline da branch de destino (regressão máxima de 5 p.p., guardrail legal em 100%). O gate de risco fica `PENDENTE` até existir o detector (issue #9).
+- Informativo: "Gates de avaliação". Uma execução do benchmark só constrói o índice e é descartada; duas execuções seguintes no mesmo índice precisam gerar relatórios idênticos (determinismo). Depois, `gate.py` compara as métricas com o baseline da branch de destino (regressão máxima de 5 p.p., guardrail legal em 100%). O gate de risco exige recall ≥ 0,95 no conjunto de desenvolvimento (`eval/risco/casos.json`, também com precisão ≥ 0,60) e no holdout (`eval/risco/holdout.json`), que é escrito por quem não escreveu o léxico; veja `eval/risco/README.md`. O holdout atual (lote 3, cego) tem recall de 0,133: o RF-IA03 **não** está cumprido, o gate `risco_holdout:recall` sai como falha conhecida (aviso com o número real; falha se cair abaixo de 0,1333) e o teste de recall no holdout é `xfail` estrito até a issue #48. Não amplie o léxico a partir do holdout. O gate `[abstencao]` usa o `abstention_metrics` (`eval/abstencao/casos.json`): "não sei" em pelo menos 85% das perguntas fora de Nutrição e no máximo 5% de recusa indevida.
 
 Consequências práticas do RAG:
 
