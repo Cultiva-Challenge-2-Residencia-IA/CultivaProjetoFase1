@@ -39,5 +39,5 @@ Se não muda nada disso, escreva "Sem efeito nas respostas".
 - [ ] Pode mudar respostas: benchmark rodado duas vezes com relatórios idênticos, e `gate.py` sem falhas novas
 - [ ] Métricas mudaram de propósito: `eval/baselines/benchmark_offline.json` atualizado, com a justificativa acima
 - [ ] Ajustes feitos só no `dev`; o `test` e os holdouts (`eval/risco/holdout.json`) não orientaram a mudança
-- [ ] Documentação atualizada (`CLAUDE.md`, `AGENTS.md`, READMEs ou `docs/`), se o comportamento mudou
+- [ ] `AGENTS.md` e `CLAUDE.md` conferidos e atualizados se o PR muda comportamento, arquitetura, comandos, fluxo ou decisões; READMEs e `docs/` também, se for o caso
 - [ ] Sem dados pessoais reais, segredos ou endereços de infraestrutura no código, nos testes ou nos casos de avaliação

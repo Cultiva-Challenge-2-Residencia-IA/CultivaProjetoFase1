@@ -1,5 +1,7 @@
 # Orientações para trabalhar no CULTIVA
 
+> **Mantenha este arquivo e o `CLAUDE.md` atualizados.** Eles são a referência de agentes e pessoas sobre o estado do projeto. Quem muda comportamento, arquitetura, comandos, fluxo de trabalho ou uma decisão da equipe atualiza os dois **no mesmo PR**. Antes de concluir uma tarefa, confira se algo que eles afirmam ficou desatualizado (issues citadas, números, módulos, flags, decisões) e corrija. Informação velha aqui é pior do que nenhuma, porque leva a decisões erradas.
+
 - Leia `README.md`, `CONTRIBUTING.md`, `corpus/README.md` e `corpus/manifest.yaml` antes de alterar o projeto. O `docs/contexto-projeto.md` (03/11/2026) tem o histórico, mas está desatualizado em relação ao corpus e ao código (veja "Inconsistência conhecida" no `CLAUDE.md`). Consulte os documentos originais vinculados no contexto para regras e requisitos; informe limitações de acesso sem presumir conteúdo.
 - Inspecione `git status` e os arquivos envolvidos. Preserve alterações locais e limite o diff ao pedido; não reverta, mova nem sobrescreva trabalho existente sem necessidade autorizada.
 - O CULTIVA é um projeto da Residência em Inteligência Artificial para jovens adultos e estudantes (18+), com Nutrição, Saúde Física e Estudos. A IA oferece apoio educativo e organizacional, sem diagnóstico, prescrição ou substituição de profissionais.
@@ -23,7 +25,8 @@
 - Mantenha `corpus/manifest.yaml` como catálogo único das fontes, com a estrutura existente `version` e `sources`. Reutilize `id`, `source`, `license` e `version`; registre também `approval_status` e os caminhos dos arquivos conforme o contexto. Não crie um catálogo paralelo `sources.yaml`.
 - Toda fonte precisa manter origem verificável, licença, versão e status de revisão. Metadados ausentes ficam explicitamente pendentes; não suponha licença nem cadastre fontes fictícias.
 - A conversão para Markdown não aprova uma fonte. Confira texto, tabelas, unidades e referências contra o original; uso técnico exige revisão concluída e `approval_status: aprovado` (RN04, RN16, RN17, RF-IA01).
-- Licenças: a equipe registrou em 06/11/2026 um aceite de risco para o uso acadêmico e sem fins lucrativos (ver `corpus/README.md`). Por isso a licença **não é critério de aprovação** nem bloqueia o uso técnico. Isso não autoriza supor licença: continue registrando a licença real ou `pendente`, e não estenda o aceite a uso comercial, vitrine paga (RN12) ou publicação do corpus sem nova decisão. Atenção: o repositório é público e contém os PDFs originais, então a publicação do corpus ainda precisa de uma decisão explícita da equipe.
+- Licenças: a equipe registrou em 06/11/2026 um aceite de risco para o uso acadêmico e sem fins lucrativos (ver `corpus/README.md`). Por isso a licença **não é critério de aprovação** nem bloqueia o uso técnico. Isso não autoriza supor licença: continue registrando a licença real ou `pendente`, e não estenda o aceite a uso comercial, vitrine paga (RN12) ou uso fora deste projeto sem nova decisão.
+- Publicação do corpus (decisão de 12/11/2026): o repositório continua **público com os PDFs originais**, os Markdown e os Trechos, dentro do mesmo aceite de risco. Se um titular pedir, o arquivo e os derivados saem do repositório (`corpus/README.md`).
 - Separe o corpus científico de dados pessoais: perfis, registros de hábitos/saúde, conversas, fotos, áudios e PDFs enviados por usuários não entram no corpus, no manifesto ou em seus derivados. O núcleo integrado de registros do produto não elimina essa separação.
 
 ## Provedor de LLM e dados pessoais (ADR 0003)
@@ -42,5 +45,6 @@
 
 - Em alterações documentais, confira links, caminhos, consistência com as fontes e o diff completo, incluindo arquivos novos; execute `git diff --check`.
 - Ao alterar código, rode `uv run ruff check .` e `uv run pytest -q`. Ao alterar o corpus, rode `corpus/scripts/verify_corpus.py`. Quando a mudança puder afetar a recuperação ou as respostas, rode o benchmark v1 duas vezes (os relatórios precisam ser idênticos), o benchmark v2 e o `gate.py` (comandos no `CLAUDE.md`), e registre as métricas, inclusive as que pioraram.
-- Abra issues e PRs com os modelos de `.github/` e siga o fluxo do `CONTRIBUTING.md` (Conventional Commits em português, `Closes #N` ou `Refs #N`, revisão por outra pessoa, squash).
+- Abra issues e PRs com os modelos de `.github/` e siga o fluxo do `CONTRIBUTING.md` (Conventional Commits em português, `Closes #N` ou `Refs #N`, revisão por outra pessoa).
+- Ao concluir, confira se `AGENTS.md` e `CLAUDE.md` continuam corretos e atualize-os no mesmo PR quando a mudança os afetar.
 - Ao concluir, informe arquivos alterados, verificações realizadas e pendências; mantenha decisões em aberto identificadas como tal.

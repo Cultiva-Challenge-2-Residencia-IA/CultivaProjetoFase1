@@ -31,7 +31,7 @@ O LLM padrão é o Ollama local (ADR 0003, `docs/adrs/0003-provedor-llm-e-dados-
 4. **Pull request com o modelo do repositório.** Use `Closes #N` quando o PR fecha a issue e `Refs #N` quando fecha só uma parte, dizendo o que falta.
 5. **CI.** Ruff, pytest e integridade do corpus são obrigatórios. O job "Gates de avaliação" é informativo, mas uma falha nova nele precisa de explicação no PR.
 6. **Revisão.** Peça revisão de pelo menos uma pessoa que não escreveu o código. Quem revisa pode pedir mudanças; responda a cada ponto no próprio PR.
-7. **Merge com squash,** para a `main` ficar com um commit por PR e com o título no padrão.
+7. **Documentação junto com o código.** Se o PR muda comportamento, arquitetura, comandos, fluxo ou uma decisão da equipe, atualize `AGENTS.md` e `CLAUDE.md` no mesmo PR. Eles orientam pessoas e agentes de IA, e ficam enganosos quando desatualizados.
 
 ## Regras por área
 
@@ -40,7 +40,7 @@ O LLM padrão é o Ollama local (ADR 0003, `docs/adrs/0003-provedor-llm-e-dados-
 - Siga "Como incluir outro documento" e "Aprovação" em [`corpus/README.md`](corpus/README.md). Converter não é aprovar.
 - **Não edite os `.md` convertidos à mão.** Correções vão para `corpus/scripts/config/` ou `corpus/scripts/ajustes/`, seguidas de nova conversão.
 - **Mudou o manifesto, o `prepare_rag.py` ou o `rag.yaml`?** Regenere os Trechos no mesmo PR. Senão, o `verify_corpus.py` falha.
-- Registre a licença real de cada fonte, ou `pendente`. Ela não bloqueia a aprovação (aceite de risco de 06/11/2026), mas o aceite não vale para uso comercial nem para publicar o corpus.
+- Registre a licença real de cada fonte, ou `pendente`. Ela não bloqueia a aprovação (aceite de risco de 06/11/2026), mas o aceite não vale para uso comercial nem para uso fora deste projeto. O repositório é público com os PDFs originais por decisão da equipe (12/11/2026); se um titular pedir, o arquivo e os derivados saem.
 
 ### Recuperação, respostas e guardrails
 

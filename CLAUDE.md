@@ -4,6 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Regras do projeto
 
+> **Mantenha este arquivo e o `AGENTS.md` atualizados.** Ao mudar comportamento, arquitetura, comandos, fluxo de trabalho ou uma decisão da equipe, atualize os dois no mesmo PR; antes de concluir uma tarefa, confira se algo que eles afirmam ficou desatualizado (issues, números, módulos, flags, decisões) e corrija.
+
 As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqui. Leia-o junto com [CONTRIBUTING.md](CONTRIBUTING.md) (fluxo de issue, branch, commit, PR e revisão) e [corpus/README.md](corpus/README.md) antes de alterar o repositório. Em resumo:
 
 - O CULTIVA é um app de apoio educativo/organizacional (18+) em Nutrição, Saúde Física e Estudos. A IA **não** diagnostica nem prescreve.
