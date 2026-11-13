@@ -116,7 +116,7 @@ Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licen
 
 **Registrada em 06/11/2026, a pedido de Felipe de Jesus Rodrigues (Grupo 12).**
 
-**Decisão.** O repositório mantém os PDFs originais, os Markdown e os Trechos de todas as fontes do corpus, inclusive as de licença ausente, ambígua ou em conflito, e a equipe **assume o risco** de fazê-lo.
+**Decisão.** O repositório mantém os PDFs originais, os Markdown e os Trechos de todas as fontes do corpus, inclusive as de licença ausente, ambígua ou em conflito, e a equipe **assume o risco** de fazê-lo. Em 12/11/2026, a equipe decidiu também manter o repositório **público** com esses arquivos, dentro do mesmo aceite.
 
 **Justificativa.** O CULTIVA é um **projeto de aprendizado** da Residência em Inteligência Artificial, **sem fins lucrativos**, sem cobrança e sem exploração comercial. As fontes foram obtidas de acesso gratuito, e o uso é educacional: apoiar a prática de um RAG com citação de fonte. As licenças não comerciais (CC BY-NC, CC BY-NC-SA e a permissão da SVB) são compatíveis com esse uso enquanto ele não for comercial.
 
@@ -138,7 +138,7 @@ Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licen
 - Os derivados do Guia e do Fascículo (CC BY-NC-SA 4.0) permanecem sob a mesma licença.
 - O aceite de risco não aprova nenhuma fonte por si só: a aprovação é outra decisão (veja "Aprovação das fontes"). Martins et al. e Souza e Backes foram aprovadas em `nutricao/relatorios/revisao-issue-8.md`; outras 19 fontes, em `nutricao/relatorios/revisao-aprovacao-corpus.md`. A SBAN segue `pendente`.
 
-**Quando reavaliar.** Antes de qualquer cobrança ou monetização, de ativar a vitrine paga de profissionais (RN12), de abrir o aplicativo a usuários externos em produção ou de publicar o corpus. Também se algum titular se manifestar. Alternativas já identificadas: a ABESO tem versão em inglês sob CC BY 4.0 (DOI 10.1186/s13098-023-01037-6), e é possível pedir autorização de reprodução à ABESO, à SBAN e à revista do Brisotto.
+**Quando reavaliar.** Antes de qualquer cobrança ou monetização, de ativar a vitrine paga de profissionais (RN12), de abrir o aplicativo a usuários externos em produção ou de distribuir o corpus fora deste repositório. Também se algum titular se manifestar. Alternativas já identificadas: a ABESO tem versão em inglês sob CC BY 4.0 (DOI 10.1186/s13098-023-01037-6), e é possível pedir autorização de reprodução à ABESO, à SBAN e à revista do Brisotto.
 
 ## Aprovação das fontes
 

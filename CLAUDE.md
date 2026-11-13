@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Regras do projeto
 
-As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqui. Leia-o junto com [docs/contexto-projeto.md](docs/contexto-projeto.md) e [corpus/README.md](corpus/README.md) antes de alterar o repositório. Em resumo:
+> **Mantenha este arquivo e o `AGENTS.md` atualizados.** Ao mudar comportamento, arquitetura, comandos, fluxo de trabalho ou uma decisão da equipe, atualize os dois no mesmo PR; antes de concluir uma tarefa, confira se algo que eles afirmam ficou desatualizado (issues, números, módulos, flags, decisões) e corrija.
+
+As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqui. Leia-o junto com [CONTRIBUTING.md](CONTRIBUTING.md) (fluxo de issue, branch, commit, PR e revisão) e [corpus/README.md](corpus/README.md) antes de alterar o repositório. Em resumo:
 
 - O CULTIVA é um app de apoio educativo/organizacional (18+) em Nutrição, Saúde Física e Estudos. A IA **não** diagnostica nem prescreve.
 - Requisitos (RN, RF-A, RF-IA, RNF) e a arquitetura vêm do repositório [Documentacao-Cultiva](https://github.com/Cultiva-Challenge-2-Residencia-IA/Documentacao-Cultiva). A arquitetura é uma **proposta provisória, ainda não validada**. Classifique as afirmações em: requisito aprovado / documentado, aprovação não confirmada / proposta técnica / hipótese.
@@ -17,12 +19,16 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
 - **Aplicação Python** (Python 3.11+, `uv`, `pyproject.toml`):
   - `src/rag/`: contrato do ADR 0002 (`contrato.py`) e `corpus_loader.py`, que carrega os Trechos e aplica o gate de aprovação;
   - `src/retrieval/`: `hybrid_retriever.py`, `vector_store.py` (ChromaDB), `taco_tool.py` e `graph_engine.py`;
-  - `src/agent/`: `consultant_baseline.py` (orquestra busca, síntese e guardrails), `llm_client.py` (Groq ou Ollama; sem LLM, síntese extrativa) e `guardrails.py`;
-  - `src/evaluation/`: `run_benchmark.py` e `gate.py`;
+  - `src/agent/`: `consultant_baseline.py` (orquestra busca, síntese e guardrails), `llm_client.py` (Ollama local por padrão; Groq só com liberação explícita; sem LLM, síntese extrativa; ADR 0003) e `guardrails.py` (guardrail legal da Lei 8.234/1991);
+  - `src/guardrails/`: `risco/` (detector de risco por léxico, `lexico.yaml`, e mensagem de acolhimento), `injection/` (prompt injection e delimitação dos Trechos como dado) e `pii/` (máscara de dados pessoais); `prescricao/` e `tom/` reexportam o guardrail legal;
+  - `src/rag/abstencao.py`: o "não sei" fora do domínio (issue #6);
+  - `src/evaluation/`: `run_benchmark.py` (v1, com `risk_metrics`, `risk_metrics_holdout` e `abstention_metrics`), `benchmark_v2.py`, `risco.py`, `abstencao.py`, `ablacao_ranking.py` e `gate.py`;
   - `src/api.py` (FastAPI e CLI) e `src/demo_entrega.py` (demonstração da entrega);
   - `src/config.py`: caminhos e parâmetros, quase todos sobrescrevíveis por variável de ambiente.
-- `src/agents/nutricao/`, `src/rag/{chunking,reranker,retriever,verificador}/` e `src/guardrails/*/` são fachadas que reexportam ou complementam os módulos acima. `src/agents/{estudos,fisica,sincronizador}/`, `src/api/` e `src/broker/` ainda contêm apenas `.gitkeep`.
+- `src/agents/nutricao/` e `src/rag/{chunking,reranker,retriever,verificador}/` são fachadas que reexportam ou complementam os módulos acima. `src/agents/{estudos,fisica,sincronizador}/`, `src/api/` e `src/broker/` ainda contêm apenas `.gitkeep`.
 - **Testes** em `tests/` (pytest, inclusive o contrato do Trecho contra o JSON Schema) e **lint** com ruff.
+- **Decisões de arquitetura** em `docs/adrs/`: 0001 (RAG híbrido, TACO e grafo), 0002 (contrato entre corpus e retriever) e 0003 (provedor de LLM e dados pessoais).
+- **Modelos de issue e de PR** em `.github/` (tarefa, bug, fonte para o corpus e decisão).
 - **Avaliação:** perguntas em `data/benchmark/eval_questions.json`, relatório em `data/benchmark/baseline_report.json`, baseline do gate em `eval/baselines/benchmark_offline.json` e limites em `eval/gates.toml`. O benchmark v2 (issue #13) fica em `eval/golden/v2/` (golden set com Trecho e página esperados, `dev` e `test`) e `src/evaluation/benchmark_v2.py`, com relatório em `data/benchmark/benchmark_v2_report.json`. Ele ainda não é gate do CI: o gate continua no v1. `eval/golden/dev` e `eval/golden/test` são cópias das 16 perguntas do v1.
 
 ## Comandos (na raiz do repositório)
@@ -96,7 +102,7 @@ Consequências práticas:
 3. **Busca híbrida** (`HybridRetriever`): BM25 com sinônimos clínicos e busca densa no ChromaDB (embeddings `paraphrase-multilingual-MiniLM-L12-v2`, 384d, locais via fastembed), fundidas por RRF, com no máximo 2 Trechos por documento. O reranker (sobreposição de termos e bônus por nível de evidência) e a mistura densa com TF-IDF/LSA existem, mas estão desligados por padrão desde a #35 (`MODO_DENSO`, `RERANK_PESO_SOBREPOSICAO`, `RERANK_BONUS_EVIDENCIA` em `src/config.py`): na escala original o reranker valia cerca de 10 vezes a fusão e decidia o ranking sozinho. Para comparar configurações, use `uv run python -m src.evaluation.ablacao_ranking` (v1 e v2 no mesmo índice); antes de comparar, julgue os Trechos que aparecerem como não julgados.
 4. **Banco vetorial** (`vector_store.py`): ChromaDB persistente em `data/vector_store/chroma_db`, índice HNSW por cosseno com `ef_construction` e `ef_search` em 200 (`HNSW_EF_*` em `src/config.py`). O nome da coleção leva uma impressão digital do modelo, da configuração do HNSW e dos Trechos.
 5. **"Não sei"** (`src/rag/abstencao.py`, issue #6, RF-IA01): só quando a pergunta está fora do domínio, isto é, o cosseno do Trecho mais próximo no ChromaDB fica abaixo de `ABSTENCAO_LIMIAR_COSSENO` **e** a pergunta não tem termo do vocabulário de Nutrição (`TERMOS_NUTRICAO`). A resposta é fixa, sem LLM (`abstencao=True`); com resultado do grafo ou da TACO, responde só com eles. O cosseno sozinho recusava perguntas que o corpus responde ("Jejum intermitente funciona?"). Temas de Nutrição ausentes do corpus continuam sendo respondidos (`eval/abstencao/README.md`, issue #52).
-6. **Resposta** (`consultant_baseline.py`): guardrail de entrada (Lei 8.234/1991), síntese a partir dos Trechos, TACO e grafo causal, guardrail de saída e citações com fonte, página e link.
+6. **Resposta** (`consultant_baseline.py`): guardrail de entrada (Lei 8.234/1991), síntese a partir dos Trechos, TACO e grafo causal, guardrail de saída e citações com fonte, página e link. A síntese usa o Ollama local por padrão (`LLM_PROVIDER=ollama`); a Groq exige `LLM_PROVIDER=groq` **e** `ALLOW_EXTERNAL_LLM=true` e não deve receber dados pessoais reais (ADR 0003). Sem LLM disponível, a síntese é extrativa e determinística, como no CI.
 
 ## CI (`.github/workflows/ci.yml`)
 

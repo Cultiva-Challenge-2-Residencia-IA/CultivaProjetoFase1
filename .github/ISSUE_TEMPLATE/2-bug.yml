@@ -1,0 +1,45 @@
+name: Bug
+description: Algo funciona diferente do esperado (código, CI, corpus ou resposta do consultor).
+labels: [bug]
+body:
+  - type: textarea
+    id: aconteceu
+    attributes:
+      label: O que acontece
+      description: Comportamento observado, com a mensagem de erro ou a resposta recebida.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduzir
+    attributes:
+      label: Como reproduzir
+      description: Comando, pergunta enviada ao consultor ou passos. Não cole dados pessoais reais.
+      placeholder: |
+        uv run python -m src.api "Jejum intermitente funciona?"
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: O que era esperado
+      description: E, se houver, a fonte ou o requisito que define esse comportamento.
+    validations:
+      required: true
+  - type: input
+    id: versao
+    attributes:
+      label: Versão
+      description: Branch ou commit, e se a resposta veio com LLM (Groq ou Ollama) ou da síntese extrativa local.
+      placeholder: main @ 7eb677d, síntese extrativa
+  - type: dropdown
+    id: gravidade
+    attributes:
+      label: Gravidade
+      description: Respostas que prescrevem, diagnosticam ou deixam passar sinal de risco são sempre críticas (RN01, RN02, RF-IA03).
+      options:
+        - Crítica (segurança do usuário, prescrição ou risco não detectado)
+        - Alta (resposta errada ou sem fonte)
+        - Média (funciona com contorno)
+        - Baixa (cosmético)
+    validations:
+      required: true
