@@ -128,6 +128,10 @@ class ConsultantResponse(BaseModel):
     # Fluxo de risco (RF-IA03): mensagem fixa de acolhimento, sem busca e sem LLM.
     risk_triggered: bool = False
     risk_categories: List[str] = Field(default_factory=list)
+    # Camada que acionou o risco ("lexico" ou "llm") e situação da camada LLM nesta pergunta:
+    # None (desligada), "ok" (consultada) ou "falhou" (Ollama fora ou tempo limite; valeu o léxico).
+    risk_layer: Optional[str] = None
+    risk_llm_status: Optional[str] = None
     # Tentativa de prompt injection na pergunta (RNF04): mensagem fixa, sem busca e sem LLM.
     prompt_injection_detected: bool = False
     # "Não sei" (RF-IA01): sem evidência no corpus, resposta fixa sem LLM.

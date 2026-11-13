@@ -3,10 +3,18 @@ from typing import List, Optional
 
 from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE, LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
-from src.config import ABSTENCAO_LIMIAR_COSSENO, INCLUDE_PENDING_SOURCES, TOP_K_FINAL
+from src.config import (
+    ABSTENCAO_LIMIAR_COSSENO,
+    INCLUDE_PENDING_SOURCES,
+    OLLAMA_BASE_URL,
+    RISCO_LLM_MODELO,
+    RISCO_LLM_TIMEOUT,
+    TOP_K_FINAL,
+)
 from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
+from src.guardrails.risco.classificador_llm import ClassificadorRiscoLLM
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
 from src.models.schemas import (
@@ -35,6 +43,7 @@ class NutritionConsultantBaseline:
         enable_ollama: bool = True,
         enable_taco_tool: bool = True,
         enable_graph_engine: bool = True,
+        risco_llm: Optional[ClassificadorRiscoLLM] = None,
     ) -> None:
         self.chunker = ContextualChunker()
         # Base padrão: Trechos do corpus curado (ADR 0002), com o gate de aprovação.
@@ -57,6 +66,15 @@ class NutritionConsultantBaseline:
         self.graph_engine: Optional[CausalKnowledgeGraphEngine] = (
             CausalKnowledgeGraphEngine() if enable_graph_engine else None
         )
+        # Camada semântica do risco (issue #48): só com Ollama habilitado e modelo configurado.
+        if risco_llm is None and enable_ollama and RISCO_LLM_MODELO:
+            risco_llm = ClassificadorRiscoLLM(RISCO_LLM_MODELO, base_url=OLLAMA_BASE_URL,
+                                              timeout=RISCO_LLM_TIMEOUT)
+        self.risco_llm = risco_llm
+        if self.risco_llm is not None:
+            # Carrega o modelo na memória já na inicialização, para a primeira pergunta caber no RNF29.
+            ClassificadorRiscoLLM(self.risco_llm.modelo, base_url=self.risco_llm.base_url,
+                                  timeout=60.0, modo=self.risco_llm.modo).classificar("Olá")
 
     def _resposta_fixa(self, user_query: str, mensagem: str, **campos) -> ConsultantResponse:
         """Resposta sem LLM (risco, prompt injection e "não sei")."""
@@ -73,18 +91,32 @@ class NutritionConsultantBaseline:
 
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:
         # 0. Risco antes de tudo (RF-IA03, RNF29): interrompe o fluxo com mensagem fixa.
+        # O léxico é o piso; o LLM local só é consultado quando ele não aciona (issue #48).
         risco = detectar_risco(user_query)
-        if risco.risco:
+        categorias, camada, status_llm = risco.categorias, "lexico", None
+        risco_llm = getattr(self, "risco_llm", None)
+        if not risco.risco and risco_llm is not None:
+            resultado = risco_llm.classificar(user_query)
+            status_llm = "falhou" if resultado is None else "ok"
+            if resultado is not None and resultado.risco:
+                categorias, camada = resultado.categorias, "llm"
+        if categorias:
             return self._resposta_fixa(
                 user_query,
                 MENSAGEM_ACOLHIMENTO,
                 guardrail_triggered=False,
                 intent_category="RISK_SUPPORT",
                 risk_triggered=True,
-                risk_categories=risco.categorias,
+                risk_categories=categorias,
+                risk_layer=camada,
+                risk_llm_status=status_llm,
                 retrieval_mode="RISK_FIXED_MESSAGE",
             )
+        resposta = self._consultar_sem_risco(user_query, top_k)
+        resposta.risk_llm_status = status_llm
+        return resposta
 
+    def _consultar_sem_risco(self, user_query: str, top_k: int) -> ConsultantResponse:
         # 0.1 Prompt injection na pergunta (RNF04): recusa fixa, sem repassar o pedido ao LLM.
         if has_prompt_injection(user_query):
             return self._resposta_fixa(
