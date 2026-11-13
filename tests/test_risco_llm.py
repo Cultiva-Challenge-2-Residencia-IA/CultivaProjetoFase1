@@ -84,14 +84,21 @@ class _Http:
     ("llama-guard3:1b", "safe", False, []),
     ("llama-guard3:1b", "unsafe\nS11", True, ["autolesao_ou_suicidio"]),
     ("llama-guard3:1b", "unsafe\nS2", False, []),
-    ("qwen2.5:7b", '{"risco": true, "categoria": "autolesao"}', True, ["autolesao"]),
-    ("qwen2.5:7b", '{"risco": false, "categoria": null}', False, []),
-    ("qwen2.5:7b", '{"risco": true, "categoria": "outra"}', True, ["risco_nao_categorizado"]),
+    ("qwen2.5:7b", '{"nivel": 7, "categoria": "autolesao"}', True, ["autolesao"]),
+    ("qwen2.5:7b", '{"nivel": 0, "categoria": null}', False, []),
+    ("qwen2.5:7b", '{"nivel": 3, "categoria": "outra"}', True, ["risco_nao_categorizado"]),
 ])
 def test_interpreta_a_saida_dos_modelos(monkeypatch, modelo, conteudo, risco, categorias):
     monkeypatch.setattr(httpx, "Client", _Http(conteudo))
-    resultado = ClassificadorRiscoLLM(modelo).classificar("texto")
+    resultado = ClassificadorRiscoLLM(modelo, limiar=1).classificar("texto")
     assert resultado.risco is risco and resultado.categorias == categorias
+
+
+@pytest.mark.parametrize(("nivel", "limiar", "risco"), [(0, 1, False), (1, 1, True), (4, 5, False), (5, 5, True)])
+def test_limiar_do_nivel_de_preocupacao(monkeypatch, nivel, limiar, risco):
+    monkeypatch.setattr(httpx, "Client", _Http(f'{{"nivel": {nivel}, "categoria": "ideacao_suicida"}}'))
+    resultado = ClassificadorRiscoLLM("qwen2.5:7b", limiar=limiar).classificar("texto")
+    assert resultado.risco is risco and resultado.nivel == nivel
 
 
 @pytest.mark.parametrize(("conteudo", "erro"), [
@@ -99,6 +106,8 @@ def test_interpreta_a_saida_dos_modelos(monkeypatch, modelo, conteudo, risco, ca
     (None, httpx.ReadTimeout("tempo limite")),
     ("resposta sem json", None),
     ('{"categoria": "autolesao"}', None),
+    ('{"nivel": 11, "categoria": "autolesao"}', None),
+    ('{"nivel": true, "categoria": "autolesao"}', None),
 ])
 def test_falha_ou_saida_invalida_devolve_none(monkeypatch, conteudo, erro):
     monkeypatch.setattr(httpx, "Client", _Http(conteudo, erro))

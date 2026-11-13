@@ -17,7 +17,7 @@ from dataclasses import dataclass
 import json
 import re
 import time
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 import httpx
 
@@ -39,10 +39,16 @@ Não é risco: perguntas informativas sobre alimentação, dietas e suplementos;
 razoáveis; jejum ou exames com orientação médica; sintomas de doenças comuns; expressões
 idiomáticas e exageros do dia a dia; assuntos que não falam da própria pessoa.
 
-Na dúvida entre risco e não risco, prefira risco: deixar passar uma pessoa em crise é o erro grave.
+Dê um nível de preocupação de 0 a 10:
+- 0: nenhum sinal de risco à própria pessoa;
+- 1 a 3: sinal fraco ou ambíguo, que poderia ser só desabafo, cansaço ou exagero;
+- 4 a 6: sinal provável, mesmo que dito de forma indireta;
+- 7 a 10: sinal claro, e quanto mais concreto (plano, método, frequência, prazo), mais alto.
 
-Responda só com JSON, sem texto fora dele: {"risco": true ou false, "categoria": uma das três
-categorias acima ou null}."""
+Deixar passar uma pessoa em crise é o erro grave: na dúvida, dê o nível mais alto.
+
+Responda só com JSON, sem texto fora dele: {"nivel": número inteiro de 0 a 10, "categoria": uma
+das três categorias acima ou null}."""
 
 
 @dataclass(frozen=True)
@@ -50,32 +56,34 @@ class ResultadoLLM:
     risco: bool
     categorias: List[str]
     segundos: float
+    nivel: Optional[int] = None  # só no modo `politica`: nível de preocupação de 0 a 10
 
 
 class ClassificadorRiscoLLM:
     def __init__(self, modelo: str, base_url: str = "http://localhost:11434", timeout: float = 3.0,
-                 modo: Optional[str] = None) -> None:
+                 modo: Optional[str] = None, limiar: int = 5) -> None:
         self.modelo = modelo
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
         self.modo = modo or ("llama_guard" if "llama-guard" in modelo else "politica")
+        self.limiar = limiar  # no modo `politica`, aciona com nível >= limiar
 
     def _mensagens(self, texto: str) -> list:
         if self.modo == "llama_guard":
             return [{"role": "user", "content": texto}]
         return [{"role": "system", "content": POLITICA}, {"role": "user", "content": texto}]
 
-    def _interpretar(self, conteudo: str) -> Optional[List[str]]:
-        """Categorias de risco detectadas; lista vazia se não há risco; None se a saída é inválida."""
+    def _interpretar(self, conteudo: str) -> Optional[Tuple[List[str], Optional[int]]]:
+        """(categorias de risco, nível); lista vazia se não há risco; None se a saída é inválida."""
         conteudo = conteudo.strip()
         if self.modo == "llama_guard":
             linhas = [linha.strip().lower() for linha in conteudo.splitlines() if linha.strip()]
             if not linhas or linhas[0] not in ("safe", "unsafe"):
                 return None
             if linhas[0] == "safe":
-                return []
+                return [], None
             codigos = re.findall(r"s\d+", " ".join(linhas[1:]))
-            return ["autolesao_ou_suicidio"] if "s11" in codigos else []
+            return (["autolesao_ou_suicidio"] if "s11" in codigos else []), None
         achado = re.search(r"\{.*\}", conteudo, re.S)
         if not achado:
             return None
@@ -83,12 +91,14 @@ class ClassificadorRiscoLLM:
             dados = json.loads(achado.group(0))
         except json.JSONDecodeError:
             return None
-        if not isinstance(dados.get("risco"), bool):
+        nivel = dados.get("nivel")
+        if isinstance(nivel, bool) or not isinstance(nivel, (int, float)) or not 0 <= nivel <= 10:
             return None
-        if not dados["risco"]:
-            return []
+        nivel = int(round(nivel))
+        if nivel < self.limiar:
+            return [], nivel
         categoria = dados.get("categoria")
-        return [categoria if categoria in CATEGORIAS else "risco_nao_categorizado"]
+        return [categoria if categoria in CATEGORIAS else "risco_nao_categorizado"], nivel
 
     def classificar(self, texto: str) -> Optional[ResultadoLLM]:
         payload = {
@@ -107,8 +117,9 @@ class ClassificadorRiscoLLM:
                 conteudo = resposta.json().get("message", {}).get("content", "")
         except Exception:
             return None
-        categorias = self._interpretar(conteudo)
-        if categorias is None:
+        interpretado = self._interpretar(conteudo)
+        if interpretado is None:
             return None
+        categorias, nivel = interpretado
         return ResultadoLLM(risco=bool(categorias), categorias=categorias,
-                            segundos=time.perf_counter() - inicio)
+                            segundos=time.perf_counter() - inicio, nivel=nivel)

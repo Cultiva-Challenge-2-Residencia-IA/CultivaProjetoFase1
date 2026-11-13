@@ -31,6 +31,9 @@ RISCO_HOLDOUT_PATH = PROJECT_ROOT / "eval" / "risco" / "holdout.json"
 # se estourar ou o Ollama falhar, vale só o léxico.
 RISCO_LLM_MODELO = os.getenv("RISCO_LLM_MODELO", "qwen2.5:7b")
 RISCO_LLM_TIMEOUT = float(os.getenv("RISCO_LLM_TIMEOUT", "3.0"))
+# Nível de preocupação (0 a 10) a partir do qual a camada LLM aciona. 1 = qualquer sinal; escolhido
+# só com o desenvolvimento e as perguntas comuns (eval/risco/llm_criterios.md, adendo 2).
+RISCO_LLM_LIMIAR = int(os.getenv("RISCO_LLM_LIMIAR", "1"))
 CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status

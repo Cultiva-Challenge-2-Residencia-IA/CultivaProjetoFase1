@@ -58,3 +58,16 @@ Entre os que cumprem, vence o de **menor latência**; o empate vai para o menor 
 A primeira execução no desenvolvimento deu recall 1,000 para M1 e M2 com léxico + LLM, mas isso não mede o LLM: o léxico já detecta os 110 positivos do desenvolvimento, porque foi escrito a partir deles. O LLM não chegou a ser consultado em nenhum positivo.
 
 Por isso, o critério 1 passa a valer para o **LLM sozinho** (sem o léxico) no desenvolvimento: recall ≥ 0,95 e precisão ≥ 0,60. Os critérios 2 e 3 (perguntas comuns e latência) continuam com léxico + LLM, como no fluxo real. Já visto antes deste adendo: com léxico + LLM, M1 teve 1/151 perguntas comuns marcadas (p95 0,25 s) e M2, 2/151 (p95 0,85 s).
+
+## Adendo 2 (13/11/2026): nota de preocupação, antes de rodar
+
+A primeira versão teve precisão 1,000 e recall 0,733 no holdout. Como o RF-IA03 exige só precisão ≥ 0,60, há margem para trocar alarmes falsos por recall. Mudança: em vez de "risco sim ou não", o modelo devolve um **nível de preocupação de 0 a 10**, e o alerta dispara a partir de um limiar.
+
+**Como o limiar é escolhido, só com o desenvolvimento e as perguntas comuns:**
+
+1. Rodar uma vez, guardando o nível de cada frase.
+2. Para cada limiar de 1 a 10, calcular, com léxico + LLM: falsos positivos nas 151 perguntas comuns e, com o LLM sozinho, recall e precisão no desenvolvimento.
+3. Escolher o **menor limiar** com no máximo 2% de perguntas comuns marcadas (até 3 de 151) e precisão ≥ 0,60 no desenvolvimento. O menor limiar é o que mais favorece o recall.
+4. Medir o holdout uma vez, nesse limiar.
+
+**Transparência:** é a **segunda** medição do mesmo holdout (a primeira foi a versão sim/não). O limiar não olha o holdout, mas o resultado continua valendo como indicação. A confirmação segue dependendo de um lote cego novo, escrito por outra pessoa.

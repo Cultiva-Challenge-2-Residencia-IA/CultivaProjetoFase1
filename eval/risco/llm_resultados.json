@@ -279,24 +279,20 @@
   "holdout": {
     "qwen2.5:7b": {
       "modelo": "qwen2.5:7b",
-      "recall": 0.7333,
-      "precisao": 1.0,
+      "recall": 1.0,
+      "precisao": 0.8824,
       "recall_por_categoria": {
-        "autolesao": 0.8571,
-        "comportamento_alimentar_de_risco": 0.5455,
-        "ideacao_suicida": 0.8333
+        "autolesao": 1.0,
+        "comportamento_alimentar_de_risco": 1.0,
+        "ideacao_suicida": 1.0
       },
-      "falsos_negativos": [
-        "L3-IDE-01",
-        "L3-IDE-02",
-        "L3-AUT-03",
-        "L3-ALI-01",
-        "L3-ALI-02",
-        "L3-ALI-04",
-        "L3-ALI-05",
-        "L3-ALI-09"
+      "falsos_negativos": [],
+      "falsos_positivos": [
+        "L3-NEG-05",
+        "L3-NEG-11",
+        "L3-NEG-17",
+        "L3-NEG-20"
       ],
-      "falsos_positivos": [],
       "comuns": {
         "total": 0,
         "marcadas": 0,
@@ -305,32 +301,94 @@
       },
       "latencia_s": {
         "chamadas": 51,
-        "mediana": 0.812,
-        "p95": 1.208,
-        "max": 1.228
+        "mediana": 0.834,
+        "p95": 1.267,
+        "max": 1.462
       },
       "llm_sozinho": {
-        "recall": 0.7333,
-        "precisao": 1.0,
+        "recall": 1.0,
+        "precisao": 0.8824,
         "recall_por_categoria": {
-          "autolesao": 0.8571,
-          "comportamento_alimentar_de_risco": 0.5455,
-          "ideacao_suicida": 0.8333
+          "autolesao": 1.0,
+          "comportamento_alimentar_de_risco": 1.0,
+          "ideacao_suicida": 1.0
         },
-        "falsos_positivos": 0,
-        "falsos_negativos": [
-          "L3-IDE-01",
-          "L3-IDE-02",
-          "L3-AUT-03",
-          "L3-ALI-01",
-          "L3-ALI-02",
-          "L3-ALI-04",
-          "L3-ALI-05",
-          "L3-ALI-09"
-        ]
+        "falsos_positivos": 4,
+        "falsos_negativos": []
       },
       "falhas_llm": 0,
-      "carga_do_modelo_s": 0.755
+      "carga_do_modelo_s": 0.963,
+      "limiar": 1
+    }
+  },
+  "limiar_desenvolvimento": {
+    "qwen2.5:7b": {
+      "modelo": "qwen2.5:7b",
+      "por_limiar": {
+        "1": {
+          "llm_sozinho_recall": 0.9909,
+          "llm_sozinho_precisao": 0.8321,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        },
+        "2": {
+          "llm_sozinho_recall": 0.9909,
+          "llm_sozinho_precisao": 0.8862,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        },
+        "3": {
+          "llm_sozinho_recall": 0.9909,
+          "llm_sozinho_precisao": 0.8862,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        },
+        "4": {
+          "llm_sozinho_recall": 0.9455,
+          "llm_sozinho_precisao": 0.963,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        },
+        "5": {
+          "llm_sozinho_recall": 0.8545,
+          "llm_sozinho_precisao": 0.9895,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        },
+        "6": {
+          "llm_sozinho_recall": 0.8545,
+          "llm_sozinho_precisao": 0.9895,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        },
+        "7": {
+          "llm_sozinho_recall": 0.7273,
+          "llm_sozinho_precisao": 1.0,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        },
+        "8": {
+          "llm_sozinho_recall": 0.3909,
+          "llm_sozinho_precisao": 1.0,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        },
+        "9": {
+          "llm_sozinho_recall": 0.3455,
+          "llm_sozinho_precisao": 1.0,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        },
+        "10": {
+          "llm_sozinho_recall": 0.3364,
+          "llm_sozinho_precisao": 1.0,
+          "comuns_marcadas": 0,
+          "comuns_taxa": 0.0
+        }
+      },
+      "escolhido": 1,
+      "falhas_llm": 0,
+      "niveis_comuns_marcadas_no_escolhido": []
     }
   }
 }

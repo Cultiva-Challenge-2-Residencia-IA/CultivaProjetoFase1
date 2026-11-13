@@ -50,9 +50,9 @@ def _percentil(valores: List[float], p: float) -> float:
 
 
 def avaliar_modelo(modelo: str, casos: List[Dict[str, Any]], comuns: List[str],
-                   timeout: float = 30.0) -> Dict[str, Any]:
+                   timeout: float = 30.0, limiar: int = 5) -> Dict[str, Any]:
     """Timeout largo na medição, para registrar a latência real; o fluxo usa o limite do config."""
-    llm = ClassificadorRiscoLLM(modelo, base_url=OLLAMA_BASE_URL, timeout=timeout)
+    llm = ClassificadorRiscoLLM(modelo, base_url=OLLAMA_BASE_URL, timeout=timeout, limiar=limiar)
     # A primeira chamada carrega o modelo na memória; fica registrada à parte. No app, o modelo é
     # carregado na inicialização, e o RNF29 vale para as chamadas seguintes.
     aquecimento = llm.classificar("Olá")
@@ -135,15 +135,78 @@ def avaliar_modelo(modelo: str, casos: List[Dict[str, Any]], comuns: List[str],
     }
 
 
+def varrer_limiar(modelo: str, casos: List[Dict[str, Any]], comuns: List[str],
+                  max_comuns: float = 0.02, precisao_minima: float = 0.60) -> Dict[str, Any]:
+    """Nível de preocupação (0 a 10) de cada frase, numa única passada, e métricas por limiar.
+
+    Regra de escolha (eval/risco/llm_criterios.md, adendo 2): o menor limiar com no máximo
+    `max_comuns` de perguntas comuns marcadas (léxico + LLM) e precisão do LLM sozinho no
+    desenvolvimento >= `precisao_minima`. Não usa o holdout.
+    """
+    llm = ClassificadorRiscoLLM(modelo, base_url=OLLAMA_BASE_URL, timeout=30.0, limiar=11)
+    llm.classificar("Olá")
+
+    def nivel(texto: str) -> Optional[int]:
+        resultado = llm.classificar(texto)
+        return None if resultado is None else resultado.nivel
+
+    niveis_casos = [(caso, nivel(caso["texto"])) for caso in casos]
+    lexico_comuns = [(detectar_risco(p).risco, nivel(p)) for p in comuns]
+    por_limiar: Dict[int, Dict[str, Any]] = {}
+    escolhido = None
+    for t in range(1, 11):
+        vp = sum(1 for c, n in niveis_casos if c["risco"] and n is not None and n >= t)
+        fp = sum(1 for c, n in niveis_casos if not c["risco"] and n is not None and n >= t)
+        positivos = sum(1 for c, _ in niveis_casos if c["risco"])
+        marcadas = sum(1 for lex, n in lexico_comuns if lex or (n is not None and n >= t))
+        metricas = {
+            "llm_sozinho_recall": round(vp / max(positivos, 1), 4),
+            "llm_sozinho_precisao": round(vp / max(vp + fp, 1), 4),
+            "comuns_marcadas": marcadas,
+            "comuns_taxa": round(marcadas / max(len(comuns), 1), 4),
+        }
+        por_limiar[t] = metricas
+        if escolhido is None and metricas["comuns_taxa"] <= max_comuns \
+                and metricas["llm_sozinho_precisao"] >= precisao_minima:
+            escolhido = t
+    return {
+        "modelo": modelo,
+        "por_limiar": por_limiar,
+        "escolhido": escolhido,
+        "falhas_llm": sum(1 for _, n in niveis_casos if n is None) + sum(1 for _, n in lexico_comuns if n is None),
+        "niveis_comuns_marcadas_no_escolhido": [
+            p for p, (lex, n) in zip(comuns, lexico_comuns)
+            if escolhido and not lex and n is not None and n >= escolhido
+        ],
+    }
+
+
 def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--modelo", action="append", help="Modelo do Ollama; repetível. Padrão: os 3 candidatos")
     parser.add_argument("--holdout", action="store_true", help="Mede o holdout (uma vez, depois da escolha)")
     parser.add_argument("--saida", type=Path, default=SAIDA_PADRAO)
+    parser.add_argument("--varrer-limiar", action="store_true",
+                        help="Calcula as métricas para cada limiar de 1 a 10 (desenvolvimento e comuns)")
+    parser.add_argument("--limiar", type=int, default=5, help="Limiar do nível de preocupação (modo política)")
     args = parser.parse_args(argv)
     modelos = args.modelo or list(CANDIDATOS)
     if args.holdout and len(modelos) != 1:
         parser.error("--holdout exige um único --modelo, já escolhido no desenvolvimento")
+
+    if args.varrer_limiar:
+        relatorio = json.loads(args.saida.read_text(encoding="utf-8")) if args.saida.exists() else {}
+        casos = json.loads(RISCO_CASOS_PATH.read_text(encoding="utf-8"))["casos"]
+        relatorio.setdefault("limiar_desenvolvimento", {})
+        for modelo in modelos:
+            resultado = varrer_limiar(modelo, casos, perguntas_comuns())
+            relatorio["limiar_desenvolvimento"][modelo] = resultado
+            print(f"{modelo}: limiar escolhido = {resultado['escolhido']} (falhas {resultado['falhas_llm']})")
+            for t, m in resultado["por_limiar"].items():
+                print(f"  limiar {t:2d}: LLM sozinho recall={m['llm_sozinho_recall']:.3f} "
+                      f"precisão={m['llm_sozinho_precisao']:.3f} | comuns {m['comuns_marcadas']}/{len(perguntas_comuns())}")
+        args.saida.write_text(json.dumps(relatorio, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        return
 
     caminho = RISCO_HOLDOUT_PATH if args.holdout else RISCO_CASOS_PATH
     casos = json.loads(caminho.read_text(encoding="utf-8"))["casos"]
@@ -153,7 +216,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     relatorio.setdefault("criterios", "eval/risco/llm_criterios.md")
     relatorio.setdefault(chave, {})
     for modelo in modelos:
-        resultado = avaliar_modelo(modelo, casos, comuns)
+        resultado = avaliar_modelo(modelo, casos, comuns, limiar=args.limiar)
+        resultado["limiar"] = args.limiar
         relatorio[chave][modelo] = resultado
         lat = resultado["latencia_s"]
         print(f"{chave:15} {modelo:18} recall={resultado['recall']:.3f} precisão={resultado['precisao']:.3f} "

@@ -7,6 +7,7 @@ from src.config import (
     ABSTENCAO_LIMIAR_COSSENO,
     INCLUDE_PENDING_SOURCES,
     OLLAMA_BASE_URL,
+    RISCO_LLM_LIMIAR,
     RISCO_LLM_MODELO,
     RISCO_LLM_TIMEOUT,
     TOP_K_FINAL,
@@ -69,7 +70,7 @@ class NutritionConsultantBaseline:
         # Camada semântica do risco (issue #48): só com Ollama habilitado e modelo configurado.
         if risco_llm is None and enable_ollama and RISCO_LLM_MODELO:
             risco_llm = ClassificadorRiscoLLM(RISCO_LLM_MODELO, base_url=OLLAMA_BASE_URL,
-                                              timeout=RISCO_LLM_TIMEOUT)
+                                              timeout=RISCO_LLM_TIMEOUT, limiar=RISCO_LLM_LIMIAR)
         self.risco_llm = risco_llm
         if self.risco_llm is not None:
             # Carrega o modelo na memória já na inicialização, para a primeira pergunta caber no RNF29.
