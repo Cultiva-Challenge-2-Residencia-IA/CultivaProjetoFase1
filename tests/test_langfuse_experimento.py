@@ -76,7 +76,8 @@ def test_filtrar_por_componentes_remove_metricas_dos_componentes_desligados():
     avaliacao = {"rr_trecho": 1.0, "citacoes_validas": 1.0, "taco_correto": 0.0,
                  "cadeia_encontrada": 1.0, "cobertura_termos": 0.5, "guardrail_correto": 1.0}
     puro = exp.filtrar_por_componentes(avaliacao, exp.CONFIGURACOES["llm-puro"])
-    assert puro == {"cobertura_termos": 0.5, "guardrail_correto": 1.0}
+    # A citação é métrica de resposta: fica em todas as configurações.
+    assert puro == {"citacoes_validas": 1.0, "cobertura_termos": 0.5, "guardrail_correto": 1.0}
     rag = exp.filtrar_por_componentes(avaliacao, exp.CONFIGURACOES["llm-rag"])
     assert "rr_trecho" in rag and "taco_correto" not in rag and "cadeia_encontrada" not in rag
     assert exp.filtrar_por_componentes(avaliacao, exp.CONFIGURACOES["completo"]) == avaliacao
@@ -147,3 +148,42 @@ def test_fixar_modelo_desliga_os_reservas():
                               enable_ollama=True)
     assert exp.fixar_modelo(cliente) == "groq:principal"
     assert cliente.groq_fallback_model == "" and cliente.enable_ollama is False
+
+
+def test_taco_valor_no_texto_exige_alimento_e_valor_dentro_da_tolerancia():
+    spec = {"alimento": "Feijão, carioca, cozido", "campo": "protein_g", "valor": 4.8, "tolerancia": 0.1}
+    assert exp.taco_valor_no_texto(spec, "o feijao carioca tem 4,8 g de proteina") == 1.0
+    assert exp.taco_valor_no_texto(spec, "o feijao tem 4.85 g") == 1.0
+    assert exp.taco_valor_no_texto(spec, "o feijao tem 6 g de proteina") == 0.0
+    assert exp.taco_valor_no_texto(spec, "a lentilha tem 4,8 g") == 0.0
+
+
+def test_metricas_de_resposta_olham_o_texto_e_nao_os_componentes():
+    caso = {
+        "grafo": {"cadeia_esperada": [["feijao"], ["ferro nao-heme"], ["vitamina c"]]},
+        "taco": {"alimento": "Banana, prata, crua", "campo": "potassium_mg", "valor": 358, "tolerancia": 1},
+    }
+    final = {"evidence_summary": "Feijão tem ferro não-heme; a banana tem 358 mg de potássio.",
+             "physiological_mechanism": "", "protocol_findings": ""}
+    llm = {"evidence_summary": "Feijão e vitamina C.", "physiological_mechanism": "", "protocol_findings": ""}
+    metricas = exp.metricas_de_texto(caso, final, llm)
+    assert metricas["grafo_cadeia_no_texto"] == pytest.approx(2 / 3)
+    assert metricas["grafo_cadeia_no_texto_llm"] == pytest.approx(2 / 3)
+    assert metricas["taco_valor_no_texto"] == 1.0
+    assert metricas["taco_valor_no_texto_llm"] == 0.0
+
+
+def test_metricas_comuns_saem_iguais_no_llm_puro_e_no_completo():
+    """A comparação da ablação só faz sentido se as métricas de resposta forem as mesmas."""
+    avaliacao = {campo: 1.0 for campo in exp.NOME_DA_METRICA}
+    nomes = {}
+    for config_nome in ("llm-puro", "completo"):
+        filtrada = exp.filtrar_por_componentes(avaliacao, exp.CONFIGURACOES[config_nome])
+        nomes[config_nome] = {a.name for a in exp.avaliacoes_do_caso(filtrada)}
+    assert set(exp.METRICAS_COMUNS) <= nomes["llm-puro"]
+    assert nomes["llm-puro"] == set(exp.METRICAS_COMUNS)
+    assert set(exp.METRICAS_COMUNS) < nomes["completo"]
+
+
+def test_metricas_comuns_sao_metricas_conhecidas():
+    assert set(exp.METRICAS_COMUNS) <= set(exp.TODAS_AS_METRICAS)

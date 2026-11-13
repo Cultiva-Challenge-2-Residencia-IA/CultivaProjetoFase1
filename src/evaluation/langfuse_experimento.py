@@ -16,12 +16,23 @@ Ablação (`--config`): compara o LLM sozinho com o LLM mais cada fonte de conte
 - `llm-rag-grafo`: com os Trechos e o grafo causal;
 - `completo`: com Trechos, grafo e TACO (o sistema atual, padrão).
 
-Os guardrails ficam ligados em todas. Cada execução só recebe as métricas que se aplicam aos
-componentes ligados: sem RAG não há métrica de recuperação nem de citação, que dariam 0 por
-definição. Como a resposta final mistura o texto do LLM com o texto extraído dos Trechos e a
-tabela da TACO, as métricas de texto saem em duas versões: a da resposta final (`cobertura_termos`,
-`tamanho_resposta`) e a só do texto devolvido pelo LLM (`cobertura_termos_llm`,
-`tamanho_resposta_llm`). Não há juiz LLM por enquanto.
+Os guardrails ficam ligados em todas. As métricas se dividem em dois grupos:
+
+- **de resposta** (`METRICAS_COMUNS`): olham só o texto devolvido, a citação e o comportamento,
+  então valem igual para as quatro configurações. São elas que comparam o LLM puro com o sistema
+  completo. Incluem a cadeia causal esperada e o valor da TACO **escritos na resposta**
+  (`grafo_cadeia_no_texto`, `taco_valor_no_texto`), e não na lista devolvida pelo componente; e
+  `citacoes_validas`, que dá 0 sem RAG porque o produto exige resposta com fonte verificável;
+- **de diagnóstico** (recuperação, cadeias e registros da TACO devolvidos): medem a saída de cada
+  componente e só aparecem com ele ligado, porque sem ele dariam 0 por definição. Explicam por que
+  uma configuração responde melhor, mas não servem para comparar com o LLM puro.
+
+Como a resposta final mistura o texto do LLM com o texto extraído dos Trechos e a tabela da TACO,
+as métricas de texto saem em duas versões: a da resposta final (`cobertura_termos`,
+`grafo_cadeia_no_texto`, `taco_valor_no_texto`, `tamanho_resposta`) e a só do texto devolvido pelo
+LLM (sufixo `_llm`). O composto proibido do grafo fica só no diagnóstico: no texto, mencioná-lo
+como alerta ("evite potássio") é correto e não dá para separar do erro sem juiz. Não há juiz LLM
+por enquanto.
 
 Classificação: proposta técnica. O golden set do repositório continua sendo a fonte da verdade:
 o dataset é sobrescrito a cada execução e os casos removidos do repositório são arquivados.
@@ -32,6 +43,7 @@ do Langfuse no `.env`.
 from __future__ import annotations
 
 import argparse
+import re
 import time
 from datetime import datetime
 from typing import Any, Dict, List, Optional
@@ -56,23 +68,39 @@ CONFIGURACOES: Dict[str, Dict[str, bool]] = {
     "llm-rag-grafo": {"rag": True, "grafo": True, "taco": False},
     "completo": {"rag": True, "grafo": True, "taco": True},
 }
-# Campos de `avaliar_caso` que só têm sentido com o componente ligado.
+# Campos de diagnóstico de `avaliar_caso`: medem a saída do componente e só têm sentido com ele
+# ligado. `citacoes_validas` não está aqui: é métrica de resposta e vale para todas.
 CAMPOS_POR_COMPONENTE = {
     "rag": {"acerto_trecho", "acerto_completo", "ndcg_trecho", "recall_trecho", "rr_trecho",
-            "acerto_pagina", "acerto_fonte", "citacoes_validas"},
+            "acerto_pagina", "acerto_fonte"},
     "grafo": {"cadeia_encontrada", "composto_proibido_ausente"},
     "taco": {"taco_correto"},
 }
 # Métricas de texto próprias dos experimentos (nome = campo).
 METRICAS_DE_TEXTO = {
     "cobertura_termos_llm": "cobertura_termos_llm",
+    "sem_termos_proibidos": "sem_termos_proibidos",
+    "grafo_cadeia_no_texto": "grafo_cadeia_no_texto",
+    "grafo_cadeia_no_texto_llm": "grafo_cadeia_no_texto_llm",
+    "taco_valor_no_texto": "taco_valor_no_texto",
+    "taco_valor_no_texto_llm": "taco_valor_no_texto_llm",
     "tamanho_resposta": "tamanho_resposta",
     "tamanho_resposta_llm": "tamanho_resposta_llm",
 }
 # 1 quando o caso foi respondido pelo modelo fixado na execução (ver `fixar_modelo`).
 METRICAS_DE_TEXTO["llm_respondeu"] = "llm_respondeu"
+# Métricas de resposta: as mesmas em todas as configurações, para a comparação da ablação.
+METRICAS_COMUNS = (
+    "cobertura_termos", "cobertura_termos_llm", "sem_termos_proibidos", "citacoes_validas",
+    "grafo_cadeia_no_texto", "grafo_cadeia_no_texto_llm", "taco_valor_no_texto",
+    "taco_valor_no_texto_llm", "guardrail_acuracia", "guardrail_recall_prescricao",
+    "guardrail_especificidade", "abstencao_fora_de_escopo", "tamanho_resposta",
+    "tamanho_resposta_llm", "llm_respondeu",
+)
 # Métricas que dependem do texto gerado: saem do caso quando o modelo fixado não respondeu.
-CAMPOS_DEPENDENTES_DO_LLM = {"cobertura_termos", "cobertura_termos_llm", "tamanho_resposta",
+CAMPOS_DEPENDENTES_DO_LLM = {"cobertura_termos", "cobertura_termos_llm", "sem_termos_proibidos",
+                             "grafo_cadeia_no_texto", "grafo_cadeia_no_texto_llm",
+                             "taco_valor_no_texto", "taco_valor_no_texto_llm", "tamanho_resposta",
                              "tamanho_resposta_llm", "citacoes_validas"}
 # Em caracteres, não em proporção.
 METRICAS_ABSOLUTAS = {"tamanho_resposta", "tamanho_resposta_llm"}
@@ -167,12 +195,39 @@ def avaliacoes_da_execucao(resultados: List[Dict[str, Any]]) -> List[Any]:
     ]
 
 
+_NUMERO = re.compile(r"\d+(?:[.,]\d+)?")
+
+
+def taco_valor_no_texto(spec: Dict[str, Any], texto_normalizado: str) -> float:
+    """1 quando o texto cita o alimento (primeira palavra da descrição da TACO, ex.: "feijao") e
+    algum número dentro da tolerância do valor esperado por 100 g (aceita vírgula decimal)."""
+    alimento = normalize_text(spec["alimento"]).split(",")[0].split()[0]
+    if alimento not in texto_normalizado:
+        return 0.0
+    numeros = (float(n.replace(",", ".")) for n in _NUMERO.findall(texto_normalizado))
+    return float(any(abs(n - spec["valor"]) <= spec["tolerancia"] for n in numeros))
+
+
+def metricas_de_resposta(caso: Dict[str, Any], texto: str, sufixo: str = "") -> Dict[str, float]:
+    """Cadeia causal e valor da TACO esperados, procurados no texto da resposta (não na saída
+    dos componentes), para valerem igual em todas as configurações da ablação."""
+    texto = normalize_text(texto)
+    metricas: Dict[str, float] = {}
+    cadeia = (caso.get("grafo") or {}).get("cadeia_esperada")
+    if cadeia:
+        metricas[f"grafo_cadeia_no_texto{sufixo}"] = cobertura(cadeia, texto)
+    if caso.get("taco"):
+        metricas[f"taco_valor_no_texto{sufixo}"] = taco_valor_no_texto(caso["taco"], texto)
+    return metricas
+
+
 def metricas_de_texto(
     caso: Dict[str, Any], resposta_final: Dict[str, Any], sintese_llm: Optional[Dict[str, Any]]
 ) -> Dict[str, float]:
-    """Tamanho da resposta final e, quando houve LLM, tamanho e cobertura do texto só do LLM."""
+    """Métricas de texto da resposta final e, quando houve LLM, do texto só do LLM."""
     final = " ".join(str(resposta_final.get(c) or "") for c in CAMPOS_DA_RESPOSTA)
     metricas: Dict[str, float] = {"tamanho_resposta": float(len(final))}
+    metricas.update(metricas_de_resposta(caso, final))
     if sintese_llm is None:
         return metricas
     texto_llm = " ".join(str(sintese_llm.get(c) or "") for c in CAMPOS_DA_RESPOSTA)
@@ -180,6 +235,7 @@ def metricas_de_texto(
     termos = (caso.get("geracao") or {}).get("termos_obrigatorios")
     if termos:
         metricas["cobertura_termos_llm"] = cobertura(termos, normalize_text(texto_llm))
+    metricas.update(metricas_de_resposta(caso, texto_llm, sufixo="_llm"))
     return metricas
 
 
@@ -348,10 +404,16 @@ def main(argv: Optional[List[str]] = None) -> None:
         permitir_fallback=args.permitir_fallback,
     )
     print(f"Execução: {resultado.run_name} ({len(resultado.item_results)} casos concluídos)")
-    for avaliacao in resultado.run_evaluations:
-        valor = (f"{avaliacao.value:7.0f} car." if avaliacao.name in METRICAS_ABSOLUTAS
-                 else f"{avaliacao.value * 100:6.1f}%")
-        print(f"  {avaliacao.name:32s} {valor} ({avaliacao.comment})")
+    comuns = [a for a in resultado.run_evaluations if a.name in METRICAS_COMUNS]
+    diagnostico = [a for a in resultado.run_evaluations if a.name not in METRICAS_COMUNS]
+    for titulo, grupo in (("Resposta (comparáveis entre configurações)", comuns),
+                          ("Diagnóstico dos componentes", diagnostico)):
+        if grupo:
+            print(f" {titulo}:")
+        for avaliacao in grupo:
+            valor = (f"{avaliacao.value:7.0f} car." if avaliacao.name in METRICAS_ABSOLUTAS
+                     else f"{avaliacao.value * 100:6.1f}%")
+            print(f"  {avaliacao.name:32s} {valor} ({avaliacao.comment})")
     modelos = sorted({str((r.output or {}).get("model_used")) for r in resultado.item_results})
     print(f"Modelos usados: {', '.join(modelos)}")
     if resultado.experiment_url:
