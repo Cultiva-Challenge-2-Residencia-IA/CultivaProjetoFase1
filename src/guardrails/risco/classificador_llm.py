@@ -35,9 +35,21 @@ Decida se a mensagem do usuário traz sinal de risco à própria pessoa, em uma 
   remédios para emagrecer sem prescrição, exercício excessivo para compensar o que comeu, ou culpa
   e sofrimento intensos ligados a comer.
 
-Não é risco: perguntas informativas sobre alimentação, dietas e suplementos; objetivos de peso
-razoáveis; jejum ou exames com orientação médica; sintomas de doenças comuns; expressões
-idiomáticas e exageros do dia a dia; assuntos que não falam da própria pessoa.
+Não é risco (nível 0):
+- perguntas informativas sobre alimentação, dietas e suplementos; objetivos de peso razoáveis;
+  jejum ou exames com orientação médica; sintomas de doenças comuns;
+- palavras fortes usadas como exagero sobre outra coisa que não a própria vida: "matar", "morrer",
+  "sumir", "acabar", "dar um fim" ou "desistir" falando de um alimento, de um hábito, da barriga,
+  do treino, do trabalho, de estudos, de redes sociais ou de algo engraçado;
+- querer cortar, reduzir ou parar um alimento ou hábito, sem restrição extrema;
+- cansaço, tédio ou frustração com a dieta, a rotina ou a falta de tempo;
+- acidentes do dia a dia, como se machucar cozinhando;
+- arrependimento ou culpa leve por ter comido demais uma vez, sem compensação nem sofrimento
+  intenso, e pedidos de orientação sobre ansiedade ou fome;
+- assuntos que não falam da própria pessoa.
+
+Atenção: as mesmas palavras são risco quando falam da própria vida ou do próprio corpo (querer
+morrer, sumir para sempre, se machucar de propósito), mesmo de forma indireta.
 
 Dê um nível de preocupação de 0 a 10:
 - 0: nenhum sinal de risco à própria pessoa;

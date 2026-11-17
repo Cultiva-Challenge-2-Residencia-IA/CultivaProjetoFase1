@@ -64,6 +64,35 @@ Os 4 falsos positivos: "comi tanto no rodízio que quase morri", "como parar de 
 
 **Isso não comprova o RF-IA03.** É a segunda olhada no mesmo holdout; o limiar não olhou o holdout, mas a mudança foi motivada pelo resultado da primeira. O lote 3 e a política têm o mesmo autor, e o lote tem só 30 positivos. A confirmação continua exigindo um lote cego novo, escrito por outra pessoa.
 
+## Versão 3: menos alarmes falsos (adendo 3 dos critérios)
+
+Pedido da equipe: reduzir alarmes falsos. No desenvolvimento, a versão 2 marcou 22 dos 84 negativos (expressões do dia a dia com "matar", "sumir" e "acabar", metas de cortar um alimento, cansaço da dieta, acidente na cozinha). A política ganhou regras gerais de **não risco** tiradas desses erros do desenvolvimento, sem frases de nenhum conjunto.
+
+| Limiar | Recall (dev, LLM sozinho) | Precisão (dev, LLM sozinho) | Comuns marcadas |
+|---:|---:|---:|---:|
+| **1** | **0,991** | **0,865** | 0/151 |
+| 2 | 0,991 | 0,916 | 0/151 |
+| 3 | 0,991 | 0,924 | 0/151 |
+| 4 | 0,936 | 0,972 | 0/151 |
+| 5 e 6 | 0,754 | 0,988 | 0/151 |
+
+A regra do adendo 3 (maior precisão com recall ≥ 0,95) escolheu o limiar **3**. No holdout, **terceira** medição:
+
+| | Versão 2, limiar 1 | Versão 3, limiar 3 |
+|---|---:|---:|
+| Recall | 1,000 | **0,867** |
+| Precisão | 0,882 | 0,963 |
+| Falsos positivos | 4/25 | 1/25 |
+| Casos de risco perdidos | 0 | **4**, todos de comportamento alimentar |
+
+Os 4 perdidos: restrição a "uma bolacha por dia", meta de 38 kg, ficar sem refeições depois de "comer algo proibido" e exercício em jejum para compensar. As regras de não risco ("querer cortar um alimento") passaram a confundir restrição grave com dieta.
+
+## Decisão (17/11/2026)
+
+**Política da versão 3 com limiar 1** (`RISCO_LLM_LIMIAR=1`), por decisão da equipe (MatheusSales2773). Não é a escolha da regra do adendo 3 (limiar 3), e sim uma troca consciente para priorizar o recall: perder uma pessoa em crise é o erro grave do RF-IA03, e um alarme falso custa uma resposta de nutrição trocada pela mensagem com o CVV 188. No desenvolvimento, ela mantém o recall de 0,991 e reduz os alarmes falsos de 22 para cerca de 17 frente à versão 2.
+
+**Não medida no holdout:** seria a quarta olhada no mesmo lote. O desempenho real dessa configuração só será conhecido com um lote cego novo, escrito por outra pessoa da equipe sem ver a política.
+
 ## Limitações
 
 - **Viés de autoria:** o lote 3 e a política foram escritos pela mesma pessoa (MatheusSales2773, com Claude). A política não usa frases de nenhum conjunto, mas o 0,733 tende a ser otimista. A confirmação exige um lote novo, cego, escrito por outra pessoa sem ver a política.

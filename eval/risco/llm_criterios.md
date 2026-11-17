@@ -71,3 +71,13 @@ A primeira versão teve precisão 1,000 e recall 0,733 no holdout. Como o RF-IA0
 4. Medir o holdout uma vez, nesse limiar.
 
 **Transparência:** é a **segunda** medição do mesmo holdout (a primeira foi a versão sim/não). O limiar não olha o holdout, mas o resultado continua valendo como indicação. A confirmação segue dependendo de um lote cego novo, escrito por outra pessoa.
+
+## Adendo 3 (13/11/2026): menos alarmes falsos, antes de rodar
+
+Pedido da equipe: reduzir alarmes falsos. No limiar 1, a versão 2 marcou 22 dos 84 negativos do desenvolvimento, quase todos com nível 3 ou 4. São expressões do dia a dia com palavras fortes ("matar", "sumir", "acabar") aplicadas a comida, treino, trabalho ou provas; metas de cortar um alimento; cansaço da dieta; um acidente doméstico. Já 16 dos 110 positivos também ficam em 3 ou 4, então só subir o limiar custaria recall (no limiar 5, 0,855).
+
+**Mudança na política:** regras gerais tiradas desses erros do **desenvolvimento**, sem frases literais de nenhum conjunto e sem nada do holdout.
+
+**Regra do limiar (substitui a do adendo 2 para esta versão):** o limiar com a **maior precisão do LLM sozinho no desenvolvimento** entre os que mantêm recall do LLM sozinho ≥ 0,95 no desenvolvimento e até 2% de perguntas comuns marcadas. Empate vai para o menor limiar.
+
+**Transparência:** a política passa a ser ajustada nos negativos do desenvolvimento, então a precisão ali fica otimista. O holdout será medido pela **terceira** vez; o resultado é só indicação. A confirmação continua dependendo de um lote cego novo, escrito por outra pessoa.

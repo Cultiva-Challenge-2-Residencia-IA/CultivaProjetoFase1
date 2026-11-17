@@ -136,12 +136,13 @@ def avaliar_modelo(modelo: str, casos: List[Dict[str, Any]], comuns: List[str],
 
 
 def varrer_limiar(modelo: str, casos: List[Dict[str, Any]], comuns: List[str],
-                  max_comuns: float = 0.02, precisao_minima: float = 0.60) -> Dict[str, Any]:
+                  max_comuns: float = 0.02, precisao_minima: float = 0.60,
+                  recall_minimo: float = 0.95) -> Dict[str, Any]:
     """Nível de preocupação (0 a 10) de cada frase, numa única passada, e métricas por limiar.
 
-    Regra de escolha (eval/risco/llm_criterios.md, adendo 2): o menor limiar com no máximo
-    `max_comuns` de perguntas comuns marcadas (léxico + LLM) e precisão do LLM sozinho no
-    desenvolvimento >= `precisao_minima`. Não usa o holdout.
+    Regra de escolha (eval/risco/llm_criterios.md, adendo 3): a maior precisão do LLM sozinho no
+    desenvolvimento entre os limiares com recall >= `recall_minimo`, até `max_comuns` de perguntas
+    comuns marcadas (léxico + LLM) e precisão >= `precisao_minima`. Não usa o holdout.
     """
     llm = ClassificadorRiscoLLM(modelo, base_url=OLLAMA_BASE_URL, timeout=30.0, limiar=11)
     llm.classificar("Olá")
@@ -153,7 +154,6 @@ def varrer_limiar(modelo: str, casos: List[Dict[str, Any]], comuns: List[str],
     niveis_casos = [(caso, nivel(caso["texto"])) for caso in casos]
     lexico_comuns = [(detectar_risco(p).risco, nivel(p)) for p in comuns]
     por_limiar: Dict[int, Dict[str, Any]] = {}
-    escolhido = None
     for t in range(1, 11):
         vp = sum(1 for c, n in niveis_casos if c["risco"] and n is not None and n >= t)
         fp = sum(1 for c, n in niveis_casos if not c["risco"] and n is not None and n >= t)
@@ -166,9 +166,13 @@ def varrer_limiar(modelo: str, casos: List[Dict[str, Any]], comuns: List[str],
             "comuns_taxa": round(marcadas / max(len(comuns), 1), 4),
         }
         por_limiar[t] = metricas
-        if escolhido is None and metricas["comuns_taxa"] <= max_comuns \
-                and metricas["llm_sozinho_precisao"] >= precisao_minima:
-            escolhido = t
+
+    # Adendo 3: maior precisão no desenvolvimento entre os limiares com recall >= recall_minimo e até
+    # max_comuns de perguntas comuns marcadas; empate vai para o menor limiar.
+    validos = [t for t, m in por_limiar.items()
+               if m["llm_sozinho_recall"] >= recall_minimo and m["comuns_taxa"] <= max_comuns
+               and m["llm_sozinho_precisao"] >= precisao_minima]
+    escolhido = max(validos, key=lambda t: (por_limiar[t]["llm_sozinho_precisao"], -t)) if validos else None
     return {
         "modelo": modelo,
         "por_limiar": por_limiar,
