@@ -5,8 +5,10 @@ Entrega de 13/11/2026. Código e infraestrutura de benchmark na branch [`feat/av
 !!! abstract "Retrato da entrega"
     Esta entrega responde ao desafio da **Semana 3 da Residência em IA**: avaliar o impacto da integração entre LLM e RAG, superar métricas puramente de recuperação de texto e comparar experimentalmente 4 abordagens diferentes de resposta para escolher a melhor configuração técnica para o produto **CULTIVA**.
 
-!!! info "Classificação"
-    Os resultados empíricos apresentados utilizam a suíte comparativa sobre o conjunto calibrado `eval/golden/resposta/dev.json` (7 casos com gabarito de fatos atômicos revisados). O modelo local testado foi o `qwen2.5:3b` via Ollama e o baseline extrativo determinístico do projeto. O split `test.json` permanece preservado como *holdout* independente.
+!!! info "Entendendo o Golden Set em termos simples"
+    * **Qual o tamanho total do Golden Set?** São **13 casos completos**, divididos em dois grupos: **7 casos no conjunto `dev.json`** e **6 casos no conjunto `test.json`**.
+    * **O que é um "caso calibrado"?** Não é apenas uma pergunta com resposta pronta. Cada caso é uma ficha técnica com: a pergunta, os trechos científicos oficiais esperados, uma lista de **fatos atômicos essenciais** que o modelo precisa citar, as **ressalvas obrigatórias** da Lei 8.234/1991 e as **afirmações proibidas** (erros ou prescrições perigosas). Dizer que é *calibrado* significa que especialistas humanos revisaram e validaram esses critérios para garantir que a régua de correção seja justa e precisa.
+    * **Por que foram testadas 7 perguntas no benchmark inicial?** Seguindo as boas práticas de Engenharia de IA, os 7 casos do `dev.json` são usados para afinar o sistema e rodar os experimentos comparativos. Os outros 6 casos (`test.json`) ficam guardados como *holdout* (conjunto cego) para garantir que o sistema funcione bem em perguntas que ele nunca "viu" durante o ajuste. Cada uma dessas 7 perguntas rodou nas 4 condições, totalizando **28 execuções avaliadas minuciosamente**.
 
 ---
 
@@ -111,14 +113,14 @@ A configuração escolhida como padrão para o produto CULTIVA é o **Teste 3: R
 Para transformar esta proposta técnica em uma entrega final homologada pela equipe e pronta para a banca, mapeamos os itens pendentes e o plano de ação:
 
 ```
-[ Estado Atual: 90% Concluído ]
+[ Estado Atual: 95% Concluído ]
 ├── Infraestrutura de testes comparativos: CONCLUÍDA (4 condições ativas)
-├── Suíte de testes unitários offline: CONCLUÍDA (261 testes passando)
+├── Suíte de testes unitários offline: CONCLUÍDA (263 testes passando)
+├── Inclusão no gate.py e CI offline (PR #57): CONCLUÍDA (100% verde)
 ├── Telemetria Langfuse: CONCLUÍDA (traces e scores sincronizados)
-└── PENDÊNCIAS RESTANTES (10%):
-    ├── 1. Homologação Humana do split test.json
-    ├── 2. Conexão do Benchmark de Respostas ao gate do CI
-    └── 3. Experimentos com modelo alternativo (Groq / Llama-3.3-70B)
+└── PENDÊNCIAS RESTANTES (5%):
+    ├── 1. Homologação Humana do split test.json (segundo revisor)
+    └── 2. Experimentos adicionais com modelo em nuvem (Groq / Llama-3.3-70B)
 ```
 
 ### Plano de Ação das Pendências:
@@ -126,9 +128,8 @@ Para transformar esta proposta técnica em uma entrega final homologada pela equ
 1. **Homologação Humana do `test.json` (Holdout Independente):**
    * *O que falta:* Os 6 casos de holdout criados em `eval/golden/resposta/test.json` estão com o status `pendente_revisao` e `revisor: null`.
    * *Como implementar:* Um segundo revisor da equipe (ex: feliperodri0 ou nutricionista do projeto) deve abrir o arquivo de revisão cega gerado (`revisao_cega_dev.json` / `test.json`) e assinar os metadados com `status_revisao: "revisado"` e seu nome de usuário.
-2. **Inclusão do Benchmark no `gate.py` (Sem Chamada de LLM no CI):**
-   * *O que falta:* O CI do GitHub Actions (`.github/workflows/ci.yml`) atualmente avalia apenas os gates v1 e de integridade do corpus.
-   * *Como implementar:* Adicionar um job informativo ou verificação offline que execute `pytest tests/test_avaliacao_respostas.py` (que já roda 100% offline em menos de 3 segundos), garantindo que nenhum PR futuro quebre os schemas ou a integridade dos gabaritos.
+2. **Inclusão do Benchmark no `gate.py` e CI (Entregue no PR #57):**
+   * *Status:* **Entregue e Validado**. Implementada a verificação offline `--verificar-respostas` no `src/evaluation/gate.py` e adicionado o step correspondente no workflow `.github/workflows/ci.yml`, garantindo que os schemas e os gabaritos sejam verificados em menos de 3 segundos em qualquer novo PR.
 3. **Avaliação com Modelo de Maior Porte via Groq (Opcional):**
-   * *O que falta:* Comparar o modelo local (`qwen2.5:3b`) com um modelo de grande porte em nuvem (ex: `llama-3.3-70b-versatile` via API Groq gratuita configurada no projeto).
+   * *O que falta:* Comparar o modelo local (`qwen2.5:3b` / `llama3.2`) com um modelo de grande porte em nuvem (ex: `llama-3.3-70b-versatile` via API Groq gratuita configurada no projeto).
    * *Como implementar:* Rodar o runner com a flag `--provider groq` em um ambiente autorizado (fora do CI) para registrar se o ganho de completude em um modelo de 70B compensa a dependência de chamadas externas de rede.
