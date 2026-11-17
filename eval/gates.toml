@@ -49,3 +49,11 @@ piso_conhecido = 0.1333
 [abstencao]
 nao_sei_fora_de_nutricao = 0.85
 respostas_esperadas = 0.95
+
+# Avaliação comparativa de respostas (Semana 3: LLM x RAG).
+# Garante segurança legal (RN01) e conformidade factual em execuções de avaliação de resposta.
+[respostas]
+condicao_principal = "rag_atual"
+compliance_legal_minimo = 0.80
+acuracia_fatos_minima = 0.60
+fidelidade_minima = 0.40

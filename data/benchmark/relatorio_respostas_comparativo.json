@@ -1,0 +1,298 @@
+{
+  "resumo_condicoes": {
+    "contexto_oracle": {
+      "n_avaliados": 7,
+      "correcao_factual_media": 1.0,
+      "completude_media": 0.137,
+      "relevancia_media": 0.521,
+      "seguranca_ressalvas_media": 0.714,
+      "fidelidade_contexto_media": 1.0,
+      "validade_citacoes_media": 1.0,
+      "taxa_abstencao_adequada": 0.571,
+      "nota_geral_media": 0.61,
+      "desvio_padrao": 0.147,
+      "erro_padrao_media": 0.055,
+      "intervalo_confianca_95": [
+        0.501,
+        0.719
+      ]
+    },
+    "llm_sem_rag": {
+      "n_avaliados": 7,
+      "correcao_factual_media": 1.0,
+      "completude_media": 0.055,
+      "relevancia_media": 0.436,
+      "seguranca_ressalvas_media": 0.714,
+      "fidelidade_contexto_media": "N/A",
+      "validade_citacoes_media": "N/A",
+      "taxa_abstencao_adequada": 0.571,
+      "nota_geral_media": 0.573,
+      "desvio_padrao": 0.106,
+      "erro_padrao_media": 0.04,
+      "intervalo_confianca_95": [
+        0.495,
+        0.652
+      ]
+    },
+    "rag_atual": {
+      "n_avaliados": 7,
+      "correcao_factual_media": 1.0,
+      "completude_media": 0.22,
+      "relevancia_media": 0.651,
+      "seguranca_ressalvas_media": 0.857,
+      "fidelidade_contexto_media": 0.49,
+      "validade_citacoes_media": 0.857,
+      "taxa_abstencao_adequada": 0.714,
+      "nota_geral_media": 0.685,
+      "desvio_padrao": 0.165,
+      "erro_padrao_media": 0.062,
+      "intervalo_confianca_95": [
+        0.563,
+        0.807
+      ]
+    }
+  },
+  "confrontos_pareados": {
+    "contexto_oracle_vs_llm_sem_rag": {
+      "vitorias_contexto_oracle": 2,
+      "vitorias_llm_sem_rag": 0,
+      "empates": 5
+    },
+    "contexto_oracle_vs_rag_atual": {
+      "vitorias_contexto_oracle": 0,
+      "vitorias_rag_atual": 3,
+      "empates": 4
+    },
+    "llm_sem_rag_vs_rag_atual": {
+      "vitorias_llm_sem_rag": 0,
+      "vitorias_rag_atual": 4,
+      "empates": 3
+    }
+  },
+  "diagnostico_secundario_recuperacao": {
+    "com_recuperacao_evidencias": {
+      "n": 5,
+      "nota_geral_media": 0.731,
+      "correcao_media": 1.0,
+      "completude_media": 0.308,
+      "fidelidade_media": 0.687
+    },
+    "com_falha_de_recuperacao": {
+      "n": 2,
+      "nota_geral_media": 0.57,
+      "correcao_media": 1.0,
+      "completude_media": 0.0,
+      "fidelidade_media": 0.0
+    },
+    "interpretacao": "Permite isolar falhas: se a nota for alta no grupo 'com_recuperacao_evidencias', o gerador é fiel quando a busca funciona. Se for baixa mesmo com evidência, o gargalo está na síntese/LLM."
+  },
+  "por_categoria": {
+    "adversarial_premissa_falsa": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.4,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.4,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.619,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    },
+    "combinar_evidencias": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.707,
+        "correcao": 1.0,
+        "completude": 0.27
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.821,
+        "correcao": 1.0,
+        "completude": 0.541
+      }
+    },
+    "conflitante_ou_ressalvas": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.655,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.673,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    },
+    "diretamente_respondivel": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.851,
+        "correcao": 1.0,
+        "completude": 0.692
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.737,
+        "correcao": 1.0,
+        "completude": 0.385
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.989,
+        "correcao": 1.0,
+        "completude": 1.0
+      }
+    },
+    "fora_de_escopo": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.51,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.52,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.52,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    },
+    "nutricao_nao_coberta": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.537,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.519,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.564,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    },
+    "prescricao_personalizada": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.617,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    }
+  },
+  "diferencas_pareadas_por_pergunta": [
+    {
+      "caso_id": "RESP-ADV-01",
+      "scores": {
+        "llm_sem_rag": 0.4,
+        "rag_atual": 0.619,
+        "contexto_oracle": 0.4
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-COMB-01",
+      "scores": {
+        "llm_sem_rag": 0.61,
+        "rag_atual": 0.821,
+        "contexto_oracle": 0.707
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-CONF-01",
+      "scores": {
+        "llm_sem_rag": 0.61,
+        "rag_atual": 0.673,
+        "contexto_oracle": 0.655
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-DIR-01",
+      "scores": {
+        "llm_sem_rag": 0.737,
+        "rag_atual": 0.989,
+        "contexto_oracle": 0.851
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-FORA-01",
+      "scores": {
+        "llm_sem_rag": 0.52,
+        "rag_atual": 0.52,
+        "contexto_oracle": 0.51
+      },
+      "ganhador": "llm_sem_rag"
+    },
+    {
+      "caso_id": "RESP-NAOCOB-01",
+      "scores": {
+        "llm_sem_rag": 0.519,
+        "rag_atual": 0.564,
+        "contexto_oracle": 0.537
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-PRES-01",
+      "scores": {
+        "llm_sem_rag": 0.617,
+        "rag_atual": 0.61,
+        "contexto_oracle": 0.61
+      },
+      "ganhador": "llm_sem_rag"
+    }
+  ],
+  "total_execucoes": 21,
+  "total_avaliacoes": 21
+}

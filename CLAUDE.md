@@ -22,14 +22,14 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
   - `src/agent/`: `consultant_baseline.py` (orquestra busca, síntese e guardrails), `llm_client.py` (Ollama local por padrão; Groq só com liberação explícita; sem LLM, síntese extrativa; ADR 0003) e `guardrails.py` (guardrail legal da Lei 8.234/1991);
   - `src/guardrails/`: `risco/` (detector de risco por léxico, `lexico.yaml`, e mensagem de acolhimento), `injection/` (prompt injection e delimitação dos Trechos como dado) e `pii/` (máscara de dados pessoais); `prescricao/` e `tom/` reexportam o guardrail legal;
   - `src/rag/abstencao.py`: o "não sei" fora do domínio (issue #6);
-  - `src/evaluation/`: `run_benchmark.py` (v1, com `risk_metrics`, `risk_metrics_holdout` e `abstention_metrics`), `benchmark_v2.py`, `risco.py`, `abstencao.py`, `ablacao_ranking.py` e `gate.py`;
+  - `src/evaluation/`: `run_benchmark.py` (v1, com `risk_metrics`, `risk_metrics_holdout` e `abstention_metrics`), `benchmark_v2.py`, `benchmark_respostas.py` (comparação de respostas do golden `eval/golden/resposta/{dev,test}.json`, com telemetria opcional no Langfuse), `risco.py`, `abstencao.py`, `ablacao_ranking.py` e `gate.py`;
   - `src/api.py` (FastAPI e CLI) e `src/demo_entrega.py` (demonstração da entrega);
   - `src/config.py`: caminhos e parâmetros, quase todos sobrescrevíveis por variável de ambiente.
 - `src/agents/nutricao/` e `src/rag/{chunking,reranker,retriever,verificador}/` são fachadas que reexportam ou complementam os módulos acima. `src/agents/{estudos,fisica,sincronizador}/`, `src/api/` e `src/broker/` ainda contêm apenas `.gitkeep`.
 - **Testes** em `tests/` (pytest, inclusive o contrato do Trecho contra o JSON Schema) e **lint** com ruff.
 - **Decisões de arquitetura** em `docs/adrs/`: 0001 (RAG híbrido, TACO e grafo), 0002 (contrato entre corpus e retriever) e 0003 (provedor de LLM e dados pessoais).
 - **Modelos de issue e de PR** em `.github/` (tarefa, bug, fonte para o corpus e decisão).
-- **Avaliação:** perguntas em `data/benchmark/eval_questions.json`, relatório em `data/benchmark/baseline_report.json`, baseline do gate em `eval/baselines/benchmark_offline.json` e limites em `eval/gates.toml`. O benchmark v2 (issue #13) fica em `eval/golden/v2/` (golden set com Trecho e página esperados, `dev` e `test`) e `src/evaluation/benchmark_v2.py`, com relatório em `data/benchmark/benchmark_v2_report.json`. Ele ainda não é gate do CI: o gate continua no v1. `eval/golden/dev` e `eval/golden/test` são cópias das 16 perguntas do v1.
+- **Avaliação:** perguntas em `data/benchmark/eval_questions.json`, relatório em `data/benchmark/baseline_report.json`, baseline do gate em `eval/baselines/benchmark_offline.json` e limites em `eval/gates.toml`. O benchmark v2 (issue #13) fica em `eval/golden/v2/` (golden set com Trecho e página esperados, `dev` e `test`) e `src/evaluation/benchmark_v2.py`, com relatório em `data/benchmark/benchmark_v2_report.json`. O benchmark comparativo de respostas fica em `eval/golden/resposta/` e `src/evaluation/benchmark_respostas.py`; seu split `test` é holdout, e `--use-langfuse` envia traces e scores à instância indicada por `LANGFUSE_HOST`. Esses benchmarks ainda não são gates do CI: o gate continua no v1. `eval/golden/dev` e `eval/golden/test` são cópias das 16 perguntas do v1.
 
 ## Comandos (na raiz do repositório)
 

@@ -37,7 +37,7 @@
 
 ## Avaliação
 
-- **Ajuste só no `dev`.** O split `test` dos conjuntos (`eval/golden/v2/`, `eval/abstencao/`) e os holdouts (`eval/risco/holdout.json`) medem; não orientam mudanças. Um holdout que orientou regras vai para o `dev`, e o próximo é escrito por outra pessoa, sem olhar as regras.
+- **Ajuste só no `dev`.** O split `test` dos conjuntos (`eval/golden/v2/`, `eval/golden/resposta/`, `eval/abstencao/`) e os holdouts (`eval/risco/holdout.json`) medem; não orientam mudanças. Um holdout que orientou regras vai para o `dev`, e o próximo é escrito por outra pessoa, sem olhar as regras.
 - Números medidos só no que orientou a solução indicam cobertura, não generalização; diga isso quando apresentá-los.
 - Gate com falha conhecida (`falha_conhecida` em `eval/gates.toml`) continua sendo falha: ele só deixa de pintar o job de vermelho. Remova a marcação quando a issue citada resolver.
 

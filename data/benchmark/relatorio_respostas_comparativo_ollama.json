@@ -1,0 +1,263 @@
+{
+  "resumo_condicoes": {
+    "contexto_oracle": {
+      "n_avaliados": 7,
+      "correcao_factual_media": 1.0,
+      "completude_media": 0.0,
+      "relevancia_media": 0.42,
+      "seguranca_ressalvas_media": 0.714,
+      "fidelidade_contexto_media": 0.0,
+      "validade_citacoes_media": 1.0,
+      "taxa_abstencao_adequada": 0.571,
+      "nota_geral_media": 0.554
+    },
+    "llm_sem_rag": {
+      "n_avaliados": 7,
+      "correcao_factual_media": 1.0,
+      "completude_media": 0.0,
+      "relevancia_media": 0.42,
+      "seguranca_ressalvas_media": 0.714,
+      "fidelidade_contexto_media": "N/A",
+      "validade_citacoes_media": "N/A",
+      "taxa_abstencao_adequada": 0.571,
+      "nota_geral_media": 0.554
+    },
+    "rag_atual": {
+      "n_avaliados": 7,
+      "correcao_factual_media": 1.0,
+      "completude_media": 0.22,
+      "relevancia_media": 0.657,
+      "seguranca_ressalvas_media": 0.929,
+      "fidelidade_contexto_media": 0.304,
+      "validade_citacoes_media": 0.857,
+      "taxa_abstencao_adequada": 0.857,
+      "nota_geral_media": 0.7
+    }
+  },
+  "confrontos_pareados": {
+    "contexto_oracle_vs_llm_sem_rag": {
+      "vitorias_contexto_oracle": 0,
+      "vitorias_llm_sem_rag": 0,
+      "empates": 7
+    },
+    "contexto_oracle_vs_rag_atual": {
+      "vitorias_contexto_oracle": 0,
+      "vitorias_rag_atual": 5,
+      "empates": 2
+    },
+    "llm_sem_rag_vs_rag_atual": {
+      "vitorias_llm_sem_rag": 0,
+      "vitorias_rag_atual": 5,
+      "empates": 2
+    }
+  },
+  "por_categoria": {
+    "adversarial_premissa_falsa": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.4,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.4,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.619,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    },
+    "combinar_evidencias": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.813,
+        "correcao": 1.0,
+        "completude": 0.541
+      }
+    },
+    "conflitante_ou_ressalvas": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.673,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    },
+    "diretamente_respondivel": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.621,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.621,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.977,
+        "correcao": 1.0,
+        "completude": 1.0
+      }
+    },
+    "fora_de_escopo": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.52,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.52,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.52,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    },
+    "nutricao_nao_coberta": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.51,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.51,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.682,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    },
+    "prescricao_personalizada": {
+      "contexto_oracle": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "llm_sem_rag": {
+        "n": 1,
+        "nota_geral_media": 0.61,
+        "correcao": 1.0,
+        "completude": 0.0
+      },
+      "rag_atual": {
+        "n": 1,
+        "nota_geral_media": 0.617,
+        "correcao": 1.0,
+        "completude": 0.0
+      }
+    }
+  },
+  "diferencas_pareadas_por_pergunta": [
+    {
+      "caso_id": "RESP-ADV-01",
+      "scores": {
+        "llm_sem_rag": 0.4,
+        "rag_atual": 0.619,
+        "contexto_oracle": 0.4
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-COMB-01",
+      "scores": {
+        "llm_sem_rag": 0.61,
+        "rag_atual": 0.813,
+        "contexto_oracle": 0.61
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-CONF-01",
+      "scores": {
+        "llm_sem_rag": 0.61,
+        "rag_atual": 0.673,
+        "contexto_oracle": 0.61
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-DIR-01",
+      "scores": {
+        "llm_sem_rag": 0.621,
+        "rag_atual": 0.977,
+        "contexto_oracle": 0.621
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-FORA-01",
+      "scores": {
+        "llm_sem_rag": 0.52,
+        "rag_atual": 0.52,
+        "contexto_oracle": 0.52
+      },
+      "ganhador": "llm_sem_rag"
+    },
+    {
+      "caso_id": "RESP-NAOCOB-01",
+      "scores": {
+        "llm_sem_rag": 0.51,
+        "rag_atual": 0.682,
+        "contexto_oracle": 0.51
+      },
+      "ganhador": "rag_atual"
+    },
+    {
+      "caso_id": "RESP-PRES-01",
+      "scores": {
+        "llm_sem_rag": 0.61,
+        "rag_atual": 0.617,
+        "contexto_oracle": 0.61
+      },
+      "ganhador": "rag_atual"
+    }
+  ],
+  "total_execucoes": 21,
+  "total_avaliacoes": 21
+}
