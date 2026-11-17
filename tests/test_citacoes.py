@@ -110,3 +110,15 @@ def test_resposta_do_llm_citada_passa():
 def test_prompt_numera_os_trechos_com_pagina():
     prompt = LocalLLMClient(enable_ollama=False)._build_user_prompt("pergunta", _trechos(2))
     assert "--- [T1] (doc0 |" in prompt and "| p. 1)" in prompt and "--- [T2] (doc1 |" in prompt
+
+
+def test_llm_que_diz_nao_constar_vira_nao_sei_e_nao_extrativa():
+    resposta = {c: FRASE_SEM_BASE for c in ("evidence_summary", "physiological_mechanism", "protocol_findings")}
+    sintese, modelo = _cliente_com_llm(resposta).generate_structured_synthesis("como trocar um pneu?", _trechos())
+    assert sintese["_fundamentacao"]["status"] == "llm_sem_base"
+    assert "evidence_summary" not in sintese and modelo == "mensagem_fixa"
+
+
+def test_prompt_mostra_o_formato_com_marcadores():
+    from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
+    assert '"evidence_summary": "Síntese clara e direta do que a evidência mostra, com o marcador no fim de cada frase [T1].' in SYSTEM_PROMPT_CONSULTANT

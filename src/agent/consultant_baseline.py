@@ -183,6 +183,19 @@ class NutritionConsultantBaseline:
         )
 
         fundamentacao = synthesis.pop("_fundamentacao", {"status": None, "problemas": []})
+        if fundamentacao.get("status") == "llm_sem_base":
+            # O LLM leu os Trechos e disse que eles não respondem: "não sei" (RF-IA01), sem LLM.
+            return self._resposta_fixa(
+                user_query,
+                MENSAGEM_NAO_SEI,
+                guardrail_triggered=assessment.is_restricted_by_law_8234,
+                intent_category="NO_EVIDENCE",
+                legal_compliance_notice=assessment.legal_notice_required,
+                abstencao=True,
+                similaridade_maxima=similaridade,
+                retrieval_mode="ABSTENTION_FIXED_MESSAGE",
+                fundamentacao_status="llm_sem_base",
+            )
 
         # 6. Output Guardrail (Sanitização contra linguagem prescritiva individual)
         evidence_summary = self.guardrail.sanitize_output_text(

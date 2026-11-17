@@ -50,3 +50,19 @@ Os blocos gerados pelo código (síntese extrativa, TACO e grafo) não passam pe
   - **não sustentada:** o Trecho não diz isso, diz o contrário ou é de outro assunto.
 - **Meta do RNF27:** pelo menos 95% das frases julgadas como **sustentadas**. "Parcial" **não** conta como sustentada. O intervalo de Wilson de 95% é relatado junto, porque, com 60 frases, a meta pontual é compatível com taxas reais menores.
 - **Enquanto o colega não avaliar, o RNF27 fica sem medição**, e isso é dito no PR.
+
+## Adendo 1 (17/11/2026, depois da primeira medição no `dev`)
+
+**Primeira medição** (prompt v1, `qwen2.5:7b`, 26 respostas do `dev` que chegaram ao LLM; `resultados_dev_prompt_v1.json`):
+- conformidade de citação de **15,4%** (4 de 26) e fallback de 84,6%;
+- problemas: 19 respostas com frase sem citação, 4 sem nenhum `[T#]` e 3 sem nenhuma frase.
+
+O que a leitura das respostas mostrou:
+- **O modelo de 7B quase não marca as frases**, mesmo quando elas vêm dos Trechos. O esquema JSON do prompt mostrava frases sem marcador, e o modelo copia o formato do esquema.
+- **Em 3 perguntas, o LLM respondeu corretamente "Não consta nos trechos recuperados" nos três campos:** V2-FOR-01, V2-FOR-02 (fora de Nutrição) e V2-PRE-02. O bloqueio trocava isso pela síntese extrativa, que responde mesmo sem base, o que piora o RF-IA01.
+
+**Mudanças, decididas só com o `dev`:**
+1. **Prompt v2:** o esquema JSON passa a mostrar o marcador no fim de cada frase.
+2. **Abstenção do LLM:** quando os três campos do LLM são a frase fixa (ou vazios), a resposta é a mensagem de "não sei" (`MENSAGEM_NAO_SEI`, `abstencao=True`, `fundamentacao_status="llm_sem_base"`), e não a síntese extrativa.
+
+O `dev` é medido de novo com o prompt v2. O `test` continua sem ter sido rodado com LLM.

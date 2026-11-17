@@ -18,7 +18,7 @@ from src.config import (
     OLLAMA_TIMEOUT,
 )
 from src.guardrails.injection import delimitar_como_dado
-from src.rag.verificador.citacoes import FRASE_SEM_BASE, marcador_de_trecho, verificar_citacoes
+from src.rag.verificador.citacoes import CAMPOS_DO_LLM, FRASE_SEM_BASE, marcador_de_trecho, verificar_citacoes
 from src.guardrails.pii import mascarar_dados_pessoais
 from src.models.schemas import RetrievedChunk
 
@@ -39,9 +39,9 @@ REGRA DE CITAÇÃO (RN04, RNF27):
 
 Responda ESTRITAMENTE em formato JSON válido com as seguintes chaves:
 {
-  "evidence_summary": "Síntese clara e direta do que a evidência científica mostra",
-  "physiological_mechanism": "Explicação detalhada do mecanismo bioquímico/fisiológico descrito nas fontes",
-  "protocol_findings": "O que dizem os protocolos clínicos, faixas populacionais estudadas e ressalvas/contraindicações",
+  "evidence_summary": "Síntese clara e direta do que a evidência mostra, com o marcador no fim de cada frase [T1]. Segunda frase da síntese [T2][T3].",
+  "physiological_mechanism": "Mecanismo bioquímico ou fisiológico descrito nas fontes, com o marcador no fim de cada frase [T1].",
+  "protocol_findings": "O que dizem os protocolos, faixas populacionais estudadas e ressalvas, com o marcador no fim de cada frase [T2].",
   "food_sources_or_compounds": ["lista de alimentos ou compostos bioativos citados nos trechos"],
   "evidence_grade": "Grau de evidência predominante nas fontes (ex: GRADE_A, GRADE_B, GUIDELINE_CONSENSUS)"
 }"""
@@ -375,6 +375,10 @@ class LocalLLMClient:
 
         rejeitadas: List[Dict[str, Any]] = []
 
+        def _sem_base(llm_result: Dict[str, Any]) -> bool:
+            """O LLM disse que o material não responde (a frase fixa em todos os campos)."""
+            return all(str(llm_result.get(c) or "").strip() in ("", FRASE_SEM_BASE) for c in CAMPOS_DO_LLM)
+
         user_prompt = self._build_user_prompt(
             query,
             retrieved_chunks,
@@ -388,6 +392,9 @@ class LocalLLMClient:
                 if not model_name:
                     continue
                 llm_result = self._call_groq_model(model_name, user_prompt)
+                if llm_result and _sem_base(llm_result):
+                    # RF-IA01: o LLM disse que os Trechos não respondem; vira "não sei", não a extrativa.
+                    return {"_fundamentacao": {"status": "llm_sem_base", "problemas": []}}, "mensagem_fixa"
                 if llm_result:
                     verificacao = _verificar(llm_result)
                     if not verificacao.valida:
@@ -407,6 +414,9 @@ class LocalLLMClient:
                 if not model_name:
                     continue
                 llm_result = self._call_ollama_model(model_name, user_prompt)
+                if llm_result and _sem_base(llm_result):
+                    # RF-IA01: o LLM disse que os Trechos não respondem; vira "não sei", não a extrativa.
+                    return {"_fundamentacao": {"status": "llm_sem_base", "problemas": []}}, "mensagem_fixa"
                 if llm_result:
                     verificacao = _verificar(llm_result)
                     if not verificacao.valida:
