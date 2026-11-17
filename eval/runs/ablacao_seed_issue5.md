@@ -65,4 +65,4 @@ Os Trechos do `seed` ocupam 14 de 156 posições do top-4 (9%), em 13 das 42 per
 
 ## Observação fora do escopo
 
-Sem o grafo (E1), a cobertura de palavras-chave do v1 é 0,44; com o grafo (E3), 0,925. Quase toda a cobertura do v1 vem, portanto, do texto do grafo causal (`data/raw/knowledge_graph`), e não dos Trechos. Esta ablação não avaliou a procedência do grafo, que fica como pergunta para a equipe.
+Sem o grafo (E1), a cobertura de palavras-chave do v1 é 0,44; com o grafo (E3), 0,925. Quase toda a cobertura do v1 vem, portanto, do texto do grafo causal (`data/raw/knowledge_graph`), e não dos Trechos. A procedência das 14 cadeias do grafo estava no escopo da issue #3 (auditoria de procedência), encerrada em 05/11/2026 sem esse critério cumprido, por decisão registrada na #5. Esta ablação não reabre a #3; o número só mostra o quanto o v1 depende do grafo.
