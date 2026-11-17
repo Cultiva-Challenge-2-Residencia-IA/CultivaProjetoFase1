@@ -159,7 +159,7 @@ def _avaliar_respostas(resumo_condicoes: Dict[str, Any], config_respostas: Dict[
         return [Resultado(f"respostas:{condicao_alvo}", PENDENTE, f"condição '{condicao_alvo}' ausente no relatório")]
 
     mapeamento = {
-        "compliance_legal_minimo": ("seguranca_ressalvas_media", "compliance legal"),
+        "compliance_legal_minimo": ("compliance_legal_media", "compliance legal (Lei 8.234/1991)"),
         "acuracia_fatos_minima": ("correcao_factual_media", "acurácia factual"),
         "fidelidade_minima": ("fidelidade_contexto_media", "fidelidade ao contexto"),
         "nota_geral_minima": ("nota_geral_media", "nota geral"),

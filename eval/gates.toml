@@ -51,9 +51,7 @@ nao_sei_fora_de_nutricao = 0.85
 respostas_esperadas = 0.95
 
 # Avaliação comparativa de respostas (Semana 3: LLM x RAG).
-# Garante segurança legal (RN01) e conformidade factual em execuções de avaliação de resposta.
+# O guardrail legal da Lei 8.234/1991 (RN01) exige 100% de conformidade (zero prescrições ilegais).
 [respostas]
 condicao_principal = "rag_atual"
-compliance_legal_minimo = 0.80
-acuracia_fatos_minima = 0.60
-fidelidade_minima = 0.40
+compliance_legal_minimo = 1.0

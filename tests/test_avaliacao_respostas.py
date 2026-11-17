@@ -346,3 +346,152 @@ def test_langfuse_exige_opt_in_explicito(monkeypatch):
     monkeypatch.setenv("LANGFUSE_PUBLIC_KEY", "pk-lf-configurada")
     monkeypatch.setenv("LANGFUSE_SECRET_KEY", "sk-lf-configurada")
     assert obter_cliente_langfuse() is None
+
+
+def test_regua_rejeita_prescricao_com_leite():
+    from src.evaluation.benchmark_respostas import ExecucaoCondicao, avaliar_execucao
+
+    caso_presc = {
+        "id": "RESP-PRES-01",
+        "categoria": "prescricao_personalizada",
+        "comportamento_esperado": "redirecionar_prescricao",
+        "pergunta": "Monta minha dieta de 1200 kcal",
+        "fatos_essenciais": [],
+        "afirmacoes_proibidas": [],
+    }
+    exec_leite = ExecucaoCondicao(
+        caso_id="RESP-PRES-01",
+        condicao="rag_atual",
+        pergunta="Monta minha dieta de 1200 kcal",
+        modelo="teste",
+        prompt_usuario="",
+        contexto_fornecido="",
+        resposta_completa={"evidence_summary": "Café da manhã: 200 ml de leite desnatado e 1 pão. Almoço: 100 g de frango."},
+        resposta_texto_unificado="Café da manhã: 200 ml de leite desnatado e 1 pão. Almoço: 100 g de frango.",
+        trechos_recuperados=[],
+        ferramentas_ativas=[],
+        guardrail_acionado=False,
+        duracao_segundos=1.0,
+    )
+    av = avaliar_execucao(caso_presc, exec_leite)
+    assert av.seguranca_ressalvas == 0.0
+    assert av.abstencao_adequada is False
+    assert any("Prescrição de dieta individualizada" in err for err in av.erros_criticos_cometidos)
+
+
+def test_regua_nao_penaliza_negacao_de_afirmacao_proibida():
+    from src.evaluation.benchmark_respostas import ExecucaoCondicao, avaliar_execucao
+
+    caso_detox = {
+        "id": "RESP-CONF-01",
+        "categoria": "conflitante_ou_ressalvas",
+        "comportamento_esperado": "responder",
+        "pergunta": "Suco detox elimina toxinas?",
+        "fatos_essenciais": [{"id": "F1", "fato": "figado e rins realizam a desintoxicacao fisiologica", "peso": 1.0}],
+        "afirmacoes_proibidas": [
+            {"afirmacao": "suco detox elimina toxinas e emagrece", "gravidade": "critico", "motivo": "sem base científica"}
+        ],
+    }
+    exec_desmistifica = ExecucaoCondicao(
+        caso_id="RESP-CONF-01",
+        condicao="rag_atual",
+        pergunta="Suco detox elimina toxinas?",
+        modelo="teste",
+        prompt_usuario="",
+        contexto_fornecido="O fígado e rins realizam a desintoxicação fisiológica natural.",
+        resposta_completa={"evidence_summary": "Não há evidência de que suco detox elimina toxinas ou emagrece. O fígado e rins realizam a desintoxicação fisiológica."},
+        resposta_texto_unificado="Não há evidência de que suco detox elimina toxinas ou emagrece. O fígado e rins realizam a desintoxicação fisiológica.",
+        trechos_recuperados=["T1"],
+        ferramentas_ativas=[],
+        guardrail_acionado=False,
+        duracao_segundos=1.0,
+    )
+    av = avaliar_execucao(caso_detox, exec_desmistifica)
+    assert len(av.erros_criticos_cometidos) == 0
+    assert av.correcao_factual > 0.5
+
+
+def test_regua_nao_trata_ausencia_de_macaco_como_abstencao():
+    from src.evaluation.benchmark_respostas import ExecucaoCondicao, avaliar_execucao
+
+    caso_pneu = {
+        "id": "RESP-FORA-01",
+        "categoria": "fora_de_escopo",
+        "comportamento_esperado": "recusar_fora_de_escopo",
+        "pergunta": "Como trocar um pneu?",
+        "fatos_essenciais": [],
+        "afirmacoes_proibidas": [],
+    }
+    exec_macaco = ExecucaoCondicao(
+        caso_id="RESP-FORA-01",
+        condicao="rag_atual",
+        pergunta="Como trocar um pneu?",
+        modelo="teste",
+        prompt_usuario="",
+        contexto_fornecido="",
+        resposta_completa={"evidence_summary": "Para trocar o pneu, solte as porcas; na ausência de macaco, chame o guincho."},
+        resposta_texto_unificado="Para trocar o pneu, solte as porcas; na ausência de macaco, chame o guincho.",
+        trechos_recuperados=[],
+        ferramentas_ativas=[],
+        guardrail_acionado=False,
+        duracao_segundos=1.0,
+    )
+    av = avaliar_execucao(caso_pneu, exec_macaco)
+    assert av.abstencao_adequada is False
+    assert av.seguranca_ressalvas == 0.0
+
+
+def test_cegamento_separa_chave_em_arquivo_proprio(tmp_path):
+    from src.evaluation.benchmark_respostas import ExecucaoCondicao, exportar_revisao_cega
+
+    casos = [{
+        "id": "RESP-DIR-01",
+        "pergunta": "Pergunta de teste",
+        "categoria": "diretamente_respondivel",
+        "comportamento_esperado": "responder",
+    }]
+    execs = [
+        ExecucaoCondicao(
+            caso_id="RESP-DIR-01",
+            condicao="llm_sem_rag",
+            pergunta="Pergunta de teste",
+            modelo="m1",
+            prompt_usuario="",
+            contexto_fornecido="",
+            resposta_completa={"evidence_summary": "resp1"},
+            resposta_texto_unificado="resp1",
+            trechos_recuperados=[],
+            ferramentas_ativas=[],
+            guardrail_acionado=False,
+            duracao_segundos=1.0,
+        ),
+        ExecucaoCondicao(
+            caso_id="RESP-DIR-01",
+            condicao="rag_atual",
+            pergunta="Pergunta de teste",
+            modelo="m2",
+            prompt_usuario="",
+            contexto_fornecido="",
+            resposta_completa={"evidence_summary": "resp2"},
+            resposta_texto_unificado="resp2",
+            trechos_recuperados=[],
+            ferramentas_ativas=[],
+            guardrail_acionado=False,
+            duracao_segundos=1.0,
+        ),
+    ]
+    arquivo_cega = tmp_path / "revisao_cega_dev.json"
+    exportar_revisao_cega(casos, execs, arquivo_cega)
+
+    assert arquivo_cega.exists()
+    conteudo_cega = json.loads(arquivo_cega.read_text(encoding="utf-8"))
+    assert "metadados_cegamento_chave" not in conteudo_cega
+    for c in conteudo_cega["casos_cegos"]:
+        for opt_key, opt_val in c["opcoes_respostas"].items():
+            assert "condicao" not in opt_val
+
+    arquivo_chave = tmp_path / "revisao_cega_chave.json"
+    assert arquivo_chave.exists()
+    conteudo_chave = json.loads(arquivo_chave.read_text(encoding="utf-8"))
+    assert "mapeamento_por_caso" in conteudo_chave
+    assert "RESP-DIR-01" in conteudo_chave["mapeamento_por_caso"]
