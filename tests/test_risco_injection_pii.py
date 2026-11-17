@@ -22,6 +22,7 @@ def _consultor_sem_busca() -> NutritionConsultantBaseline:
     """Consultor com busca, TACO, grafo e LLM substituídos por mocks, para verificar que não são chamados."""
     consultor = NutritionConsultantBaseline.__new__(NutritionConsultantBaseline)
     consultor.guardrail = LegalGuardrail()
+    consultor.corpus_version = "corpus-teste"
     consultor.retriever = MagicMock()
     consultor.llm_client = MagicMock()
     consultor.taco_tool = MagicMock()

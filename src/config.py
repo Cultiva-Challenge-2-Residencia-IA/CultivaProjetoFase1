@@ -26,6 +26,7 @@ ABSTENCAO_LIMIAR_COSSENO = float(os.getenv("ABSTENCAO_LIMIAR_COSSENO", "0.40"))
 ABSTENCAO_CASOS_PATH = PROJECT_ROOT / "eval" / "abstencao" / "casos.json"
 RISCO_HOLDOUT_PATH = PROJECT_ROOT / "eval" / "risco" / "holdout.json"
 CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
+TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / "traceability.sqlite3")))
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
 # "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".

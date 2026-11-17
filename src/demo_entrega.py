@@ -161,7 +161,8 @@ def salvar_artefatos(consultant: NutritionConsultantBaseline, respostas, log: st
     gravar(artefatos / "inventario_fontes_curadas.json", [f.model_dump() for f in inventario])
     gravar(artefatos / "amostra_chunks_contextualizados.json", amostra)
     gravar(artefatos / "estatisticas_banco_vetorial.json", estatisticas)
-    gravar(demo / "resultado_consultas.json", [r.model_dump() for r in respostas])
+    # response_id é aleatório: fica fora do artefato para ele não mudar a cada geração.
+    gravar(demo / "resultado_consultas.json", [r.model_dump(exclude={"response_id"}) for r in respostas])
     (demo / "log_demonstracao_consultas.txt").write_text(log, encoding="utf-8")
 
 

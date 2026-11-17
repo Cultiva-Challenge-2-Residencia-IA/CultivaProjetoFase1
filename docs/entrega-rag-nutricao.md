@@ -152,6 +152,6 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 | #4 Integrar os JSONL do corpus | Feita: `src/rag/corpus_loader.py` carrega os Trechos pelo contrato do ADR 0002. |
 | #7 Filtrar por fonte aprovada | Feita: gate no momento de montar o índice. Demonstração e benchmark usam só fontes aprovadas; `CULTIVA_INCLUIR_PENDENTES=true` inclui as pendentes. |
 | #15 Embeddings e banco vetorial | Parcial: modelo multilíngue local e ChromaDB. Falta comparar modelos em português. |
-| #11 Rastreabilidade | Parcial: citações com página, link, DOI e status. A impressão digital da coleção é um primeiro passo para o `corpus_version`. |
+| #11 Rastreabilidade | Resposta inclui `corpus_version` (SHA-256 do manifesto das fontes indexadas e dos JSONL correspondentes), `prompt_version`, `model_version`, `fontes_version` e `trechos_usados` (id, fonte, página, link e título). Um `response_id` associa o registro persistido de rastreabilidade ao endpoint `POST /feedback/incorrect`. |
 | #13 Benchmark v2 | Parcial: ids esperados mapeados para as fontes do corpus. O conjunto continua o mesmo. |
 | #28 PubMed e TACO no corpus | Decidido para esta entrega: PubMed fora. O suporte a resumos no pipeline está pronto. |
