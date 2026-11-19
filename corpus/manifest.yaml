@@ -728,6 +728,248 @@ sources:
     purpose_note: "Relaciona ansiedade, qualidade do sono e compulsão alimentar em adultos, apoiando a conexão entre sono, estresse e escolhas alimentares."
     scope_note: "Estudo transversal com adultos com sobrepeso ou obesidade, entre 2015 e 2017. Não se generaliza para quem não tem esse perfil e não demonstra causalidade."
 
+  - id: guia-atividade-fisica-brasil-2021
+    kind: original_only
+    title: Guia de Atividade Física para a População Brasileira
+    institutions:
+    - Ministério da Saúde
+    year: 2021
+    version: 2021-1ed
+    source_type: diretriz
+    source: https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf
+    download_url: https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf
+    license: CC-BY-NC-SA-4.0
+    license_evidence:
+      description: Créditos do PDF oficial declaram Creative Commons Atribuição, Não Comercial, Compartilhamento pela mesma licença 4.0 Internacional.
+    original_path: corpus/saudefisica/originais/01-guia-atividade-fisica-brasil-2021.pdf
+    markdown_path: corpus/saudefisica/markdown/01-guia-atividade-fisica-brasil-2021.md
+    report_path: corpus/saudefisica/relatorios/01-guia-atividade-fisica-brasil-2021.json
+    sha256: 944f5ece2d1a82857f430c5e846ed0cc1798ce18b20218206b9068fa12e1c90e
+    pdf_pages: 52
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-19'
+    acquisition_status: original_obtido
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: who-diretrizes-atividade-fisica-sedentarismo-2020
+    kind: original_only
+    title: WHO Guidelines on Physical Activity and Sedentary Behaviour
+    institutions:
+    - World Health Organization
+    year: 2020
+    version: 2020-1ed-en
+    source_type: diretriz
+    source: https://www.who.int/publications/i/item/9789240015128
+    download_url: https://iris.who.int/server/api/core/bitstreams/faa83413-d89e-4be9-bb01-b24671aef7ca/content
+    license: CC-BY-NC-SA-3.0-IGO
+    license_evidence:
+      pdf_page: 2
+      description: Créditos declaram Creative Commons Atribuição, Não Comercial, Compartilhamento pela mesma licença 3.0 IGO.
+    original_path: corpus/saudefisica/originais/02-who-physical-activity-guidelines-2020.pdf
+    markdown_path: corpus/saudefisica/markdown/02-who-physical-activity-guidelines-2020.md
+    report_path: corpus/saudefisica/relatorios/02-who-physical-activity-guidelines-2020.json
+    sha256: 50b66c44e7083cc3752849f301ae1d60d9360d511e34c0c948b39bdf6e13dc88
+    pdf_pages: 104
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-19'
+    acquisition_status: original_obtido
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: who-physical-activity-factsheet-2024
+    kind: original_only
+    title: Physical activity
+    institutions:
+    - World Health Organization
+    year: 2024
+    version: 2024-06-26-html-en
+    source_type: documento_institucional
+    source: https://www.who.int/news-room/fact-sheets/detail/physical-activity
+    download_url: https://www.who.int/news-room/fact-sheets/detail/physical-activity
+    license: pendente
+    original_path: corpus/saudefisica/originais/03-who-physical-activity-factsheet.html
+    markdown_path: corpus/saudefisica/markdown/03-who-physical-activity-factsheet-2024.md
+    report_path: corpus/saudefisica/relatorios/03-who-physical-activity-factsheet-2024.json
+    content_selector: .sf-detail-body-wrapper
+    sha256: 62bf97a4d350dd6989fdae270085a8f82c9c5b9f6d3fb14f1e1922330dcb3c79
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-19'
+    acquisition_status: original_obtido
+    acquisition_note: Cópia HTML da página oficial consultada nesta data; a página pode ser atualizada no mesmo endereço.
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: acsm-resistance-training-position-stand-2026
+    kind: original_only
+    title: 'American College of Sports Medicine Position Stand. Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews'
+    institutions:
+    - American College of Sports Medicine
+    year: 2026
+    version: 2026-article-en
+    source_type: artigo_cientifico
+    source: https://pubmed.ncbi.nlm.nih.gov/41843416/
+    download_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12965823/pdf/msse-58-851.pdf
+    doi: 10.1249/MSS.0000000000003897
+    pmcid: PMC12965823
+    license: CC-BY-NC-ND-4.0
+    license_evidence:
+      description: A página do PubMed Central identifica CC BY-NC-ND 4.0; o texto integral está disponível em HTML, mas o endpoint PDF retornou desafio anti-bot.
+    acquisition_status: original_indisponivel
+    acquisition_note: O texto integral está disponível no PubMed Central, mas as rotas de PDF retornaram desafio anti-bot ou 404. Não foi salvo conteúdo de erro como PDF; a versão antiga de 2009 foi substituída conforme solicitado.
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: acsm-exercise-preparticipation-screening-2015
+    kind: original_only
+    title: Updating ACSM's Recommendations for Exercise Preparticipation Health Screening
+    institutions:
+    - American College of Sports Medicine
+    year: 2015
+    version: 2015-article-en
+    source_type: artigo_cientifico
+    source: https://pubmed.ncbi.nlm.nih.gov/26473759/
+    download_url: https://doi.org/10.1249/MSS.0000000000000664
+    doi: 10.1249/MSS.0000000000000664
+    license: pendente
+    acquisition_status: original_indisponivel
+    acquisition_note: PubMed disponibiliza a referência e o resumo; o texto integral da publicação da ACSM não foi obtido em acesso aberto.
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: acc-exercise-prescriptions-cardiovascular-health-2026
+    kind: original_only
+    title: 'Exercise Prescriptions for Cardiovascular Health in Adults: 2026 ACC Scientific Statement'
+    institutions:
+    - American College of Cardiology
+    year: 2026
+    version: 2026-article-en
+    source_type: artigo_cientifico
+    source: https://www.jacc.org/doi/10.1016/j.jacc.2026.09.008
+    download_url: https://www.jacc.org/doi/full/10.1016/j.jacc.2026.09.008
+    doi: 10.1016/j.jacc.2026.09.008
+    license: pendente
+    acquisition_status: original_indisponivel
+    acquisition_note: Página integral do editor respondeu HTTP 403 durante a obtenção; comunicado público do ACC e metadados do artigo não substituem o original.
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: ioc-load-sport-injury-2016
+    kind: original_only
+    title: How much is too much? (Part 1) International Olympic Committee consensus statement on load in sport and risk of injury
+    institutions:
+    - International Olympic Committee
+    year: 2016
+    version: 2016-article-en
+    source_type: artigo_cientifico
+    source: https://doi.org/10.1136/bjsports-2016-096581
+    download_url: https://ostrc.no/globalassets/publications/soligard_2016_bjsm_how-much-is-too-much.-ioc-consensus-statement-on-load-in-sport-and-risk-of-injury.pdf
+    doi: 10.1136/bjsports-2016-096581
+    license: pendente
+    original_path: corpus/saudefisica/originais/07-1-ioc-load-injury-2016.pdf
+    markdown_path: corpus/saudefisica/markdown/07-1-ioc-load-injury-2016.md
+    report_path: corpus/saudefisica/relatorios/07-1-ioc-load-injury-2016.json
+    sha256: b9a1f04dd10b9a28939f55a3ecac7be1d5bcc607391f5493c2e9b0d52216dab7
+    pdf_pages: 13
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-19'
+    acquisition_status: original_obtido
+    acquisition_note: PDF integral do artigo, cópia hospedada pelo Oslo Sports Trauma Research Center; metadados, DOI e título conferidos. Não é o endpoint do editor.
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+  - id: ioc-load-sport-illness-2016
+    kind: original_only
+    title: How much is too much? (Part 2) International Olympic Committee consensus statement on load in sport and risk of illness
+    institutions:
+    - International Olympic Committee
+    year: 2016
+    version: 2016-article-en
+    source_type: artigo_cientifico
+    source: https://pubmed.ncbi.nlm.nih.gov/27535991/
+    download_url: https://repository.up.ac.za/server/api/core/bitstreams/3831edb8-3e7d-42c4-bfcd-cb9c2658036b/content
+    doi: 10.1136/bjsports-2016-096572
+    pmcid: PMC5013087
+    license: CC-BY-NC-4.0
+    license_evidence:
+      pdf_page: 11
+      description: Créditos do PDF declaram Creative Commons Attribution Non-Commercial 4.0 (CC BY-NC 4.0).
+    acquisition_status: original_obtido
+    acquisition_note: PDF integral localizado no repositório institucional da University of Pretoria; DOI, título e paginação conferidos. A página 2 apresenta extração de texto escassa por conter tabela; revisar visualmente no original.
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+    original_path: corpus/saudefisica/originais/07-2-ioc-load-illness-2016.pdf
+    markdown_path: corpus/saudefisica/markdown/07-2-ioc-load-illness-2016.md
+    report_path: corpus/saudefisica/relatorios/07-2-ioc-load-illness-2016.json
+    sha256: 824b134ecf0cc61e15eb76f9adcf2aa2f738fc09cbd306b4079ea98f98058dae
+    pdf_pages: 11
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-19'
+  - id: jospt-low-back-pain-cpg-revision-2021
+    kind: original_only
+    title: 'Interventions for the Management of Acute and Chronic Low Back Pain: Revision 2021'
+    institutions:
+    - Academy of Orthopaedic Physical Therapy
+    - American Physical Therapy Association
+    year: 2021
+    version: 2021-author-manuscript-html-en
+    source_type: diretriz
+    source: https://pmc.ncbi.nlm.nih.gov/articles/PMC10508241/
+    download_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10508241/
+    doi: 10.2519/jospt.2021.0304
+    license: pendente
+    original_path: corpus/saudefisica/originais/08-jospt-low-back-pain-cpg-2021.html
+    markdown_path: corpus/saudefisica/markdown/08-jospt-low-back-pain-cpg-2021.md
+    report_path: corpus/saudefisica/relatorios/08-jospt-low-back-pain-cpg-2021.json
+    content_selector: main
+    sha256: 3e65a73bc833ce6cc0885f94656fc5a1044ff691785b96cb00aba15767ebfdc5
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-19'
+    acquisition_status: original_obtido
+    acquisition_note: Texto integral HTML público do PubMed Central, identificado como manuscrito do autor; não é a diagramação final do editor. O endpoint PDF acionou um desafio anti-bot, então esse arquivo não foi incorporado.
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: who-package-rehabilitation-musculoskeletal-2023
+    kind: original_only
+    title: 'Package of Interventions for Rehabilitation: Module 2 — Musculoskeletal Conditions'
+    institutions:
+    - World Health Organization
+    year: 2023
+    version: 2023-1ed-en
+    source_type: diretriz
+    source: https://www.who.int/publications/i/item/9789240071100
+    download_url: https://iris.who.int/server/api/core/bitstreams/b391d235-448f-4a16-97fc-70a6c0f58870/content
+    license: CC-BY-NC-SA-3.0-IGO
+    license_evidence:
+      description: Registro oficial da publicação declara licença CC BY-NC-SA 3.0 IGO.
+    original_path: corpus/saudefisica/originais/09-who-package-rehabilitation-module-2-2023.pdf
+    markdown_path: corpus/saudefisica/markdown/09-who-package-rehabilitation-module-2-2023.md
+    report_path: corpus/saudefisica/relatorios/09-who-package-rehabilitation-module-2-2023.json
+    sha256: e6248d68fe4ca7a800e0a5f24d6ea3837cd3df8697a858d5ea48d5b19605e394
+    pdf_pages: 108
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-19'
+    acquisition_status: original_obtido
+    approval_status: pendente
+    intended_use_license_review: pendente
+  - id: jospt-rotator-cuff-tendinopathy-cpg-2025
+    kind: original_only
+    title: 'Rotator Cuff Tendinopathy Diagnosis, Nonsurgical Medical Care, and Rehabilitation: A Clinical Practice Guideline'
+    institutions:
+    - Academy of Orthopaedic Physical Therapy
+    - American Physical Therapy Association
+    year: 2025
+    version: 2025-article-en
+    source_type: diretriz
+    source: https://doi.org/10.2519/jospt.2025.13182
+    download_url: https://ifspt.org/wp-content/uploads/2025/05/Rotator-Cuff.pdf
+    doi: 10.2519/jospt.2025.13182
+    license: 'Copyright ©2025 JOSPT; aviso no PDF: uso pessoal somente, demais usos mediante permissão'
+    original_path: corpus/saudefisica/originais/10-jospt-rotator-cuff-2025.pdf
+    markdown_path: corpus/saudefisica/markdown/10-jospt-rotator-cuff-2025.md
+    report_path: corpus/saudefisica/relatorios/10-jospt-rotator-cuff-2025.json
+    sha256: 98754df9b0952321958b02a472a5217fc88e4a60e853fa3889c4192c368dfdee
+    pdf_pages: 40
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-19'
+    acquisition_status: original_obtido
+    acquisition_note: PDF integral hospedado pela International Federation of Sports Physical Therapy; DOI e título conferidos. A cópia exibe aviso de uso pessoal e reserva de demais usos; direitos não foram liberados pelo editor.
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+
 # intended_use_license_review (decisão de 06/11/2026, ver corpus/README.md, seção "Decisão sobre licenças e uso das fontes"):
 #   compativel_cc_by: licença CC BY, que permite o uso com atribuição.
 #   compativel_uso_nao_comercial: licença ou permissão não comercial; compatível enquanto o projeto não tiver fins comerciais.
@@ -740,7 +982,6 @@ sources:
 #   revisao: revisão da literatura ou artigo conceitual.
 #   estudo: estudo primário (transversal, populacional, quase-experimental).
 
-# kind (decisão de 08/11/2026): pdf (padrão, pipeline de conversão completo) ou resumo_pubmed
-#   (resumo do PubMed, sem PDF: o original é o JSON em raw_path, conferido por raw_sha256,
-#   e os Trechos ficam em rag_path). Nenhuma fonte usa resumo_pubmed hoje: os 31 resumos do
-#   PubMed ficaram fora da entrega de 09/11/2026 (em inglês, só o resumo) e voltam pela issue #28.
+# kind: pdf (pipeline de conversão), resumo_pubmed (texto de origem sem PDF) ou original_only
+#   (original arquivado/cadastrado, sem Trechos/RAG; pode ter Markdown candidato à revisão).
+#   A integridade dos originais e derivados declarados é verificada por verify_corpus.py.
