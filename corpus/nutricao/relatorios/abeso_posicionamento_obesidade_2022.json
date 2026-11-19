@@ -4,7 +4,7 @@
   "pdf_pages": 260,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": "dee6b67779d0a98de334d3d107f068215b12da540894db5aa6a655a8a5d80b81",
+  "config_sha256": "029c1866bb2d7dde2ab782aebb17c58eb62ce62dca6550ccee2de6c2ec778a6c",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -3512,12 +3512,18 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [
-        "Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
+        "Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026). Tachado falso partia as palavras; texto refeito por replacement ('que a cafeína', issue #69).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "page": 184,
+          "old": "qu ~~e a~~ cafeína",
+          "new": "que a cafeína"
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 0.97312,
+      "native_word_coverage": 0.97491,
       "missing_native_tokens": {
         "animais9": 1,
         "cafeinadas15": 1,
@@ -3530,12 +3536,11 @@
         "macronutrientes11": 1,
         "outras18": 1,
         "plenitude13": 1,
-        "que": 1,
         "saudáveis14": 1,
         "severos16": 1,
         "sinefrina17": 1
       },
-      "markdown_characters": 3929
+      "markdown_characters": 3924
     },
     {
       "pdf_page": 185,
@@ -4096,20 +4101,24 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [
-        "Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
+        "Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026). Tachado falso partia as palavras; texto refeito por replacement ('bastante heterogêneos', issue #69).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "page": 218,
+          "old": "bastant ~~e h~~ eterogêneos",
+          "new": "bastante heterogêneos"
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 0.96803,
+      "native_word_coverage": 0.97158,
       "missing_native_tokens": {
         "2kg5": 1,
         "alimentar7": 1,
-        "bastante": 1,
         "contraindicada3": 1,
         "dieta6": 1,
         "física4": 1,
-        "heterogêneos": 1,
         "horas4": 1,
         "inicial7": 1,
         "intraoperatório2": 1,
@@ -4119,7 +4128,7 @@
         "prolongada1": 1,
         "suplementação8": 1
       },
-      "markdown_characters": 3574
+      "markdown_characters": 3568
     },
     {
       "pdf_page": 219,
@@ -4874,7 +4883,7 @@
       "markdown_characters": 0
     }
   ],
-  "markdown_sha256": "5101841dd44a2d346722631275885c194e9e5dcc231c504923b8eacb62b0944e",
+  "markdown_sha256": "a6a10e62b0c1b4616b0afeb61ce3bdcb5821aa5fa5c4f92127cba7199f719616",
   "summary": {
     "pages_converted": 260,
     "sparse_pages": [
@@ -5001,6 +5010,8 @@
       251
     ],
     "pages_with_adjustments": [
+      184,
+      218,
       251
     ]
   }

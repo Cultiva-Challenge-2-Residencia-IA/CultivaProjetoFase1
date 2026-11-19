@@ -5002,7 +5002,7 @@ Em humanos, o consumo de 250mg de cafeína em dose única elevou as concentraç�
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=184)
 
-> **Nota de conversão — página 184:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+> **Nota de conversão — página 184:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026). Tachado falso partia as palavras; texto refeito por replacement ('que a cafeína', issue #69).
 
 > **Nota de conversão — página 184:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -5020,7 +5020,7 @@ Vários trabalhos reportam efeitos adversos da ingestão excessiva de cafeína, 
 
 No Brasil, foi avaliada a composição de suplementos alimentares comercializados pela internet com as seguintes finalidades: perda de peso, queima de gordura, redução do apetite e aumento do metabolismo. A análise mostrou que parte dos produtos possui em sua composição concentrações de cafeína superiores àquelas informadas no rótulo. Além disso, diversas amostras continham ainda outros estimulantes e substâncias ativas não declaradas no rótulo, como efedrina, sinefrina<sup>17</sup> , clobenzorex, fenprometamina, sibutramina, dipirona, fluoxetina, anfepramona, femproporex, entre outras<sup>18</sup> .
 
-Concluindo, o uso de suplementos de cafeína não deve ser considerado como estratégia para perda de peso e tratamento da obesidade, uma vez qu ~~e a~~ cafeína parece apresentar efeito apenas modesto sobre a termogênese e não ter influência na regulação do apetite e ingestão alimentar. Além disso, já se demonstrou que suplementos à base de cafeína para perda de peso ou “energéticos” podem aumentar a pressão arterial, bem como o risco de efeitos adversos severos. **Classe de recomendação III, Nível de evidência B.**
+Concluindo, o uso de suplementos de cafeína não deve ser considerado como estratégia para perda de peso e tratamento da obesidade, uma vez que a cafeína parece apresentar efeito apenas modesto sobre a termogênese e não ter influência na regulação do apetite e ingestão alimentar. Além disso, já se demonstrou que suplementos à base de cafeína para perda de peso ou “energéticos” podem aumentar a pressão arterial, bem como o risco de efeitos adversos severos. **Classe de recomendação III, Nível de evidência B.**
 
 **184**
 
@@ -5912,7 +5912,7 @@ PROCEDIMENTOS BARIÁTRICOS
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=218)
 
-> **Nota de conversão — página 218:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+> **Nota de conversão — página 218:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026). Tachado falso partia as palavras; texto refeito por replacement ('bastante heterogêneos', issue #69).
 
 > **Nota de conversão — página 218:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -5930,7 +5930,7 @@ O estudo REDUCE _pivotal trial_ realizado com 326 pacientes com IMC entre 30 e 4
 
 Stimac et al. (2010)<sup>7</sup> avaliaram a redução de peso em 171 indivíduos com IMC médio de 41,6 kg/m<sup>2</sup> submetidos ao BIG. A terapia mostrou perda de peso de 16,9kg em 6 meses, representando 39,7% do excesso de peso na maioria da amostra, porém 8% dos participantes reduziram menos de 5% do peso inicial<sup>7</sup> .
 
-Em relação à orientação nutricional para o uso de BIG, os estudos são bastant ~~e h~~ eterogêneos em suas indicações. Uma das recomendações seria dieta líquida por 3 semanas, seguida de dieta pastosa por 4 semanas e, após, dieta geral de acordo com as orientações do plano alimentar<sup>7</sup> . Outra recomendação seria dieta líquida por 3 dias, com utilização de antieméticos e antiespasmódicos e, em seguida, dieta semi-líquida e evolução gradual para dieta geral contendo em torno de 800 a 1000kcal. Este documento não menciona necessidade de suplementação<sup>8</sup> . Já a AGA (2021)<sup>3</sup> coloca como opcional o uso de 1-2 polivitamínicos/dia, variando de acordo com o paciente<sup>3</sup> .
+Em relação à orientação nutricional para o uso de BIG, os estudos são bastante heterogêneos em suas indicações. Uma das recomendações seria dieta líquida por 3 semanas, seguida de dieta pastosa por 4 semanas e, após, dieta geral de acordo com as orientações do plano alimentar<sup>7</sup> . Outra recomendação seria dieta líquida por 3 dias, com utilização de antieméticos e antiespasmódicos e, em seguida, dieta semi-líquida e evolução gradual para dieta geral contendo em torno de 800 a 1000kcal. Este documento não menciona necessidade de suplementação<sup>8</sup> . Já a AGA (2021)<sup>3</sup> coloca como opcional o uso de 1-2 polivitamínicos/dia, variando de acordo com o paciente<sup>3</sup> .
 
 Para a retirada do BIG, o Consenso Brasileiro recomenda no mínimo 2 dias de dieta líquida, seguida de jejum de 12 horas<sup>4</sup> .
 
