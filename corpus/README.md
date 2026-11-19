@@ -152,6 +152,7 @@ Decisões de 06/11/2026.
 - **Critério mínimo.** Checklist curta (origem verificável, documento vigente, sem conflito de interesse evidente e escopo adequado) e conferência de uma amostra de páginas contra o PDF, incluindo as de tabela.
 - **Páginas inconfiáveis.** As que a revisão apontar como inconfiáveis saem dos Trechos com `skip_pages` em `scripts/config/rag.yaml`, e a ressalva vai em `data_quality_note` no manifesto.
 - **Regeneração.** O `convert_pdfs.py` recusa fonte aprovada. Para regenerar uma, volte o `approval_status` para `pendente` e reaprove depois.
+- **Configurações por fonte (issue #26, 19/11/2026).** 21 das 22 fontes têm `conversion_config`; falta a ABESO (103 páginas com aviso), num PR próprio. As 17 configurações novas registram em `page_notes` o que foi conferido em cada página com aviso: a revisão de 08/11, a comparação de números do PDF com o Markdown ou a decisão de `skip_pages`. Também registram em `sparse_page_decisions` o uso do texto nativo nas capas e contracapas do CFN e numa página sem conteúdo da SBAN, porque nelas o OCR só gerava caracteres espúrios. As 16 fontes aprovadas voltaram a `pendente` para a conversão e foram reaprovadas no mesmo PR: os Trechos ficaram idênticos (as notas de conversão não entram nos Trechos).
 - **Registro.** A revisão fica em `nutricao/relatorios/` (por exemplo, `revisao-issue-8.md`). O `verify_corpus.py` não aprova nada: só confere que os Trechos copiam o status atual do manifesto.
 
 ## Organização

@@ -130,6 +130,8 @@ Arq Bras Endocrinol Metab 2007;51/7
 
 [Conferir no original](../originais/crispim_et_al_sono_obesidade_abem_2007.pdf#page=4)
 
+> **Nota de conversão — página 4:** Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): todo o texto corrido presente; falso alerta porque a camada nativa do PDF repete o texto.
+
 > **Nota de conversão — página 4:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 _Relação entre Sono e Obesidade Crispim et al._
