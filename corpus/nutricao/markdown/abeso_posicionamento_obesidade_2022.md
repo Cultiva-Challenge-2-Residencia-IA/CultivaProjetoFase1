@@ -6118,6 +6118,8 @@ A tabela 5 apresenta as recomendações de suplementação para prevenção e pa
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=224)
 
+> **Nota de conversão — página 224:** Tabela 5 (suplementação pós-cirurgia bariátrica: B12, tiamina, vitamina D) parcialmente embaralhada: rótulos partidos entre células (ex.: 'Cl… asse de Recomendação', 'valor l i'), mas cada dose permanece junto do micronutriente (conferência da issue #26, 19/11/2026). Mantida nos Trechos, mas ATENÇÃO: traz doses de suplementação pós-bariátrica, conteúdo para profissionais que o produto não pode repassar como recomendação individual (RN01; guardrail de prescrição, issue #39).
+
 CAPÍTULO 8
 
 Tabela 5. Recomendações de suplementação para prevenção e para os casos de deficiência pós-cirurgia bariátrica e metabólica

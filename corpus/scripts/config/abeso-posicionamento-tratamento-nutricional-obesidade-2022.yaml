@@ -186,6 +186,11 @@ page_notes:
   223: 'Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): texto
     fiel, incluindo percentuais de deficiências pós-cirurgia; falso alerta por sobrescritos colados a
     números.'
+  224: 'Tabela 5 (suplementação pós-cirurgia bariátrica: B12, tiamina, vitamina D) parcialmente embaralhada:
+    rótulos partidos entre células (ex.: ''Cl… asse de Recomendação'', ''valor l i''), mas cada dose permanece
+    junto do micronutriente (conferência da issue #26, 19/11/2026). Mantida nos Trechos, mas ATENÇÃO:
+    traz doses de suplementação pós-bariátrica, conteúdo para profissionais que o produto não pode repassar
+    como recomendação individual (RN01; guardrail de prescrição, issue #39).'
   225: 'DEFEITO: continuação da Tabela 5 (cálcio, vitaminas A e K, zinco, cobre) extraída com as colunas
     misturadas linha a linha; os números estão presentes, mas a associação entre dose, tipo de cirurgia
     (restritiva, RYGB, BPD/DS) e deficiência se perde. Página fora dos Trechos (skip_pages em rag.yaml,

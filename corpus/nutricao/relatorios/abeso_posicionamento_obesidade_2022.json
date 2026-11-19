@@ -4,7 +4,7 @@
   "pdf_pages": 260,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": "0b4c8525c79be2354f5cca8ae8a38ac1b1e412eddcdd73dc2443b96248920451",
+  "config_sha256": "dee6b67779d0a98de334d3d107f068215b12da540894db5aa6a655a8a5d80b81",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -4268,7 +4268,9 @@
       "native_characters": 2603,
       "method": "native",
       "tables_detected": 1,
-      "warnings": [],
+      "warnings": [
+        "Tabela 5 (suplementação pós-cirurgia bariátrica: B12, tiamina, vitamina D) parcialmente embaralhada: rótulos partidos entre células (ex.: 'Cl… asse de Recomendação', 'valor l i'), mas cada dose permanece junto do micronutriente (conferência da issue #26, 19/11/2026). Mantida nos Trechos, mas ATENÇÃO: traz doses de suplementação pós-bariátrica, conteúdo para profissionais que o produto não pode repassar como recomendação individual (RN01; guardrail de prescrição, issue #39)."
+      ],
       "adjustments": [],
       "ocr": [],
       "native_word_coverage": 0.9821,
@@ -4872,7 +4874,7 @@
       "markdown_characters": 0
     }
   ],
-  "markdown_sha256": "08a48d22a955314f15ca05bf9b06c002cb0854ef809dc7f52b7d7b06832490b9",
+  "markdown_sha256": "5101841dd44a2d346722631275885c194e9e5dcc231c504923b8eacb62b0944e",
   "summary": {
     "pages_converted": 260,
     "sparse_pages": [
@@ -4988,6 +4990,7 @@
       219,
       220,
       223,
+      224,
       225,
       227,
       234,
