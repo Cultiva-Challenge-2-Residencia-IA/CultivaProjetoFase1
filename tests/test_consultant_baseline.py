@@ -275,3 +275,37 @@ def test_lista_de_alimentos_com_objetos_nao_derruba_a_consulta(monkeypatch) -> N
     assert res.model_used.startswith("groq:")
     assert "Psyllium" in res.food_sources_or_compounds
     assert all(isinstance(item, str) for item in res.food_sources_or_compounds)
+
+
+def test_ultima_sintese_e_verificacao_sao_isoladas_por_thread():
+    import threading
+
+    from src.agent.llm_client import LocalLLMClient
+
+    cliente = LocalLLMClient(enable_ollama=False)
+    cliente.ultima_sintese_llm = {"evidence_summary": "da thread principal"}
+    cliente.ultima_verificacao = "verificacao principal"
+    vistos = {}
+
+    def outra_thread():
+        vistos["antes"] = (cliente.ultima_sintese_llm, cliente.ultima_verificacao)
+        cliente.ultima_sintese_llm = {"evidence_summary": "da outra thread"}
+
+    t = threading.Thread(target=outra_thread)
+    t.start()
+    t.join()
+    assert vistos["antes"] == (None, None)
+    assert cliente.ultima_sintese_llm == {"evidence_summary": "da thread principal"}
+    assert cliente.ultima_verificacao == "verificacao principal"
+
+
+def test_llm_puro_registra_a_versao_do_prompt_sem_contexto():
+    from src.agent.consultant_baseline import PROMPT_VERSION, PROMPT_VERSION_SEM_CONTEXTO
+
+    consultor = NutritionConsultantBaseline.__new__(NutritionConsultantBaseline)
+    consultor.corpus_version = "corpus-teste"
+    consultor.modo_llm_puro = False
+    assert consultor._rastreabilidade([], "x")["prompt_version"] == PROMPT_VERSION
+    consultor.modo_llm_puro = True
+    assert consultor._rastreabilidade([], "x")["prompt_version"] == PROMPT_VERSION_SEM_CONTEXTO
+    assert PROMPT_VERSION != PROMPT_VERSION_SEM_CONTEXTO

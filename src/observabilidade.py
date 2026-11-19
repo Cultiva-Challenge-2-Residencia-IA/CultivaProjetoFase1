@@ -11,8 +11,9 @@ Garantias com o Langfuse ligado:
 - todo `input`, `output` e `metadata` de toda observação passa por `mascarar_estrutura` (máscara
   do RNF05) dentro do próprio SDK, antes de ser gravado. Se a máscara falhar, o SDK grava um
   marcador no lugar do dado, e não o dado;
-- mensagem com sinal de risco não é registrada: o consultor grava só as categorias (veja
-  `NutritionConsultantBaseline.consult`).
+- mensagem que o portão de risco detecta não é registrada: o consultor grava só as categorias
+  (veja `NutritionConsultantBaseline.consult`). O portão é por léxico e deixa passar a maioria das
+  frases de risco novas (#48); essas são registradas como qualquer pergunta, só com a máscara.
 
 A máscara é defesa adicional, não anonimização (ADR 0003). O pacote fica no grupo opcional
 `observabilidade`: `uv sync --group observabilidade`.

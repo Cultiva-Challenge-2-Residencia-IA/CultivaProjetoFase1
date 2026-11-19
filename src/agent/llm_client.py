@@ -1,5 +1,6 @@
 import json
 import re
+import threading
 from typing import Any, Dict, List, Optional, Tuple
 
 import httpx
@@ -112,11 +113,36 @@ class LocalLLMClient:
         self.groq_timeout = groq_timeout
         self.enable_groq = enable_ollama if enable_groq is None else enable_groq
         self.allow_external_llm = allow_external_llm
-        # JSON devolvido pelo LLM na última síntese, antes da mistura com o texto extrativo
-        # (None quando a síntese foi extrativa). Usado pelos experimentos de avaliação.
-        self.ultima_sintese_llm: Optional[Dict[str, Any]] = None
-        # Última checagem de citações feita sobre uma resposta do LLM (issue #12); None se não houve.
+        self.ultima_sintese_llm = None
         self.ultima_verificacao = None
+
+    # Estado da última síntese, por thread: a API usa um consultor único, e duas requisições
+    # simultâneas não podem ler o resultado uma da outra.
+    def _estado_da_thread(self) -> threading.local:
+        estado = self.__dict__.get("_estado_local")
+        if estado is None:
+            estado = self.__dict__.setdefault("_estado_local", threading.local())
+        return estado
+
+    @property
+    def ultima_sintese_llm(self) -> Optional[Dict[str, Any]]:
+        """JSON devolvido pelo LLM na última síntese desta thread, antes da mistura com o texto
+        extrativo (None quando a síntese foi extrativa). Usado pelos experimentos de avaliação."""
+        return getattr(self._estado_da_thread(), "sintese_llm", None)
+
+    @ultima_sintese_llm.setter
+    def ultima_sintese_llm(self, valor: Optional[Dict[str, Any]]) -> None:
+        self._estado_da_thread().sintese_llm = valor
+
+    @property
+    def ultima_verificacao(self) -> Any:
+        """Última checagem de citações desta thread sobre uma resposta do LLM (issue #12); None se
+        não houve."""
+        return getattr(self._estado_da_thread(), "verificacao", None)
+
+    @ultima_verificacao.setter
+    def ultima_verificacao(self, valor: Any) -> None:
+        self._estado_da_thread().verificacao = valor
 
     def is_groq_available(self) -> bool:
         return bool(self.allow_external_llm and self.enable_groq and self.groq_api_key)

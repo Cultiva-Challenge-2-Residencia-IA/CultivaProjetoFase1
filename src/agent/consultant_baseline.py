@@ -5,7 +5,7 @@ from typing import List, Optional
 
 from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE, LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
-from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
+from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import ABSTENCAO_LIMIAR_COSSENO, INCLUDE_PENDING_SOURCES, TOP_K_FINAL
 from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio
@@ -30,6 +30,10 @@ from src.retrieval.taco_tool import TacoDeterministicTool
 # Versão do prompt (RNF08): hash do prompt de sistema e do template da pergunta enviada ao LLM.
 PROMPT_VERSION = hashlib.sha256(
     (SYSTEM_PROMPT_CONSULTANT + inspect.getsource(LocalLLMClient._build_user_prompt)).encode("utf-8")
+).hexdigest()
+# Linha de base "LLM puro" da ablação: outro prompt de sistema, sem Trechos no prompt do usuário.
+PROMPT_VERSION_SEM_CONTEXTO = hashlib.sha256(
+    (SYSTEM_PROMPT_SEM_CONTEXTO + inspect.getsource(LocalLLMClient.generate_structured_synthesis)).encode("utf-8")
 ).hexdigest()
 
 
@@ -90,7 +94,9 @@ class NutritionConsultantBaseline:
         return {
             "response_id": new_response_id(),
             "corpus_version": self.corpus_version,
-            "prompt_version": PROMPT_VERSION,
+            "prompt_version": (
+                PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False) else PROMPT_VERSION
+            ),
             "model_version": model_used,
             "fontes_version": fontes_version,
             "trechos_usados": trechos_usados,
@@ -113,7 +119,9 @@ class NutritionConsultantBaseline:
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:
         # Com a observabilidade desligada (padrão), os blocos abaixo são no-ops. Ligada, todo texto
         # passa pela máscara de dados pessoais no SDK (src/observabilidade.py, ADR 0003). Mensagem
-        # com sinal de risco nunca é registrada, nem mascarada: o trace guarda só as categorias.
+        # que o portão de risco detecta não é registrada, nem mascarada: o trace guarda só as
+        # categorias. O portão é por léxico e deixa passar a maioria das frases novas (recall de
+        # 0,133 no holdout, #48); essas vão ao trace como qualquer pergunta, só com a máscara.
         risco = detectar_risco(user_query)
         entrada = (
             {"risco_categorias": risco.categorias, "top_k": top_k}
