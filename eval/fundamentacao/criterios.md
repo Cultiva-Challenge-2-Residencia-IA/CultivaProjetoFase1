@@ -78,3 +78,28 @@ O `dev` é medido de novo com o prompt v2. O `test` continua sem ter sido rodado
 - **Prompt v3, formato estruturado.** Cada campo do LLM passa a ser uma lista de `{"frase": …, "trechos": [números, "TACO" ou "GRAFO"]}`.
 - **Conversão para a mesma checagem.** O código (`normalizar_frases_citadas`) monta o texto com os marcadores no fim de cada frase e aplica a mesma checagem de antes. Referências fora do formato viram um marcador inválido e reprovam.
 - **Compatibilidade.** Respostas em texto continuam aceitas.
+
+## Issue #67: citação literal e mecanismo opcional (critérios registrados em 19/11/2026, antes de medir)
+
+**Ponto de partida** (PR #68): na amostra de 60 frases do prompt v3, julgada com o ChatGPT, só 35% das frases eram sustentadas pelo trecho citado (`physiological_mechanism`: 17%). A checagem da #12 confere a forma da citação, não o conteúdo.
+
+**Prompt v4:**
+- **Citação literal:** cada item é `{"frase", "trechos", "citacao"}`, e `citacao` é um pedaço copiado, sem alterar, de um dos trechos citados (ou do bloco da TACO ou do grafo), que sustente a frase.
+- **Mecanismo opcional:** `physiological_mechanism` só traz frases quando um trecho descreve o mecanismo; caso contrário, vem a frase fixa "Não consta nos trechos recuperados.".
+
+**Checagem determinística da citação literal** (`src/rag/verificador/citacoes.py`), sem LLM. Uma frase é válida se:
+- a `citacao` tem pelo menos **4 palavras**;
+- normalizada (caixa, acentos compatíveis por NFKC, pontuação e espaços), a `citacao` aparece **como sequência contínua** no texto normalizado de pelo menos uma das fontes que a frase cita (`[T#]`, `[TACO]` ou `[GRAFO]`).
+
+A frase fixa "Não consta nos trechos recuperados." dispensa citação.
+
+**Decisão do responsável (MatheusSales2773, 19/11/2026):** a frase sem citação literal válida é **removida**, e as demais seguem. A resposta só cai na síntese extrativa se o `evidence_summary` ficar sem nenhuma frase. Depois da remoção, continua valendo a checagem da #12 (marcadores no intervalo, ao menos um `[T#]`). Se o LLM disser "Não consta" nos três campos, a resposta segue sendo o "não sei".
+
+**Medições (`qwen2.5:7b` local):**
+- conformidade antes do bloqueio, taxa de resposta extrativa, frases removidas por resposta e mediana de tempo;
+- ajuste do prompt só olhando o `dev`; o `test` roda uma vez, com o prompt final.
+
+**Comparação com os 35%:**
+- **Amostra:** 60 frases novas, sorteadas como na #12 (semente fixa, no máximo 3 por resposta), entre as frases que **chegam ao usuário**.
+- **Juiz:** o ChatGPT, com a mesma rubrica, para comparar com o mesmo juiz. Resultado registrado como estimativa por juiz automático.
+- **Leitura:** a mudança é considerada **eficaz** se a fidelidade subir pelo menos 20 p.p. em relação aos 35% (ou seja, chegar a 55% ou mais), e se o limite inferior do intervalo de Wilson ficar acima de 35%. A meta do RNF27 (95%) continua sendo a referência; não atingi-la é relatado como tal.
