@@ -116,3 +116,14 @@ A frase fixa "Não consta nos trechos recuperados." dispensa citação.
 **Ajustes, decididos só com o `dev`:**
 1. **Rótulo corrigido:** se a citação literal não está na fonte citada, mas está em **outra fonte entregue ao modelo**, a frase fica e o rótulo é **corrigido** para a fonte onde a citação está (registrado em `rotulos_corrigidos`). A exigência de que a citação exista literalmente no material entregue não muda.
 2. **Número e unidade:** na busca, um número colado a letras é separado delas ("800kcal" = "800 kcal").
+
+## Modelo `gemma4:e4b` com o prompt v4 (critérios registrados em 19/11/2026, antes de medir)
+
+**Motivo:** o PR #70 (issue #55) recomenda trocar o `qwen2.5:7b` pelo `gemma4:e4b`, mas mediu com prompts congelados **antes** da #12 e sugere rodar os finalistas de novo com o prompt atual antes da troca. Esta medição dá esse dado para o ADR 0004. A troca de `OLLAMA_MODEL` continua com a #55: aqui o modelo é escolhido só por variável de ambiente, na medição.
+
+**Igual à medição do `qwen2.5:7b`:** prompt v4, checagem de citação literal, `dev` e `test` (sem ajuste nenhum: prompt e regras ficam congelados como no #75), amostra de até 60 frases com a mesma semente, a mesma rubrica e o mesmo juiz (ChatGPT). Resultados com o rótulo `gemma4_e4b`, sem sobrescrever os do `qwen2.5:7b`.
+
+**Leitura:**
+- **O que é relatado:** respostas aceitas, frases removidas, rótulos corrigidos, latência e fidelidade com IC de Wilson, lado a lado com o `qwen2.5:7b` (46%, IC de 34% a 58%).
+- **Quando há diferença:** a fidelidade só é declarada **diferente** se os ICs de Wilson **não se sobrepuserem**. Com ICs sobrepostos, o resultado é **empate técnico**, e a latência e a taxa de respostas aceitas desempatam.
+- **RNF27:** a meta de 95% continua sendo a referência.

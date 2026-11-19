@@ -39,11 +39,12 @@ SEMENTE = 12
 JULGAMENTOS = ("sustentada", "parcial", "nao_sustentada")
 
 
-def _resultado_path(split: str) -> Path:
-    return DIR / f"resultados_{split}.json"
+def _resultado_path(split: str, rotulo: str = "") -> Path:
+    """`rotulo` separa os resultados de outro modelo (ex.: "gemma4_e4b") dos do modelo padrão."""
+    return DIR / (f"resultados_{split}_{rotulo}.json" if rotulo else f"resultados_{split}.json")
 
 
-def medir(split: str) -> Dict[str, Any]:
+def medir(split: str, rotulo: str = "") -> Dict[str, Any]:
     from src.agent.consultant_baseline import NutritionConsultantBaseline
 
     consultor = NutritionConsultantBaseline(enable_ollama=True)
@@ -129,7 +130,7 @@ def medir(split: str) -> Dict[str, Any]:
     }
     saida = {"criterios": str(DIR / "criterios.md"), "resumo": resumo, "itens": itens}
     DIR.mkdir(parents=True, exist_ok=True)
-    _resultado_path(split).write_text(json.dumps(saida, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    _resultado_path(split, rotulo).write_text(json.dumps(saida, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps(resumo, indent=2, ensure_ascii=False))
     return saida
 
@@ -167,10 +168,10 @@ def sortear(frases: List[Dict[str, Any]], n: int = TAMANHO_AMOSTRA, semente: int
     return candidatas[:n]
 
 
-def amostra(splits: List[str], prefixo: str = "amostra") -> List[Dict[str, Any]]:
+def amostra(splits: List[str], prefixo: str = "amostra", rotulo: str = "") -> List[Dict[str, Any]]:
     itens = []
     for s in splits:
-        caminho = _resultado_path(s)
+        caminho = _resultado_path(s, rotulo)
         if caminho.exists():
             itens.extend(json.loads(caminho.read_text(encoding="utf-8"))["itens"])
     escolhidas = sortear(frases_elegiveis(itens))
@@ -224,16 +225,18 @@ def main(argv: Optional[List[str]] = None) -> None:
     sub = parser.add_subparsers(dest="comando", required=True)
     m = sub.add_parser("medir")
     m.add_argument("--split", choices=["dev", "test", "todos"], default="dev")
+    m.add_argument("--rotulo", default="", help="sufixo dos arquivos de resultado (ex.: gemma4_e4b)")
     a = sub.add_parser("amostra")
     a.add_argument("--splits", nargs="+", default=["dev", "test"])
     a.add_argument("--prefixo", default="amostra", help="nome dos arquivos (ex.: amostra_v4)")
+    a.add_argument("--rotulo", default="", help="lê os resultados com esse sufixo")
     c = sub.add_parser("calcular")
     c.add_argument("--planilha", type=Path, default=DIR / "amostra_para_avaliar.csv")
     args = parser.parse_args(argv)
     if args.comando == "medir":
-        medir(args.split)
+        medir(args.split, args.rotulo)
     elif args.comando == "amostra":
-        amostra(args.splits, args.prefixo)
+        amostra(args.splits, args.prefixo, args.rotulo)
     else:
         calcular(args.planilha)
 
