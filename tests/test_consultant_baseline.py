@@ -52,9 +52,9 @@ def test_groq_api_client_synthesis(monkeypatch) -> None:
     def fake_call_groq(model_name: str, user_prompt: str):
         assert model_name == "openai/gpt-oss-120b"
         return {
-            "evidence_summary": "A beta-glucana da aveia reduz o colesterol LDL-c segundo meta-análises.",
-            "physiological_mechanism": "Aumento da viscosidade luminal intestinal e sequestro de ácidos biliares.",
-            "protocol_findings": "Ingestão populacional estudada de 3 g/dia de beta-glucana.",
+            "evidence_summary": "A beta-glucana da aveia reduz o colesterol LDL-c segundo meta-análises [T1].",
+            "physiological_mechanism": "Aumento da viscosidade luminal intestinal e sequestro de ácidos biliares [T1].",
+            "protocol_findings": "Ingestão populacional estudada de 3 g/dia de beta-glucana [T2].",
             "food_sources_or_compounds": ["Aveia (beta-glucana)"],
             "evidence_grade": "GRADE_A",
         }
@@ -63,6 +63,10 @@ def test_groq_api_client_synthesis(monkeypatch) -> None:
     res = consultant.consult("Como a fibra solúvel da aveia reduz o colesterol LDL?")
     assert res.model_used == "groq:openai/gpt-oss-120b"
     assert "beta-glucana" in res.evidence_summary.lower()
+    assert res.fundamentacao_status == "llm_citacoes_validas"
+    # Citações (issue #12): só os Trechos marcados, com o número T#.
+    assert res.trechos_citados[:2] == [res.retrieved_chunks[0].chunk.chunk_id, res.retrieved_chunks[1].chunk.chunk_id]
+    assert any("T1" in c for c in res.citations)
 
 
 def test_groq_prompt_masks_common_personal_identifiers(monkeypatch) -> None:
@@ -205,6 +209,7 @@ def test_llm_puro_sem_contexto_nao_mistura_texto_extrativo(monkeypatch) -> None:
     # Sem contexto não há texto extrativo para misturar: o mecanismo é só o do LLM.
     assert res.physiological_mechanism == resposta_llm["physiological_mechanism"]
     assert consultant.llm_client.ultima_sintese_llm == resposta_llm
+    assert res.fundamentacao_status == "llm_sem_contexto"
 
 
 def test_sintese_com_contexto_guarda_o_texto_bruto_do_llm(monkeypatch) -> None:
@@ -213,9 +218,14 @@ def test_sintese_com_contexto_guarda_o_texto_bruto_do_llm(monkeypatch) -> None:
     consultant.llm_client.groq_api_key = "gsk_test_fake_key"
     consultant.llm_client.enable_groq = True
     consultant.llm_client.allow_external_llm = True
-    bruto = {"evidence_summary": "Resumo do LLM.", "physiological_mechanism": "Mecanismo do LLM."}
+    bruto = {
+        "evidence_summary": [{"frase": "Resumo do LLM.", "trechos": [1]}],
+        "physiological_mechanism": [{"frase": "Mecanismo do LLM.", "trechos": [1]}],
+    }
     monkeypatch.setattr(consultant.llm_client, "_call_groq_model", lambda m, p: bruto)
     res = consultant.consult("Como a fibra solúvel da aveia reduz o colesterol LDL?")
+    assert res.model_used.startswith("groq:")
+    assert res.fundamentacao_status == "llm_citacoes_validas"
     assert consultant.llm_client.ultima_sintese_llm == bruto
     # Com contexto, a resposta final continua misturando o texto extrativo (comportamento do produto).
     assert res.physiological_mechanism != bruto["physiological_mechanism"]
@@ -228,10 +238,11 @@ def test_lista_de_alimentos_com_objetos_nao_derruba_a_consulta(monkeypatch) -> N
     consultant.llm_client.enable_groq = True
     consultant.llm_client.allow_external_llm = True
     bruto = {
-        "evidence_summary": "Resumo.",
+        "evidence_summary": [{"frase": "A beta-glucana da aveia reduz o colesterol LDL.", "trechos": [1]}],
         "food_sources_or_compounds": [{"alimento": "Aveia", "composto": "beta-glucana"}, "Psyllium", None],
     }
     monkeypatch.setattr(consultant.llm_client, "_call_groq_model", lambda m, p: bruto)
     res = consultant.consult("Como a fibra solúvel da aveia reduz o colesterol LDL?")
+    assert res.model_used.startswith("groq:")
     assert "Psyllium" in res.food_sources_or_compounds
     assert all(isinstance(item, str) for item in res.food_sources_or_compounds)

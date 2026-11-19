@@ -9,6 +9,7 @@ from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import ABSTENCAO_LIMIAR_COSSENO, INCLUDE_PENDING_SOURCES, TOP_K_FINAL
 from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio
+from src.rag.verificador.citacoes import MARCADOR, eh_trecho
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.ingestion.contextual_chunker import ContextualChunker
@@ -243,6 +244,21 @@ class NutritionConsultantBaseline:
                 data_type="NUMERIC",
             )
 
+        fundamentacao = synthesis.pop("_fundamentacao", {"status": None, "problemas": []})
+        if fundamentacao.get("status") == "llm_sem_base":
+            # O LLM leu os Trechos e disse que eles não respondem: "não sei" (RF-IA01), sem LLM.
+            return self._resposta_fixa(
+                user_query,
+                MENSAGEM_NAO_SEI,
+                guardrail_triggered=assessment.is_restricted_by_law_8234,
+                intent_category="NO_EVIDENCE",
+                legal_compliance_notice=assessment.legal_notice_required,
+                abstencao=True,
+                similaridade_maxima=similaridade,
+                retrieval_mode="ABSTENTION_FIXED_MESSAGE",
+                fundamentacao_status="llm_sem_base",
+            )
+
         # 6. Output Guardrail (Sanitização contra linguagem prescritiva individual)
         with observacao("guardrail_saida", tipo="guardrail") as obs:
             brutos = {
@@ -262,28 +278,37 @@ class NutritionConsultantBaseline:
         physiological_mechanism = sanitizados["physiological_mechanism"]
         protocol_findings = sanitizados["protocol_findings"]
 
+        # Citações (issue #12): só os Trechos marcados [T#] no texto final, com o número e a página.
+        # O prefixo "[doc_id]" se mantém para o citacoes_validas do benchmark v2.
+        texto_final = f"{evidence_summary} {physiological_mechanism} {protocol_findings}"
+        numeros = sorted({
+            int(m[1:]) for m in MARCADOR.findall(texto_final)
+            if eh_trecho(m) and 1 <= int(m[1:]) <= len(retrieved)
+        })
+        trechos_citados = [retrieved[n - 1].chunk.chunk_id for n in numeros]
         citations: List[str] = []
-        seen_docs = set()
-        for item in retrieved:
-            c = item.chunk
-            cite_key = f"{c.doc_id}:{c.section_path}"
-            if cite_key not in seen_docs:
-                seen_docs.add(cite_key)
-                src_meta = []
-                link = c.fonte_url or (f"https://doi.org/{c.doi}" if c.doi else None)
-                if link:
-                    src_meta.append(f"Link: {link}")
-                if c.doi:
-                    src_meta.append(f"DOI: {c.doi}")
-                if c.licenca:
-                    src_meta.append(f"Licença: {c.licenca}")
-                if c.approval_status:
-                    src_meta.append(f"Aprovação: {c.approval_status}")
-                meta_suffix = f" | {' | '.join(src_meta)}" if src_meta else ""
-                citations.append(
-                    f"[{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), "
-                    f"Seção: '{c.section_path}' (Evidência: {c.evidence_level}{meta_suffix})"
-                )
+        por_chave: dict = {}
+        for n in numeros:
+            c = retrieved[n - 1].chunk
+            por_chave.setdefault(f"{c.doc_id}:{c.section_path}", []).append((n, c))
+        for itens in por_chave.values():
+            c = itens[0][1]
+            rotulos = ", ".join(f"T{n}" + (f" p. {ci.pagina_pdf}" if ci.pagina_pdf else "") for n, ci in itens)
+            src_meta = []
+            link = c.fonte_url or (f"https://doi.org/{c.doi}" if c.doi else None)
+            if link:
+                src_meta.append(f"Link: {link}")
+            if c.doi:
+                src_meta.append(f"DOI: {c.doi}")
+            if c.licenca:
+                src_meta.append(f"Licença: {c.licenca}")
+            if c.approval_status:
+                src_meta.append(f"Aprovação: {c.approval_status}")
+            meta_suffix = f" | {' | '.join(src_meta)}" if src_meta else ""
+            citations.append(
+                f"[{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), "
+                f"Seção: '{c.section_path}' [{rotulos}] (Evidência: {c.evidence_level}{meta_suffix})"
+            )
 
         if graph_paths:
             citations.append(
@@ -326,6 +351,9 @@ class NutritionConsultantBaseline:
             graph_paths=graph_paths,
             evidence_grade=str(synthesis.get("evidence_grade", "N/A")),
             citations=citations,
+            trechos_citados=trechos_citados,
+            fundamentacao_status=fundamentacao.get("status"),
+            fundamentacao_problemas=list(fundamentacao.get("problemas", [])),
             retrieved_chunks=retrieved,
             model_used=model_used,
             retrieval_mode=mode,

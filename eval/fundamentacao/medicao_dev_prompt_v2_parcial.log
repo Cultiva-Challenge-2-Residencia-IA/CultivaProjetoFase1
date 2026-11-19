@@ -1,0 +1,51 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/aluno2/Projetos/CultivaProjetoFase1/src/evaluation/fundamentacao.py", line 226, in <module>
+    main()
+  File "/Users/aluno2/Projetos/CultivaProjetoFase1/src/evaluation/fundamentacao.py", line 218, in main
+    medir(args.split)
+  File "/Users/aluno2/Projetos/CultivaProjetoFase1/src/evaluation/fundamentacao.py", line 67, in medir
+    r = consultor.consult(caso["pergunta"])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aluno2/Projetos/CultivaProjetoFase1/src/agent/consultant_baseline.py", line 178, in consult
+    synthesis, model_used = self.llm_client.generate_structured_synthesis(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aluno2/Projetos/CultivaProjetoFase1/src/agent/llm_client.py", line 429, in generate_structured_synthesis
+    verificacao = _verificar(llm_result)
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aluno2/Projetos/CultivaProjetoFase1/src/agent/llm_client.py", line 374, in _verificar
+    verificacao = verificar_citacoes(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/Users/aluno2/Projetos/CultivaProjetoFase1/src/rag/verificador/citacoes.py", line 75, in verificar_citacoes
+    citados.add(int(m[1:]))
+                ^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'ACO'
+V2-REC-01    extrativa_apos_citacao_invalida   43.4 s frase_sem_citacao:2
+V2-REC-02    extrativa_apos_citacao_invalida   43.9 s frase_sem_citacao:2
+V2-REC-04    llm_citacoes_validas              20.9 s 
+V2-REC-05    extrativa_apos_citacao_invalida   29.7 s frase_sem_citacao:2
+V2-REC-07    extrativa_apos_citacao_invalida   24.6 s frase_sem_citacao:3
+V2-REC-08    llm_citacoes_validas              26.1 s 
+V2-REC-10    extrativa_apos_citacao_invalida   34.6 s frase_sem_citacao:3
+V2-REC-11    extrativa_apos_citacao_invalida   28.3 s frase_sem_citacao:2
+V2-REC-13    extrativa_apos_citacao_invalida   29.2 s frase_sem_citacao:3
+V2-REC-14    extrativa_apos_citacao_invalida   41.8 s frase_sem_citacao:2 marcador_invalido:[TACO]
+V2-REC-16    extrativa_apos_citacao_invalida   26.1 s frase_sem_citacao:1
+V2-REC-17    extrativa_apos_citacao_invalida   28.1 s frase_sem_citacao:1
+V2-REC-19    extrativa                         45.2 s 
+V2-REC-20    extrativa_apos_citacao_invalida   44.6 s frase_sem_citacao:2
+V2-REC-22    extrativa_apos_citacao_invalida   28.2 s frase_sem_citacao:4 nenhum_trecho_citado
+V2-REC-23    llm_citacoes_validas              19.0 s 
+V2-PRE-01    extrativa                         45.1 s 
+V2-PRE-02    llm_sem_base                      23.5 s 
+V2-PRE-04    extrativa_apos_citacao_invalida   35.0 s frase_sem_citacao:4
+V2-PRE-05    extrativa_apos_citacao_invalida   35.8 s frase_sem_citacao:2
+V2-ADV-01    -                                  0.0 s 
+V2-ADV-02    -                                  0.0 s 
+V2-ADV-04    extrativa_apos_citacao_invalida   21.9 s nenhum_trecho_citado
+V2-FOR-01    llm_sem_base                      15.1 s 
+V2-FOR-02    llm_sem_base                      14.8 s 
+V2-FOR-04    -                                  0.1 s 
+V2-GRA-01    extrativa_apos_citacao_invalida   32.2 s frase_sem_citacao:3
+V2-GRA-02    extrativa_apos_citacao_invalida   30.5 s frase_sem_citacao:2
