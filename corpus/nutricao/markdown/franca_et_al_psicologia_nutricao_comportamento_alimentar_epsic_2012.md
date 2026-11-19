@@ -246,6 +246,8 @@ Os participantes relataram aspectos que deram origem, nessa categoria, aos segui
 
 [Conferir no original](../originais/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.pdf#page=6)
 
+> **Nota de conversão — página 6:** Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação ('m2' = m² na tabela); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **342** _C.L.França, M.B.D.Barbosa, A.P.L.Mudesto & E.D.Alves_

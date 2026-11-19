@@ -4,7 +4,7 @@
   "pdf_pages": 10,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": null,
+  "config_sha256": "1be5b9b00d7b60a955e5f53fd0ba1fa31ff6b4cb116217601bdb80ea7ee968d1",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -86,6 +86,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: '2a', 'processadob'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -114,6 +115,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: '2a', 'processadob'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -142,6 +144,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: '2a', 'processadob'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -210,7 +213,7 @@
       "markdown_characters": 5144
     }
   ],
-  "markdown_sha256": "c984312ae92df57c552b8051021cc4d061174c6f05ae3bbdf2f4999b9bde2bc1",
+  "markdown_sha256": "31ef6be5117e691a1981354232331e90e18387f0d04b86fb3c66a771a76d5f83",
   "summary": {
     "pages_converted": 10,
     "sparse_pages": [],

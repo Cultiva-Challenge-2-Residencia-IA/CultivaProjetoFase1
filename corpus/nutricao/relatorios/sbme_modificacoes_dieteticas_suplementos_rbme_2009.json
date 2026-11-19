@@ -4,7 +4,7 @@
   "pdf_pages": 10,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": null,
+  "config_sha256": "90afd0513380964dd8d82730b62d30a587e7d33b93d4b308da172f1f002268b5",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",

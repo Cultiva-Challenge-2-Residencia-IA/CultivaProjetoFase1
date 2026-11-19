@@ -43,6 +43,8 @@ salvi-estudantes-enfermagem-sono-reben-2020:
     - '^I Universidade Federal'
     - '^EDITOR CHEFE'
 abeso-posicionamento-tratamento-nutricional-obesidade-2022:
+  # Página 225: tabela de doses pós-bariátrica com colunas misturadas na extração (issue #26).
+  skip_pages: [225]
   resume_after_skip:
     - '^CAPÍTULO \d+\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ]{3,}'
     - '^[A-ZÁÉÍÓÚÂÊÔÃÕÇ ,]{15,}$'

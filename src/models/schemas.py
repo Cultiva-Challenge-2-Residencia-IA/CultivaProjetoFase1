@@ -132,6 +132,14 @@ class ConsultantResponse(BaseModel):
     graph_paths: List[CausalGraphPath] = Field(default_factory=list)
     evidence_grade: str
     citations: List[str] = Field(default_factory=list)
+    # Citações por frase (issue #12): chunk_id dos Trechos marcados [T#] no texto, em ordem de T#.
+    trechos_citados: List[str] = Field(default_factory=list)
+    # "llm_citacoes_validas", "extrativa", "extrativa_apos_citacao_invalida" (a resposta do LLM
+    # falhou na checagem e foi bloqueada) ou "llm_sem_base" (o LLM disse que os Trechos não
+    # respondem, e a resposta virou o "não sei"); None nas demais respostas fixas (risco, injeção,
+    # "não sei" do cosseno).
+    fundamentacao_status: Optional[str] = None
+    fundamentacao_problemas: List[str] = Field(default_factory=list)
     retrieved_chunks: List[RetrievedChunk] = Field(default_factory=list)
     model_used: str = "local"
     # Fluxo de risco (RF-IA03): mensagem fixa de acolhimento, sem busca e sem LLM.

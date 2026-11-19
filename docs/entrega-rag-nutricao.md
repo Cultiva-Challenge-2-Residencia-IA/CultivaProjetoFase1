@@ -8,7 +8,7 @@ Os números deste documento foram gerados pelo sistema, não escritos à mão: `
 
 ### 1.1 Base de conhecimento curada (21 documentos-fonte indexados)
 
-A base é o corpus de Nutrição: **22 documentos-fonte em PDF**, convertidos e divididos em 1873 Trechos. Entram no índice as **21 fontes aprovadas**, com **1818 Trechos** (mínimo exigido: 20 fontes). Cada fonte tem origem, versão e SHA-256 do PDF no manifesto, e o `verify_corpus.py` confere a cadeia de hashes no CI (job "Integridade do corpus").
+A base é o corpus de Nutrição: **22 documentos-fonte em PDF**, convertidos e divididos em 1869 Trechos. Entram no índice as **21 fontes aprovadas**, com **1814 Trechos** (mínimo exigido: 20 fontes). Cada fonte tem origem, versão e SHA-256 do PDF no manifesto, e o `verify_corpus.py` confere a cadeia de hashes no CI (job "Integridade do corpus").
 
 Ficaram **fora** do índice:
 
@@ -19,7 +19,7 @@ Ficaram **fora** do índice:
 
 | # | Fonte (`fonte_id`) | Tipo | Ano | Trechos | Aprovação |
 |---:|---|---|---:|---:|---|
-| 1 | Posicionamento sobre o tratamento nutricional do sobrepeso e da obesid… (`abeso-posicionamento-tratamento-nutricional-obesidade-2022`) | diretriz | 2022 | 501 | aprovado |
+| 1 | Posicionamento sobre o tratamento nutricional do sobrepeso e da obesid… (`abeso-posicionamento-tratamento-nutricional-obesidade-2022`) | diretriz | 2022 | 497 | aprovado |
 | 2 | Guia alimentar para a população brasileira (`guia-alimentar-populacao-brasileira-2014`) | diretriz | 2014 | 339 | aprovado |
 | 3 | Guia alimentar de dietas vegetarianas para adultos (`guia-dietas-vegetarianas-svb-2012`) | diretriz | 2012 | 165 | aprovado |
 | 4 | Modificações dietéticas, reposição hídrica, suplementos alimentares e … (`sbme-modificacoes-dieteticas-suplementos-rbme-2009`) | diretriz | 2009 | 103 | aprovado |
@@ -64,9 +64,9 @@ A página e a seção nunca são misturadas entre Trechos. É isso que permite c
 
 - **ChromaDB** persistente (`PersistentClient`) em `data/vector_store/chroma_db`, com índice **HNSW por cosseno**.
 - **Parâmetros do HNSW:** `ef_construction` e `ef_search` em 200 (`src/config.py`). Com os padrões do ChromaDB, a busca aproximada perdia vizinhos e variava a cada carga do índice, o que quebrava o determinismo do benchmark no CI. Com 200, o top-24 das 16 perguntas coincide com a busca exata, e um teste (`tests/test_vector_store.py`) exige pelo menos 99% de coincidência e o mesmo resultado ao recarregar o índice.
-- **Coleção versionada pelo conteúdo:** o nome da coleção leva a impressão digital do modelo e dos Trechos (`cultiva_nutricao_evidencias_7eea3ce9298a`), que inclui os parâmetros do HNSW. Se o corpus, o modelo ou o índice mudarem, uma coleção nova é criada, em vez de reaproveitar vetores antigos.
+- **Coleção versionada pelo conteúdo:** o nome da coleção leva a impressão digital do modelo e dos Trechos (`cultiva_nutricao_evidencias_<hash>`; o hash muda a cada mudança nos Trechos, por isso não é citado aqui), que inclui os parâmetros do HNSW. Se o corpus, o modelo ou o índice mudarem, uma coleção nova é criada, em vez de reaproveitar vetores antigos.
 - **Metadados por vetor:** `fonte_id`, título, instituição, ano, nível de evidência, seção, página do PDF, link, DOI, licença e status de aprovação.
-- **Total indexado:** 1818 vetores de 21 documentos-fonte (só fontes aprovadas).
+- **Total indexado:** 1814 vetores de 21 documentos-fonte (só fontes aprovadas).
 
 ## 2. Documentação
 
@@ -134,6 +134,7 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 
 - As perguntas foram escritas para o `data/raw`. Os ids esperados foram mapeados para as fontes do corpus (Guia por capítulo vira o Guia inteiro). As 4 perguntas que dependiam só do `seed_guidelines` ou do PubMed ficaram fora da média de recall, e o relatório as lista.
 - O recall agora é por fonte e não por capítulo, então os números **não são comparáveis** aos da versão anterior (93,8% com 47 fontes).
+- A ablação da #5 (`eval/runs/ablacao_seed_issue5.md`) mediu, com a mesma régua, o efeito de devolver o `seed_guidelines` ao índice: recall@4 e cobertura não mudam, e o MRR **cai** de 0,778 para 0,708 (no v2, o MRR por Trecho cai no dev e no test). A saída do `seed` não custou qualidade de busca, e a queda desde a versão anterior vem da troca de base e do mapeamento dos ids. As 7 perguntas do v1 que esperam documentos do `seed` ainda precisam ser revistas.
 - Tirar a SBAN do índice não mudou as métricas: ela aparecia em três perguntas (Q08, Q13 e Q16), mas em nenhuma era a fonte esperada, e as fontes que entraram no lugar também não eram.
 - O MRR de 0,778 é o baseline do CI (`eval/baselines/benchmark_offline.json`). A ablação da #35 mostrou que o reranker por sobreposição de termos pesava cerca de 10 vezes a fusão RRF e decidia o ranking sozinho; com RRF puro sobre BM25 + ChromaDB, o MRR subiu de 0,750 para 0,778 (2 perguntas melhoram, 1 piora). No benchmark v2, o MRR por Trecho foi de 0,740 para 0,814. Os ganhos foram medidos em conjuntos pequenos e são hipótese a confirmar.
 - O conjunto é pequeno e tem só 3 armadilhas de prescrição. O benchmark v2 é a issue #13.

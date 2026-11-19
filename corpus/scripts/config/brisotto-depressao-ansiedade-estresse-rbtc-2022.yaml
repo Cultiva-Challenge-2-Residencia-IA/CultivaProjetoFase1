@@ -1,0 +1,7 @@
+# Configuração de conversão de brisotto-depressao-ansiedade-estresse-rbtc-2022 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: 184cf18f38d55369f40eb6960191b750f6a02a0e2b61adc5fe007363796c81e6
+page_notes:
+  7: 'Alerta lexical por palavras hifenizadas na quebra de linha das referências (ex.: ''alimen-ta'');
+    todas as palavras apontadas estão no Markdown e todos os números decimais do PDF estão no Markdown
+    (conferência da issue #26, 19/11/2026).'
