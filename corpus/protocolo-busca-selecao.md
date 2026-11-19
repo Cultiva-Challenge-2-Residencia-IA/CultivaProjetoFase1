@@ -130,7 +130,7 @@ Prioridades devem ser revistas após resultados do benchmark offline e avaliaç�
 - Confirmar formalmente o corte móvel de 10 anos e a exceção controlada para norma/diretriz vigente ou fonte seminal justificada.
 - Decidir aprovação formal do protocolo e da auditoria retroativa; avaliar a proposta de uso complementar de AGREE II/GRADE.
 - Identificar segundo avaliador para eventual AGREE II e estabelecer, se desejado, regra de decisão/notas antes de avaliar diretrizes.
-- O piloto com janela móvel exata de 10 anos já foi reexecutado e registrado: 12 resultados, 6 excluídos na triagem inicial e 6 candidatos para leitura integral. Concluir a leitura integral, avaliação de COI, qualidade da transcrição e decisão dos seis candidatos. Busca ou triagem preliminar não autoriza inclusão.
+- O piloto com janela móvel exata de 10 anos foi reexecutado (12 resultados, 6 excluídos na triagem, 6 candidatos), e os candidatos foram avaliados em 19/11/2026 (seção "Avaliação dos candidatos" do [registro da busca](nutricao/relatorios/buscas/2026-11-12-pubmed-dash-hipertensao.md)): 1 excluído, 2 complementares e 3 em retenção pendente, sem texto integral em acesso aberto. A Diretriz Brasileira de Hipertensão Arterial – 2025 ficou como prioridade 1 para inclusão. Nada foi incluído: a inclusão depende das decisões pedidas na issue #47 e de aprovação humana.
 - Decidir se os temas nutricionais kombucha, colágeno e hibisco serão objeto de busca de fontes ou se o sistema deve admitir ausência de evidência; manter pneu/carro fora de escopo.
 
 ## Referências metodológicas
