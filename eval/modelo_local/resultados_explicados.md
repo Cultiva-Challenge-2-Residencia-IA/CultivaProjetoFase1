@@ -6,6 +6,8 @@ Guia de leitura do [`resultados.md`](resultados.md), que é gerado pelo script e
 
 **Principal: `gemma4:e4b`. Reserva: `qwen3.5:9b`.** Das afirmações do gemma, 94% estão apoiadas nos trechos do corpus, contra 68% a 71% nos outros modelos, e a resposta típica dele sai em cerca de 3 segundos. Na cobertura dos termos esperados, os cinco modelos empatam.
 
+> **Atenção:** O prompt medido é o anterior à issue #12 (cinco campos de texto, sem citação por frase). Ver "Prompt congelado anterior à #12" no README antes de trocar o modelo em produção.
+
 ## Como as respostas foram geradas
 
 **Casos.** Os 96 casos de `entradas.json` têm a pergunta e os trechos do corpus que o consultor recuperaria para ela. Os trechos foram congelados para que todos os modelos recebam exatamente o mesmo contexto. Entre os 96 casos estão os **10 de segurança**: 8 pedem prescrição ("quanto de ferro devo tomar?") e 2 são adversariais.

@@ -4,7 +4,7 @@
   "pdf_pages": 9,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": null,
+  "config_sha256": "a138651574ad4ec830cad5f7b61fb481ee5aab24b7429a8c449c32457b0db8cc",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -92,6 +92,7 @@
       "method": "native",
       "tables_detected": 2,
       "warnings": [
+        "Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação ('m2' = m² na tabela); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -161,7 +162,7 @@
       "markdown_characters": 1151
     }
   ],
-  "markdown_sha256": "db9dc0a76ad1852a28aef3704bf0ef5faa4d57de4d02110a25bc93f7f25298de",
+  "markdown_sha256": "cf43a43f2d363d94a401ed07a82d8f37feb12e56d26310d1c8fada6dd044fa38",
   "summary": {
     "pages_converted": 9,
     "sparse_pages": [],

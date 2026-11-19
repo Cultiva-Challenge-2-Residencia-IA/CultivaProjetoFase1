@@ -66,6 +66,10 @@ Ficam 40 casos por modelo. A **semente 1** é julgada nos cinco candidatos (200 
 - **Gerações fora da GPU de referência.** As sementes 2 e 3 do `mistral-nemo:12b` foram geradas numa GTX 1650 de 4 GB, porque a RTX 5060 não estava disponível. Essas gerações levam `"maquina": "gtx1650-4gb"` (`MODELO_LOCAL_MAQUINA`) e entram nas métricas de qualidade (formato, cobertura, ROUGE-L, BERTScore), mas não na latência, nos tokens por segundo nem na memória, que continuam vindo só da semente 1, medida na RTX 5060. Os casos de ferramentas do `mistral-nemo:12b` também rodaram na GTX 1650; a pontuação deles não depende da máquina.
 - **Memória do `gemma4:e4b`.** O `/api/ps` do Ollama informa 0,26 GB para ele, na RTX 5060 e na GTX 1650, e esse valor não é a memória real. Os pesos ocupam 6,58 GB em disco (com os codificadores de visão e áudio). Na RTX 5060 ele gerou a 161 tokens por segundo, o que indica o modelo inteiro na GPU de 8 GB. A VRAM exata fica para medir com o `nvidia-smi` quando a RTX 5060 voltar. O relatório mostra a memória dele como "n/d", e o arquivo de informações traz os pesos em disco de todos os candidatos (`pesos_em_disco_bytes`).
 
+## Prompt congelado anterior à #12
+
+Os prompts de `entradas.json` foram congelados antes do merge da issue #12, que mudou o prompt de sistema do consultor: agora cada frase vem numa lista com os números dos Trechos que a sustentam (`[T1]`, `TACO`, `GRAFO`). A comparação mediu o formato antigo, com cinco campos de texto. O formato novo exige mais do modelo (JSON aninhado e citação por frase), então, antes de trocar `OLLAMA_MODEL`, convém congelar de novo e rodar ao menos os dois finalistas para confirmar JSON ≥ 99% e a conformidade das citações (`eval/fundamentacao/`).
+
 ## Como rodar
 
 ```bash

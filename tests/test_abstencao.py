@@ -20,6 +20,7 @@ def _consultor(similaridade, caminhos_grafo=()):
     """Consultor com busca, TACO, grafo e LLM substituídos por mocks, com a similaridade fixada."""
     consultor = NutritionConsultantBaseline.__new__(NutritionConsultantBaseline)
     consultor.guardrail = LegalGuardrail()
+    consultor.corpus_version = "corpus-teste"
     consultor.retriever = MagicMock()
     consultor.retriever.retrieve.return_value = []
     consultor.retriever.similaridade_maxima.return_value = similaridade

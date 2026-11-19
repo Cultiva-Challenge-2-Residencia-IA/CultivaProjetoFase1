@@ -1,0 +1,10 @@
+# Configuração de conversão de sban-agua-hidratacao-saude-2016 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: 788f285836b6e16d69449e8ee2059cfc9a1f29f2893421cbc7a2bc58ca64546f
+sparse_page_decisions:
+  2: Página sem conteúdo, só com o rótulo de impressão; texto nativo suficiente; OCR desligado.
+page_notes:
+  2: Página sem conteúdo, só com o rótulo de impressão do arquivo ('Nestle_Folheto_Aguas_MaterialCientifico.indd'),
+    registrado como indício de patrocínio no manifesto; texto nativo usado em vez do OCR.
+strip_false_strikethrough_pages:
+- 2

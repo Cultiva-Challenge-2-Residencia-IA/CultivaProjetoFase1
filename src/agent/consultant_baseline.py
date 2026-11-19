@@ -1,10 +1,15 @@
+import hashlib
+import inspect
 from pathlib import Path
 from typing import List, Optional
 
 from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE, LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
+from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
+from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import ABSTENCAO_LIMIAR_COSSENO, INCLUDE_PENDING_SOURCES, TOP_K_FINAL
 from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio
+from src.rag.verificador.citacoes import MARCADOR, eh_trecho
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.ingestion.contextual_chunker import ContextualChunker
@@ -18,6 +23,12 @@ from src.models.schemas import (
 from src.retrieval.graph_engine import CausalKnowledgeGraphEngine
 from src.retrieval.hybrid_retriever import HybridRetriever
 from src.retrieval.taco_tool import TacoDeterministicTool
+
+
+# Versão do prompt (RNF08): hash do prompt de sistema e do template da pergunta enviada ao LLM.
+PROMPT_VERSION = hashlib.sha256(
+    (SYSTEM_PROMPT_CONSULTANT + inspect.getsource(LocalLLMClient._build_user_prompt)).encode("utf-8")
+).hexdigest()
 
 
 class NutritionConsultantBaseline:
@@ -46,6 +57,9 @@ class NutritionConsultantBaseline:
         else:
             self.chunks = carregar_chunks_do_corpus(incluir_pendentes=incluir_pendentes)
         self.incluir_pendentes = incluir_pendentes
+        # Rastreabilidade (#11): o corpus não muda enquanto o consultor existe, então a versão é
+        # calculada uma vez aqui, e não a cada pergunta.
+        self.corpus_version = corpus_version_do_indice(self.chunks)
         self.retriever = HybridRetriever(self.chunks)
         self.guardrail = LegalGuardrail()
         self.llm_client = LocalLLMClient(enable_ollama=enable_ollama)
@@ -58,8 +72,24 @@ class NutritionConsultantBaseline:
             CausalKnowledgeGraphEngine() if enable_graph_engine else None
         )
 
+    def _rastreabilidade(self, chunks: List[DocumentChunk], model_used: str) -> dict:
+        """Campos de rastreabilidade (#11, RNF08) de qualquer resposta, inclusive as fixas.
+
+        Não grava nada: a persistência fica na API (`/consult`), para testes, benchmark e
+        demonstração não escreverem no banco.
+        """
+        fontes_version, trechos_usados = passages_fingerprint(chunks)
+        return {
+            "response_id": new_response_id(),
+            "corpus_version": self.corpus_version,
+            "prompt_version": PROMPT_VERSION,
+            "model_version": model_used,
+            "fontes_version": fontes_version,
+            "trechos_usados": trechos_usados,
+        }
+
     def _resposta_fixa(self, user_query: str, mensagem: str, **campos) -> ConsultantResponse:
-        """Resposta sem LLM (risco, prompt injection e "não sei")."""
+        """Resposta sem LLM (risco, prompt injection e "não sei"), também rastreável (RF-IA15)."""
         return ConsultantResponse(
             original_query=user_query,
             effective_query=user_query,
@@ -68,6 +98,7 @@ class NutritionConsultantBaseline:
             protocol_findings="",
             evidence_grade="N/A",
             model_used="mensagem_fixa",
+            **self._rastreabilidade([], "mensagem_fixa"),
             **campos,
         )
 
@@ -151,6 +182,21 @@ class NutritionConsultantBaseline:
             graph_context_str=graph_context_str,
         )
 
+        fundamentacao = synthesis.pop("_fundamentacao", {"status": None, "problemas": []})
+        if fundamentacao.get("status") == "llm_sem_base":
+            # O LLM leu os Trechos e disse que eles não respondem: "não sei" (RF-IA01), sem LLM.
+            return self._resposta_fixa(
+                user_query,
+                MENSAGEM_NAO_SEI,
+                guardrail_triggered=assessment.is_restricted_by_law_8234,
+                intent_category="NO_EVIDENCE",
+                legal_compliance_notice=assessment.legal_notice_required,
+                abstencao=True,
+                similaridade_maxima=similaridade,
+                retrieval_mode="ABSTENTION_FIXED_MESSAGE",
+                fundamentacao_status="llm_sem_base",
+            )
+
         # 6. Output Guardrail (Sanitização contra linguagem prescritiva individual)
         evidence_summary = self.guardrail.sanitize_output_text(
             str(synthesis.get("evidence_summary", ""))
@@ -162,28 +208,37 @@ class NutritionConsultantBaseline:
             str(synthesis.get("protocol_findings", ""))
         )
 
+        # Citações (issue #12): só os Trechos marcados [T#] no texto final, com o número e a página.
+        # O prefixo "[doc_id]" se mantém para o citacoes_validas do benchmark v2.
+        texto_final = f"{evidence_summary} {physiological_mechanism} {protocol_findings}"
+        numeros = sorted({
+            int(m[1:]) for m in MARCADOR.findall(texto_final)
+            if eh_trecho(m) and 1 <= int(m[1:]) <= len(retrieved)
+        })
+        trechos_citados = [retrieved[n - 1].chunk.chunk_id for n in numeros]
         citations: List[str] = []
-        seen_docs = set()
-        for item in retrieved:
-            c = item.chunk
-            cite_key = f"{c.doc_id}:{c.section_path}"
-            if cite_key not in seen_docs:
-                seen_docs.add(cite_key)
-                src_meta = []
-                link = c.fonte_url or (f"https://doi.org/{c.doi}" if c.doi else None)
-                if link:
-                    src_meta.append(f"Link: {link}")
-                if c.doi:
-                    src_meta.append(f"DOI: {c.doi}")
-                if c.licenca:
-                    src_meta.append(f"Licença: {c.licenca}")
-                if c.approval_status:
-                    src_meta.append(f"Aprovação: {c.approval_status}")
-                meta_suffix = f" | {' | '.join(src_meta)}" if src_meta else ""
-                citations.append(
-                    f"[{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), "
-                    f"Seção: '{c.section_path}' (Evidência: {c.evidence_level}{meta_suffix})"
-                )
+        por_chave: dict = {}
+        for n in numeros:
+            c = retrieved[n - 1].chunk
+            por_chave.setdefault(f"{c.doc_id}:{c.section_path}", []).append((n, c))
+        for itens in por_chave.values():
+            c = itens[0][1]
+            rotulos = ", ".join(f"T{n}" + (f" p. {ci.pagina_pdf}" if ci.pagina_pdf else "") for n, ci in itens)
+            src_meta = []
+            link = c.fonte_url or (f"https://doi.org/{c.doi}" if c.doi else None)
+            if link:
+                src_meta.append(f"Link: {link}")
+            if c.doi:
+                src_meta.append(f"DOI: {c.doi}")
+            if c.licenca:
+                src_meta.append(f"Licença: {c.licenca}")
+            if c.approval_status:
+                src_meta.append(f"Aprovação: {c.approval_status}")
+            meta_suffix = f" | {' | '.join(src_meta)}" if src_meta else ""
+            citations.append(
+                f"[{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), "
+                f"Seção: '{c.section_path}' [{rotulos}] (Evidência: {c.evidence_level}{meta_suffix})"
+            )
 
         if graph_paths:
             citations.append(
@@ -226,8 +281,12 @@ class NutritionConsultantBaseline:
             graph_paths=graph_paths,
             evidence_grade=str(synthesis.get("evidence_grade", "N/A")),
             citations=citations,
+            trechos_citados=trechos_citados,
+            fundamentacao_status=fundamentacao.get("status"),
+            fundamentacao_problemas=list(fundamentacao.get("problemas", [])),
             retrieved_chunks=retrieved,
             model_used=model_used,
             retrieval_mode=mode,
             similaridade_maxima=similaridade,
+            **self._rastreabilidade([item.chunk for item in retrieved], model_used),
         )

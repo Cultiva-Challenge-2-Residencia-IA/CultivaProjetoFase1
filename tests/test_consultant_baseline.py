@@ -52,9 +52,9 @@ def test_groq_api_client_synthesis(monkeypatch) -> None:
     def fake_call_groq(model_name: str, user_prompt: str):
         assert model_name == "openai/gpt-oss-120b"
         return {
-            "evidence_summary": "A beta-glucana da aveia reduz o colesterol LDL-c segundo meta-análises.",
-            "physiological_mechanism": "Aumento da viscosidade luminal intestinal e sequestro de ácidos biliares.",
-            "protocol_findings": "Ingestão populacional estudada de 3 g/dia de beta-glucana.",
+            "evidence_summary": "A beta-glucana da aveia reduz o colesterol LDL-c segundo meta-análises [T1].",
+            "physiological_mechanism": "Aumento da viscosidade luminal intestinal e sequestro de ácidos biliares [T1].",
+            "protocol_findings": "Ingestão populacional estudada de 3 g/dia de beta-glucana [T2].",
             "food_sources_or_compounds": ["Aveia (beta-glucana)"],
             "evidence_grade": "GRADE_A",
         }
@@ -63,6 +63,10 @@ def test_groq_api_client_synthesis(monkeypatch) -> None:
     res = consultant.consult("Como a fibra solúvel da aveia reduz o colesterol LDL?")
     assert res.model_used == "groq:openai/gpt-oss-120b"
     assert "beta-glucana" in res.evidence_summary.lower()
+    assert res.fundamentacao_status == "llm_citacoes_validas"
+    # Citações (issue #12): só os Trechos marcados, com o número T#.
+    assert res.trechos_citados[:2] == [res.retrieved_chunks[0].chunk.chunk_id, res.retrieved_chunks[1].chunk.chunk_id]
+    assert any("T1" in c for c in res.citations)
 
 
 def test_groq_prompt_masks_common_personal_identifiers(monkeypatch) -> None:

@@ -63,6 +63,14 @@ class RetrievedChunk(BaseModel):
     rerank_score: float = 0.0
 
 
+class UsedPassage(BaseModel):
+    id: str
+    fonte_id: str
+    pagina_pdf: Optional[int] = None
+    link: Optional[str] = None
+    titulo: str
+
+
 class GuardrailAssessment(BaseModel):
     intent_category: Literal[
         "SAFE_EVIDENCE_QUERY",
@@ -110,6 +118,7 @@ class CausalGraphPath(BaseModel):
 
 
 class ConsultantResponse(BaseModel):
+    response_id: str
     original_query: str
     effective_query: str
     guardrail_triggered: bool
@@ -123,6 +132,14 @@ class ConsultantResponse(BaseModel):
     graph_paths: List[CausalGraphPath] = Field(default_factory=list)
     evidence_grade: str
     citations: List[str] = Field(default_factory=list)
+    # Citações por frase (issue #12): chunk_id dos Trechos marcados [T#] no texto, em ordem de T#.
+    trechos_citados: List[str] = Field(default_factory=list)
+    # "llm_citacoes_validas", "extrativa", "extrativa_apos_citacao_invalida" (a resposta do LLM
+    # falhou na checagem e foi bloqueada) ou "llm_sem_base" (o LLM disse que os Trechos não
+    # respondem, e a resposta virou o "não sei"); None nas demais respostas fixas (risco, injeção,
+    # "não sei" do cosseno).
+    fundamentacao_status: Optional[str] = None
+    fundamentacao_problemas: List[str] = Field(default_factory=list)
     retrieved_chunks: List[RetrievedChunk] = Field(default_factory=list)
     model_used: str = "local"
     # Fluxo de risco (RF-IA03): mensagem fixa de acolhimento, sem busca e sem LLM.
@@ -143,3 +160,8 @@ class ConsultantResponse(BaseModel):
         "HYBRID_RAG_PLUS_GRAPH_TOOL",
         "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
     ] = "HYBRID_RAG_BASELINE"
+    corpus_version: str
+    prompt_version: str
+    model_version: str
+    fontes_version: str
+    trechos_usados: List[UsedPassage] = Field(default_factory=list)

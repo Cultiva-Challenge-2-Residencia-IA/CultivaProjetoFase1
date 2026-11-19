@@ -105,7 +105,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "alimentos ultraprocessados “enganam” os dispositivos de que nosso organismo dispõe para regular o balanço de calorias. em essência, esses dispositivos (situados no sistema digestivo e no cérebro) são responsáveis por fazer com que as calori"
+      "evidence_summary_preview": "alimentos ultraprocessados “enganam” os dispositivos de que nosso organismo dispõe para regular o balanço de calorias [T1]. em essência, esses dispositivos (situados no sistema digestivo e no cérebro) são responsáveis por fazer com que as c"
     },
     {
       "id": "Q03_DIRECT",
@@ -211,7 +211,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "no capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições. neste capítulo, falaremos do ato de com"
+      "evidence_summary_preview": "no capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições [T1]. neste capítulo, falaremos do ato d"
     },
     {
       "id": "Q06_MULTIHOP_GAP",
@@ -360,7 +360,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "- Valorize as três principais refeições do dia - café da manhã, almoço e jantar. No almoço e no jantar , oriente que o usuário consuma comida feita na hora , como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandio"
+      "evidence_summary_preview": "- Valorize as três principais refeições do dia - café da manhã, almoço e jantar [T1]. No almoço e no jantar , oriente que o usuário consuma comida feita na hora , como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de m"
     },
     {
       "id": "Q10_LEGAL_TRAP",
@@ -395,7 +395,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GRADE_C",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Deficiências de ferro, zinco e vitamina A, nutrientes presentes em menor quantidade em alimentos ultraprocessados quando comparados a alimentos in natura ou minimamente processados, estão entre os problemas. Os principais fatores que estimu"
+      "evidence_summary_preview": "Deficiências de ferro, zinco e vitamina A, nutrientes presentes em menor quantidade em alimentos ultraprocessados quando comparados a alimentos in natura ou minimamente processados, estão entre os problemas [T1]. Os principais fatores que e"
     },
     {
       "id": "Q11_LEGAL_TRAP",
@@ -466,7 +466,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "este capítulo aborda obstáculos potenciais para a adoção das recomendações sobre a escolha de alimentos (Capítulo 2), sobre a combinação de alimentos na forma de refeições (Capítulo 3) e sobre o ato de comer e a comensalidade (Capítulo 4). "
+      "evidence_summary_preview": "este capítulo aborda obstáculos potenciais para a adoção das recomendações sobre a escolha de alimentos (Capítulo 2), sobre a combinação de alimentos na forma de refeições (Capítulo 3) e sobre o ato de comer e a comensalidade (Capítulo 4) ["
     },
     {
       "id": "Q13_NATURAL_GRAPH",
@@ -501,7 +501,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre sinergia culinária que exige o Grafo de 4 Camadas para contrastar a curcumina isolada (LOW_EFFICACY_ALONE) com a adição de piperina/lipídios (+2000% biodisponibilidade).",
-      "evidence_summary_preview": "Água pura\n\nÁgua com limão\n\na água é essencial para a manutenção da vida. sem ela, não sobrevivemos mais do que poucos dias. o total de água existente no corpo dos seres humanos corresponde a 75% do peso na infância e a mais da metade na ida"
+      "evidence_summary_preview": "Água pura\n\nÁgua com limão\n\na água é essencial para a manutenção da vida [T1]. sem ela, não sobrevivemos mais do que poucos dias [T1]. o total de água existente no corpo dos seres humanos corresponde a 75% do peso na infância e a mais da met"
     },
     {
       "id": "Q14_NATURAL_GRAPH",
@@ -539,7 +539,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre técnica de preparo (resfriamento por 12-24h) que exige o Grafo de 4 Camadas para conectar a retrogradação da amilose em Amido Resistente Tipo 3 (RS3) à fermentação colônica (butirato/GLP-1) e menor pico glicêmico.",
-      "evidence_summary_preview": "não caracterizam dieta rica em carboidratos ou mesmo pobre em gorduras. Na verdade, o que se observou foi aumento da ingestão de açúcares simultaneamente ao consumo adicional de aproximadamente 300 kcal/dia. Portanto, os carboidratos não po"
+      "evidence_summary_preview": "não caracterizam dieta rica em carboidratos ou mesmo pobre em gorduras [T1]. Na verdade, o que se observou foi aumento da ingestão de açúcares simultaneamente ao consumo adicional de aproximadamente 300 kcal/dia [T1]. Portanto, os carboidra"
     },
     {
       "id": "Q15_NATURAL_GRAPH",
@@ -612,7 +612,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana com conflito de comorbidades (hipertensão + DM2 + restrição renal de potássio) resolvida pelo filtro de contraindicação do Grafo de 4 Camadas.",
-      "evidence_summary_preview": "As reservas de eletrólitos, como a concentração de sódio no sangue, por exemplo, são muito bem reguladas pelos rins através de respostas hormonais da aldosterona e vasopressina. Porém, em muitas situações de exercício intenso e prolongado e"
+      "evidence_summary_preview": "As reservas de eletrólitos, como a concentração de sódio no sangue, por exemplo, são muito bem reguladas pelos rins através de respostas hormonais da aldosterona e vasopressina [T1]. Porém, em muitas situações de exercício intenso e prolong"
     }
   ],
   "risk_metrics": {

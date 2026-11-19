@@ -188,6 +188,8 @@ f Universidade Estadual Campinas. Núcleo de Estudos e Pesquisa em Alimentação
 
 [Conferir no original](../originais/martins_et_al_ultraprocessados_rsp_2013.pdf#page=5)
 
+> **Nota de conversão — página 5:** Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: '2a', 'processadob'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 5:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **660**
@@ -251,6 +253,8 @@ EP: Erro padrão Números em negrito destacam os três grandes grandes grupos e 
 
 [Conferir no original](../originais/martins_et_al_ultraprocessados_rsp_2013.pdf#page=6)
 
+> **Nota de conversão — página 6:** Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: '2a', 'processadob'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **661**
@@ -311,6 +315,8 @@ EP: Erro padrão a p < 0,05 para teste t para médias de amostras independentes.
 ## Página PDF 7
 
 [Conferir no original](../originais/martins_et_al_ultraprocessados_rsp_2013.pdf#page=7)
+
+> **Nota de conversão — página 7:** Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: '2a', 'processadob'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 7:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 

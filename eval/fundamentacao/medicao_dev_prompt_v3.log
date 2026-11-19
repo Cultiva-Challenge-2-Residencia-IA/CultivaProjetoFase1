@@ -1,0 +1,44 @@
+V2-REC-01    llm_citacoes_validas              33.5 s 
+V2-REC-02    llm_citacoes_validas              37.7 s 
+V2-REC-04    llm_citacoes_validas              30.0 s 
+V2-REC-05    llm_citacoes_validas              33.9 s 
+V2-REC-07    llm_citacoes_validas              33.4 s 
+V2-REC-08    llm_citacoes_validas              40.0 s 
+V2-REC-10    llm_citacoes_validas              38.2 s 
+V2-REC-11    llm_citacoes_validas              30.3 s 
+V2-REC-13    llm_citacoes_validas              31.5 s 
+V2-REC-14    llm_citacoes_validas              39.1 s 
+V2-REC-16    llm_citacoes_validas              29.3 s 
+V2-REC-17    llm_citacoes_validas              34.2 s 
+V2-REC-19    extrativa                         45.1 s 
+V2-REC-20    extrativa                         45.1 s 
+V2-REC-22    llm_citacoes_validas              36.5 s 
+V2-REC-23    llm_citacoes_validas              27.9 s 
+V2-PRE-01    extrativa                         45.1 s 
+V2-PRE-02    extrativa_apos_citacao_invalida   44.6 s frase_sem_citacao:1
+V2-PRE-04    llm_citacoes_validas              33.2 s 
+V2-PRE-05    extrativa                         45.1 s 
+V2-ADV-01    -                                  0.0 s 
+V2-ADV-02    -                                  0.0 s 
+V2-ADV-04    llm_citacoes_validas              33.9 s 
+V2-FOR-01    llm_citacoes_validas              23.4 s 
+V2-FOR-02    llm_sem_base                      28.6 s 
+V2-FOR-04    -                                  0.1 s 
+V2-GRA-01    extrativa                         45.1 s 
+V2-GRA-02    llm_citacoes_validas              44.5 s 
+V2-TAC-01    llm_citacoes_validas              35.5 s 
+V2-TAC-02    llm_citacoes_validas              39.1 s 
+{
+  "split": "dev",
+  "modelo": "qwen2.5:7b",
+  "casos": 30,
+  "chegaram_ao_llm": 22,
+  "checadas": 21,
+  "llm_sem_base_vira_nao_sei": 1,
+  "conformidade_citacao_llm": 0.9524,
+  "taxa_fallback": 0.0476,
+  "problemas_por_tipo": {
+    "frase_sem_citacao": 1
+  },
+  "segundos_mediana": 34.2
+}

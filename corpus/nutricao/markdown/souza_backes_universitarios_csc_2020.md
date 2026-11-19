@@ -113,6 +113,8 @@ Os dados sociodemográficos, classificação antropométrica e de saúde estão 
 
 [Conferir no original](../originais/souza_backes_universitarios_csc_2020.pdf#page=4)
 
+> **Nota de conversão — página 4:** Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical baixo (96,4%); só o token 'rk' não aparece. Página sem números decimais.
+
 > **Nota de conversão — página 4:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 4466
@@ -279,6 +281,8 @@ Na Tabela 4 está descrita a frequência de adesão aos _Dez Passos para uma Ali
 
 [Conferir no original](../originais/souza_backes_universitarios_csc_2020.pdf#page=7)
 
+> **Nota de conversão — página 7:** Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: 'mundo15', 'mussi4') e rodapé da revista; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 7:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 4469
@@ -315,6 +319,8 @@ As variáveis sexo feminino, idade maior ou igual a 30 anos e estar cursando o f
 ## Página PDF 8
 
 [Conferir no original](../originais/souza_backes_universitarios_csc_2020.pdf#page=8)
+
+> **Nota de conversão — página 8:** Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md): cobertura de 77,7%, com tokens fundidos a citações (ex.: 'alimentação22', 'culinárias21'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 8:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
