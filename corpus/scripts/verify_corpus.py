@@ -14,6 +14,57 @@ import verify_trechos
 def verify() -> None:
     manifest = read_yaml(ROOT / "corpus/manifest.yaml")
     for source in manifest["sources"]:
+        if source.get("kind") == "original_only":
+            if source.get("acquisition_status") != "original_obtido":
+                print(f"PENDENTE {source['id']}: original não obtido; {source.get('acquisition_note', '')}".rstrip())
+                continue
+            original = repo_path(source["original_path"])
+            if sha256(original) != source["sha256"]:
+                raise ValueError(f"Original divergente: {source['id']}")
+            if original.suffix.lower() == ".pdf":
+                validate_pdf(original)
+            elif original.suffix.lower() in {".html", ".htm"}:
+                content = original.read_bytes().lstrip().lower()
+                if not (content.startswith(b"<!doctype html") or content.startswith(b"<html")):
+                    raise ValueError(f"Original HTML inválido: {source['id']}")
+            else:
+                raise ValueError(f"Formato original não reconhecido: {source['id']}")
+            if source.get("markdown_path") or source.get("report_path"):
+                if not source.get("markdown_path") or not source.get("report_path"):
+                    raise ValueError(f"Derivados candidatos exigem Markdown e relatório: {source['id']}")
+                markdown = repo_path(source["markdown_path"])
+                report = json.loads(repo_path(source["report_path"]).read_text(encoding="utf-8"))
+                if report["source_sha256"] != source["sha256"] or sha256(markdown) != report["markdown_sha256"]:
+                    raise ValueError(f"Original ou Markdown divergente: {source['id']}")
+                text = markdown.read_text(encoding="utf-8")
+                if original.suffix.lower() == ".pdf":
+                    if report["script_sha256"] != sha256(Path(__file__).with_name("convert_pdfs.py")):
+                        raise ValueError("Script mudou após a conversão; regenerar ou registrar revisão separadamente.")
+                    with pymupdf.open(original) as doc:
+                        count = len(doc)
+                    pages = [int(n) for n in re.findall(r"<!-- PDF_PAGE: (\d+) -->", text)]
+                    if (pages != list(range(1, count + 1)) or source.get("pdf_pages") != count
+                            or report["pdf_pages"] != count
+                            or report["summary"]["pages_converted"] != count
+                            or [page["pdf_page"] for page in report["pages"]] != pages):
+                        raise ValueError(f"Páginas ausentes ou divergentes: {source['id']}")
+                    if re.search(r"!\[[^\]]*\]\(", text):
+                        raise ValueError("Markdown contém imagem exportada; usar os links de página do PDF.")
+                    for number in pages:
+                        if f".pdf#page={number})" not in text:
+                            raise ValueError(f"Link ao PDF ausente na página {number}.")
+                    print(f"OK derivados candidatos {source['id']}: {count} páginas; hashes, marcadores e links conferidos; revisão pendente.")
+                elif original.suffix.lower() in {".html", ".htm"}:
+                    if report["script_sha256"] != sha256(Path(__file__).with_name("convert_html.py")):
+                        raise ValueError("Script HTML mudou após a conversão; regenerar ou registrar revisão separadamente.")
+                    if (report["content_selector"] != source.get("content_selector")
+                            or original.name not in text or "Conversão documental para revisão" not in text):
+                        raise ValueError(f"Metadados ou link do original ausentes no Markdown: {source['id']}")
+                    print(f"OK derivados candidatos {source['id']}: HTML/Markdown e hashes conferidos; revisão pendente.")
+                else:
+                    raise ValueError(f"Formato com derivados candidato não suportado: {source['id']}")
+            print(f"OK original {source['id']}: formato e SHA-256 conferidos; revisão pendente.")
+            continue
         if source.get("kind", "pdf") == "resumo_pubmed":
             raw = repo_path(source["raw_path"])
             if sha256(raw) != source["raw_sha256"]:

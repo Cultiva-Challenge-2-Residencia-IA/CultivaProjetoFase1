@@ -1,5 +1,5 @@
 ---
-source_id: guia-atividade-fisica-populacao-brasileira-2021
+source_id: guia-atividade-fisica-brasil-2021
 title: Guia de Atividade Física para a População Brasileira
 source: https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf
 license: CC-BY-NC-SA-4.0
@@ -10,7 +10,7 @@ source_sha256: 944f5ece2d1a82857f430c5e846ed0cc1798ce18b20218206b9068fa12e1c90e
 
 Instituição(ões): Ministério da Saúde, Universidade Federal de Pelotas. Edição: 2021-1ed.
 
-[PDF original preservado](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf) · [Relatório por página](../relatorios/guia_atividade_fisica_populacao_brasileira_2021.json)
+[PDF original preservado](../originais/01-guia-atividade-fisica-brasil-2021.pdf) · [Relatório por página](../relatorios/01-guia-atividade-fisica-brasil-2021.json)
 
 > Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
 
@@ -20,7 +20,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 <!-- PDF_PAGE: 1 -->
 ## Página PDF 1
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=1)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=1)
 
 **MINISTÉRIO DA SAÚDE**
 
@@ -34,7 +34,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 <!-- PDF_PAGE: 2 -->
 ## Página PDF 2
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=2)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=2)
 
 **MINISTÉRIO DA SAÚDE**
 
@@ -48,7 +48,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 <!-- PDF_PAGE: 3 -->
 ## Página PDF 3
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=3)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=3)
 
 > **Nota de conversão — página 3:** Folha de rosto; a cobertura lexical baixa vem do título repetido, sem perda de conteúdo.
 
@@ -66,7 +66,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 <!-- PDF_PAGE: 4 -->
 ## Página PDF 4
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=4)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=4)
 
 2021 Ministério da Saúde.
 
@@ -130,7 +130,7 @@ Physical Activity Guidelines for the Brazilian Population
 <!-- PDF_PAGE: 5 -->
 ## Página PDF 5
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=5)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=5)
 
 ### **SUMÁRIO**
 
@@ -151,7 +151,7 @@ Physical Activity Guidelines for the Brazilian Population
 <!-- PDF_PAGE: 6 -->
 ## Página PDF 6
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=6)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=6)
 
 ## **APRESENTAÇÃO**
 
@@ -173,7 +173,7 @@ O Guia de Atividade Física para a População Brasileira traz as primeiras reco
 <!-- PDF_PAGE: 7 -->
 ## Página PDF 7
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=7)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=7)
 
 Neste Guia, a atividade física é abordada em todos os ciclos de vida – crianças, adolescentes, adultos e idosos, – em algumas condições – gestantes e pessoas com deficiência –, além do destaque para a Educação Física Escolar.Também são esclarecidos alguns conceitos importantes como o de atividade física e de seus domínios, o de exercício físico e o de comportamento sedentário.
 
@@ -191,7 +191,7 @@ Durante sua construção, revisou-se a literatura científica e ocorreram divers
 <!-- PDF_PAGE: 8 -->
 ## Página PDF 8
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=8)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=8)
 
 ## CAPÍTULO 1 - ENTENDENDO A ATIVIDADE FÍSICA
 
@@ -222,7 +222,7 @@ A **atividade física no trabalho ou estudo** é feita no trabalho e em atividad
 <!-- PDF_PAGE: 9 -->
 ## Página PDF 9
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=9)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=9)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -257,7 +257,7 @@ LEVE MODERADA VIGOROSA<br><!-- End of picture text -->
 <!-- PDF_PAGE: 10 -->
 ## Página PDF 10
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=10)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=10)
 
 Ministério da Saúde
 
@@ -304,7 +304,7 @@ Evite ficar em comportamento sedentário. Sempre que possível, reduza o tempo e
 <!-- PDF_PAGE: 11 -->
 ## Página PDF 11
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=11)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=11)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -337,7 +337,7 @@ física no seu dia a dia, tornando sua vida mais saudável.<br><!-- End of pictu
 <!-- PDF_PAGE: 12 -->
 ## Página PDF 12
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=12)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=12)
 
 > **Nota de conversão — página 12:** Título do capítulo 2 reconstruído do texto nativo (replacement); as palavras ausentes são o cabeçalho corrente substituído.
 
@@ -383,7 +383,7 @@ QUANTO TEMPO DE ATIVIDADE FÍSICA AS CRIANÇAS DEVEM FAZER?<br><!-- End of pictu
 <!-- PDF_PAGE: 13 -->
 ## Página PDF 13
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=13)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=13)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -417,7 +417,7 @@ SÃO EXEMPLOS DE ATIVIDADE FÍSICA PARA BEBÊS E CRIANÇAS:<br><!-- End of pictu
 <!-- PDF_PAGE: 14 -->
 ## Página PDF 14
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=14)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=14)
 
 Ministério da Saúde
 
@@ -444,7 +444,7 @@ O apoio dos pais e responsáveis ou dos cuidadores é fundamental para que as cr
 <!-- PDF_PAGE: 15 -->
 ## Página PDF 15
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=15)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=15)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -477,7 +477,7 @@ Também é importante destacar que para um desenvolvimento saudável, quando est
 <!-- PDF_PAGE: 16 -->
 ## Página PDF 16
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=16)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=16)
 
 Ministério da Saúde
 
@@ -504,7 +504,7 @@ Se você tem dúvidas ou precisa de ajuda para incluir movimentos, jogos e brinc
 <!-- PDF_PAGE: 17 -->
 ## Página PDF 17
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=17)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=17)
 
 ## CAPÍTULO 3 - ATIVIDADE FÍSICA PARA CRIANÇAS E JOVENS DE 6 A 17 ANOS
 
@@ -552,7 +552,7 @@ Como parte desses 60 minutos ou mais por dia, inclua, em pelo menos 3 dias na se
 <!-- PDF_PAGE: 18 -->
 ## Página PDF 18
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=18)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=18)
 
 Ministério da Saúde
 
@@ -579,7 +579,7 @@ QUE ATIVIDADES FÍSICAS VOCÊ PODE FAZER?<br><!-- End of picture text -->
 <!-- PDF_PAGE: 19 -->
 ## Página PDF 19
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=19)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=19)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -612,7 +612,7 @@ Nas atividades físicas ao ar livre, utilize alguma forma de proteção, como bo
 <!-- PDF_PAGE: 20 -->
 ## Página PDF 20
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=20)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=20)
 
 Ministério da Saúde
 
@@ -658,7 +658,7 @@ Converse com os pais ou responsáveis dos alunos, indicando atividades físicas 
 <!-- PDF_PAGE: 21 -->
 ## Página PDF 21
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=21)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=21)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -681,7 +681,7 @@ Crie uma rotina para as suas atividades diárias, organizando seu tempo com mome
 <!-- PDF_PAGE: 22 -->
 ## Página PDF 22
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=22)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=22)
 
 Ministério da Saúde
 
@@ -720,7 +720,7 @@ Se você tem diabetes (alto nível de açúcar no sangue)  peça para seus pais 
 <!-- PDF_PAGE: 23 -->
 ## Página PDF 23
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=23)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=23)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -753,7 +753,7 @@ Se você tem dúvidas ou precisa de ajuda para incluir a atividade física na su
 <!-- PDF_PAGE: 24 -->
 ## Página PDF 24
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=24)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=24)
 
 ## CAPÍTULO 4 - ATIVIDADE FÍSICA PARA ADULTOS
 
@@ -803,7 +803,7 @@ Na prática das atividades físicas moderadas, você vai conseguir conversar com
 <!-- PDF_PAGE: 25 -->
 ## Página PDF 25
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=25)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=25)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -837,7 +837,7 @@ deslocamentos da forma mais segura e agradável possível.<br><!-- End of pictur
 <!-- PDF_PAGE: 26 -->
 ## Página PDF 26
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=26)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=26)
 
 Ministério da Saúde
 
@@ -874,7 +874,7 @@ Nas atividades físicas ao ar livre, utilize alguma forma de proteção, como bo
 <!-- PDF_PAGE: 27 -->
 ## Página PDF 27
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=27)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=27)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -911,7 +911,7 @@ Fique atento se você tem diabetes (alto nível de açúcar no sangue), especial
 <!-- PDF_PAGE: 28 -->
 ## Página PDF 28
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=28)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=28)
 
 Ministério da Saúde
 
@@ -944,7 +944,7 @@ Se você tem dúvidas ou precisa de ajuda para incluir a atividade física na su
 <!-- PDF_PAGE: 29 -->
 ## Página PDF 29
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=29)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=29)
 
 > **Nota de conversão — página 29:** Título do capítulo 5 e subtítulo "POR QUE VOCÊ DEVE FAZER ATIVIDADE FÍSICA?" reconstruídos do texto nativo; as palavras ausentes são o cabeçalho corrente substituído.
 
@@ -1004,7 +1004,7 @@ Ao se tornar fisicamente ativo, você perceberá algumas mudanças na sua qualid
 <!-- PDF_PAGE: 30 -->
 ## Página PDF 30
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=30)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=30)
 
 Ministério da Saúde
 
@@ -1041,7 +1041,7 @@ QUE ATIVIDADES FÍSICAS VOCÊ PODE FAZER?<br><!-- End of picture text -->
 <!-- PDF_PAGE: 31 -->
 ## Página PDF 31
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=31)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=31)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -1072,7 +1072,7 @@ Na comunidade ou no município em que você mora ou frequenta, existem espaços 
 <!-- PDF_PAGE: 32 -->
 ## Página PDF 32
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=32)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=32)
 
 Ministério da Saúde
 
@@ -1115,7 +1115,7 @@ Verifique se os seus pés apresentam ferimentos antes ou após a prática de ati
 <!-- PDF_PAGE: 33 -->
 ## Página PDF 33
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=33)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=33)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -1154,7 +1154,7 @@ Se você tem dúvidas ou precisa de ajuda para incluir a atividade física na su
 <!-- PDF_PAGE: 34 -->
 ## Página PDF 34
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=34)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=34)
 
 Ministério da Saúde
 
@@ -1170,7 +1170,7 @@ Ministério da Saúde
 <!-- PDF_PAGE: 35 -->
 ## Página PDF 35
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=35)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=35)
 
 > **Nota de conversão — página 35:** Título do capítulo 6 reconstruído do texto nativo; as palavras ausentes são o cabeçalho corrente substituído.
 
@@ -1219,7 +1219,7 @@ As aulas de educação física contribuem para a saúde física, motora, psicol�
 <!-- PDF_PAGE: 36 -->
 ## Página PDF 36
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=36)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=36)
 
 Ministério da Saúde
 
@@ -1255,7 +1255,7 @@ Não tenha vergonha de participar das aulas de educação física, o professor e
 <!-- PDF_PAGE: 37 -->
 ## Página PDF 37
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=37)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=37)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -1298,7 +1298,7 @@ Adotem estratégias que mantenham os estudantes fisicamente ativos e participati
 <!-- PDF_PAGE: 38 -->
 ## Página PDF 38
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=38)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=38)
 
 Ministério da Saúde
 
@@ -1330,7 +1330,7 @@ Incentivem a criança e o jovem a explorar as atividades aprendidas nas aulas de
 <!-- PDF_PAGE: 39 -->
 ## Página PDF 39
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=39)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=39)
 
 > **Nota de conversão — página 39:** Título do capítulo 7 e subtítulo "POR QUE VOCÊ DEVE FAZER ATIVIDADE FÍSICA?" reconstruídos do texto nativo; as palavras ausentes são o cabeçalho corrente substituído.
 
@@ -1376,7 +1376,7 @@ A prática de atividade física durante a gestação e no período pós-parto é
 <!-- PDF_PAGE: 40 -->
 ## Página PDF 40
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=40)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=40)
 
 Ministério da Saúde
 
@@ -1430,7 +1430,7 @@ Também no pós-parto, escolha a atividade física que lhe dê satisfação e qu
 <!-- PDF_PAGE: 41 -->
 ## Página PDF 41
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=41)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=41)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -1463,7 +1463,7 @@ Algumas modificações nas atividades podem ser necessárias para acomodar as mu
 <!-- PDF_PAGE: 42 -->
 ## Página PDF 42
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=42)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=42)
 
 Ministério da Saúde
 
@@ -1502,7 +1502,7 @@ Você tem grande influência na sua família! Crianças que possuem pais ou resp
 <!-- PDF_PAGE: 43 -->
 ## Página PDF 43
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=43)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=43)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -1540,7 +1540,7 @@ O uso de bicicleta no seu tempo livre ou deslocamento não é contraindicado. Ap
 <!-- PDF_PAGE: 44 -->
 ## Página PDF 44
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=44)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=44)
 
 Ministério da Saúde
 
@@ -1599,7 +1599,7 @@ Se você tem dúvidas ou precisa de ajuda para incluir a atividade física na su
 <!-- PDF_PAGE: 45 -->
 ## Página PDF 45
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=45)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=45)
 
 > **Nota de conversão — página 45:** Título do capítulo 8 e subtítulo "POR QUE VOCÊ DEVE FAZER ATIVIDADE FÍSICA?" reconstruídos do texto nativo; as palavras ausentes são o cabeçalho corrente substituído.
 
@@ -1647,7 +1647,7 @@ Você pode realizar atividade física independentemente da sua deficiência. Ape
 <!-- PDF_PAGE: 46 -->
 ## Página PDF 46
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=46)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=46)
 
 Ministério da Saúde
 
@@ -1690,7 +1690,7 @@ QUE ATIVIDADES FÍSICAS VOCÊ DEVE FAZER?<br><!-- End of picture text -->
 <!-- PDF_PAGE: 47 -->
 ## Página PDF 47
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=47)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=47)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -1721,7 +1721,7 @@ Na comunidade ou no município em que você mora ou frequenta, existem espaços 
 <!-- PDF_PAGE: 48 -->
 ## Página PDF 48
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=48)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=48)
 
 Ministério da Saúde
 
@@ -1758,7 +1758,7 @@ Ajude quem está sob seus cuidados a praticar atividade física e escute seus an
 <!-- PDF_PAGE: 49 -->
 ## Página PDF 49
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=49)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=49)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -1793,7 +1793,7 @@ A cada uma hora em comportamento sedentário, se movimente por pelo menos 5 minu
 <!-- PDF_PAGE: 50 -->
 ## Página PDF 50
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=50)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=50)
 
 Ministério da Saúde
 
@@ -1833,7 +1833,7 @@ Se você tem dúvidas ou precisa de ajuda para incluir a atividade física na su
 <!-- PDF_PAGE: 51 -->
 ## Página PDF 51
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=51)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=51)
 
 Guia de Atividade Física para a População Brasileira
 
@@ -1857,7 +1857,7 @@ Guia de Atividade Física para a População Brasileira
 <!-- PDF_PAGE: 52 -->
 ## Página PDF 52
 
-[Conferir no original](../originais/guia_atividade_fisica_populacao_brasileira_2021.pdf#page=52)
+[Conferir no original](../originais/01-guia-atividade-fisica-brasil-2021.pdf#page=52)
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 

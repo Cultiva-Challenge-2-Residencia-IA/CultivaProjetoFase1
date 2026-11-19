@@ -198,9 +198,9 @@ def test_todos_os_trechos_cumprem_padrao_de_secao():
 def test_trechos_vao_para_a_pasta_rag_do_dominio():
     raiz = Path("/repo/corpus")
     assert prepare_rag.rag_dir_do_markdown(raiz / "nutricao/markdown/x.md") == raiz / "nutricao/rag"
-    assert prepare_rag.rag_dir_do_markdown(raiz / "saude_fisica/markdown/x.md") == raiz / "saude_fisica/rag"
+    assert prepare_rag.rag_dir_do_markdown(raiz / "saudefisica/markdown/x.md") == raiz / "saudefisica/rag"
     with pytest.raises(ValueError, match="markdown/"):
-        prepare_rag.rag_dir_do_markdown(raiz / "saude_fisica/x.md")
+        prepare_rag.rag_dir_do_markdown(raiz / "saudefisica/x.md")
 
 
 def test_max_section_level_mantem_o_capitulo_como_secao():
@@ -246,7 +246,7 @@ def test_corpus_da_nutricao_nao_carrega_saude_fisica():
     raiz = Path(__file__).resolve().parents[1]
     fisica = {
         json.loads(linha)["fonte_id"]
-        for arquivo in (raiz / "corpus/saude_fisica/rag").glob("*.jsonl")
+        for arquivo in (raiz / "corpus/saudefisica/rag").glob("*.jsonl")
         for linha in arquivo.read_text(encoding="utf-8").splitlines()
     }
-    assert fisica == {"guia-atividade-fisica-populacao-brasileira-2021", "guia-atividade-fisica-gestores-profissionais-2021"}
+    assert fisica == {"guia-atividade-fisica-brasil-2021", "guia-atividade-fisica-gestores-profissionais-2021"}

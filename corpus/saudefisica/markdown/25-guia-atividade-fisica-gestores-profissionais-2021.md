@@ -11,7 +11,7 @@ source_sha256: 2fc0e130090b1269d35e0478ebfa84698ca8af59413c2f2135770c1d0c33b483
 
 Instituição(ões): Ministério da Saúde, Universidade Federal de Pelotas. Edição: 2021-1ed.
 
-[PDF original preservado](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf) · [Relatório por página](../relatorios/guia_atividade_fisica_gestores_profissionais_2021.json)
+[PDF original preservado](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf) · [Relatório por página](../relatorios/25-guia-atividade-fisica-gestores-profissionais-2021.json)
 
 > Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
 
@@ -21,7 +21,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 <!-- PDF_PAGE: 1 -->
 ## Página PDF 1
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=1)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=1)
 
 **MINISTÉRIO DA SAÚDE**
 
@@ -35,7 +35,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 <!-- PDF_PAGE: 2 -->
 ## Página PDF 2
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=2)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=2)
 
 **MINISTÉRIO DA SAÚDE**
 
@@ -49,7 +49,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 <!-- PDF_PAGE: 3 -->
 ## Página PDF 3
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=3)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=3)
 
 **MINISTÉRIO DA SAÚDE Secretaria de Atenção Primária à Saúde Departamento de Promoção da Saúde**
 
@@ -63,7 +63,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 <!-- PDF_PAGE: 4 -->
 ## Página PDF 4
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=4)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=4)
 
 2021 Ministério da Saúde.
 
@@ -105,7 +105,7 @@ Physical Activity Guidelines for Brazilian Population: recommendations for manag
 <!-- PDF_PAGE: 5 -->
 ## Página PDF 5
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=5)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=5)
 
 #### **SUMÁRIO**
 
@@ -122,7 +122,7 @@ Physical Activity Guidelines for Brazilian Population: recommendations for manag
 <!-- PDF_PAGE: 6 -->
 ## Página PDF 6
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=6)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=6)
 
 **CAPÍTULO** _Ministério da Saúde_ **1**
 
@@ -142,7 +142,7 @@ Pensando nisso, o Guia de Atividade Física para a População Brasileira foi el
 <!-- PDF_PAGE: 7 -->
 ## Página PDF 7
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=7)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=7)
 
 > **Nota de conversão — página 7:** Cobertura lexical de 91%; as palavras ausentes ("em que aspectos o guia pode") são do título do capítulo 2, que aparece completo no Markdown da página 8.
 
@@ -160,7 +160,7 @@ Por esses motivos, destacamos a relevância de você, gestor e profissional de s
 <!-- PDF_PAGE: 8 -->
 ## Página PDF 8
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=8)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=8)
 
 **CAPÍTULO** _Ministério da Saúde_ **2**
 
@@ -178,7 +178,7 @@ As recomendações apresentadas no Guia podem ser consideradas pelos gestores pa
 <!-- PDF_PAGE: 9 -->
 ## Página PDF 9
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=9)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=9)
 
 _Guia de Atividade Física para a População Brasileira: recomendações para gestores e profissionais de saúde_
 
@@ -198,7 +198,7 @@ O Guia de Atividade Física para a População Brasileira pode ser utilizado, se
 <!-- PDF_PAGE: 10 -->
 ## Página PDF 10
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=10)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=10)
 
 **CAPÍTULO** _Ministério da Saúde_ **3**
 
@@ -224,7 +224,7 @@ Incluir a divulgação intersetorial do Guia para gestores municipais e estaduai
 <!-- PDF_PAGE: 11 -->
 ## Página PDF 11
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=11)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=11)
 
 _Guia de Atividade Física para a População Brasileira: recomendações para gestores e profissionais de saúde_
 
@@ -256,7 +256,7 @@ Utilizar a telegestão (ex.: videoconferência, webconferência e streaming) dos
 <!-- PDF_PAGE: 12 -->
 ## Página PDF 12
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=12)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=12)
 
 _Ministério da Saúde_
 
@@ -290,7 +290,7 @@ Compartilhar o Guia com outros profissionais da saúde e profissionais de outros
 <!-- PDF_PAGE: 13 -->
 ## Página PDF 13
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=13)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=13)
 
 _Guia de Atividade Física para a População Brasileira: recomendações para gestores e profissionais de saúde_
 
@@ -324,7 +324,7 @@ Incentivar a realização de aconselhamento em atividade física com base nas or
 <!-- PDF_PAGE: 14 -->
 ## Página PDF 14
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=14)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=14)
 
 _Ministério da Saúde_
 
@@ -354,7 +354,7 @@ Articular o investimento em infraestrutura relacionada ao deslocamento ativo (an
 <!-- PDF_PAGE: 15 -->
 ## Página PDF 15
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=15)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=15)
 
 _Guia de Atividade Física para a População Brasileira: recomendações para gestores e profissionais de saúde_
 
@@ -382,7 +382,7 @@ Para os profissionais de educação física e os demais que compõem as equipes 
 <!-- PDF_PAGE: 16 -->
 ## Página PDF 16
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=16)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=16)
 
 _Ministério da Saúde_
 
@@ -418,7 +418,7 @@ Identificar quais serão o alcance e os desdobramentos das ações de dissemina�
 <!-- PDF_PAGE: 17 -->
 ## Página PDF 17
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=17)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=17)
 
 _Guia de Atividade Física para a População Brasileira: recomendações para gestores e profissionais de saúde_
 
@@ -448,7 +448,7 @@ Avaliar as ações de difusão, disseminação e implementação do Guia direcio
 <!-- PDF_PAGE: 18 -->
 ## Página PDF 18
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=18)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=18)
 
 _Ministério da Saúde_
 
@@ -464,7 +464,7 @@ Para potencializar as ações de atividade física na saúde dos municípios, re
 <!-- PDF_PAGE: 19 -->
 ## Página PDF 19
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=19)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=19)
 
 _Guia de Atividade Física para a População Brasileira: recomendações para gestores e profissionais de saúde_
 
@@ -497,7 +497,7 @@ PARA SABER MAIS SOBRE PROMOÇÃO DE ATIVIDADE FÍSICA, ACESSE:<br><!-- End of pi
 <!-- PDF_PAGE: 20 -->
 ## Página PDF 20
 
-[Conferir no original](../originais/guia_atividade_fisica_gestores_profissionais_2021.pdf#page=20)
+[Conferir no original](../originais/25-guia-atividade-fisica-gestores-profissionais-2021.pdf#page=20)
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 

@@ -22,7 +22,7 @@ import unicodedata
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
-# Cada domínio do corpus (nutricao, saude_fisica) tem a própria pasta rag/, ao lado de markdown/:
+# Cada domínio do corpus (nutricao, saudefisica) tem a própria pasta rag/, ao lado de markdown/:
 # o carregador de cada agente lê só a sua. O registro de geração é um só, para todos os domínios.
 OUTPUT_DIR = ROOT / "corpus/nutricao/rag"
 GENERATION_PATH = OUTPUT_DIR / "geracao.json"

@@ -112,23 +112,6 @@ Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licen
 - **Não localizado:** o texto exato "Comportamento alimentar e suas interfaces com a saúde e o estresse". O estudo de Penaforte et al. (Demetra, 2016), sobre estresse e comportamento alimentar de universitários, foi identificado, mas o servidor da revista não respondeu para o download.
 
 
-### Saúde Física: Guias de Atividade Física do Ministério da Saúde (inclusão de 19/11/2026)
-
-Primeiras fontes do domínio de Saúde Física, para o desenvolvimento do agente de atividade física. Ficam em `corpus/saude_fisica/`, com `domain: saude_fisica` no manifesto, e geram Trechos em `corpus/saude_fisica/rag/`. O carregador do RAG de Nutrição só lê `corpus/nutricao/rag/`: estes Trechos não entram no índice, no benchmark nem na demonstração da Nutrição, nem com `CULTIVA_INCLUIR_PENDENTES=true`. Ainda não há agente nem carregador de Saúde Física.
-
-| Documento | Edição obtida | Páginas físicas do PDF | Origem utilizada |
-|---|---|---:|---|
-| Guia de Atividade Física para a População Brasileira | 1ª edição, versão eletrônica, Ministério da Saúde e UFPel, 2021 | 52 | [BVS / Ministério da Saúde](https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf), obtido em 19/11/2026 |
-| Guia de Atividade Física para a População Brasileira: recomendações para gestores e profissionais de saúde | 1ª edição, versão eletrônica, Ministério da Saúde e UFPel, 2021 | 20 | [BVS / Ministério da Saúde](https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_recomendacoes_gestores_profissionais.pdf), obtido em 19/11/2026 |
-
-- **Licença:** CC BY-NC-SA 4.0 nos dois, declarada na ficha técnica (página física 4). Situação `compativel_uso_nao_comercial`, como o Guia Alimentar.
-- **Status:** `pendente`. A aprovação segue o critério de "Aprovação das fontes" e é decisão da equipe.
-- **Escopo:** recomendações populacionais por faixa etária e grupo (crianças, jovens, adultos, idosos, gestantes e pessoas com deficiência), não prescrição individual de treino (RN01). O guia para gestores serve para limites e encaminhamento.
-- **Conversão:** sem OCR. As capas, a contracapa e a página em branco usam o texto nativo (`sparse_page_decisions`).
-- **Títulos de capítulo:** na abertura de cada capítulo, o extrator trocou o título pelo cabeçalho corrente ("CAPÍTULO Ministério da Saúde N"). Com isso, os Trechos de idosos saíam com a seção de adultos, e os de gestantes com "Para os pais ou responsáveis". Os oito títulos e três subtítulos foram reconstruídos do texto nativo por substituições estritas em `scripts/config/guia-atividade-fisica-2021.yaml`.
-- **Seção = capítulo:** `max_section_level` no `rag.yaml` faz só os títulos de capítulo definirem a seção do Trecho; os subtítulos ("Para os pais ou responsáveis:", "QUANTO TEMPO…") ficam no texto. Capa, ficha técnica e sumário (páginas 1 a 5) ficam fora dos Trechos.
-- **Não incluídas:** a diretriz da OMS de 2020 (*WHO guidelines on physical activity and sedentary behaviour*), base científica destes guias, foi baixada e convertida, mas ficou de fora. Está em inglês, a OMS não está na lista do RN16, e as seções das recomendações não dizem a que grupo se referem; incluí-la exige a mesma correção página a página e uma decisão da equipe. As demais fontes da lista de Saúde Física recebida são páginas HTML, pagas, sem acesso automático ou fora do escopo (prescrição clínica, reabilitação, idosos).
-
 ## Decisão sobre licenças e uso das fontes
 
 **Registrada em 06/11/2026, a pedido de Felipe de Jesus Rodrigues (Grupo 12).**
@@ -187,7 +170,6 @@ corpus/
     markdown/       # .md convertidos, ainda pendentes de revisão
     relatorios/     # JSON por documento: diagnóstico por página e hashes
     rag/            # Trechos JSONL e geracao.json (registro único de todos os domínios)
-  saude_fisica/     # mesmo layout (originais, markdown, relatorios, rag); fora do índice da Nutrição
   scripts/
     convert_pdfs.py
     prepare_rag.py
@@ -196,13 +178,53 @@ corpus/
     requirements.txt
     config/         # decisões de OCR e correções vinculadas ao SHA-256
     ajustes/        # transcrições pontuais de páginas problemáticas
+  saudefisica/
+    originais/      # fontes prioritárias obtidas no formato publicado
+    markdown/       # candidatas convertidas; só os dois guias do MS têm Trechos
+    relatorios/     # relatórios por página das conversões
+    rag/            # Trechos dos guias do MS; fora do índice da Nutrição
 ```
+
+## Saúde Física — originais prioritários
+
+Em 19/11/2026, oito dos onze documentos prioritários registrados no manifesto têm original arquivado: seis PDFs e dois HTMLs (a ficha da OMS e o manuscrito JOSPT de dor lombar). Todos os oito originais obtidos foram convertidos em Markdown candidato à revisão. Os arquivos preservam SHA-256 e vínculo entre original e derivado.
+
+Dez das onze fontes estão catalogadas em `manifest.yaml` como `kind: original_only`, inclusive as que têm Markdown candidato; o Guia brasileiro passou a fonte `pdf` com Trechos (subseção seguinte). Esse tipo preserva os arquivos e derivados sem gerar Trechos nem entrar no RAG. O `verify_corpus.py` confere formato e hash dos originais, Markdown e relatórios, e informa os originais pendentes; o `prepare_rag.py` não processa esse tipo. Todas seguem com `approval_status: pendente`; obtenção e conversão não são revisão de fidelidade, aprovação de conteúdo nem decisão de uso técnico.
+
+| Prioridade | Estado | Observação de obtenção |
+|---|---|---|
+| Guia brasileiro (2021) | Original obtido + Trechos (`pdf`, pendente) | PDF oficial do Ministério da Saúde; 52 páginas. |
+| Guia para gestores e profissionais de saúde (2021, item 25) | Original obtido + Trechos (`pdf`, pendente) | PDF oficial do Ministério da Saúde; 20 páginas. |
+| WHO Guidelines (2020) | Original obtido + Markdown candidato | PDF oficial em inglês; 104 páginas. |
+| Physical Activity — WHO | Original HTML + Markdown candidato | Página oficial consultada em 19/11/2026; pode mudar no endereço de origem. |
+| ACSM Resistance Training Position Stand (2026, PMID 41843416) | Pendente | PDF do PMC retornou desafio anti-bot; o texto integral em HTML está disponível no PMC. Substitui o item ACSM de 2009. Licença CC BY-NC-ND 4.0. |
+| ACSM Preparticipation Screening (2015) | Pendente | PubMed fornece referência e resumo; texto integral não obtido em acesso aberto. |
+| ACC Exercise Prescriptions (2026) | Pendente | Página integral do editor retornou HTTP 403. |
+| IOC Load and Injury (2016, parte 1) | Original obtido + Markdown candidato | PDF em cópia do Oslo Sports Trauma Research Center; 13 páginas. |
+| IOC Load and Illness (2016, parte 2) | Original obtido + Markdown candidato | PDF no repositório da University of Pretoria; 11 páginas, com uma tabela que requer conferência visual na página 2. |
+| JOSPT Low Back Pain CPG (2021) | Original HTML + Markdown candidato | HTML integral do manuscrito público no PubMed Central; o PDF acionou desafio anti-bot. Contém 32 tabelas e imagens, que exigem conferência no HTML. |
+| WHO Package of Interventions, Module 2 (2023) | Original obtido + Markdown candidato | PDF oficial da OMS; 108 páginas. |
+| JOSPT Rotator Cuff Tendinopathy (2025) | Original obtido + Markdown candidato | PDF hospedado pela IFSPT; 40 páginas. O PDF contém aviso de uso pessoal e reserva de outros usos mediante permissão. |
+
+### Guias do Ministério da Saúde com Trechos (19/11/2026)
+
+Os dois Guias de Atividade Física do Ministério da Saúde são as primeiras fontes de Saúde Física com Trechos, para o desenvolvimento do agente de atividade física: o Guia brasileiro (`01-guia-atividade-fisica-brasil-2021`, que deixou de ser `original_only`) e o guia para gestores e profissionais de saúde (`25-guia-atividade-fisica-gestores-profissionais-2021`, 1ª edição, 2021, 20 páginas, [BVS](https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_recomendacoes_gestores_profissionais.pdf)). Os dois têm `domain: saudefisica` e geram Trechos em `saudefisica/rag/` (112 e 32). O carregador do RAG de Nutrição só lê `nutricao/rag/`: estes Trechos não entram no índice, no benchmark nem na demonstração da Nutrição, nem com `CULTIVA_INCLUIR_PENDENTES=true`. Ainda não há agente nem carregador de Saúde Física.
+
+- **Licença:** CC BY-NC-SA 4.0 nos dois, declarada na ficha técnica (página física 4).
+- **Status:** `pendente`. A aprovação segue o critério de "Aprovação das fontes" e é decisão da equipe.
+- **Escopo:** recomendações populacionais por faixa etária e grupo (crianças, jovens, adultos, idosos, gestantes e pessoas com deficiência), não prescrição individual de treino (RN01). O guia para gestores serve para limites e encaminhamento.
+- **Conversão:** `convert_pdfs.py`, sem OCR. As capas, a contracapa e a página em branco usam o texto nativo (`sparse_page_decisions`).
+- **Títulos de capítulo:** na abertura de cada capítulo do Guia brasileiro, o extrator trocou o título pelo cabeçalho corrente ("CAPÍTULO Ministério da Saúde N"). Com isso, os Trechos de idosos saíam com a seção de adultos, e os de gestantes com "Para os pais ou responsáveis". Os oito títulos e três subtítulos foram reconstruídos do texto nativo por substituições estritas em `scripts/config/guia-atividade-fisica-2021.yaml`.
+- **Seção = capítulo:** `max_section_level` no `rag.yaml` faz só os títulos de capítulo definirem a seção do Trecho; os subtítulos ("Para os pais ou responsáveis:", "QUANTO TEMPO…") ficam no texto. Capa, ficha técnica e sumário (páginas 1 a 5) ficam fora dos Trechos.
+- **WHO Guidelines (2020):** segue `original_only`. Além do inglês e de a OMS não estar na lista do RN16, as seções das recomendações não dizem a que grupo se referem por várias páginas; gerar Trechos exige a mesma correção página a página e uma decisão da equipe.
+
+Licenças e termos permanecem registrados no manifesto para rastreabilidade. Pelo aceite de risco de 06/11/2026 e pela decisão de publicação de 12/11/2026, licença ausente, restritiva ou em conflito **não bloqueia a aquisição, conversão, aprovação ou manutenção pública dos arquivos neste projeto acadêmico sem fins lucrativos**. Esse aceite não declara que o titular concedeu autorização nem se estende a uso comercial, vitrine paga ou distribuição fora do projeto; se um titular solicitar remoção, o arquivo e seus derivados saem do repositório. A cópia JOSPT do manguito traz aviso de uso pessoal e a licença do ACSM 2026 é CC BY-NC-ND; esses termos ficam documentados, sem funcionar como impedimento no escopo aceito. Os arquivos de repositórios institucionais são distinguidos dos endpoints do editor. O manuscrito HTML de dor lombar é diferente da versão final diagramada.
 
 O diretório `markdown/` contém **candidatos à revisão**, conforme esta etapa autorizada. Não interpretar sua presença ali como revisão concluída. As orientações anteriores em `docs/contexto-projeto.md` registram a situação antes da obtenção dos documentos; seus arquivos locais foram preservados.
 
 ## Dependências e execução
 
-Ambiente utilizado: Python **3.11**, PyMuPDF/PyMuPDF4LLM **2.1**, PyYAML **6.0.3**, Pillow **13.0.0** e dependências fixadas em `scripts/requirements.txt`. PyMuPDF inclui renderização, análise local de layout e suporte a OCR via MuPDF/Tesseract. Não são necessários Poppler, serviço de OCR remoto, chave de API ou LLM generativo. `curl` é usado apenas quando há download solicitado. Para OCR é necessário o modelo português `por.traineddata`, baixado do repositório oficial `tesseract-ocr/tessdata_fast` e validado por SHA-256.
+Ambiente utilizado: Python **3.11**, PyMuPDF/PyMuPDF4LLM **2.1**, PyYAML **6.0.3**, Pillow **13.0.0**, BeautifulSoup **4.14.3**, Markdownify **1.2.0** e dependências fixadas em `scripts/requirements.txt`. PyMuPDF inclui renderização, análise local de layout e suporte a OCR via MuPDF/Tesseract. A conversão HTML extrai os elementos indicados por `content_selector` no manifesto e preserva tabelas em Markdown quando possível; figuras não são copiadas. Não são necessários Poppler, serviço de OCR remoto, chave de API ou LLM generativo. `curl` é usado apenas quando há download solicitado. Para OCR é necessário o modelo português `por.traineddata`, baixado do repositório oficial `tesseract-ocr/tessdata_fast` e validado por SHA-256.
 
 Na raiz do repositório:
 
@@ -218,6 +240,10 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download-ocr --overwrit
 
 # Verificação dos artefatos locais:
 corpus/.venv/bin/python corpus/scripts/verify_corpus.py
+
+# Converte um original HTML sem substituir o arquivo de origem:
+corpus/.venv/bin/python corpus/scripts/convert_html.py \
+  --source who-physical-activity-factsheet-2024
 ```
 
 Após obter o modelo OCR em `corpus/.cache/tessdata/`, a conversão pode rodar offline, sem as opções `--download` e `--download-ocr`. Para usar outro diretório, informar `--tessdata /caminho/tessdata`. O modelo esperado tem SHA-256 `c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb`; se o endereço remoto mudar de conteúdo, o processo falha em vez de usar silenciosamente outro modelo. O ambiente e o cache estão ignorados pelo Git.
@@ -328,7 +354,7 @@ O protocolo para localizar candidatos, registrar buscas e selecionar fontes est�
 
 ## Como incluir outro documento
 
-1. Obter o PDF de origem verificável; manter seus bytes em `<dominio>/originais/` (`nutricao` ou `saude_fisica`; fonte de outro domínio leva `domain` no manifesto), com nome que identifique a edição. Conferir a licença no próprio documento e registrar a página da evidência; usar `pendente` quando desconhecida.
+1. Obter o PDF de origem verificável; manter seus bytes em `<dominio>/originais/` (`nutricao` ou `saudefisica`; fonte de outro domínio leva `domain` no manifesto), com nome que identifique a edição. Conferir a licença no próprio documento e registrar a página da evidência; usar `pendente` quando desconhecida.
 2. Adicionar uma entrada em `manifest.yaml`, reaproveitando os campos existentes. Informar `id`, `title`, `institutions`, `year`, `edition`, `version`, `source_type`, `source`, `license`, `original_path`, `markdown_path` e `report_path`; registrar `sha256` e `pdf_pages` após inspeção. Usar `approval_status: pendente`. Não copiar a licença das fontes atuais por suposição.
 3. Se o arquivo estiver ausente e houver autorização de obtenção, preencher `download_url` para usar `--download`. A assinatura PDF impede aceitar uma página HTML de login como documento.
 4. Executar a conversão com `--source ID`. Inspecionar os alertas de pouco texto e os layouts mistos: a presença de texto nativo não exclui texto dentro de imagens. Adicionar, quando necessário, `conversion_config` seguindo os exemplos e vinculando o arquivo ao SHA-256 do PDF.
