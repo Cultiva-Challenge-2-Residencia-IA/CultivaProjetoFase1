@@ -119,6 +119,66 @@ def test_llm_que_diz_nao_constar_vira_nao_sei_e_nao_extrativa():
     assert "evidence_summary" not in sintese and modelo == "mensagem_fixa"
 
 
-def test_prompt_mostra_o_formato_com_marcadores():
+def test_prompt_pede_lista_de_frases_com_trechos():
     from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
-    assert '"evidence_summary": "Síntese clara e direta do que a evidência mostra, com o marcador no fim de cada frase [T1].' in SYSTEM_PROMPT_CONSULTANT
+    assert '"evidence_summary": [{"frase": ' in SYSTEM_PROMPT_CONSULTANT and '"trechos": [2, 3]' in SYSTEM_PROMPT_CONSULTANT
+
+
+def test_campos_so_vazios_nao_viram_nao_sei():
+    # Revisão do #61: resposta incompleta não é abstenção; cai na checagem e no fallback.
+    resposta = {"evidence_summary": "", "physiological_mechanism": "", "protocol_findings": ""}
+    sintese, modelo = _cliente_com_llm(resposta).generate_structured_synthesis("ultraprocessados", _trechos())
+    assert sintese["_fundamentacao"]["status"] == "extrativa_apos_citacao_invalida"
+    assert modelo == "local_extractive_synthesis"
+
+
+def test_cliente_guarda_a_checagem_que_decidiu_o_bloqueio():
+    cliente = _cliente_com_llm({"evidence_summary": "O Guia recomenda evitar ultraprocessados [T9].",
+                                "physiological_mechanism": "", "protocol_findings": ""})
+    cliente.generate_structured_synthesis("ultraprocessados", _trechos())
+    assert cliente.ultima_verificacao is not None and not cliente.ultima_verificacao.valida
+    assert cliente.ultima_verificacao.marcadores_invalidos == ["[T9]"]
+
+
+def test_taco_nao_e_confundido_com_trecho():
+    # Bug achado na medição do prompt v2: "[TACO]" começa com "T" e quebrava int("ACO").
+    v = verificar_citacoes(_campos("A aveia tem 9 g de fibra por 100 g [TACO][T1]."), 2, tem_taco=True)
+    assert v.valida and v.trechos_citados == [1]
+    v = verificar_citacoes(_campos("A aveia tem 9 g de fibra por 100 g [TACO]."), 2, tem_taco=True)
+    assert not v.valida and "nenhum_trecho_citado" in v.problemas
+
+
+# Formato estruturado (prompt v3): lista de {"frase", "trechos"}.
+
+def test_formato_estruturado_vira_texto_com_marcadores():
+    from src.rag.verificador.citacoes import normalizar_frases_citadas
+    r = normalizar_frases_citadas({"evidence_summary": [
+        {"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": [2]},
+        {"frase": "A aveia tem fibra", "trechos": ["1", "TACO"]},
+    ], "protocol_findings": "texto antigo [T1]."})
+    assert r["evidence_summary"] == "O Guia recomenda evitar ultraprocessados [T2]. A aveia tem fibra [T1][TACO]."
+    assert r["protocol_findings"] == "texto antigo [T1]."
+
+
+def test_resposta_estruturada_citada_passa():
+    resposta = {"evidence_summary": [{"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": [1]}],
+                "physiological_mechanism": [{"frase": FRASE_SEM_BASE, "trechos": []}],
+                "protocol_findings": [{"frase": "Há um protocolo de 400 g/dia de frutas.", "trechos": [3]}]}
+    sintese, modelo = _cliente_com_llm(resposta).generate_structured_synthesis("ultraprocessados", _trechos())
+    assert modelo.startswith("ollama:") and sintese["_fundamentacao"]["status"] == "llm_citacoes_validas"
+    assert "ultraprocessados [T1]." in sintese["evidence_summary"]
+
+
+def test_frase_estruturada_sem_trechos_ou_com_referencia_estranha_e_bloqueada():
+    for refs in ([], ["fonte do guia"], [9]):
+        resposta = {"evidence_summary": [{"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": refs}],
+                    "physiological_mechanism": [], "protocol_findings": []}
+        sintese, modelo = _cliente_com_llm(resposta).generate_structured_synthesis("ultraprocessados", _trechos())
+        assert modelo == "local_extractive_synthesis", refs
+
+
+def test_estruturado_so_com_frase_fixa_vira_nao_sei():
+    item = [{"frase": FRASE_SEM_BASE, "trechos": []}]
+    resposta = {"evidence_summary": item, "physiological_mechanism": item, "protocol_findings": item}
+    sintese, _ = _cliente_com_llm(resposta).generate_structured_synthesis("como trocar um pneu?", _trechos())
+    assert sintese["_fundamentacao"]["status"] == "llm_sem_base"

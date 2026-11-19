@@ -9,7 +9,7 @@ from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import ABSTENCAO_LIMIAR_COSSENO, INCLUDE_PENDING_SOURCES, TOP_K_FINAL
 from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio
-from src.rag.verificador.citacoes import MARCADOR
+from src.rag.verificador.citacoes import MARCADOR, eh_trecho
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.ingestion.contextual_chunker import ContextualChunker
@@ -213,7 +213,7 @@ class NutritionConsultantBaseline:
         texto_final = f"{evidence_summary} {physiological_mechanism} {protocol_findings}"
         numeros = sorted({
             int(m[1:]) for m in MARCADOR.findall(texto_final)
-            if m.startswith("T") and 1 <= int(m[1:]) <= len(retrieved)
+            if eh_trecho(m) and 1 <= int(m[1:]) <= len(retrieved)
         })
         trechos_citados = [retrieved[n - 1].chunk.chunk_id for n in numeros]
         citations: List[str] = []

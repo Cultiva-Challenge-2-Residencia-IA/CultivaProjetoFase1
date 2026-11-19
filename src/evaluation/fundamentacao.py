@@ -27,8 +27,9 @@ from src.rag.verificador.citacoes import (
     CAMPOS_DO_LLM,
     FRASE_SEM_BASE,
     MARCADOR,
+    eh_trecho,
+    normalizar_frases_citadas,
     dividir_frases,
-    verificar_citacoes,
 )
 
 DIR = Path("eval/fundamentacao")
@@ -68,15 +69,22 @@ def medir(split: str) -> Dict[str, Any]:
         r = consultor.consult(caso["pergunta"])
         segundos = round(time.perf_counter() - inicio, 1)
         llm = bruto.get("resposta")
+        if llm is not None:
+            llm = normalizar_frases_citadas(llm)  # formato estruturado -> texto com marcadores
         item: Dict[str, Any] = {
             "id": caso["id"], "split": caso["split"], "pergunta": caso["pergunta"],
             "modelo": r.model_used, "fundamentacao_status": r.fundamentacao_status,
             "fundamentacao_problemas": r.fundamentacao_problemas, "segundos": segundos,
             "chegou_ao_llm": llm is not None,
         }
-        if llm is not None:
-            v = verificar_citacoes(llm, len(r.retrieved_chunks), tem_grafo=bool(r.graph_paths),
-                                   tem_taco=bool(r.taco_records))
+        # A mesma checagem que decidiu o bloqueio na produção (não recalculada aqui).
+        v = cliente.ultima_verificacao
+        if llm is not None and v is None:
+            item["chegou_ao_llm"] = True
+            item.update({"citacoes_validas": None, "problemas": [], "frases": 0, "frases_sem_citacao": [],
+                         "marcadores_invalidos": [], "texto_llm": {c: llm.get(c, "") for c in CAMPOS_DO_LLM},
+                         "trechos": []})
+        if llm is not None and v is not None:
             item.update({
                 "citacoes_validas": v.valida, "problemas": v.problemas, "frases": v.frases,
                 "frases_sem_citacao": v.frases_sem_citacao, "marcadores_invalidos": v.marcadores_invalidos,
@@ -91,11 +99,16 @@ def medir(split: str) -> Dict[str, Any]:
         print(f"{caso['id']:12s} {item['fundamentacao_status'] or '-':32s} {segundos:5.1f} s "
               f"{' '.join(item.get('problemas', []))}")
 
-    avaliadas = [i for i in itens if i["chegou_ao_llm"]]
+    # Respostas do LLM que passaram pela checagem; "llm_sem_base" (o LLM disse que os Trechos não
+    # respondem) não é checada e vira "não sei", então fica contada à parte.
+    avaliadas = [i for i in itens if i.get("citacoes_validas") is not None]
+    sem_base = [i for i in itens if i["fundamentacao_status"] == "llm_sem_base"]
     tipos = Counter(p.split(":")[0] for i in avaliadas for p in i["problemas"])
     resumo = {
         "split": split, "modelo": cliente.primary_model, "casos": len(itens),
-        "chegaram_ao_llm": len(avaliadas),
+        "chegaram_ao_llm": sum(i["chegou_ao_llm"] for i in itens),
+        "checadas": len(avaliadas),
+        "llm_sem_base_vira_nao_sei": len(sem_base),
         "conformidade_citacao_llm": round(sum(i["citacoes_validas"] for i in avaliadas) / max(len(avaliadas), 1), 4),
         "taxa_fallback": round(
             sum(i["fundamentacao_status"] == "extrativa_apos_citacao_invalida" for i in avaliadas)
@@ -119,7 +132,7 @@ def frases_elegiveis(itens: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         trechos = {t["marcador"]: t for t in item["trechos"]}
         for campo in CAMPOS_DO_LLM:
             for frase in dividir_frases(str(item["texto_llm"].get(campo) or "")):
-                citados = [m for m in MARCADOR.findall(frase) if m.startswith("T")]
+                citados = [m for m in MARCADOR.findall(frase) if eh_trecho(m)]
                 if frase == FRASE_SEM_BASE or not citados:
                     continue
                 frases.append({

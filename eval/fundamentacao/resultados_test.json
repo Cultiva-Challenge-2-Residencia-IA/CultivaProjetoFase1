@@ -1,0 +1,505 @@
+{
+  "criterios": "eval/fundamentacao/criterios.md",
+  "resumo": {
+    "split": "test",
+    "modelo": "qwen2.5:7b",
+    "casos": 12,
+    "chegaram_ao_llm": 9,
+    "checadas": 9,
+    "llm_sem_base_vira_nao_sei": 0,
+    "conformidade_citacao_llm": 0.8889,
+    "taxa_fallback": 0.1111,
+    "problemas_por_tipo": {
+      "frase_sem_citacao": 1
+    },
+    "segundos_mediana": 35.5
+  },
+  "itens": [
+    {
+      "id": "V2-REC-03",
+      "split": "test",
+      "pergunta": "Quais são as orientações do Guia Alimentar sobre o ato de comer e a comensalidade?",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
+      "fundamentacao_problemas": [],
+      "segundos": 34.0,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 4,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "texto_llm": {
+        "evidence_summary": "O Guia Alimentar Populacional Brasileiro de 2014 destaca a importância do ato de comer com regularidade e atenção, em ambientes apropriados, e em companhia [T1]. A combinação de alimentos como saladas ou sopas antes das refeições principais pode auxiliar na digestão e controle da quantidade consumida [T2].",
+        "physiological_mechanism": "A curcumina, presente na cúrcuma, inibe a via inflamatória NF-kappaB ao ser associada com pimenta-do-reino e azeite, devido à sinergia da piperina que aumenta sua biodisponibilidade [T4].",
+        "protocol_findings": "Refeições regulares e consumidas com atenção podem melhorar o controle do apetite e a digestão, enquanto comer em ambientes adequados e em companhia promove maior interação social [T1]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p092-01",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 92,
+          "texto": "no capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições. neste capítulo, falaremos do ato de comer e de dimensões deste ato que influenciam, entre outros aspectos, o aproveitamento dos alimentos consumidos e o prazer proporcionado pela alimentação. abordaremos o tempo e a atenção dedicados ao comer, o ambiente onde ele se dá e a partilha de refeições. trataremos da comensalidade.\n\ntrês orientações básicas são apresentadas: comer com regularidade e com atenção; comer em ambientes apropriados; e comer em companhia.\n\nComo se verá, os benefícios da adoção dessas orientações são vários, incluindo melhor digestão dos alimentos, controle mais eficiente do quanto comemos, maiores oportunidades de convivência com nossos familiares e amigos, maior interação social e, de modo geral, mais prazer com a alimentação."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p093-03",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 93,
+          "texto": "optar por uma salada ou por uma sopa ou caldo antes do prato principal é outra maneira de conceder a nosso organismo o tempo necessário para que os alimentos sejam mais bem aproveitados e para que não se coma mais que o necessário."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p007-02",
+          "fonte": "Contribuições da psicologia e da nutrição para a mudança do comportamento alimentar",
+          "pagina_pdf": 7,
+          "texto": "Os resultados também permitiram avaliar a eficácia do grupo psicoeducativo em uma ação multiprofissional, para a promoção da mudança no comportamento alimentar. A intervenção em grupo mostrou-se efetiva na promoção de hábitos alimentares saudáveis e na modificação do comportamento alimentar, fato também descrito nos estudos de Cezarreto (2010); Santos (2010) e Sharovsky et al. (2004), que destacam a relevância de uma intervenção multiprofissional para a saúde física e psíquica do paciente, auxiliando no emagrecimento. Assim, essa ação conjunta, entre profissionais de saúde, aliada à terapia cognitiva comportamental – TCC propicia benefícios."
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p024-03",
+          "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+          "pagina_pdf": 24,
+          "texto": "- Fale que refeições feitas em horários semelhantes todos os dias e consumidas com atenção e sem pressa favorecem a digestão dos alimentos e também evitam que se coma mais do que o necessário. Os mecanismos biológicos que regulam nosso apetite são complexos, dependem de vários estímulos e levam certo tempo até sinalizarem que já comemos o suficiente. Uma salada ou uma sopa ou caldo antes do prato principal é outra maneira de conceder ao organismo o tempo necessário para que os alimentos sejam mais bem aproveitados e para que não se coma mais que o necessário.\n\n- Oriente que o usuário prefira sempre restaurantes de comida por quilo ao invés de restaurantes fast-food, que se apresentam como lugares particularmente inapropriados para comer. Além de oferecerem pouca ou nenhuma opção de alimentos in natura ou minimamente processados, são em geral muito barulhentos e pouco confortáveis, onde levam os clientes a comerem muito rapidamente e, comumente, em quantidade excessiva."
+        }
+      ]
+    },
+    {
+      "id": "V2-REC-06",
+      "split": "test",
+      "pergunta": "Por que os alimentos ultraprocessados atrapalham a sensação de saciedade?",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
+      "fundamentacao_problemas": [],
+      "segundos": 23.8,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 4,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "texto_llm": {
+        "evidence_summary": "Alimentos ultraprocessados têm uma elevada quantidade de calorias por grama, o que pode desregular o balanço energético e aumentar o risco de obesidade [T1]. A comparação entre alimentos ultraprocessados e processados mostra contrastes menos evidentes com relação ao teor de micronutrientes, o que pode contribuir para a desregulação da sensação de saciedade [T3].",
+        "physiological_mechanism": "A elevada quantidade de calorias por grama em alimentos ultraprocessados pode levar à desregulação do balanço energético, influenciando a resposta fisiológica ao consumo de alimentos [T1].",
+        "protocol_findings": "Alimentos ultraprocessados devem ser evitados devido às suas características nutricionais desfavoráveis e potencial para aumentar o risco de obesidade, mas não há menção específica sobre a sensação de saciedade [T2]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p044-03",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 44,
+          "texto": "a elevada quantidade de calorias por grama, comum à maioria dos alimentos ultraprocessados, é um dos principais mecanismos que desregulam o balanço de energia e aumentam o risco de obesidade."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p047-03",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 47,
+          "texto": "Por todas as razões descritas acima, alimentos ultraprocessados devem ser evitados."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "louzada-ultraprocessados-micronutrientes-rsp-2015-p003-08",
+          "fonte": "Impacto de alimentos ultraprocessados sobre o teor de micronutrientes da dieta no Brasil",
+          "pagina_pdf": 3,
+          "texto": "A comparação entre alimentos ultraprocessados e alimentos processados mostra contrastes menos evidentes com relação ao teor de micronutrientes. De modo geral, a comparação tende novamente a desfavorecer"
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "martins-ultraprocessados-rsp-2013-p001-01",
+          "fonte": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)",
+          "pagina_pdf": 1,
+          "texto": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)"
+        }
+      ]
+    },
+    {
+      "id": "V2-REC-09",
+      "split": "test",
+      "pergunta": "Pessoas vegetarianas estritas precisam suplementar vitamina B12?",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
+      "fundamentacao_problemas": [],
+      "segundos": 34.8,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 5,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "texto_llm": {
+        "evidence_summary": "Pessoas vegetarianas estritas precisam suplementar vitamina B12, pois a vitamina não está presente em plantas e pode estar ausente na dieta se não houver alimentos enriquecidos [T1]. O nível seguro de vitamina B12 deve ficar acima de 490 pg/mL para evitar deficiência, com a maioria dos estudos considerando valores abaixo de 200 pg/mL como normais [T2].",
+        "physiological_mechanism": "A vitamina B12 é sintetizada por bactérias e não encontrada em plantas, sendo necessário suplemento para vegetarianos estritos [T1].",
+        "protocol_findings": "Na dieta vegetariana estrita, deve-se considerar a suplementação de vitamina B12, pois as dietas ovolacto e lactovegetarianas podem oferecer a vitamina necessária [T1]. O nível sérico de vitamina B12 deve ser mantido acima de 490 pg/mL para evitar deficiência, com valores abaixo de 350 pg/mL indicando sintomas específicos de deficiência [T2]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p037-02",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 37,
+          "texto": "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Esse é o único nutriente que pode estar ausente na dieta vegetariana estrita.\n\nA vitamina B12 é sintetizada por bactérias. Como não necessitam de B12 para seu crescimento e desenvolvimento, as plantas não a incorporam. As plantas não contêm B12 ativa."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p040-01",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 40,
+          "texto": "Assim, o nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL [164].\n\nCaso se adote esse valor como referência, a dosagem de ácido metilmalônico no acompanhamento de pacientes com deficiência B12 é desnecessária.\n\nEstudos também demonstram que, quando o nível sérico de vitamina B12 fica abaixo de 350 pg/mL, já há sintomas específicos de deficiência [176, 177].\n\nDessa forma, para manter o indivíduo sem deficiência de vitamina B12 é preciso que o nível sérico fique acima de 490 pg/mL.\n\nSe quisermos adotar parâmetros menos seguros, o nível deve ficar acima de 350 pg/mL.\n\nNo entanto, a maioria dos estudos científicos, por desconhecimento dos autores, utiliza apenas o valor oferecido como normal pelos laboratórios e acaba considerando que há deficiência quando o nível de B12 está abaixo de 200 pg/mL.\n\nPortanto, na realidade a deficiência de B12 é maior do que os estudos demonstram."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-02",
+          "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+          "pagina_pdf": 224,
+          "texto": "VITAMINA B12 Cl | Vitamina B12 sérica | -> rotina | Multivitamínico contendo pelo menos 400-800µg / dia | • 1.000 µg ao dia até atingir valor l i | • Drogas anticonvulsivantes, lfli\n\nasse de Recomendação | Homocisteína | -> rotina | Mulheres em idade fértil: 800-1.000 µg/dia | norma e contnuar com dose de | suasaazna e metotrexato podem\n\nIIa, Nível B | Ácido metilmalônico Hemograma | -> suspeita de deficiência -> rotina | manutenção | afetar concentração plasmática de ácido fólico • Antes de suplementar, excluir possibilidade de deficiência de B12"
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p039-06",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 39,
+          "texto": "Um estudo que avaliou a correlação entre o nível sérico de vitamina B12 e o de ácido metilmalônico demonstrou que, quando a B12 está abaixo de 490 pg/mL (lembrado que os valores de referência de dosagem normal variam de cerca de 200 a 980 pg/mL), é alta a prevalência de indivíduos com ácido metilmalônico elevado e, portanto, com deficiência de vitamina B12."
+        }
+      ]
+    },
+    {
+      "id": "V2-REC-12",
+      "split": "test",
+      "pergunta": "O que a diretriz da SBME diz sobre o uso de creatina como suplemento?",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
+      "fundamentacao_problemas": [],
+      "segundos": 41.3,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 5,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "texto_llm": {
+        "evidence_summary": "A SBME recomenda que a utilização da creatina como suplemento seja analisada individualmente, caso a caso [T1]. O uso de creatina para fins ergogênicos não é recomendado em desportistas comuns, mas pode ser justificável em indivíduos específicos após avaliação médica e nutricional [T2].",
+        "physiological_mechanism": "A creatina aumenta os estoques intramusculares de fosfocreatina (PCr), que doam grupo fosfato via enzima creatina quinase para ressíntese rápida de ATP em esforços intensos [T1][T2].",
+        "protocol_findings": "A SBME não recomenda o uso geral da creatina como suplemento, mas permite seu uso em casos específicos após avaliação médica e nutricional [T1][T2]. O uso de creatina para fins ergogênicos em atividades físicas prolongadas não tem suporte na literatura científica [T2]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p007-01",
+          "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+          "pagina_pdf": 7,
+          "texto": "a de que em geral não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões. Para os demais desportistas fica estabelecida a recomendação de nunca usar.\n\nDesse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-09",
+          "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+          "pagina_pdf": 6,
+          "texto": "A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas não encontra nenhum suporte na literatura científica. A melhora, ou não, do desempenho em exercícios com predominância aeróbia é pouco documentada.\n\nEmbora com resultados ainda controversos, muitos estudos têm sugerido que a creatina teria efeito ergogênico em indivíduos nos quais se constata diminuição de aporte da creatina exógena alimentar, como os vegetarianos e os indivíduos idosos, sendo somente para estes casos específicos, após boa análise do profissional especializado, médico e/ou nutricionista, justificável seu uso, embora, ainda, com fraco grau de recomendação."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-01",
+          "fonte": "Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos",
+          "pagina_pdf": 4,
+          "texto": "por Reis et al. nas academias de ginástica de Curitiba, destacou-se o consumo de produtos protéicos (22,33%), seguido de creatina (16,67%). Nas academias de São Paulo o grupo de suplementos mais citados (38,9%) foi o de aminoácidos ou concentrados proteicos ."
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-09",
+          "fonte": "Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos",
+          "pagina_pdf": 3,
+          "texto": "Em relação aos produtos mais utilizados, de acordo com a formulação, destacou-se o consumo de aminoácidos ou concentrados protéicos, coerente com o fato de 17 entrevistados praticarem exercício físico com o objetivo de aumentar massa muscular (tabela 3). Em estudo feito por Granjeiro et al . com 64 frequentadores de academias, entre os suplementos mais utilizados estão os aminoácidos de cadeia ramificada (AACR), creatina, seguido de L-carnitina e albumina. No estudo realizado\n\nRev Bras Med Esporte – Vol. 20, N 5 – Set/Out, 2014"
+        }
+      ]
+    },
+    {
+      "id": "V2-REC-15",
+      "split": "test",
+      "pergunta": "Quais são os grupos de alimentos da classificação NOVA?",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
+      "fundamentacao_problemas": [],
+      "segundos": 35.5,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 4,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "texto_llm": {
+        "evidence_summary": "Os alimentos são classificados em três grupos: in natura ou minimamente processados, ingredientes culinários processados e produtos alimentícios prontos para consumo [T1][T2]. Alimentos ultraprocessados são essencialmente formulações da indústria, feitos a partir de ingredientes com pouca ou nenhuma presença de alimentos integrais [T1].",
+        "physiological_mechanism": "A ingestão regular de peixes marinhos ricos em EPA/DHA pode ativar os receptores nucleares hepáticos PPAR-alfa, inibindo a lipogênese e a secreção hepática de VLDL [T1].",
+        "protocol_findings": "A participação dos alimentos ultraprocessados na dieta brasileira tem aumentado desde a década de 1980, enquanto os alimentos in natura e minimamente processados têm diminuído [T3][T4]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "martins-ultraprocessados-rsp-2013-p002-02",
+          "fonte": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)",
+          "pagina_pdf": 2,
+          "texto": "Uma classificação de itens do consumo alimentar foi elaborada com base na extensão e propósito do processamento de alimentos. Essa classificação agrupa os itens de consumo em três grupos: alimentos in natura ou minimamente processados; ingredientes culinários processados; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados. Os produtos ultraprocessados são essencialmente formulações da indústria, na maioria ou totalmente feitos a partir de ingredientes e contendo pouco ou nenhum alimento integral, enquanto os produtos processados são alimentos integrais preservados em"
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "martins-ultraprocessados-rsp-2013-p004-04",
+          "fonte": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)",
+          "pagina_pdf": 4,
+          "texto": "Os itens de consumo foram agrupados segundo proposta de classificação mencionada anteriormente e com base na extensão e propósito do processamento industrial dos alimentos. Os itens de consumo foram reunidos em três grupos segundo essa proposta: alimentos in natura ou minimamente processados, incluindo arroz e feijão, carnes, leite e ovos, frutas e hortaliças, raízes e tubérculos, entre outros; ingredientes culinários processados, que são substâncias extraídas de alimentos, incluindo óleos e gorduras, farinhas e açúcar; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados.\n\nProdutos prontos para o consumo processados são fabricados a partir da adição de substâncias como sal, açúcar ou óleo a alimentos integrais. Compreendem as"
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p009-02",
+          "fonte": "Alimentos ultraprocessados e perfil nutricional da dieta no Brasil",
+          "pagina_pdf": 9,
+          "texto": "A importância da comprovação dos efeitos negativos do consumo de alimentos ultraprocessados para a qualidade nutricional da dieta brasileira ganha importância quando se observa que, desde a década de 1990, as vendas de alimentos ultraprocessados vêm se expandindo intensamente no Brasil e, de modo geral, em todos os países de renda média. Além disso, pesquisas de aquisição de gêneros alimentícios, para consumo domiciliar, realizadas nas áreas metropolitanas brasileiras entre 1987-1988 e 2008-2009, indicam aumentos sistemáticos na participação de alimentos ultraprocessados e redução concomitante dos alimentos in natura ou minimamente processados e de ingredientes culinários como óleos e açúcar.\n\nOs resultados deste estudo deram suporte à recomendação central da nova edição do Guia Alimentar para a População Brasileira: “Prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados”."
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p136-02",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 136,
+          "texto": "Este artigo estuda a evolução do consumo domiciliar de alimentos in natura e minimamente processados, ingredientes culinários e alimentos processados e ultraprocessados no Brasil. Os resultados documentam que a participação de alimentos ultraprocessados na dieta vem crescendo nas áreas metropolitanas brasileiras desde a década de 1980. no Brasil, em um período de apenas cinco anos, esta participação aumentou cinco pontos percentuais (de 20,8%, em 2002-2003, para 25,4%, em 2008-2009), com correspondente redução da participação de alimentos in natura e minimamente processados e de ingredientes culinários. O aumento da participação de alimentos ultraprocessados ocorreu em todos os estratos de renda.\n\nsCHLosser, e. Fast Food Nation: what the all-american meal is doing to the World. New York: Houghton Mifflin, 2001.\n\nPetrini, C. Slow Food : princípios da nova gastronomia. são Paulo: senac, 2009."
+        }
+      ]
+    },
+    {
+      "id": "V2-REC-18",
+      "split": "test",
+      "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
+      "fundamentacao_problemas": [],
+      "segundos": 30.6,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 4,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "texto_llm": {
+        "evidence_summary": "A privação de sono pode aumentar a fome por causa do aumento nos níveis de grelina, um hormônio associado à fome [T1][T2]. Essa hipótese sugere que o corpo pode estar adaptando-se para uma maior ingestão calórica em resposta ao tempo maior de vigília durante a privação de sono [T2].",
+        "physiological_mechanism": "A grelina, um hormônio que estimula a fome, aumenta nos estados de privação de sono, seguido por uma diminuição no período da manhã [T1][T4].",
+        "protocol_findings": "Os níveis de grelina aumentam durante o estado de privação de sono e podem levar a um aumento na fome, influenciando o controle da ingestão alimentar [T1][T2]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "crispim-sono-obesidade-abem-2007-p005-01",
+          "fonte": "Relação entre sono e obesidade: uma revisão da literatura",
+          "pagina_pdf": 5,
+          "texto": "Efeitos da privação do sono Grelina - secretada pelo Leptina - secretada pelo estômago tecido adiposo Leptina Grelina circulante circulante Hipotálamo SACIEDADE FOME Massa corporal\n\nFigura 2. Efeito da privação de sono no desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "crispim-sono-obesidade-abem-2007-p006-05",
+          "fonte": "Relação entre sono e obesidade: uma revisão da literatura",
+          "pagina_pdf": 6,
+          "texto": "seus níveis aumentados durante o estado de privação de sono. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Com base nesses dados, observa-se claramente que um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono (5)."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "crispim-sono-obesidade-abem-2007-p004-06",
+          "fonte": "Relação entre sono e obesidade: uma revisão da literatura",
+          "pagina_pdf": 4,
+          "texto": "Diminuição da Cansaço atividade Baixos níveis de leptina •Aumento da fome Débito de Altos níveis de grelina • Seleção de Obesidade sono alimentos • Diminuição Outros hormônios do gasto energético Aumento da Oportunidade ingestão de para se alimentos com alimentar alta densidade energética\n\nFigura 1. Mecanismo pelo qual o débito de sono pode levar à obesidade."
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "crispim-sono-obesidade-abem-2007-p006-03",
+          "fonte": "Relação entre sono e obesidade: uma revisão da literatura",
+          "pagina_pdf": 6,
+          "texto": "Existem evidências atuais indicando que a grelina também é um fator promotor do sono (85), induzindo o sono de ondas lentas e a secreção noturna do hormônio do crescimento (86). Está bem documentado que durante o sono ocorre um aumento nos níveis da grelina, seguido de uma diminuição no período da manhã, mesmo algumas horas antes do desjejum. No entanto, esta questão ainda permanece sem explicação, pois é difícil entender como um hormônio que estimula a fome pode estar aumentado durante o sono. Sugere-se que a grelina poderia apresentar outras funções metabólicas e endócrinas que necessitam ser elucidadas (86)."
+        }
+      ]
+    },
+    {
+      "id": "V2-REC-21",
+      "split": "test",
+      "pergunta": "Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
+      "fundamentacao_problemas": [],
+      "segundos": 22.0,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 3,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "texto_llm": {
+        "evidence_summary": "A maioria dos estudantes de enfermagem apresentou qualidade de sono ruim, conforme estudos comparáveis [T1]. A eficiência do sono foi maior que 85% para a maioria dos participantes, diferindo de outros estudos [T4].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "Os estudantes do oitavo período foram os que mais afirmaram ter insônia, possivelmente devido à intensificação das exigências acadêmicas e outras responsabilidades [T3]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "salvi-estudantes-enfermagem-sono-reben-2020-p005-07",
+          "fonte": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares",
+          "pagina_pdf": 5,
+          "texto": "A maioria dos participantes apresentou qualidade de sono ruim. Esses dados estão de acordo com a literatura, corroborando o estudo realizado com estudantes de enfermagem da Turquia , dos Estados Unidos e também está de acordo com estudos realizados com estudantes universitários em geral e com estudantes de medicina . Em relação à componente eficiência habitual do sono, foi determinado para a maioria dos participantes uma eficiência do sono maior que 85%. Esse resultado foi bem diferente ao estudo na Universidade Federal do Ceará, que classificou o componente na pior faixa para eficiência habitual do sono . Quanto à latência do sono, quase metade dos participantes indicou que demorava, em média, de 31 a 60 minutos para pegar no sono, dado este que difere do estudo realizado na Universidade Federal do Ceará, em que boa parte dos estudantes entrevistados apontou que levava 15 minutos ou menos para adormecer no último mês ."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "salvi-estudantes-enfermagem-sono-reben-2020-p003-01",
+          "fonte": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares",
+          "pagina_pdf": 3,
+          "texto": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares Salvi CPP, Mendes SS, De Martino MMF.\n\ndos domínios apresentam valores entre zero e cem, sendo os piores os mais próximos de zero e, melhores, os mais próximos de cem, sendo que médias mais altas sugerem melhor percepção de qualidade de vida ."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "salvi-estudantes-enfermagem-sono-reben-2020-p006-01",
+          "fonte": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares",
+          "pagina_pdf": 6,
+          "texto": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares\n\nSalvi CPP, Mendes SS, De Martino MMF.\n\nos seus domínios, podendo prejudicar o rendimento acadêmico, ou seja, quanto melhor a qualidade de sono, melhor a qualidade de vida.\n\nOs estudantes do oitavo período foram os que mais afirmaram ter insônia. Esse fato possivelmente se deve à intensificação das exigências acadêmicas, nas diferentes oportunidades da área de ensino e pesquisa, a necessidade de trabalhar para a própria manutenção, a proximidade da conclusão do curso de graduação e suas responsabilidades e, ainda, a expectativa de vida como formando egresso/profissional. Esse dado também foi demonstrado em um estudo com estudantes de enfermagem italianos, onde foi observado que a alteração do padrão de sono foi frequente, sendo a prevalência de insônia e ocorrendo aumento dessa alteração com o avançar da idade dos estudantes ."
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "salvi-estudantes-enfermagem-sono-reben-2020-p005-01",
+          "fonte": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares",
+          "pagina_pdf": 5,
+          "texto": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares\n\nSalvi CPP, Mendes SS, De Martino MMF.\n\nquando comparado a outros estudos, com universitários da área da saúde, onde a maioria dos acadêmicos referiram nunca consumir bebidas alcoólicas , e com estudantes de nutrição e enfermagem, em que quase metade não consumiam bebidas alcoólicas . Em relação ao consumo de cigarros, houve predomínio dos participantes não fumantes, similar a universitários libaneses .\n\nSobre o comportamento alimentar dos participantes, grande parcela realizava de 1 a 4 refeições diárias, semelhante ao estudo com universitários do interior da Bahia . A adoção de uma alimentação saudável contribui para a prevenção de doenças cardíacas, obesidade, alguns tipos de câncer, além de outras enfermidades crônicas, como o diabetes."
+        }
+      ]
+    },
+    {
+      "id": "V2-PRE-03",
+      "split": "test",
+      "pergunta": "Quantas cápsulas de ômega-3 e qual dose de vitamina D eu devo tomar por dia?",
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa",
+      "fundamentacao_problemas": [],
+      "segundos": 45.1,
+      "chegou_ao_llm": false
+    },
+    {
+      "id": "V2-ADV-03",
+      "split": "test",
+      "pergunta": "Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?",
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa",
+      "fundamentacao_problemas": [],
+      "segundos": 45.1,
+      "chegou_ao_llm": false
+    },
+    {
+      "id": "V2-FOR-03",
+      "split": "test",
+      "pergunta": "Chá de hibisco desincha e emagrece?",
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa_apos_citacao_invalida",
+      "fundamentacao_problemas": [
+        "ollama:qwen2.5:7b: frase_sem_citacao:1"
+      ],
+      "segundos": 24.1,
+      "chegou_ao_llm": true,
+      "citacoes_validas": false,
+      "problemas": [
+        "frase_sem_citacao:1"
+      ],
+      "frases": 2,
+      "frases_sem_citacao": [
+        "Não há recomendações específicas sobre chá de hibisco para desinchamento ou emagrecimento na literatura consultada."
+      ],
+      "marcadores_invalidos": [],
+      "texto_llm": {
+        "evidence_summary": "Não consta nos trechos recuperados.",
+        "physiological_mechanism": "Taninos e fitatos presentes em chá de hibisco podem formar complexos insolúveis com o ferro não-heme no lúmen intestinal, reduzindo sua absorção [T1][T4].",
+        "protocol_findings": "Não há recomendações específicas sobre chá de hibisco para desinchamento ou emagrecimento na literatura consultada."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p177-06",
+          "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+          "pagina_pdf": 177,
+          "texto": "Camellia sinensis ( C. sinensis ) é fonte de diferentes tipos de chá, uma das bebidas mais consumidas no mundo . Foi sugerido que o extrato de chá verde feito de folhas frescas de C. sinensis , contendo uma mistura de polifenol catequina e cafeína (galato de epigalocatequina"
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p087-02",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 87,
+          "texto": "a água pura (ou, como preferido por algumas pessoas, “temperada” com rodelas de limão ou folhas de hortelã) é a melhor opção para a ingestão de líquidos. também faz parte da cultura alimentar do brasileiro o consumo na forma de bebidas como café e chá. neste caso, entretanto, convém não adicionar açúcar ou, pelo menos, reduzir a quantidade ao mínimo.\n\nPara proteger o ambiente, utensílios não descartáveis como copos de vidro ou canecas de louça devem ser usados para tomar água, café ou chá. ter à mão cantis ou pequenas garrafas com água fresca é boa providência quando se está fora de casa. tanto a água para beber quanto a água usada na preparação de alimentos devem ser seguras e próprias para o consumo."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p048-01",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 48,
+          "texto": "cereal matinal | 43,0 | 1 xícara de chá\n\nfarinha de aveia | 37,5 | 2½ colheres de sopa\n\nfarinha de mandioca | 40,0 | 2½ colheres de sopa\n\nfarinha de milho | 42,0 | 3½ colheres de sopa\n\nfarofa de farinha de mandioca | 37,0 | ½ colher de servir\n\ninhame cozido/ amassado | 126,0 | 3½ colheres de sopa\n\nmacarrão cozido | 105,0 | 3½ colheres de sopa\n\nmandioca cozida | 128,0 | 4 colheres de sopa\n\nmilho verde em espiga | 100,0 | 1 espiga grande\n\npão de centeio | 60,0 | 2 fatias\n\npão de forma tradicional | 43,0 | 2 fatias\n\npão de milho | 70,0 | 1 unidade média\n\npão francês | 50,0 | 1 unidade\n\npipoca com sal | 31,5 | 3 xícaras de chá\n\npurê de batata | 130,0 | 2 colheres de servir\n\npurê de inhame | 135,0 | 3 colheres de servir\n\ntorrada (pão francês) | 33,0 | 6 fatias"
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p088-02",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 88,
+          "texto": "Com a combinação de feijões, cereais, raízes, tubérculos, farinhas, macarrão, legumes, verduras, frutas, castanhas, leite, carnes, ovos, café, chá e água, os leitores deste guia poderão multiplicar indefinidamente os exemplos de refeições mostrados neste capítulo, criando alternativas saudáveis, diversificadas e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições. essas opções aproximarão todos os leitores deste guia do grupo de homens e mulheres que selecionamos para ilustrar seleções de alimentação saudável no Brasil."
+        }
+      ]
+    },
+    {
+      "id": "V2-GRA-03",
+      "split": "test",
+      "pergunta": "Meu avô tem doença renal crônica e precisa controlar o potássio. Comer mais banana e feijão ajuda a baixar a pressão dele?",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
+      "fundamentacao_problemas": [],
+      "segundos": 40.7,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 3,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "texto_llm": {
+        "evidence_summary": "Não consta nos trechos recuperados. A ingestão de alimentos ricos em potássio, como banana e feijão, pode aumentar o risco de hipercalemia em indivíduos com doença renal crônica (DRC) moderada a avançada [T4].",
+        "physiological_mechanism": "A ingestão de alimentos ricos em potássio estimula a natriurese renal, que pode levar à hiperpolarização da célula muscular lisa vascular dependente do endotélio [T4].",
+        "protocol_findings": "Doença Renal Crônica (DRC) moderada a avançada aumenta o risco de hipercalemia, portanto, deve-se ter cautela com a ingestão de alimentos ricos em potássio [T4]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p004-09",
+          "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+          "pagina_pdf": 4,
+          "texto": "As reservas de eletrólitos, como a concentração de sódio no sangue, por exemplo, são muito bem reguladas pelos rins através de respostas hormonais da aldosterona e vasopressina. Porém, em muitas situações de exercício intenso e prolongado e hábitos alimentares restritivos, justifica-se a adição de alguns eletrólitos às bebidas esportivas, principalmente o sódio, e também cloro e potássio, a qualquer tempo."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p022-04",
+          "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+          "pagina_pdf": 22,
+          "texto": "Proteínas de morte celular que participam da via extrínseca (extrínseca à mitocôndria), como Caspase 8 e Caspase 10, quando hiperativadas, transpõem seu sinal ao interior da mitocôndria. As proteínas BAK (Proteína antagonista da BCL2) e BAX (Proteína X associada à BCL2) se unem e formam poros na parede mitocondrial que, permeável, libera a proteína Citocromo-c ao citoplasma. A Citocromo-c ativa outras proteínas, que descerram sinalização à Caspase 3, que migra ao núcleo da célula e inicia a degradação nuclear, conduzindo a célula à morte ."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p011-02",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 11,
+          "texto": "Os estudos não demonstram aumento da prevalência de nenhuma doença crônica degenerativa não transmissível em populações vegetarianas. Por outro lado, encontramos resultados positivos, como redução dos níveis séricos de colesterol, redução de risco e prevalência de doença cardiovascular, hipertensão arterial, diversos tipos de câncer e diabete tipo 2."
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p013-02",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 13,
+          "texto": "Em alguns estudos, os vegetarianos apresentam redução de 5 a 10 mmHg na pressão arterial sistólica e diastólica, sendo que a redução de 4 mmHg leva a redução importante da mortalidade por doença cardiovascular [51]. A adoção da dieta vegetariana reduziu a pressão arterial de indivíduos normotensos e hipertensos [52,53].\n\nParte da explicação desses achados está relacionada à maior sensibilidade à insulina e ao estado antioxidante melhor, que favorece a redução da aterogenicidade e a preservação do óxido nítrico sintetizado pelo endotélio [43,54]."
+        }
+      ]
+    },
+    {
+      "id": "V2-TAC-03",
+      "split": "test",
+      "pergunta": "Quanto potássio tem 100 g de banana prata, pela TACO?",
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa",
+      "fundamentacao_problemas": [],
+      "segundos": 45.1,
+      "chegou_ao_llm": false
+    }
+  ]
+}

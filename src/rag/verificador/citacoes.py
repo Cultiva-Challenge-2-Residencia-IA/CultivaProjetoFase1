@@ -12,9 +12,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 import re
-from typing import Dict, List
+from typing import Any, Dict, List
 
-MARCADOR = re.compile(r"\[(T\d+|GRAFO|TACO)\]")
+MARCADOR = re.compile(r"\[(T\d+|GRAFO|TACO|\?[^\]]*)\]")
 # Marcadores logo depois do ponto final ("frase. [T1]") voltam para antes dele ("frase [T1].").
 _MARCADORES_APOS_PONTO = re.compile(r"([.!?])((?:\s*\[(?:T\d+|GRAFO|TACO)\])+)")
 _FIM_DE_FRASE = re.compile(r"(?<=[.!?])\s+")
@@ -33,9 +33,55 @@ class VerificacaoCitacoes:
     problemas: List[str] = field(default_factory=list)
 
 
+def eh_trecho(marcador: str) -> bool:
+    """[T1], [T2]...: marcador de Trecho. [TACO] também começa com "T", então não basta o prefixo."""
+    return marcador[:1] == "T" and marcador[1:].isdigit()
+
+
 def marcador_de_trecho(indice: int) -> str:
     """Marcador do Trecho na posição `indice` (base 0) da lista recuperada."""
     return f"[T{indice + 1}]"
+
+
+def _marcador(ref: Any) -> str:
+    """2 ou "2" ou "T2" -> "[T2]"; "TACO"/"GRAFO" -> "[TACO]"/"[GRAFO]"; o resto vira um marcador
+    inválido que a checagem reprova (ex.: "[?fonte]")."""
+    texto = str(ref).strip().upper().strip("[]")
+    if texto.isdigit():
+        return f"[T{int(texto)}]"
+    if eh_trecho(texto) or texto in ("TACO", "GRAFO"):
+        return f"[{texto}]"
+    return f"[?{texto}]"
+
+
+def normalizar_frases_citadas(resposta: Dict[str, Any]) -> Dict[str, Any]:
+    """Formato estruturado (prompt v3): cada campo do LLM é uma lista de {"frase", "trechos"}.
+    Converte em texto com os marcadores no fim de cada frase, para a mesma checagem de sempre.
+    Campos já em texto ficam como estão."""
+    saida = dict(resposta)
+    for campo in CAMPOS_DO_LLM:
+        valor = resposta.get(campo)
+        if not isinstance(valor, list):
+            continue
+        frases = []
+        for item in valor:
+            if isinstance(item, dict):
+                frase = str(item.get("frase") or "").strip()
+                refs = item.get("trechos") or []
+                refs = refs if isinstance(refs, list) else [refs]
+            else:
+                frase, refs = str(item).strip(), []
+            if not frase:
+                continue
+            if frase == FRASE_SEM_BASE:
+                frases.append(frase)
+                continue
+            marcadores = "".join(_marcador(r) for r in refs)
+            corpo = frase[:-1].rstrip() if frase[-1] in ".!?" else frase
+            final = frase[-1] if frase[-1] in ".!?" else "."
+            frases.append(f"{corpo} {marcadores}{final}" if marcadores else f"{corpo}{final}")
+        saida[campo] = " ".join(frases)
+    return saida
 
 
 def dividir_frases(texto: str) -> List[str]:
@@ -71,7 +117,7 @@ def verificar_citacoes(
             for m in marcadores:
                 if m not in permitidos:
                     resultado.marcadores_invalidos.append(f"[{m}]")
-                elif m.startswith("T"):
+                elif eh_trecho(m):
                     citados.add(int(m[1:]))
     resultado.trechos_citados = sorted(citados)
 

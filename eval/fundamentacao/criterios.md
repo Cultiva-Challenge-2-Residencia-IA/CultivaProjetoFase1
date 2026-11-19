@@ -66,3 +66,15 @@ O que a leitura das respostas mostrou:
 2. **Abstenção do LLM:** quando os três campos do LLM são a frase fixa (ou vazios), a resposta é a mensagem de "não sei" (`MENSAGEM_NAO_SEI`, `abstencao=True`, `fundamentacao_status="llm_sem_base"`), e não a síntese extrativa.
 
 O `dev` é medido de novo com o prompt v2. O `test` continua sem ter sido rodado com LLM.
+
+## Adendo 2 (19/11/2026, depois da medição do prompt v2 no `dev`)
+
+**Medição do prompt v2** (`medicao_dev_prompt_v2_parcial.log`). Ela parou na pergunta V2-TAC-01, por um bug: o código tratava `[TACO]` como um `[T#]`, porque também começa com "T", e tentava converter "ACO" em número. A medição também derrubaria uma resposta real em que o LLM usasse `[TACO]`; foi corrigido com `eh_trecho` e um teste. **Até a parada:**
+- 3 de 20 respostas checadas passaram (15%), o mesmo nível do v1;
+- as 3 perguntas em que o LLM disse "não consta" viraram "não sei" (V2-FOR-01, V2-FOR-02, V2-PRE-02), como pretendido.
+
+**Mudança, decidida só com o `dev`** e sugerida também na revisão do PR #61:
+
+- **Prompt v3, formato estruturado.** Cada campo do LLM passa a ser uma lista de `{"frase": …, "trechos": [números, "TACO" ou "GRAFO"]}`.
+- **Conversão para a mesma checagem.** O código (`normalizar_frases_citadas`) monta o texto com os marcadores no fim de cada frase e aplica a mesma checagem de antes. Referências fora do formato viram um marcador inválido e reprovam.
+- **Compatibilidade.** Respostas em texto continuam aceitas.
