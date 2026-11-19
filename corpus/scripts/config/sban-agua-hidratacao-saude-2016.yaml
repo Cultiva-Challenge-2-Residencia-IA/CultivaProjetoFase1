@@ -6,3 +6,5 @@ sparse_page_decisions:
 page_notes:
   2: Página sem conteúdo, só com o rótulo de impressão do arquivo ('Nestle_Folheto_Aguas_MaterialCientifico.indd'),
     registrado como indício de patrocínio no manifesto; texto nativo usado em vez do OCR.
+strip_false_strikethrough_pages:
+- 2

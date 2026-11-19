@@ -27,8 +27,8 @@
     },
     "cfn-codigo-etica-conduta-nutricionista-2018": {
       "jsonl_path": "corpus/nutricao/rag/cfn_codigo_etica_conduta_nutricionista_res599_2018.jsonl",
-      "jsonl_sha256": "cabedb8c136d08ae2f342248dce4bcc8f9cc5417f6b4501af91f108ed8d0bb85",
-      "markdown_sha256": "4aa23e49575acb9eac51159198312f19ed047dbe0cc2985d053da85b4a396abe",
+      "jsonl_sha256": "c69f3cb94fa6fce287730209ee67534e07dd5a7996121dab0d3b56d4984be822",
+      "markdown_sha256": "ca06621b813cc460983f2bcd976486a0a5ea09363da71f711950b286d079e62b",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "74381bdfdbd8070f297fa861cc2a67e73a038d5a4991d730a090cbe092bfb73a",
       "trechos": 59
@@ -156,7 +156,7 @@
     "sban-agua-hidratacao-saude-2016": {
       "jsonl_path": "corpus/nutricao/rag/sban_agua_hidratacao_saude.jsonl",
       "jsonl_sha256": "95a081302673db6788fd75234442bb8d457a110ae01605ce3be20c3e4a11e25f",
-      "markdown_sha256": "b770f0572b1559ec90188938246caa34d24ffae73ce85693f747debc1e72d578",
+      "markdown_sha256": "654414de9e5a8e3da3b1de43e72a3b009c30d4703ae4b8bd1ff12d8adfad6a85",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "1ef8ec63d8ee793a6ff647a5a0b5837ea43e1acd8cb1bdb9695007e5f3d5d793",
       "trechos": 55

@@ -39,7 +39,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 > **Nota de conversão — página 2:** Página sem conteúdo, só com o rótulo de impressão do arquivo ('Nestle_Folheto_Aguas_MaterialCientifico.indd'), registrado como indício de patrocínio no manifesto; texto nativo usado em vez do OCR.
 
-45912 ~~-~~ 002_AF_Nestle_Folheto_Aguas_MaterialCientifico.indd   2
+45912 - 002_AF_Nestle_Folheto_Aguas_MaterialCientifico.indd   2
 
 11/18/16   9:39 PM
 

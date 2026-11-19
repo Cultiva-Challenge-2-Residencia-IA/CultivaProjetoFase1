@@ -22,9 +22,15 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=1)
 
-> **Nota de conversão — página 1:** Capa: título conferido visualmente. Texto nativo usado em vez do OCR, que lia o logotipo como caracteres espúrios.
+> **Nota de conversão — página 1:** Nome do conselho só existe na imagem do logotipo; transcrição conferida visualmente (revisão do #62).
+
+> **Nota de conversão — página 1:** Capa: título conferido visualmente. Texto nativo usado em vez do OCR da página inteira, que lia o logotipo como caracteres espúrios; o nome do conselho, que só existe na imagem do logotipo, vem de OCR da região, conferido visualmente.
 
 **Código de Ética e de Conduta** do Nutricionista
+
+<!-- Transcrição pontual de elemento visual; ver relatório OCR. -->
+
+CONSELHO FEDERAL DE NUTRICIONISTAS
 
 ---
 
@@ -750,10 +756,10 @@ Conselheiros Suplentes
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=19)
 
-> **Nota de conversão — página 19:** Contracapa com logotipo do CFN e cfn.org.br, conferida visualmente. Texto nativo usado em vez do OCR, que lia o desenho como caracteres espúrios.
+> **Nota de conversão — página 19:** Contracapa com logotipo do CFN e cfn.org.br, conferida visualmente. Texto nativo usado em vez do OCR, que lia o desenho como caracteres espúrios; colchetes decorativos da camada nativa e tachado falso removidos.
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
 
-> **~~[~~ 34** cfn.org.br
+> **34** cfn.org.br
 
 ---

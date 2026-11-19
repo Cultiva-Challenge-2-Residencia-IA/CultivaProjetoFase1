@@ -6,8 +6,30 @@ sparse_page_decisions:
   2: 'Folha de rosto: texto nativo suficiente; OCR desligado.'
   19: 'Contracapa: texto nativo suficiente (logotipo e endereço); OCR desligado.'
 page_notes:
-  1: 'Capa: título conferido visualmente. Texto nativo usado em vez do OCR, que lia o logotipo como caracteres
-    espúrios.'
+  1: 'Capa: título conferido visualmente. Texto nativo usado em vez do OCR da página inteira, que lia
+    o logotipo como caracteres espúrios; o nome do conselho, que só existe na imagem do logotipo, vem
+    de OCR da região, conferido visualmente.'
   2: 'Folha de rosto: o OCR coincidia com o texto nativo; texto nativo usado.'
   19: Contracapa com logotipo do CFN e cfn.org.br, conferida visualmente. Texto nativo usado em vez do
-    OCR, que lia o desenho como caracteres espúrios.
+    OCR, que lia o desenho como caracteres espúrios; colchetes decorativos da camada nativa e tachado
+    falso removidos.
+strip_false_strikethrough_pages:
+- 19
+ocr_regions:
+- page: 1
+  bbox:
+  - 90
+  - 370
+  - 200
+  - 420
+  label: Logotipo do CFN na capa
+  note: 'Nome do conselho só existe na imagem do logotipo; transcrição conferida visualmente (revisão
+    do #62).'
+  verified_text: CONSELHO FEDERAL DE NUTRICIONISTAS
+replacements:
+- page: 19
+  old: '**~~[~~ Código de Ética'
+  new: '**Código de Ética'
+- page: 19
+  old: '**~~[~~ 34**'
+  new: '**34**'

@@ -4,7 +4,7 @@
   "pdf_pages": 16,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": "236c290373a58faf03fd40b0cce808a81d42149cf15da2c956d9b4aaeda0f144",
+  "config_sha256": "e4f7dd9ecc66b6ea3b438e526aba687517f8f36e3ff283dce8e2fa345918730d",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -44,12 +44,16 @@
       "warnings": [
         "Página sem conteúdo, só com o rótulo de impressão do arquivo ('Nestle_Folheto_Aguas_MaterialCientifico.indd'), registrado como indício de patrocínio no manifesto; texto nativo usado em vez do OCR."
       ],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "removed_false_strikethrough_markers": 2
+        }
+      ],
       "ocr": [],
       "sparse_page_decision": "Página sem conteúdo, só com o rótulo de impressão; texto nativo suficiente; OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 87
+      "markdown_characters": 83
     },
     {
       "pdf_page": 3,
@@ -222,7 +226,7 @@
       "markdown_characters": 179
     }
   ],
-  "markdown_sha256": "b770f0572b1559ec90188938246caa34d24ffae73ce85693f747debc1e72d578",
+  "markdown_sha256": "654414de9e5a8e3da3b1de43e72a3b009c30d4703ae4b8bd1ff12d8adfad6a85",
   "summary": {
     "pages_converted": 16,
     "sparse_pages": [
@@ -237,6 +241,8 @@
     "pages_with_warnings": [
       2
     ],
-    "pages_with_adjustments": []
+    "pages_with_adjustments": [
+      2
+    ]
   }
 }
