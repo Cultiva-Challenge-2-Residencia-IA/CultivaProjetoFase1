@@ -1,0 +1,18 @@
+{
+ "juiz": "claude-sonnet (subagente do Claude Code, às cegas)",
+ "fase": "concordancia",
+ "aceitos": [
+  "lote_01",
+  "lote_02"
+ ],
+ "rejeitados": {},
+ "pendentes": [],
+ "julgamentos_importados": {},
+ "concordancia": {
+  "itens": 36,
+  "fidelidade_diferenca_media": 0.0472,
+  "fidelidade_diferenca_maxima": 0.3143,
+  "prescricao_concordancia": 0.9722,
+  "prescricao_kappa": 0.6538
+ }
+}

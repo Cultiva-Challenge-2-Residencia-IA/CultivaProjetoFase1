@@ -22,7 +22,7 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
   - `src/agent/`: `consultant_baseline.py` (orquestra busca, síntese e guardrails), `llm_client.py` (Ollama local por padrão; Groq só com liberação explícita; sem LLM, síntese extrativa; ADR 0003) e `guardrails.py` (guardrail legal da Lei 8.234/1991);
   - `src/guardrails/`: `risco/` (detector de risco por léxico, `lexico.yaml`, e mensagem de acolhimento), `injection/` (prompt injection e delimitação dos Trechos como dado) e `pii/` (máscara de dados pessoais); `prescricao/` e `tom/` reexportam o guardrail legal;
   - `src/rag/abstencao.py`: o "não sei" fora do domínio (issue #6);
-  - `src/evaluation/`: `run_benchmark.py` (v1, com `risk_metrics`, `risk_metrics_holdout` e `abstention_metrics`), `benchmark_v2.py`, `risco.py`, `abstencao.py`, `ablacao_ranking.py`, `ablacao_seed.py` (issue #5: efeito do `seed_guidelines`, que saiu do índice; resultado em `eval/runs/ablacao_seed_issue5.md`), `fundamentacao.py` (issue #12: conformidade das citações do LLM e amostra humana do RNF27, em `eval/fundamentacao/`) e `gate.py`;
+  - `src/evaluation/`: `run_benchmark.py` (v1, com `risk_metrics`, `risk_metrics_holdout` e `abstention_metrics`), `benchmark_v2.py`, `risco.py`, `abstencao.py`, `ablacao_ranking.py`, `ablacao_seed.py` (issue #5: efeito do `seed_guidelines`, que saiu do índice; resultado em `eval/runs/ablacao_seed_issue5.md`), `fundamentacao.py` (issue #12: conformidade das citações do LLM e amostra humana do RNF27, em `eval/fundamentacao/`), `gate.py` e `modelo_local/` (comparação de modelos do Ollama, issue #55; fora do CI);
   - `src/api.py` (FastAPI e CLI) e `src/demo_entrega.py` (demonstração da entrega);
   - `src/config.py`: caminhos e parâmetros, quase todos sobrescrevíveis por variável de ambiente.
   - `src/observabilidade.py`: Langfuse opcional (proposta técnica; ADR 0003, item 5). Desligado por padrão e no CI; pacote no grupo `observabilidade` (`uv sync --group observabilidade`). Liga com `CULTIVA_LANGFUSE=true` e as chaves; destino padrão `http://localhost:3000`, e servidor externo só com `ALLOW_EXTERNAL_LANGFUSE=true`. O SDK mascara todo texto dos spans, e mensagem de risco vai só com as categorias. `src/evaluation/langfuse_experimento.py` roda o golden v2 como experimento, com ablação (`--config llm-puro|llm-rag|llm-rag-grafo|completo`); só o `dev` sobe para o dataset, e o `test` exige `--incluir-test`. O "LLM puro" é só da ablação: liga quando busca, TACO e grafo estão desligados na configuração (`modo_llm_puro`), nunca por busca vazia.
@@ -49,6 +49,11 @@ uv run python -m src.evaluation.run_benchmark --no-ollama
 uv run python -m src.evaluation.benchmark_v2 --no-ollama
 uv run python -m src.evaluation.gate --report data/benchmark/baseline_report.json \
   --baseline eval/baselines/benchmark_offline.json --config eval/gates.toml
+
+# Comparação de modelos locais (issue #55; ver eval/modelo_local/README.md). O juiz é às cegas:
+# exportar-cego gera lotes em data/modelo_local/juiz_cego/, subagentes do Claude os julgam, importar-cego confere os controles
+uv run python -m src.evaluation.modelo_local congelar|gerar|ferramentas|exportar-cego|importar-cego|bertscore|relatorio
+uv sync --group modelo-local   # bert-score e PyTorch para CPU, só para o BERTScore
 
 # Demonstração da entrega (regrava entrega_semanal/ com --salvar-artefatos)
 uv run python -m src.demo_entrega --salvar-artefatos

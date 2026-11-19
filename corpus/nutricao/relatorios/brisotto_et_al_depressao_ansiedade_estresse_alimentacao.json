@@ -4,7 +4,7 @@
   "pdf_pages": 8,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": null,
+  "config_sha256": "3d320fa22d0280419a2dfa9074ea68833b06def1412c8b0a388057eea669724d",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -110,6 +110,7 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [
+        "Alerta lexical por palavras hifenizadas na quebra de linha das referências (ex.: 'alimen-ta'); todas as palavras apontadas estão no Markdown e todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -169,7 +170,7 @@
       "markdown_characters": 2862
     }
   ],
-  "markdown_sha256": "730949078f84877b6ca7cad77919592a695fca627fdf533d2c6dd43f69e3b9c5",
+  "markdown_sha256": "83fe9d19e364a7827c31e2e0dd382095209cd0569c48a47b629a50edb8c67764",
   "summary": {
     "pages_converted": 8,
     "sparse_pages": [],

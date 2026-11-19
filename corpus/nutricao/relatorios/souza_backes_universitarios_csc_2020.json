@@ -4,7 +4,7 @@
   "pdf_pages": 10,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": null,
+  "config_sha256": "0003b3de5ba7133160407e64dbc125da729f67e4ce6a9f55154165ba2fc9362c",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -92,6 +92,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical baixo (96,4%); só o token 'rk' não aparece. Página sem números decimais.",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -162,6 +163,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md). Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: 'mundo15', 'mussi4') e rodapé da revista; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -224,6 +226,7 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [
+        "Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md): cobertura de 77,7%, com tokens fundidos a citações (ex.: 'alimentação22', 'culinárias21'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -384,7 +387,7 @@
       "markdown_characters": 5752
     }
   ],
-  "markdown_sha256": "0813d45907f96c0299ef1d1444c799d7b0e12c89d65f305704a75d83554392cd",
+  "markdown_sha256": "c3db8c3c663f12f8446ff236b66e1c3761bcef9f4061d641ac6a01f688471a10",
   "summary": {
     "pages_converted": 10,
     "sparse_pages": [],

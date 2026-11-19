@@ -32,6 +32,12 @@ dev = [
     "pytest-mock>=3.14.0",
     "ruff==0.14.0",
 ]
+# Comparação de modelos locais (issue #55): BERTScore de referência. Fora do CI:
+# uv sync --group modelo-local
+modelo-local = [
+    "bert-score>=0.3.13",
+    "torch>=2.4",
+]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
@@ -42,3 +48,12 @@ target-version = "py311"
 
 [tool.uv]
 package = false
+
+# PyTorch só para CPU (o grupo modelo-local não usa GPU, que fica com o Ollama).
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]

@@ -8,7 +8,7 @@ Os números deste documento foram gerados pelo sistema, não escritos à mão: `
 
 ### 1.1 Base de conhecimento curada (21 documentos-fonte indexados)
 
-A base é o corpus de Nutrição: **22 documentos-fonte em PDF**, convertidos e divididos em 1873 Trechos. Entram no índice as **21 fontes aprovadas**, com **1818 Trechos** (mínimo exigido: 20 fontes). Cada fonte tem origem, versão e SHA-256 do PDF no manifesto, e o `verify_corpus.py` confere a cadeia de hashes no CI (job "Integridade do corpus").
+A base é o corpus de Nutrição: **22 documentos-fonte em PDF**, convertidos e divididos em 1869 Trechos. Entram no índice as **21 fontes aprovadas**, com **1814 Trechos** (mínimo exigido: 20 fontes). Cada fonte tem origem, versão e SHA-256 do PDF no manifesto, e o `verify_corpus.py` confere a cadeia de hashes no CI (job "Integridade do corpus").
 
 Ficaram **fora** do índice:
 
@@ -19,7 +19,7 @@ Ficaram **fora** do índice:
 
 | # | Fonte (`fonte_id`) | Tipo | Ano | Trechos | Aprovação |
 |---:|---|---|---:|---:|---|
-| 1 | Posicionamento sobre o tratamento nutricional do sobrepeso e da obesid… (`abeso-posicionamento-tratamento-nutricional-obesidade-2022`) | diretriz | 2022 | 501 | aprovado |
+| 1 | Posicionamento sobre o tratamento nutricional do sobrepeso e da obesid… (`abeso-posicionamento-tratamento-nutricional-obesidade-2022`) | diretriz | 2022 | 497 | aprovado |
 | 2 | Guia alimentar para a população brasileira (`guia-alimentar-populacao-brasileira-2014`) | diretriz | 2014 | 339 | aprovado |
 | 3 | Guia alimentar de dietas vegetarianas para adultos (`guia-dietas-vegetarianas-svb-2012`) | diretriz | 2012 | 165 | aprovado |
 | 4 | Modificações dietéticas, reposição hídrica, suplementos alimentares e … (`sbme-modificacoes-dieteticas-suplementos-rbme-2009`) | diretriz | 2009 | 103 | aprovado |
@@ -64,9 +64,9 @@ A página e a seção nunca são misturadas entre Trechos. É isso que permite c
 
 - **ChromaDB** persistente (`PersistentClient`) em `data/vector_store/chroma_db`, com índice **HNSW por cosseno**.
 - **Parâmetros do HNSW:** `ef_construction` e `ef_search` em 200 (`src/config.py`). Com os padrões do ChromaDB, a busca aproximada perdia vizinhos e variava a cada carga do índice, o que quebrava o determinismo do benchmark no CI. Com 200, o top-24 das 16 perguntas coincide com a busca exata, e um teste (`tests/test_vector_store.py`) exige pelo menos 99% de coincidência e o mesmo resultado ao recarregar o índice.
-- **Coleção versionada pelo conteúdo:** o nome da coleção leva a impressão digital do modelo e dos Trechos (`cultiva_nutricao_evidencias_7eea3ce9298a`), que inclui os parâmetros do HNSW. Se o corpus, o modelo ou o índice mudarem, uma coleção nova é criada, em vez de reaproveitar vetores antigos.
+- **Coleção versionada pelo conteúdo:** o nome da coleção leva a impressão digital do modelo e dos Trechos (`cultiva_nutricao_evidencias_<hash>`; o hash muda a cada mudança nos Trechos, por isso não é citado aqui), que inclui os parâmetros do HNSW. Se o corpus, o modelo ou o índice mudarem, uma coleção nova é criada, em vez de reaproveitar vetores antigos.
 - **Metadados por vetor:** `fonte_id`, título, instituição, ano, nível de evidência, seção, página do PDF, link, DOI, licença e status de aprovação.
-- **Total indexado:** 1818 vetores de 21 documentos-fonte (só fontes aprovadas).
+- **Total indexado:** 1814 vetores de 21 documentos-fonte (só fontes aprovadas).
 
 ## 2. Documentação
 

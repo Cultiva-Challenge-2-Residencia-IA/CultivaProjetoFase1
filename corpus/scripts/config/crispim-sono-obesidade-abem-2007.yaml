@@ -1,0 +1,6 @@
+# Configuração de conversão de crispim-sono-obesidade-abem-2007 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: 6e22a611b963ed42af2e52e36dfceb4f6a947c3bfd8c705f0a6162c533d2239a
+page_notes:
+  4: 'Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): todo o
+    texto corrido presente; falso alerta porque a camada nativa do PDF repete o texto.'

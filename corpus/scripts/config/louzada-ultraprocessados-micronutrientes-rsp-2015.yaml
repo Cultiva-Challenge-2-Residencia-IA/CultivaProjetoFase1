@@ -1,0 +1,9 @@
+# Configuração de conversão de louzada-ultraprocessados-micronutrientes-rsp-2015 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: 95d0a7cc7c42765caa81713b93430f1b95a37578e215ffba3f73787718f5fe9e
+page_notes:
+  5: 'Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): Tabela
+    3 confere valor a valor; o cabeçalho ''Quintos de consumo de alimentos ultraprocessados'' saiu partido
+    entre colunas, com os dados corretos.'
+  6: 'Alerta lexical por tabela numérica (cobertura de 63,6%); todas as palavras apontadas estão no Markdown
+    e todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'

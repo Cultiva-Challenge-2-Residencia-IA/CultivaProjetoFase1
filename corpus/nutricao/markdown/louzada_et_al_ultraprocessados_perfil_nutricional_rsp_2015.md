@@ -248,6 +248,8 @@ Comparada à fração da dieta relativa a alimentos _in natura_ ou minimamente p
 
 [Conferir no original](../originais/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.pdf#page=6)
 
+> **Nota de conversão — página 6:** Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: '0h' = número com marca de nota 'h', 'cereaisb'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **6**
@@ -355,6 +357,8 @@ Estudos populacionais que tenham avaliado a associação entre consumo de alimen
 ## Página PDF 8
 
 [Conferir no original](../originais/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.pdf#page=8)
+
+> **Nota de conversão — página 8:** Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: '6b', 'brasil13', 'crianças23'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 8:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
