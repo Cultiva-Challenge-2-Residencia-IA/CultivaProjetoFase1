@@ -6,3 +6,6 @@ __pycache__/
 .DS_Store
 data/processed/*.pkl
 data/vector_store/
+
+# Saídas brutas da comparação de modelos locais (issue #55), regeneráveis
+data/modelo_local/
