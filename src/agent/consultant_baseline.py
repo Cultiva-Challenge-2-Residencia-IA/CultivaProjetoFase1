@@ -284,6 +284,7 @@ class NutritionConsultantBaseline:
             trechos_citados=trechos_citados,
             fundamentacao_status=fundamentacao.get("status"),
             fundamentacao_problemas=list(fundamentacao.get("problemas", [])),
+            fundamentacao_frases_removidas=int(fundamentacao.get("frases_removidas", 0)),
             retrieved_chunks=retrieved,
             model_used=model_used,
             retrieval_mode=mode,

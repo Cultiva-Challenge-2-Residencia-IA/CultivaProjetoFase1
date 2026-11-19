@@ -85,10 +85,14 @@ def medir(split: str) -> Dict[str, Any]:
                          "marcadores_invalidos": [], "texto_llm": {c: llm.get(c, "") for c in CAMPOS_DO_LLM},
                          "trechos": []})
         if llm is not None and v is not None:
+            # Texto que segue para a resposta: já sem as frases removidas por citação literal (#67).
+            aceito = cliente.ultima_resposta_aceita or llm
+            removidas = list(cliente.ultimas_frases_removidas)
             item.update({
                 "citacoes_validas": v.valida, "problemas": v.problemas, "frases": v.frases,
                 "frases_sem_citacao": v.frases_sem_citacao, "marcadores_invalidos": v.marcadores_invalidos,
-                "texto_llm": {campo: llm.get(campo, "") for campo in CAMPOS_DO_LLM},
+                "frases_removidas": removidas,
+                "texto_llm": {campo: aceito.get(campo, "") for campo in CAMPOS_DO_LLM},
                 "trechos": [
                     {"marcador": f"T{i}", "chunk_id": rc.chunk.chunk_id, "fonte": rc.chunk.title,
                      "pagina_pdf": rc.chunk.pagina_pdf, "texto": rc.chunk.raw_text}
@@ -97,7 +101,7 @@ def medir(split: str) -> Dict[str, Any]:
             })
         itens.append(item)
         print(f"{caso['id']:12s} {item['fundamentacao_status'] or '-':32s} {segundos:5.1f} s "
-              f"{' '.join(item.get('problemas', []))}")
+              f"removidas={len(item.get('frases_removidas', []))} {' '.join(item.get('problemas', []))}")
 
     # Respostas do LLM que passaram pela checagem; "llm_sem_base" (o LLM disse que os Trechos não
     # respondem) não é checada e vira "não sei", então fica contada à parte.
@@ -114,6 +118,10 @@ def medir(split: str) -> Dict[str, Any]:
             sum(i["fundamentacao_status"] == "extrativa_apos_citacao_invalida" for i in avaliadas)
             / max(len(avaliadas), 1), 4),
         "problemas_por_tipo": dict(tipos),
+        # Citação literal (#67): frases do LLM descartadas e respostas que mantiveram ao menos uma.
+        "frases_removidas": sum(len(i.get("frases_removidas", [])) for i in avaliadas),
+        "frases_mantidas": sum(i["frases"] for i in avaliadas if i["citacoes_validas"]),
+        "respostas_com_frase_removida": sum(1 for i in avaliadas if i.get("frases_removidas")),
         "segundos_mediana": sorted(i["segundos"] for i in itens)[len(itens) // 2] if itens else None,
     }
     saida = {"criterios": str(DIR / "criterios.md"), "resumo": resumo, "itens": itens}
@@ -156,7 +164,7 @@ def sortear(frases: List[Dict[str, Any]], n: int = TAMANHO_AMOSTRA, semente: int
     return candidatas[:n]
 
 
-def amostra(splits: List[str]) -> List[Dict[str, Any]]:
+def amostra(splits: List[str], prefixo: str = "amostra") -> List[Dict[str, Any]]:
     itens = []
     for s in splits:
         caminho = _resultado_path(s)
@@ -165,8 +173,8 @@ def amostra(splits: List[str]) -> List[Dict[str, Any]]:
     escolhidas = sortear(frases_elegiveis(itens))
     for i, f in enumerate(escolhidas, 1):
         f["id"] = f"F{i:03d}"
-    (DIR / "amostra.json").write_text(json.dumps(escolhidas, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    with (DIR / "amostra_para_avaliar.csv").open("w", encoding="utf-8", newline="") as arq:
+    (DIR / f"{prefixo}.json").write_text(json.dumps(escolhidas, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    with (DIR / f"{prefixo}_para_avaliar.csv").open("w", encoding="utf-8", newline="") as arq:
         w = csv.writer(arq)
         w.writerow(["id", "pergunta", "frase", "trechos_citados", "julgamento", "comentario"])
         for f in escolhidas:
@@ -174,7 +182,7 @@ def amostra(splits: List[str]) -> List[Dict[str, Any]]:
                                   for t in f["trechos_citados"])
             w.writerow([f["id"], f["pergunta"], f["frase"], trechos, "", ""])
     print(f"{len(escolhidas)} frases sorteadas de {len({f['caso'] for f in escolhidas})} respostas "
-          f"-> {DIR / 'amostra_para_avaliar.csv'}")
+          f"-> {DIR / (prefixo + '_para_avaliar.csv')}")
     return escolhidas
 
 
@@ -215,13 +223,14 @@ def main(argv: Optional[List[str]] = None) -> None:
     m.add_argument("--split", choices=["dev", "test", "todos"], default="dev")
     a = sub.add_parser("amostra")
     a.add_argument("--splits", nargs="+", default=["dev", "test"])
+    a.add_argument("--prefixo", default="amostra", help="nome dos arquivos (ex.: amostra_v4)")
     c = sub.add_parser("calcular")
     c.add_argument("--planilha", type=Path, default=DIR / "amostra_para_avaliar.csv")
     args = parser.parse_args(argv)
     if args.comando == "medir":
         medir(args.split)
     elif args.comando == "amostra":
-        amostra(args.splits)
+        amostra(args.splits, args.prefixo)
     else:
         calcular(args.planilha)
 

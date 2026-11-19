@@ -87,21 +87,26 @@ def test_resposta_do_llm_sem_citacao_e_bloqueada_e_cai_na_extrativa():
     sintese, modelo = _cliente_com_llm(resposta).generate_structured_synthesis("ultraprocessados", trechos)
     assert modelo == "local_extractive_synthesis"
     assert sintese["_fundamentacao"]["status"] == "extrativa_apos_citacao_invalida"
-    assert any("frase_sem_citacao" in p for p in sintese["_fundamentacao"]["problemas"])
+    # Formato antigo, sem citação literal verificável: a frase sai e o resumo fica vazio (#67).
+    assert any("resumo_sem_frase_com_citacao_literal" in p for p in sintese["_fundamentacao"]["problemas"])
     assert "qualquer quantidade" not in sintese["evidence_summary"]
 
 
 def test_resposta_do_llm_citando_trecho_inexistente_e_bloqueada():
-    resposta = {"evidence_summary": "O Guia recomenda evitar ultraprocessados [T9].",
-                "physiological_mechanism": "", "protocol_findings": ""}
-    sintese, modelo = _cliente_com_llm(resposta).generate_structured_synthesis("ultraprocessados", _trechos())
+    resposta = {"evidence_summary": [{"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": [9],
+                                      "citacao": "O Guia recomenda evitar alimentos ultraprocessados"}],
+                "physiological_mechanism": [], "protocol_findings": []}
+    cliente = _cliente_com_llm(resposta)
+    sintese, modelo = cliente.generate_structured_synthesis("ultraprocessados", _trechos())
     assert modelo == "local_extractive_synthesis"
-    assert any("[T9]" in p for p in sintese["_fundamentacao"]["problemas"])
+    # O T9 não existe: não há fonte onde a citação possa estar, e a frase é removida.
+    assert cliente.ultimas_frases_removidas[0]["motivo"] == "citacao_literal_ausente_na_fonte"
 
 
 def test_resposta_do_llm_citada_passa():
-    resposta = {"evidence_summary": "O Guia recomenda evitar ultraprocessados [T1].",
-                "physiological_mechanism": FRASE_SEM_BASE, "protocol_findings": "Há protocolo de 400 g/dia [T3]."}
+    resposta = {"evidence_summary": [{"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": [1], "citacao": "O Guia recomenda evitar alimentos ultraprocessados"}],
+                "physiological_mechanism": FRASE_SEM_BASE,
+                "protocol_findings": [{"frase": "Há protocolo de 400 g/dia.", "trechos": [3], "citacao": "Protocolo populacional de 400 g/dia de frutas"}]}
     sintese, modelo = _cliente_com_llm(resposta).generate_structured_synthesis("ultraprocessados", _trechos())
     assert modelo.startswith("ollama:")
     assert sintese["_fundamentacao"]["status"] == "llm_citacoes_validas"
@@ -121,7 +126,8 @@ def test_llm_que_diz_nao_constar_vira_nao_sei_e_nao_extrativa():
 
 def test_prompt_pede_lista_de_frases_com_trechos():
     from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
-    assert '"evidence_summary": [{"frase": ' in SYSTEM_PROMPT_CONSULTANT and '"trechos": [2, 3]' in SYSTEM_PROMPT_CONSULTANT
+    assert '"evidence_summary": [{"frase": ' in SYSTEM_PROMPT_CONSULTANT and '"citacao": ' in SYSTEM_PROMPT_CONSULTANT
+    assert f'"physiological_mechanism": [{{"frase": "{FRASE_SEM_BASE}"' in SYSTEM_PROMPT_CONSULTANT
 
 
 def test_campos_so_vazios_nao_viram_nao_sei():
@@ -133,11 +139,12 @@ def test_campos_so_vazios_nao_viram_nao_sei():
 
 
 def test_cliente_guarda_a_checagem_que_decidiu_o_bloqueio():
-    cliente = _cliente_com_llm({"evidence_summary": "O Guia recomenda evitar ultraprocessados [T9].",
-                                "physiological_mechanism": "", "protocol_findings": ""})
+    cliente = _cliente_com_llm({"evidence_summary": [{"frase": "Frase com marcador fora do intervalo.", "trechos": [9],
+                                                      "citacao": "texto que não existe em nenhum trecho"}],
+                                "physiological_mechanism": [], "protocol_findings": []})
     cliente.generate_structured_synthesis("ultraprocessados", _trechos())
     assert cliente.ultima_verificacao is not None and not cliente.ultima_verificacao.valida
-    assert cliente.ultima_verificacao.marcadores_invalidos == ["[T9]"]
+    assert "resumo_sem_frase_com_citacao_literal" in cliente.ultima_verificacao.problemas
 
 
 def test_taco_nao_e_confundido_com_trecho():
@@ -161,9 +168,9 @@ def test_formato_estruturado_vira_texto_com_marcadores():
 
 
 def test_resposta_estruturada_citada_passa():
-    resposta = {"evidence_summary": [{"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": [1]}],
+    resposta = {"evidence_summary": [{"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": [1], "citacao": "O Guia recomenda evitar alimentos ultraprocessados"}],
                 "physiological_mechanism": [{"frase": FRASE_SEM_BASE, "trechos": []}],
-                "protocol_findings": [{"frase": "Há um protocolo de 400 g/dia de frutas.", "trechos": [3]}]}
+                "protocol_findings": [{"frase": "Há um protocolo de 400 g/dia de frutas.", "trechos": [3], "citacao": "Protocolo populacional de 400 g/dia de frutas"}]}
     sintese, modelo = _cliente_com_llm(resposta).generate_structured_synthesis("ultraprocessados", _trechos())
     assert modelo.startswith("ollama:") and sintese["_fundamentacao"]["status"] == "llm_citacoes_validas"
     assert "ultraprocessados [T1]." in sintese["evidence_summary"]
@@ -182,3 +189,34 @@ def test_estruturado_so_com_frase_fixa_vira_nao_sei():
     resposta = {"evidence_summary": item, "physiological_mechanism": item, "protocol_findings": item}
     sintese, _ = _cliente_com_llm(resposta).generate_structured_synthesis("como trocar um pneu?", _trechos())
     assert sintese["_fundamentacao"]["status"] == "llm_sem_base"
+
+
+# Citação literal (prompt v4, issue #67).
+
+def test_frase_com_citacao_inventada_e_removida_e_as_outras_ficam():
+    resposta = {"evidence_summary": [
+        {"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": [1], "citacao": "O Guia recomenda evitar alimentos ultraprocessados"},
+        {"frase": "A piperina aumenta a curcumina em 20 vezes.", "trechos": [1],
+         "citacao": "a piperina aumenta a biodisponibilidade da curcumina"},
+    ], "physiological_mechanism": [{"frase": FRASE_SEM_BASE, "trechos": []}], "protocol_findings": []}
+    cliente = _cliente_com_llm(resposta)
+    sintese, modelo = cliente.generate_structured_synthesis("ultraprocessados", _trechos())
+    assert modelo.startswith("ollama:") and sintese["_fundamentacao"]["frases_removidas"] == 1
+    assert "piperina" not in sintese["evidence_summary"] and "ultraprocessados [T1]." in sintese["evidence_summary"]
+
+
+def test_citacao_curta_ou_alterada_nao_vale_e_caixa_nao_conta():
+    from src.rag.verificador.citacoes import citacao_literal_valida
+    assert not citacao_literal_valida("evitar alimentos", ["O Guia recomenda evitar alimentos ultraprocessados."])
+    # Caixa e hifenização de quebra de linha não contam (critérios da #67).
+    assert citacao_literal_valida("Recomenda EVITAR alimentos ultra-\nprocessados", ["O Guia recomenda evitar alimentos ultraprocessados."])
+    # Mas trocar uma palavra invalida a citação.
+    assert not citacao_literal_valida("recomenda evitar todos os alimentos", ["O Guia recomenda evitar alimentos ultraprocessados."])
+
+
+def test_citacao_de_outra_fonte_nao_vale():
+    from src.rag.verificador.citacoes import filtrar_citacoes_literais
+    _, removidas = filtrar_citacoes_literais(
+        {"evidence_summary": [{"frase": "x y z w.", "trechos": [2], "citacao": "O Guia recomenda evitar alimentos"}]},
+        {"T1": "O Guia recomenda evitar alimentos ultraprocessados.", "T2": "A fibra solúvel forma gel."})
+    assert len(removidas) == 1  # a citação está no T1, mas a frase cita o T2
