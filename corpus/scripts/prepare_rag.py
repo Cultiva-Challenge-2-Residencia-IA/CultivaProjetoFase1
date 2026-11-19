@@ -22,6 +22,8 @@ import unicodedata
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
+# Cada domínio do corpus (nutricao, saude_fisica) tem a própria pasta rag/, ao lado de markdown/:
+# o carregador de cada agente lê só a sua. O registro de geração é um só, para todos os domínios.
 OUTPUT_DIR = ROOT / "corpus/nutricao/rag"
 GENERATION_PATH = OUTPUT_DIR / "geracao.json"
 SCRIPT_PATH = Path(__file__).resolve()
@@ -54,6 +56,18 @@ def tipos_de_fonte() -> list[str]:
     """Tipos de fonte aceitos, lidos do JSON Schema do Trecho (fonte única do contrato)."""
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
     return schema["properties"]["tipo_fonte"]["enum"]
+
+
+def rag_dir_do_markdown(markdown_path: Path) -> Path:
+    """Pasta rag/ do domínio da fonte: corpus/<dominio>/markdown/x.md -> corpus/<dominio>/rag."""
+    if markdown_path.parent.name != "markdown":
+        raise ValueError(f"markdown_path fora de uma pasta markdown/: {markdown_path}")
+    return markdown_path.parent.parent / "rag"
+
+
+def pastas_rag(root: Path = ROOT) -> list[Path]:
+    """Pastas rag/ de todos os domínios do corpus."""
+    return sorted(p for p in (root / "corpus").glob("*/rag") if p.is_dir())
 
 
 def sha256_text(text: str) -> str:
@@ -212,8 +226,13 @@ def clean_inline(line: str) -> str:
 
 def clean_page(raw: str, skipping: bool, section: str,
                keep_sections: frozenset[str] = frozenset(),
-               resume: tuple[re.Pattern, ...] = ()) -> tuple[list[tuple[str, str, bool]], bool, str]:
-    """Devolve (seção, parágrafo, é_linha_de_tabela), se segue em seção descartada e a seção corrente."""
+               resume: tuple[re.Pattern, ...] = (),
+               max_section_level: int | None = None) -> tuple[list[tuple[str, str, bool]], bool, str]:
+    """Devolve (seção, parágrafo, é_linha_de_tabela), se segue em seção descartada e a seção corrente.
+
+    Com `max_section_level`, só títulos até esse nível definem a seção; os mais profundos viram
+    texto do Trecho (subtítulos como "Para os pais ou responsáveis:" não apagam o capítulo).
+    Títulos de seções descartadas (Referências, Sumário) valem em qualquer nível."""
     paragraphs: list[tuple[str, str, bool]] = []
     current: list[str] = []
 
@@ -232,10 +251,22 @@ def clean_page(raw: str, skipping: bool, section: str,
                 or re.match(r"^##\s+Página PDF \d+\s*$", stripped)):
             flush()
             continue
-        heading = re.match(r"^#{1,6}\s+(.*)$", stripped)
+        heading = re.match(r"^(#{1,6})\s+(.*)$", stripped)
+        if heading and max_section_level and len(heading.group(1)) > max_section_level:
+            name = normalize_title(clean_inline(heading.group(2))).strip(" .:")
+            if SKIPPED_SECTIONS.match(name) and name.lower() not in keep_sections:
+                flush()
+                skipping = True
+                continue
+            heading_text = clean_inline(heading.group(2))
+            if not skipping and heading_text:
+                flush()
+                current.append(heading_text)
+                flush()
+            continue
         if heading:
             flush()
-            raw_title = clean_inline(heading.group(1))
+            raw_title = clean_inline(heading.group(2))
             if is_invalid_heading(raw_title):
                 section = last_valid_section
                 continue
@@ -315,6 +346,11 @@ def prepare(source: dict) -> tuple[dict, dict]:
             f"source_type ausente ou inválido em {source['id']}: {source.get('source_type')!r} "
             f"(aceitos: {', '.join(tipos_de_fonte())})"
         )
+    dominio = rag_dir_do_markdown(markdown_path).parent.name
+    if dominio != source.get("domain", "nutricao"):
+        raise ValueError(
+            f"{source['id']}: domain {source.get('domain', 'nutricao')!r} não corresponde à pasta corpus/{dominio}/"
+        )
     fonte_url = source["source"] if str(source["source"]).startswith(("http://", "https://")) else None
     config = load_rag_config()
     source_config = config.get(source["id"], {})
@@ -322,6 +358,7 @@ def prepare(source: dict) -> tuple[dict, dict]:
     keep = frozenset(s.lower() for s in source_config.get("keep_sections", []))
     resume = tuple(re.compile(p) for p in source_config.get("resume_after_skip", []))
     skip_pages = frozenset(source_config.get("skip_pages", []))
+    max_section_level = source_config.get("max_section_level")
     records: list[dict] = []
     skipping, section = False, ""
     discarded_short = 0
@@ -330,7 +367,7 @@ def prepare(source: dict) -> tuple[dict, dict]:
         if page in skip_pages:
             cleaned.append((page, []))
             continue
-        paragraphs, skipping, section = clean_page(raw, skipping, section, keep, resume)
+        paragraphs, skipping, section = clean_page(raw, skipping, section, keep, resume, max_section_level)
         cleaned.append((page, [(s, p, t) for s, p, t in paragraphs if not any(rx.search(p) for rx in drop)]))
     # Cabeçalhos e rodapés correntes: parágrafo curto que se repete em várias páginas.
     # Linhas de tabela ficam de fora: cabeçalhos de coluna repetidos são conteúdo.
@@ -362,7 +399,7 @@ def prepare(source: dict) -> tuple[dict, dict]:
                 "approval_status": source["approval_status"],
             })
 
-    output = OUTPUT_DIR / f"{markdown_path.stem}.jsonl"
+    output = rag_dir_do_markdown(markdown_path) / f"{markdown_path.stem}.jsonl"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(
         "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records), encoding="utf-8"

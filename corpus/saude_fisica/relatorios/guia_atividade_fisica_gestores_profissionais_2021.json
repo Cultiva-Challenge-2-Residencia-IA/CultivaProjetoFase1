@@ -1,0 +1,304 @@
+{
+  "source_id": "guia-atividade-fisica-gestores-profissionais-2021",
+  "source_sha256": "2fc0e130090b1269d35e0478ebfa84698ca8af59413c2f2135770c1d0c33b483",
+  "pdf_pages": 20,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
+  "config_sha256": "fa62702b432b74040fb320096e6f5bb627676c98034e0a5c27180fd4f91c486f",
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 147,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "sparse_page_decision": "Capa com título e instituição como texto nativo; sem conteúdo a recuperar por OCR.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 162
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 147,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "sparse_page_decision": "Repetição da capa como texto nativo; sem conteúdo a recuperar por OCR.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 162
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 220,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 235
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 3309,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3197
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 556,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 593
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 2931,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2928
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 447,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical de 91%; as palavras ausentes (\"em que aspectos o guia pode\") são do título do capítulo 2, que aparece completo no Markdown da página 8.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.91429,
+      "missing_native_tokens": {
+        "aspectos": 1,
+        "em": 1,
+        "guia": 1,
+        "o": 1,
+        "pode": 1,
+        "que": 1
+      },
+      "markdown_characters": 425
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 1102,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99405,
+      "missing_native_tokens": {
+        "8": 1
+      },
+      "markdown_characters": 1114
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 1416,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1415
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 1292,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99507,
+      "missing_native_tokens": {
+        "10": 1
+      },
+      "markdown_characters": 1327
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 2393,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2388
+    },
+    {
+      "pdf_page": 12,
+      "native_characters": 1982,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2003
+    },
+    {
+      "pdf_page": 13,
+      "native_characters": 2442,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2458
+    },
+    {
+      "pdf_page": 14,
+      "native_characters": 2437,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99718,
+      "missing_native_tokens": {
+        "14": 1
+      },
+      "markdown_characters": 2425
+    },
+    {
+      "pdf_page": 15,
+      "native_characters": 2223,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2228
+    },
+    {
+      "pdf_page": 16,
+      "native_characters": 2093,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2114
+    },
+    {
+      "pdf_page": 17,
+      "native_characters": 1918,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1927
+    },
+    {
+      "pdf_page": 18,
+      "native_characters": 880,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 885
+    },
+    {
+      "pdf_page": 19,
+      "native_characters": 772,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 919
+    },
+    {
+      "pdf_page": 20,
+      "native_characters": 0,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "sparse_page_decision": "Contracapa sem texto nativo (logotipos); conferida no PDF, sem conteúdo do Guia.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 0
+    }
+  ],
+  "markdown_sha256": "b5ab77c96864c3a9d3c7fe54a525214c3751c505a28a057e9077a8f9c78c099c",
+  "summary": {
+    "pages_converted": 20,
+    "sparse_pages": [
+      1,
+      2,
+      20
+    ],
+    "ocr_pages": [],
+    "pages_with_tables_detected": [
+      5
+    ],
+    "pages_with_warnings": [
+      7
+    ],
+    "pages_with_adjustments": []
+  }
+}

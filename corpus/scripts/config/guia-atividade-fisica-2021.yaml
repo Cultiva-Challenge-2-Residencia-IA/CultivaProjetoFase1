@@ -1,0 +1,51 @@
+sha256: 944f5ece2d1a82857f430c5e846ed0cc1798ce18b20218206b9068fa12e1c90e
+sparse_page_decisions:
+  1: Capa com título e instituição como texto nativo; sem conteúdo a recuperar por OCR.
+  2: Repetição da capa como texto nativo; sem conteúdo a recuperar por OCR.
+  52: Contracapa sem texto nativo (logotipos); conferida no PDF, sem conteúdo do Guia.
+# Títulos de capítulo: o extrator trocou o título de cada abertura de capítulo pelo cabeçalho
+# corrente ("CAPÍTULO Ministério da Saúde N") e perdeu o nome do capítulo, que está no texto nativo.
+# Sem ele, os Trechos de idosos saíam com a seção de adultos, e os de gestantes com "Para os pais
+# ou responsáveis". O título é reconstruído do texto nativo da página, como título de nível 2.
+replacements:
+  - page: 8
+    old: "**CAPÍTULO** Ministério da Saúde **1**"
+    new: "## CAPÍTULO 1 - ENTENDENDO A ATIVIDADE FÍSICA"
+  - page: 12
+    old: "**CAPÍTULO** Ministério da Saúde **2**"
+    new: "## CAPÍTULO 2 - ATIVIDADE FÍSICA PARA CRIANÇAS DE ATÉ 5 ANOS"
+  - page: 17
+    old: "**CAPÍTULO** Guia de Atividade Física para a População Brasileira **3**"
+    new: "## CAPÍTULO 3 - ATIVIDADE FÍSICA PARA CRIANÇAS E JOVENS DE 6 A 17 ANOS"
+  - page: 24
+    old: "**CAPÍTULO** Ministério da Saúde **4**"
+    new: "## CAPÍTULO 4 - ATIVIDADE FÍSICA PARA ADULTOS"
+  - page: 29
+    old: "**CAPÍTULO** Guia de Atividade Física para a População Brasileira **5**"
+    new: "## CAPÍTULO 5 - ATIVIDADE FÍSICA PARA IDOSOS"
+  - page: 35
+    old: "**CAPÍTULO** Guia de Atividade Física para a População Brasileira **6**"
+    new: "## CAPÍTULO 6 - EDUCAÇÃO FÍSICA ESCOLAR"
+  - page: 39
+    old: "**CAPÍTULO** Guia de Atividade Física para a População Brasileira **7**"
+    new: "## CAPÍTULO 7 - ATIVIDADE FÍSICA PARA GESTANTES E MULHERES NO PÓS-PARTO"
+  - page: 45
+    old: "**CAPÍTULO** Guia de Atividade Física para a População Brasileira **8**"
+    new: "## CAPÍTULO 8 - ATIVIDADE FÍSICA PARA PESSOAS COM DEFICIÊNCIA"
+  # Subtítulo presente no texto nativo e ausente da extração.
+  - page: 29
+    old: "Ao se tornar fisicamente ativo, você perceberá"
+    new: "**POR QUE VOCÊ DEVE FAZER ATIVIDADE FÍSICA?**\n\nAo se tornar fisicamente ativo, você perceberá"
+  - page: 39
+    old: "A prática de atividade física durante a gestação e no período pós-parto é segura"
+    new: "**POR QUE VOCÊ DEVE FAZER ATIVIDADE FÍSICA?**\n\nA prática de atividade física durante a gestação e no período pós-parto é segura"
+  - page: 45
+    old: "São muitos os benefícios que você pode ter com a prática de atividade física."
+    new: "**POR QUE VOCÊ DEVE FAZER ATIVIDADE FÍSICA?**\n\nSão muitos os benefícios que você pode ter com a prática de atividade física."
+page_notes:
+  3: Folha de rosto; a cobertura lexical baixa vem do título repetido, sem perda de conteúdo.
+  12: Título do capítulo 2 reconstruído do texto nativo (replacement); as palavras ausentes são o cabeçalho corrente substituído.
+  29: Título do capítulo 5 e subtítulo "POR QUE VOCÊ DEVE FAZER ATIVIDADE FÍSICA?" reconstruídos do texto nativo; as palavras ausentes são o cabeçalho corrente substituído.
+  35: Título do capítulo 6 reconstruído do texto nativo; as palavras ausentes são o cabeçalho corrente substituído.
+  39: Título do capítulo 7 e subtítulo "POR QUE VOCÊ DEVE FAZER ATIVIDADE FÍSICA?" reconstruídos do texto nativo; as palavras ausentes são o cabeçalho corrente substituído.
+  45: Título do capítulo 8 e subtítulo "POR QUE VOCÊ DEVE FAZER ATIVIDADE FÍSICA?" reconstruídos do texto nativo; as palavras ausentes são o cabeçalho corrente substituído.

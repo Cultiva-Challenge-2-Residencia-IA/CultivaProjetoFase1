@@ -158,9 +158,9 @@ Texto após o título inválido sem seção prévia nesta página física.
 
 def test_todos_os_trechos_cumprem_padrao_de_secao():
     """Conferência no CI: nenhum Trecho no corpus possui seção fora do padrão definido."""
-    rag_dir = Path(__file__).resolve().parents[1] / "corpus/nutricao/rag"
-    arquivos = sorted(rag_dir.glob("*.jsonl"))
-    assert arquivos, "Nenhum arquivo JSONL encontrado em corpus/nutricao/rag"
+    corpus = Path(__file__).resolve().parents[1] / "corpus"
+    arquivos = sorted(corpus.glob("*/rag/*.jsonl"))
+    assert arquivos, "Nenhum arquivo JSONL encontrado em corpus/*/rag"
 
     erros = []
     total_trechos = 0
@@ -190,3 +190,63 @@ def test_todos_os_trechos_cumprem_padrao_de_secao():
 
     assert not erros, f"Encontradas {len(erros)} seções fora do padrão:\n" + "\n".join(erros[:20])
     assert total_trechos > 0
+
+
+# --- Domínios do corpus e nível máximo de seção (Saúde Física, 19/11/2026) ---------------------
+
+
+def test_trechos_vao_para_a_pasta_rag_do_dominio():
+    raiz = Path("/repo/corpus")
+    assert prepare_rag.rag_dir_do_markdown(raiz / "nutricao/markdown/x.md") == raiz / "nutricao/rag"
+    assert prepare_rag.rag_dir_do_markdown(raiz / "saude_fisica/markdown/x.md") == raiz / "saude_fisica/rag"
+    with pytest.raises(ValueError, match="markdown/"):
+        prepare_rag.rag_dir_do_markdown(raiz / "saude_fisica/x.md")
+
+
+def test_max_section_level_mantem_o_capitulo_como_secao():
+    """Subtítulo não apaga o capítulo: um Trecho de idosos não pode sair com a seção de outro grupo."""
+    raw = """## CAPÍTULO 5 - ATIVIDADE FÍSICA PARA IDOSOS
+
+Texto de abertura do capítulo.
+
+##### **Para os pais ou responsáveis:**
+
+Orientação aos responsáveis.
+"""
+    paragrafos, skipping, secao = prepare_rag.clean_page(raw, False, "", max_section_level=2)
+    assert skipping is False
+    assert secao == "CAPÍTULO 5 - ATIVIDADE FÍSICA PARA IDOSOS"
+    assert {s for s, _, _ in paragrafos} == {secao}
+    assert "Para os pais ou responsáveis:" in [p for _, p, _ in paragrafos]
+    # Sem a opção, o comportamento de antes: o subtítulo vira a seção.
+    _, _, secao_sem_opcao = prepare_rag.clean_page(raw, False, "")
+    assert secao_sem_opcao == "Para os pais ou responsáveis:"
+
+
+def test_max_section_level_ainda_descarta_referencias_profundas():
+    raw = """## CAPÍTULO 1
+
+Conteúdo.
+
+##### Referências
+
+Autor A. Título. 2020.
+"""
+    paragrafos, skipping, _ = prepare_rag.clean_page(raw, False, "", max_section_level=2)
+    assert skipping is True
+    assert all("Autor A" not in p for _, p, _ in paragrafos)
+
+
+def test_corpus_da_nutricao_nao_carrega_saude_fisica():
+    """Os Trechos de Saúde Física ficam fora do índice da Nutrição, mesmo com as pendentes."""
+    from src.rag.corpus_loader import ler_trechos
+
+    fontes = {t["fonte_id"] for t in ler_trechos()}
+    assert fontes and not any(f.startswith("guia-atividade-fisica") for f in fontes)
+    raiz = Path(__file__).resolve().parents[1]
+    fisica = {
+        json.loads(linha)["fonte_id"]
+        for arquivo in (raiz / "corpus/saude_fisica/rag").glob("*.jsonl")
+        for linha in arquivo.read_text(encoding="utf-8").splitlines()
+    }
+    assert fisica == {"guia-atividade-fisica-populacao-brasileira-2021", "guia-atividade-fisica-gestores-profissionais-2021"}

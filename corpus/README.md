@@ -112,6 +112,23 @@ Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licen
 - **Não localizado:** o texto exato "Comportamento alimentar e suas interfaces com a saúde e o estresse". O estudo de Penaforte et al. (Demetra, 2016), sobre estresse e comportamento alimentar de universitários, foi identificado, mas o servidor da revista não respondeu para o download.
 
 
+### Saúde Física: Guias de Atividade Física do Ministério da Saúde (inclusão de 19/11/2026)
+
+Primeiras fontes do domínio de Saúde Física, para o desenvolvimento do agente de atividade física. Ficam em `corpus/saude_fisica/`, com `domain: saude_fisica` no manifesto, e geram Trechos em `corpus/saude_fisica/rag/`. O carregador do RAG de Nutrição só lê `corpus/nutricao/rag/`: estes Trechos não entram no índice, no benchmark nem na demonstração da Nutrição, nem com `CULTIVA_INCLUIR_PENDENTES=true`. Ainda não há agente nem carregador de Saúde Física.
+
+| Documento | Edição obtida | Páginas físicas do PDF | Origem utilizada |
+|---|---|---:|---|
+| Guia de Atividade Física para a População Brasileira | 1ª edição, versão eletrônica, Ministério da Saúde e UFPel, 2021 | 52 | [BVS / Ministério da Saúde](https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf), obtido em 19/11/2026 |
+| Guia de Atividade Física para a População Brasileira: recomendações para gestores e profissionais de saúde | 1ª edição, versão eletrônica, Ministério da Saúde e UFPel, 2021 | 20 | [BVS / Ministério da Saúde](https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_recomendacoes_gestores_profissionais.pdf), obtido em 19/11/2026 |
+
+- **Licença:** CC BY-NC-SA 4.0 nos dois, declarada na ficha técnica (página física 4). Situação `compativel_uso_nao_comercial`, como o Guia Alimentar.
+- **Status:** `pendente`. A aprovação segue o critério de "Aprovação das fontes" e é decisão da equipe.
+- **Escopo:** recomendações populacionais por faixa etária e grupo (crianças, jovens, adultos, idosos, gestantes e pessoas com deficiência), não prescrição individual de treino (RN01). O guia para gestores serve para limites e encaminhamento.
+- **Conversão:** sem OCR. As capas, a contracapa e a página em branco usam o texto nativo (`sparse_page_decisions`).
+- **Títulos de capítulo:** na abertura de cada capítulo, o extrator trocou o título pelo cabeçalho corrente ("CAPÍTULO Ministério da Saúde N"). Com isso, os Trechos de idosos saíam com a seção de adultos, e os de gestantes com "Para os pais ou responsáveis". Os oito títulos e três subtítulos foram reconstruídos do texto nativo por substituições estritas em `scripts/config/guia-atividade-fisica-2021.yaml`.
+- **Seção = capítulo:** `max_section_level` no `rag.yaml` faz só os títulos de capítulo definirem a seção do Trecho; os subtítulos ("Para os pais ou responsáveis:", "QUANTO TEMPO…") ficam no texto. Capa, ficha técnica e sumário (páginas 1 a 5) ficam fora dos Trechos.
+- **Não incluídas:** a diretriz da OMS de 2020 (*WHO guidelines on physical activity and sedentary behaviour*), base científica destes guias, foi baixada e convertida, mas ficou de fora. Está em inglês, a OMS não está na lista do RN16, e as seções das recomendações não dizem a que grupo se referem; incluí-la exige a mesma correção página a página e uma decisão da equipe. As demais fontes da lista de Saúde Física recebida são páginas HTML, pagas, sem acesso automático ou fora do escopo (prescrição clínica, reabilitação, idosos).
+
 ## Decisão sobre licenças e uso das fontes
 
 **Registrada em 06/11/2026, a pedido de Felipe de Jesus Rodrigues (Grupo 12).**
@@ -169,6 +186,8 @@ corpus/
     originais/       # PDFs obtidos, sem alteração dos bytes
     markdown/       # .md convertidos, ainda pendentes de revisão
     relatorios/     # JSON por documento: diagnóstico por página e hashes
+    rag/            # Trechos JSONL e geracao.json (registro único de todos os domínios)
+  saude_fisica/     # mesmo layout (originais, markdown, relatorios, rag); fora do índice da Nutrição
   scripts/
     convert_pdfs.py
     prepare_rag.py
@@ -267,7 +286,7 @@ Os relatórios mantêm esses resultados desfavoráveis e os alertas de cobertura
 
 ## Preparação para o RAG
 
-Os `.md` convertidos preservam a conversão fiel e não são indexados diretamente. O `scripts/prepare_rag.py` gera, para cada fonte, um arquivo `nutricao/rag/<nome>.jsonl` com um Trecho por linha:
+Os `.md` convertidos preservam a conversão fiel e não são indexados diretamente. O `scripts/prepare_rag.py` gera, para cada fonte, um arquivo `<dominio>/rag/<nome>.jsonl` com um Trecho por linha, na pasta do domínio do `markdown_path`:
 
 ```bash
 corpus/.venv/bin/python corpus/scripts/prepare_rag.py                       # todas as fontes
@@ -279,6 +298,7 @@ Campos: `id`, `fonte_id`, `titulo_fonte`, `instituicoes`, `ano`, `tipo_fonte`, `
 O que o script faz:
 
 - Remove front matter, marcadores de página, links, notas de conversão, HTML (`<sup>`, `<br>`), formatação Markdown, numeração solta e cabeçalhos/rodapés repetidos (parágrafo curto presente em 4 ou mais páginas; linhas de tabela não entram nessa regra, para preservar cabeçalhos de coluna).
+- Com `max_section_level` na seção da fonte no `rag.yaml`, só títulos até esse nível definem a seção do Trecho; os mais profundos ficam como texto. Títulos de seções descartadas continuam valendo em qualquer nível.
 - Descarta seções de Referências/Bibliografia, Sumário/Índice, Colaboradores e Abstract, inclusive com numeração no título (ex.: "9. BIBLIOGRAFIA"). Metadados editoriais por fonte (autores, afiliações, resumo em inglês) são descartados por `scripts/config/rag.yaml`.
 - Repara ligaturas quebradas pela extração ("signifi cativo" vira "significativo").
 - Divide em Trechos de cerca de 1000 caracteres (máximo de 1400 nos parágrafos longos), **sem atravessar página nem seção**. Tabelas ficam com uma linha por linha.
@@ -308,7 +328,7 @@ O protocolo para localizar candidatos, registrar buscas e selecionar fontes est�
 
 ## Como incluir outro documento
 
-1. Obter o PDF de origem verificável; manter seus bytes em `nutricao/originais/`, com nome que identifique a edição. Conferir a licença no próprio documento e registrar a página da evidência; usar `pendente` quando desconhecida.
+1. Obter o PDF de origem verificável; manter seus bytes em `<dominio>/originais/` (`nutricao` ou `saude_fisica`; fonte de outro domínio leva `domain` no manifesto), com nome que identifique a edição. Conferir a licença no próprio documento e registrar a página da evidência; usar `pendente` quando desconhecida.
 2. Adicionar uma entrada em `manifest.yaml`, reaproveitando os campos existentes. Informar `id`, `title`, `institutions`, `year`, `edition`, `version`, `source_type`, `source`, `license`, `original_path`, `markdown_path` e `report_path`; registrar `sha256` e `pdf_pages` após inspeção. Usar `approval_status: pendente`. Não copiar a licença das fontes atuais por suposição.
 3. Se o arquivo estiver ausente e houver autorização de obtenção, preencher `download_url` para usar `--download`. A assinatura PDF impede aceitar uma página HTML de login como documento.
 4. Executar a conversão com `--source ID`. Inspecionar os alertas de pouco texto e os layouts mistos: a presença de texto nativo não exclui texto dentro de imagens. Adicionar, quando necessário, `conversion_config` seguindo os exemplos e vinculando o arquivo ao SHA-256 do PDF.

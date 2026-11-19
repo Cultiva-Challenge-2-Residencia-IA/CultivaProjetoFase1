@@ -18,10 +18,10 @@ import yaml
 
 from prepare_rag import (
     GENERATION_PATH,
-    OUTPUT_DIR,
     ROOT,
     SCRIPT_PATH,
     load_rag_config,
+    pastas_rag,
     sha256_file,
     source_config_sha256,
 )
@@ -94,7 +94,7 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
     """Problemas encontrados, agrupados por id de fonte, pelo caminho de um JSONL órfão ou,
     quando o próprio prepare_rag.py mudou, numa entrada única `prepare_rag.py`."""
     generation_path = generation_path or GENERATION_PATH
-    rag_dir = rag_dir or OUTPUT_DIR
+    pastas = [rag_dir] if rag_dir else pastas_rag(root)
     if not generation_path.exists():
         return {"geracao.json": [f"{generation_path.relative_to(root)} ausente; rode prepare_rag.py sem --source"]}
     geracao = json.loads(generation_path.read_text(encoding="utf-8"))["fontes"]
@@ -139,7 +139,7 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
     for sid in sorted(set(geracao) - ids_manifesto):
         problemas[sid].append("registro em geracao.json de fonte que não está no manifesto")
     referenciados = {(root / e["jsonl_path"]).resolve() for sid, e in geracao.items() if sid in ids_manifesto}
-    for jsonl in sorted(rag_dir.glob("*.jsonl")):
+    for jsonl in sorted(j for pasta in pastas for j in pasta.glob("*.jsonl")):
         if jsonl.resolve() not in referenciados:
             problemas[str(jsonl.relative_to(root))].append("JSONL sem fonte correspondente no manifesto")
         else:
@@ -164,7 +164,7 @@ def verify(manifest: dict | None = None) -> None:
             elif chave in ids:
                 linhas.append(f"    regenerar: {COMANDO.format(id=chave)}")
         raise ValueError("\n".join(linhas))
-    total = sum(len(_ler_jsonl(p)) for p in OUTPUT_DIR.glob("*.jsonl"))
+    total = sum(len(_ler_jsonl(p)) for pasta in pastas_rag() for p in pasta.glob("*.jsonl"))
     print(f"OK Trechos: {len(manifest['sources'])} fontes, {total} Trechos; campos do manifesto, "
           "páginas e hashes de origem, script e configuração conferidos.")
 

@@ -728,6 +728,65 @@ sources:
     purpose_note: "Relaciona ansiedade, qualidade do sono e compulsão alimentar em adultos, apoiando a conexão entre sono, estresse e escolhas alimentares."
     scope_note: "Estudo transversal com adultos com sobrepeso ou obesidade, entre 2015 e 2017. Não se generaliza para quem não tem esse perfil e não demonstra causalidade."
 
+  # Saúde Física (inclusão de 19/11/2026): domínio separado, em corpus/saude_fisica/, com Trechos em
+  # corpus/saude_fisica/rag/. O carregador da Nutrição não lê essa pasta. As duas ficam pendentes.
+  - id: guia-atividade-fisica-populacao-brasileira-2021
+    title: Guia de Atividade Física para a População Brasileira
+    institutions:
+      - Ministério da Saúde
+      - Universidade Federal de Pelotas
+    year: 2021
+    edition: 1ª edição, versão eletrônica
+    version: "2021-1ed"
+    source_type: diretriz
+    domain: saude_fisica
+    source: https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf
+    download_url: https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_populacao_brasileira.pdf
+    retrieved_on: "2026-11-19"
+    license: CC-BY-NC-SA-4.0
+    license_evidence:
+      pdf_page: 4
+      description: Ficha técnica declara a Licença Creative Commons Atribuição, Não Comercial, Compartilhamento pela mesma licença 4.0 Internacional.
+    original_path: corpus/saude_fisica/originais/guia_atividade_fisica_populacao_brasileira_2021.pdf
+    markdown_path: corpus/saude_fisica/markdown/guia_atividade_fisica_populacao_brasileira_2021.md
+    report_path: corpus/saude_fisica/relatorios/guia_atividade_fisica_populacao_brasileira_2021.json
+    conversion_config: corpus/scripts/config/guia-atividade-fisica-2021.yaml
+    sha256: 944f5ece2d1a82857f430c5e846ed0cc1798ce18b20218206b9068fa12e1c90e
+    pdf_pages: 52
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
+    purpose_note: "Recomendação oficial brasileira de atividade física por faixa etária e grupo (adultos, gestantes, pessoas com deficiência), com orientações sobre comportamento sedentário. Base do agente de Saúde Física."
+    scope_note: "Recomendações populacionais de quantidade e intensidade; não é prescrição individual de treino. Sinais de alerta e condições de saúde exigem orientação profissional (RN01)."
+  - id: guia-atividade-fisica-gestores-profissionais-2021
+    title: "Guia de Atividade Física para a População Brasileira: recomendações para gestores e profissionais de saúde"
+    institutions:
+      - Ministério da Saúde
+      - Universidade Federal de Pelotas
+    year: 2021
+    edition: 1ª edição, versão eletrônica
+    version: "2021-1ed"
+    source_type: diretriz
+    domain: saude_fisica
+    source: https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_recomendacoes_gestores_profissionais.pdf
+    download_url: https://bvsms.saude.gov.br/bvs/publicacoes/guia_atividade_fisica_recomendacoes_gestores_profissionais.pdf
+    retrieved_on: "2026-11-19"
+    license: CC-BY-NC-SA-4.0
+    license_evidence:
+      pdf_page: 4
+      description: Ficha técnica declara a Licença Creative Commons Atribuição, Não Comercial, Compartilhamento pela mesma licença 4.0 Internacional.
+    original_path: corpus/saude_fisica/originais/guia_atividade_fisica_gestores_profissionais_2021.pdf
+    markdown_path: corpus/saude_fisica/markdown/guia_atividade_fisica_gestores_profissionais_2021.md
+    report_path: corpus/saude_fisica/relatorios/guia_atividade_fisica_gestores_profissionais_2021.json
+    conversion_config: corpus/scripts/config/guia-atividade-fisica-gestores-2021.yaml
+    sha256: 2fc0e130090b1269d35e0478ebfa84698ca8af59413c2f2135770c1d0c33b483
+    pdf_pages: 20
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
+    purpose_note: "Complementa o Guia de Atividade Física com orientações para gestores e profissionais de saúde sobre como aconselhar e promover a atividade física."
+    scope_note: "Público-alvo são profissionais e gestores. Serve para limites e encaminhamento, não para conduta individual do usuário (RN01)."
+
 # intended_use_license_review (decisão de 06/11/2026, ver corpus/README.md, seção "Decisão sobre licenças e uso das fontes"):
 #   compativel_cc_by: licença CC BY, que permite o uso com atribuição.
 #   compativel_uso_nao_comercial: licença ou permissão não comercial; compatível enquanto o projeto não tiver fins comerciais.
@@ -739,6 +798,9 @@ sources:
 #   norma: resolução ou regulamento (por exemplo, o Código de Ética do CFN).
 #   revisao: revisão da literatura ou artigo conceitual.
 #   estudo: estudo primário (transversal, populacional, quase-experimental).
+
+# domain (decisão de 19/11/2026): domínio da fonte, igual à pasta corpus/<domain>/. Ausente = nutricao.
+#   saude_fisica: Trechos em corpus/saude_fisica/rag/, fora do índice da Nutrição.
 
 # kind (decisão de 08/11/2026): pdf (padrão, pipeline de conversão completo) ou resumo_pubmed
 #   (resumo do PubMed, sem PDF: o original é o JSON em raw_path, conferido por raw_sha256,

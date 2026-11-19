@@ -12,7 +12,8 @@ from src.retrieval.hybrid_retriever import HybridRetriever
 
 RAIZ = Path(__file__).resolve().parents[1]
 SCHEMA = json.loads((RAIZ / "corpus/schemas/trecho.schema.json").read_text(encoding="utf-8"))
-ARQUIVOS = sorted((RAIZ / "corpus/nutricao/rag").glob("*.jsonl"))
+# Todos os domínios do corpus (corpus/<dominio>/rag): o contrato do Trecho é o mesmo.
+ARQUIVOS = sorted((RAIZ / "corpus").glob("*/rag/*.jsonl"))
 
 
 def _trechos():
@@ -26,7 +27,7 @@ def test_schema_e_valido():
 
 
 def test_ha_trechos_no_corpus():
-    assert ARQUIVOS, "nenhum JSONL em corpus/nutricao/rag"
+    assert ARQUIVOS, "nenhum JSONL em corpus/*/rag"
 
 
 def test_todo_trecho_respeita_o_schema():

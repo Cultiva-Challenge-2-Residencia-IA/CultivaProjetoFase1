@@ -1,0 +1,7 @@
+sha256: 2fc0e130090b1269d35e0478ebfa84698ca8af59413c2f2135770c1d0c33b483
+sparse_page_decisions:
+  1: Capa com título e instituição como texto nativo; sem conteúdo a recuperar por OCR.
+  2: Repetição da capa como texto nativo; sem conteúdo a recuperar por OCR.
+  20: Contracapa sem texto nativo (logotipos); conferida no PDF, sem conteúdo do Guia.
+page_notes:
+  7: Cobertura lexical de 91%; as palavras ausentes ("em que aspectos o guia pode") são do título do capítulo 2, que aparece completo no Markdown da página 8.

@@ -173,3 +173,13 @@ fusco-ansiedade-sono-compulsao-reeusp-2020:
     - '^Suzimar de Fátima Benato Fusco'
     - '^Autor correspondente'
     - '^Universidade Estadual'
+# Saúde Física (inclusão de 19/11/2026). max_section_level: só títulos até esse nível definem a
+# seção do Trecho; subtítulos mais profundos ficam no texto. Nos guias do Ministério da Saúde, a
+# seção é o capítulo (faixa etária ou grupo), para um Trecho de idosos nunca sair com a seção de
+# adultos. Páginas 1 a 5: capa, ficha técnica com créditos e sumário.
+guia-atividade-fisica-populacao-brasileira-2021:
+  max_section_level: 2
+  skip_pages: [1, 2, 3, 4, 5]
+guia-atividade-fisica-gestores-profissionais-2021:
+  max_section_level: 3
+  skip_pages: [1, 2, 3, 4, 5]
