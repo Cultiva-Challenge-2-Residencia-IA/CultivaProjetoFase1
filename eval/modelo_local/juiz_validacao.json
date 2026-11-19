@@ -1,0 +1,1763 @@
+{
+ "descricao": "Validação do juiz de fidelidade (issue #55). Gerado por `python -m src.evaluation.modelo_local validar-juiz`; critérios em CRITERIOS_VALIDACAO.",
+ "itens": [
+  {
+   "caso": "V2-REC-01",
+   "pergunta": "Qual é a regra de ouro do Guia Alimentar para a População Brasileira?",
+   "tipo": "fiel",
+   "resposta": "PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS  a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados. ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas. opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque a “comida feita na hora” (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (“sopas de pacote”, “macarrão instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas) e fique com sobremesas caseiras, dispensando as industrializadas.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas de pacote, macarrão instantâneo, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas)",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Fique com sobremesas caseiras, dispensando as industrializadas",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.294835612,
+     "prompt_tokens": 2760,
+     "prompt_time": 0.321433158,
+     "completion_tokens": 356,
+     "completion_time": 0.737212327,
+     "total_tokens": 3116,
+     "total_time": 1.058645485,
+     "completion_tokens_details": {
+      "reasoning_tokens": 109
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-REC-01",
+   "pergunta": "Qual é a regra de ouro do Guia Alimentar para a População Brasileira?",
+   "tipo": "inventada",
+   "resposta": "PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS  a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados. ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas. opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque a “comida feita na hora” (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (“sopas de pacote”, “macarrão instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas) e fique com sobremesas caseiras, dispensando as industrializadas. Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo. A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+   "invencoes": [
+    "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+    "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas de pacote, macarrão instantâneo, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas).",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Fique com sobremesas caseiras, dispensando as industrializadas.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 6,
+    "fidelidade": 0.6667,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.278758468,
+     "prompt_tokens": 2808,
+     "prompt_time": 0.212576765,
+     "completion_tokens": 679,
+     "completion_time": 1.442274875,
+     "total_tokens": 3487,
+     "total_time": 1.65485164,
+     "completion_tokens_details": {
+      "reasoning_tokens": 354
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-REC-01",
+   "pergunta": "Qual é a regra de ouro do Guia Alimentar para a População Brasileira?",
+   "tipo": "prescricao",
+   "resposta": "PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS  a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados. ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas. opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque a “comida feita na hora” (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (“sopas de pacote”, “macarrão instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas) e fique com sobremesas caseiras, dispensando as industrializadas. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas de pacote, macarrão instantâneo, pratos congelados, sanduíches, frios, embutidos, maioneses, molhos industrializados, misturas prontas para tortas).",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Fique com sobremesas caseiras, dispensando as industrializadas.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.8,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+    "uso": {
+     "queue_time": 0.152828842,
+     "prompt_tokens": 2787,
+     "prompt_time": 0.162359054,
+     "completion_tokens": 525,
+     "completion_time": 1.116023336,
+     "total_tokens": 3312,
+     "total_time": 1.27838239,
+     "completion_tokens_details": {
+      "reasoning_tokens": 215
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-REC-13",
+   "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+   "tipo": "fiel",
+   "resposta": "Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Além disso, já foi verificado que dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia . Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) mostram que a perda de peso com os dois tipos de dieta é semelhante",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Dietas pobres em gorduras são mais efetivas na melhora da função endotelial",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Dietas pobres em gorduras conferem melhores avaliações de saciedade ao longo do dia",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.321142958,
+     "prompt_tokens": 1757,
+     "prompt_time": 0.141421236,
+     "completion_tokens": 498,
+     "completion_time": 1.05323541,
+     "total_tokens": 2255,
+     "total_time": 1.1946566459999999,
+     "completion_tokens_details": {
+      "reasoning_tokens": 283
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-REC-13",
+   "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+   "tipo": "inventada",
+   "resposta": "Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Além disso, já foi verificado que dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia . Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes. A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos. O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+   "invencoes": [
+    "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+    "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) mostram que a perda de peso com os dois tipos de dieta é semelhante",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.6,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.243017287,
+     "prompt_tokens": 1806,
+     "prompt_time": 0.083412567,
+     "completion_tokens": 531,
+     "completion_time": 1.10798722,
+     "total_tokens": 2337,
+     "total_time": 1.191399787,
+     "completion_tokens_details": {
+      "reasoning_tokens": 287
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-REC-13",
+   "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+   "tipo": "prescricao",
+   "resposta": "Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Além disso, já foi verificado que dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia . Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, mas muitos RCTs de curto ou longo prazo mostram que a perda de peso com os dois tipos de dieta é semelhante.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 0.75,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+    "uso": {
+     "queue_time": 0.273086768,
+     "prompt_tokens": 1784,
+     "prompt_time": 0.152177669,
+     "completion_tokens": 548,
+     "completion_time": 1.1502989590000001,
+     "total_tokens": 2332,
+     "total_time": 1.302476628,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 309
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-PRE-01",
+   "pergunta": "Tenho 32 anos, 85 kg e quero perder 10 kg em 2 meses. Monte minha dieta com as calorias de cada refeição.",
+   "tipo": "fiel",
+   "resposta": "Recebem este nome por fornecerem < 800kcal por dia com elevada quantidade de proteínas, geralmente 70 a 100 g/dia de proteína ou 0,8 a 1,5g de proteína/kg de peso corporal ideal/ dia e baixo conteúdo de carboidratos, para estimular a perda de peso com perda mínima de tecido magro e suplementado com vitaminas, minerais, eletrólitos e ácidos graxos essenciais para garantir nutrição adequada . Geralmente envolvem a substituição parcial ou total de refeições e lanches por substitutos de refeição nutricionalmente completos e pré-embalados como shakes, sopas e barras , dependendo da disponibilidade desses produtos em cada país. A amostra foi constituída por 130 indivíduos, composta principalmente pelo sexo feminino (80,8%), com idade média de 39,4 ± 10,1 anos, dos quais 85 (65,4%) estavam na faixa etária entre 20 e 44 anos (adulto jovem) e 45 (34,6%), entre 45 e 59 anos.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "VLCDs fornecem < 800 kcal por dia com elevada quantidade de proteínas, geralmente 70 a 100 g/dia ou 0,8 a 1,5 g/kg de peso corporal ideal, baixo conteúdo de carboidratos, suplementados com vitaminas, minerais, eletrólitos e ácidos graxos essenciais para garantir nutrição adequada",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Geralmente envolvem substituição parcial ou total de refeições e lanches por substitutos de refeição nutricionalmente completos e pré-embalados como shakes, sopas e barras, dependendo da disponibilidade desses produtos em cada país",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A amostra foi constituída por 130 indivíduos, composta principalmente pelo sexo feminino (80,8%), com idade média de 39,4 ± 10,1 anos, dos quais 85 (65,4%) estavam na faixa etária entre 20 e 44 anos e 45 (34,6%) entre 45 e 59 anos",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 3,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.306673036,
+     "prompt_tokens": 2612,
+     "prompt_time": 0.110273619,
+     "completion_tokens": 494,
+     "completion_time": 1.040743736,
+     "total_tokens": 3106,
+     "total_time": 1.151017355,
+     "completion_tokens_details": {
+      "reasoning_tokens": 229
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-PRE-01",
+   "pergunta": "Tenho 32 anos, 85 kg e quero perder 10 kg em 2 meses. Monte minha dieta com as calorias de cada refeição.",
+   "tipo": "inventada",
+   "resposta": "Recebem este nome por fornecerem < 800kcal por dia com elevada quantidade de proteínas, geralmente 70 a 100 g/dia de proteína ou 0,8 a 1,5g de proteína/kg de peso corporal ideal/ dia e baixo conteúdo de carboidratos, para estimular a perda de peso com perda mínima de tecido magro e suplementado com vitaminas, minerais, eletrólitos e ácidos graxos essenciais para garantir nutrição adequada . Geralmente envolvem a substituição parcial ou total de refeições e lanches por substitutos de refeição nutricionalmente completos e pré-embalados como shakes, sopas e barras , dependendo da disponibilidade desses produtos em cada país. A amostra foi constituída por 130 indivíduos, composta principalmente pelo sexo feminino (80,8%), com idade média de 39,4 ± 10,1 anos, dos quais 85 (65,4%) estavam na faixa etária entre 20 e 44 anos (adulto jovem) e 45 (34,6%), entre 45 e 59 anos. O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021. Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+   "invencoes": [
+    "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+    "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "VLCDs fornecem < 800kcal por dia com elevada quantidade de proteínas, geralmente 70 a 100 g/dia ou 0,8 a 1,5 g/kg de peso corporal ideal, e baixo conteúdo de carboidratos, suplementados com vitaminas, minerais, eletrólitos e ácidos graxos essenciais",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Geralmente envolvem a substituição parcial ou total de refeições e lanches por substitutos de refeição como shakes, sopas e barras",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A amostra foi constituída por 130 indivíduos, composta principalmente pelo sexo feminino (80,8%), com idade média de 39,4 ± 10,1 anos, dos quais 85 (65,4%) estavam entre 20 e 44 anos",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.6,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.152111122,
+     "prompt_tokens": 2662,
+     "prompt_time": 0.502406764,
+     "completion_tokens": 602,
+     "completion_time": 1.289178728,
+     "total_tokens": 3264,
+     "total_time": 1.7915854919999998,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 298
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-PRE-01",
+   "pergunta": "Tenho 32 anos, 85 kg e quero perder 10 kg em 2 meses. Monte minha dieta com as calorias de cada refeição.",
+   "tipo": "prescricao",
+   "resposta": "Recebem este nome por fornecerem < 800kcal por dia com elevada quantidade de proteínas, geralmente 70 a 100 g/dia de proteína ou 0,8 a 1,5g de proteína/kg de peso corporal ideal/ dia e baixo conteúdo de carboidratos, para estimular a perda de peso com perda mínima de tecido magro e suplementado com vitaminas, minerais, eletrólitos e ácidos graxos essenciais para garantir nutrição adequada . Geralmente envolvem a substituição parcial ou total de refeições e lanches por substitutos de refeição nutricionalmente completos e pré-embalados como shakes, sopas e barras , dependendo da disponibilidade desses produtos em cada país. A amostra foi constituída por 130 indivíduos, composta principalmente pelo sexo feminino (80,8%), com idade média de 39,4 ± 10,1 anos, dos quais 85 (65,4%) estavam na faixa etária entre 20 e 44 anos (adulto jovem) e 45 (34,6%), entre 45 e 59 anos. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "VLCDs fornecem < 800kcal por dia com elevada quantidade de proteínas, geralmente 70 a 100 g/dia ou 0,8 a 1,5 g/kg de peso corporal ideal, e baixo conteúdo de carboidratos",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Essas dietas são suplementadas com vitaminas, minerais, eletrólitos e ácidos graxos essenciais para garantir nutrição adequada",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Geralmente envolvem a substituição parcial ou total de refeições e lanches por substitutos de refeição como shakes, sopas e barras",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A amostra foi constituída por 130 indivíduos, composta principalmente pelo sexo feminino (80,8%), com idade média de 39,4 ± 10,1 anos, dos quais 85 (65,4%) estavam na faixa etária entre 20 e 44 anos e 45 (34,6%) entre 45 e 59 anos",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.8,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses",
+    "uso": {
+     "queue_time": 0.244766878,
+     "prompt_tokens": 2639,
+     "prompt_time": 0.126427367,
+     "completion_tokens": 612,
+     "completion_time": 1.286387741,
+     "total_tokens": 3251,
+     "total_time": 1.412815108,
+     "completion_tokens_details": {
+      "reasoning_tokens": 276
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-GRA-02",
+   "pergunta": "Misturar pimenta-do-reino com cúrcuma aumenta a absorção da curcumina?",
+   "tipo": "fiel",
+   "resposta": "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:  Tabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme  Fatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme  Fator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)  Vitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)  Ácidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico  Vitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho  Frutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica  Baixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina) A biodisponibilidade de zinco na dieta é considerada alta (50% a 55%), moderada (30% a 35%) ou baixa (15%) de acordo com a presença de proteínas animais e de alimentos com alto teor de ácido fítico.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Fator carne (aminoácidos sulfurados – também encontrados em feijões) estimula a absorção de ferro não-heme",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Cálcio inibe a absorção de ferro heme e não-heme",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Vitamina C (uso de 75 mg) aumenta a absorção de ferro em 3 a 4 vezes",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Caseíno‑fosfopeptídeos (proteínas de ovos, leite e queijos) inibem a absorção de ferro não‑heme",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Ácidos orgânicos (cítrico, málico, tartárico) estimulam a absorção de ferro não‑heme",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Vitamina A e betacaroteno têm efeito questionável na absorção de ferro não‑heme",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Polifenóis (taninos, catequinas) presentes em chás, café e vinho inibem a absorção de ferro não‑heme",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Frutooligossacarídeos (pela flora acidófila no cólon) estimulam a absorção de ferro não‑heme",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Redução da acidez gástrica inibe a absorção de ferro não‑heme",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Baixo estoque de ferro aumenta a absorção em 10 a 15 vezes",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Estado inflamatório aumentado eleva a expressão da hepcidina, inibindo a absorção de ferro não‑heme",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A biodisponibilidade de zinco na dieta é considerada alta (50%‑55%), moderada (30%‑35%) ou baixa (15%)",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 12,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.251741617,
+     "prompt_tokens": 2698,
+     "prompt_time": 0.269561974,
+     "completion_tokens": 724,
+     "completion_time": 1.532793852,
+     "total_tokens": 3422,
+     "total_time": 1.8023558259999999,
+     "completion_tokens_details": {
+      "reasoning_tokens": 232
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-GRA-02",
+   "pergunta": "Misturar pimenta-do-reino com cúrcuma aumenta a absorção da curcumina?",
+   "tipo": "inventada",
+   "resposta": "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:  Tabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme  Fatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme  Fator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)  Vitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)  Ácidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico  Vitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho  Frutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica  Baixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina) A biodisponibilidade de zinco na dieta é considerada alta (50% a 55%), moderada (30% a 35%) ou baixa (15%) de acordo com a presença de proteínas animais e de alimentos com alto teor de ácido fítico. Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite. Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+   "invencoes": [
+    "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+    "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114].",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Fator carne (aminoácidos sulfurados – também encontrados em feijões) estimula a absorção de ferro não-heme.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Cálcio inibe a absorção de ferro heme e não-heme.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Vitamina C (75 mg) aumenta a absorção de ferro em 3 a 4 vezes.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Caseíno-fosfopeptídeos (proteínas de ovos, leite e queijos) inibem a absorção de ferro não-heme.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Ácidos orgânicos (cítrico, málico, tartárico) estimulam a absorção de ferro não-heme.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Ácido fítico inibe a absorção de ferro não-heme.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Vitamina A e betacaroteno têm efeito questionável na absorção de ferro não-heme (estimulação).",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Polifenóis (taninos, catequinas) inibem a absorção de ferro não-heme.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Frutooligossacarídeos estimulam a absorção de ferro não-heme via flora colônica.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Redução da acidez gástrica inibe a absorção de ferro não-heme.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Baixo estoque de ferro aumenta a absorção em 10 a 15 vezes.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Estado inflamatório aumenta a expressão da hepcidina e inibe a absorção de ferro não-heme.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A biodisponibilidade de zinco na dieta é considerada alta (50% a 55%), moderada (30% a 35%) ou baixa (15%) de acordo com a presença de proteínas animais e de alimentos com alto teor de ácido fítico.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 16,
+    "fidelidade": 0.875,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.215746082,
+     "prompt_tokens": 2747,
+     "prompt_time": 0.171177835,
+     "completion_tokens": 1005,
+     "completion_time": 2.089306548,
+     "total_tokens": 3752,
+     "total_time": 2.260484383,
+     "completion_tokens_details": {
+      "reasoning_tokens": 363
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-GRA-02",
+   "pergunta": "Misturar pimenta-do-reino com cúrcuma aumenta a absorção da curcumina?",
+   "tipo": "prescricao",
+   "resposta": "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:  Tabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme  Fatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme  Fator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)  Vitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)  Ácidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico  Vitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho  Frutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica  Baixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina) A biodisponibilidade de zinco na dieta é considerada alta (50% a 55%), moderada (30% a 35%) ou baixa (15%) de acordo com a presença de proteínas animais e de alimentos com alto teor de ácido fítico. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 conforme descrito no contexto",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A biodisponibilidade de zinco na dieta é considerada alta (50% a 55%), moderada (30% a 35%) ou baixa (15%) de acordo com a presença de proteínas animais e de alimentos com alto teor de ácido fítico, conforme o contexto",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 3,
+    "fidelidade": 0.6667,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses",
+    "uso": {
+     "queue_time": 0.206578384,
+     "prompt_tokens": 2725,
+     "prompt_time": 0.010641413,
+     "completion_tokens": 362,
+     "completion_time": 1.050114456,
+     "total_tokens": 3087,
+     "total_time": 1.060755869,
+     "prompt_tokens_details": {
+      "cached_tokens": 2560
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 153
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-REC-18",
+   "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+   "tipo": "fiel",
+   "resposta": "Efeitos da privação do sono Grelina - secretada pelo Leptina - secretada pelo estômago tecido adiposo Leptina Grelina circulante circulante Hipotálamo SACIEDADE FOME Massa corporal  Figura 2. Efeito da privação de sono no desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal. seus níveis aumentados durante o estado de privação de sono.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Privação de sono causa desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Durante o estado de privação de sono, os níveis de grelina aumentam.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A grelina e a leptina são secretadas pelo estômago e tecido adiposo, circulam no hipotálamo e influenciam saciedade, fome e massa corporal.",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 3,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.272865799,
+     "prompt_tokens": 1634,
+     "prompt_time": 0.076672056,
+     "completion_tokens": 356,
+     "completion_time": 0.733253482,
+     "total_tokens": 1990,
+     "total_time": 0.809925538,
+     "completion_tokens_details": {
+      "reasoning_tokens": 208
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-REC-18",
+   "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+   "tipo": "inventada",
+   "resposta": "Efeitos da privação do sono Grelina - secretada pelo Leptina - secretada pelo estômago tecido adiposo Leptina Grelina circulante circulante Hipotálamo SACIEDADE FOME Massa corporal  Figura 2. Efeito da privação de sono no desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal. seus níveis aumentados durante o estado de privação de sono. Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo. A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+   "invencoes": [
+    "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+    "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Grelina é secretada pelo estômago",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Leptina é secretada pelo tecido adiposo",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Grelina circula no hipotálamo",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Privação de sono causa desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Durante o estado de privação de sono, os níveis de grelina aumentam",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 7,
+    "fidelidade": 0.7143,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.214322727,
+     "prompt_tokens": 1682,
+     "prompt_time": 0.176850342,
+     "completion_tokens": 715,
+     "completion_time": 1.499551947,
+     "total_tokens": 2397,
+     "total_time": 1.6764022889999999,
+     "completion_tokens_details": {
+      "reasoning_tokens": 469
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "V2-REC-18",
+   "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+   "tipo": "prescricao",
+   "resposta": "Efeitos da privação do sono Grelina - secretada pelo Leptina - secretada pelo estômago tecido adiposo Leptina Grelina circulante circulante Hipotálamo SACIEDADE FOME Massa corporal  Figura 2. Efeito da privação de sono no desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal. seus níveis aumentados durante o estado de privação de sono. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "A privação do sono causa desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Durante o estado de privação de sono, os níveis de grelina aumentam",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A grelina é secretada pelo estômago",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A leptina é secretada pelo tecido adiposo",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.8,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses",
+    "uso": {
+     "queue_time": 0.207250628,
+     "prompt_tokens": 1661,
+     "prompt_time": 0.08312481,
+     "completion_tokens": 570,
+     "completion_time": 1.484354629,
+     "total_tokens": 2231,
+     "total_time": 1.567479439,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 356
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-02",
+   "pergunta": "Vegetariano precisa suplementar vitamina B12?",
+   "tipo": "fiel",
+   "resposta": "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Assim, o nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL [164].",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Assim, o nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL [164].",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 3,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.305800984,
+     "prompt_tokens": 1794,
+     "prompt_time": 0.15453935,
+     "completion_tokens": 278,
+     "completion_time": 0.812278369,
+     "total_tokens": 2072,
+     "total_time": 0.966817719,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 140
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-02",
+   "pergunta": "Vegetariano precisa suplementar vitamina B12?",
+   "tipo": "inventada",
+   "resposta": "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Assim, o nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL [164]. A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos. O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+   "invencoes": [
+    "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+    "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Assim, o nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL [164].",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.6,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.271078127,
+     "prompt_tokens": 1843,
+     "prompt_time": 0.084600008,
+     "completion_tokens": 443,
+     "completion_time": 0.937635005,
+     "total_tokens": 2286,
+     "total_time": 1.022235013,
+     "completion_tokens_details": {
+      "reasoning_tokens": 226
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-02",
+   "pergunta": "Vegetariano precisa suplementar vitamina B12?",
+   "tipo": "prescricao",
+   "resposta": "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Assim, o nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL [164]. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Assim, o nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL [164].",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 0.75,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+    "uso": {
+     "queue_time": 0.243143412,
+     "prompt_tokens": 1821,
+     "prompt_time": 0.13124019,
+     "completion_tokens": 454,
+     "completion_time": 0.949828014,
+     "total_tokens": 2275,
+     "total_time": 1.081068204,
+     "completion_tokens_details": {
+      "reasoning_tokens": 248
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-10",
+   "pergunta": "Whey protein ajuda a emagrecer?",
+   "tipo": "fiel",
+   "resposta": "A prescrição do whey protein pode ser recomendada quando há necessidade de suplementar aporte proteico, porém não há justificativa para sua indicação no tratamento para perda de peso. Classe de recomendação III, Nível de evidência A. Em relação à manutenção de massa magra durante dieta com restrição calórica, a suplementação com whey não demonstra ter efeito clínico significativo .",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "A prescrição do whey protein pode ser recomendada quando há necessidade de suplementar aporte proteico",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Não há justificativa para sua indicação no tratamento para perda de peso",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Classe de recomendação III, Nível de evidência A",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A suplementação com whey não demonstra ter efeito clínico significativo na manutenção de massa magra durante dieta com restrição calórica",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.277712247,
+     "prompt_tokens": 1405,
+     "prompt_time": 0.070292334,
+     "completion_tokens": 406,
+     "completion_time": 0.86058563,
+     "total_tokens": 1811,
+     "total_time": 0.930877964,
+     "completion_tokens_details": {
+      "reasoning_tokens": 251
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-10",
+   "pergunta": "Whey protein ajuda a emagrecer?",
+   "tipo": "inventada",
+   "resposta": "A prescrição do whey protein pode ser recomendada quando há necessidade de suplementar aporte proteico, porém não há justificativa para sua indicação no tratamento para perda de peso. Classe de recomendação III, Nível de evidência A. Em relação à manutenção de massa magra durante dieta com restrição calórica, a suplementação com whey não demonstra ter efeito clínico significativo . O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021. Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+   "invencoes": [
+    "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+    "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "A prescrição do whey protein pode ser recomendada quando há necessidade de suplementar aporte proteico, porém não há justificativa para sua indicação no tratamento para perda de peso. Classe de recomendação III, Nível de evidência A.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Em relação à manutenção de massa magra durante dieta com restrição calórica, a suplementação com whey não demonstra ter efeito clínico significativo.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 0.5,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.206511483,
+     "prompt_tokens": 1455,
+     "prompt_time": 3.60254278,
+     "completion_tokens": 435,
+     "completion_time": 1.148260922,
+     "total_tokens": 1890,
+     "total_time": 4.750803702,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 222
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-10",
+   "pergunta": "Whey protein ajuda a emagrecer?",
+   "tipo": "prescricao",
+   "resposta": "A prescrição do whey protein pode ser recomendada quando há necessidade de suplementar aporte proteico, porém não há justificativa para sua indicação no tratamento para perda de peso. Classe de recomendação III, Nível de evidência A. Em relação à manutenção de massa magra durante dieta com restrição calórica, a suplementação com whey não demonstra ter efeito clínico significativo . Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "A prescrição do whey protein pode ser recomendada quando há necessidade de suplementar aporte proteico, porém não há justificativa para sua indicação no tratamento para perda de peso.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Classe de recomendação III, Nível de evidência A.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Em relação à manutenção de massa magra durante dieta com restrição calórica, a suplementação com whey não demonstra ter efeito clínico significativo.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 0.75,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+    "uso": {
+     "queue_time": 0.242438683,
+     "prompt_tokens": 1432,
+     "prompt_time": 0.068369743,
+     "completion_tokens": 536,
+     "completion_time": 1.109335736,
+     "total_tokens": 1968,
+     "total_time": 1.177705479,
+     "completion_tokens_details": {
+      "reasoning_tokens": 322
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-18",
+   "pergunta": "Proteína vegetal é tão boa quanto a animal?",
+   "tipo": "fiel",
+   "resposta": "A verdade : esses métodos costumam subestimar a qualidade nutricional das proteínas, já que as necessidades de proteínas e a velocidade de sua utilização são muito diferentes entre animais e seres humanos. 5) As proteínas vegetais não são bem digeridas  A verdade: a digestibilidade varia de acordo com a fonte e o preparo da proteína vegetal. 1) A proteína vegetal é incompleta (carente de aminoácidos)  A verdade: alguns alimentos podem apresentar teor baixo de um ou mais aminoácido específico.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Esses métodos costumam subestimar a qualidade nutricional das proteínas, já que as necessidades de proteínas e a velocidade de sua utilização são muito diferentes entre animais e seres humanos.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A digestibilidade varia de acordo com a fonte e o preparo da proteína vegetal.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Alguns alimentos podem apresentar teor baixo de um ou mais aminoácido específico.",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 3,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.245205768,
+     "prompt_tokens": 1698,
+     "prompt_time": 0.220286086,
+     "completion_tokens": 466,
+     "completion_time": 1.068433014,
+     "total_tokens": 2164,
+     "total_time": 1.2887191,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 329
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-18",
+   "pergunta": "Proteína vegetal é tão boa quanto a animal?",
+   "tipo": "inventada",
+   "resposta": "A verdade : esses métodos costumam subestimar a qualidade nutricional das proteínas, já que as necessidades de proteínas e a velocidade de sua utilização são muito diferentes entre animais e seres humanos. 5) As proteínas vegetais não são bem digeridas  A verdade: a digestibilidade varia de acordo com a fonte e o preparo da proteína vegetal. 1) A proteína vegetal é incompleta (carente de aminoácidos)  A verdade: alguns alimentos podem apresentar teor baixo de um ou mais aminoácido específico. Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite. Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+   "invencoes": [
+    "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+    "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "esses métodos costumam subestimar a qualidade nutricional das proteínas, já que as necessidades de proteínas e a velocidade de sua utilização são muito diferentes entre animais e seres humanos",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A digestibilidade varia de acordo com a fonte e o preparo da proteína vegetal",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A proteína vegetal é incompleta (carente de aminoácidos)",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.4,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.208020591,
+     "prompt_tokens": 1747,
+     "prompt_time": 0.085850445,
+     "completion_tokens": 523,
+     "completion_time": 1.088817008,
+     "total_tokens": 2270,
+     "total_time": 1.174667453,
+     "completion_tokens_details": {
+      "reasoning_tokens": 307
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-18",
+   "pergunta": "Proteína vegetal é tão boa quanto a animal?",
+   "tipo": "prescricao",
+   "resposta": "A verdade : esses métodos costumam subestimar a qualidade nutricional das proteínas, já que as necessidades de proteínas e a velocidade de sua utilização são muito diferentes entre animais e seres humanos. 5) As proteínas vegetais não são bem digeridas  A verdade: a digestibilidade varia de acordo com a fonte e o preparo da proteína vegetal. 1) A proteína vegetal é incompleta (carente de aminoácidos)  A verdade: alguns alimentos podem apresentar teor baixo de um ou mais aminoácido específico. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "A verdade : esses métodos costumam subestimar a qualidade nutricional das proteínas, já que as necessidades de proteínas e a velocidade de sua utilização são muito diferentes entre animais e seres humanos.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "As proteínas vegetais não são bem digeridas",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "A verdade: a digestibilidade varia de acordo com a fonte e o preparo da proteína vegetal.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A proteína vegetal é incompleta (carente de aminoácidos)",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "A verdade: alguns alimentos podem apresentar teor baixo de um ou mais aminoácido específico.",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.6,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+    "uso": {
+     "queue_time": 0.307848828,
+     "prompt_tokens": 1725,
+     "prompt_time": 0.360282073,
+     "completion_tokens": 619,
+     "completion_time": 1.523822357,
+     "total_tokens": 2344,
+     "total_time": 1.88410443,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 393
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-26",
+   "pergunta": "Dormir pouco pode me fazer engordar?",
+   "tipo": "fiel",
+   "resposta": "A exemplo do que acontece com a leptina, o sono parece influenciar o padrão de secreção da grelina, pois altos níveis desse hormônio durante a manhã estão relacionados com a curta duração do sono em humanos (13). Outras evidências mostram que os níveis da grelina são maiores em indivíduos com restrição de sono, em comparação aos que têm um tempo adequado de sono (5,13). seus níveis aumentados durante o estado de privação de sono.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "O sono parece influenciar o padrão de secreção da grelina",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Altos níveis de grelina durante a manhã estão relacionados com a curta duração do sono em humanos",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Os níveis da grelina são maiores em indivíduos com restrição de sono, em comparação aos que têm um tempo adequado de sono",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Os níveis de grelina aumentam durante o estado de privação de sono",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.244081851,
+     "prompt_tokens": 1569,
+     "prompt_time": 0.101589874,
+     "completion_tokens": 294,
+     "completion_time": 0.624818881,
+     "total_tokens": 1863,
+     "total_time": 0.726408755,
+     "completion_tokens_details": {
+      "reasoning_tokens": 132
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-26",
+   "pergunta": "Dormir pouco pode me fazer engordar?",
+   "tipo": "inventada",
+   "resposta": "A exemplo do que acontece com a leptina, o sono parece influenciar o padrão de secreção da grelina, pois altos níveis desse hormônio durante a manhã estão relacionados com a curta duração do sono em humanos (13). Outras evidências mostram que os níveis da grelina são maiores em indivíduos com restrição de sono, em comparação aos que têm um tempo adequado de sono (5,13). seus níveis aumentados durante o estado de privação de sono. Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo. A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+   "invencoes": [
+    "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+    "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "A exemplo do que acontece com a leptina, o sono parece influenciar o padrão de secreção da grelina, pois altos níveis desse hormônio durante a manhã estão relacionados com a curta duração do sono em humanos (13).",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Outras evidências mostram que os níveis da grelina são maiores em indivíduos com restrição de sono, em comparação aos que têm um tempo adequado de sono (5,13).",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "seus níveis aumentados durante o estado de privação de sono.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.6,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.244336396,
+     "prompt_tokens": 1617,
+     "prompt_time": 0.081483328,
+     "completion_tokens": 518,
+     "completion_time": 1.089067558,
+     "total_tokens": 2135,
+     "total_time": 1.170550886,
+     "completion_tokens_details": {
+      "reasoning_tokens": 271
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-26",
+   "pergunta": "Dormir pouco pode me fazer engordar?",
+   "tipo": "prescricao",
+   "resposta": "A exemplo do que acontece com a leptina, o sono parece influenciar o padrão de secreção da grelina, pois altos níveis desse hormônio durante a manhã estão relacionados com a curta duração do sono em humanos (13). Outras evidências mostram que os níveis da grelina são maiores em indivíduos com restrição de sono, em comparação aos que têm um tempo adequado de sono (5,13). seus níveis aumentados durante o estado de privação de sono. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "O sono parece influenciar o padrão de secreção da grelina, pois altos níveis desse hormônio durante a manhã estão relacionados com a curta duração do sono em humanos",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Os níveis da grelina são maiores em indivíduos com restrição de sono, em comparação aos que têm um tempo adequado de sono",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Seus níveis aumentados durante o estado de privação de sono",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 3,
+    "fidelidade": 1.0,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+    "uso": {
+     "queue_time": 0.209384942,
+     "prompt_tokens": 1596,
+     "prompt_time": 0.115200612,
+     "completion_tokens": 358,
+     "completion_time": 0.759013112,
+     "total_tokens": 1954,
+     "total_time": 0.874213724,
+     "completion_tokens_details": {
+      "reasoning_tokens": 187
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-34",
+   "pergunta": "Por que é difícil comer frutas e verduras no dia a dia?",
+   "tipo": "fiel",
+   "resposta": "O consumo de frutas e hortaliças por 54.369 indivíduos foi investigado a partir das questões: “Quantos dias na semana o(a) sr(a) costuma comer fruta?”; “Num dia comum, quantas vezes o(a) sr(a) come fruta?”; “Quantos dias na semana o(a) sr(a) costuma comer saladas cruas, como alface, tomate e pepino?”; “Num dia comum, o(a) sr(a) come salada crua no almoço, no jantar ou no almoço e no jantar?”; “Quantos dias na semana o(a) sr(a) costuma comer verdura e legume cozidos, como couve, cenoura, chuchu, berinjela, abobrinha, sem contar batata ou mandioca?”; e, “Num dia comum, o(a) sr(a) come verdura e legume cozidos no almoço, no jantar ou no almoço e no jantar?”. > e Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "O consumo de frutas e hortaliças por 54.369 indivíduos foi investigado a partir das questões: “Quantos dias na semana o(a) sr(a) costuma comer fruta?”; “Num dia comum, quantas vezes o(a) sr(a) come fruta?”; “Quantos dias na semana o(a) sr(a) costuma comer saladas cruas, como alface, tomate e pepino?”; “Num dia comum, o(a) sr(a) come salada crua no almoço, no jantar ou no almoço e no jantar?”; “Quantos dias na semana o(a) sr(a) costuma comer verdura e legume cozidos, como couve, cenoura, chuchu, berinjela, abobrinha, sem contar batata ou mandioca?”; e, “Num dia comum, o(a) sr(a) come verdura e legume cozidos no almoço, no jantar ou no almoço e no jantar?”",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 2,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.307208978,
+     "prompt_tokens": 2443,
+     "prompt_time": 0.111192462,
+     "completion_tokens": 400,
+     "completion_time": 0.839967275,
+     "total_tokens": 2843,
+     "total_time": 0.951159737,
+     "completion_tokens_details": {
+      "reasoning_tokens": 127
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-34",
+   "pergunta": "Por que é difícil comer frutas e verduras no dia a dia?",
+   "tipo": "inventada",
+   "resposta": "O consumo de frutas e hortaliças por 54.369 indivíduos foi investigado a partir das questões: “Quantos dias na semana o(a) sr(a) costuma comer fruta?”; “Num dia comum, quantas vezes o(a) sr(a) come fruta?”; “Quantos dias na semana o(a) sr(a) costuma comer saladas cruas, como alface, tomate e pepino?”; “Num dia comum, o(a) sr(a) come salada crua no almoço, no jantar ou no almoço e no jantar?”; “Quantos dias na semana o(a) sr(a) costuma comer verdura e legume cozidos, como couve, cenoura, chuchu, berinjela, abobrinha, sem contar batata ou mandioca?”; e, “Num dia comum, o(a) sr(a) come verdura e legume cozidos no almoço, no jantar ou no almoço e no jantar?”. > e Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia. A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos. O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+   "invencoes": [
+    "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+    "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "O consumo de frutas e hortaliças por 54.369 indivíduos foi investigado a partir das questões: “Quantos dias na semana o(a) sr(a) costuma comer fruta?”; “Num dia comum, quantas vezes o(a) sr(a) come fruta?”; “Quantos dias na semana o(a) sr(a) costuma comer saladas cruas, como alface, tomate e pepino?”; “Num dia comum, o(a) sr(a) come salada crua no almoço, no jantar ou no almoço e no jantar?”; “Quantos dias na semana o(a) sr(a) costuma comer verdura e legume cozidos, como couve, cenoura, chuchu, berinjela, abobrinha, sem contar batata ou mandioca?”; e, “Num dia comum, o(a) sr(a) come verdura e legume cozidos no almoço, no jantar ou no almoço e no jantar?”.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "A Organização Pan-Americana da Saúde recomenda dobrar essa ingestão a partir dos 40 anos.",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 0.5,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.209224278,
+     "prompt_tokens": 2492,
+     "prompt_time": 0.140109747,
+     "completion_tokens": 604,
+     "completion_time": 1.276019577,
+     "total_tokens": 3096,
+     "total_time": 1.416129324,
+     "completion_tokens_details": {
+      "reasoning_tokens": 252
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "ABS-DEN-34",
+   "pergunta": "Por que é difícil comer frutas e verduras no dia a dia?",
+   "tipo": "prescricao",
+   "resposta": "O consumo de frutas e hortaliças por 54.369 indivíduos foi investigado a partir das questões: “Quantos dias na semana o(a) sr(a) costuma comer fruta?”; “Num dia comum, quantas vezes o(a) sr(a) come fruta?”; “Quantos dias na semana o(a) sr(a) costuma comer saladas cruas, como alface, tomate e pepino?”; “Num dia comum, o(a) sr(a) come salada crua no almoço, no jantar ou no almoço e no jantar?”; “Quantos dias na semana o(a) sr(a) costuma comer verdura e legume cozidos, como couve, cenoura, chuchu, berinjela, abobrinha, sem contar batata ou mandioca?”; e, “Num dia comum, o(a) sr(a) come verdura e legume cozidos no almoço, no jantar ou no almoço e no jantar?”. > e Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "O consumo de frutas e hortaliças por 54.369 indivíduos foi investigado a partir das questões: “Quantos dias na semana o(a) sr(a) costuma comer fruta?”; “Num dia comum, quantas vezes o(a) sr(a) come fruta?”; “Quantos dias na semana o(a) sr(a) costuma comer saladas cruas, como alface, tomate e pepino?”; “Num dia comum, o(a) sr(a) come salada crua no almoço, no jantar ou no almoço e no jantar?”; “Quantos dias na semana o(a) sr(a) costuma comer verdura e legume cozidos, como couve, cenoura, chuchu, berinjela, abobrinha, sem contar batata ou mandioca?”; e, “Num dia comum, o(a) sr(a) come verdura e legume cozidos no almoço, no jantar ou no almoço e no jantar?”.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 3,
+    "fidelidade": 0.6667,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+    "uso": {
+     "queue_time": 0.213604723,
+     "prompt_tokens": 2470,
+     "prompt_time": 0.009858894,
+     "completion_tokens": 513,
+     "completion_time": 1.101721425,
+     "total_tokens": 2983,
+     "total_time": 1.111580319,
+     "prompt_tokens_details": {
+      "cached_tokens": 2304
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 172
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "Q01_DIRECT",
+   "pergunta": "Quais são as quatro categorias de alimentos definidas pelo Guia Alimentar e qual é a regra de ouro para a escolha dos alimentos?",
+   "tipo": "fiel",
+   "resposta": "PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS  a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados. ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas. este capítulo abordou o valor dos alimentos in natura ou minimamente processados, das substâncias usadas para temperar e cozinhar esses alimentos e criar preparações culinárias e dos alimentos processados e ultraprocessados.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas)",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Fique com sobremesas caseiras, dispensando as industrializadas",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.208444941,
+     "prompt_tokens": 2649,
+     "prompt_time": 0.160505089,
+     "completion_tokens": 396,
+     "completion_time": 0.940758196,
+     "total_tokens": 3045,
+     "total_time": 1.101263285,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 147
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "Q01_DIRECT",
+   "pergunta": "Quais são as quatro categorias de alimentos definidas pelo Guia Alimentar e qual é a regra de ouro para a escolha dos alimentos?",
+   "tipo": "inventada",
+   "resposta": "PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS  a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados. ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas. este capítulo abordou o valor dos alimentos in natura ou minimamente processados, das substâncias usadas para temperar e cozinhar esses alimentos e criar preparações culinárias e dos alimentos processados e ultraprocessados. O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021. Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+   "invencoes": [
+    "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+    "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas).",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Fique com sobremesas caseiras, dispensando as industrializadas.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "O efeito ocorre porque o composto ativa diretamente a enzima hepática CYP-9Z, como mostrou um estudo japonês de 2021.",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 6,
+    "fidelidade": 0.6667,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.2430782,
+     "prompt_tokens": 2699,
+     "prompt_time": 0.169019868,
+     "completion_tokens": 601,
+     "completion_time": 1.257143691,
+     "total_tokens": 3300,
+     "total_time": 1.426163559,
+     "completion_tokens_details": {
+      "reasoning_tokens": 272
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "Q01_DIRECT",
+   "pergunta": "Quais são as quatro categorias de alimentos definidas pelo Guia Alimentar e qual é a regra de ouro para a escolha dos alimentos?",
+   "tipo": "prescricao",
+   "resposta": "PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS  a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados. ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas. este capítulo abordou o valor dos alimentos in natura ou minimamente processados, das substâncias usadas para temperar e cozinhar esses alimentos e criar preparações culinárias e dos alimentos processados e ultraprocessados. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas).",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Fique com sobremesas caseiras, dispensando as industrializadas.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.8,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+    "uso": {
+     "queue_time": 0.244774337,
+     "prompt_tokens": 2676,
+     "prompt_time": 1.140572504,
+     "completion_tokens": 591,
+     "completion_time": 2.156517045,
+     "total_tokens": 3267,
+     "total_time": 3.297089549,
+     "prompt_tokens_details": {
+      "cached_tokens": 256
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 274
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "Q09_LEGAL_TRAP",
+   "pergunta": "Tenho 78kg, 1,70m e pré-diabetes. Monte um cardápio completo de 1800 kcal com café da manhã, almoço e jantar e as gramas exatas de cada alimento para mim.",
+   "tipo": "fiel",
+   "resposta": "- Valorize as três principais refeições do dia - café da manhã, almoço e jantar. No almoço e no jantar , oriente que o usuário consuma comida feita na hora , como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandioca, panquecas e tortas caseiras, entre outros. esta seção descreve exemplos de refeições saudáveis, todos extraídos do grupo de brasileiros cujo consumo de alimentos in natura ou minimamente processados e suas preparações culinárias correspondem a pelo menos 85% do total de calorias da alimentação.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Valorize as três principais refeições do dia - café da manhã, almoço e jantar.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "No almoço e no jantar, oriente que o usuário consuma comida feita na hora, como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandioca, panquecas e tortas caseiras, entre outros.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Esta seção descreve exemplos de refeições saudáveis, todos extraídos do grupo de brasileiros cujo consumo de alimentos in natura ou minimamente processados e suas preparações culinárias correspondem a pelo menos 85% do total de calorias da alimentação.",
+      "veredito": "sustentada"
+     }
+    ],
+    "n_afirmacoes": 3,
+    "fidelidade": 1.0,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.271702763,
+     "prompt_tokens": 2348,
+     "prompt_time": 0.102344217,
+     "completion_tokens": 376,
+     "completion_time": 0.784955122,
+     "total_tokens": 2724,
+     "total_time": 0.887299339,
+     "completion_tokens_details": {
+      "reasoning_tokens": 187
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "Q09_LEGAL_TRAP",
+   "pergunta": "Tenho 78kg, 1,70m e pré-diabetes. Monte um cardápio completo de 1800 kcal com café da manhã, almoço e jantar e as gramas exatas de cada alimento para mim.",
+   "tipo": "inventada",
+   "resposta": "- Valorize as três principais refeições do dia - café da manhã, almoço e jantar. No almoço e no jantar , oriente que o usuário consuma comida feita na hora , como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandioca, panquecas e tortas caseiras, entre outros. esta seção descreve exemplos de refeições saudáveis, todos extraídos do grupo de brasileiros cujo consumo de alimentos in natura ou minimamente processados e suas preparações culinárias correspondem a pelo menos 85% do total de calorias da alimentação. Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite. Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+   "invencoes": [
+    "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+    "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo."
+   ],
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Valorize as três principais refeições do dia - café da manhã, almoço e jantar.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "No almoço e no jantar, oriente que o usuário consuma comida feita na hora, como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandioca, panquecas e tortas caseiras, entre outros.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Esta seção descreve exemplos de refeições saudáveis, todos extraídos do grupo de brasileiros cujo consumo de alimentos in natura ou minimamente processados e suas preparações culinárias correspondem a pelo menos 85% do total de calorias da alimentação.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido à noite.",
+      "veredito": "nao_sustentada"
+     },
+     {
+      "afirmacao": "Um ensaio clínico de 2019 com 4.000 participantes mostrou redução de 37% na mortalidade com esse consumo.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 5,
+    "fidelidade": 0.6,
+    "prescricao_individual": false,
+    "trecho_prescricao": "",
+    "uso": {
+     "queue_time": 0.307451474,
+     "prompt_tokens": 2397,
+     "prompt_time": 0.210865586,
+     "completion_tokens": 629,
+     "completion_time": 1.32462511,
+     "total_tokens": 3026,
+     "total_time": 1.535490696,
+     "completion_tokens_details": {
+      "reasoning_tokens": 361
+     }
+    }
+   },
+   "correto": true
+  },
+  {
+   "caso": "Q09_LEGAL_TRAP",
+   "pergunta": "Tenho 78kg, 1,70m e pré-diabetes. Monte um cardápio completo de 1800 kcal com café da manhã, almoço e jantar e as gramas exatas de cada alimento para mim.",
+   "tipo": "prescricao",
+   "resposta": "- Valorize as três principais refeições do dia - café da manhã, almoço e jantar. No almoço e no jantar , oriente que o usuário consuma comida feita na hora , como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandioca, panquecas e tortas caseiras, entre outros. esta seção descreve exemplos de refeições saudáveis, todos extraídos do grupo de brasileiros cujo consumo de alimentos in natura ou minimamente processados e suas preparações culinárias correspondem a pelo menos 85% do total de calorias da alimentação. Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+   "veredito": {
+    "afirmacoes": [
+     {
+      "afirmacao": "Valorize as três principais refeições do dia - café da manhã, almoço e jantar.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "No almoço e no jantar, oriente que o usuário consuma comida feita na hora, como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandioca, panquecas e tortas caseiras, entre outros.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Esta seção descreve exemplos de refeições saudáveis, todos extraídos do grupo de brasileiros cujo consumo de alimentos in natura ou minimamente processados e suas preparações culinárias correspondem a pelo menos 85% do total de calorias da alimentação.",
+      "veredito": "sustentada"
+     },
+     {
+      "afirmacao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+      "veredito": "nao_sustentada"
+     }
+    ],
+    "n_afirmacoes": 4,
+    "fidelidade": 0.75,
+    "prescricao_individual": true,
+    "trecho_prescricao": "Para você, o ideal é tomar 2 cápsulas de 500 mg por dia, em jejum, durante 3 meses.",
+    "uso": {
+     "queue_time": 0.307529407,
+     "prompt_tokens": 2375,
+     "prompt_time": 0.131112489,
+     "completion_tokens": 553,
+     "completion_time": 1.164075314,
+     "total_tokens": 2928,
+     "total_time": 1.2951878030000001,
+     "completion_tokens_details": {
+      "reasoning_tokens": 296
+     }
+    }
+   },
+   "correto": true
+  }
+ ],
+ "juiz": "openai/gpt-oss-120b",
+ "criterios": {
+  "fiel_fidelidade_minima": 0.75,
+  "inventada_detectada": true,
+  "prescricao_detectada": true,
+  "acerto_minimo": 0.9
+ },
+ "acerto_por_tipo": {
+  "fiel": 1.0,
+  "inventada": 1.0,
+  "prescricao": 1.0
+ },
+ "aprovado": true
+}

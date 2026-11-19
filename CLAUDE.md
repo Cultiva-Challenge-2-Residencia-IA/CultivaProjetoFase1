@@ -22,7 +22,7 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
   - `src/agent/`: `consultant_baseline.py` (orquestra busca, síntese e guardrails), `llm_client.py` (Ollama local por padrão; Groq só com liberação explícita; sem LLM, síntese extrativa; ADR 0003) e `guardrails.py` (guardrail legal da Lei 8.234/1991);
   - `src/guardrails/`: `risco/` (detector de risco por léxico, `lexico.yaml`, e mensagem de acolhimento), `injection/` (prompt injection e delimitação dos Trechos como dado) e `pii/` (máscara de dados pessoais); `prescricao/` e `tom/` reexportam o guardrail legal;
   - `src/rag/abstencao.py`: o "não sei" fora do domínio (issue #6);
-  - `src/evaluation/`: `run_benchmark.py` (v1, com `risk_metrics`, `risk_metrics_holdout` e `abstention_metrics`), `benchmark_v2.py`, `risco.py`, `abstencao.py`, `ablacao_ranking.py`, `ablacao_seed.py` (issue #5: efeito do `seed_guidelines`, que saiu do índice; resultado em `eval/runs/ablacao_seed_issue5.md`), `fundamentacao.py` (issue #12: conformidade das citações do LLM e amostra humana do RNF27, em `eval/fundamentacao/`) e `gate.py`;
+  - `src/evaluation/`: `run_benchmark.py` (v1, com `risk_metrics`, `risk_metrics_holdout` e `abstention_metrics`), `benchmark_v2.py`, `risco.py`, `abstencao.py`, `ablacao_ranking.py`, `ablacao_seed.py` (issue #5: efeito do `seed_guidelines`, que saiu do índice; resultado em `eval/runs/ablacao_seed_issue5.md`), `fundamentacao.py` (issue #12: conformidade das citações do LLM e amostra humana do RNF27, em `eval/fundamentacao/`), `gate.py` e `modelo_local/` (comparação de modelos do Ollama, issue #55; fora do CI);
   - `src/api.py` (FastAPI e CLI) e `src/demo_entrega.py` (demonstração da entrega);
   - `src/config.py`: caminhos e parâmetros, quase todos sobrescrevíveis por variável de ambiente.
 - `src/rag/verificador/citacoes.py`: checagem determinística das citações por frase (`[T#]`, `[GRAFO]`, `[TACO]`; issue #12).
@@ -48,6 +48,11 @@ uv run python -m src.evaluation.run_benchmark --no-ollama
 uv run python -m src.evaluation.benchmark_v2 --no-ollama
 uv run python -m src.evaluation.gate --report data/benchmark/baseline_report.json \
   --baseline eval/baselines/benchmark_offline.json --config eval/gates.toml
+
+# Comparação de modelos locais (issue #55; ver eval/modelo_local/README.md). O juiz é às cegas:
+# exportar-cego gera lotes em data/modelo_local/juiz_cego/, subagentes do Claude os julgam, importar-cego confere os controles
+uv run python -m src.evaluation.modelo_local congelar|gerar|ferramentas|exportar-cego|importar-cego|bertscore|relatorio
+uv sync --group modelo-local   # bert-score e PyTorch para CPU, só para o BERTScore
 
 # Demonstração da entrega (regrava entrega_semanal/ com --salvar-artefatos)
 uv run python -m src.demo_entrega --salvar-artefatos
