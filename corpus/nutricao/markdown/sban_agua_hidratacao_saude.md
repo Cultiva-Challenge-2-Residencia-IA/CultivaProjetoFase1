@@ -37,11 +37,11 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/sban_agua_hidratacao_saude.pdf#page=2)
 
-> **Nota de conversão — página 2:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+> **Nota de conversão — página 2:** Página sem conteúdo, só com o rótulo de impressão do arquivo ('Nestle_Folheto_Aguas_MaterialCientifico.indd'), registrado como indício de patrocínio no manifesto; texto nativo usado em vez do OCR.
 
-> **Nota de conversão — página 2:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+45912 ~~-~~ 002_AF_Nestle_Folheto_Aguas_MaterialCientifico.indd   2
 
-| 45912-002 AF Nestle Folheto AguasMaterialCientifico.indd 2 4 11/18/16 9:39 pu
+11/18/16   9:39 PM
 
 ---
 

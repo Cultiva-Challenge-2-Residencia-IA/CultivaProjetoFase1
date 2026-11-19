@@ -22,19 +22,9 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=1)
 
-> **Nota de conversão — página 1:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+> **Nota de conversão — página 1:** Capa: título conferido visualmente. Texto nativo usado em vez do OCR, que lia o logotipo como caracteres espúrios.
 
-> **Nota de conversão — página 1:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
-DE ri É
-
-e. q o. e E
-
-E e o. E.
-
-ooo E » Etica e de Conduta do Nutricionista
-
-CONSELHO FEDERAL DE NUTRICIONISTAS
+**Código de Ética e de Conduta** do Nutricionista
 
 ---
 
@@ -44,11 +34,11 @@ CONSELHO FEDERAL DE NUTRICIONISTAS
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=2)
 
-> **Nota de conversão — página 2:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+> **Nota de conversão — página 2:** Folha de rosto: o OCR coincidia com o texto nativo; texto nativo usado.
 
-# CONSELHO FEDERAL DE NUTRICIONISTAS
+# **CONSELHO FEDERAL DE NUTRICIONISTAS**
 
-CÓDIGO DE ÉTICA E DE CONDUTA DO NUTRICIONISTA
+**CÓDIGO DE ÉTICA E DE CONDUTA DO NUTRICIONISTA**
 
 ---
 
@@ -760,16 +750,10 @@ Conselheiros Suplentes
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=19)
 
-> **Nota de conversão — página 19:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+> **Nota de conversão — página 19:** Contracapa com logotipo do CFN e cfn.org.br, conferida visualmente. Texto nativo usado em vez do OCR, que lia o desenho como caracteres espúrios.
 
-> **Nota de conversão — página 19:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+**~~[~~ Código de Ética e de Conduta do Nutricionista**
 
-e Ooo.
-
-”oOÕÔÉÀ
-
-CONSELHO FEDERAL DE NUTRICIONISTAS
-
-cfn.org.br
+> **~~[~~ 34** cfn.org.br
 
 ---

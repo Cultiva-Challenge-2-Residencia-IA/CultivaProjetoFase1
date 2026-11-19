@@ -1,0 +1,10 @@
+# Configuração de conversão de louzada-ultraprocessados-perfil-nutricional-rsp-2015 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: 9c08e961e93a5f98b5bd53584f2cd7f6c93761b8fbf8f7030245f3e1efdbc733
+page_notes:
+  6: 'Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.:
+    ''0h'' = número com marca de nota ''h'', ''cereaisb''); todos os números decimais do PDF estão no
+    Markdown (conferência da issue #26, 19/11/2026).'
+  8: 'Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.:
+    ''6b'', ''brasil13'', ''crianças23''); todos os números decimais do PDF estão no Markdown (conferência
+    da issue #26, 19/11/2026).'

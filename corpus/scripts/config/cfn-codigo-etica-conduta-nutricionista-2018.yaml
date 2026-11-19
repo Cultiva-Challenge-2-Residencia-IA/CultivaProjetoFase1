@@ -1,0 +1,13 @@
+# Configuração de conversão de cfn-codigo-etica-conduta-nutricionista-2018 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: d1b0f88f41cb181b4ec8778408c5fcbc59f5b819e346a554ca99225a557aab70
+sparse_page_decisions:
+  1: 'Capa: texto nativo suficiente (título); OCR desligado.'
+  2: 'Folha de rosto: texto nativo suficiente; OCR desligado.'
+  19: 'Contracapa: texto nativo suficiente (logotipo e endereço); OCR desligado.'
+page_notes:
+  1: 'Capa: título conferido visualmente. Texto nativo usado em vez do OCR, que lia o logotipo como caracteres
+    espúrios.'
+  2: 'Folha de rosto: o OCR coincidia com o texto nativo; texto nativo usado.'
+  19: Contracapa com logotipo do CFN e cfn.org.br, conferida visualmente. Texto nativo usado em vez do
+    OCR, que lia o desenho como caracteres espúrios.

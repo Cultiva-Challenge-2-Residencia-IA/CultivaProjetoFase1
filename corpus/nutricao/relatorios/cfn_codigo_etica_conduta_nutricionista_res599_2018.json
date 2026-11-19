@@ -4,7 +4,7 @@
   "pdf_pages": 19,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": null,
+  "config_sha256": "e9ac65c8871b2c92477a812b1e72af164e712ce7565d66cca2f07b2f328d39a5",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -15,10 +15,7 @@
   },
   "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
   "sparse_threshold_characters": 150,
-  "ocr_model": {
-    "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata",
-    "sha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
-  },
+  "ocr_model": null,
   "limitations": [
     "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
     "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
@@ -30,46 +27,32 @@
     {
       "pdf_page": 1,
       "native_characters": 47,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
       "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.",
-        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+        "Capa: título conferido visualmente. Texto nativo usado em vez do OCR, que lia o logotipo como caracteres espúrios."
       ],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": "DEri É\ne. q\no.e\nE\nE\ne\no.\nE.\nooo\nE\n»\nEtica e de Conduta\ndo Nutricionista\nCONSELHO FEDERAL\nDE NUTRICIONISTAS\n"
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
-      "native_word_coverage": 0.75,
-      "missing_native_tokens": {
-        "código": 1,
-        "ética": 1
-      },
-      "markdown_characters": 112
+      "ocr": [],
+      "sparse_page_decision": "Capa: texto nativo suficiente (título); OCR desligado.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 49
     },
     {
       "pdf_page": 2,
       "native_characters": 84,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
       "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+        "Folha de rosto: o OCR coincidia com o texto nativo; texto nativo usado."
       ],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": "CONSELHO FEDERAL DE NUTRICIONISTAS\nCÓDIGO DE ÉTICA E DE CONDUTA\nDO NUTRICIONISTA\n"
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "ocr": [],
+      "sparse_page_decision": "Folha de rosto: texto nativo suficiente; OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 83
+      "markdown_characters": 91
     },
     {
       "pdf_page": 3,
@@ -274,34 +257,20 @@
     {
       "pdf_page": 19,
       "native_characters": 68,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
       "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.",
-        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+        "Contracapa com logotipo do CFN e cfn.org.br, conferida visualmente. Texto nativo usado em vez do OCR, que lia o desenho como caracteres espúrios."
       ],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": "e\nOoo.\n”oOÕÔÉÀ\nCONSELHO FEDERAL\nDE NUTRICIONISTAS\ncfn.org.br\n"
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
-      "native_word_coverage": 0.41667,
-      "missing_native_tokens": {
-        "34": 1,
-        "conduta": 1,
-        "código": 1,
-        "de": 1,
-        "do": 1,
-        "nutricionista": 1,
-        "ética": 1
-      },
-      "markdown_characters": 63
+      "ocr": [],
+      "sparse_page_decision": "Contracapa: texto nativo suficiente (logotipo e endereço); OCR desligado.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 82
     }
   ],
-  "markdown_sha256": "e71bb6c7bf208b5920e62812b724cc47fb0b185afdbef98949686e71123b426b",
+  "markdown_sha256": "4aa23e49575acb9eac51159198312f19ed047dbe0cc2985d053da85b4a396abe",
   "summary": {
     "pages_converted": 19,
     "sparse_pages": [
@@ -309,11 +278,7 @@
       2,
       19
     ],
-    "ocr_pages": [
-      1,
-      2,
-      19
-    ],
+    "ocr_pages": [],
     "pages_with_tables_detected": [],
     "pages_with_warnings": [
       1,

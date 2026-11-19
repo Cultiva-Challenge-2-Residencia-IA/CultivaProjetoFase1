@@ -1,0 +1,8 @@
+# Configuração de conversão de santos-barreiras-frutas-verduras-csc-2019 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: 4eaea7e2ed37a8d6e78fe0c6d1ce5842ff3b5e290d229f11944a69eff101b7e5
+page_notes:
+  5: 'Tabela girada extraída embaralhada: 9 números decimais do PDF não aparecem no Markdown. Página fora
+    dos Trechos (skip_pages em rag.yaml, data_quality_note no manifesto); consultar o PDF original.'
+  6: 'Página fora dos Trechos (skip_pages em rag.yaml) junto com a 5; alerta lexical por tabela e quebra
+    de colunas; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'

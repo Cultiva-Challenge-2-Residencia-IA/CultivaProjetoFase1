@@ -20,7 +20,7 @@
     "brisotto-depressao-ansiedade-estresse-rbtc-2022": {
       "jsonl_path": "corpus/nutricao/rag/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.jsonl",
       "jsonl_sha256": "e36aded5716f15aeb637861d1855fa60b0be8b367e8e2135d12226e17cb62461",
-      "markdown_sha256": "730949078f84877b6ca7cad77919592a695fca627fdf533d2c6dd43f69e3b9c5",
+      "markdown_sha256": "83fe9d19e364a7827c31e2e0dd382095209cd0569c48a47b629a50edb8c67764",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "b793e2dbfe557dc070600da9e5320b17d283a07de1fd62e00cc95122843bc4ef",
       "trechos": 43
@@ -28,7 +28,7 @@
     "cfn-codigo-etica-conduta-nutricionista-2018": {
       "jsonl_path": "corpus/nutricao/rag/cfn_codigo_etica_conduta_nutricionista_res599_2018.jsonl",
       "jsonl_sha256": "cabedb8c136d08ae2f342248dce4bcc8f9cc5417f6b4501af91f108ed8d0bb85",
-      "markdown_sha256": "e71bb6c7bf208b5920e62812b724cc47fb0b185afdbef98949686e71123b426b",
+      "markdown_sha256": "4aa23e49575acb9eac51159198312f19ed047dbe0cc2985d053da85b4a396abe",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "74381bdfdbd8070f297fa861cc2a67e73a038d5a4991d730a090cbe092bfb73a",
       "trechos": 59
@@ -36,7 +36,7 @@
     "crispim-sono-obesidade-abem-2007": {
       "jsonl_path": "corpus/nutricao/rag/crispim_et_al_sono_obesidade_abem_2007.jsonl",
       "jsonl_sha256": "6d96fa2f313b0ebb913fdf619eb3ef473e3ddd7b3a3010f01211a1e42a27f784",
-      "markdown_sha256": "8c36a241d3310609fdf5aea9b20d4ba03bc0e535a95666abb6afb4005abc1199",
+      "markdown_sha256": "964d356af5ce2bfdaae30c79fa25d50dd4b452e6cd5d332c3a032c808ba11a14",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "48d5de1f74f860200cb3b43cb309479b374ab89a1a38df6eea82989fd4ea0667",
       "trechos": 32
@@ -44,7 +44,7 @@
     "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012": {
       "jsonl_path": "corpus/nutricao/rag/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.jsonl",
       "jsonl_sha256": "004f7d3798139be915193b6b54e09a9b5ffea4d090fc4b495e0e2d9af4772bac",
-      "markdown_sha256": "db9dc0a76ad1852a28aef3704bf0ef5faa4d57de4d02110a25bc93f7f25298de",
+      "markdown_sha256": "cf43a43f2d363d94a401ed07a82d8f37feb12e56d26310d1c8fada6dd044fa38",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "44ab3f47d0678d4f79e2b2738dfc3c0959264c6cdffb884e5027a7507262e88b",
       "trechos": 39
@@ -76,7 +76,7 @@
     "jaime-frutas-hortalicas-brasil-rsp-2009": {
       "jsonl_path": "corpus/nutricao/rag/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.jsonl",
       "jsonl_sha256": "ee47e9ed1a57768594b840231c9ecf6746608476c0735dca0b30ed2d0bd05fca",
-      "markdown_sha256": "37e7ee135f76e5d29aac76663f35a456a0499c4fd30a3dc8dd4cb56d249a2d3b",
+      "markdown_sha256": "88624e545fa81f664eb8b5c953c801cd848c65d21263d3242fdccd1f91afba2c",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "4c3d2cf02c7040dd715d82aa7216f8557c7639aa77397b5f62ab6520edb6edff",
       "trechos": 32
@@ -84,7 +84,7 @@
     "louzada-ultraprocessados-micronutrientes-rsp-2015": {
       "jsonl_path": "corpus/nutricao/rag/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.jsonl",
       "jsonl_sha256": "737018461c407879086e64c1bc61d8b0beca1d25b8efbbda8596d846f4dd3a50",
-      "markdown_sha256": "f0f85ffa8af3eef4ffc2568a8d2b28884883f7afe035560deab40d90533b7548",
+      "markdown_sha256": "2b1364e18fab477427420c705d4187a269480a1881267401ee55b6552bd9f038",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "c61039168707ef17db118eb5859570f41154124676a2176807e925bb0f88ed0e",
       "trechos": 37
@@ -92,7 +92,7 @@
     "louzada-ultraprocessados-perfil-nutricional-rsp-2015": {
       "jsonl_path": "corpus/nutricao/rag/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.jsonl",
       "jsonl_sha256": "33b26947542aded3c12a83f38690c3048cb0333ceec4349d128aca533744ffa2",
-      "markdown_sha256": "0966fe8586edbefe01a700c033e0637f21edd8d8a0b2d9d397e193ae4be5e992",
+      "markdown_sha256": "ce2e987d16d7bc39294a2c598a4d2558901d6b7f98caddcfabbbdaeea405a784",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "c61039168707ef17db118eb5859570f41154124676a2176807e925bb0f88ed0e",
       "trechos": 48
@@ -100,7 +100,7 @@
     "martins-ultraprocessados-rsp-2013": {
       "jsonl_path": "corpus/nutricao/rag/martins_et_al_ultraprocessados_rsp_2013.jsonl",
       "jsonl_sha256": "2d586dd4e157c1997f356bedbf22aaaea5d32826d3b2f98fba4c4d924da8971a",
-      "markdown_sha256": "c984312ae92df57c552b8051021cc4d061174c6f05ae3bbdf2f4999b9bde2bc1",
+      "markdown_sha256": "31ef6be5117e691a1981354232331e90e18387f0d04b86fb3c66a771a76d5f83",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "df6fab649960aee25612a50dbf92fa49165945a912e9dbad692b22e5e453cc66",
       "trechos": 34
@@ -148,7 +148,7 @@
     "santos-barreiras-frutas-verduras-csc-2019": {
       "jsonl_path": "corpus/nutricao/rag/santos_et_al_barreiras_frutas_verduras_csc_2019.jsonl",
       "jsonl_sha256": "af71b7683a49136b996e6e545fbcddb4feaa4a5219053a1ef287f90a5425ef76",
-      "markdown_sha256": "a3e35942ccddbd17cf63f44becb220a2323b451aa1799a96f4f68698db9b8079",
+      "markdown_sha256": "6f43542cd87e6d654f0e6a7a35e0b302dc3c867928221a96aca9c0f8a4c6ba10",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "a861154bcd73e5df5555bbc6f3116988e05ee12a0bd2484e6af95aecf312fc3b",
       "trechos": 41
@@ -156,7 +156,7 @@
     "sban-agua-hidratacao-saude-2016": {
       "jsonl_path": "corpus/nutricao/rag/sban_agua_hidratacao_saude.jsonl",
       "jsonl_sha256": "95a081302673db6788fd75234442bb8d457a110ae01605ce3be20c3e4a11e25f",
-      "markdown_sha256": "2ff710a5f421806a97059affeb95d482ec5ed7814cfbb56e2c49d4d959602ed1",
+      "markdown_sha256": "b770f0572b1559ec90188938246caa34d24ffae73ce85693f747debc1e72d578",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "1ef8ec63d8ee793a6ff647a5a0b5837ea43e1acd8cb1bdb9695007e5f3d5d793",
       "trechos": 55
@@ -172,7 +172,7 @@
     "souza-backes-universitarios-csc-2020": {
       "jsonl_path": "corpus/nutricao/rag/souza_backes_universitarios_csc_2020.jsonl",
       "jsonl_sha256": "768b9c43f5994f700a913668207883fe766f0a268dab3225653302ae98851f33",
-      "markdown_sha256": "0813d45907f96c0299ef1d1444c799d7b0e12c89d65f305704a75d83554392cd",
+      "markdown_sha256": "c3db8c3c663f12f8446ff236b66e1c3761bcef9f4061d641ac6a01f688471a10",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "f911b5e5dfab7ac6e5e0ab64344e65ce3845acb18d34f79df8b3c1e855111448",
       "trechos": 24
