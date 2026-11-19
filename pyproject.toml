@@ -22,6 +22,10 @@ dependencies = [
 ]
 
 [dependency-groups]
+# Observabilidade opcional (src/observabilidade.py, ADR 0003): uv sync --group observabilidade
+observabilidade = [
+    "langfuse>=5.2.0",
+]
 dev = [
     "jsonschema>=4.26.0",
     "pytest>=8.0.0",
