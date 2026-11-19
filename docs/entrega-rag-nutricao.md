@@ -134,6 +134,7 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 
 - As perguntas foram escritas para o `data/raw`. Os ids esperados foram mapeados para as fontes do corpus (Guia por capítulo vira o Guia inteiro). As 4 perguntas que dependiam só do `seed_guidelines` ou do PubMed ficaram fora da média de recall, e o relatório as lista.
 - O recall agora é por fonte e não por capítulo, então os números **não são comparáveis** aos da versão anterior (93,8% com 47 fontes).
+- A ablação da #5 (`eval/runs/ablacao_seed_issue5.md`) mediu, com a mesma régua, o efeito de devolver o `seed_guidelines` ao índice: recall@4 e cobertura não mudam, e o MRR **cai** de 0,778 para 0,708 (no v2, o MRR por Trecho cai no dev e no test). A saída do `seed` não custou qualidade de busca, e a queda desde a versão anterior vem da troca de base e do mapeamento dos ids. As 7 perguntas do v1 que esperam documentos do `seed` ainda precisam ser revistas.
 - Tirar a SBAN do índice não mudou as métricas: ela aparecia em três perguntas (Q08, Q13 e Q16), mas em nenhuma era a fonte esperada, e as fontes que entraram no lugar também não eram.
 - O MRR de 0,778 é o baseline do CI (`eval/baselines/benchmark_offline.json`). A ablação da #35 mostrou que o reranker por sobreposição de termos pesava cerca de 10 vezes a fusão RRF e decidia o ranking sozinho; com RRF puro sobre BM25 + ChromaDB, o MRR subiu de 0,750 para 0,778 (2 perguntas melhoram, 1 piora). No benchmark v2, o MRR por Trecho foi de 0,740 para 0,814. Os ganhos foram medidos em conjuntos pequenos e são hipótese a confirmar.
 - O conjunto é pequeno e tem só 3 armadilhas de prescrição. O benchmark v2 é a issue #13.
@@ -152,6 +153,6 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 | #4 Integrar os JSONL do corpus | Feita: `src/rag/corpus_loader.py` carrega os Trechos pelo contrato do ADR 0002. |
 | #7 Filtrar por fonte aprovada | Feita: gate no momento de montar o índice. Demonstração e benchmark usam só fontes aprovadas; `CULTIVA_INCLUIR_PENDENTES=true` inclui as pendentes. |
 | #15 Embeddings e banco vetorial | Parcial: modelo multilíngue local e ChromaDB. Falta comparar modelos em português. |
-| #11 Rastreabilidade | Parcial: citações com página, link, DOI e status. A impressão digital da coleção é um primeiro passo para o `corpus_version`. |
+| #11 Rastreabilidade | Resposta inclui `corpus_version` (SHA-256 do manifesto das fontes indexadas e dos JSONL correspondentes), `prompt_version`, `model_version`, `fontes_version` e `trechos_usados` (id, fonte, página, link e título). Um `response_id` associa o registro persistido de rastreabilidade ao endpoint `POST /feedback/incorrect`. |
 | #13 Benchmark v2 | Parcial: ids esperados mapeados para as fontes do corpus. O conjunto continua o mesmo. |
 | #28 PubMed e TACO no corpus | Decidido para esta entrega: PubMed fora. O suporte a resumos no pipeline está pronto. |

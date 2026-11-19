@@ -13,6 +13,7 @@ from src.guardrails.risco.classificador_llm import ClassificadorRiscoLLM, Result
 def _consultor(risco_llm):
     consultor = NutritionConsultantBaseline.__new__(NutritionConsultantBaseline)
     consultor.risco_llm = risco_llm
+    consultor.corpus_version = "corpus-teste"
     consultor._consultar_sem_risco = MagicMock(
         side_effect=lambda q, k: NutritionConsultantBaseline._resposta_fixa(
             consultor, q, "resposta normal", guardrail_triggered=False, intent_category="GENERAL"))

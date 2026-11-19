@@ -35,6 +35,7 @@ RISCO_LLM_TIMEOUT = float(os.getenv("RISCO_LLM_TIMEOUT", "3.0"))
 # só com o desenvolvimento e as perguntas comuns (eval/risco/llm_criterios.md, adendo 2).
 RISCO_LLM_LIMIAR = int(os.getenv("RISCO_LLM_LIMIAR", "1"))
 CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
+TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / "traceability.sqlite3")))
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
 # "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".
