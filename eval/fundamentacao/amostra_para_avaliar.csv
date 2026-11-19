@@ -1,0 +1,397 @@
+id,pergunta,frase,trechos_citados,julgamento,comentario
+F001,Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?,"O Guia Alimentar para a População Brasileira sugere estratégias individuais e coletivas, como o consumo consciente de alimentos em locais institucionais ou trazer refeições feitas em casa [T1][T3].","[T1] Guia alimentar para a população brasileira, p. 14: o capítulo 5 examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia – informação, oferta, custo, habilidades culinárias, tempo e publicidade – e propõe para sua superação a combinação de ações no plano pessoal e familiar e no plano do exercício da cidadania.
+
+as recomendações deste guia são oferecidas de forma sintetizada em “dez Passos para uma alimentação adequada e saudável”.
+
+Em uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material.
+
+[T3] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 8: O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde.",,
+F002,Qual é a quantidade de fibra em 100 g de aveia em flocos crua na TACO?,É recomendado consumir pelo menos 3g/dia de beta-glucana de aveia para redução do colesterol LDL-c e não-HDL [T1].,"[T1] Guia alimentar de dietas vegetarianas para adultos, p. 24: Uma forma de avaliar a segurança da dieta vegetariana em termos do teor de proteínas dos alimentos vegetais é comparar o valor calórico das proteínas em relação ao valor calórico total do alimento. Por exemplo, 100 gramas de aveia crua contêm 17 gramas de proteína, ou seja, em 395 kcal (100 g de aveia) há 68 kcal de proteína (17 g x 4 kcal). Isso corresponde a 17% do valor calórico total. Assim, se ingerir somente aveia durante o dia inteiro até atingir a recomendação energética, o indivíduo terá ingerido 17% do VCT como proteína, o que o deixa bem acima da necessidade proteica (10% do VCT).
+
+Veja a Tabela 10, que apresenta o cálculo relativo aos diversos grupos alimentares [111]:
+
+Tabela 10: Valor percentual de proteína em diferentes grupos alimentares
+
+Alimento / Grupo alimentar Porcentagem de Proteína correspondente ao VCT (%)
+
+Carnes vermelhas 57,68
+
+Carnes de Frango 48,58
+
+Frios 27,76
+
+Ovos 32,35
+
+Leites 24,67
+
+Queijos 26,53
+
+Cereais integrais em grão 13,32",,
+F003,Dormir pouco pode aumentar a fome? Por quê?,"A privação de sono pode aumentar a fome por causa do aumento nos níveis de grelina, um hormônio associado à fome [T1][T2].","[T1] Relação entre sono e obesidade: uma revisão da literatura, p. 5: Efeitos da privação do sono Grelina - secretada pelo Leptina - secretada pelo estômago tecido adiposo Leptina Grelina circulante circulante Hipotálamo SACIEDADE FOME Massa corporal
+
+Figura 2. Efeito da privação de sono no desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal.
+
+[T2] Relação entre sono e obesidade: uma revisão da literatura, p. 6: seus níveis aumentados durante o estado de privação de sono. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Com base nesses dados, observa-se claramente que um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono (5).",,
+F004,Por que os alimentos ultraprocessados atrapalham a sensação de saciedade?,"Alimentos ultraprocessados devem ser evitados devido às suas características nutricionais desfavoráveis e potencial para aumentar o risco de obesidade, mas não há menção específica sobre a sensação de saciedade [T2].","[T2] Guia alimentar para a população brasileira, p. 47: Por todas as razões descritas acima, alimentos ultraprocessados devem ser evitados.",,
+F005,Dietas low carb emagrecem mais do que dietas com pouca gordura?,"Os RCTs avaliaram a perda de peso em curto prazo (menos de um ano) e mostraram que dietas low carb podem ser mais efetivas, mas há divergência nos resultados [T2].","[T2] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 147: Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes. Muitos mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo, em geral, menos de um ano . Também já foi observado aumento do gasto energético total , da adiponectina , da oxidação de gorduras , das concentrações plasmáticas de HDL-colesterol e redução nos níveis de triglicérides e maior redução da circunferência abdominal com dietas restritas em carboidrato. Por outro lado, também já foi verificado um aumento nas concentrações plasmáticas de LDL-colesterol com esse tipo de dieta .",,
+F006,Quanto de proteína tem 100 g de feijão carioca cozido segundo a TACO?,"Os protocolos não fornecem detalhes específicos sobre a quantidade de proteína em 100 g de feijão carioca cozido, mas indicam que o feijão é uma fonte importante de proteínas vegetais [T2].","[T2] Guia alimentar de dietas vegetarianas para adultos, p. 34: A Tabela 20 mostra algumas fontes de zinco na dieta vegetariana:
+
+Tabela 20: Teor de zinco de alimentos vegetais
+
+Alimento | Teor de zinco em mg (em 100 g do alimento)
+
+Cereal matinal de milho | 7,6
+
+Soja (extrato solúvel em pó) | 5,8
+
+Coentro (folhas desidratadas) | 4,7
+
+Castanha de caju torrada, com sal | 4,7
+
+Soja (farinha) | 4,5
+
+Linhaça em semente | 4,4
+
+Castanha do Pará crua | 4,2
+
+Feijão Fradinho cru | 3,9
+
+Lentilha crua | 3,5
+
+Grão de bico cru | 3,2
+
+Feijão carioca cru | 2,9
+
+Feijão preto cru | 2,9
+
+Farinha de centeio integral | 2,7
+
+Aveia em flocos crua | 2,6
+
+Amêndoa torrada e salgada | 2,6
+
+Pães integrais | 0,8 a 1,7
+
+Noz crua | 2,1
+
+Arroz integral cru | 1,4
+
+Ovo de galinha inteiro cru | 1,1
+
+Fonte: Tabela Brasileira de Composição de Alimentos - Taco 3ª edição [106]",,
+F007,Qual é a quantidade de fibra em 100 g de aveia em flocos crua na TACO?,"A fibra solúvel viscosa da aveia forma um gel no intestino delgado e sequestra ácidos biliares, reduzindo o colesterol sérico [T1][T2].","[T1] Guia alimentar de dietas vegetarianas para adultos, p. 24: Uma forma de avaliar a segurança da dieta vegetariana em termos do teor de proteínas dos alimentos vegetais é comparar o valor calórico das proteínas em relação ao valor calórico total do alimento. Por exemplo, 100 gramas de aveia crua contêm 17 gramas de proteína, ou seja, em 395 kcal (100 g de aveia) há 68 kcal de proteína (17 g x 4 kcal). Isso corresponde a 17% do valor calórico total. Assim, se ingerir somente aveia durante o dia inteiro até atingir a recomendação energética, o indivíduo terá ingerido 17% do VCT como proteína, o que o deixa bem acima da necessidade proteica (10% do VCT).
+
+Veja a Tabela 10, que apresenta o cálculo relativo aos diversos grupos alimentares [111]:
+
+Tabela 10: Valor percentual de proteína em diferentes grupos alimentares
+
+Alimento / Grupo alimentar Porcentagem de Proteína correspondente ao VCT (%)
+
+Carnes vermelhas 57,68
+
+Carnes de Frango 48,58
+
+Frios 27,76
+
+Ovos 32,35
+
+Leites 24,67
+
+Queijos 26,53
+
+Cereais integrais em grão 13,32
+
+[T2] Guia alimentar de dietas vegetarianas para adultos, p. 55: Aveia em flocos crua; flocos de milho sem sal; flocos de milho; flocos de milho açucarados; creme de milho em pó; curau de milho verde em pó; farinha de centeio integral; farinha de milho amarela; fubá de milho cru; pão de aveia, forma; pão de soja; pão de milho, forma; pão de trigo integral, forma.",,
+F008,O que se sabe sobre a adesão de pessoas com obesidade ao jejum intermitente?,"Aveia em flocos, psyllium e leguminosas aumentam a viscosidade do quimo, retardando o esvaziamento gástrico e reduzindo a difusão de enzimas alfa-amilase sobre o amido sem elevar o potássio sérico [T1].","[T1] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 165: Nos últimos anos, dietas que propõem restrição intermitente do consumo de calorias (jejum intermitente) vêm sendo apontadas como estratégia para a perda de peso e melhora do perfil metabólico e têm ganhado popularidade e espaço tanto na mídia como entre pacientes. Jejum intermitente (JI) é o termo utilizado para planos que alternam períodos de ingestão livre com períodos (16-24h) de abstinência alimentar ou restrição severa da ingestão de calorias (consumo de 25% das necessidades energéticas normalmente em refeição única realizada em janela alimentar), ou planos que determinam janela alimentar (4-8 h/dia) na qual o consumo calórico é ad libitum , seguido de jejum no restante das horas .",,
+F009,Pessoas vegetarianas estritas precisam suplementar vitamina B12?,"Pessoas vegetarianas estritas precisam suplementar vitamina B12, pois a vitamina não está presente em plantas e pode estar ausente na dieta se não houver alimentos enriquecidos [T1].","[T1] Guia alimentar de dietas vegetarianas para adultos, p. 37: As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Esse é o único nutriente que pode estar ausente na dieta vegetariana estrita.
+
+A vitamina B12 é sintetizada por bactérias. Como não necessitam de B12 para seu crescimento e desenvolvimento, as plantas não a incorporam. As plantas não contêm B12 ativa.",,
+F010,Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?,"A combinação do arroz com feijão é associada a menor ocorrência de obesidade e doenças crônicas não-transmissíveis, conforme indicado nos protocolos clínicos [T3].","[T3] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 19: Arroz e feijão é o prato típico do brasileiro. O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. O feijão é rico em fibras, proteínas e diversas vitaminas e minerais, como ferro. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis.",,
+F011,"Estresse, ansiedade e depressão influenciam a alimentação emocional?","Os sintomas de ansiedade, depressão e estresse podem explicar variações únicas na alimentação emocional, mas a relação pode ser melhor compreendida com futuros estudos que considerem variáveis mediadoras como a regulação emocional [T1][T3].","[T1] Depressão, ansiedade e estresse e o comportamento alimentar, p. 5: Este estudo teve como objetivo investigar as associações e potenciais valores preditivos dos sintomas de ansiedade, depressão e estresse para a alimentação emocional e intuitiva. Embora a relação entre os sintomas emocionais de ansiedade, depressão, estresse e a alimentação emocional terem sido baixas, foram significativas nesta pesquisa, o que mostra-se em consonância com achados anteriores ao constatar que, de fato, estes sintomas podem, em partes, influenciar este tipo específico de comportamento (Goossens et al., 2008; Schneider et al., 2012).
+
+[T3] Depressão, ansiedade e estresse e o comportamento alimentar, p. 6: A partir do presente estudo verificou-se que os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional. Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p. ex. regulação emocional) que, de acordo com estudos pregressos, também apresentam potencial preditivo para o comportamento alimentar em questão.
+
+Esta hipótese é reforçada pela ideia de que o problema da alimentação emocional não é a experiência da emoção em si, mas sim a inabilidade do sujeito para lidar com o desconforto que vivencia. Dessa maneira, sugere-se para futuros estudos a investigação da regulação emocional como mediador da relação entre sintomas emocionais e alimentação emocional.",,
+F012,Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?,O uso de suplementos alimentares foi associado ao consumo de proteína acima do percentual recomendado pela RDA para a maioria dos entrevistados que utilizavam algum tipo de suplementação [T2].,"[T2] Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos, p. 3: a indicação do uso de suplementos foi realizada por um professor de Educação Física, seguida por auto-indicação (31,5%). Os aminoácidos ou concentrados protéicos foram citados como os mais utilizados (48,28%), seguido de suplementos ricos em carboidratos (34,48%) e vitaminas ou complexos vitamínicos (17,24%).
+
+A tabela 4 apresenta a análise descritiva da adequação de macronutrientes, mostrando que a dieta apresentou-se hipoglicídica (89,47%), hiperprotéica (100%) e hiperlipídica (52,63%) para a maioria dos entrevistados que utilizavam algum tipo de suplementação alimentar. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA (p=0,003).
+
+Analisando o conhecimento nutricional dos entrevistados observou-se que mais da metade (51,7%) apresentou conhecimento moderado (figura 1).
+
+Tabela 1 . Distribuição absoluta e percentual de gênero, escolaridade e renda de praticantes de exercícios físicos.",,
+F013,"Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?","Para exercícios que duram mais de uma hora, deve-se repor 30 a 60g de carboidratos por hora na bebida [T2].","[T2] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 5: Devemos ingerir líquidos antes, durante e após o exercício.
+
+Para garantir que o indivíduo inicie o exercício bem hidratado, recomenda-se que ele beba cerca de 250 a 500ml de água duas horas antes do exercício.
+
+Durante o exercício recomenda-se iniciar a ingestão já nos primeiros 15 minutos e continuar bebendo a cada 15 a 20 minutos. O volume a ser ingerido varia conforme as taxas de sudorese, geralmente entre 500 e 2.000ml/hora. Se a atividade durar mais de uma hora, ou se for intensa do tipo intermitente mesmo com menos de uma hora, devemos repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l . A bebida deve estar em temperatura em torno de 15 a 22 C e apresentar um sabor de acordo com a preferência do indivíduo, favorecendo a palatabilidade.",,
+F014,Dormir pouco pode aumentar a fome? Por quê?,Essa hipótese sugere que o corpo pode estar adaptando-se para uma maior ingestão calórica em resposta ao tempo maior de vigília durante a privação de sono [T2].,"[T2] Relação entre sono e obesidade: uma revisão da literatura, p. 6: seus níveis aumentados durante o estado de privação de sono. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Com base nesses dados, observa-se claramente que um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono (5).",,
+F015,Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?,"Este crescimento é observado em países de alta renda e se estende rapidamente para os de renda média, como o Brasil [T3].","[T3] Guia alimentar para a população brasileira, p. 136: alimentos nos países de alta renda e que, naqueles de renda média, como o Brasil, a velocidade de crescimento de suas vendas é muito alta e compatível com um cenário de hegemonia em futuro não muito distante.
+
+martins, a. P. B. et al. Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009). Revista de Saúde Pública , são Paulo, v. 47, p. 656-665, 2013.",,
+F016,O que a diretriz da SBME diz sobre o uso de creatina como suplemento?,"A SBME recomenda que a utilização da creatina como suplemento seja analisada individualmente, caso a caso [T1].","[T1] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 7: a de que em geral não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões. Para os demais desportistas fica estabelecida a recomendação de nunca usar.
+
+Desse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas.",,
+F017,Que tipos de alimento o Guia Alimentar classifica como processados?,"O Guia Alimentar da População Brasileira classifica alimentos processados como aqueles que são facilmente reconhecidos como versões modificadas do alimento original, incluindo técnicas de processamento como cozimento, secagem e acondicionamento em latas ou vidros [T2][T3].","[T2] Guia alimentar para a população brasileira, p. 52: Os três grupos visuais foram representados como tabelas, sem alterar seus rótulos. A imagem integral pode ser consultada no PDF original pelo link da página. Revisão humana pendente. -->
+
+ALIMENTO IN NATURA | ALIMENTO PROCESSADO | ALIMENTO ULTRAPROCESSADO
+
+Abacaxi fresco | Abacaxi em calda | Suco em pó de abacaxi
+
+ALIMENTO IN NATURA | ALIMENTO PROCESSADO | ALIMENTO ULTRAPROCESSADO
+
+Espiga de milho | Milho em conserva | Salgadinho de milho de pacote
+
+ALIMENTO IN NATURA | ALIMENTO PROCESSADO | ALIMENTO ULTRAPROCESSADO
+
+Peixe fresco | Peixe em conserva | Empanado de peixe (nuggets)
+
+[T3] Guia alimentar para a população brasileira, p. 38: alimentos processados são produtos relativamente simples e antigos fabricados essencialmente com a adição de sal ou açúcar (ou outra substância de uso culinário como óleo ou vinagre) a um alimento in natura ou minimamente processado. as técnicas de processamento desses produtos se assemelham a técnicas culinárias, podendo incluir cozimento, secagem, fermentação, acondicionamento dos alimentos em latas ou vidros e uso de métodos de preservação como salga, salmoura, cura e defumação. alimentos processados em geral são facilmente reconhecidos como versões modificadas do alimento original.",,
+F018,"Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?","A ingestão de suplemento de ferro junto com frutas cítricas pode ser adicionada na suplementação de ferro para garantir a absorção adequada, conforme indicado no guia da ABESO [T3].","[T3] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 224: Tabela 5. Recomendações de suplementação para prevenção e para os casos de deficiência pós-cirurgia bariátrica e metabólica
+
+MICRO- NUTRIENTE | EX | AMES | SUPLEMENTAÇÃO DE ROTINA | DEFICIÊNCIA | OBSERVAÇÃO
+
+EXAMES LAGB/SG | QUAL EXAME | QUANDO SOLICITAR | RESTRITIVA RYGB BPD/DS
+
+FERRO Classe de Recomendação | Ferro sérico Ferritina | -> rotina -> rotina | Homens e indivíduos sem histórico de anemia: Multivitamínico contendo 18mg de Fe/dia Mulheres que menstruam: | • Sulfato ferroso, fumarato ou gluconato, para garantir 150 | • Ingestão de suplemento de ferro junto com frutas cítricas
+
+IIa, Nível A | Hemograma | -> rotina | 45-60mg de Fe elementar | –200mg (máximo 300mg) de ferro elementar 2-3x/dia • Suplementação com vit. C pode ser adicionada. • Uso Intravenoso para casos refratários a terapia oral. | • Suplementação de ferro deve ser feita separadamente do cálcio e de alimentos ricos em fitatos e polifenóis",,
+F019,"Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?","O consumo excessivo desses produtos pode aumentar o risco de doenças do coração, cárie dental e obesidade, além de contribuir significativamente para a ingestão calórica total [T2].","[T2] Guia alimentar para a população brasileira, p. 36: PoR quE ólEoS, GoRduRAS, SAl E AçúCAR dEvEm SER uTIlIzAdoS Em PEquEnAs quAnTidAdEs Em PrEPArAçõEs culináriAs?
+
+óleos, gorduras, sal e açúcar são produtos alimentícios com alto teor de nutrientes cujo consumo pode ser prejudicial à saúde: gorduras saturadas (presentes em óleos e gorduras, em particular nessas últimas), sódio (componente básico do sal de cozinha) e açúcar livre (presente no açúcar de mesa). o consumo excessivo de sódio e de gorduras saturadas aumenta o risco de doenças do coração, enquanto o consumo excessivo de açúcar aumenta o risco de cárie dental, de obesidade e de várias outras doenças crônicas.
+
+além disso, óleos, gorduras e açúcar têm elevada quantidade de calorias por grama. óleos e gorduras têm 6 vezes mais calorias por grama do que grãos cozidos e 20 vezes mais do que legumes e verduras após cozimento. o açúcar tem 5 a 10 vezes mais calorias por grama do que a maioria das frutas.",,
+F020,"No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?",A recomendação ligada a esta pergunta é orientar que o usuário coma em ambientes apropriados e com atenção [T1].,"[T1] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 18: ETAPA 6 | O usuário tem costume de fazer as refeições em frente à TV? | RECOMENDAÇÃO 6 Oriente que o ususário coma em ambientes apropriados e com atenção | VALORIZE A PRÁTICA ALIMENTAR
+
+ORIENTAÇÕES ADICIONAIS
+
+Fonte: Elaborado pelos autores.",,
+F021,Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?,"Os estudantes do oitavo período foram os que mais afirmaram ter insônia, possivelmente devido à intensificação das exigências acadêmicas e outras responsabilidades [T3].","[T3] Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares, p. 6: Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares
+
+Salvi CPP, Mendes SS, De Martino MMF.
+
+os seus domínios, podendo prejudicar o rendimento acadêmico, ou seja, quanto melhor a qualidade de sono, melhor a qualidade de vida.
+
+Os estudantes do oitavo período foram os que mais afirmaram ter insônia. Esse fato possivelmente se deve à intensificação das exigências acadêmicas, nas diferentes oportunidades da área de ensino e pesquisa, a necessidade de trabalhar para a própria manutenção, a proximidade da conclusão do curso de graduação e suas responsabilidades e, ainda, a expectativa de vida como formando egresso/profissional. Esse dado também foi demonstrado em um estudo com estudantes de enfermagem italianos, onde foi observado que a alteração do padrão de sono foi frequente, sendo a prevalência de insônia e ocorrendo aumento dessa alteração com o avançar da idade dos estudantes .",,
+F022,Qual é a regra de ouro do Guia Alimentar para a População Brasileira?,A regra de ouro do Guia Alimentar para a População Brasileira é preferir sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados [T1][T2].,"[T1] Guia alimentar para a população brasileira, p. 48: PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS
+
+a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados.
+
+ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas.
+
+[T2] Guia alimentar para a população brasileira, p. 51: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque a “comida feita na hora” (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (“sopas de pacote”, “macarrão instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas) e fique com sobremesas caseiras, dispensando as industrializadas.",,
+F023,"No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?","O mecanismo bioquímico envolve a natriurese renal estimulada pelo potássio, resultando na redução da pressão arterial sistólica e diastólica [T1].","[T1] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 18: ETAPA 6 | O usuário tem costume de fazer as refeições em frente à TV? | RECOMENDAÇÃO 6 Oriente que o ususário coma em ambientes apropriados e com atenção | VALORIZE A PRÁTICA ALIMENTAR
+
+ORIENTAÇÕES ADICIONAIS
+
+Fonte: Elaborado pelos autores.",,
+F024,Kombucha caseira ajuda a emagrecer?,"Os suplementos fitoterápicos para emagrecimento, incluindo kombucha, não têm evidências clínicas de eficácia [T4].","[T4] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 178: Uma das limitações observadas sobre os fitoterápicos é a presença de metais acima dos níveis de segurança. Um estudo avaliou o teor de metais em extratos de plantas prescritas como suplementos para emagrecer, entre elas Camellia sinensis , Cordia ecalyculata e outros. Os metais mais frequentemente detectados foram manganês, alumínio e ferro, com concentração mais elevada na Camellia sinensis .
+
+Até o momento, não há evidências clínicas de que se possa indicar os suplementos aqui descritos para redução peso. Classe de recomendação III, Nível de evidência B.",,
+F025,"Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?","Os óleos, gorduras, sal e açúcar devem ser utilizados com moderação em preparações culinárias para diversificar a alimentação sem comprometer sua qualidade nutricional [T1].","[T1] Guia alimentar para a população brasileira, p. 34: Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias.
+
+desde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente processados, os óleos, as gorduras, o sal e o açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem que fique nutricionalmente desbalanceada.
+
+Óleos, gorduras, sal e açúcar são produtos alimentícios usados para temperar e cozinhar alimentos e para criar preparações culinárias",,
+F026,Misturar pimenta-do-reino com cúrcuma aumenta a absorção da curcumina?,"A combinação de cúrcuma com pimenta-do-reino e fonte lipídica pode aumentar significativamente a absorção da curcumina, reduzindo sua metabolização inicial [T1].","[T1] Guia alimentar de dietas vegetarianas para adultos, p. 29: Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:
+
+Tabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme
+
+Fatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme
+
+Fator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)
+
+Vitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)
+
+Ácidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico
+
+Vitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho
+
+Frutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica
+
+Baixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)",,
+F027,"Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?","A vitamina C aumenta a absorção do ferro não-heme vegetal triplicando-a, conforme indicado na Tabela 15 [T2].","[T2] Guia alimentar de dietas vegetarianas para adultos, p. 29: Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:
+
+Tabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme
+
+Fatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme
+
+Fator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)
+
+Vitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)
+
+Ácidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico
+
+Vitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho
+
+Frutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica
+
+Baixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)",,
+F028,Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?,"Sugere estratégias individuais e coletivas para superar esses obstáculos, incluindo a combinação de alimentos e o consumo consciente em locais como refeitórios institucionais ou trazer comida feita em casa [T3].","[T3] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 8: O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde.",,
+F029,Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?,"Praticantes de musculação tendem a consumir proteínas acima das recomendações, o que pode ser influenciado por modismos e falta de orientação adequada [T1].","[T1] Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos, p. 4: Praticantes de musculação costumam ter alimentação rica em proteína, muitas vezes, acima das recomendações, devido a modismos, falta de informação e/ou orientação adequada. Para Philips não há evidência alguma sugerindo que suplementos protéicos são necessários para a otimização do crescimento muscular ou ganho de força, pois as quantidades recomendadas para os praticantes de exercícios físicos podem ser facilmente obtidas a partir de uma dieta equilibrada.",,
+F030,Quais são os grupos de alimentos da classificação NOVA?,"Os alimentos são classificados em três grupos: in natura ou minimamente processados, ingredientes culinários processados e produtos alimentícios prontos para consumo [T1][T2].","[T1] Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009), p. 2: Uma classificação de itens do consumo alimentar foi elaborada com base na extensão e propósito do processamento de alimentos. Essa classificação agrupa os itens de consumo em três grupos: alimentos in natura ou minimamente processados; ingredientes culinários processados; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados. Os produtos ultraprocessados são essencialmente formulações da indústria, na maioria ou totalmente feitos a partir de ingredientes e contendo pouco ou nenhum alimento integral, enquanto os produtos processados são alimentos integrais preservados em
+
+[T2] Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009), p. 4: Os itens de consumo foram agrupados segundo proposta de classificação mencionada anteriormente e com base na extensão e propósito do processamento industrial dos alimentos. Os itens de consumo foram reunidos em três grupos segundo essa proposta: alimentos in natura ou minimamente processados, incluindo arroz e feijão, carnes, leite e ovos, frutas e hortaliças, raízes e tubérculos, entre outros; ingredientes culinários processados, que são substâncias extraídas de alimentos, incluindo óleos e gorduras, farinhas e açúcar; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados.
+
+Produtos prontos para o consumo processados são fabricados a partir da adição de substâncias como sal, açúcar ou óleo a alimentos integrais. Compreendem as",,
+F031,Dietas low carb emagrecem mais do que dietas com pouca gordura?,"A piperina inibe a enzima UDP-glicuronosiltransferase hepática e intestinal, elevando a biodisponibilidade da curcumina em até 20 vezes [T4].","[T4] Guia alimentar de dietas vegetarianas para adultos, p. 19: A adoção da dieta vegetariana não leva à ingestão excessiva de carboidratos.
+
+Apesar de alguns estudos demonstrarem que os vegetarianos ingerem mais carboidratos do que os onívoros, a quantidade ingerida por vegetarianos não ultrapassa a recomendação de até 65% do VCT [18,19,93-96].
+
+A forma de elaborar a dieta vegetariana permite aumentar ou reduzir a ingestão de carboidratos. Os estudos populacionais demonstram que a dieta vegetariana comumente adotada (sem alterações terapêuticas específicas) costuma contemplar 51% a 62,7% do VCT como carboidrato. Nos mesmos estudos comparativos, os onívoros ingeriam 43,5% a 58% do VCT como carboidrato [18,19,93-96].
+
+Um estudo que avaliou pacientes dislipidêmicos, com alterações no percentual de carboidratos ingeridos, chegou à prescrição da dieta com 26% do VCT para indivíduos ovolactovegetarianos. Essa dieta foi chamada de Eco-Atkins [97].",,
+F032,Qual marca de whey protein um nutricionista pode me indicar publicamente?,"A suplementação com whey protein pode aumentar a liberação de hormônios relacionados à saciedade, como peptídeo semelhante ao glucagon 1 (GLP-1), leptina e colecistoquinina, e reduzir a grelina [T2].","[T2] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 187: Em relação à manutenção de massa magra durante dieta com restrição calórica, a suplementação com whey não demonstra ter efeito clínico significativo . Ao mesmo tempo, observam-se alguns efeitos metabólicos favoráveis da suplementação com proteína do soro do leite, como aumento da liberação de hormônios, incluindo peptídeo semelhante ao glucagon 1 (GLP-1), leptina e colecistoquinina e a redução da grelina, alterações relacionadas à saciedade, o que pode resultar na redução de peso. Em mulheres jovens com obesidade, o consumo diário de 45g de whey protein isolado comparado com 43g de maltodextrina demonstrou redução no apetite, associado a maior estímulo de peptídeos gastrointestinais anorexigênicos (PYY e GLP-1) após 2 horas . Os benefícios biológicos da proteína do soro também podem estar associados aos seus componentes nutricionais, especialmente à cisteína e aos BCAA",,
+F033,"Estresse, ansiedade e depressão influenciam a alimentação emocional?","A relação entre esses sintomas emocionais e a alimentação emocional foi encontrada em uma análise que explicou 4,7% da variação por sintomas ansiosos, 9,2% por depressão e 12% por estresse [T2][T4].","[T2] Depressão, ansiedade e estresse e o comportamento alimentar, p. 1: Na análise de regressão linear simples, constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, 9,2% pelos sintomas de depressão e 4,7% pelos sintomas ansiosos. Verifica-se que os sintomas emocionais citados a cima podem explicar, individualmente, variações únicas na alimentação emocional. Sugere-se que esta relação possa ser melhor compreendida, com novos estudos que considerem outras variáveis mediadoras como, por exemplo, a regulação emocional, visto que esta última vem apresentando potencial preditivo para a alimentação emocional. Palavras-chave: Depressão. Ansiedade. Comportamento Alimentar
+
+[T4] Depressão, ansiedade e estresse e o comportamento alimentar, p. 4: Diante disso, seguiram-se as análises apenas com as variáveis que apresentaram correlações significativas entre si, no caso, escores de ansiedade, estresse e depressão e alimentação emocional. Objetivando-se, portanto, mensurar o valor preditivo de cada subescala separadamente (ansiedade, estresse e depressão) para o total de alimentação emocional, utilizou-se a análise de regressão linear simples, na qual constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, seguida pelos sintomas de depressão, que predizem 9,2% da tendência a alimentar-se motivado pelas emoções e, pelos sintomas ansiosos, que explicam 4,7% deste estilo alimentar específico.",,
+F034,Pessoas vegetarianas estritas precisam suplementar vitamina B12?,"Na dieta vegetariana estrita, deve-se considerar a suplementação de vitamina B12, pois as dietas ovolacto e lactovegetarianas podem oferecer a vitamina necessária [T1].","[T1] Guia alimentar de dietas vegetarianas para adultos, p. 37: As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Esse é o único nutriente que pode estar ausente na dieta vegetariana estrita.
+
+A vitamina B12 é sintetizada por bactérias. Como não necessitam de B12 para seu crescimento e desenvolvimento, as plantas não a incorporam. As plantas não contêm B12 ativa.",,
+F035,Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?,"A combinação de arroz com feijão fornece um perfil completo de aminoácidos essenciais, atingindo o limiar intracelular de leucina e ativando a síntese proteica muscular [T1].","[T1] Guia alimentar para a população brasileira, p. 57: na seleção dos exemplos, para atender ao desejável consumo regular de legumes e verduras (pouco consumidos em todo o Brasil), foram selecionados almoços e jantares em que havia a presença de pelo menos um desses alimentos. do lado oposto, carnes vermelhas (excessivamente consumidas no País) aparecem em apenas um terço dos almoços e jantares selecionados.
+
+as refeições apresentadas não devem ser tomadas como recomendações rígidas ou como cardápios fixos a serem seguidos por todos. mostram apenas combinações de alimentos que, em seu conjunto, atendem às recomendações gerais deste guia descritas no capítulo anterior e que são efetivamente praticadas por um grupo numeroso de homens e mulheres de todas as regiões do País, do meio urbano e do meio rural e de várias classes de renda.",,
+F036,Dietas low carb emagrecem mais do que dietas com pouca gordura?,"Estudos populacionais sugerem que vegetarianos podem ter um IMC menor, mas isso não implica necessariamente em perda de peso ou emagrecimento [T3].","[T3] Guia alimentar de dietas vegetarianas para adultos, p. 11: Estudos populacionais demonstram Índice de Massa Corporal (IMC) menor dos vegetarianos em comparação com onívoros [18- 23].
+
+Isso não significa que a dieta vegetariana traga ajuste de peso e emagrecimento, mas pode indicar uma maior preocupação dessa população com a saúde, que escolheria melhor os alimentos e melhoraria o estilo de vida.
+
+A tendência é pensar que vegetarianos estritos são mais magros que ovolactovegetarianos. Apesar de ser verdade na maioria dos estudos , em alguns casos o vegetariano estrito pode ter IMC maior do que o ovolactovegetariano, pois tudo depende da escolha dietética [19]. Óleos e açúcares podem fazer parte da dieta vegetariana estrita.
+
+A dieta vegetariana pode levar ao emagrecimento, à manutenção do peso e à obesidade. Tudo depende da elaboração da dieta, do estilo de vida e da composição metabólica do indivíduo.",,
+F037,Misturar pimenta-do-reino com cúrcuma aumenta a absorção da curcumina?,"A piperina inibe a UDP-glicuronosiltransferase hepática e intestinal, aumentando a biodisponibilidade da curcumina em até 20 vezes [T1].","[T1] Guia alimentar de dietas vegetarianas para adultos, p. 29: Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:
+
+Tabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme
+
+Fatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme
+
+Fator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)
+
+Vitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)
+
+Ácidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico
+
+Vitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho
+
+Frutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica
+
+Baixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)",,
+F038,Pessoas vegetarianas estritas precisam suplementar vitamina B12?,"A vitamina B12 é sintetizada por bactérias e não encontrada em plantas, sendo necessário suplemento para vegetarianos estritos [T1].","[T1] Guia alimentar de dietas vegetarianas para adultos, p. 37: As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Esse é o único nutriente que pode estar ausente na dieta vegetariana estrita.
+
+A vitamina B12 é sintetizada por bactérias. Como não necessitam de B12 para seu crescimento e desenvolvimento, as plantas não a incorporam. As plantas não contêm B12 ativa.",,
+F039,Qual marca de whey protein um nutricionista pode me indicar publicamente?,"Em mulheres jovens com obesidade, o consumo diário de 45g de whey protein isolado pode resultar em redução do apetite e aumento da liberação de hormônios anorexigênicos como PYY e GLP-1 [T2].","[T2] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 187: Em relação à manutenção de massa magra durante dieta com restrição calórica, a suplementação com whey não demonstra ter efeito clínico significativo . Ao mesmo tempo, observam-se alguns efeitos metabólicos favoráveis da suplementação com proteína do soro do leite, como aumento da liberação de hormônios, incluindo peptídeo semelhante ao glucagon 1 (GLP-1), leptina e colecistoquinina e a redução da grelina, alterações relacionadas à saciedade, o que pode resultar na redução de peso. Em mulheres jovens com obesidade, o consumo diário de 45g de whey protein isolado comparado com 43g de maltodextrina demonstrou redução no apetite, associado a maior estímulo de peptídeos gastrointestinais anorexigênicos (PYY e GLP-1) após 2 horas . Os benefícios biológicos da proteína do soro também podem estar associados aos seus componentes nutricionais, especialmente à cisteína e aos BCAA",,
+F040,Por que os alimentos ultraprocessados atrapalham a sensação de saciedade?,"A elevada quantidade de calorias por grama em alimentos ultraprocessados pode levar à desregulação do balanço energético, influenciando a resposta fisiológica ao consumo de alimentos [T1].","[T1] Guia alimentar para a população brasileira, p. 44: a elevada quantidade de calorias por grama, comum à maioria dos alimentos ultraprocessados, é um dos principais mecanismos que desregulam o balanço de energia e aumentam o risco de obesidade.",,
+F041,"Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?",A ingestão de carboidratos durante exercícios prolongados acima de uma hora pode melhorar o desempenho e retardar a fadiga [T1].,"[T1] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 5: A ingestão de carboidratos durante atividades prolongadas, acima de uma hora, melhora o desempenho e pode retardar a fadiga nas modalidades esportivas que envolvem exercícios intermitentes e de alta intensidade. A ingestão de carboidratos previne a queda da glicemia após duas horas de exercício. Existem estudos indicando que uma bebida com 8% de carboidrato ocasiona maior lentidão na absorção e no esvaziamento gástrico, em comparação com a água e as bebidas que contêm até 6% de carboidrato. Preferencialmente, deve ser utilizada uma mistura de glicose, frutose e sacarose. O uso isolado de frutose pode causar distúrbios gastrintestinais e retardar sua absorção.
+
+A reposição necessária de carboidratos para manter a glicemia e retardar a fadiga é de 30 a 60g por hora, com concentração de 4 a 8g/decilitro. Mesmo com uso combinado de diversos carboidratos, sua ingestão não deve exceder 80g/hora.",,
+F042,Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?,"A maioria dos estudantes de enfermagem apresentou qualidade de sono ruim, conforme estudos comparáveis [T1].","[T1] Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares, p. 5: A maioria dos participantes apresentou qualidade de sono ruim. Esses dados estão de acordo com a literatura, corroborando o estudo realizado com estudantes de enfermagem da Turquia , dos Estados Unidos e também está de acordo com estudos realizados com estudantes universitários em geral e com estudantes de medicina . Em relação à componente eficiência habitual do sono, foi determinado para a maioria dos participantes uma eficiência do sono maior que 85%. Esse resultado foi bem diferente ao estudo na Universidade Federal do Ceará, que classificou o componente na pior faixa para eficiência habitual do sono . Quanto à latência do sono, quase metade dos participantes indicou que demorava, em média, de 31 a 60 minutos para pegar no sono, dado este que difere do estudo realizado na Universidade Federal do Ceará, em que boa parte dos estudantes entrevistados apontou que levava 15 minutos ou menos para adormecer no último mês .",,
+F043,O que a diretriz da SBME diz sobre o uso de creatina como suplemento?,"O uso de creatina para fins ergogênicos não é recomendado em desportistas comuns, mas pode ser justificável em indivíduos específicos após avaliação médica e nutricional [T2].","[T2] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 6: A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas não encontra nenhum suporte na literatura científica. A melhora, ou não, do desempenho em exercícios com predominância aeróbia é pouco documentada.
+
+Embora com resultados ainda controversos, muitos estudos têm sugerido que a creatina teria efeito ergogênico em indivíduos nos quais se constata diminuição de aporte da creatina exógena alimentar, como os vegetarianos e os indivíduos idosos, sendo somente para estes casos específicos, após boa análise do profissional especializado, médico e/ou nutricionista, justificável seu uso, embora, ainda, com fraco grau de recomendação.",,
+F044,Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?,A participação de produtos ultraprocessados na dieta brasileira aumentou significativamente entre 1987 e 2009 [T1][T2].,"[T1] Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009), p. 1: Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)
+
+[T2] Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009), p. 1: DESCRITORES: Consumo de Alimentos. Alimentos Preparados. Fast Foods. Inquéritos sobre Dietas.",,
+F045,Qual é a regra de ouro do Guia Alimentar para a População Brasileira?,"O guia sugere que a base da alimentação deve ser composta por alimentos in natura ou minimamente processados, com compras em locais que ofereçam variedades desses alimentos e limitação do consumo de alimentos ultraprocessados [T1][T4].","[T1] Guia alimentar para a população brasileira, p. 48: PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS
+
+a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados.
+
+ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas.
+
+[T4] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 9: As recomendações do Guia estão resumidas em 10 passos (Quadro 2): Quadro 2 – Dez passos para uma alimentação saudável
+
+DEZ PASSOS PARA UMA ALIMENTAÇÃO ADEQUADA E SAUDÁVEL
+
+FAZER DE ALIMENTOS IN NATURA OU MINIMAMENTE PRICESSADOS A BASE DA ALIMENTAÇÃO
+
+FAZER COMPRAS EM LOCAIS QUE OFERTEM VARIEDADES DE ALIMENTOS IN NATURA OU MINIMAMENTE PRICESSADOS
+
+UTILIZAR ÓLEOS, GORDURAS, SAL E AÇÚCAR EM PEQUENAS QUANTIDAES AO TEMPERAR E COZINHAR ALIMENTOS E CRIAR PREPARACÕES CULINÁRIAS
+
+DESENVOLVER, EXERCITAR E PARTILHAR HABILIDADES CULINÁRIAS
+
+LIMITAR O CONSUMO DE ALIMENTOS PROCESSADOS
+
+PLANEJAR O USO DO TEMPO PARA DAR À ALIMENTAÇÃO O ESPAÇO QUE ELA MERECE
+
+EVITAR O CONSUMO DE ALIMENTOS ULTRAPROCESSADOS
+
+DAR PREFERÊNCIA, QUANDO FORA DE CASA, A LOCAIS QUE SERVEM REFEIÇÕES FEITAS NA HORA
+
+COMER COM REGULARIDADE E ATENÇÃO, EM AMBIENTES APROPRIADOS E, SEMPRE QUE POSSÍVEL, COM COMPANHIA
+
+SER CRÍTICO QUANTO A INFORMACÕES, ORIENTAÇÕES E MENSAGENS SOBRE ALIMENTAÇÃO VEICULADAS EM PROPAGANDAS COMERCIAIS",,
+F046,Qual marca de whey protein um nutricionista pode me indicar publicamente?,"A prescrição de whey protein pode ser recomendada quando há necessidade de suplementar o aporte proteico, mas não há justificativa para sua indicação no tratamento para perda de peso [T1].","[T1] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 188: A prescrição do whey protein pode ser recomendada quando há necessidade de suplementar aporte proteico, porém não há justificativa para sua indicação no tratamento para perda de peso. Classe de recomendação III, Nível de evidência A.",,
+F047,"No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?","O fluxograma prioriza as recomendações do Guia Alimentar para a População Brasileira, partindo da recomendação central de preferir alimentos in natura ou minimamente processados [T1].","[T1] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 18: ETAPA 6 | O usuário tem costume de fazer as refeições em frente à TV? | RECOMENDAÇÃO 6 Oriente que o ususário coma em ambientes apropriados e com atenção | VALORIZE A PRÁTICA ALIMENTAR
+
+ORIENTAÇÕES ADICIONAIS
+
+Fonte: Elaborado pelos autores.",,
+F048,Sou vegana. Quanto de vitamina B12 eu preciso tomar e por quanto tempo?,A vitamina B12 é obtida por cultura de bactérias em laboratório e não há toxicidade com uso excessivo [T4].,"[T4] Guia alimentar de dietas vegetarianas para adultos, p. 38: A vitamina B12 dos suplementos é obtida por cultura de bactérias em laboratório.
+
+Não há toxicidade por uso excessivo de vitamina, seja proveniente de suplementos, seja de alimentos enriquecidos[166].
+
+A recomendação de ingestão de vitamina B12 para seres humanos após os 14 anos de idade (fora do período de gestação ou lactação) é de 2,4 mcg/dia, sendo a necessidade de absorção de 1 mcg/dia[167].
+
+Seu teor nos alimentos pode ser visto na Tabela 23:
+
+Tabela 23: Teor de vitamina B12 nos alimentos
+
+Alimento Teor de B12 em mcg (em 100 g do alimento)
+
+Queijo Suíço 3,34
+
+Queijo mussarela 0,73 a 2,31
+
+Queijo Brie 1,65
+
+Queijo Prato 1,5
+
+Ovo de galinha inteiro cru 1,29
+
+Queijo cheddar 0,83
+
+Ricota 0,29 a 0,34
+
+Leite de vaca semidesnatado 0,46
+
+Iogurte natural semidesnatado 0,46
+
+Leite de vaca integra 0,36
+
+Fonte: Departamento de Agricultura dos EUA – SR23 [105]",,
+F049,Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?,"O azeite de oliva extravirgem e outros alimentos in natura ou minimamente processados contêm compostos bioativos que melhoram a fluidez da membrana celular, sinalização do receptor de insulina e reduzem a resistência vascular periférica [T1].","[T1] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil, p. 11: Adaptado do Guia Alimentar para a População Brasileira (Ministério da Saúde, 2014).",,
+F050,Sou vegana. Quanto de vitamina B12 eu preciso tomar e por quanto tempo?,"Veganas devem ser avaliadas para deficiência de vitamina B12, pois a maioria não possui reservas significativas [T2].","[T2] Guia alimentar de dietas vegetarianas para adultos, p. 39: A vitamina B12 pode ser estocada no fígado durante 3 a 5 anos, mas não é possível prever o tempo que demoramos para exaurir nossa reserva a partir do momento de supressão das fontes dietéticas, pois o consumo metabólico depende de atividade neuronal, ciclo êntero-hepático, metabolismo hepático, glicídico, uso de medicamentos etc.. Mesmo com o consumo recomendado, a maioria não possui reserva significativa de B12.
+
+Sendo assim, seja qual for o tempo de vegetarianismo, todo vegetariano, consuma ou não derivados animais, deve ser avaliado. E como é elevada a prevalência de deficiência nos onívoros, todo indivíduo que come carne também deve ter o nível sanguíneo avaliado.",,
+F051,Meu avô tem doença renal crônica e precisa controlar o potássio. Comer mais banana e feijão ajuda a baixar a pressão dele?,"A ingestão de alimentos ricos em potássio estimula a natriurese renal, que pode levar à hiperpolarização da célula muscular lisa vascular dependente do endotélio [T4].","[T4] Guia alimentar de dietas vegetarianas para adultos, p. 13: Em alguns estudos, os vegetarianos apresentam redução de 5 a 10 mmHg na pressão arterial sistólica e diastólica, sendo que a redução de 4 mmHg leva a redução importante da mortalidade por doença cardiovascular [51]. A adoção da dieta vegetariana reduziu a pressão arterial de indivíduos normotensos e hipertensos [52,53].
+
+Parte da explicação desses achados está relacionada à maior sensibilidade à insulina e ao estado antioxidante melhor, que favorece a redução da aterogenicidade e a preservação do óxido nítrico sintetizado pelo endotélio [43,54].",,
+F052,Quais são as orientações do Guia Alimentar sobre o ato de comer e a comensalidade?,"O Guia Alimentar Populacional Brasileiro de 2014 destaca a importância do ato de comer com regularidade e atenção, em ambientes apropriados, e em companhia [T1].","[T1] Guia alimentar para a população brasileira, p. 92: no capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições. neste capítulo, falaremos do ato de comer e de dimensões deste ato que influenciam, entre outros aspectos, o aproveitamento dos alimentos consumidos e o prazer proporcionado pela alimentação. abordaremos o tempo e a atenção dedicados ao comer, o ambiente onde ele se dá e a partilha de refeições. trataremos da comensalidade.
+
+três orientações básicas são apresentadas: comer com regularidade e com atenção; comer em ambientes apropriados; e comer em companhia.
+
+Como se verá, os benefícios da adoção dessas orientações são vários, incluindo melhor digestão dos alimentos, controle mais eficiente do quanto comemos, maiores oportunidades de convivência com nossos familiares e amigos, maior interação social e, de modo geral, mais prazer com a alimentação.",,
+F053,Quanto de proteína tem 100 g de feijão carioca cozido segundo a TACO?,"De acordo com as informações fornecidas, 100 g de feijão carioca cozido contém aproximadamente 4.78 g de proteína [T4].","[T4] Guia alimentar para a população brasileira, p. 82: Cozido de carne com batata e legumes
+
+Omelete com legumes
+
+Peixe assado
+
+este grupo inclui carnes de gado, porco, cabrito e cordeiro (as chamadas carnes vermelhas), carnes de aves e de pescados e ovos de galinha e de outras aves.
+
+Carnes de vários tipos e ovos são frequentemente consumidos no Brasil como acompanhamento do feijão com arroz ou de outros alimentos de origem vegetal, sendo muito valorizados em face do sabor que agregam à refeição. Possuem também em comum o fato de serem ricos em proteína e em vitaminas e minerais. entretanto, diferenças quanto ao tipo gordura, relação com a saúde, preço e disponibilidade recomendam que carnes vermelhas, de aves, pescados e ovos sejam considerados individualmente nesta seção.",,
+F054,Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?,"Os alimentos ultraprocessados têm um perfil nutricional que pode contribuir para a resistência à insulina e hipertensão, mas seu uso combinado com estratégias de redução de sódio e uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente pode ser seguro [T4].","[T4] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil, p. 11: Adaptado do Guia Alimentar para a População Brasileira (Ministério da Saúde, 2014).",,
+F055,Meu avô tem doença renal crônica e precisa controlar o potássio. Comer mais banana e feijão ajuda a baixar a pressão dele?,"Doença Renal Crônica (DRC) moderada a avançada aumenta o risco de hipercalemia, portanto, deve-se ter cautela com a ingestão de alimentos ricos em potássio [T4].","[T4] Guia alimentar de dietas vegetarianas para adultos, p. 13: Em alguns estudos, os vegetarianos apresentam redução de 5 a 10 mmHg na pressão arterial sistólica e diastólica, sendo que a redução de 4 mmHg leva a redução importante da mortalidade por doença cardiovascular [51]. A adoção da dieta vegetariana reduziu a pressão arterial de indivíduos normotensos e hipertensos [52,53].
+
+Parte da explicação desses achados está relacionada à maior sensibilidade à insulina e ao estado antioxidante melhor, que favorece a redução da aterogenicidade e a preservação do óxido nítrico sintetizado pelo endotélio [43,54].",,
+F056,Qual é a regra de ouro do Guia Alimentar para a População Brasileira?,"Esta recomendação visa facilitar a observação das quatro recomendações gerais do guia, destacando-se o uso de água, leite e frutas em vez de refrigerantes, bebidas lácteas e biscoitos recheados [T1].","[T1] Guia alimentar para a população brasileira, p. 48: PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS
+
+a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados.
+
+ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas.",,
+F057,Quais são os grupos de alimentos da classificação NOVA?,"Alimentos ultraprocessados são essencialmente formulações da indústria, feitos a partir de ingredientes com pouca ou nenhuma presença de alimentos integrais [T1].","[T1] Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009), p. 2: Uma classificação de itens do consumo alimentar foi elaborada com base na extensão e propósito do processamento de alimentos. Essa classificação agrupa os itens de consumo em três grupos: alimentos in natura ou minimamente processados; ingredientes culinários processados; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados. Os produtos ultraprocessados são essencialmente formulações da indústria, na maioria ou totalmente feitos a partir de ingredientes e contendo pouco ou nenhum alimento integral, enquanto os produtos processados são alimentos integrais preservados em",,
+F058,O que se sabe sobre a adesão de pessoas com obesidade ao jejum intermitente?,"Jejum intermitente tem sido proposto como estratégia para perda de peso e melhora do perfil metabólico, ganhando popularidade [T1].","[T1] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 165: Nos últimos anos, dietas que propõem restrição intermitente do consumo de calorias (jejum intermitente) vêm sendo apontadas como estratégia para a perda de peso e melhora do perfil metabólico e têm ganhado popularidade e espaço tanto na mídia como entre pacientes. Jejum intermitente (JI) é o termo utilizado para planos que alternam períodos de ingestão livre com períodos (16-24h) de abstinência alimentar ou restrição severa da ingestão de calorias (consumo de 25% das necessidades energéticas normalmente em refeição única realizada em janela alimentar), ou planos que determinam janela alimentar (4-8 h/dia) na qual o consumo calórico é ad libitum , seguido de jejum no restante das horas .",,
+F059,Dormir pouco pode aumentar a fome? Por quê?,"Os níveis de grelina aumentam durante o estado de privação de sono e podem levar a um aumento na fome, influenciando o controle da ingestão alimentar [T1][T2].","[T1] Relação entre sono e obesidade: uma revisão da literatura, p. 5: Efeitos da privação do sono Grelina - secretada pelo Leptina - secretada pelo estômago tecido adiposo Leptina Grelina circulante circulante Hipotálamo SACIEDADE FOME Massa corporal
+
+Figura 2. Efeito da privação de sono no desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal.
+
+[T2] Relação entre sono e obesidade: uma revisão da literatura, p. 6: seus níveis aumentados durante o estado de privação de sono. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Com base nesses dados, observa-se claramente que um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono (5).",,
+F060,Por que os alimentos ultraprocessados atrapalham a sensação de saciedade?,"A comparação entre alimentos ultraprocessados e processados mostra contrastes menos evidentes com relação ao teor de micronutrientes, o que pode contribuir para a desregulação da sensação de saciedade [T3].","[T3] Impacto de alimentos ultraprocessados sobre o teor de micronutrientes da dieta no Brasil, p. 3: A comparação entre alimentos ultraprocessados e alimentos processados mostra contrastes menos evidentes com relação ao teor de micronutrientes. De modo geral, a comparação tende novamente a desfavorecer",,
