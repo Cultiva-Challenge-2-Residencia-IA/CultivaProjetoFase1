@@ -18,7 +18,15 @@ BENCHMARK_V2_REPORT_PATH = DATA_DIR / "benchmark" / "benchmark_v2_report.json"
 
 # Caminhos do Corpus Curado (Catálogo Oficial manifest.yaml e JSONLs de RAG)
 CORPUS_MANIFEST_PATH = PROJECT_ROOT / "corpus" / "manifest.yaml"
+# Casos do detector de risco (RF-IA03), avaliados junto com o benchmark (issue #9).
+RISCO_CASOS_PATH = PROJECT_ROOT / "eval" / "risco" / "casos.json"
+# "Não sei" (RF-IA01, issue #6): limiar do cosseno do Trecho mais próximo no ChromaDB.
+# Calibrado no dev de eval/abstencao/casos.json em 12/11/2026 (eval/abstencao/README.md).
+ABSTENCAO_LIMIAR_COSSENO = float(os.getenv("ABSTENCAO_LIMIAR_COSSENO", "0.40"))
+ABSTENCAO_CASOS_PATH = PROJECT_ROOT / "eval" / "abstencao" / "casos.json"
+RISCO_HOLDOUT_PATH = PROJECT_ROOT / "eval" / "risco" / "holdout.json"
 CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
+TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / "traceability.sqlite3")))
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
 # "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".
@@ -45,7 +53,13 @@ HNSW_EF_CONSTRUCTION = int(os.getenv("HNSW_EF_CONSTRUCTION", "200"))
 HNSW_EF_SEARCH = int(os.getenv("HNSW_EF_SEARCH", "200"))
 
 # Provedor de LLM ("groq", "ollama" ou "auto")
-LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq").lower()
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama").lower()
+ALLOW_EXTERNAL_LLM = os.getenv("ALLOW_EXTERNAL_LLM", "false").strip().lower() in (
+    "1",
+    "true",
+    "sim",
+    "yes",
+)
 
 # Configurações da API Gratuita Groq (https://console.groq.com)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")

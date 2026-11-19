@@ -1,0 +1,58 @@
+name: Fonte para o corpus
+description: Propor um documento para o corpus de Nutrição. Propor não é aprovar; a inclusão segue o corpus/README.md.
+title: "Fonte: "
+labels: [corpus]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A fonte só entra no índice depois de convertida, revisada e com `approval_status: aprovado` no manifesto (veja "Como incluir outro documento" e "Aprovação" em `corpus/README.md`).
+  - type: input
+    id: titulo
+    attributes:
+      label: Título, instituição e ano
+      placeholder: Guia Alimentar para a População Brasileira, Ministério da Saúde, 2014
+    validations:
+      required: true
+  - type: input
+    id: origem
+    attributes:
+      label: Origem verificável (URL oficial ou DOI)
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de fonte
+      description: O mesmo vocabulário do campo source_type do manifesto.
+      options: [diretriz, norma, metanalise, revisao, estudo]
+    validations:
+      required: true
+  - type: textarea
+    id: lacuna
+    attributes:
+      label: Que lacuna a fonte cobre
+      description: Tema e, se houver, casos do golden set (eval/golden/v2) ou do benchmark que ela ajudaria a responder.
+    validations:
+      required: true
+  - type: textarea
+    id: busca
+    attributes:
+      label: Como a fonte foi encontrada
+      description: Base, termos de busca e data. Se houve busca estruturada, aponte o registro em corpus/nutricao/relatorios/buscas/.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist mínima de aprovação
+      description: A mesma do corpus/README.md. Marque só o que já foi conferido.
+      options:
+        - label: Origem verificável
+        - label: Documento vigente (não revogado nem substituído)
+        - label: Sem conflito de interesse evidente
+        - label: Escopo adequado à aba Nutrição e ao público adulto, sem conteúdo prescritivo individual
+  - type: input
+    id: licenca
+    attributes:
+      label: Licença declarada no documento
+      description: Registre a licença real e a página onde ela aparece, ou "pendente". A licença é registrada, mas não bloqueia a aprovação (aceite de risco de 06/11/2026).
+      placeholder: CC BY-NC-SA 4.0, página 3

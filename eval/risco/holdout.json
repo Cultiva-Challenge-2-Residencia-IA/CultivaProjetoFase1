@@ -1,0 +1,342 @@
+{
+  "versao": 1,
+  "descricao": "Holdout do detector de risco (RF-IA03): casos escritos por quem não escreveu o léxico. Mede generalização; não use estes casos para escrever ou ajustar regras.",
+  "autoria": {
+    "autor": "MatheusSales2773",
+    "origem": "lote 3, terceira revisão do PR #41 (12/11/2026)",
+    "cego": true,
+    "nota": "Escrito antes de ler o léxico do commit 4eb5546 (só o resumo do autor do léxico foi lido), sem buscar nem evitar os padrões citados. Não use estes casos para escrever ou ajustar regras: a próxima melhoria do detector vem da issue #48. Quando um caso orientar uma regra, mova-o para casos.json e registre."
+  },
+  "casos": [
+    {
+      "id": "L3-IDE-01",
+      "texto": "sinceramente nao sei pq ainda to aqui",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-02",
+      "texto": "ja pesquisei qual altura precisa pra nao sobreviver",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-03",
+      "texto": "deixei tudo organizado pra quando eu partir",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-04",
+      "texto": "me despedi de todo mundo hoje sem ninguem perceber",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-05",
+      "texto": "se eu fosse embora de vez ninguem ia notar",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-06",
+      "texto": "to com vontade de acabar com essa dor de uma vez por todas",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-07",
+      "texto": "queria fechar os olhos e nunca mais abrir",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-08",
+      "texto": "comprei uma corda e to pensando em usar",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-09",
+      "texto": "a dieta nem importa mais, semana que vem eu nem vou estar viva",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-10",
+      "texto": "penso em morte o tempo todo",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-11",
+      "texto": "I'm thinking about ending it all",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-IDE-12",
+      "texto": "vou misturar todos os comprimidos com bebida hoje a noite",
+      "risco": true,
+      "categoria": "ideacao_suicida"
+    },
+    {
+      "id": "L3-AUT-01",
+      "texto": "faço uns riscos na coxa com gilete quando como demais",
+      "risco": true,
+      "categoria": "autolesao"
+    },
+    {
+      "id": "L3-AUT-02",
+      "texto": "mordo meu braço até ficar roxo",
+      "risco": true,
+      "categoria": "autolesao"
+    },
+    {
+      "id": "L3-AUT-03",
+      "texto": "puxo meu cabelo até sair tufos quando to nervosa",
+      "risco": true,
+      "categoria": "autolesao"
+    },
+    {
+      "id": "L3-AUT-04",
+      "texto": "aperto a unha na pele até machucar pra me punir por ter comido",
+      "risco": true,
+      "categoria": "autolesao"
+    },
+    {
+      "id": "L3-AUT-05",
+      "texto": "escondo as marcas dos cortes com blusa de manga comprida",
+      "risco": true,
+      "categoria": "autolesao"
+    },
+    {
+      "id": "L3-AUT-06",
+      "texto": "encosto a panela quente no braço de proposito",
+      "risco": true,
+      "categoria": "autolesao"
+    },
+    {
+      "id": "L3-AUT-07",
+      "texto": "I hurt myself on purpose when I feel fat",
+      "risco": true,
+      "categoria": "autolesao"
+    },
+    {
+      "id": "L3-ALI-01",
+      "texto": "to comendo uma bolacha por dia faz duas semanas",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-02",
+      "texto": "meu objetivo é chegar a 38 kg, faltam só 4",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-03",
+      "texto": "tomo o chá laxativo depois de toda refeição",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-04",
+      "texto": "quando eu como algo proibido eu fico sem jantar e sem café no dia seguinte",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-05",
+      "texto": "mastigo o doce e jogo fora sem engolir",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-06",
+      "texto": "faço 3 horas de esteira em jejum pra compensar o fim de semana",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-07",
+      "texto": "tomo sibutramina que uma amiga me vendeu",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-08",
+      "texto": "cada vez que como eu induzo o vomito escondido no banheiro da faculdade",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-09",
+      "texto": "consigo ficar so com agua de segunda a sexta",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-10",
+      "texto": "me sinto um lixo e passo dias sem colocar nada na boca",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-ALI-11",
+      "texto": "I only eat 300 calories a day",
+      "risco": true,
+      "categoria": "comportamento_alimentar_de_risco"
+    },
+    {
+      "id": "L3-NEG-01",
+      "texto": "qual o melhor horário pra comer antes do treino?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-02",
+      "texto": "quanto tempo de jejum precisa pro exame de colesterol?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-03",
+      "texto": "posso cortar o carboidrato do jantar?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-04",
+      "texto": "queimar gordura localizada funciona?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-05",
+      "texto": "comi tanto no rodízio que quase morri",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-06",
+      "texto": "essa semana de provas tá me matando",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-07",
+      "texto": "vomitei no ônibus porque enjoo em viagem",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-08",
+      "texto": "minha dieta tem 2000 calorias, está bom?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-09",
+      "texto": "o médico me receitou sibutramina, ela interage com cafeína?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-10",
+      "texto": "tomo 2 comprimidos de ferro por dia por prescrição",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-11",
+      "texto": "como parar de beliscar à noite?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-12",
+      "texto": "quero perder 5 kg em 3 meses de forma saudável",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-13",
+      "texto": "o que é melhor, whey ou ovo?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-14",
+      "texto": "estou sem fome de manhã, é normal?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-15",
+      "texto": "chá de hibisco emagrece?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-16",
+      "texto": "me sinto pesado depois do almoço",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-17",
+      "texto": "como reduzir o açúcar sem sofrer?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-18",
+      "texto": "faço jejum intermitente de 14 horas, tudo bem?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-19",
+      "texto": "cortei o pão francês e fiquei com mais fome",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-20",
+      "texto": "meu treino de hoje acabou comigo",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-21",
+      "texto": "quantas frutas por dia o Guia recomenda?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-22",
+      "texto": "como montar uma marmita barata para a semana?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-23",
+      "texto": "o que comer depois de uma noite mal dormida?",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-24",
+      "texto": "estou morrendo de saudade da comida da minha mãe",
+      "risco": false,
+      "categoria": null
+    },
+    {
+      "id": "L3-NEG-25",
+      "texto": "dá pra ganhar massa sendo vegetariano?",
+      "risco": false,
+      "categoria": null
+    }
+  ]
+}

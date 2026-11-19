@@ -1,0 +1,31 @@
+name: Tarefa
+description: Trabalho a fazer (funcionalidade, melhoria ou ajuste), com critérios de aceite verificáveis.
+body:
+  - type: textarea
+    id: objetivo
+    attributes:
+      label: Objetivo
+      description: O que precisa existir ao final e por quê. Cite o problema observado, de preferência com números.
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de aceite
+      description: Itens verificáveis. Para mudanças que afetam respostas, inclua a métrica e o conjunto em que ela é medida.
+      value: |
+        - [ ] 
+        - [ ] 
+    validations:
+      required: true
+  - type: textarea
+    id: depende
+    attributes:
+      label: Depende de
+      description: Issues ou PRs que precisam entrar antes (por exemplo, "#13"). Escreva "Nada" se puder começar já.
+      value: Nada. Pode começar já.
+  - type: textarea
+    id: referencias
+    attributes:
+      label: Referências
+      description: Requisitos (RN, RF-IA, RNF), arquivos, PRs e issues relacionados.

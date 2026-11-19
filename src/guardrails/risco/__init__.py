@@ -1,7 +1,16 @@
-"""Guardrail de Risco Clínico e Contraindicações Cruzadas (ex.: Doença Renal Crônica + Potássio / Hipercalemia)."""
+"""Guardrails de risco.
+
+- Sinais de risco à pessoa (RF-IA03): `detectar_risco` e a mensagem fixa `MENSAGEM_ACOLHIMENTO`.
+- Risco clínico de contraindicação cruzada (ex.: doença renal crônica + potássio): `detect_clinical_risk_flags`.
+"""
+
 
 from typing import Set
+from src.guardrails.risco.acolhimento import MENSAGEM_ACOLHIMENTO
+from src.guardrails.risco.detector import AvaliacaoRisco, detectar_risco
 from src.retrieval.hybrid_retriever import normalize_text
+
+__all__ = ["AvaliacaoRisco", "MENSAGEM_ACOLHIMENTO", "detect_clinical_risk_flags", "detectar_risco"]
 
 RENAL_POTASSIUM_TRIGGERS = [
     "doenca renal",
