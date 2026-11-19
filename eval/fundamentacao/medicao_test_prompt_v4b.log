@@ -1,0 +1,31 @@
+V2-REC-03    llm_citacoes_validas              38.9 s removidas=0 corrigidas=0 
+V2-REC-06    llm_citacoes_validas              24.7 s removidas=0 corrigidas=0 
+V2-REC-09    llm_citacoes_validas              31.9 s removidas=0 corrigidas=0 
+V2-REC-12    llm_citacoes_validas              42.8 s removidas=1 corrigidas=0 
+V2-REC-15    extrativa                         45.1 s removidas=0 corrigidas=0 
+V2-REC-18    llm_citacoes_validas              36.9 s removidas=0 corrigidas=0 
+V2-REC-21    llm_citacoes_validas              22.1 s removidas=0 corrigidas=0 
+V2-PRE-03    extrativa                         45.1 s removidas=0 corrigidas=0 
+V2-ADV-03    llm_citacoes_validas              36.7 s removidas=0 corrigidas=1 
+V2-FOR-03    extrativa_apos_citacao_invalida   24.4 s removidas=1 corrigidas=1 nenhum_trecho_citado resumo_sem_frase_com_citacao_literal
+V2-GRA-03    extrativa                         45.1 s removidas=0 corrigidas=0 
+V2-TAC-03    extrativa                         45.1 s removidas=0 corrigidas=0 
+{
+  "split": "test",
+  "modelo": "qwen2.5:7b",
+  "casos": 12,
+  "chegaram_ao_llm": 8,
+  "checadas": 8,
+  "llm_sem_base_vira_nao_sei": 0,
+  "conformidade_citacao_llm": 0.875,
+  "taxa_fallback": 0.125,
+  "problemas_por_tipo": {
+    "nenhum_trecho_citado": 1,
+    "resumo_sem_frase_com_citacao_literal": 1
+  },
+  "frases_removidas": 2,
+  "frases_mantidas": 15,
+  "respostas_com_frase_removida": 2,
+  "rotulos_corrigidos": 2,
+  "segundos_mediana": 38.9
+}
