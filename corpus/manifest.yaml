@@ -339,10 +339,12 @@ sources:
     original_path: corpus/nutricao/originais/abeso_posicionamento_obesidade_2022.pdf
     markdown_path: corpus/nutricao/markdown/abeso_posicionamento_obesidade_2022.md
     report_path: corpus/nutricao/relatorios/abeso_posicionamento_obesidade_2022.json
+    conversion_config: corpus/scripts/config/abeso-posicionamento-tratamento-nutricional-obesidade-2022.yaml
     sha256: 2ae0ecb1a590aba3999442083a63b7e7d7b3804856cc2d07ff215aecd5efdaad
     pdf_pages: 260
     conversion_status: concluida_com_ressalvas
     approval_status: aprovado
+    data_quality_note: "Página 225: continuação da Tabela 5 (suplementação pós-cirurgia bariátrica: cálcio, vitaminas A e K, zinco, cobre) extraída com as colunas misturadas, perdendo a associação entre dose, tipo de cirurgia e deficiência (issue #26). Excluída dos Trechos (skip_pages em scripts/config/rag.yaml). Página 224 parcialmente embaralhada, mantida. Consultar as doses no PDF original."
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     scope_note: Documento destinado a profissionais de saúde, com condutas dietéticas e prescrição nutricional. Preservar o conteúdo não autoriza o aplicativo a prescrever dietas ou metas calóricas (RN01).
   - id: sbme-modificacoes-dieteticas-suplementos-rbme-2009
