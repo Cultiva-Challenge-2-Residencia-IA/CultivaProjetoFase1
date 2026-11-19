@@ -1,0 +1,211 @@
+# Configuração de conversão da ABESO (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: 2ae0ecb1a590aba3999442083a63b7e7d7b3804856cc2d07ff215aecd5efdaad
+sparse_page_decisions:
+  2: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  18: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  19: 'Folha de rosto de capítulo (''CAPÍTULO 1 INFLAMAÇÃO NA OBESIDADE 19''): texto nativo igual ou melhor
+    que o OCR; OCR desligado.'
+  29: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  30: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  31: 'Folha de rosto de capítulo (''CAPÍTULO 2 GENÔMICA NUTRICIONAL E OBESIDADE 31''): texto nativo igual
+    ou melhor que o OCR; OCR desligado.'
+  42: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  43: 'Folha de rosto de capítulo (''CAPÍTULO 3 MICROBIOTA INTESTINAL E OBESIDADE 43''): texto nativo
+    igual ou melhor que o OCR; OCR desligado.'
+  53: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  54: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  55: 'Folha de rosto de capítulo (''CAPÍTULO 4 FATORES QUE INFLUENCIAM O CONSUMO ALIMENTAR 55''): texto
+    nativo igual ou melhor que o OCR; OCR desligado.'
+  65: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  66: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  67: 'Folha de rosto de capítulo (''CAPÍTULO 5 TRATAMENTO NUTRICIONAL 67''): texto nativo igual ou melhor
+    que o OCR; OCR desligado.'
+  171: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  172: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  173: 'Folha de rosto de capítulo (''CAPÍTULO 6 SUPLEMENTOS ALIMENTARES 173''): texto nativo igual ou
+    melhor que o OCR; OCR desligado.'
+  201: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  202: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  203: 'Folha de rosto de capítulo (''CAPÍTULO 7 COMPORTAMENTO 203''): texto nativo igual ou melhor que
+    o OCR; OCR desligado.'
+  216: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  217: 'Folha de rosto de capítulo (''CAPÍTULO 8 PROCEDIMENTOS BARIÁTRICOS 217''): texto nativo igual
+    ou melhor que o OCR; OCR desligado.'
+  231: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  232: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  233: 'Folha de rosto de capítulo (''CAPÍTULO 9 REGANHO DE PESO 233''): texto nativo igual ou melhor
+    que o OCR; OCR desligado.'
+  238: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  239: 'Folha de rosto de capítulo (''CAPÍTULO 10 OBESIDADE NA INFÂNCIA E ADOLESCÊNCIA 239''): texto nativo
+    igual ou melhor que o OCR; OCR desligado.'
+  250: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  251: 'Folha de rosto de capítulo (''CAPÍTULO 11 TELENUTRIÇÃO E USO DE SITES E SMARTPHONES 251''): texto
+    nativo igual ou melhor que o OCR; OCR desligado.'
+  258: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  259: 'Página em branco (separador de capítulo): sem texto nativo nem OCR; OCR desligado.'
+  260: Contracapa com logotipo da ABESO; texto nativo vazio e OCR só com caracteres espúrios; OCR desligado.
+page_notes:
+  5: 'Índice extraído como tabela, com palavras partidas entre colunas (ex.: ''Aprese|ntação''); conferir
+    no PDF. Sem Trechos (sumário descartado na preparação).'
+  6: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  9: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  10: 'Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro) numa
+    palavra hifenizada (ex.: ''produpadrão''); todos os números decimais do PDF estão no Markdown (conferência
+    da issue #26, 19/11/2026).'
+  12: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  14: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  20: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  21: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  22: 'Alerta lexical por tokenização: ''TAK126,27'' é a proteína TAK1 seguida das citações 26 e 27, não
+    um número; demais tokens são palavras coladas a citações. Todos os números decimais do PDF estão no
+    Markdown (conferência da issue #26, 19/11/2026), exceto esse falso ''126,27''.'
+  44: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  45: 'Alerta lexical por tokenização: ''IL-635,36'' é IL-6 seguida das citações 35 e 36, não um número;
+    demais tokens são palavras coladas a citações. Todos os números decimais do PDF estão no Markdown
+    (conferência da issue #26, 19/11/2026), exceto esse falso ''635,36''.'
+  46: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  47: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  56: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  57: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  68: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  69: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  72: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  75: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  80: 'Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro) numa
+    palavra hifenizada (ex.: ''concapítulo''); todos os números decimais do PDF estão no Markdown (conferência
+    da issue #26, 19/11/2026).'
+  81: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  86: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  94: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  95: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  96: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o
+    hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  100: 'Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro)
+    numa palavra hifenizada (ex.: ''alimencapítulo''); todos os números decimais do PDF estão no Markdown
+    (conferência da issue #26, 19/11/2026).'
+  102: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  103: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  106: 'Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro)
+    numa palavra hifenizada (ex.: ''metacapítulo''); todos os números decimais do PDF estão no Markdown
+    (conferência da issue #26, 19/11/2026).'
+  107: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  111: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  112: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  113: 'Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro)
+    numa palavra hifenizada (ex.: ''conduedulcorante''); todos os números decimais do PDF estão no Markdown
+    (conferência da issue #26, 19/11/2026).'
+  114: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  115: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  119: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  125: 'Alerta lexical por tokenização: palavras coladas a citações (ex.: ''m24''); todos os números decimais
+    do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  128: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  130: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  136: 'Tabela 1 (formas de alimentação vegetariana) legível; o cabeçalho ''CARACTERÍSTICA'' saiu partido
+    entre duas células (''CARACT'' / ''ERÍSTICA''), e a camada nativa intercala o cabeçalho na palavra
+    hifenizada ''térmi-co''. Todos os números decimais do PDF estão no Markdown (conferência da issue
+    #26, 19/11/2026).'
+  147: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  151: 'Alerta lexical por tokenização: ''4:14,5'' é a proporção 4:1 seguida das citações 4 e 5; demais
+    tokens são palavras coladas a citações. Todos os números decimais do PDF estão no Markdown (conferência
+    da issue #26, 19/11/2026), exceto esse falso ''14,5''.'
+  152: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  153: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  154: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  155: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  160: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  174: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  175: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  176: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  183: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  184: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  187: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  189: 'Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro)
+    numa palavra hifenizada (ex.: ''memcapítulo''); todos os números decimais do PDF estão no Markdown
+    (conferência da issue #26, 19/11/2026).'
+  190: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  195: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  196: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  205: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  211: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  212: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  218: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  219: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  220: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  223: 'Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): texto
+    fiel, incluindo percentuais de deficiências pós-cirurgia; falso alerta por sobrescritos colados a
+    números.'
+  225: 'DEFEITO: continuação da Tabela 5 (cálcio, vitaminas A e K, zinco, cobre) extraída com as colunas
+    misturadas linha a linha; os números estão presentes, mas a associação entre dose, tipo de cirurgia
+    (restritiva, RYGB, BPD/DS) e deficiência se perde. Página fora dos Trechos (skip_pages em rag.yaml,
+    issue #26); consultar a tabela no PDF original.'
+  227: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  234: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  235: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  240: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  241: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  243: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+  251: 'Folha de rosto do capítulo 11: o texto nativo saía com ''CAPÍTULO 11'' como título e o nome em
+    linha separada, o que deixava os Trechos do capítulo com a seção ''CAPÍTULO 11''; replacement junta
+    número e nome numa linha, como nas demais folhas de rosto.'
+replacements:
+- page: 251
+  old: "### CAPÍTULO 11 \n\nTELENUTRIÇÃO E USO DE SITES E SMARTPHONES "
+  new: 'CAPÍTULO 11 TELENUTRIÇÃO E USO DE SITES E SMARTPHONES '

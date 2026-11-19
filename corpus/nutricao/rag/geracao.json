@@ -3,11 +3,11 @@
   "fontes": {
     "abeso-posicionamento-tratamento-nutricional-obesidade-2022": {
       "jsonl_path": "corpus/nutricao/rag/abeso_posicionamento_obesidade_2022.jsonl",
-      "jsonl_sha256": "8be8930f796086ea34f7a85d444d8454adb7621edbd6e4f5b0443653d3a6fda6",
-      "markdown_sha256": "e6c6e50101284996d0971d6dd1d1cd627c65dd348d0730acaa464f490219cc37",
+      "jsonl_sha256": "3dcafb5518ab69c1efb20bbda9a44493873c25f95eb4924274f875dd98157613",
+      "markdown_sha256": "08a48d22a955314f15ca05bf9b06c002cb0854ef809dc7f52b7d7b06832490b9",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
-      "rag_config_sha256": "f46e0160860668df3f01863bc8ad546c21b98eee7b09938340208081a0911201",
-      "trechos": 500
+      "rag_config_sha256": "df0f1b866749c94ea567f30d304f99a211a7e21aeac1f33b61a378a134b0c49b",
+      "trechos": 497
     },
     "azevedo-jejum-intermitente-ramb-2013": {
       "jsonl_path": "corpus/nutricao/rag/azevedo_et_al_jejum_intermitente_ramb_2013.jsonl",

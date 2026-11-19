@@ -152,6 +152,11 @@ Decisões de 06/11/2026.
 - **Critério mínimo.** Checklist curta (origem verificável, documento vigente, sem conflito de interesse evidente e escopo adequado) e conferência de uma amostra de páginas contra o PDF, incluindo as de tabela.
 - **Páginas inconfiáveis.** As que a revisão apontar como inconfiáveis saem dos Trechos com `skip_pages` em `scripts/config/rag.yaml`, e a ressalva vai em `data_quality_note` no manifesto.
 - **Regeneração.** O `convert_pdfs.py` recusa fonte aprovada. Para regenerar uma, volte o `approval_status` para `pendente` e reaprove depois.
+- **Configuração da ABESO (issue #26, 19/11/2026).**
+  - **Notas:** `page_notes` nas 71 páginas com aviso: alertas de tokenização (palavras coladas a citações, palavras de cabeçalho intercaladas em palavras hifenizadas), com todos os números decimais do PDF presentes no Markdown.
+  - **OCR:** `sparse_page_decisions` nas 32 páginas que passavam por OCR (separadores em branco, folhas de rosto e contracapa), que agora usam o texto nativo. O título da seção de 37 Trechos ficou melhor ("CAPÍTULO 3 MICROBIOTA…", acentos do capítulo 10), e um `replacement` na página 251 junta número e nome do capítulo 11.
+  - **Página 225 fora dos Trechos:** a continuação da Tabela 5, com as doses pós-bariátrica, saía com as colunas misturadas, e a página foi para `skip_pages`, com `data_quality_note` no manifesto.
+  - **Benchmarks:** v1, v2, risco e abstenção sem mudança.
 - **Registro.** A revisão fica em `nutricao/relatorios/` (por exemplo, `revisao-issue-8.md`). O `verify_corpus.py` não aprova nada: só confere que os Trechos copiam o status atual do manifesto.
 
 ## Organização
