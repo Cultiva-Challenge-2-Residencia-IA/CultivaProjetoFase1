@@ -144,6 +144,8 @@ A Tabela 3 mostra a associação observada entre variáveis sociodemográfi cas 
 
 [Conferir no original](../originais/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.pdf#page=4)
 
+> **Nota de conversão — página 4:** Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): Tabela 1 confere célula a célula; alerta por tokenização de números.
+
 > **Nota de conversão — página 4:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **60**
@@ -194,6 +196,8 @@ A associação positiva entre idade e consumo de frutas e hortaliças pode ser i
 ## Página PDF 5
 
 [Conferir no original](../originais/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.pdf#page=5)
+
+> **Nota de conversão — página 5:** Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: 'adequadoc', 'regularb', 'monteiro5'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 5:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 

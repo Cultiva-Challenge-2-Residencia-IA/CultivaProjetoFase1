@@ -4,7 +4,7 @@
   "pdf_pages": 8,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": null,
+  "config_sha256": "6df5e5cb97a8ca24d9dc2a157677c481e128059fa068a3cbe26f13084e3e5822",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -73,6 +73,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): Tabela 1 confere célula a célula; alerta por tokenização de números.",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -163,6 +164,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.: 'adequadoc', 'regularb', 'monteiro5'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -272,7 +274,7 @@
       "markdown_characters": 4667
     }
   ],
-  "markdown_sha256": "37e7ee135f76e5d29aac76663f35a456a0499c4fd30a3dc8dd4cb56d249a2d3b",
+  "markdown_sha256": "88624e545fa81f664eb8b5c953c801cd848c65d21263d3242fdccd1f91afba2c",
   "summary": {
     "pages_converted": 8,
     "sparse_pages": [],

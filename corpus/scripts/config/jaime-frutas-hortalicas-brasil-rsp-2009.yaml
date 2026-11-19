@@ -1,0 +1,9 @@
+# Configuração de conversão de jaime-frutas-hortalicas-brasil-rsp-2009 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: 66b6884d3b6d1ebc651a8c0dd67e2f1afc01cfac708cc7388f3e0f8c2b1dc376
+page_notes:
+  4: 'Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): Tabela
+    1 confere célula a célula; alerta por tokenização de números.'
+  5: 'Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.:
+    ''adequadoc'', ''regularb'', ''monteiro5''); todos os números decimais do PDF estão no Markdown (conferência
+    da issue #26, 19/11/2026).'

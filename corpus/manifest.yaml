@@ -77,6 +77,7 @@ sources:
     original_path: corpus/nutricao/originais/martins_et_al_ultraprocessados_rsp_2013.pdf
     markdown_path: corpus/nutricao/markdown/martins_et_al_ultraprocessados_rsp_2013.md
     report_path: corpus/nutricao/relatorios/martins_et_al_ultraprocessados_rsp_2013.json
+    conversion_config: corpus/scripts/config/martins-ultraprocessados-rsp-2013.yaml
     sha256: e606387251889e4e9364b436689a85838b346b01ce87fe6dba52df474a398c49
     pdf_pages: 10
     selection_note: Artigo da família NOVA com Monteiro como último autor; descreve os grupos por extensão e propósito do processamento e a tendência de ultraprocessados no Brasil. Não é o artigo original da classificação (Monteiro et al., 2010, Cadernos de Saúde Pública).
@@ -108,6 +109,7 @@ sources:
     original_path: corpus/nutricao/originais/souza_backes_universitarios_csc_2020.pdf
     markdown_path: corpus/nutricao/markdown/souza_backes_universitarios_csc_2020.md
     report_path: corpus/nutricao/relatorios/souza_backes_universitarios_csc_2020.json
+    conversion_config: corpus/scripts/config/souza-backes-universitarios-csc-2020.yaml
     sha256: 3c31861b720181790a0fb052c5ceb9036a02fa2ea5cf3ef826b54a599b4596a2
     pdf_pages: 10
     selection_note: Estudo com universitários (Porto Alegre) sobre autopercepção alimentar e adesão aos Dez Passos do Guia Alimentar. Substitui a revisão Perez et al. 2021, que não foi localizada no Crossref nem no índice da edição.
@@ -212,6 +214,7 @@ sources:
     original_path: corpus/nutricao/originais/azevedo_et_al_jejum_intermitente_ramb_2013.pdf
     markdown_path: corpus/nutricao/markdown/azevedo_et_al_jejum_intermitente_ramb_2013.md
     report_path: corpus/nutricao/relatorios/azevedo_et_al_jejum_intermitente_ramb_2013.json
+    conversion_config: corpus/scripts/config/azevedo-jejum-intermitente-ramb-2013.yaml
     sha256: ca1c6d6d00dd20b8e3e22c767a287e9e7d6d843e8525b9805342dd0c28eb3ccd
     pdf_pages: 7
     conversion_status: concluida_com_ressalvas
@@ -244,6 +247,7 @@ sources:
     original_path: corpus/nutricao/originais/salvi_et_al_estudantes_enfermagem_sono_reben_2020.pdf
     markdown_path: corpus/nutricao/markdown/salvi_et_al_estudantes_enfermagem_sono_reben_2020.md
     report_path: corpus/nutricao/relatorios/salvi_et_al_estudantes_enfermagem_sono_reben_2020.json
+    conversion_config: corpus/scripts/config/salvi-estudantes-enfermagem-sono-reben-2020.yaml
     sha256: a61141b82a239756c27be9708139d3cc4389d0b3aa0ad1b0fa5765e16087b401
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
@@ -273,6 +277,7 @@ sources:
     original_path: corpus/nutricao/originais/sban_agua_hidratacao_saude.pdf
     markdown_path: corpus/nutricao/markdown/sban_agua_hidratacao_saude.md
     report_path: corpus/nutricao/relatorios/sban_agua_hidratacao_saude.json
+    conversion_config: corpus/scripts/config/sban-agua-hidratacao-saude-2016.yaml
     sha256: 788f285836b6e16d69449e8ee2059cfc9a1f29f2893421cbc7a2bc58ca64546f
     pdf_pages: 16
     conversion_status: concluida_com_ressalvas
@@ -304,6 +309,7 @@ sources:
     original_path: corpus/nutricao/originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf
     markdown_path: corpus/nutricao/markdown/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.md
     report_path: corpus/nutricao/relatorios/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.json
+    conversion_config: corpus/scripts/config/brisotto-depressao-ansiedade-estresse-rbtc-2022.yaml
     sha256: 184cf18f38d55369f40eb6960191b750f6a02a0e2b61adc5fe007363796c81e6
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
@@ -364,6 +370,7 @@ sources:
     original_path: corpus/nutricao/originais/sbme_modificacoes_dieteticas_suplementos_rbme_2009.pdf
     markdown_path: corpus/nutricao/markdown/sbme_modificacoes_dieteticas_suplementos_rbme_2009.md
     report_path: corpus/nutricao/relatorios/sbme_modificacoes_dieteticas_suplementos_rbme_2009.json
+    conversion_config: corpus/scripts/config/sbme-modificacoes-dieteticas-suplementos-rbme-2009.yaml
     sha256: 62c7e8d81f47c013e2d5a2ccbd7585a809d83e3fc41a6ad537f36e609dff40c9
     pdf_pages: 10
     conversion_status: concluida_com_ressalvas
@@ -396,6 +403,7 @@ sources:
     original_path: corpus/nutricao/originais/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.pdf
     markdown_path: corpus/nutricao/markdown/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.md
     report_path: corpus/nutricao/relatorios/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.json
+    conversion_config: corpus/scripts/config/franca-psicologia-nutricao-comportamento-alimentar-epsic-2012.yaml
     sha256: 81b1b1c273af68bf9522c24e6a2968942174c391c0b88bb4050f8e4b0a99b5d7
     pdf_pages: 9
     conversion_status: concluida_com_ressalvas
@@ -430,6 +438,7 @@ sources:
     original_path: corpus/nutricao/originais/santos_et_al_barreiras_frutas_verduras_csc_2019.pdf
     markdown_path: corpus/nutricao/markdown/santos_et_al_barreiras_frutas_verduras_csc_2019.md
     report_path: corpus/nutricao/relatorios/santos_et_al_barreiras_frutas_verduras_csc_2019.json
+    conversion_config: corpus/scripts/config/santos-barreiras-frutas-verduras-csc-2019.yaml
     sha256: 4eaea7e2ed37a8d6e78fe0c6d1ce5842ff3b5e290d229f11944a69eff101b7e5
     pdf_pages: 10
     conversion_status: concluida_com_ressalvas
@@ -463,6 +472,7 @@ sources:
     original_path: corpus/nutricao/originais/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.pdf
     markdown_path: corpus/nutricao/markdown/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.md
     report_path: corpus/nutricao/relatorios/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.json
+    conversion_config: corpus/scripts/config/jaime-frutas-hortalicas-brasil-rsp-2009.yaml
     sha256: 66b6884d3b6d1ebc651a8c0dd67e2f1afc01cfac708cc7388f3e0f8c2b1dc376
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
@@ -497,6 +507,7 @@ sources:
     original_path: corpus/nutricao/originais/monteiro_et_al_nova_classificacao_alimentos_csp_2010.pdf
     markdown_path: corpus/nutricao/markdown/monteiro_et_al_nova_classificacao_alimentos_csp_2010.md
     report_path: corpus/nutricao/relatorios/monteiro_et_al_nova_classificacao_alimentos_csp_2010.json
+    conversion_config: corpus/scripts/config/monteiro-nova-classificacao-alimentos-csp-2010.yaml
     sha256: f468c52386c34f8b6cac0db15748c45cb07e84bd5885a6372353b55fa007c1f5
     pdf_pages: 11
     conversion_status: concluida_com_ressalvas
@@ -534,6 +545,7 @@ sources:
     original_path: corpus/nutricao/originais/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.pdf
     markdown_path: corpus/nutricao/markdown/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.md
     report_path: corpus/nutricao/relatorios/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.json
+    conversion_config: corpus/scripts/config/louzada-ultraprocessados-perfil-nutricional-rsp-2015.yaml
     sha256: 9c08e961e93a5f98b5bd53584f2cd7f6c93761b8fbf8f7030245f3e1efdbc733
     pdf_pages: 11
     conversion_status: concluida_com_ressalvas
@@ -571,6 +583,7 @@ sources:
     original_path: corpus/nutricao/originais/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.pdf
     markdown_path: corpus/nutricao/markdown/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.md
     report_path: corpus/nutricao/relatorios/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.json
+    conversion_config: corpus/scripts/config/louzada-ultraprocessados-micronutrientes-rsp-2015.yaml
     sha256: 95d0a7cc7c42765caa81713b93430f1b95a37578e215ffba3f73787718f5fe9e
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
@@ -600,6 +613,7 @@ sources:
     original_path: corpus/nutricao/originais/rossetti_universitarios_consumo_alimentar_san_2015.pdf
     markdown_path: corpus/nutricao/markdown/rossetti_universitarios_consumo_alimentar_san_2015.md
     report_path: corpus/nutricao/relatorios/rossetti_universitarios_consumo_alimentar_san_2015.json
+    conversion_config: corpus/scripts/config/rossetti-universitarios-consumo-alimentar-san-2015.yaml
     sha256: d3c60423aa7159c5b4784b3d112064536b5c7d039673bc3867827bce71225638
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas
@@ -625,6 +639,7 @@ sources:
     original_path: corpus/nutricao/originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf
     markdown_path: corpus/nutricao/markdown/cfn_codigo_etica_conduta_nutricionista_res599_2018.md
     report_path: corpus/nutricao/relatorios/cfn_codigo_etica_conduta_nutricionista_res599_2018.json
+    conversion_config: corpus/scripts/config/cfn-codigo-etica-conduta-nutricionista-2018.yaml
     sha256: d1b0f88f41cb181b4ec8778408c5fcbc59f5b819e346a554ca99225a557aab70
     pdf_pages: 19
     conversion_status: concluida_com_ressalvas
@@ -668,6 +683,7 @@ sources:
     original_path: corpus/nutricao/originais/crispim_et_al_sono_obesidade_abem_2007.pdf
     markdown_path: corpus/nutricao/markdown/crispim_et_al_sono_obesidade_abem_2007.md
     report_path: corpus/nutricao/relatorios/crispim_et_al_sono_obesidade_abem_2007.json
+    conversion_config: corpus/scripts/config/crispim-sono-obesidade-abem-2007.yaml
     sha256: 6e22a611b963ed42af2e52e36dfceb4f6a947c3bfd8c705f0a6162c533d2239a
     pdf_pages: 9
     conversion_status: concluida_com_ressalvas
@@ -703,6 +719,7 @@ sources:
     original_path: corpus/nutricao/originais/fusco_et_al_ansiedade_sono_compulsao_reeusp_2020.pdf
     markdown_path: corpus/nutricao/markdown/fusco_et_al_ansiedade_sono_compulsao_reeusp_2020.md
     report_path: corpus/nutricao/relatorios/fusco_et_al_ansiedade_sono_compulsao_reeusp_2020.json
+    conversion_config: corpus/scripts/config/fusco-ansiedade-sono-compulsao-reeusp-2020.yaml
     sha256: 58d3ad221f8672394df831f051a03f694e38d7bd627bdb9c1c212084e202a60e
     pdf_pages: 8
     conversion_status: concluida_com_ressalvas

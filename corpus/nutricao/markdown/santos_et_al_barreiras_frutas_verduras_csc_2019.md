@@ -179,6 +179,8 @@ Quanto às outras barreiras mencionadas pelos entrevistados, observou-se que 16 
 
 [Conferir no original](../originais/santos_et_al_barreiras_frutas_verduras_csc_2019.pdf#page=5)
 
+> **Nota de conversão — página 5:** Tabela girada extraída embaralhada: 9 números decimais do PDF não aparecem no Markdown. Página fora dos Trechos (skip_pages em rag.yaml, data_quality_note no manifesto); consultar o PDF original.
+
 > **Nota de conversão — página 5:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 2465
@@ -203,6 +205,8 @@ Quanto às outras barreiras mencionadas pelos entrevistados, observou-se que 16 
 ## Página PDF 6
 
 [Conferir no original](../originais/santos_et_al_barreiras_frutas_verduras_csc_2019.pdf#page=6)
+
+> **Nota de conversão — página 6:** Página fora dos Trechos (skip_pages em rag.yaml) junto com a 5; alerta lexical por tabela e quebra de colunas; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
