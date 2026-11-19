@@ -93,14 +93,24 @@ def test_resposta_do_llm_sem_citacao_e_bloqueada_e_cai_na_extrativa():
 
 
 def test_resposta_do_llm_citando_trecho_inexistente_e_bloqueada():
+    # Citação que não existe em nenhuma fonte entregue: a frase sai, o resumo fica vazio e cai na extrativa.
+    resposta = {"evidence_summary": [{"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": [9],
+                                      "citacao": "texto que não está em nenhum dos trechos entregues"}],
+                "physiological_mechanism": [], "protocol_findings": []}
+    cliente = _cliente_com_llm(resposta)
+    sintese, modelo = cliente.generate_structured_synthesis("ultraprocessados", _trechos())
+    assert modelo == "local_extractive_synthesis"
+    assert cliente.ultimas_frases_removidas[0]["motivo"] == "citacao_literal_ausente_na_fonte"
+
+
+def test_trecho_inexistente_com_citacao_verdadeira_tem_o_rotulo_corrigido():
     resposta = {"evidence_summary": [{"frase": "O Guia recomenda evitar ultraprocessados.", "trechos": [9],
                                       "citacao": "O Guia recomenda evitar alimentos ultraprocessados"}],
                 "physiological_mechanism": [], "protocol_findings": []}
     cliente = _cliente_com_llm(resposta)
     sintese, modelo = cliente.generate_structured_synthesis("ultraprocessados", _trechos())
-    assert modelo == "local_extractive_synthesis"
-    # O T9 não existe: não há fonte onde a citação possa estar, e a frase é removida.
-    assert cliente.ultimas_frases_removidas[0]["motivo"] == "citacao_literal_ausente_na_fonte"
+    assert modelo.startswith("ollama:") and "ultraprocessados [T1]." in sintese["evidence_summary"]
+    assert sintese["_fundamentacao"]["rotulos_corrigidos"] == 1
 
 
 def test_resposta_do_llm_citada_passa():
@@ -220,3 +230,18 @@ def test_citacao_de_outra_fonte_nao_vale():
         {"evidence_summary": [{"frase": "x y z w.", "trechos": [2], "citacao": "O Guia recomenda evitar alimentos"}]},
         {"T1": "O Guia recomenda evitar alimentos ultraprocessados.", "T2": "A fibra solúvel forma gel."})
     assert len(removidas) == 1  # a citação está no T1, mas a frase cita o T2
+
+
+def test_citacao_verdadeira_com_rotulo_errado_fica_com_o_rotulo_corrigido():
+    from src.rag.verificador.citacoes import filtrar_citacoes_literais
+    textos = {"T1": "A fibra solúvel forma gel.", "TACO": "Feijão, carioca, cozido: Proteína (g): 4.78"}
+    r, ajustes = filtrar_citacoes_literais(
+        {"evidence_summary": [{"frase": "O feijão tem 4,78 g de proteína.", "trechos": [4],
+                               "citacao": "Feijão, carioca, cozido: Proteína (g): 4.78"}]}, textos)
+    assert r["evidence_summary"][0]["trechos"] == ["TACO"]
+    assert ajustes[0]["motivo"] == "rotulo_corrigido"
+
+
+def test_numero_colado_a_unidade_conta_como_igual():
+    from src.rag.verificador.citacoes import citacao_literal_valida
+    assert citacao_literal_valida("Recebem este nome por fornecer < 800kcal por dia", ["recebem este nome por fornecer < 800 kcal por dia."])

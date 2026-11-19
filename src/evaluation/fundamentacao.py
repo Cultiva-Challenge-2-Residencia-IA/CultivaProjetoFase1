@@ -88,10 +88,11 @@ def medir(split: str) -> Dict[str, Any]:
             # Texto que segue para a resposta: já sem as frases removidas por citação literal (#67).
             aceito = cliente.ultima_resposta_aceita or llm
             removidas = list(cliente.ultimas_frases_removidas)
+            corrigidas = list(cliente.ultimos_rotulos_corrigidos)
             item.update({
                 "citacoes_validas": v.valida, "problemas": v.problemas, "frases": v.frases,
                 "frases_sem_citacao": v.frases_sem_citacao, "marcadores_invalidos": v.marcadores_invalidos,
-                "frases_removidas": removidas,
+                "frases_removidas": removidas, "rotulos_corrigidos": corrigidas,
                 "texto_llm": {campo: aceito.get(campo, "") for campo in CAMPOS_DO_LLM},
                 "trechos": [
                     {"marcador": f"T{i}", "chunk_id": rc.chunk.chunk_id, "fonte": rc.chunk.title,
@@ -101,7 +102,8 @@ def medir(split: str) -> Dict[str, Any]:
             })
         itens.append(item)
         print(f"{caso['id']:12s} {item['fundamentacao_status'] or '-':32s} {segundos:5.1f} s "
-              f"removidas={len(item.get('frases_removidas', []))} {' '.join(item.get('problemas', []))}")
+              f"removidas={len(item.get('frases_removidas', []))} corrigidas={len(item.get('rotulos_corrigidos', []))} "
+              f"{' '.join(item.get('problemas', []))}")
 
     # Respostas do LLM que passaram pela checagem; "llm_sem_base" (o LLM disse que os Trechos não
     # respondem) não é checada e vira "não sei", então fica contada à parte.
@@ -122,6 +124,7 @@ def medir(split: str) -> Dict[str, Any]:
         "frases_removidas": sum(len(i.get("frases_removidas", [])) for i in avaliadas),
         "frases_mantidas": sum(i["frases"] for i in avaliadas if i["citacoes_validas"]),
         "respostas_com_frase_removida": sum(1 for i in avaliadas if i.get("frases_removidas")),
+        "rotulos_corrigidos": sum(len(i.get("rotulos_corrigidos", [])) for i in avaliadas),
         "segundos_mediana": sorted(i["segundos"] for i in itens)[len(itens) // 2] if itens else None,
     }
     saida = {"criterios": str(DIR / "criterios.md"), "resumo": resumo, "itens": itens}

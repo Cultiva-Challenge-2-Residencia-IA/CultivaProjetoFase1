@@ -91,6 +91,7 @@ class LocalLLMClient:
         self.ultima_verificacao = None
         self.ultima_resposta_aceita: Optional[Dict[str, Any]] = None
         self.ultimas_frases_removidas: List[Dict[str, Any]] = []
+        self.ultimos_rotulos_corrigidos: List[Dict[str, Any]] = []
 
     def is_groq_available(self) -> bool:
         return bool(self.allow_external_llm and self.enable_groq and self.groq_api_key)
@@ -374,7 +375,8 @@ class LocalLLMClient:
         groq_ready = self.provider in ("groq", "auto") and self.is_groq_available()
         ollama_ready = self.provider in ("ollama", "auto", "groq") and self.is_ollama_available()
 
-        self.ultima_verificacao, self.ultima_resposta_aceita, self.ultimas_frases_removidas = None, None, []
+        self.ultima_verificacao, self.ultima_resposta_aceita = None, None
+        self.ultimas_frases_removidas, self.ultimos_rotulos_corrigidos = [], []
         if not groq_ready and not ollama_ready:
             extractive["_fundamentacao"] = {"status": "extrativa", "problemas": []}
             return extractive, "local_extractive_synthesis"
@@ -396,7 +398,9 @@ class LocalLLMClient:
             if _sem_base(normalizar_frases_citadas(bruto)):
                 # RF-IA01: o LLM disse que os Trechos não respondem; vira "não sei", não a extrativa.
                 return {"_fundamentacao": {"status": "llm_sem_base", "problemas": []}}, "mensagem_fixa"
-            filtrada, removidas = filtrar_citacoes_literais(bruto, fontes)
+            filtrada, ajustes = filtrar_citacoes_literais(bruto, fontes)
+            removidas = [a for a in ajustes if a["motivo"] != "rotulo_corrigido"]
+            corrigidas = [a for a in ajustes if a["motivo"] == "rotulo_corrigido"]
             resposta = normalizar_frases_citadas(filtrada)
             verificacao = verificar_citacoes(
                 resposta, len(retrieved_chunks),
@@ -404,7 +408,7 @@ class LocalLLMClient:
             )
             # A medição (src/evaluation/fundamentacao.py) lê estas mesmas decisões, e não as recalcula.
             self.ultima_verificacao, self.ultima_resposta_aceita = verificacao, resposta
-            self.ultimas_frases_removidas = removidas
+            self.ultimas_frases_removidas, self.ultimos_rotulos_corrigidos = removidas, corrigidas
             if not str(resposta.get("evidence_summary") or "").strip():
                 verificacao.valida = False
                 verificacao.problemas.append("resumo_sem_frase_com_citacao_literal")
@@ -414,7 +418,7 @@ class LocalLLMClient:
             merged = self._merge_llm_with_extractive(resposta, extractive, taco_context_str)
             merged["_fundamentacao"] = {
                 "status": "llm_citacoes_validas", "problemas": [],
-                "frases_removidas": len(removidas),
+                "frases_removidas": len(removidas), "rotulos_corrigidos": len(corrigidas),
             }
             return merged, rotulo
 

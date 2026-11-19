@@ -92,6 +92,7 @@ def _normalizar_para_busca(texto: str) -> str:
     """Caixa, formas Unicode, hifenização, pontuação e espaços não contam na busca da citação."""
     texto = unicodedata.normalize("NFKC", texto).casefold()
     texto = re.sub(r"(\w)-\s*\n\s*(\w)", r"\1\2", texto)
+    texto = re.sub(r"(?<=\d)(?=[^\W\d_])|(?<=[^\W\d_])(?=\d)", " ", texto)  # "800kcal" = "800 kcal"
     return " " + " ".join(re.findall(r"\w+", texto)) + " "
 
 
@@ -140,6 +141,14 @@ def filtrar_citacoes_literais(
             fontes = [textos.get(r, "") for r in _fontes_da_frase(refs)]
             if citacao_literal_valida(citacao, fontes):
                 mantidas.append(item)
+                continue
+            # A citação existe, mas em outra fonte entregue ao modelo: o rótulo é corrigido.
+            onde = [rotulo for rotulo, texto in textos.items() if citacao_literal_valida(citacao, [texto])]
+            if onde:
+                corrigido = dict(item, trechos=[int(r[1:]) if eh_trecho(r) else r for r in onde])
+                mantidas.append(corrigido)
+                removidas.append({"campo": campo, "frase": frase, "citacao": citacao, "trechos": refs,
+                                  "motivo": "rotulo_corrigido", "rotulo_correto": onde})
             else:
                 removidas.append({"campo": campo, "frase": frase, "citacao": citacao,
                                   "trechos": refs, "motivo": "citacao_literal_ausente_na_fonte"})
