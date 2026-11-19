@@ -144,7 +144,7 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 - **Reranker e idioma:** o bônus por sobreposição de termos favorecia Trechos em português e foi um dos motivos para deixar o PubMed (em inglês) fora desta entrega. Ele foi desligado na #35; a reavaliação do PubMed segue na #28.
 - **Aprovação das fontes:** 21 de 22 aprovadas (PR #31), por revisão com amostra de páginas e conferência numérica das tabelas, feita com apoio de IA. A SBAN segue pendente por possível conflito de interesse (material com marca da Nestlé). SVB e CFN foram aprovados com ressalva (`data_quality_note`).
 - **Código de Ética do CFN:** a versão de 2018 provavelmente foi revogada pela Resolução CFN 856/2026, ainda sem texto oficial localizado.
-- **Extração:** há defeitos conhecidos (versaletes do Guia, uma página do Crispim) nas issues #26 e #27.
+- **Extração:** a caixa perdida no Guia (versaletes e inícios de frase) e a página de duas colunas do Crispim foram corrigidas na issue #27. No Guia, os Trechos com frase começando em minúscula depois de ponto caíram de 195 para 6.
 
 ## 5. Relação com as issues
 

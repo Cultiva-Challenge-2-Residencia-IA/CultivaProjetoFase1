@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+import difflib
 import hashlib
 import importlib.metadata
 import io
@@ -81,6 +82,40 @@ def validate_pdf(path: Path) -> None:
     with pymupdf.open(path) as doc:
         if not doc.is_pdf or doc.needs_pass or not doc.page_count:
             raise ValueError(f"PDF vazio, protegido ou inválido: {path}")
+
+
+PALAVRA = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ]+")
+
+
+def caixa_regular(palavra: str) -> bool:
+    return palavra.islower() or palavra.isupper() or (palavra[:1].isupper() and palavra[1:].islower())
+
+
+def restaurar_caixa(texto: str, nativo: str) -> tuple[str, int]:
+    """Devolve ao Markdown a caixa do texto nativo da mesma página (`restore_case_from_native`).
+
+    O `to_markdown` do PyMuPDF perde a caixa em fontes com versalete e no início de frases
+    ("PREfIRA SEmPRE", "também" onde o PDF tem "Também"). As palavras são alinhadas sem
+    diferenciar caixa; numa palavra igual, a caixa do nativo só é usada se for regular
+    (minúscula, maiúscula ou só a inicial) e se a do Markdown for irregular ou tiver perdido a
+    maiúscula. Assim, um nativo defeituoso nunca rebaixa uma maiúscula correta do Markdown.
+    """
+    md = list(PALAVRA.finditer(texto))
+    nat = PALAVRA.findall(nativo)
+    blocos = difflib.SequenceMatcher(
+        None, [m.group().casefold() for m in md], [w.casefold() for w in nat], autojunk=False
+    ).get_matching_blocks()
+    trocas = []
+    for i, j, n in blocos:
+        for k in range(n):
+            atual, certo = md[i + k].group(), nat[j + k]
+            if atual == certo or not caixa_regular(certo):
+                continue
+            if not caixa_regular(atual) or (atual.islower() and not certo.islower()):
+                trocas.append((md[i + k].start(), md[i + k].end(), certo))
+    for inicio, fim, certo in reversed(trocas):
+        texto = texto[:inicio] + certo + texto[fim:]
+    return texto, len(trocas)
 
 
 def tokens(text: str) -> Counter:
@@ -242,6 +277,10 @@ def convert(source: dict, args) -> dict:
             if number in config.get("strip_false_strikethrough_pages", []):
                 item["adjustments"].append({"removed_false_strikethrough_markers": text.count("~~")})
                 text = text.replace("~~", "")
+            if config.get("restore_case_from_native") and item["method"] == "native":
+                text, restauradas = restaurar_caixa(text, native[number - 1])
+                if restauradas:
+                    item["adjustments"].append({"case_restored_from_native": restauradas})
             override = config.get("page_overrides", {}).get(number)
             if override:
                 text = repo_path(override).read_text(encoding="utf-8")

@@ -3,7 +3,7 @@
   "source_sha256": "f468c52386c34f8b6cac0db15748c45cb07e84bd5885a6372353b55fa007c1f5",
   "pdf_pages": 11,
   "conversion_status": "concluida_com_ressalvas",
-  "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
+  "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
   "config_sha256": "6eb4f7d8675b81493ecbd3ebbfbd7c0e541ec95914f692416171520542c3cbc1",
   "versions": {
     "PyMuPDF": "2.1",

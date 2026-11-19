@@ -70,7 +70,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS\n\na regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras "
+      "evidence_summary_preview": "Prefira sempre alimentos in natura ou minimamente processados E preparações culinárias A alimentos ultraprocessados\n\nA regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras "
     },
     {
       "id": "Q02_DIRECT",
@@ -105,7 +105,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "alimentos ultraprocessados “enganam” os dispositivos de que nosso organismo dispõe para regular o balanço de calorias [T1]. em essência, esses dispositivos (situados no sistema digestivo e no cérebro) são responsáveis por fazer com que as c"
+      "evidence_summary_preview": "Alimentos ultraprocessados “enganam” os dispositivos de que nosso organismo dispõe para regular o balanço de calorias [T1]. Em essência, esses dispositivos (situados no sistema digestivo e no cérebro) são responsáveis por fazer com que as c"
     },
     {
       "id": "Q03_DIRECT",
@@ -141,7 +141,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias.\n\ndesde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente proc"
+      "evidence_summary_preview": "Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias.\n\nDesde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente proc"
     },
     {
       "id": "Q04_DIRECT",
@@ -211,7 +211,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "no capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições [T1]. neste capítulo, falaremos do ato d"
+      "evidence_summary_preview": "No capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições [T1]. Neste capítulo, falaremos do ato d"
     },
     {
       "id": "Q06_MULTIHOP_GAP",
@@ -246,7 +246,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Resolvido pelo Passo 2 (TacoDeterministicTool): agora combina a descrição qualitativa do Capítulo 3 do Guia Alimentar com os valores determinísticos exatos por 100g da Tabela TACO 4ª Edição.",
-      "evidence_summary_preview": "Castanhas\n\nSalada de folhas com castanhas de caju\n\nQuibe de carne assado com nozes\n\neste grupo de alimentos inclui vários tipos de castanhas (de caju, de baru, do-brasil ou do-pará) e nozes, e também, amêndoas e amendoim.\n\nCastanhas, nozes,"
+      "evidence_summary_preview": "Castanhas\n\nSalada de folhas com castanhas de caju\n\nQuibe de carne assado com nozes\n\nEste grupo de alimentos inclui vários tipos de castanhas (de caju, de baru, do-brasil ou do-pará) e nozes, e também, amêndoas e amendoim.\n\nCastanhas, nozes,"
     },
     {
       "id": "Q07_MULTIHOP_GAP",
@@ -466,7 +466,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "este capítulo aborda obstáculos potenciais para a adoção das recomendações sobre a escolha de alimentos (Capítulo 2), sobre a combinação de alimentos na forma de refeições (Capítulo 3) e sobre o ato de comer e a comensalidade (Capítulo 4) ["
+      "evidence_summary_preview": "Este capítulo aborda obstáculos potenciais para a adoção das recomendações sobre a escolha de alimentos (Capítulo 2), sobre a combinação de alimentos na forma de refeições (Capítulo 3) e sobre o ato de comer e a comensalidade (Capítulo 4) ["
     },
     {
       "id": "Q13_NATURAL_GRAPH",
@@ -501,7 +501,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre sinergia culinária que exige o Grafo de 4 Camadas para contrastar a curcumina isolada (LOW_EFFICACY_ALONE) com a adição de piperina/lipídios (+2000% biodisponibilidade).",
-      "evidence_summary_preview": "Água pura\n\nÁgua com limão\n\na água é essencial para a manutenção da vida [T1]. sem ela, não sobrevivemos mais do que poucos dias [T1]. o total de água existente no corpo dos seres humanos corresponde a 75% do peso na infância e a mais da met"
+      "evidence_summary_preview": "Água pura\n\nÁgua com limão\n\nA água é essencial para a manutenção da vida [T1]. Sem ela, não sobrevivemos mais do que poucos dias [T1]. O total de água existente no corpo dos seres humanos corresponde a 75% do peso na infância e a mais da met"
     },
     {
       "id": "Q14_NATURAL_GRAPH",
