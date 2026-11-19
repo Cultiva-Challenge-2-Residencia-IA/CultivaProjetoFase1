@@ -2,7 +2,7 @@
 
 Uso:
     uv run python -m src.evaluation.langfuse_experimento [--config CONFIG] [--no-ollama]
-        [--split dev|test] [--nome NOME]
+        [--split dev|test] [--incluir-test] [--nome NOME]
 
 Espelha o golden set v2 (`eval/golden/v2/`) num dataset do Langfuse e roda o consultor em cada
 caso. As métricas são as mesmas do `benchmark_v2.py` (`avaliar_caso` e `agregar`): cada caso
@@ -33,6 +33,10 @@ as métricas de texto saem em duas versões: a da resposta final (`cobertura_ter
 LLM (sufixo `_llm`). O composto proibido do grafo fica só no diagnóstico: no texto, mencioná-lo
 como alerta ("evite potássio") é correto e não dá para separar do erro sem juiz. Não há juiz LLM
 por enquanto.
+
+Só o split `dev` vai para o dataset por padrão. O `test` só mede (golden v2) e não deve ficar
+à vista numa interface feita para comparar e ajustar configurações: sincronizá-lo ou rodá-lo exige
+`--incluir-test`, e sem a opção os itens do `test` que já estiverem no dataset são arquivados.
 
 Classificação: proposta técnica. O golden set do repositório continua sendo a fonte da verdade:
 o dataset é sobrescrito a cada execução e os casos removidos do repositório são arquivados.
@@ -141,6 +145,11 @@ def _status(item: Any) -> str:
     return str(getattr(status, "value", status))
 
 
+def casos_para_o_dataset(casos: List[Dict[str, Any]], incluir_test: bool = False) -> List[Dict[str, Any]]:
+    """Casos que vão para o dataset: só o dev, a menos que o test seja pedido explicitamente."""
+    return [c for c in casos if incluir_test or c["split"] == "dev"]
+
+
 def sincronizar_dataset(cliente: Any, casos: List[Dict[str, Any]]) -> Any:
     """Cria ou atualiza o dataset a partir do golden set e arquiva os itens que saíram dele."""
     try:
@@ -167,32 +176,40 @@ def sincronizar_dataset(cliente: Any, casos: List[Dict[str, Any]]) -> Any:
     return cliente.get_dataset(DATASET)
 
 
-def avaliacoes_do_caso(avaliacao: Dict[str, Any]) -> List[Any]:
-    """Converte as métricas de `avaliar_caso` em scores do Langfuse, com os nomes do relatório."""
-    from langfuse import Evaluation
-
+def scores_do_caso(avaliacao: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Métricas de `avaliar_caso` com os nomes do relatório. Não depende do pacote langfuse."""
     return [
-        Evaluation(name=NOME_DA_METRICA[campo], value=float(valor), data_type="NUMERIC")
+        {"name": NOME_DA_METRICA[campo], "value": float(valor)}
         for campo, valor in avaliacao.items()
         if campo in NOME_DA_METRICA and valor is not None
     ]
 
 
-def avaliacoes_da_execucao(resultados: List[Dict[str, Any]]) -> List[Any]:
+def scores_da_execucao(resultados: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Médias da execução, calculadas pelo mesmo `agregar` do benchmark v2."""
-    from langfuse import Evaluation
-
     agregado = agregar(resultados, TODAS_AS_METRICAS)
     return [
-        Evaluation(
-            name=nome,
-            value=agregado[nome],
-            comment=f"n={agregado[f'n_{nome}']}",
-            data_type="NUMERIC",
-        )
+        {"name": nome, "value": agregado[nome], "comment": f"n={agregado[f'n_{nome}']}"}
         for nome in TODAS_AS_METRICAS
         if agregado[nome] is not None
     ]
+
+
+def _como_avaliacoes(scores: List[Dict[str, Any]]) -> List[Any]:
+    # O pacote langfuse é opcional (grupo `observabilidade`): só a conversão final o importa.
+    from langfuse import Evaluation
+
+    return [Evaluation(data_type="NUMERIC", **score) for score in scores]
+
+
+def avaliacoes_do_caso(avaliacao: Dict[str, Any]) -> List[Any]:
+    """Converte as métricas de `avaliar_caso` em scores do Langfuse, com os nomes do relatório."""
+    return _como_avaliacoes(scores_do_caso(avaliacao))
+
+
+def avaliacoes_da_execucao(resultados: List[Dict[str, Any]]) -> List[Any]:
+    """Médias da execução como scores do Langfuse."""
+    return _como_avaliacoes(scores_da_execucao(resultados))
 
 
 _NUMERO = re.compile(r"\d+(?:[.,]\d+)?")
@@ -334,8 +351,13 @@ def executar(
     top_k: int = config.TOP_K_FINAL,
     nome_config: str = "completo",
     permitir_fallback: bool = False,
+    incluir_test: bool = False,
 ) -> Any:
     componentes = CONFIGURACOES[nome_config]
+    if split == "test" and not incluir_test:
+        raise SystemExit(
+            "O split test só mede: rodá-lo no Langfuse exige --incluir-test. Ajustes, só no dev."
+        )
     if not enable_llm and not componentes["rag"]:
         raise SystemExit("A configuração llm-puro precisa do LLM: rode sem --no-ollama.")
     cliente = observabilidade.cliente()
@@ -346,7 +368,7 @@ def executar(
         )
     from src.agent.consultant_baseline import NutritionConsultantBaseline
 
-    casos = carregar_casos()
+    casos = casos_para_o_dataset(carregar_casos(), incluir_test)
     dataset = sincronizar_dataset(cliente, casos)
     itens = [
         item
@@ -394,6 +416,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     parser.add_argument("--config", choices=list(CONFIGURACOES), default="completo",
                         help="Componentes de contexto do LLM (ablação). Padrão: completo.")
     parser.add_argument("--split", choices=["dev", "test"], help="Roda só um split do golden set.")
+    parser.add_argument("--incluir-test", action="store_true",
+                        help="Sobe e roda também o split test (só para medir; não ajuste olhando o test).")
     parser.add_argument("--permitir-fallback", action="store_true",
                         help="Deixa o caso cair no modelo reserva ou no Ollama quando o principal falha.")
     parser.add_argument("--nome", help="Nome da execução no Langfuse (padrão: modo, split e data).")
@@ -401,7 +425,7 @@ def main(argv: Optional[List[str]] = None) -> None:
 
     resultado = executar(
         enable_llm=not args.no_ollama, split=args.split, nome=args.nome, nome_config=args.config,
-        permitir_fallback=args.permitir_fallback,
+        permitir_fallback=args.permitir_fallback, incluir_test=args.incluir_test,
     )
     print(f"Execução: {resultado.run_name} ({len(resultado.item_results)} casos concluídos)")
     comuns = [a for a in resultado.run_evaluations if a.name in METRICAS_COMUNS]

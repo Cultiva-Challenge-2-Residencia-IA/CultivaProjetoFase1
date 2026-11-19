@@ -25,6 +25,7 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
   - `src/evaluation/`: `run_benchmark.py` (v1, com `risk_metrics`, `risk_metrics_holdout` e `abstention_metrics`), `benchmark_v2.py`, `risco.py`, `abstencao.py`, `ablacao_ranking.py`, `ablacao_seed.py` (issue #5: efeito do `seed_guidelines`, que saiu do índice; resultado em `eval/runs/ablacao_seed_issue5.md`), `fundamentacao.py` (issue #12: conformidade das citações do LLM e amostra humana do RNF27, em `eval/fundamentacao/`) e `gate.py`;
   - `src/api.py` (FastAPI e CLI) e `src/demo_entrega.py` (demonstração da entrega);
   - `src/config.py`: caminhos e parâmetros, quase todos sobrescrevíveis por variável de ambiente.
+  - `src/observabilidade.py`: Langfuse opcional (proposta técnica; ADR 0003, item 5). Desligado por padrão e no CI; pacote no grupo `observabilidade` (`uv sync --group observabilidade`). Liga com `CULTIVA_LANGFUSE=true` e as chaves; destino padrão `http://localhost:3000`, e servidor externo só com `ALLOW_EXTERNAL_LANGFUSE=true`. O SDK mascara todo texto dos spans, e mensagem de risco vai só com as categorias. `src/evaluation/langfuse_experimento.py` roda o golden v2 como experimento, com ablação (`--config llm-puro|llm-rag|llm-rag-grafo|completo`); só o `dev` sobe para o dataset, e o `test` exige `--incluir-test`. O "LLM puro" é só da ablação: liga quando busca, TACO e grafo estão desligados na configuração (`modo_llm_puro`), nunca por busca vazia.
 - `src/rag/verificador/citacoes.py`: checagem determinística das citações por frase (`[T#]`, `[GRAFO]`, `[TACO]`; issue #12).
 - `src/agents/nutricao/` e `src/rag/{chunking,reranker,retriever,verificador}/` são fachadas que reexportam ou complementam os módulos acima. `src/agents/{estudos,fisica,sincronizador}/`, `src/api/` e `src/broker/` ainda contêm apenas `.gitkeep`.
 - **Testes** em `tests/` (pytest, inclusive o contrato do Trecho contra o JSON Schema) e **lint** com ruff.
@@ -51,6 +52,9 @@ uv run python -m src.evaluation.gate --report data/benchmark/baseline_report.jso
 
 # Demonstração da entrega (regrava entrega_semanal/ com --salvar-artefatos)
 uv run python -m src.demo_entrega --salvar-artefatos
+
+# Experimento no Langfuse (opcional; exige uv sync --group observabilidade e as variáveis do .env.example)
+uv run python -m src.evaluation.langfuse_experimento --config completo --split dev
 ```
 
 Corpus:

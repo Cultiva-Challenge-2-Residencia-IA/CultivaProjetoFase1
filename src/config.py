@@ -96,11 +96,37 @@ MODO_DENSO = os.getenv("MODO_DENSO", "chromadb_pure")
 RERANK_PESO_SOBREPOSICAO = float(os.getenv("RERANK_PESO_SOBREPOSICAO", "0.0"))
 RERANK_BONUS_EVIDENCIA = os.getenv("RERANK_BONUS_EVIDENCIA", "false").strip().lower() in {"1", "true", "sim"}
 
-# Observabilidade (proposta técnica, ainda não documentada na Documentacao-Cultiva).
+# Observabilidade (proposta técnica, ainda não documentada na Documentacao-Cultiva; ADR 0003).
 # Desligada por padrão: só envia traces ao Langfuse com CULTIVA_LANGFUSE=true e as chaves
-# LANGFUSE_PUBLIC_KEY e LANGFUSE_SECRET_KEY definidas (LANGFUSE_BASE_URL escolhe o servidor).
-LANGFUSE_ATIVO = (
+# LANGFUSE_PUBLIC_KEY e LANGFUSE_SECRET_KEY definidas. O destino padrão é um Langfuse local
+# (LANGFUSE_BASE_URL=http://localhost:3000), e não a nuvem, que é o padrão do SDK: servidor fora
+# desta máquina, inclusive auto-hospedado pela equipe, exige ALLOW_EXTERNAL_LANGFUSE=true, como o
+# ALLOW_EXTERNAL_LLM faz para a Groq. Sem essa liberação, o Langfuse fica desligado.
+LANGFUSE_BASE_URL = (
+    os.getenv("LANGFUSE_BASE_URL") or os.getenv("LANGFUSE_HOST") or "http://localhost:3000"
+).strip()
+ALLOW_EXTERNAL_LANGFUSE = os.getenv("ALLOW_EXTERNAL_LANGFUSE", "false").strip().lower() in {
+    "1", "true", "sim", "yes"
+}
+
+
+def destino_local(url: str) -> bool:
+    """O endereço aponta para esta máquina (loopback)?"""
+    from urllib.parse import urlparse
+
+    return (urlparse(url).hostname or "").lower() in {"localhost", "127.0.0.1", "::1"}
+
+
+LANGFUSE_PEDIDO = (
     os.getenv("CULTIVA_LANGFUSE", "false").strip().lower() in {"1", "true", "sim", "yes"}
     and bool(os.getenv("LANGFUSE_PUBLIC_KEY", "").strip())
     and bool(os.getenv("LANGFUSE_SECRET_KEY", "").strip())
 )
+
+
+def langfuse_liberado(pedido: bool, url: str, permitir_externo: bool) -> bool:
+    """Liga o Langfuse só se foi pedido e o destino é local ou o envio externo foi liberado."""
+    return pedido and (destino_local(url) or permitir_externo)
+
+
+LANGFUSE_ATIVO = langfuse_liberado(LANGFUSE_PEDIDO, LANGFUSE_BASE_URL, ALLOW_EXTERNAL_LANGFUSE)

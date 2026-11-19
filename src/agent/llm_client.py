@@ -446,10 +446,15 @@ class LocalLLMClient:
         retrieved_chunks: List[RetrievedChunk],
         taco_context_str: str = "",
         graph_context_str: str = "",
+        sem_contexto: bool = False,
     ) -> Tuple[Dict[str, Any], str]:
         """
         Gera a síntese localmente por padrão; Groq exige opt-in explícito e
         a síntese extrativa determinística permanece como fallback final.
+
+        `sem_contexto=True` é a linha de base "LLM puro" dos experimentos de ablação: o LLM responde
+        sem Trechos e sem a checagem de citações. Nunca é deduzido do contexto vazio: no produto,
+        busca vazia (índice vazio, falha) cai na extrativa ou no "não sei", e não no LLM sem fonte.
         """
         self.ultima_sintese_llm = None
         extractive = self.synthesize_extractive_fallback(
@@ -458,9 +463,6 @@ class LocalLLMClient:
             taco_context_str=taco_context_str,
             graph_context_str=graph_context_str,
         )
-        # Sem nenhum contexto só acontece na linha de base "LLM puro" dos experimentos: o prompt
-        # não exige Trechos e não há texto extrativo para misturar à resposta.
-        sem_contexto = not retrieved_chunks and not taco_context_str and not graph_context_str
 
         groq_ready = self.provider in ("groq", "auto") and self.is_groq_available()
         ollama_ready = self.provider in ("ollama", "auto", "groq") and self.is_ollama_available()

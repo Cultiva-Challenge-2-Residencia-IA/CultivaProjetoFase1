@@ -22,6 +22,7 @@ def _consultor(similaridade, caminhos_grafo=()):
     consultor.guardrail = LegalGuardrail()
     consultor.corpus_version = "corpus-teste"
     consultor.enable_rag = True
+    consultor.modo_llm_puro = False
     consultor.retriever = MagicMock()
     consultor.retriever.retrieve.return_value = []
     consultor.retriever.similaridade_maxima.return_value = similaridade

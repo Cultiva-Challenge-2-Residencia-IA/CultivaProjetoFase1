@@ -73,6 +73,9 @@ class NutritionConsultantBaseline:
         self.taco_tool: Optional[TacoDeterministicTool] = (
             TacoDeterministicTool() if enable_taco_tool else None
         )
+        # Linha de base "LLM puro" da ablação: só quando as três fontes de contexto estão
+        # desligadas por configuração. Não é modo do produto.
+        self.modo_llm_puro = not enable_rag and not enable_taco_tool and not enable_graph_engine
         self.graph_engine: Optional[CausalKnowledgeGraphEngine] = (
             CausalKnowledgeGraphEngine() if enable_graph_engine else None
         )
@@ -108,11 +111,19 @@ class NutritionConsultantBaseline:
         )
 
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:
-        # Com a observabilidade desligada (padrão), os blocos abaixo são no-ops.
+        # Com a observabilidade desligada (padrão), os blocos abaixo são no-ops. Ligada, todo texto
+        # passa pela máscara de dados pessoais no SDK (src/observabilidade.py, ADR 0003). Mensagem
+        # com sinal de risco nunca é registrada, nem mascarada: o trace guarda só as categorias.
+        risco = detectar_risco(user_query)
+        entrada = (
+            {"risco_categorias": risco.categorias, "top_k": top_k}
+            if risco.risco
+            else {"query": user_query, "top_k": top_k}
+        )
         with atributos_do_trace(trace_name="consulta_nutricao", tags=["nutricao"]), observacao(
-            "consult", input={"query": user_query, "top_k": top_k}
+            "consult", input=entrada
         ) as raiz:
-            resposta = self._consultar(user_query, top_k)
+            resposta = self._consultar(user_query, top_k, risco=risco)
             raiz.update(
                 output={
                     "evidence_summary": resposta.evidence_summary,
@@ -133,9 +144,9 @@ class NutritionConsultantBaseline:
             )
             return resposta
 
-    def _consultar(self, user_query: str, top_k: int) -> ConsultantResponse:
+    def _consultar(self, user_query: str, top_k: int, risco=None) -> ConsultantResponse:
         # 0. Risco antes de tudo (RF-IA03, RNF29): interrompe o fluxo com mensagem fixa.
-        risco = detectar_risco(user_query)
+        risco = risco if risco is not None else detectar_risco(user_query)
         if risco.risco:
             return self._resposta_fixa(
                 user_query,
@@ -234,6 +245,8 @@ class NutritionConsultantBaseline:
                 retrieved_chunks=retrieved,
                 taco_context_str=taco_context_str,
                 graph_context_str=graph_context_str,
+                # Só a configuração liga o "LLM puro"; resultado vazio da busca não liga.
+                sem_contexto=self.modo_llm_puro,
             )
             obs.update(output=synthesis, metadata={"model_used": model_used})
             # Scores do trace para filtrar e montar painéis no Langfuse.

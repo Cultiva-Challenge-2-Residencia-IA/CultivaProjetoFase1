@@ -212,6 +212,35 @@ def test_llm_puro_sem_contexto_nao_mistura_texto_extrativo(monkeypatch) -> None:
     assert res.fundamentacao_status == "llm_sem_contexto"
 
 
+def test_busca_vazia_no_produto_nunca_vira_llm_sem_fonte(monkeypatch) -> None:
+    """Índice vazio ou falha da busca não pode ativar o "LLM puro" (revisão do PR do Langfuse)."""
+    consultant = NutritionConsultantBaseline(
+        enable_ollama=True, enable_graph_engine=False, enable_taco_tool=False
+    )
+    assert consultant.modo_llm_puro is False
+    consultant.llm_client.provider = "groq"
+    consultant.llm_client.groq_api_key = "gsk_test_fake_key"
+    consultant.llm_client.enable_groq = True
+    consultant.llm_client.allow_external_llm = True
+    # A busca falha em silêncio, mas a pergunta é do domínio (sem "não sei").
+    monkeypatch.setattr(consultant.retriever, "retrieve", lambda *a, **k: [])
+    monkeypatch.setattr(consultant.retriever, "similaridade_maxima", lambda *a, **k: 0.9)
+    resposta_sem_fonte = {
+        "evidence_summary": "Fibras aumentam o volume fecal.",
+        "physiological_mechanism": "Retêm água.",
+        "protocol_findings": "Consumo regular.",
+        "food_sources_or_compounds": [],
+        "evidence_grade": "GUIDELINE_CONSENSUS",
+    }
+    monkeypatch.setattr(consultant.llm_client, "_call_groq_model", lambda *a, **k: resposta_sem_fonte)
+
+    res = consultant.consult("Qual o efeito das fibras no intestino?")
+
+    assert res.fundamentacao_status != "llm_sem_contexto"
+    assert res.model_used == "local_extractive_synthesis"
+    assert "Fibras aumentam o volume fecal." not in res.evidence_summary
+
+
 def test_sintese_com_contexto_guarda_o_texto_bruto_do_llm(monkeypatch) -> None:
     consultant = NutritionConsultantBaseline(enable_ollama=True)
     consultant.llm_client.provider = "groq"

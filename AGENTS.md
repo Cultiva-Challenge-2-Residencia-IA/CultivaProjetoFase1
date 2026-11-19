@@ -34,6 +34,8 @@
 - O padrão é **Ollama local** (`LLM_PROVIDER=ollama`, com `OLLAMA_NO_CLOUD=1`). Sem Ollama disponível, o consultor usa a síntese extrativa local, que também é o modo do CI.
 - A Groq é alternativa desativada por padrão: exige `LLM_PROVIDER=groq` **e** `ALLOW_EXTERNAL_LLM=true`, além da chave. Mesmo assim, só com entradas sintéticas ou desidentificadas, até que retenção, contrato de não treinamento e LGPD sejam verificados.
 - A máscara de dados pessoais (`src/guardrails/pii`) é defesa adicional, não anonimização.
+- Observabilidade (Langfuse, ADR 0003, item 5): opcional e desligada por padrão. O destino padrão é local (`http://localhost:3000`); servidor externo, inclusive a nuvem do Langfuse, exige `ALLOW_EXTERNAL_LANGFUSE=true` e só recebe perguntas sintéticas ou desidentificadas. Todo texto dos spans é mascarado pelo SDK, e mensagem com sinal de risco nunca é registrada (só as categorias). Não envie o split `test` ao dataset do Langfuse sem `--incluir-test`.
+- O modo "LLM puro" (resposta sem Trechos e sem checagem de citações) existe só para a ablação e precisa ser ligado pela configuração; busca vazia no produto cai na extrativa ou no "não sei".
 
 ## Avaliação
 

@@ -1648,7 +1648,6 @@ dependencies = [
     { name = "fastapi" },
     { name = "fastembed" },
     { name = "httpx" },
-    { name = "langfuse" },
     { name = "networkx", version = "3.6.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "networkx", version = "3.7", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
@@ -1670,6 +1669,9 @@ dev = [
     { name = "pytest-mock" },
     { name = "ruff" },
 ]
+observabilidade = [
+    { name = "langfuse" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -1677,7 +1679,6 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.110.0" },
     { name = "fastembed", specifier = ">=0.4.0" },
     { name = "httpx", specifier = ">=0.27.0" },
-    { name = "langfuse", specifier = ">=5.2.0" },
     { name = "networkx", specifier = ">=3.2" },
     { name = "numpy", specifier = ">=1.26.0" },
     { name = "pillow", specifier = ">=10.0.0" },
@@ -1697,6 +1698,7 @@ dev = [
     { name = "pytest-mock", specifier = ">=3.14.0" },
     { name = "ruff", specifier = "==0.14.0" },
 ]
+observabilidade = [{ name = "langfuse", specifier = ">=5.2.0" }]
 
 [[package]]
 name = "oauthlib"

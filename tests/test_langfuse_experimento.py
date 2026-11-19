@@ -32,13 +32,13 @@ def test_ids_dos_itens_sao_unicos_no_golden_set():
 
 def test_avaliacoes_do_caso_usam_os_nomes_do_relatorio():
     avaliacao = {"id": "V2-X-01", "rr_trecho": 0.5, "acerto_trecho": 1.0, "trechos_recuperados": ["a"]}
-    nomes = {a.name: a.value for a in exp.avaliacoes_do_caso(avaliacao)}
+    nomes = {s["name"]: s["value"] for s in exp.scores_do_caso(avaliacao)}
     assert nomes == {"mrr_trecho": 0.5, "acerto_trecho_at_k": 1.0}
 
 
 def test_avaliacoes_da_execucao_sao_as_medias_do_benchmark():
     resultados = [{"rr_trecho": 1.0, "prescricao_detectada": 0.0}, {"rr_trecho": 0.5}]
-    nomes = {a.name: (a.value, a.comment) for a in exp.avaliacoes_da_execucao(resultados)}
+    nomes = {s["name"]: (s["value"], s["comment"]) for s in exp.scores_da_execucao(resultados)}
     assert nomes == {"mrr_trecho": (0.75, "n=2"), "guardrail_recall_prescricao": (0.0, "n=1")}
 
 
@@ -179,7 +179,7 @@ def test_metricas_comuns_saem_iguais_no_llm_puro_e_no_completo():
     nomes = {}
     for config_nome in ("llm-puro", "completo"):
         filtrada = exp.filtrar_por_componentes(avaliacao, exp.CONFIGURACOES[config_nome])
-        nomes[config_nome] = {a.name for a in exp.avaliacoes_do_caso(filtrada)}
+        nomes[config_nome] = {s["name"] for s in exp.scores_do_caso(filtrada)}
     assert set(exp.METRICAS_COMUNS) <= nomes["llm-puro"]
     assert nomes["llm-puro"] == set(exp.METRICAS_COMUNS)
     assert set(exp.METRICAS_COMUNS) < nomes["completo"]
@@ -187,3 +187,21 @@ def test_metricas_comuns_saem_iguais_no_llm_puro_e_no_completo():
 
 def test_metricas_comuns_sao_metricas_conhecidas():
     assert set(exp.METRICAS_COMUNS) <= set(exp.TODAS_AS_METRICAS)
+
+
+def test_so_o_dev_vai_para_o_dataset_por_padrao():
+    casos = [_caso("A", "dev"), _caso("B", "test")]
+    assert [c["id"] for c in exp.casos_para_o_dataset(casos)] == ["A"]
+    assert [c["id"] for c in exp.casos_para_o_dataset(casos, incluir_test=True)] == ["A", "B"]
+
+
+def test_test_ja_sincronizado_e_arquivado_sem_a_opcao():
+    do_test = SimpleNamespace(id="golden-v2-B", status="ACTIVE", input={}, expected_output={}, metadata={})
+    cliente = _ClienteFalso([do_test])
+    exp.sincronizar_dataset(cliente, exp.casos_para_o_dataset([_caso("A", "dev"), _caso("B", "test")]))
+    assert ("golden-v2-B", "ARCHIVED") in cliente.criados
+
+
+def test_rodar_o_test_exige_opcao_explicita():
+    with pytest.raises(SystemExit, match="--incluir-test"):
+        exp.executar(enable_llm=False, split="test")

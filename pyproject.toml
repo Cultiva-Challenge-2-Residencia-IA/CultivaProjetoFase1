@@ -19,10 +19,13 @@ dependencies = [
     "pillow>=10.0.0",
     "chromadb>=1.0.0",
     "fastembed>=0.4.0",
-    "langfuse>=5.2.0",
 ]
 
 [dependency-groups]
+# Observabilidade opcional (src/observabilidade.py, ADR 0003): uv sync --group observabilidade
+observabilidade = [
+    "langfuse>=5.2.0",
+]
 dev = [
     "jsonschema>=4.26.0",
     "pytest>=8.0.0",
