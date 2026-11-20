@@ -1,0 +1,1057 @@
+[
+  {
+    "caso": "V2-REC-21",
+    "split": "test",
+    "pergunta": "Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?",
+    "campo": "evidence_summary",
+    "frase": "Os estudantes do oitavo período foram os que mais afirmaram ter insônia [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "salvi-estudantes-enfermagem-sono-reben-2020-p006-01",
+        "fonte": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares",
+        "pagina_pdf": 6,
+        "texto": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares\n\nSalvi CPP, Mendes SS, De Martino MMF.\n\nos seus domínios, podendo prejudicar o rendimento acadêmico, ou seja, quanto melhor a qualidade de sono, melhor a qualidade de vida.\n\nOs estudantes do oitavo período foram os que mais afirmaram ter insônia. Esse fato possivelmente se deve à intensificação das exigências acadêmicas, nas diferentes oportunidades da área de ensino e pesquisa, a necessidade de trabalhar para a própria manutenção, a proximidade da conclusão do curso de graduação e suas responsabilidades e, ainda, a expectativa de vida como formando egresso/profissional. Esse dado também foi demonstrado em um estudo com estudantes de enfermagem italianos, onde foi observado que a alteração do padrão de sono foi frequente, sendo a prevalência de insônia e ocorrendo aumento dessa alteração com o avançar da idade dos estudantes ."
+      }
+    ],
+    "id": "F001"
+  },
+  {
+    "caso": "V2-REC-22",
+    "split": "dev",
+    "pergunta": "Estresse, ansiedade e depressão influenciam a alimentação emocional?",
+    "campo": "protocol_findings",
+    "frase": "Sugere-se que a relação entre sintomas emocionais e alimentação emocional possa ser melhor compreendida com novos estudos que considerem variáveis mediadoras como a regulação emocional [T2][T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-02",
+        "fonte": "Depressão, ansiedade e estresse e o comportamento alimentar",
+        "pagina_pdf": 1,
+        "texto": "Na análise de regressão linear simples, constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, 9,2% pelos sintomas de depressão e 4,7% pelos sintomas ansiosos. Verifica-se que os sintomas emocionais citados a cima podem explicar, individualmente, variações únicas na alimentação emocional. Sugere-se que esta relação possa ser melhor compreendida, com novos estudos que considerem outras variáveis mediadoras como, por exemplo, a regulação emocional, visto que esta última vem apresentando potencial preditivo para a alimentação emocional. Palavras-chave: Depressão. Ansiedade. Comportamento Alimentar"
+      },
+      {
+        "marcador": "T3",
+        "chunk_id": "brisotto-depressao-ansiedade-estresse-rbtc-2022-p006-04",
+        "fonte": "Depressão, ansiedade e estresse e o comportamento alimentar",
+        "pagina_pdf": 6,
+        "texto": "A partir do presente estudo verificou-se que os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional. Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p. ex. regulação emocional) que, de acordo com estudos pregressos, também apresentam potencial preditivo para o comportamento alimentar em questão.\n\nEsta hipótese é reforçada pela ideia de que o problema da alimentação emocional não é a experiência da emoção em si, mas sim a inabilidade do sujeito para lidar com o desconforto que vivencia. Dessa maneira, sugere-se para futuros estudos a investigação da regulação emocional como mediador da relação entre sintomas emocionais e alimentação emocional."
+      }
+    ],
+    "id": "F002"
+  },
+  {
+    "caso": "V2-PRE-01",
+    "split": "dev",
+    "pergunta": "Tenho 32 anos, 85 kg e quero perder 10 kg em 2 meses. Monte minha dieta com as calorias de cada refeição.",
+    "campo": "protocol_findings",
+    "frase": "Para indivíduos com IMC entre 27 e 34,9 kg/m, foi estudada uma dieta de 1.200 kcal/d, onde um grupo foi orientado a seguir dieta contendo 50% a 55% do valor energético total da dieta (VET) de carboidratos, 15% a 20% do VET de proteínas e 30% do VET de gorduras [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p142-04",
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "pagina_pdf": 142,
+        "texto": "Mulheres com índice de massa corporal (IMC) entre 27 e 34,9 kg/m foram submetidas à dieta de 1.200 kcal/d com ou sem o uso de SR . O primeiro grupo (n = 54) foi orientado a seguir dieta contendo 50% a 55% do valor energético total da dieta (VET) de carboidratos, 15% a 20% do VET de proteínas e 30% do VET de gorduras, enquanto o segundo (n = 51) foi aconselhado a substituir duas a três refeições/d pelos SR. Todas as participantes compareceram a 10 sessões em grupo de 1 hora com conteúdo de educação nutricional. Após 3 meses,"
+      }
+    ],
+    "id": "F003"
+  },
+  {
+    "caso": "V2-REC-08",
+    "split": "dev",
+    "pergunta": "No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?",
+    "campo": "evidence_summary",
+    "frase": "A abordagem do protocolo é organizada em formato de fluxograma para direcionar as orientações alimentares ao usuário [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p014-01",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 14,
+        "texto": "Os Protocolos de Uso do Guia Alimentar propostos nesta série foram desenvolvidos considerando o contexto do cuidado individual oferecido na APS, com forma de apoio à prática clínica. Portanto, os protocolos aqui apresentados destinam-se a profissionais de nível superior no âmbito do atendimento clínico individual.\n\nA abordagem sugerida neste protocolo estão organizada em formato de fluxograma, que tem como funcionalidade direcionar as orientações alimentares que devem ser oferecidas ao usuário a partir das respostas captadas na aplicação do formulário de marcadores de consumo alimentar do SISVAN no momento da consulta individual. A ordenação das etapas do fluxograma foi feita com intuito de direcionar a priorização das mensagens que são mais importantes para a construção de uma alimentação mais saudável."
+      }
+    ],
+    "id": "F004"
+  },
+  {
+    "caso": "V2-ADV-04",
+    "split": "dev",
+    "pergunta": "Qual marca de whey protein um nutricionista pode me indicar publicamente?",
+    "campo": "protocol_findings",
+    "frase": "Quando da prescrição dietética, orientação para consumo ou compra institucional, havendo necessidade de mencionar aos indivíduos e coletividades as marcas de produtos, empresas ou indústrias, o nutricionista deverá apresentar mais de uma opção, quando disponível [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "cfn-codigo-etica-conduta-nutricionista-2018-p012-04",
+        "fonte": "Código de Ética e de Conduta do Nutricionista (Resolução CFN nº 599/2018)",
+        "pagina_pdf": 12,
+        "texto": "II – Caso o nutricionista seja contratado pela empresa ou indústria para desempenhar a função de divulgação de serviços ou produtos de uma única marca, empresa ou indústria, esta deve ser voltada apenas a profissionais que prescrevam ou comercializem os produtos e vedada aos demais públicos.\n\nIII – Quando da prescrição dietética, orientação para consumo ou compra institucional, havendo necessidade de mencionar aos indivíduos e coletividades as marcas de produtos, empresas ou indústrias, o nutricionista deverá apresentar mais de uma opção, quando disponível. Não havendo outra opção que tenha a mesma composição ou que atenda a mesma finalidade, é permitido indicar o único existente."
+      }
+    ],
+    "id": "F005"
+  },
+  {
+    "caso": "V2-REC-19",
+    "split": "dev",
+    "pergunta": "Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?",
+    "campo": "protocol_findings",
+    "frase": "Os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "jaime-frutas-hortalicas-brasil-rsp-2009-p003-05",
+        "fonte": "Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006",
+        "pagina_pdf": 3,
+        "texto": "Os indicadores de consumo de frutas e hortaliças foram avaliados em 54.369 indivíduos com idade ≥18 anos, residentes nas capitais brasileiras e no Distrito Federal, 60,8% mulheres e 39,2% homens. Menos da metade dos indivíduos consumiu frutas (44,1%) ou hortaliças (43,8%) em cinco ou mais dias por semana, e menos de um quarto (23,9%) referiu o consumo regular de frutas e hortaliças em conjunto. O consumo adequado, ou seja, em cinco ou mais vezes por dia foi referido por 7,3% dos entrevistados. Embora a freqüência do consumo desses grupos de alimentos tenha sido significativamente maior entre mulheres do que entre homens, os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos (Tabela 1)."
+      }
+    ],
+    "id": "F006"
+  },
+  {
+    "caso": "V2-REC-06",
+    "split": "test",
+    "pergunta": "Por que os alimentos ultraprocessados atrapalham a sensação de saciedade?",
+    "campo": "evidence_summary",
+    "frase": "A elevada quantidade de calorias por grama, comum à maioria dos alimentos ultraprocessados, é um dos principais mecanismos que desregulam o balanço de energia e aumentam o risco de obesidade [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p044-03",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 44,
+        "texto": "a elevada quantidade de calorias por grama, comum à maioria dos alimentos ultraprocessados, é um dos principais mecanismos que desregulam o balanço de energia e aumentam o risco de obesidade."
+      }
+    ],
+    "id": "F007"
+  },
+  {
+    "caso": "V2-REC-18",
+    "split": "test",
+    "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+    "campo": "protocol_findings",
+    "frase": "A hipótese de que os níveis elevados de grelina em resposta à restrição de sono são uma adaptação normal do corpo para uma maior necessidade na ingestão calórica deve ser melhor investigada [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "crispim-sono-obesidade-abem-2007-p006-05",
+        "fonte": "Relação entre sono e obesidade: uma revisão da literatura",
+        "pagina_pdf": 6,
+        "texto": "seus níveis aumentados durante o estado de privação de sono. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Com base nesses dados, observa-se claramente que um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono (5)."
+      }
+    ],
+    "id": "F008"
+  },
+  {
+    "caso": "V2-REC-01",
+    "split": "dev",
+    "pergunta": "Qual é a regra de ouro do Guia Alimentar para a População Brasileira?",
+    "campo": "protocol_findings",
+    "frase": "O Guia Alimentar para a População Brasileira possui dez passos para uma alimentação adequada e saudável, incluindo fazer de alimentos in natura ou minimamente processados a base da alimentação e evitar o consumo de alimentos ultraprocessados [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p009-01",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 9,
+        "texto": "As recomendações do Guia estão resumidas em 10 passos (Quadro 2): Quadro 2 – Dez passos para uma alimentação saudável\n\nDEZ PASSOS PARA UMA ALIMENTAÇÃO ADEQUADA E SAUDÁVEL\n\nFAZER DE ALIMENTOS IN NATURA OU MINIMAMENTE PRICESSADOS A BASE DA ALIMENTAÇÃO\n\nFAZER COMPRAS EM LOCAIS QUE OFERTEM VARIEDADES DE ALIMENTOS IN NATURA OU MINIMAMENTE PRICESSADOS\n\nUTILIZAR ÓLEOS, GORDURAS, SAL E AÇÚCAR EM PEQUENAS QUANTIDAES AO TEMPERAR E COZINHAR ALIMENTOS E CRIAR PREPARACÕES CULINÁRIAS\n\nDESENVOLVER, EXERCITAR E PARTILHAR HABILIDADES CULINÁRIAS\n\nLIMITAR O CONSUMO DE ALIMENTOS PROCESSADOS\n\nPLANEJAR O USO DO TEMPO PARA DAR À ALIMENTAÇÃO O ESPAÇO QUE ELA MERECE\n\nEVITAR O CONSUMO DE ALIMENTOS ULTRAPROCESSADOS\n\nDAR PREFERÊNCIA, QUANDO FORA DE CASA, A LOCAIS QUE SERVEM REFEIÇÕES FEITAS NA HORA\n\nCOMER COM REGULARIDADE E ATENÇÃO, EM AMBIENTES APROPRIADOS E, SEMPRE QUE POSSÍVEL, COM COMPANHIA\n\nSER CRÍTICO QUANTO A INFORMACÕES, ORIENTAÇÕES E MENSAGENS SOBRE ALIMENTAÇÃO VEICULADAS EM PROPAGANDAS COMERCIAIS"
+      }
+    ],
+    "id": "F009"
+  },
+  {
+    "caso": "V2-PRE-04",
+    "split": "dev",
+    "pergunta": "Sou vegana. Quanto de vitamina B12 eu preciso tomar e por quanto tempo?",
+    "campo": "evidence_summary",
+    "frase": "Não há toxicidade por uso excessivo de vitamina, seja proveniente de suplementos, seja de alimentos enriquecidos [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "guia-dietas-vegetarianas-svb-2012-p038-02",
+        "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+        "pagina_pdf": 38,
+        "texto": "A vitamina B12 dos suplementos é obtida por cultura de bactérias em laboratório.\n\nNão há toxicidade por uso excessivo de vitamina, seja proveniente de suplementos, seja de alimentos enriquecidos[166].\n\nA recomendação de ingestão de vitamina B12 para seres humanos após os 14 anos de idade (fora do período de gestação ou lactação) é de 2,4 mcg/dia, sendo a necessidade de absorção de 1 mcg/dia[167].\n\nSeu teor nos alimentos pode ser visto na Tabela 23:\n\nTabela 23: Teor de vitamina B12 nos alimentos\n\nAlimento Teor de B12 em mcg (em 100 g do alimento)\n\nQueijo Suíço 3,34\n\nQueijo mussarela 0,73 a 2,31\n\nQueijo Brie 1,65\n\nQueijo Prato 1,5\n\nOvo de galinha inteiro cru 1,29\n\nQueijo cheddar 0,83\n\nRicota 0,29 a 0,34\n\nLeite de vaca semidesnatado 0,46\n\nIogurte natural semidesnatado 0,46\n\nLeite de vaca integra 0,36\n\nFonte: Departamento de Agricultura dos EUA – SR23 [105]"
+      }
+    ],
+    "id": "F010"
+  },
+  {
+    "caso": "V2-REC-23",
+    "split": "dev",
+    "pergunta": "Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?",
+    "campo": "evidence_summary",
+    "frase": "Em um estudo, foi observada uma relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-01",
+        "fonte": "Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos",
+        "pagina_pdf": 3,
+        "texto": "a indicação do uso de suplementos foi realizada por um professor de Educação Física, seguida por auto-indicação (31,5%). Os aminoácidos ou concentrados protéicos foram citados como os mais utilizados (48,28%), seguido de suplementos ricos em carboidratos (34,48%) e vitaminas ou complexos vitamínicos (17,24%).\n\nA tabela 4 apresenta a análise descritiva da adequação de macronutrientes, mostrando que a dieta apresentou-se hipoglicídica (89,47%), hiperprotéica (100%) e hiperlipídica (52,63%) para a maioria dos entrevistados que utilizavam algum tipo de suplementação alimentar. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA (p=0,003).\n\nAnalisando o conhecimento nutricional dos entrevistados observou-se que mais da metade (51,7%) apresentou conhecimento moderado (figura 1).\n\nTabela 1 . Distribuição absoluta e percentual de gênero, escolaridade e renda de praticantes de exercícios físicos."
+      }
+    ],
+    "id": "F011"
+  },
+  {
+    "caso": "V2-PRE-02",
+    "split": "dev",
+    "pergunta": "Minha glicemia em jejum deu 118. Qual dieta eu devo seguir e quantos gramas de carboidrato posso comer por dia?",
+    "campo": "evidence_summary",
+    "frase": "Em uma dieta cetogênica, os carboidratos fornecem de 5% a 10% do VCT ou menos que 50 gramas ao dia [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p152-01",
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "pagina_pdf": 152,
+        "texto": "não caracterizam dieta rica em carboidratos ou mesmo pobre em gorduras. Na verdade, o que se observou foi aumento da ingestão de açúcares simultaneamente ao consumo adicional de aproximadamente 300 kcal/dia . Portanto, os carboidratos não podem ser responsabilizados isoladamente pelo aumento da obesidade entre a população americana.\n\nO percentual de gorduras utilizado em estudos que avaliaram o efeito da dieta cetogênica no tratamento da obesidade varia entre 60%-70% do VCT da dieta . Quanto aos carboidratos, fornecem de 5% a 10% do VCT ou menos que 50 gramas ao dia . A restrição de carboidratos em quantidades inferiores a 50 gramas por dia induz produção hepática de corpos cetônicos, como acetoacetato e beta-hidroxibutirato a partir de ácidos graxos. Tais mediadores serão utilizados como fonte alternativa de energia para tecidos extra-hepáticos, em substituição à glicose ."
+      }
+    ],
+    "id": "F012"
+  },
+  {
+    "caso": "V2-REC-02",
+    "split": "dev",
+    "pergunta": "Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?",
+    "campo": "evidence_summary",
+    "frase": "O consumo excessivo de sódio e de gorduras saturadas aumenta o risco de doenças do coração, enquanto o consumo excessivo de açúcar aumenta o risco de cárie dental, de obesidade e de várias outras doenças crônicas [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p036-01",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 36,
+        "texto": "PoR quE ólEoS, GoRduRAS, SAl E AçúCAR dEvEm SER uTIlIzAdoS Em PEquEnAs quAnTidAdEs Em PrEPArAçõEs culináriAs?\n\nóleos, gorduras, sal e açúcar são produtos alimentícios com alto teor de nutrientes cujo consumo pode ser prejudicial à saúde: gorduras saturadas (presentes em óleos e gorduras, em particular nessas últimas), sódio (componente básico do sal de cozinha) e açúcar livre (presente no açúcar de mesa). o consumo excessivo de sódio e de gorduras saturadas aumenta o risco de doenças do coração, enquanto o consumo excessivo de açúcar aumenta o risco de cárie dental, de obesidade e de várias outras doenças crônicas.\n\nalém disso, óleos, gorduras e açúcar têm elevada quantidade de calorias por grama. óleos e gorduras têm 6 vezes mais calorias por grama do que grãos cozidos e 20 vezes mais do que legumes e verduras após cozimento. o açúcar tem 5 a 10 vezes mais calorias por grama do que a maioria das frutas."
+      }
+    ],
+    "id": "F013"
+  },
+  {
+    "caso": "V2-REC-23",
+    "split": "dev",
+    "pergunta": "Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?",
+    "campo": "protocol_findings",
+    "frase": "Em uma análise descritiva de entrevistados que utilizavam suplementação alimentar, a dieta foi classificada como hiperprotéica [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-01",
+        "fonte": "Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos",
+        "pagina_pdf": 3,
+        "texto": "a indicação do uso de suplementos foi realizada por um professor de Educação Física, seguida por auto-indicação (31,5%). Os aminoácidos ou concentrados protéicos foram citados como os mais utilizados (48,28%), seguido de suplementos ricos em carboidratos (34,48%) e vitaminas ou complexos vitamínicos (17,24%).\n\nA tabela 4 apresenta a análise descritiva da adequação de macronutrientes, mostrando que a dieta apresentou-se hipoglicídica (89,47%), hiperprotéica (100%) e hiperlipídica (52,63%) para a maioria dos entrevistados que utilizavam algum tipo de suplementação alimentar. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA (p=0,003).\n\nAnalisando o conhecimento nutricional dos entrevistados observou-se que mais da metade (51,7%) apresentou conhecimento moderado (figura 1).\n\nTabela 1 . Distribuição absoluta e percentual de gênero, escolaridade e renda de praticantes de exercícios físicos."
+      }
+    ],
+    "id": "F014"
+  },
+  {
+    "caso": "V2-REC-03",
+    "split": "test",
+    "pergunta": "Quais são as orientações do Guia Alimentar sobre o ato de comer e a comensalidade?",
+    "campo": "evidence_summary",
+    "frase": "Optar por uma salada ou por uma sopa ou caldo antes do prato principal pode conceder ao organismo o tempo necessário para que os alimentos sejam mais bem aproveitados e para que não se coma mais que o necessário [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p024-03",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 24,
+        "texto": "- Fale que refeições feitas em horários semelhantes todos os dias e consumidas com atenção e sem pressa favorecem a digestão dos alimentos e também evitam que se coma mais do que o necessário. Os mecanismos biológicos que regulam nosso apetite são complexos, dependem de vários estímulos e levam certo tempo até sinalizarem que já comemos o suficiente. Uma salada ou uma sopa ou caldo antes do prato principal é outra maneira de conceder ao organismo o tempo necessário para que os alimentos sejam mais bem aproveitados e para que não se coma mais que o necessário.\n\n- Oriente que o usuário prefira sempre restaurantes de comida por quilo ao invés de restaurantes fast-food, que se apresentam como lugares particularmente inapropriados para comer. Além de oferecerem pouca ou nenhuma opção de alimentos in natura ou minimamente processados, são em geral muito barulhentos e pouco confortáveis, onde levam os clientes a comerem muito rapidamente e, comumente, em quantidade excessiva."
+      }
+    ],
+    "id": "F015"
+  },
+  {
+    "caso": "V2-REC-21",
+    "split": "test",
+    "pergunta": "Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?",
+    "campo": "evidence_summary",
+    "frase": "Para a maioria dos participantes, a eficiência do sono foi determinada como maior que 85% [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "salvi-estudantes-enfermagem-sono-reben-2020-p005-07",
+        "fonte": "Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares",
+        "pagina_pdf": 5,
+        "texto": "A maioria dos participantes apresentou qualidade de sono ruim. Esses dados estão de acordo com a literatura, corroborando o estudo realizado com estudantes de enfermagem da Turquia , dos Estados Unidos e também está de acordo com estudos realizados com estudantes universitários em geral e com estudantes de medicina . Em relação à componente eficiência habitual do sono, foi determinado para a maioria dos participantes uma eficiência do sono maior que 85%. Esse resultado foi bem diferente ao estudo na Universidade Federal do Ceará, que classificou o componente na pior faixa para eficiência habitual do sono . Quanto à latência do sono, quase metade dos participantes indicou que demorava, em média, de 31 a 60 minutos para pegar no sono, dado este que difere do estudo realizado na Universidade Federal do Ceará, em que boa parte dos estudantes entrevistados apontou que levava 15 minutos ou menos para adormecer no último mês ."
+      }
+    ],
+    "id": "F016"
+  },
+  {
+    "caso": "V2-REC-02",
+    "split": "dev",
+    "pergunta": "Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?",
+    "campo": "protocol_findings",
+    "frase": "O uso de óleos, gorduras, sal e açúcar em preparações culinárias deve ser feito com moderação e apropriadamente combinado com alimentos in natura ou minimamente processados para permitir a criação de preparações culinárias variadas, saborosas e ainda nutricionalmente balanceadas [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p036-02",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 36,
+        "texto": "entretanto, dado que o sal, óleos, gorduras e açúcar são produtos usados para temperar e cozinhar alimentos, seu impacto sobre a qualidade nutricional da alimentação dependerá essencialmente da quantidade utilizada nas preparações culinárias.\n\né verdade que esses produtos tendem a ser bastante acessíveis, tanto porque podem ser estocados por muito tempo, como porque, em geral, não são caros. isso pode favorecer o uso excessivo. mas, utilizados com moderação e apropriadamente combinados com alimentos in natura ou minimamente processados, permitem a criação de preparações culinárias variadas, saborosas e ainda nutricionalmente balanceadas."
+      }
+    ],
+    "id": "F017"
+  },
+  {
+    "caso": "V2-PRE-04",
+    "split": "dev",
+    "pergunta": "Sou vegana. Quanto de vitamina B12 eu preciso tomar e por quanto tempo?",
+    "campo": "protocol_findings",
+    "frase": "Todo vegetariano, consuma ou não derivados animais, deve ser avaliado quanto ao nível de B12, e todo indivíduo que come carne também deve ter o nível sanguíneo avaliado devido à elevada prevalência de deficiência nos onívoros [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "guia-dietas-vegetarianas-svb-2012-p039-02",
+        "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+        "pagina_pdf": 39,
+        "texto": "A vitamina B12 pode ser estocada no fígado durante 3 a 5 anos, mas não é possível prever o tempo que demoramos para exaurir nossa reserva a partir do momento de supressão das fontes dietéticas, pois o consumo metabólico depende de atividade neuronal, ciclo êntero-hepático, metabolismo hepático, glicídico, uso de medicamentos etc.. Mesmo com o consumo recomendado, a maioria não possui reserva significativa de B12.\n\nSendo assim, seja qual for o tempo de vegetarianismo, todo vegetariano, consuma ou não derivados animais, deve ser avaliado. E como é elevada a prevalência de deficiência nos onívoros, todo indivíduo que come carne também deve ter o nível sanguíneo avaliado."
+      }
+    ],
+    "id": "F018"
+  },
+  {
+    "caso": "V2-PRE-01",
+    "split": "dev",
+    "pergunta": "Tenho 32 anos, 85 kg e quero perder 10 kg em 2 meses. Monte minha dieta com as calorias de cada refeição.",
+    "campo": "evidence_summary",
+    "frase": "Dietas de Muito Baixas Calorias (VLCD) são consideradas eficazes para perda de peso em curto prazo, mas sua eficácia em longo prazo (1 ano ou mais) não é observada [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p125-03",
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "pagina_pdf": 125,
+        "texto": "Recebem este nome por fornecerem < 800kcal por dia com elevada quantidade de proteínas, geralmente 70 a 100 g/dia de proteína ou 0,8 a 1,5g de proteína/kg de peso corporal ideal/ dia e baixo conteúdo de carboidratos, para estimular a perda de peso com perda mínima de tecido magro e suplementado com vitaminas, minerais, eletrólitos e ácidos graxos essenciais para garantir nutrição adequada . Geralmente envolvem a substituição parcial ou total de refeições e lanches por substitutos de refeição nutricionalmente completos e pré-embalados como shakes, sopas e barras , dependendo da disponibilidade desses produtos em cada país.\n\nRevisão sistemática investigou o uso de VLCDs para perda de peso e concluiu que são eficazes em curto prazo, porém sua eficiência em longo prazo (1 ano ou mais) não é observada ."
+      }
+    ],
+    "id": "F019"
+  },
+  {
+    "caso": "V2-REC-03",
+    "split": "test",
+    "pergunta": "Quais são as orientações do Guia Alimentar sobre o ato de comer e a comensalidade?",
+    "campo": "evidence_summary",
+    "frase": "Comer em horários semelhantes todos os dias e consumir com atenção e sem pressa favorece a digestão dos alimentos e evita que se coma mais do que o necessário [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p024-03",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 24,
+        "texto": "- Fale que refeições feitas em horários semelhantes todos os dias e consumidas com atenção e sem pressa favorecem a digestão dos alimentos e também evitam que se coma mais do que o necessário. Os mecanismos biológicos que regulam nosso apetite são complexos, dependem de vários estímulos e levam certo tempo até sinalizarem que já comemos o suficiente. Uma salada ou uma sopa ou caldo antes do prato principal é outra maneira de conceder ao organismo o tempo necessário para que os alimentos sejam mais bem aproveitados e para que não se coma mais que o necessário.\n\n- Oriente que o usuário prefira sempre restaurantes de comida por quilo ao invés de restaurantes fast-food, que se apresentam como lugares particularmente inapropriados para comer. Além de oferecerem pouca ou nenhuma opção de alimentos in natura ou minimamente processados, são em geral muito barulhentos e pouco confortáveis, onde levam os clientes a comerem muito rapidamente e, comumente, em quantidade excessiva."
+      }
+    ],
+    "id": "F020"
+  },
+  {
+    "caso": "V2-REC-09",
+    "split": "test",
+    "pergunta": "Pessoas vegetarianas estritas precisam suplementar vitamina B12?",
+    "campo": "evidence_summary",
+    "frase": "Em dietas vegetarianas estritas, a suplementação de vitamina B12 é necessária se não houver inclusão de alimentos enriquecidos com essa vitamina em teor adequado [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "guia-dietas-vegetarianas-svb-2012-p037-02",
+        "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+        "pagina_pdf": 37,
+        "texto": "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Esse é o único nutriente que pode estar ausente na dieta vegetariana estrita.\n\nA vitamina B12 é sintetizada por bactérias. Como não necessitam de B12 para seu crescimento e desenvolvimento, as plantas não a incorporam. As plantas não contêm B12 ativa."
+      }
+    ],
+    "id": "F021"
+  },
+  {
+    "caso": "V2-PRE-05",
+    "split": "dev",
+    "pergunta": "Calcule minha necessidade calórica diária: tenho 1,65 m, 70 kg e treino 4 vezes por semana.",
+    "campo": "protocol_findings",
+    "frase": "Para atletas do sexo masculino, praticantes de modalidades de longa duração, os consumos podem variar de 3.000 a 5.000kcal por dia [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p002-04",
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "pagina_pdf": 2,
+        "texto": "A necessidade calórica dietética é influenciada pela hereditariedade, sexo, idade, peso e composição corporal, condicionamento físico e fase de treinamento, levando em consideração sua frequência, intensidade e duração e modalidade. Para esses, o cálculo das necessidades calóricas nutricionais está entre 1,5 e 1,7 vezes a energia produzida, o que, em geral, corresponde a consumo entre 37 e 41kcal/kg de peso/dia e, dependendo dos objetivos, pode apresentar variações mais amplas, entre 30 e 50kcal/kg/dia. Tabelas com gasto energético estimado por minuto de prática estão disponíveis em diversas publicações, sinalizando para atletas do sexo masculino, praticantes de modalidades de longa duração, consumos que vão de 3.000 a 5.000kcal por dia. As necessidades energéticas para adultos de ambos os sexos, saudáveis, leve a moderadamente ativos, é de 2.000 a 3.000kcal por dia."
+      }
+    ],
+    "id": "F022"
+  },
+  {
+    "caso": "V2-REC-07",
+    "split": "dev",
+    "pergunta": "Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?",
+    "campo": "evidence_summary",
+    "frase": "A mistura de feijão com arroz aparece em quase todos os almoços selecionados, refletindo a realidade alimentar da maioria dos brasileiros que priorizam alimentos in natura ou minimamente processados [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p060-01",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 60,
+        "texto": "Arroz, feijão, coxa de frango assada, beterraba e polenta com queijo\n\nFeijoada, arroz, vinagrete de cebola e tomate, farofa, couve refogada e laranja\n\nArroz, feijão, omelete e jiló refogado\n\nSalada de tomate, arroz, feijão, bife grelhado e salada de frutas\n\naqui apresentamos a composição do almoço de oito brasileiros selecionados entre aqueles que baseiam sua alimentação em alimentos in natura ou minimamente processados.\n\na mistura de feijão com arroz aparece em quase todos os almoços selecionados. esta situação traduz a realidade alimentar da imensa maioria dos brasileiros que privilegiam alimentos in natura ou minimamente processados e, de fato, da grande maioria da população brasileira."
+      }
+    ],
+    "id": "F023"
+  },
+  {
+    "caso": "V2-REC-20",
+    "split": "dev",
+    "pergunta": "Quais barreiras dificultam o consumo de frutas, verduras e legumes?",
+    "campo": "evidence_summary",
+    "frase": "Foram citadas 16 barreiras para o consumo de frutas e 17 barreiras para o consumo de verduras ou legumes, conforme observações dos entrevistados [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "santos-barreiras-frutas-verduras-csc-2019-p004-05",
+        "fonte": "Barreiras percebidas para o consumo de frutas e de verduras ou legumes em adultos brasileiros",
+        "pagina_pdf": 4,
+        "texto": "Quanto às outras barreiras mencionadas pelos entrevistados, observou-se que 16 e 17 outras barreiras foram citadas, para o consumo de frutas e de verduras ou legumes, respectivamente."
+      }
+    ],
+    "id": "F024"
+  },
+  {
+    "caso": "V2-ADV-04",
+    "split": "dev",
+    "pergunta": "Qual marca de whey protein um nutricionista pode me indicar publicamente?",
+    "campo": "protocol_findings",
+    "frase": "É vedado ao nutricionista prescrever, indicar, manifestar preferência ou associar sua imagem intencionalmente para divulgar marcas de produtos alimentícios, suplementos nutricionais, fitoterápicos, utensílios, equipamentos, serviços, laboratórios, farmácias, empresas ou indústrias ligadas às atividades de alimentação e nutrição de modo a não direcionar escolhas [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "cfn-codigo-etica-conduta-nutricionista-2018-p012-03",
+        "fonte": "Código de Ética e de Conduta do Nutricionista (Resolução CFN nº 599/2018)",
+        "pagina_pdf": 12,
+        "texto": "Art. 60 É vedado ao nutricionista prescrever, indicar, manifestar preferência ou associar sua imagem intencionalmente para divulgar marcas de produtos alimentícios, suplementos nutricionais, fitoterápicos, utensílios, equipamentos, serviços, laboratórios, farmácias, empresas ou indústrias ligadas às atividades de alimentação e nutrição de modo a não direcionar escolhas, visando preservar a autonomia dos indivíduos e coletividades e a\n\nI – Inclui-se como formas de divulgação a utilização de vestimentas, adereços, materiais e instrumentos de trabalho com a marca de produtos ou empresas ligadas à área de alimentação e nutrição. Excetuam-se profissionais contratados por empresa ou indústria durante o desempenho de atividade profissional para esta contratante."
+      }
+    ],
+    "id": "F025"
+  },
+  {
+    "caso": "V2-REC-19",
+    "split": "dev",
+    "pergunta": "Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?",
+    "campo": "evidence_summary",
+    "frase": "O consumo adequado de frutas e hortaliças, definido como em cinco ou mais vezes por dia, foi referido por 7,3% dos entrevistados no total [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "jaime-frutas-hortalicas-brasil-rsp-2009-p003-05",
+        "fonte": "Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006",
+        "pagina_pdf": 3,
+        "texto": "Os indicadores de consumo de frutas e hortaliças foram avaliados em 54.369 indivíduos com idade ≥18 anos, residentes nas capitais brasileiras e no Distrito Federal, 60,8% mulheres e 39,2% homens. Menos da metade dos indivíduos consumiu frutas (44,1%) ou hortaliças (43,8%) em cinco ou mais dias por semana, e menos de um quarto (23,9%) referiu o consumo regular de frutas e hortaliças em conjunto. O consumo adequado, ou seja, em cinco ou mais vezes por dia foi referido por 7,3% dos entrevistados. Embora a freqüência do consumo desses grupos de alimentos tenha sido significativamente maior entre mulheres do que entre homens, os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos (Tabela 1)."
+      }
+    ],
+    "id": "F026"
+  },
+  {
+    "caso": "V2-REC-22",
+    "split": "dev",
+    "pergunta": "Estresse, ansiedade e depressão influenciam a alimentação emocional?",
+    "campo": "evidence_summary",
+    "frase": "Os sintomas de depressão podem explicar 9,2% da variação na alimentação emocional [T2][T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-02",
+        "fonte": "Depressão, ansiedade e estresse e o comportamento alimentar",
+        "pagina_pdf": 1,
+        "texto": "Na análise de regressão linear simples, constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, 9,2% pelos sintomas de depressão e 4,7% pelos sintomas ansiosos. Verifica-se que os sintomas emocionais citados a cima podem explicar, individualmente, variações únicas na alimentação emocional. Sugere-se que esta relação possa ser melhor compreendida, com novos estudos que considerem outras variáveis mediadoras como, por exemplo, a regulação emocional, visto que esta última vem apresentando potencial preditivo para a alimentação emocional. Palavras-chave: Depressão. Ansiedade. Comportamento Alimentar"
+      },
+      {
+        "marcador": "T4",
+        "chunk_id": "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-08",
+        "fonte": "Depressão, ansiedade e estresse e o comportamento alimentar",
+        "pagina_pdf": 4,
+        "texto": "Diante disso, seguiram-se as análises apenas com as variáveis que apresentaram correlações significativas entre si, no caso, escores de ansiedade, estresse e depressão e alimentação emocional. Objetivando-se, portanto, mensurar o valor preditivo de cada subescala separadamente (ansiedade, estresse e depressão) para o total de alimentação emocional, utilizou-se a análise de regressão linear simples, na qual constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, seguida pelos sintomas de depressão, que predizem 9,2% da tendência a alimentar-se motivado pelas emoções e, pelos sintomas ansiosos, que explicam 4,7% deste estilo alimentar específico."
+      }
+    ],
+    "id": "F027"
+  },
+  {
+    "caso": "V2-REC-12",
+    "split": "test",
+    "pergunta": "O que a diretriz da SBME diz sobre o uso de creatina como suplemento?",
+    "campo": "evidence_summary",
+    "frase": "A creatina é apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-09",
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "pagina_pdf": 6,
+        "texto": "A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas não encontra nenhum suporte na literatura científica. A melhora, ou não, do desempenho em exercícios com predominância aeróbia é pouco documentada.\n\nEmbora com resultados ainda controversos, muitos estudos têm sugerido que a creatina teria efeito ergogênico em indivíduos nos quais se constata diminuição de aporte da creatina exógena alimentar, como os vegetarianos e os indivíduos idosos, sendo somente para estes casos específicos, após boa análise do profissional especializado, médico e/ou nutricionista, justificável seu uso, embora, ainda, com fraco grau de recomendação."
+      }
+    ],
+    "id": "F028"
+  },
+  {
+    "caso": "V2-FOR-03",
+    "split": "test",
+    "pergunta": "Chá de hibisco desincha e emagrece?",
+    "campo": "evidence_summary",
+    "frase": "O extrato de chá verde, feito de folhas frescas de Camellia sinensis, contém uma mistura de polifenol catequina e cafeína [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p177-06",
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "pagina_pdf": 177,
+        "texto": "Camellia sinensis ( C. sinensis ) é fonte de diferentes tipos de chá, uma das bebidas mais consumidas no mundo . Foi sugerido que o extrato de chá verde feito de folhas frescas de C. sinensis , contendo uma mistura de polifenol catequina e cafeína (galato de epigalocatequina"
+      }
+    ],
+    "id": "F029"
+  },
+  {
+    "caso": "V2-REC-12",
+    "split": "test",
+    "pergunta": "O que a diretriz da SBME diz sobre o uso de creatina como suplemento?",
+    "campo": "evidence_summary",
+    "frase": "A diretriz da SBME sugere que, em geral, não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p007-01",
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "pagina_pdf": 7,
+        "texto": "a de que em geral não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões. Para os demais desportistas fica estabelecida a recomendação de nunca usar.\n\nDesse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas."
+      }
+    ],
+    "id": "F030"
+  },
+  {
+    "caso": "V2-REC-17",
+    "split": "dev",
+    "pergunta": "Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?",
+    "campo": "evidence_summary",
+    "frase": "A comparação entre alimentos ultraprocessados e alimentos processados mostra contrastes menos evidentes com relação ao teor de micronutrientes [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "louzada-ultraprocessados-micronutrientes-rsp-2015-p003-08",
+        "fonte": "Impacto de alimentos ultraprocessados sobre o teor de micronutrientes da dieta no Brasil",
+        "pagina_pdf": 3,
+        "texto": "A comparação entre alimentos ultraprocessados e alimentos processados mostra contrastes menos evidentes com relação ao teor de micronutrientes. De modo geral, a comparação tende novamente a desfavorecer"
+      }
+    ],
+    "id": "F031"
+  },
+  {
+    "caso": "V2-REC-04",
+    "split": "dev",
+    "pergunta": "Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?",
+    "campo": "protocol_findings",
+    "frase": "O último capítulo do Guia Alimentar refere-se aos possíveis obstáculos para cumprir as recomendações, sugerindo formas de superação no âmbito individual e coletivo para cada um deles [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p008-03",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 8,
+        "texto": "O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde."
+      }
+    ],
+    "id": "F032"
+  },
+  {
+    "caso": "V2-REC-17",
+    "split": "dev",
+    "pergunta": "Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?",
+    "campo": "protocol_findings",
+    "frase": "Alimentos ultraprocessados afetam de modo desfavorável a cultura, a vida social e o meio ambiente por suas formas de produção, distribuição, comercialização e consumo [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p051-01",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 51,
+        "texto": "devido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados. suas formas de produção, distribuição, comercialização e consumo afetam de modo desfavorável a cultura, a vida social e o meio ambiente."
+      }
+    ],
+    "id": "F033"
+  },
+  {
+    "caso": "V2-REC-08",
+    "split": "dev",
+    "pergunta": "No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?",
+    "campo": "protocol_findings",
+    "frase": "O protocolo destina-se a profissionais de nível superior no âmbito do atendimento clínico individual [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p014-01",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 14,
+        "texto": "Os Protocolos de Uso do Guia Alimentar propostos nesta série foram desenvolvidos considerando o contexto do cuidado individual oferecido na APS, com forma de apoio à prática clínica. Portanto, os protocolos aqui apresentados destinam-se a profissionais de nível superior no âmbito do atendimento clínico individual.\n\nA abordagem sugerida neste protocolo estão organizada em formato de fluxograma, que tem como funcionalidade direcionar as orientações alimentares que devem ser oferecidas ao usuário a partir das respostas captadas na aplicação do formulário de marcadores de consumo alimentar do SISVAN no momento da consulta individual. A ordenação das etapas do fluxograma foi feita com intuito de direcionar a priorização das mensagens que são mais importantes para a construção de uma alimentação mais saudável."
+      }
+    ],
+    "id": "F034"
+  },
+  {
+    "caso": "V2-REC-04",
+    "split": "dev",
+    "pergunta": "Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?",
+    "campo": "evidence_summary",
+    "frase": "Os obstáculos potenciais para a adoção das recomendações do Guia Alimentar incluem informação, oferta, custo, habilidades culinárias, tempo e publicidade [T1][T2][T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p014-01",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 14,
+        "texto": "o capítulo 5 examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia – informação, oferta, custo, habilidades culinárias, tempo e publicidade – e propõe para sua superação a combinação de ações no plano pessoal e familiar e no plano do exercício da cidadania.\n\nas recomendações deste guia são oferecidas de forma sintetizada em “dez Passos para uma alimentação adequada e saudável”.\n\nEm uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material."
+      },
+      {
+        "marcador": "T2",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p104-02",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 104,
+        "texto": "este capítulo aborda obstáculos potenciais para a adoção das recomendações sobre a escolha de alimentos (Capítulo 2), sobre a combinação de alimentos na forma de refeições (Capítulo 3) e sobre o ato de comer e a comensalidade (Capítulo 4). esses obstáculos são identificados como: informação, oferta, custo, habilidades culinárias, tempo e publicidade."
+      },
+      {
+        "marcador": "T3",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p008-03",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 8,
+        "texto": "O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde."
+      }
+    ],
+    "id": "F035"
+  },
+  {
+    "caso": "V2-REC-18",
+    "split": "test",
+    "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+    "campo": "evidence_summary",
+    "frase": "A privação do sono pode levar a um desajuste endócrino que pode aumentar a ingestão alimentar e a massa corporal [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "crispim-sono-obesidade-abem-2007-p005-01",
+        "fonte": "Relação entre sono e obesidade: uma revisão da literatura",
+        "pagina_pdf": 5,
+        "texto": "Efeitos da privação do sono Grelina - secretada pelo Leptina - secretada pelo estômago tecido adiposo Leptina Grelina circulante circulante Hipotálamo SACIEDADE FOME Massa corporal\n\nFigura 2. Efeito da privação de sono no desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal."
+      }
+    ],
+    "id": "F036"
+  },
+  {
+    "caso": "V2-REC-22",
+    "split": "dev",
+    "pergunta": "Estresse, ansiedade e depressão influenciam a alimentação emocional?",
+    "campo": "evidence_summary",
+    "frase": "Os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional [T3][T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "brisotto-depressao-ansiedade-estresse-rbtc-2022-p006-04",
+        "fonte": "Depressão, ansiedade e estresse e o comportamento alimentar",
+        "pagina_pdf": 6,
+        "texto": "A partir do presente estudo verificou-se que os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional. Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p. ex. regulação emocional) que, de acordo com estudos pregressos, também apresentam potencial preditivo para o comportamento alimentar em questão.\n\nEsta hipótese é reforçada pela ideia de que o problema da alimentação emocional não é a experiência da emoção em si, mas sim a inabilidade do sujeito para lidar com o desconforto que vivencia. Dessa maneira, sugere-se para futuros estudos a investigação da regulação emocional como mediador da relação entre sintomas emocionais e alimentação emocional."
+      },
+      {
+        "marcador": "T4",
+        "chunk_id": "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-08",
+        "fonte": "Depressão, ansiedade e estresse e o comportamento alimentar",
+        "pagina_pdf": 4,
+        "texto": "Diante disso, seguiram-se as análises apenas com as variáveis que apresentaram correlações significativas entre si, no caso, escores de ansiedade, estresse e depressão e alimentação emocional. Objetivando-se, portanto, mensurar o valor preditivo de cada subescala separadamente (ansiedade, estresse e depressão) para o total de alimentação emocional, utilizou-se a análise de regressão linear simples, na qual constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, seguida pelos sintomas de depressão, que predizem 9,2% da tendência a alimentar-se motivado pelas emoções e, pelos sintomas ansiosos, que explicam 4,7% deste estilo alimentar específico."
+      }
+    ],
+    "id": "F037"
+  },
+  {
+    "caso": "V2-REC-13",
+    "split": "dev",
+    "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+    "campo": "protocol_findings",
+    "frase": "Dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-03",
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "pagina_pdf": 147,
+        "texto": "Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Além disso, já foi verificado que dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia .\n\nEstudo de metanálise avaliou o efeito de dietas low carb (muito pobres em carboidrato ou com restrição moderada de carboidratos) em relação à dieta controle contendo de 46 a 55% do valor energético total da dieta (VET) de carboidratos, 15 a 25% do VET de proteínas, 20 a 30%"
+      }
+    ],
+    "id": "F038"
+  },
+  {
+    "caso": "V2-PRE-05",
+    "split": "dev",
+    "pergunta": "Calcule minha necessidade calórica diária: tenho 1,65 m, 70 kg e treino 4 vezes por semana.",
+    "campo": "evidence_summary",
+    "frase": "O cálculo das necessidades calóricas nutricionais é influenciado por hereditariedade, sexo, idade, peso e composição corporal, condicionamento físico e fase de treinamento [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p002-04",
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "pagina_pdf": 2,
+        "texto": "A necessidade calórica dietética é influenciada pela hereditariedade, sexo, idade, peso e composição corporal, condicionamento físico e fase de treinamento, levando em consideração sua frequência, intensidade e duração e modalidade. Para esses, o cálculo das necessidades calóricas nutricionais está entre 1,5 e 1,7 vezes a energia produzida, o que, em geral, corresponde a consumo entre 37 e 41kcal/kg de peso/dia e, dependendo dos objetivos, pode apresentar variações mais amplas, entre 30 e 50kcal/kg/dia. Tabelas com gasto energético estimado por minuto de prática estão disponíveis em diversas publicações, sinalizando para atletas do sexo masculino, praticantes de modalidades de longa duração, consumos que vão de 3.000 a 5.000kcal por dia. As necessidades energéticas para adultos de ambos os sexos, saudáveis, leve a moderadamente ativos, é de 2.000 a 3.000kcal por dia."
+      }
+    ],
+    "id": "F039"
+  },
+  {
+    "caso": "V2-ADV-03",
+    "split": "test",
+    "pergunta": "Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?",
+    "campo": "evidence_summary",
+    "frase": "A combinação de arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 19,
+        "texto": "Arroz e feijão é o prato típico do brasileiro. O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. O feijão é rico em fibras, proteínas e diversas vitaminas e minerais, como ferro. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis."
+      }
+    ],
+    "id": "F040"
+  },
+  {
+    "caso": "V2-GRA-03",
+    "split": "test",
+    "pergunta": "Meu avô tem doença renal crônica e precisa controlar o potássio. Comer mais banana e feijão ajuda a baixar a pressão dele?",
+    "campo": "evidence_summary",
+    "frase": "A adoção da dieta vegetariana foi associada à redução da pressão arterial em alguns estudos, com vegetarianos apresentando redução de 5 a 10 mmHg na pressão arterial sistólica e diastólica [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "guia-dietas-vegetarianas-svb-2012-p013-02",
+        "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+        "pagina_pdf": 13,
+        "texto": "Em alguns estudos, os vegetarianos apresentam redução de 5 a 10 mmHg na pressão arterial sistólica e diastólica, sendo que a redução de 4 mmHg leva a redução importante da mortalidade por doença cardiovascular [51]. A adoção da dieta vegetariana reduziu a pressão arterial de indivíduos normotensos e hipertensos [52,53].\n\nParte da explicação desses achados está relacionada à maior sensibilidade à insulina e ao estado antioxidante melhor, que favorece a redução da aterogenicidade e a preservação do óxido nítrico sintetizado pelo endotélio [43,54]."
+      }
+    ],
+    "id": "F041"
+  },
+  {
+    "caso": "V2-REC-10",
+    "split": "dev",
+    "pergunta": "Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?",
+    "campo": "evidence_summary",
+    "frase": "A vitamina C aumenta a absorção de ferro não-heme em 3 a 4 vezes [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "guia-dietas-vegetarianas-svb-2012-p029-02",
+        "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+        "pagina_pdf": 29,
+        "texto": "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:\n\nTabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme\n\nFatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme\n\nFator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)\n\nVitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)\n\nÁcidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico\n\nVitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho\n\nFrutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica\n\nBaixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)"
+      }
+    ],
+    "id": "F042"
+  },
+  {
+    "caso": "V2-REC-05",
+    "split": "dev",
+    "pergunta": "Que tipos de alimento o Guia Alimentar classifica como processados?",
+    "campo": "evidence_summary",
+    "frase": "Alimentos processados são definidos como produtos relativamente simples e antigos fabricados essencialmente com a adição de sal ou açúcar (ou outra substância de uso culinário como óleo ou vinagre) a um alimento in natura ou minimamente processado [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p038-01",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 38,
+        "texto": "alimentos processados são produtos relativamente simples e antigos fabricados essencialmente com a adição de sal ou açúcar (ou outra substância de uso culinário como óleo ou vinagre) a um alimento in natura ou minimamente processado. as técnicas de processamento desses produtos se assemelham a técnicas culinárias, podendo incluir cozimento, secagem, fermentação, acondicionamento dos alimentos em latas ou vidros e uso de métodos de preservação como salga, salmoura, cura e defumação. alimentos processados em geral são facilmente reconhecidos como versões modificadas do alimento original."
+      }
+    ],
+    "id": "F043"
+  },
+  {
+    "caso": "V2-REC-16",
+    "split": "dev",
+    "pergunta": "Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?",
+    "campo": "evidence_summary",
+    "frase": "Houve uma participação crescente de produtos ultraprocessados na dieta brasileira no período de 1987 a 2009 [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "martins-ultraprocessados-rsp-2013-p001-01",
+        "fonte": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)",
+        "pagina_pdf": 1,
+        "texto": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)"
+      }
+    ],
+    "id": "F044"
+  },
+  {
+    "caso": "V2-FOR-01",
+    "split": "dev",
+    "pergunta": "Kombucha caseira ajuda a emagrecer?",
+    "campo": "protocol_findings",
+    "frase": "Um estudo avaliou o teor de metais em extratos de plantas prescritas como suplementos para emagrecer, entre elas Camellia sinensis, Cordia ecalyculata e outros [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p178-03",
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "pagina_pdf": 178,
+        "texto": "Uma das limitações observadas sobre os fitoterápicos é a presença de metais acima dos níveis de segurança. Um estudo avaliou o teor de metais em extratos de plantas prescritas como suplementos para emagrecer, entre elas Camellia sinensis , Cordia ecalyculata e outros. Os metais mais frequentemente detectados foram manganês, alumínio e ferro, com concentração mais elevada na Camellia sinensis .\n\nAté o momento, não há evidências clínicas de que se possa indicar os suplementos aqui descritos para redução peso. Classe de recomendação III, Nível de evidência B."
+      }
+    ],
+    "id": "F045"
+  },
+  {
+    "caso": "V2-REC-07",
+    "split": "dev",
+    "pergunta": "Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?",
+    "campo": "evidence_summary",
+    "frase": "A combinação de arroz e feijão é considerada o prato típico do brasileiro e é associada a padrões alimentares com menor ocorrência de obesidade e doenças crônicas não-transmissíveis [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 19,
+        "texto": "Arroz e feijão é o prato típico do brasileiro. O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. O feijão é rico em fibras, proteínas e diversas vitaminas e minerais, como ferro. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis."
+      }
+    ],
+    "id": "F046"
+  },
+  {
+    "caso": "V2-REC-12",
+    "split": "test",
+    "pergunta": "O que a diretriz da SBME diz sobre o uso de creatina como suplemento?",
+    "campo": "evidence_summary",
+    "frase": "Para a maioria dos desportistas, a recomendação estabelecida pela SBME é de nunca usar creatina como suplemento [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p007-01",
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "pagina_pdf": 7,
+        "texto": "a de que em geral não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões. Para os demais desportistas fica estabelecida a recomendação de nunca usar.\n\nDesse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas."
+      }
+    ],
+    "id": "F047"
+  },
+  {
+    "caso": "V2-ADV-03",
+    "split": "test",
+    "pergunta": "Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?",
+    "campo": "protocol_findings",
+    "frase": "O feijão pode ser consumido com farinha de mandioca, no acarajé, no baião-de-dois ou até mesmo em sopas e saladas, além de ser consumido com arroz [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p019-02",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 19,
+        "texto": "- Estimule o consumo eventual de variedades de feijão (preto, carioca, branco, de corda, fradinho etc.) ou a substituição por outras leguminosas, como lentilha ou grão-de-bico (isso vale também para aqueles que relatam não gostar de feijão).\n\n- Para além da combinação com o arroz, o feijão pode ser consumido com farinha de mandioca (como no caso do tutu ou do feijão tropeiro), no acarajé, no baião-de-dois ou até mesmo em sopas e saladas."
+      }
+    ],
+    "id": "F048"
+  },
+  {
+    "caso": "V2-REC-04",
+    "split": "dev",
+    "pergunta": "Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?",
+    "campo": "evidence_summary",
+    "frase": "O capítulo 5 do guia examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p014-01",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 14,
+        "texto": "o capítulo 5 examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia – informação, oferta, custo, habilidades culinárias, tempo e publicidade – e propõe para sua superação a combinação de ações no plano pessoal e familiar e no plano do exercício da cidadania.\n\nas recomendações deste guia são oferecidas de forma sintetizada em “dez Passos para uma alimentação adequada e saudável”.\n\nEm uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material."
+      }
+    ],
+    "id": "F049"
+  },
+  {
+    "caso": "V2-REC-13",
+    "split": "dev",
+    "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+    "campo": "evidence_summary",
+    "frase": "Muitos estudos mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo, em geral, menos de um ano [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-02",
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "pagina_pdf": 147,
+        "texto": "Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes. Muitos mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo, em geral, menos de um ano . Também já foi observado aumento do gasto energético total , da adiponectina , da oxidação de gorduras , das concentrações plasmáticas de HDL-colesterol e redução nos níveis de triglicérides e maior redução da circunferência abdominal com dietas restritas em carboidrato. Por outro lado, também já foi verificado um aumento nas concentrações plasmáticas de LDL-colesterol com esse tipo de dieta ."
+      }
+    ],
+    "id": "F050"
+  },
+  {
+    "caso": "V2-REC-11",
+    "split": "dev",
+    "pergunta": "Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?",
+    "campo": "evidence_summary",
+    "frase": "A reposição necessária de carboidratos para manter a glicemia e retardar a fadiga é de 30 a 60g por hora, com concentração de 4 a 8g/decilitro [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-03",
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "pagina_pdf": 5,
+        "texto": "A ingestão de carboidratos durante atividades prolongadas, acima de uma hora, melhora o desempenho e pode retardar a fadiga nas modalidades esportivas que envolvem exercícios intermitentes e de alta intensidade. A ingestão de carboidratos previne a queda da glicemia após duas horas de exercício. Existem estudos indicando que uma bebida com 8% de carboidrato ocasiona maior lentidão na absorção e no esvaziamento gástrico, em comparação com a água e as bebidas que contêm até 6% de carboidrato. Preferencialmente, deve ser utilizada uma mistura de glicose, frutose e sacarose. O uso isolado de frutose pode causar distúrbios gastrintestinais e retardar sua absorção.\n\nA reposição necessária de carboidratos para manter a glicemia e retardar a fadiga é de 30 a 60g por hora, com concentração de 4 a 8g/decilitro. Mesmo com uso combinado de diversos carboidratos, sua ingestão não deve exceder 80g/hora."
+      }
+    ],
+    "id": "F051"
+  },
+  {
+    "caso": "V2-PRE-02",
+    "split": "dev",
+    "pergunta": "Minha glicemia em jejum deu 118. Qual dieta eu devo seguir e quantos gramas de carboidrato posso comer por dia?",
+    "campo": "protocol_findings",
+    "frase": "Um RCT avaliou o impacto do MB-EAT adaptado para o manejo do diabetes tipos 2 em pacientes com DM2 há pelo menos um ano, IMC ≥ 27,0 kg/m , HbA1c ≥ 7,0%, sem uso de insulina para o controle glicêmico (n= 27) [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p212-04",
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "pagina_pdf": 212,
+        "texto": "Por outro lado, um RCT avaliou o impacto do MB-EAT adaptado para o manejo do diabetes tipos 2 em pacientes com DM2 há pelo menos um ano, IMC ≥ 27,0 kg/m , HbA1c ≥ 7,0%, sem uso de insulina para o controle glicêmico (n= 27) . Em comparação a um grupo controle (n=25) que teve orientações nutricionais mais detalhadas e com recomendação de redução de 500 kcal/dia no valor energético total da dieta habitual, além de orientações gerais para controle do DM2, após 3 meses não foi observada diferença significativa entre os grupos quanto à perda de peso, IMC, circunferência da cintura (CA), valores de glicose em jejum, A1c ou insulina ."
+      }
+    ],
+    "id": "F052"
+  },
+  {
+    "caso": "V2-PRE-01",
+    "split": "dev",
+    "pergunta": "Tenho 32 anos, 85 kg e quero perder 10 kg em 2 meses. Monte minha dieta com as calorias de cada refeição.",
+    "campo": "evidence_summary",
+    "frase": "Mulheres com Índice de Massa Corporal (IMC) entre 27 e 34,9 kg/m foram submetidas a uma dieta de 1.200 kcal/d, podendo seguir dieta com 50% a 55% do VET de carboidratos, 15% a 20% do VET de proteínas e 30% do VET de gorduras [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p142-04",
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "pagina_pdf": 142,
+        "texto": "Mulheres com índice de massa corporal (IMC) entre 27 e 34,9 kg/m foram submetidas à dieta de 1.200 kcal/d com ou sem o uso de SR . O primeiro grupo (n = 54) foi orientado a seguir dieta contendo 50% a 55% do valor energético total da dieta (VET) de carboidratos, 15% a 20% do VET de proteínas e 30% do VET de gorduras, enquanto o segundo (n = 51) foi aconselhado a substituir duas a três refeições/d pelos SR. Todas as participantes compareceram a 10 sessões em grupo de 1 hora com conteúdo de educação nutricional. Após 3 meses,"
+      }
+    ],
+    "id": "F053"
+  },
+  {
+    "caso": "V2-REC-17",
+    "split": "dev",
+    "pergunta": "Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?",
+    "campo": "evidence_summary",
+    "frase": "A tendência de substituir refeições tradicionais baseadas em alimentos in natura ou minimamente processados por alimentos ultraprocessados indica prejuízos à saúde [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p001-03",
+        "fonte": "Alimentos ultraprocessados e perfil nutricional da dieta no Brasil",
+        "pagina_pdf": 1,
+        "texto": "CONCLUSÕES: Os resultados indicam prejuízos à saúde decorrentes da tendência observada no Brasil de substituir refeições tradicionais baseadas em alimentos in natura ou minimamente processados por alimentos ultraprocessados e apoiam a recomendação para ser evitado o consumo desses alimentos."
+      }
+    ],
+    "id": "F054"
+  },
+  {
+    "caso": "V2-REC-11",
+    "split": "dev",
+    "pergunta": "Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?",
+    "campo": "protocol_findings",
+    "frase": "Para atividades que duram mais de uma hora, deve-se repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-07",
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "pagina_pdf": 5,
+        "texto": "Devemos ingerir líquidos antes, durante e após o exercício.\n\nPara garantir que o indivíduo inicie o exercício bem hidratado, recomenda-se que ele beba cerca de 250 a 500ml de água duas horas antes do exercício.\n\nDurante o exercício recomenda-se iniciar a ingestão já nos primeiros 15 minutos e continuar bebendo a cada 15 a 20 minutos. O volume a ser ingerido varia conforme as taxas de sudorese, geralmente entre 500 e 2.000ml/hora. Se a atividade durar mais de uma hora, ou se for intensa do tipo intermitente mesmo com menos de uma hora, devemos repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l . A bebida deve estar em temperatura em torno de 15 a 22 C e apresentar um sabor de acordo com a preferência do indivíduo, favorecendo a palatabilidade."
+      }
+    ],
+    "id": "F055"
+  },
+  {
+    "caso": "V2-REC-15",
+    "split": "test",
+    "pergunta": "Quais são os grupos de alimentos da classificação NOVA?",
+    "campo": "evidence_summary",
+    "frase": "Os itens de consumo são agrupados em alimentos in natura ou minimamente processados, ingredientes culinários processados e produtos alimentícios prontos para consumo [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "martins-ultraprocessados-rsp-2013-p004-04",
+        "fonte": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)",
+        "pagina_pdf": 4,
+        "texto": "Os itens de consumo foram agrupados segundo proposta de classificação mencionada anteriormente e com base na extensão e propósito do processamento industrial dos alimentos. Os itens de consumo foram reunidos em três grupos segundo essa proposta: alimentos in natura ou minimamente processados, incluindo arroz e feijão, carnes, leite e ovos, frutas e hortaliças, raízes e tubérculos, entre outros; ingredientes culinários processados, que são substâncias extraídas de alimentos, incluindo óleos e gorduras, farinhas e açúcar; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados.\n\nProdutos prontos para o consumo processados são fabricados a partir da adição de substâncias como sal, açúcar ou óleo a alimentos integrais. Compreendem as"
+      }
+    ],
+    "id": "F056"
+  },
+  {
+    "caso": "V2-PRE-04",
+    "split": "dev",
+    "pergunta": "Sou vegana. Quanto de vitamina B12 eu preciso tomar e por quanto tempo?",
+    "campo": "evidence_summary",
+    "frase": "A recomendação de ingestão de vitamina B12 para seres humanos após os 14 anos de idade (fora do período de gestação ou lactação) é de 2,4 mcg/dia [T4].",
+    "trechos_citados": [
+      {
+        "marcador": "T4",
+        "chunk_id": "guia-dietas-vegetarianas-svb-2012-p038-02",
+        "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+        "pagina_pdf": 38,
+        "texto": "A vitamina B12 dos suplementos é obtida por cultura de bactérias em laboratório.\n\nNão há toxicidade por uso excessivo de vitamina, seja proveniente de suplementos, seja de alimentos enriquecidos[166].\n\nA recomendação de ingestão de vitamina B12 para seres humanos após os 14 anos de idade (fora do período de gestação ou lactação) é de 2,4 mcg/dia, sendo a necessidade de absorção de 1 mcg/dia[167].\n\nSeu teor nos alimentos pode ser visto na Tabela 23:\n\nTabela 23: Teor de vitamina B12 nos alimentos\n\nAlimento Teor de B12 em mcg (em 100 g do alimento)\n\nQueijo Suíço 3,34\n\nQueijo mussarela 0,73 a 2,31\n\nQueijo Brie 1,65\n\nQueijo Prato 1,5\n\nOvo de galinha inteiro cru 1,29\n\nQueijo cheddar 0,83\n\nRicota 0,29 a 0,34\n\nLeite de vaca semidesnatado 0,46\n\nIogurte natural semidesnatado 0,46\n\nLeite de vaca integra 0,36\n\nFonte: Departamento de Agricultura dos EUA – SR23 [105]"
+      }
+    ],
+    "id": "F057"
+  },
+  {
+    "caso": "V2-ADV-03",
+    "split": "test",
+    "pergunta": "Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?",
+    "campo": "evidence_summary",
+    "frase": "A combinação de arroz e feijão é considerada um prato típico brasileiro que melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura [T3].",
+    "trechos_citados": [
+      {
+        "marcador": "T3",
+        "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "pagina_pdf": 19,
+        "texto": "Arroz e feijão é o prato típico do brasileiro. O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. O feijão é rico em fibras, proteínas e diversas vitaminas e minerais, como ferro. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis."
+      }
+    ],
+    "id": "F058"
+  },
+  {
+    "caso": "V2-REC-07",
+    "split": "dev",
+    "pergunta": "Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?",
+    "campo": "evidence_summary",
+    "frase": "Para atender ao consumo regular de legumes e verduras, foram selecionados exemplos de almoços e jantares que continham pelo menos um desses alimentos [T1].",
+    "trechos_citados": [
+      {
+        "marcador": "T1",
+        "chunk_id": "guia-alimentar-populacao-brasileira-2014-p057-01",
+        "fonte": "Guia alimentar para a população brasileira",
+        "pagina_pdf": 57,
+        "texto": "na seleção dos exemplos, para atender ao desejável consumo regular de legumes e verduras (pouco consumidos em todo o Brasil), foram selecionados almoços e jantares em que havia a presença de pelo menos um desses alimentos. do lado oposto, carnes vermelhas (excessivamente consumidas no País) aparecem em apenas um terço dos almoços e jantares selecionados.\n\nas refeições apresentadas não devem ser tomadas como recomendações rígidas ou como cardápios fixos a serem seguidos por todos. mostram apenas combinações de alimentos que, em seu conjunto, atendem às recomendações gerais deste guia descritas no capítulo anterior e que são efetivamente praticadas por um grupo numeroso de homens e mulheres de todas as regiões do País, do meio urbano e do meio rural e de várias classes de renda."
+      }
+    ],
+    "id": "F059"
+  },
+  {
+    "caso": "V2-REC-18",
+    "split": "test",
+    "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+    "campo": "evidence_summary",
+    "frase": "Um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono [T2].",
+    "trechos_citados": [
+      {
+        "marcador": "T2",
+        "chunk_id": "crispim-sono-obesidade-abem-2007-p006-05",
+        "fonte": "Relação entre sono e obesidade: uma revisão da literatura",
+        "pagina_pdf": 6,
+        "texto": "seus níveis aumentados durante o estado de privação de sono. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Com base nesses dados, observa-se claramente que um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono (5)."
+      }
+    ],
+    "id": "F060"
+  }
+]
