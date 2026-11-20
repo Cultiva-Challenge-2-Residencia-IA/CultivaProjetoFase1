@@ -108,8 +108,11 @@ def test_api_grava_o_registro_e_aceita_feedback(tmp_path, monkeypatch):
     monkeypatch.setattr(api, "get_consultant", _consultor_sem_busca)
     cliente = TestClient(api.app)
     response_id = cliente.post("/consult", json={"query": "Às vezes penso em me matar."}).json()["response_id"]
+    enviados = []
+    monkeypatch.setattr(api, "registrar_feedback_incorreto", lambda rid, det: enviados.append((rid, det)))
     feedback = cliente.post("/feedback/incorrect", json={"response_id": response_id, "detail": "Errado"})
     assert feedback.status_code == 200
+    assert enviados == [(response_id, "Errado")]
     assert cliente.post("/feedback/incorrect", json={"response_id": "nao-existe"}).status_code == 404
 
 

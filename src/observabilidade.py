@@ -29,7 +29,7 @@ import subprocess
 import sys
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Any, Dict, Iterator, List, Tuple
+from typing import Any, Dict, Iterator, List, Optional, Tuple
 
 from src.config import (
     ALLOW_EXTERNAL_LANGFUSE,
@@ -120,13 +120,42 @@ def cliente() -> Any:
 
 
 @contextmanager
-def observacao(nome: str, tipo: str = "span", **kwargs: Any) -> Iterator[Any]:
-    """Abre uma observação aninhada à atual (span, generation, retriever, tool, guardrail...)."""
+def observacao(nome: str, tipo: str = "span", trace_id: Optional[str] = None, **kwargs: Any) -> Iterator[Any]:
+    """Abre uma observação aninhada à atual (span, generation, retriever, tool, guardrail...).
+
+    `trace_id` só vale para a observação raiz: fixa o id do trace (veja `id_do_trace`).
+    """
     if _cliente is None:
         yield _ObservacaoNula()
         return
+    if trace_id:
+        kwargs["trace_context"] = {"trace_id": trace_id}
     with _cliente.start_as_current_observation(name=nome, as_type=tipo, **kwargs) as obs:
         yield obs
+
+
+def id_do_trace(response_id: str) -> Optional[str]:
+    """Id do trace derivado do `response_id`, para o feedback achar o trace da resposta (RF-IA15)."""
+    if _cliente is None:
+        return None
+    return _cliente.create_trace_id(seed=response_id)
+
+
+def registrar_feedback_incorreto(response_id: str, detalhe: Optional[str]) -> None:
+    """Grava o feedback de resposta incorreta como score `resposta_incorreta` no trace da resposta.
+
+    O comentário é texto livre do usuário e vai mascarado (RNF05). No-op com o Langfuse desligado.
+    """
+    if _cliente is None:
+        return
+    _cliente.create_score(
+        trace_id=id_do_trace(response_id),
+        name="resposta_incorreta",
+        value=1.0,
+        data_type="NUMERIC",
+        comment=mascarar_dados_pessoais(detalhe) if detalhe else None,
+    )
+    _cliente.flush()
 
 
 @contextmanager
