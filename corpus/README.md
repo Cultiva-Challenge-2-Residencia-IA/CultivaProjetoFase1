@@ -183,13 +183,39 @@ corpus/
     requirements.txt
     config/         # decisões de OCR e correções vinculadas ao SHA-256
     ajustes/        # transcrições pontuais de páginas problemáticas
+  saudefisica/
+    originais/      # fontes prioritárias obtidas no formato publicado
+    markdown/       # candidatas convertidas; ainda sem Trechos ou RAG
+    relatorios/     # relatórios por página das conversões
 ```
+
+## Saúde Física — originais prioritários
+
+Em 19/11/2026, oito dos onze documentos prioritários registrados no manifesto têm original arquivado: seis PDFs e dois HTMLs (a ficha da OMS e o manuscrito JOSPT de dor lombar). Todos os oito originais obtidos foram convertidos em Markdown candidato à revisão. Os arquivos preservam SHA-256 e vínculo entre original e derivado.
+
+As onze fontes estão catalogadas em `manifest.yaml` como `kind: original_only`, inclusive as que têm Markdown candidato. Esse tipo preserva os arquivos e derivados sem gerar Trechos nem entrar no RAG. O `verify_corpus.py` confere formato e hash dos originais, Markdown e relatórios, e informa os originais pendentes; o `prepare_rag.py` não processa esse tipo. Todas seguem com `approval_status: pendente`; obtenção e conversão não são revisão de fidelidade, aprovação de conteúdo nem decisão de uso técnico.
+
+| Prioridade | Estado | Observação de obtenção |
+|---|---|---|
+| Guia brasileiro (2021) | Original obtido + Markdown candidato | PDF oficial do Ministério da Saúde; 52 páginas. |
+| WHO Guidelines (2020) | Original obtido + Markdown candidato | PDF oficial em inglês; 104 páginas. |
+| Physical Activity — WHO | Original HTML + Markdown candidato | Página oficial consultada em 19/11/2026; pode mudar no endereço de origem. |
+| ACSM Resistance Training Position Stand (2026, PMID 41843416) | Pendente | PDF do PMC retornou desafio anti-bot; o texto integral em HTML está disponível no PMC. Substitui o item ACSM de 2009. Licença CC BY-NC-ND 4.0. |
+| ACSM Preparticipation Screening (2015) | Pendente | PubMed fornece referência e resumo; texto integral não obtido em acesso aberto. |
+| ACC Exercise Prescriptions (2026) | Pendente | Página integral do editor retornou HTTP 403. |
+| IOC Load and Injury (2016, parte 1) | Original obtido + Markdown candidato | PDF em cópia do Oslo Sports Trauma Research Center; 13 páginas. |
+| IOC Load and Illness (2016, parte 2) | Original obtido + Markdown candidato | PDF no repositório da University of Pretoria; 11 páginas, com uma tabela que requer conferência visual na página 2. |
+| JOSPT Low Back Pain CPG (2021) | Original HTML + Markdown candidato | HTML integral do manuscrito público no PubMed Central; o PDF acionou desafio anti-bot. Contém 32 tabelas e imagens, que exigem conferência no HTML. |
+| WHO Package of Interventions, Module 2 (2023) | Original obtido + Markdown candidato | PDF oficial da OMS; 108 páginas. |
+| JOSPT Rotator Cuff Tendinopathy (2025) | Original obtido + Markdown candidato | PDF hospedado pela IFSPT; 40 páginas. O PDF contém aviso de uso pessoal e reserva de outros usos mediante permissão. |
+
+Licenças e termos permanecem registrados no manifesto para rastreabilidade. Pelo aceite de risco de 06/11/2026 e pela decisão de publicação de 12/11/2026, licença ausente, restritiva ou em conflito **não bloqueia a aquisição, conversão, aprovação ou manutenção pública dos arquivos neste projeto acadêmico sem fins lucrativos**. Esse aceite não declara que o titular concedeu autorização nem se estende a uso comercial, vitrine paga ou distribuição fora do projeto; se um titular solicitar remoção, o arquivo e seus derivados saem do repositório. A cópia JOSPT do manguito traz aviso de uso pessoal e a licença do ACSM 2026 é CC BY-NC-ND; esses termos ficam documentados, sem funcionar como impedimento no escopo aceito. Os arquivos de repositórios institucionais são distinguidos dos endpoints do editor. O manuscrito HTML de dor lombar é diferente da versão final diagramada.
 
 O diretório `markdown/` contém **candidatos à revisão**, conforme esta etapa autorizada. Não interpretar sua presença ali como revisão concluída. As orientações anteriores em `docs/contexto-projeto.md` registram a situação antes da obtenção dos documentos; seus arquivos locais foram preservados.
 
 ## Dependências e execução
 
-Ambiente utilizado: Python **3.11**, PyMuPDF/PyMuPDF4LLM **2.1**, PyYAML **6.0.3**, Pillow **13.0.0** e dependências fixadas em `scripts/requirements.txt`. PyMuPDF inclui renderização, análise local de layout e suporte a OCR via MuPDF/Tesseract. Não são necessários Poppler, serviço de OCR remoto, chave de API ou LLM generativo. `curl` é usado apenas quando há download solicitado. Para OCR é necessário o modelo português `por.traineddata`, baixado do repositório oficial `tesseract-ocr/tessdata_fast` e validado por SHA-256.
+Ambiente utilizado: Python **3.11**, PyMuPDF/PyMuPDF4LLM **2.1**, PyYAML **6.0.3**, Pillow **13.0.0**, BeautifulSoup **4.14.3**, Markdownify **1.2.0** e dependências fixadas em `scripts/requirements.txt`. PyMuPDF inclui renderização, análise local de layout e suporte a OCR via MuPDF/Tesseract. A conversão HTML extrai os elementos indicados por `content_selector` no manifesto e preserva tabelas em Markdown quando possível; figuras não são copiadas. Não são necessários Poppler, serviço de OCR remoto, chave de API ou LLM generativo. `curl` é usado apenas quando há download solicitado. Para OCR é necessário o modelo português `por.traineddata`, baixado do repositório oficial `tesseract-ocr/tessdata_fast` e validado por SHA-256.
 
 Na raiz do repositório:
 
@@ -205,6 +231,10 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download-ocr --overwrit
 
 # Verificação dos artefatos locais:
 corpus/.venv/bin/python corpus/scripts/verify_corpus.py
+
+# Converte um original HTML sem substituir o arquivo de origem:
+corpus/.venv/bin/python corpus/scripts/convert_html.py \
+  --source who-physical-activity-factsheet-2024
 ```
 
 Após obter o modelo OCR em `corpus/.cache/tessdata/`, a conversão pode rodar offline, sem as opções `--download` e `--download-ocr`. Para usar outro diretório, informar `--tessdata /caminho/tessdata`. O modelo esperado tem SHA-256 `c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb`; se o endereço remoto mudar de conteúdo, o processo falha em vez de usar silenciosamente outro modelo. O ambiente e o cache estão ignorados pelo Git.

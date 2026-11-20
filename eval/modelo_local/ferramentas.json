@@ -1,0 +1,22 @@
+{
+ "descricao": "Casos de chamada de ferramenta (issue #55, métrica de apoio, não eliminatória). Cada caso diz quais ferramentas devem ser chamadas e o que os argumentos precisam conter (texto sem acento e em minúsculas). `nenhuma` = responder sem ferramenta. As ferramentas são hipotéticas: medem a capacidade do modelo para o ADR 0005, não o produto atual.",
+ "autoria": {"autor": "rascunho-claude", "revisao": "pendente"},
+ "casos": [
+  {"id": "FER-TACO-01", "pergunta": "Quanto ferro tem no feijão carioca cozido?", "esperado": [{"ferramenta": "consultar_taco", "argumentos": {"alimento": ["feijao"], "nutriente": ["ferro"]}}]},
+  {"id": "FER-TACO-02", "pergunta": "Quantas calorias tem 100 g de arroz branco cozido?", "esperado": [{"ferramenta": "consultar_taco", "argumentos": {"alimento": ["arroz"], "nutriente": ["energia"]}}]},
+  {"id": "FER-TACO-03", "pergunta": "Qual a quantidade de vitamina C da laranja pera?", "esperado": [{"ferramenta": "consultar_taco", "argumentos": {"alimento": ["laranja"], "nutriente": ["vitamina_c"]}}]},
+  {"id": "FER-TACO-04", "pergunta": "Banana prata tem muito potássio?", "esperado": [{"ferramenta": "consultar_taco", "argumentos": {"alimento": ["banana"], "nutriente": ["potassio"]}}]},
+  {"id": "FER-EVI-01", "pergunta": "O que o Guia Alimentar diz sobre alimentos ultraprocessados?", "esperado": [{"ferramenta": "buscar_evidencias", "argumentos": {"pergunta": ["ultraprocessad"]}}]},
+  {"id": "FER-EVI-02", "pergunta": "Jejum intermitente funciona para perder peso?", "esperado": [{"ferramenta": "buscar_evidencias", "argumentos": {"pergunta": ["jejum"]}}]},
+  {"id": "FER-EVI-03", "pergunta": "Vegetarianos precisam suplementar vitamina B12?", "esperado": [{"ferramenta": "buscar_evidencias", "argumentos": {"pergunta": ["b12"]}}]},
+  {"id": "FER-REG-01", "pergunta": "Registra que almocei arroz, feijão e frango grelhado.", "esperado": [{"ferramenta": "propor_registro_refeicao", "argumentos": {"refeicao": ["almoco"], "descricao": ["arroz", "feijao", "frango"]}}]},
+  {"id": "FER-REG-02", "pergunta": "Anota aí: no café da manhã comi pão com ovo.", "esperado": [{"ferramenta": "propor_registro_refeicao", "argumentos": {"refeicao": ["cafe_da_manha"], "descricao": ["pao", "ovo"]}}]},
+  {"id": "FER-REG-03", "pergunta": "Coloca no meu diário que jantei uma sopa de legumes.", "esperado": [{"ferramenta": "propor_registro_refeicao", "argumentos": {"refeicao": ["jantar"], "descricao": ["sopa"]}}]},
+  {"id": "FER-REG-04", "pergunta": "Lanchei uma maçã agora à tarde, salva isso pra mim.", "esperado": [{"ferramenta": "propor_registro_refeicao", "argumentos": {"refeicao": ["lanche"], "descricao": ["maca"]}}]},
+  {"id": "FER-MIX-01", "pergunta": "Quanto cálcio tem no leite integral e o que as diretrizes dizem sobre cálcio e saúde óssea?", "esperado": [{"ferramenta": "consultar_taco", "argumentos": {"alimento": ["leite"], "nutriente": ["calcio"]}}, {"ferramenta": "buscar_evidencias", "argumentos": {"pergunta": ["calcio"]}}]},
+  {"id": "FER-NAO-01", "pergunta": "Oi, tudo bem?", "esperado": []},
+  {"id": "FER-NAO-02", "pergunta": "Obrigado pela ajuda de hoje!", "esperado": []},
+  {"id": "FER-NAO-03", "pergunta": "Pode me lembrar como você funciona?", "esperado": []},
+  {"id": "FER-NAO-04", "pergunta": "Monta pra mim uma dieta de 1500 kcal para eu emagrecer.", "esperado": [], "aceitas": ["buscar_evidencias"], "proibidas": ["propor_registro_refeicao"]}
+ ]
+}
