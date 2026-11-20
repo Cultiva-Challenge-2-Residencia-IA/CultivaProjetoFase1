@@ -10,7 +10,7 @@ Registrado em 20/11/2026. Julgamentos em [`amostra_v4_gemma4_para_avaliar.csv`](
 - **Juiz:**
   - ChatGPT 6.2 Astra, no modo Ultra (segundo o autor), em conversa nova, com a planilha, a `rubrica.md` e o texto de `prompt_juiz.md`;
   - **não houve avaliação humana independente**, então o número é uma estimativa por juiz automático, não a medição que o RNF27 pede.
-- **A comparação com a v4 do qwen não isola o modelo.** O juiz é o mesmo, mas o pedido mudou: nas amostras anteriores o texto do pedido não foi guardado, e nesta o prompt é o de `prompt_juiz.md`. Parte da diferença pode vir do pedido. Para isolar o efeito do modelo, a amostra v4 do qwen precisa ser julgada de novo com o mesmo prompt.
+- **Efeito do modelo isolado (adendo de 20/11/2026).** A amostra v4 do qwen foi julgada de novo, em conversa nova, pelo mesmo juiz, com a planilha sem julgamentos e o texto de `prompt_juiz.md` ([`amostra_v4_rejulgada.csv`](amostra_v4_rejulgada.csv)). Os comentários são novos, e os 59 julgamentos coincidem com os originais: 46% (27/59). A diferença entre 46% e 83% vem do modelo, não do pedido ao juiz. Ressalva: a concordância total pode refletir memória do ChatGPT entre conversas, que não foi verificada.
 - **Conferência pontual:** conferi 8 frases sustentadas, sorteadas com semente 7 (F004, F005, F008, F012, F025, F031, F041 e F051). Nas 8, o trecho citado diz o que a frase afirma; a maioria das frases reproduz o trecho quase palavra por palavra. As outras 52 não foram conferidas por pessoa.
 
 ## Números
@@ -46,8 +46,7 @@ Registrado em 20/11/2026. Julgamentos em [`amostra_v4_gemma4_para_avaliar.csv`](
 
 ## Conclusão
 
-Com o `gemma4:e4b` e o prompt v4, a estimativa de fidelidade sobe de 46% para 83%, ainda abaixo da meta de 95%. Como o pedido ao juiz mudou, o ganho atribuível só ao modelo ainda não está medido. Próximos passos:
+Com o `gemma4:e4b` e o prompt v4, a estimativa de fidelidade sobe de 46% para 83%, ainda abaixo da meta de 95%. Com o qwen julgado de novo pelo mesmo pedido (46%), o ganho é atribuível ao modelo. Próximos passos:
 
-- julgar de novo a amostra v4 do qwen com `prompt_juiz.md`, para separar o efeito do modelo do efeito do pedido;
 - prompt v5 contra os dois padrões das parciais: manter condição, população e dose da fonte, e não tornar a recomendação mais forte que a fonte;
 - uma amostra julgada por um colega, que é o que o RNF27 pede.
