@@ -3,24 +3,18 @@ import inspect
 from pathlib import Path
 from typing import List, Optional
 
-from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE, LegalGuardrail
+from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
 from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
-from src.config import ABSTENCAO_LIMIAR_COSSENO, INCLUDE_PENDING_SOURCES, TOP_K_FINAL
-from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio
-from src.rag.verificador.citacoes import MARCADOR, eh_trecho
-from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
-from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
+from src.config import INCLUDE_PENDING_SOURCES, TOP_K_FINAL
+from src.guardrails.risco import detectar_risco
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
-from src.observabilidade import atributos_do_trace, observacao, resumo_trechos
+from src.observabilidade import atributos_do_trace, observacao
 from src.models.schemas import (
-    CausalGraphPath,
     ConsultantResponse,
     DocumentChunk,
-    RetrievedChunk,
-    TacoFoodNutrientRecord,
 )
 from src.retrieval.graph_engine import CausalKnowledgeGraphEngine
 from src.retrieval.hybrid_retriever import HybridRetriever
@@ -116,12 +110,35 @@ class NutritionConsultantBaseline:
             **campos,
         )
 
+    def _grafo(self):
+        """Grafo do orquestrador (issue #76), compilado na primeira chamada e reaproveitado."""
+        grafo = getattr(self, "_grafo_compilado", None)
+        if grafo is None:
+            # Import tardio: src.agents.nutricao reexporta esta classe.
+            from src.agents.nutricao.grafo import construir_subgrafo
+            from src.orquestrador.grafo import construir_grafo
+
+            grafo = construir_grafo(
+                agentes={"nutricao": construir_subgrafo(self)},
+                resposta_fixa=self._resposta_fixa,
+                agente_padrao="nutricao",
+            )
+            self._grafo_compilado = grafo
+        return grafo
+
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:
-        # Com a observabilidade desligada (padrão), os blocos abaixo são no-ops. Ligada, todo texto
-        # passa pela máscara de dados pessoais no SDK (src/observabilidade.py, ADR 0003). Mensagem
-        # que o portão de risco detecta não é registrada, nem mascarada: o trace guarda só as
-        # categorias. O portão é por léxico e deixa passar a maioria das frases novas (recall de
-        # 0,133 no holdout, #48); essas vão ao trace como qualquer pergunta, só com a máscara.
+        """Responde pela orquestração em LangGraph: portões de risco e de prompt injection no grafo
+        principal (`src/orquestrador/grafo.py`) e o fluxo de Nutrição no subgrafo
+        (`src/agents/nutricao/grafo.py`).
+
+        Com a observabilidade desligada (padrão), os blocos de observação são no-ops. Ligada, todo
+        texto passa pela máscara de dados pessoais no SDK (src/observabilidade.py, ADR 0003). A
+        observação raiz fica fora do grafo, e não no callback do LangGraph, porque a entrada só pode
+        ser decidida depois do portão de risco: mensagem que ele detecta não é registrada, nem
+        mascarada, e o trace guarda só as categorias. O portão é por léxico e deixa passar a maioria
+        das frases novas (recall de 0,133 no holdout, #48); essas vão ao trace como qualquer pergunta,
+        só com a máscara.
+        """
         risco = detectar_risco(user_query)
         entrada = (
             {"risco_categorias": risco.categorias, "top_k": top_k}
@@ -131,7 +148,7 @@ class NutritionConsultantBaseline:
         with atributos_do_trace(trace_name="consulta_nutricao", tags=["nutricao"]), observacao(
             "consult", input=entrada
         ) as raiz:
-            resposta = self._consultar(user_query, top_k, risco=risco)
+            resposta = self._grafo().invoke({"pergunta": user_query, "top_k": top_k})["resposta"]
             raiz.update(
                 output={
                     "evidence_summary": resposta.evidence_summary,
@@ -151,233 +168,3 @@ class NutritionConsultantBaseline:
                 data_type="NUMERIC",
             )
             return resposta
-
-    def _consultar(self, user_query: str, top_k: int, risco=None) -> ConsultantResponse:
-        # 0. Risco antes de tudo (RF-IA03, RNF29): interrompe o fluxo com mensagem fixa.
-        risco = risco if risco is not None else detectar_risco(user_query)
-        if risco.risco:
-            return self._resposta_fixa(
-                user_query,
-                MENSAGEM_ACOLHIMENTO,
-                guardrail_triggered=False,
-                intent_category="RISK_SUPPORT",
-                risk_triggered=True,
-                risk_categories=risco.categorias,
-                retrieval_mode="RISK_FIXED_MESSAGE",
-            )
-
-        # 0.1 Prompt injection na pergunta (RNF04): recusa fixa, sem repassar o pedido ao LLM.
-        if has_prompt_injection(user_query):
-            return self._resposta_fixa(
-                user_query,
-                MENSAGEM_INJECAO,
-                guardrail_triggered=True,
-                intent_category="PROMPT_INJECTION_BLOCKED",
-                legal_compliance_notice=LAW_8234_COMPLIANCE_NOTICE,
-                prompt_injection_detected=True,
-                retrieval_mode="PROMPT_INJECTION_FIXED_MESSAGE",
-            )
-
-        # 1. Input Guardrail & Reframing (Conformidade com Lei nº 8.234/91)
-        with observacao("guardrail_entrada", tipo="guardrail", input={"query": user_query}) as obs:
-            assessment = self.guardrail.assess_and_reframe(user_query)
-            obs.update(
-                output={
-                    "restrito_lei_8234": assessment.is_restricted_by_law_8234,
-                    "intent_category": str(assessment.intent_category),
-                    "query_reformulada": assessment.reframed_population_query,
-                }
-            )
-        effective_query = assessment.reframed_population_query
-
-        # 2. Recuperação Híbrida (BM25 + Vetorial Local + RRF + Reranker + Diversificação)
-        search_query = (
-            f"{effective_query} {user_query}"
-            if assessment.is_restricted_by_law_8234
-            else effective_query
-        )
-        retrieved: List[RetrievedChunk] = []
-        if self.enable_rag:
-            with observacao("retrieve", tipo="retriever", input={"query": search_query, "top_k": top_k}) as obs:
-                retrieved = self.retriever.retrieve(search_query, top_k=top_k)
-                obs.update(output=resumo_trechos(retrieved))
-
-        # 3. Ferramenta Determinística da Tabela TACO (Passo 2)
-        taco_records: List[TacoFoodNutrientRecord] = []
-        taco_context_str = ""
-        if self.taco_tool is not None:
-            with observacao("taco", tipo="tool", input={"query": search_query}) as obs:
-                taco_records, taco_context_str = self.taco_tool.auto_query_from_question(
-                    search_query
-                )
-                obs.update(output=[rec.description for rec in taco_records])
-
-        # 4. Travessia no Grafo de Conhecimento de 4 Camadas (Passo 3 - NetworkX)
-        graph_paths: List[CausalGraphPath] = []
-        graph_context_str = ""
-        if self.graph_engine is not None:
-            with observacao("grafo_causal", tipo="tool", input={"query": search_query}) as obs:
-                graph_paths, graph_context_str = self.graph_engine.traverse_for_query(
-                    search_query, max_paths=4
-                )
-                obs.update(output=graph_context_str)
-
-        # 4.1 "Não sei" (RF-IA01): pergunta fora do domínio de Nutrição (cosseno baixo e nenhum termo
-        #     de Nutrição) recebe resposta fixa, sem LLM. Se o grafo ou a TACO tiverem resultado,
-        #     responde só com eles. Dentro do domínio, o fluxo segue com os Trechos que a busca achou.
-        #     Só com a busca ligada: sem RAG (linha de base "LLM puro" dos experimentos) não há
-        #     similaridade a medir.
-        similaridade = (
-            round(self.retriever.similaridade_maxima(search_query), 4) if self.enable_rag else None
-        )
-        if similaridade is not None and fora_do_dominio(
-            user_query, similaridade, ABSTENCAO_LIMIAR_COSSENO
-        ):
-            if not taco_records and not graph_paths:
-                return self._resposta_fixa(
-                    user_query,
-                    MENSAGEM_NAO_SEI,
-                    guardrail_triggered=assessment.is_restricted_by_law_8234,
-                    intent_category="NO_EVIDENCE",
-                    legal_compliance_notice=assessment.legal_notice_required,
-                    abstencao=True,
-                    similaridade_maxima=similaridade,
-                    retrieval_mode="ABSTENTION_FIXED_MESSAGE",
-                )
-            retrieved = []
-
-        # 5. Síntese Baseada em Evidências (Modelo Local Ollama / Extrativo + Grafo + TACO)
-        with observacao("sintese", input={"query": effective_query}) as obs:
-            synthesis, model_used = self.llm_client.generate_structured_synthesis(
-                query=effective_query,
-                retrieved_chunks=retrieved,
-                taco_context_str=taco_context_str,
-                graph_context_str=graph_context_str,
-                # Só a configuração liga o "LLM puro"; resultado vazio da busca não liga.
-                sem_contexto=self.modo_llm_puro,
-            )
-            obs.update(output=synthesis, metadata={"model_used": model_used})
-            # Scores do trace para filtrar e montar painéis no Langfuse.
-            obs.score_trace(name="modelo_usado", value=model_used, data_type="CATEGORICAL")
-            obs.score_trace(
-                name="sintese_extrativa",
-                value=1.0 if model_used == "local_extractive_synthesis" else 0.0,
-                data_type="NUMERIC",
-            )
-
-        fundamentacao = synthesis.pop("_fundamentacao", {"status": None, "problemas": []})
-        if fundamentacao.get("status") == "llm_sem_base":
-            # O LLM leu os Trechos e disse que eles não respondem: "não sei" (RF-IA01), sem LLM.
-            return self._resposta_fixa(
-                user_query,
-                MENSAGEM_NAO_SEI,
-                guardrail_triggered=assessment.is_restricted_by_law_8234,
-                intent_category="NO_EVIDENCE",
-                legal_compliance_notice=assessment.legal_notice_required,
-                abstencao=True,
-                similaridade_maxima=similaridade,
-                retrieval_mode="ABSTENTION_FIXED_MESSAGE",
-                fundamentacao_status="llm_sem_base",
-            )
-
-        # 6. Output Guardrail (Sanitização contra linguagem prescritiva individual)
-        with observacao("guardrail_saida", tipo="guardrail") as obs:
-            brutos = {
-                campo: str(synthesis.get(campo, ""))
-                for campo in ("evidence_summary", "physiological_mechanism", "protocol_findings")
-            }
-            sanitizados = {
-                campo: self.guardrail.sanitize_output_text(texto)
-                for campo, texto in brutos.items()
-            }
-            alterados = [campo for campo in brutos if brutos[campo] != sanitizados[campo]]
-            obs.update(output={"campos_alterados": alterados})
-            obs.score_trace(
-                name="guardrail_saida_alterou", value=1.0 if alterados else 0.0, data_type="NUMERIC"
-            )
-        evidence_summary = sanitizados["evidence_summary"]
-        physiological_mechanism = sanitizados["physiological_mechanism"]
-        protocol_findings = sanitizados["protocol_findings"]
-
-        # Citações (issue #12): só os Trechos marcados [T#] no texto final, com o número e a página.
-        # O prefixo "[doc_id]" se mantém para o citacoes_validas do benchmark v2.
-        texto_final = f"{evidence_summary} {physiological_mechanism} {protocol_findings}"
-        numeros = sorted({
-            int(m[1:]) for m in MARCADOR.findall(texto_final)
-            if eh_trecho(m) and 1 <= int(m[1:]) <= len(retrieved)
-        })
-        trechos_citados = [retrieved[n - 1].chunk.chunk_id for n in numeros]
-        citations: List[str] = []
-        por_chave: dict = {}
-        for n in numeros:
-            c = retrieved[n - 1].chunk
-            por_chave.setdefault(f"{c.doc_id}:{c.section_path}", []).append((n, c))
-        for itens in por_chave.values():
-            c = itens[0][1]
-            rotulos = ", ".join(f"T{n}" + (f" p. {ci.pagina_pdf}" if ci.pagina_pdf else "") for n, ci in itens)
-            src_meta = []
-            link = c.fonte_url or (f"https://doi.org/{c.doi}" if c.doi else None)
-            if link:
-                src_meta.append(f"Link: {link}")
-            if c.doi:
-                src_meta.append(f"DOI: {c.doi}")
-            if c.licenca:
-                src_meta.append(f"Licença: {c.licenca}")
-            if c.approval_status:
-                src_meta.append(f"Aprovação: {c.approval_status}")
-            meta_suffix = f" | {' | '.join(src_meta)}" if src_meta else ""
-            citations.append(
-                f"[{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), "
-                f"Seção: '{c.section_path}' [{rotulos}] (Evidência: {c.evidence_level}{meta_suffix})"
-            )
-
-        if graph_paths:
-            citations.append(
-                f"[KG_4LAYER_PICO_GRADE] Grafo de Conhecimento de 4 Camadas (NetworkX: {len(graph_paths)} cadeias causais Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho)"
-            )
-
-        if taco_records:
-            citations.append(
-                "[TACO_4ED_UNICAMP] Tabela Brasileira de Composição de Alimentos (TACO 4ª Edição - NEPA/Unicamp & TBCA-USP) — Consulta Determinística por 100g"
-            )
-
-        food_list = list(synthesis.get("food_sources_or_compounds", []))
-        for gp in graph_paths:
-            if gp.food_node not in food_list and not gp.is_contraindicated_for_query:
-                food_list.append(f"{gp.food_node} ({gp.compound_node})")
-        for rec in taco_records:
-            if rec.description not in food_list:
-                food_list.append(rec.description)
-
-        if taco_records and graph_paths:
-            mode = "HYBRID_RAG_PLUS_GRAPH_AND_TACO"
-        elif graph_paths:
-            mode = "HYBRID_RAG_PLUS_GRAPH_TOOL"
-        elif taco_records:
-            mode = "HYBRID_RAG_PLUS_TACO_TOOL"
-        else:
-            mode = "HYBRID_RAG_BASELINE"
-
-        return ConsultantResponse(
-            original_query=user_query,
-            effective_query=effective_query,
-            guardrail_triggered=assessment.is_restricted_by_law_8234,
-            intent_category=assessment.intent_category,
-            legal_compliance_notice=assessment.legal_notice_required,
-            evidence_summary=evidence_summary,
-            physiological_mechanism=physiological_mechanism,
-            protocol_findings=protocol_findings,
-            food_sources_or_compounds=food_list,
-            taco_records=taco_records,
-            graph_paths=graph_paths,
-            evidence_grade=str(synthesis.get("evidence_grade", "N/A")),
-            citations=citations,
-            trechos_citados=trechos_citados,
-            fundamentacao_status=fundamentacao.get("status"),
-            fundamentacao_problemas=list(fundamentacao.get("problemas", [])),
-            retrieved_chunks=retrieved,
-            model_used=model_used,
-            retrieval_mode=mode,
-            similaridade_maxima=similaridade,
-            **self._rastreabilidade([item.chunk for item in retrieved], model_used),
-        )
