@@ -8,7 +8,7 @@ Registrado em 20/11/2026. Julgamentos em [`amostra_v4_gemma4_para_avaliar.csv`](
 - **Modelo:** `gemma4:e4b`, padrão desde o ADR 0004. Rodou sozinho, com `OLLAMA_FALLBACK_MODEL` vazio, no Ollama 0.40.16, numa AMD Radeon RX 9060 XT com o modelo 100% na GPU.
 - **Amostra:** 60 frases de 32 respostas (45 do `dev` e 15 do `test`), sorteadas entre as frases que passaram nas checagens de citação. Por campo: 43 de `evidence_summary`, 16 de `protocol_findings` e 1 de `physiological_mechanism`.
 - **Juiz:**
-  - ChatGPT, em conversa nova, com a planilha, a `rubrica.md` e o texto de `prompt_juiz.md`;
+  - ChatGPT 6.2 Astra, no modo Ultra (segundo o autor), em conversa nova, com a planilha, a `rubrica.md` e o texto de `prompt_juiz.md`;
   - **não houve avaliação humana independente**, então o número é uma estimativa por juiz automático, não a medição que o RNF27 pede.
 - **A comparação com a v4 do qwen não isola o modelo.** O juiz é o mesmo, mas o pedido mudou: nas amostras anteriores o texto do pedido não foi guardado, e nesta o prompt é o de `prompt_juiz.md`. Parte da diferença pode vir do pedido. Para isolar o efeito do modelo, a amostra v4 do qwen precisa ser julgada de novo com o mesmo prompt.
 - **Conferência pontual:** conferi 8 frases sustentadas, sorteadas com semente 7 (F004, F005, F008, F012, F025, F031, F041 e F051). Nas 8, o trecho citado diz o que a frase afirma; a maioria das frases reproduz o trecho quase palavra por palavra. As outras 52 não foram conferidas por pessoa.
