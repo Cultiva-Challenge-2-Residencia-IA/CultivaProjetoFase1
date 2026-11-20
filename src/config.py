@@ -126,6 +126,9 @@ LANGFUSE_BASE_URL = (
 ALLOW_EXTERNAL_LANGFUSE = os.getenv("ALLOW_EXTERNAL_LANGFUSE", "false").strip().lower() in {
     "1", "true", "sim", "yes"
 }
+# Versão do código registrada em cada trace (campo "release" do Langfuse). Sem a variável, usa o
+# commit atual do Git, para comparar traces de antes e depois de um merge.
+LANGFUSE_RELEASE = os.getenv("LANGFUSE_RELEASE", "").strip()
 
 
 def destino_local(url: str) -> bool:

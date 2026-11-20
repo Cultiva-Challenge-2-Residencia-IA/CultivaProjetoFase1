@@ -1,5 +1,6 @@
 import hashlib
 import inspect
+from contextvars import ContextVar
 from pathlib import Path
 from typing import List, Optional
 
@@ -19,7 +20,7 @@ from src.guardrails.risco import detectar_risco
 from src.guardrails.risco.classificador_llm import ClassificadorRiscoLLM
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
-from src.observabilidade import atributos_do_trace, observacao
+from src.observabilidade import atributos_do_trace, id_do_trace, observacao, scores_da_resposta
 from src.models.schemas import (
     ConsultantResponse,
     DocumentChunk,
@@ -30,6 +31,10 @@ from src.retrieval.taco_tool import TacoDeterministicTool
 
 
 # Versão do prompt (RNF08): hash do prompt de sistema e do template da pergunta enviada ao LLM.
+# response_id da consulta em andamento: `consult()` o gera antes de abrir o trace, para o id do trace
+# no Langfuse sair dele (`id_do_trace`) e o feedback de resposta incorreta achar o trace certo.
+_RESPONSE_ID_ATUAL: ContextVar[Optional[str]] = ContextVar("response_id_atual", default=None)
+
 PROMPT_VERSION = hashlib.sha256(
     (SYSTEM_PROMPT_CONSULTANT + inspect.getsource(LocalLLMClient._build_user_prompt)).encode("utf-8")
 ).hexdigest()
@@ -104,7 +109,7 @@ class NutritionConsultantBaseline:
         """
         fontes_version, trechos_usados = passages_fingerprint(chunks)
         return {
-            "response_id": new_response_id(),
+            "response_id": _RESPONSE_ID_ATUAL.get() or new_response_id(),
             "corpus_version": self.corpus_version,
             "prompt_version": (
                 PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False) else PROMPT_VERSION
@@ -164,13 +169,29 @@ class NutritionConsultantBaseline:
             if risco.risco
             else {"query": user_query, "top_k": top_k}
         )
-        with atributos_do_trace(trace_name="consulta_nutricao", tags=["nutricao"]), observacao(
-            "consult", input=entrada
-        ) as raiz:
+        response_id = new_response_id()
+        marcador = _RESPONSE_ID_ATUAL.set(response_id)
+        try:
+            return self._consultar_com_trace(user_query, top_k, entrada, response_id, risco.risco)
+        finally:
+            _RESPONSE_ID_ATUAL.reset(marcador)
+
+    def _consultar_com_trace(
+        self, user_query: str, top_k: int, entrada: dict, response_id: str, risco_lexico: bool
+    ) -> ConsultantResponse:
+        with atributos_do_trace(
+            trace_name="consulta_nutricao",
+            tags=["nutricao"],
+            version=(
+                PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False) else PROMPT_VERSION
+            ),
+            metadata={"corpus_version": str(self.corpus_version)},
+        ), observacao("consult", input=entrada, trace_id=id_do_trace(response_id)) as raiz:
             estado = self._grafo().invoke({"pergunta": user_query, "top_k": top_k})
             resposta = estado["resposta"]
             if resposta.risk_triggered:
-                if not risco.risco:
+                # Risco detectado só pelo LLM (o léxico não viu): a pergunta sai do trace, ficam as categorias.
+                if not risco_lexico:
                     raiz.update(input={"risco_categorias": resposta.risk_categories, "top_k": top_k})
             else:
                 resposta.risk_llm_status = estado.get("risco_llm_status")
@@ -181,15 +202,18 @@ class NutritionConsultantBaseline:
                     "citations": resposta.citations,
                 },
                 metadata={
+                    "response_id": resposta.response_id,
                     "model_used": resposta.model_used,
                     "retrieval_mode": resposta.retrieval_mode,
                     "guardrail_triggered": resposta.guardrail_triggered,
                     "intent_category": str(resposta.intent_category),
+                    "fundamentacao_status": resposta.fundamentacao_status,
+                    "corpus_version": resposta.corpus_version,
+                    "prompt_version": resposta.prompt_version,
+                    "model_version": resposta.model_version,
+                    "fontes_version": resposta.fontes_version,
                 },
             )
-            raiz.score_trace(
-                name="guardrail_lei_8234",
-                value=1.0 if resposta.guardrail_triggered else 0.0,
-                data_type="NUMERIC",
-            )
+            for nome, valor, tipo in scores_da_resposta(resposta):
+                raiz.score_trace(name=nome, value=valor, data_type=tipo)
             return resposta
