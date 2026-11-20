@@ -119,9 +119,9 @@ class LocalLLMClient:
         self.allow_external_llm = allow_external_llm
         self.ultima_sintese_llm = None
         self.ultima_verificacao = None
-        self.ultima_resposta_aceita: Optional[Dict[str, Any]] = None
-        self.ultimas_frases_removidas: List[Dict[str, Any]] = []
-        self.ultimos_rotulos_corrigidos: List[Dict[str, Any]] = []
+        self.ultima_resposta_aceita = None
+        self.ultimas_frases_removidas = []
+        self.ultimos_rotulos_corrigidos = []
 
     # Estado da última síntese, por thread: a API usa um consultor único, e duas requisições
     # simultâneas não podem ler o resultado uma da outra.
@@ -150,6 +150,34 @@ class LocalLLMClient:
     @ultima_verificacao.setter
     def ultima_verificacao(self, valor: Any) -> None:
         self._estado_da_thread().verificacao = valor
+
+    @property
+    def ultima_resposta_aceita(self) -> Optional[Dict[str, Any]]:
+        """Campos do LLM que seguem para a resposta, já sem as frases removidas pela citação
+        literal (issue #67); None se não houve resposta do LLM checada nesta thread."""
+        return getattr(self._estado_da_thread(), "resposta_aceita", None)
+
+    @ultima_resposta_aceita.setter
+    def ultima_resposta_aceita(self, valor: Optional[Dict[str, Any]]) -> None:
+        self._estado_da_thread().resposta_aceita = valor
+
+    @property
+    def ultimas_frases_removidas(self) -> List[Dict[str, Any]]:
+        """Frases removidas na última síntese desta thread por citação literal ausente (#67)."""
+        return getattr(self._estado_da_thread(), "frases_removidas", [])
+
+    @ultimas_frases_removidas.setter
+    def ultimas_frases_removidas(self, valor: List[Dict[str, Any]]) -> None:
+        self._estado_da_thread().frases_removidas = valor
+
+    @property
+    def ultimos_rotulos_corrigidos(self) -> List[Dict[str, Any]]:
+        """Frases da última síntese desta thread cuja citação estava em outra fonte (#67)."""
+        return getattr(self._estado_da_thread(), "rotulos_corrigidos", [])
+
+    @ultimos_rotulos_corrigidos.setter
+    def ultimos_rotulos_corrigidos(self, valor: List[Dict[str, Any]]) -> None:
+        self._estado_da_thread().rotulos_corrigidos = valor
 
     def is_groq_available(self) -> bool:
         return bool(self.allow_external_llm and self.enable_groq and self.groq_api_key)

@@ -245,3 +245,24 @@ def test_citacao_verdadeira_com_rotulo_errado_fica_com_o_rotulo_corrigido():
 def test_numero_colado_a_unidade_conta_como_igual():
     from src.rag.verificador.citacoes import citacao_literal_valida
     assert citacao_literal_valida("Recebem este nome por fornecer < 800kcal por dia", ["recebem este nome por fornecer < 800 kcal por dia."])
+
+
+def test_frases_removidas_ficam_no_estado_da_thread():
+    import threading
+
+    resposta = {"evidence_summary": [{"frase": "O Guia proíbe ultraprocessados.", "trechos": [1],
+                                      "citacao": "o Guia proíbe todos os ultraprocessados"}],
+                "physiological_mechanism": [], "protocol_findings": []}
+    cliente = _cliente_com_llm(resposta)
+    cliente.generate_structured_synthesis("ultraprocessados", _trechos())
+    assert len(cliente.ultimas_frases_removidas) == 1
+    vistos = {}
+
+    def outra_thread():
+        vistos["removidas"] = cliente.ultimas_frases_removidas
+        vistos["aceita"] = cliente.ultima_resposta_aceita
+
+    t = threading.Thread(target=outra_thread)
+    t.start()
+    t.join()
+    assert vistos == {"removidas": [], "aceita": None}
