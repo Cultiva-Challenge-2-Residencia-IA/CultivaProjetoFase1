@@ -70,8 +70,15 @@ GROQ_TIMEOUT = float(os.getenv("GROQ_TIMEOUT", "30.0"))
 
 # Configurações do Modelo Local (Ollama - Fallback Opcional)
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
-OLLAMA_FALLBACK_MODEL = os.getenv("OLLAMA_FALLBACK_MODEL", "qwen2.5:3b")
+# Modelo principal e reserva escolhidos por medição na issue #55 (ADR 0004).
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "gemma4:e4b")
+OLLAMA_FALLBACK_MODEL = os.getenv("OLLAMA_FALLBACK_MODEL", "qwen2.5:7b")
+# Condições da medição do ADR 0004: contexto de 8192 tokens e modo de raciocínio desligado (modelos
+# que raciocinam por padrão, como o qwen3.5, multiplicam a latência). A saída vai até 2048 tokens:
+# com 1024, o gemma4:e4b truncava o JSON da citação por frase (issue #12) em 3 de 30 casos do dev.
+OLLAMA_NUM_CTX = int(os.getenv("OLLAMA_NUM_CTX", "8192"))
+OLLAMA_NUM_PREDICT = int(os.getenv("OLLAMA_NUM_PREDICT", "2048"))
+OLLAMA_THINK = os.getenv("OLLAMA_THINK", "false").strip().lower() in {"1", "true", "sim", "yes"}
 OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text")
 OLLAMA_TIMEOUT = float(os.getenv("OLLAMA_TIMEOUT", "45.0"))
 

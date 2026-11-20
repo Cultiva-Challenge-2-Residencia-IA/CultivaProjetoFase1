@@ -16,6 +16,9 @@ from src.config import (
     OLLAMA_BASE_URL,
     OLLAMA_FALLBACK_MODEL,
     OLLAMA_MODEL,
+    OLLAMA_NUM_CTX,
+    OLLAMA_NUM_PREDICT,
+    OLLAMA_THINK,
     OLLAMA_TIMEOUT,
 )
 from src.guardrails.injection import delimitar_como_dado
@@ -254,8 +257,11 @@ class LocalLLMClient:
             ],
             "format": "json",
             "stream": False,
+            "think": OLLAMA_THINK,
             "options": {
                 "temperature": 0.1,
+                "num_ctx": OLLAMA_NUM_CTX,
+                "num_predict": OLLAMA_NUM_PREDICT,
             },
         }
         with observacao(
@@ -263,7 +269,8 @@ class LocalLLMClient:
             tipo="generation",
             model=model_name,
             input=payload["messages"],
-            model_parameters={"temperature": 0.1, "format": "json"},
+            model_parameters={"temperature": 0.1, "format": "json", "num_ctx": OLLAMA_NUM_CTX,
+                              "num_predict": OLLAMA_NUM_PREDICT, "think": OLLAMA_THINK},
         ) as obs:
             try:
                 with httpx.Client(timeout=self.timeout) as client:

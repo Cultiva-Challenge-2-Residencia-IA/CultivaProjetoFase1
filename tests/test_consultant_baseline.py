@@ -309,3 +309,42 @@ def test_llm_puro_registra_a_versao_do_prompt_sem_contexto():
     consultor.modo_llm_puro = True
     assert consultor._rastreabilidade([], "x")["prompt_version"] == PROMPT_VERSION_SEM_CONTEXTO
     assert PROMPT_VERSION != PROMPT_VERSION_SEM_CONTEXTO
+
+
+def test_ollama_usa_os_modelos_e_as_condicoes_do_adr_0004(monkeypatch):
+    import httpx
+
+    from src import config
+    from src.agent.llm_client import LocalLLMClient
+
+    enviados = []
+
+    class _Resposta:
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return {"message": {"content": "{}"}}
+
+    class _Cliente:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def post(self, url, json):
+            enviados.append(json)
+            return _Resposta()
+
+    monkeypatch.setattr(httpx, "Client", _Cliente)
+    cliente = LocalLLMClient(enable_ollama=True, provider="ollama")
+    assert (cliente.primary_model, cliente.fallback_model) == (config.OLLAMA_MODEL, config.OLLAMA_FALLBACK_MODEL)
+    cliente._call_ollama_model("gemma4:e4b", "pergunta")
+    payload = enviados[0]
+    assert payload["think"] is False
+    assert payload["options"]["num_ctx"] == 8192
+    assert payload["options"]["num_predict"] == 2048
