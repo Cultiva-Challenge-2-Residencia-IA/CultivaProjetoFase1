@@ -9,6 +9,22 @@
       "rag_config_sha256": "df0f1b866749c94ea567f30d304f99a211a7e21aeac1f33b61a378a134b0c49b",
       "trechos": 497
     },
+    "anvisa-rotulagem-nutricional-perguntas-respostas-2024": {
+      "jsonl_path": "corpus\\nutricao\\rag\\anvisa_rotulagem_nutricional_perguntas_respostas_4ed_2024.jsonl",
+      "jsonl_sha256": "0cb6d1788d8007938abb3cbf3d46d9a4d810342919901e9ff39f51ae083ef7a6",
+      "markdown_sha256": "e6e0fbad581ea55129a0af94de1fa43152fb17c1303deadd72c65c7097ff4cb4",
+      "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
+      "rag_config_sha256": "edceabdd572a75233799056f4679cf584eb21e0edd77f62e37dc49d3378d93c3",
+      "trechos": 304
+    },
+    "anvisa-suplementos-alimentares-perguntas-respostas-2025": {
+      "jsonl_path": "corpus\\nutricao\\rag\\anvisa_suplementos_alimentares_perguntas_respostas_9ed_2025.jsonl",
+      "jsonl_sha256": "c22d7d875cf670e8a3f838cddca8f79ec9fa7335dc43a7783bcaeba93af8981c",
+      "markdown_sha256": "f7a2f9b47da2b2d637b2c7fccbc01cd1bcbe36aa760773ce57cf99cf54cb4426",
+      "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
+      "rag_config_sha256": "b943a062a6a5e57f0896cf6023d869773bb9080f2fda213555a86e1d51f86a4d",
+      "trechos": 244
+    },
     "azevedo-jejum-intermitente-ramb-2013": {
       "jsonl_path": "corpus/nutricao/rag/azevedo_et_al_jejum_intermitente_ramb_2013.jsonl",
       "jsonl_sha256": "180549d7cfeec8d81f969e93be1bbeb2762d9a3b55e8bd5c9a2e159262fbf12d",
@@ -41,6 +57,14 @@
       "rag_config_sha256": "48d5de1f74f860200cb3b43cb309479b374ab89a1a38df6eea82989fd4ea0667",
       "trechos": 32
     },
+    "fraiz-kombucha-revisao-sistematica-fermentation-2025": {
+      "jsonl_path": "corpus\\nutricao\\rag\\fraiz_et_al_kombucha_revisao_sistematica_fermentation_2025.jsonl",
+      "jsonl_sha256": "49d0271161a3f50c24648ce43aaab7aa09998d27c7388137ce5be3e02d1d4cc9",
+      "markdown_sha256": "87a3737b3cc1317053581002e887818b1c158d3bfeec3b330675042f0167b371",
+      "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
+      "rag_config_sha256": "780009974c7b1f45bcb98fe613203826b8809ef016222b5f2c0cc0bdfef9bcd9",
+      "trechos": 106
+    },
     "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012": {
       "jsonl_path": "corpus/nutricao/rag/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.jsonl",
       "jsonl_sha256": "004f7d3798139be915193b6b54e09a9b5ffea4d090fc4b495e0e2d9af4772bac",
@@ -56,6 +80,14 @@
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "1f7f6949166d8012fc121a5044511668d5fb80fbb2ebdca996f1add329ac8c3e",
       "trechos": 43
+    },
+    "gabe-jaime-conhecimento-alimentar-guia-rsp-2026": {
+      "jsonl_path": "corpus\\nutricao\\rag\\gabe_jaime_conhecimento_alimentar_guia_rsp_2026.jsonl",
+      "jsonl_sha256": "1e1a74b7552c1e196a318f4f93579e33bb8bdd3525cad42e6e7e83d2c9a9beee",
+      "markdown_sha256": "d91b0f3835a3975cf6b946a34cbe85c182c95da1b541d8d21a5a524b218f5899",
+      "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
+      "rag_config_sha256": "fc7c8b40af6944b0aa1984bff0480617e6d3267f809ec0fce48a8ddcdbf35885",
+      "trechos": 45
     },
     "guia-alimentar-populacao-brasileira-2014": {
       "jsonl_path": "corpus/nutricao/rag/guia_alimentar_populacao_brasileira_2ed_2014.jsonl",
@@ -121,6 +153,14 @@
       "rag_config_sha256": "20efa22c261bef7b20502910ca4a129173efde5addf3fa77ffbb0e45ca310ef2",
       "trechos": 29
     },
+    "ms-ufmg-desmistificando-duvidas-alimentacao-nutricao-2016": {
+      "jsonl_path": "corpus\\nutricao\\rag\\ms_ufmg_desmistificando_duvidas_alimentacao_nutricao_2016.jsonl",
+      "jsonl_sha256": "42c1f002de77d1cc92f554cfe4982a28deef49cf360a4080f5cb03f0e5c54a44",
+      "markdown_sha256": "2ed3aa44cfce79844b187190789cfce597afcf2bea4c8ad63aae8ebda3cb131d",
+      "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
+      "rag_config_sha256": "865b29b4fce646a53818d757cef96b181228d548c12e420260693273dda06e9c",
+      "trechos": 237
+    },
     "protocolos-guia-alimentar-fasciculo1-2021": {
       "jsonl_path": "corpus/nutricao/rag/protocolos_guia_alimentar_fasciculo1_2021.jsonl",
       "jsonl_sha256": "c10149b5afde9466104b8bda0d42cc8cba595029bf4bd771bb15a69dce5a84ae",
@@ -128,6 +168,14 @@
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "trechos": 87
+    },
+    "protocolos-guia-alimentar-hipertensao-v3-2022": {
+      "jsonl_path": "corpus\\nutricao\\rag\\protocolos_guia_alimentar_hipertensao_v3_2022.jsonl",
+      "jsonl_sha256": "0dab83324cb9a9652651d89a3561bed92b7bb421d412d93a196904cc3d8885b8",
+      "markdown_sha256": "81cba125a3f7d58b8ea9a74576bc1d8afc6ebc1041f5a9331ae6fb7609308207",
+      "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
+      "rag_config_sha256": "87e30b4c7b1f93594e4539b170cc4cc4df8ac755fc8cd26b401123560b00d7eb",
+      "trechos": 81
     },
     "rossetti-universitarios-consumo-alimentar-san-2015": {
       "jsonl_path": "corpus/nutricao/rag/rossetti_universitarios_consumo_alimentar_san_2015.jsonl",
@@ -160,6 +208,30 @@
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "1ef8ec63d8ee793a6ff647a5a0b5837ea43e1acd8cb1bdb9695007e5f3d5d793",
       "trechos": 55
+    },
+    "sbc-diretriz-dislipidemias-aterosclerose-2025": {
+      "jsonl_path": "corpus\\nutricao\\rag\\sbc_diretriz_dislipidemias_aterosclerose_2025.jsonl",
+      "jsonl_sha256": "7d62c620f8763dcf1641d72d366964db1767e3a24655bf665c1db743ae9cce53",
+      "markdown_sha256": "3d02a7ebe3a706a85ec826d30a1339b64902396027bdaf7bb367e2ff6b197d1c",
+      "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
+      "rag_config_sha256": "d168fee133961f2903d36928ec8d2cc2f7e92b554a18ba9baf550eeeecb91445",
+      "trechos": 492
+    },
+    "sbc-sbh-sbn-diretriz-hipertensao-arterial-2025": {
+      "jsonl_path": "corpus\\nutricao\\rag\\sbc_sbh_sbn_diretriz_hipertensao_arterial_2025.jsonl",
+      "jsonl_sha256": "0740d97cf0b1a1210f95533d22f24ad3d2348f192eefecdd179b50d7a5c47dd0",
+      "markdown_sha256": "a6cb0041758eadef980fd4f7795ec5b205555cd44fcf17a4ca5906ef6e26b018",
+      "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
+      "rag_config_sha256": "2c6dfe52d94feb352c5edc5e5a3a3f94085a928d2deabb3c28f3be71b51c9453",
+      "trechos": 596
+    },
+    "sbd-terapia-nutricional-pre-diabetes-dm2-2023": {
+      "jsonl_path": "corpus\\nutricao\\rag\\sbd_terapia_nutricional_pre_diabetes_dm2_2023.jsonl",
+      "jsonl_sha256": "1c8be0a79de9465e9987e1d4f37818bd75057f20b69d18158d195d75700a724a",
+      "markdown_sha256": "0ebc3c15336e38c60c4537936243d5a5952cca911155cbf2f3c339c0b59ace10",
+      "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
+      "rag_config_sha256": "c991b33ac0bb41367d9366a8511c94f5507373326d377c238d2520b6f175bdd7",
+      "trechos": 68
     },
     "sbme-modificacoes-dieteticas-suplementos-rbme-2009": {
       "jsonl_path": "corpus/nutricao/rag/sbme_modificacoes_dieteticas_suplementos_rbme_2009.jsonl",

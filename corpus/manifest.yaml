@@ -728,6 +728,277 @@ sources:
     purpose_note: "Relaciona ansiedade, qualidade do sono e compulsão alimentar em adultos, apoiando a conexão entre sono, estresse e escolhas alimentares."
     scope_note: "Estudo transversal com adultos com sobrepeso ou obesidade, entre 2015 e 2017. Não se generaliza para quem não tem esse perfil e não demonstra causalidade."
 
+  - id: gabe-jaime-conhecimento-alimentar-guia-rsp-2026
+    title: "Associação entre conhecimento em alimentação e a adesão ao Guia Alimentar brasileiro"
+    authors:
+      - Kamila Tiemann Gabe
+      - Patricia Constante Jaime
+    institutions:
+      - Universidade de São Paulo (Faculdade de Saúde Pública e NUPENS)
+    journal: Revista de Saúde Pública
+    year: 2026
+    edition: "v. 60, e16"
+    version: "2026-60-e16"
+    source_type: estudo
+    doi: 10.11606/s1518-8787.2026060006890
+    source: https://doi.org/10.11606/s1518-8787.2026060006890
+    retrieved_on: "2026-11-20"
+    license: CC-BY
+    license_evidence:
+      location: PDF, página 1
+      description: "O PDF declara \"artigo de acesso aberto distribuído sob os termos da Licença de Atribuição Creative Commons, que permite uso irrestrito, distribuição e reprodução em qualquer meio, desde que o autor e a fonte originais sejam creditados\". A versão da licença não está impressa."
+    original_path: corpus/nutricao/originais/gabe_jaime_conhecimento_alimentar_guia_rsp_2026.pdf
+    markdown_path: corpus/nutricao/markdown/gabe_jaime_conhecimento_alimentar_guia_rsp_2026.md
+    report_path: corpus/nutricao/relatorios/gabe_jaime_conhecimento_alimentar_guia_rsp_2026.json
+    sha256: edb5c23e972673fe4510029d5adbf9d80f282b8016439cda5cf98e8a6b520ed2
+    pdf_pages: 12
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+    purpose_note: "Relaciona o conhecimento em alimentação com a adesão às recomendações do Guia Alimentar, com dados da coorte NutriNet-Brasil."
+    scope_note: "Estudo observacional com voluntários adultos da coorte NutriNet-Brasil; mostra associação, não causalidade."
+
+  - id: ms-ufmg-desmistificando-duvidas-alimentacao-nutricao-2016
+    title: "Desmistificando dúvidas sobre alimentação e nutrição: material de apoio para profissionais de saúde"
+    institutions:
+      - Ministério da Saúde
+      - Universidade Federal de Minas Gerais
+    year: 2016
+    edition: "1ª edição, ISBN 978-85-334-2409-8"
+    version: "2016-1ed"
+    source_type: diretriz
+    source: https://repositorio.ufmg.br/bitstream/1843/65671/2/Desmistificando%20d%c3%bavidas%20sobre%20alimenta%c3%a7%c3%a3o%20e%20nutri%c3%a7%c3%a3o%20_%20material%20de%20apoio%20para%20profissionais%20de%20sa%c3%bade.pdf
+    retrieved_on: "2026-11-20"
+    license: CC-BY-NC-SA-4.0
+    license_evidence:
+      location: PDF, página 2 (ficha catalográfica)
+      description: "\"Esta obra é disponibilizada nos termos da Licença Creative Commons – Atribuição – Não Comercial – Compartilhamento pela mesma licença 4.0 Internacional.\""
+    original_path: corpus/nutricao/originais/ms_ufmg_desmistificando_duvidas_alimentacao_nutricao_2016.pdf
+    markdown_path: corpus/nutricao/markdown/ms_ufmg_desmistificando_duvidas_alimentacao_nutricao_2016.md
+    report_path: corpus/nutricao/relatorios/ms_ufmg_desmistificando_duvidas_alimentacao_nutricao_2016.json
+    sha256: 0215576e702f91b3c3b67673f1558bed64e40dacbaadf8e1cee0fcae0b35ad79
+    pdf_pages: 164
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
+    purpose_note: "Esclarece mitos e dúvidas frequentes sobre alimentação (glúten, dietas detox, suplementos, adoçantes, óleos, emagrecimento), tema recorrente nas perguntas dos usuários."
+    scope_note: "Material de 2016 para profissionais de saúde; as referências vão até 2015, e regras citadas (por exemplo, de rotulagem) podem ter mudado."
+    data_quality_note: "O PDF foi obtido do repositório institucional da UFMG; a página de publicações do Ministério da Saúde lista o material, mas o PDF da BVS não foi conferido."
+
+  - id: protocolos-guia-alimentar-hipertensao-v3-2022
+    title: "Orientação alimentar de pessoas adultas com hipertensão arterial: protocolo de uso do Guia Alimentar para a População Brasileira, volume 3"
+    institutions:
+      - Ministério da Saúde
+      - Universidade de Brasília
+    year: 2022
+    edition: "Volume 3, ISBN 978-65-5993-289-4"
+    version: "2022-v3"
+    source_type: diretriz
+    source: http://bvsms.saude.gov.br/bvs/publicacoes/orientacao_alimentar_adultas_hipertensao_v.3.pdf
+    retrieved_on: "2026-11-20"
+    license: CC-BY-NC-SA-4.0
+    license_evidence:
+      location: PDF, página 3 (ficha catalográfica)
+      description: "\"Esta obra é disponibilizada nos termos da Licença Creative Commons – Atribuição – Não Comercial – Compartilhamento pela mesma licença 4.0 Internacional.\""
+    original_path: corpus/nutricao/originais/protocolos_guia_alimentar_hipertensao_v3_2022.pdf
+    markdown_path: corpus/nutricao/markdown/protocolos_guia_alimentar_hipertensao_v3_2022.md
+    report_path: corpus/nutricao/relatorios/protocolos_guia_alimentar_hipertensao_v3_2022.json
+    sha256: 1b1e2faeccedc21e51fdd60ffa44a7434001bfd31b1cbff789bbd563ca72c759
+    pdf_pages: 35
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
+    purpose_note: "Orientação alimentar para adultos com hipertensão baseada no Guia Alimentar; complementa o Fascículo 1 já presente no corpus."
+    scope_note: "Protocolo para profissionais da Atenção Primária. O CULTIVA não acompanha tratamento de hipertensão; o uso é educativo."
+    data_quality_note: "A URL de origem é a impressa na ficha catalográfica do PDF; o arquivo foi recebido do autor da inclusão e não baixado dessa URL."
+
+  - id: sbc-diretriz-dislipidemias-aterosclerose-2025
+    title: "Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose – 2025"
+    authors:
+      - Fabiana Hanna Rached
+      - et al.
+    institutions:
+      - Sociedade Brasileira de Cardiologia (SBC)
+    journal: Arquivos Brasileiros de Cardiologia
+    year: 2025
+    edition: "v. 122, n. 9, e20250640"
+    version: "2025-122-9"
+    source_type: diretriz
+    doi: 10.36660/abc.20250640
+    source: https://doi.org/10.36660/abc.20250640
+    retrieved_on: "2026-11-20"
+    license: CC-BY
+    license_evidence:
+      location: PDF, rodapé da página 110
+      description: "O PDF imprime \"Este é um artigo de acesso aberto distribuído sob os termos da licença de atribuição pelo Creative Commons\". A versão da licença não está impressa."
+    original_path: corpus/nutricao/originais/sbc_diretriz_dislipidemias_aterosclerose_2025.pdf
+    markdown_path: corpus/nutricao/markdown/sbc_diretriz_dislipidemias_aterosclerose_2025.md
+    report_path: corpus/nutricao/relatorios/sbc_diretriz_dislipidemias_aterosclerose_2025.json
+    sha256: 21c69729df5a43cd4625dcd8395641e1508caf3b9928946fc5dee0ebf75eaf94
+    pdf_pages: 110
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+    purpose_note: "Recomendações de estilo de vida e alimentação para o perfil lipídico (gorduras, fibras, padrão alimentar)."
+    scope_note: "Diretriz médica: a maior parte trata de diagnóstico, estratificação de risco e tratamento medicamentoso, fora do escopo do CULTIVA (a IA não diagnostica nem prescreve). Na aprovação, avaliar restringir os Trechos às seções de alimentação e estilo de vida com skip_pages."
+
+  - id: sbc-sbh-sbn-diretriz-hipertensao-arterial-2025
+    title: "Diretriz Brasileira de Hipertensão Arterial – 2025"
+    authors:
+      - Andréa Araujo Brandão
+      - Cibele Isaac Saad Rodrigues
+      - Luiz Aparecido Bortolotto
+      - Wilson Nadruz
+      - et al.
+    institutions:
+      - Sociedade Brasileira de Cardiologia (SBC)
+      - Sociedade Brasileira de Hipertensão (SBH)
+      - Sociedade Brasileira de Nefrologia (SBN)
+    journal: Arquivos Brasileiros de Cardiologia
+    year: 2025
+    edition: "v. 122, n. 9, e20250624"
+    version: "2025-122-9"
+    source_type: diretriz
+    doi: 10.36660/abc.20250624
+    source: https://doi.org/10.36660/abc.20250624
+    retrieved_on: "2026-11-20"
+    license: CC-BY
+    license_evidence:
+      location: PDF, rodapé da página 154
+      description: "O PDF imprime \"Este é um artigo de acesso aberto distribuído sob os termos da licença de atribuição pelo Creative Commons\". A versão da licença não está impressa."
+    original_path: corpus/nutricao/originais/sbc_sbh_sbn_diretriz_hipertensao_arterial_2025.pdf
+    markdown_path: corpus/nutricao/markdown/sbc_sbh_sbn_diretriz_hipertensao_arterial_2025.md
+    report_path: corpus/nutricao/relatorios/sbc_sbh_sbn_diretriz_hipertensao_arterial_2025.json
+    sha256: 8c76e153b7a4d1204d85950f140716e3f4797a65ea57ce8a4cb3e55f52723215
+    pdf_pages: 154
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+    purpose_note: "Recomendações de alimentação e estilo de vida para a pressão arterial (sódio, potássio, padrão DASH, álcool, peso)."
+    scope_note: "Diretriz médica: a maior parte trata de diagnóstico, metas pressóricas e tratamento medicamentoso, fora do escopo do CULTIVA (a IA não diagnostica nem prescreve). Na aprovação, avaliar restringir os Trechos às seções de tratamento não medicamentoso com skip_pages."
+
+  - id: fraiz-kombucha-revisao-sistematica-fermentation-2025
+    title: "Benefits of Kombucha Consumption: A Systematic Review of Clinical Trials Focused on Microbiota and Metabolic Health"
+    authors:
+      - Gabriela Macedo Fraiz
+      - Dandara Baia Bonifácio
+      - Rayanne Santos de Paulo
+      - Carolynne Martins Teixeira
+      - Hércia Stampini Duarte Martino
+      - Frederico Augusto Ribeiro de Barros
+      - Fermín I. Milagro
+      - Josefina Bressan
+    institutions:
+      - Universidade Federal de Viçosa
+      - Universidad de Navarra
+    journal: Fermentation
+    year: 2025
+    edition: "v. 11, n. 6, 353"
+    version: "2025-11-353"
+    source_type: revisao
+    language: en
+    doi: 10.3390/fermentation11060353
+    source: https://doi.org/10.3390/fermentation11060353
+    retrieved_on: "2026-11-20"
+    license: CC-BY-4.0
+    license_evidence:
+      location: PDF, página 1
+      description: "\"This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).\""
+    original_path: corpus/nutricao/originais/fraiz_et_al_kombucha_revisao_sistematica_fermentation_2025.pdf
+    markdown_path: corpus/nutricao/markdown/fraiz_et_al_kombucha_revisao_sistematica_fermentation_2025.md
+    report_path: corpus/nutricao/relatorios/fraiz_et_al_kombucha_revisao_sistematica_fermentation_2025.json
+    sha256: e00e279f0fcb21f3e8d4b8c58cde2c8fff5c3f895be2ad029103aa42df8f972a
+    pdf_pages: 29
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+    purpose_note: "Cobre kombucha, tema perguntado no benchmark e ausente do corpus: na amostra de fundamentação v4 (#67), as frases sobre kombucha eram não sustentadas por falta de fonte."
+    scope_note: "Revisão sistemática de ensaios clínicos (registro PROSPERO CRD42024599464), com poucos estudos e amostras pequenas. Em inglês: os Trechos ficam em inglês e a busca por perguntas em português pode recuperá-los menos."
+
+  - id: anvisa-rotulagem-nutricional-perguntas-respostas-2024
+    title: "Perguntas e respostas: rotulagem nutricional de alimentos embalados"
+    institutions:
+      - Agência Nacional de Vigilância Sanitária (Anvisa)
+    year: 2024
+    edition: "4ª edição, 26 de junho de 2024"
+    version: "2024-4ed"
+    source_type: diretriz
+    source: https://www.gov.br/anvisa/pt-br/centraisdeconteudo/publicacoes/alimentos/perguntas-e-respostas-arquivos
+    retrieved_on: "2026-11-20"
+    license: pendente
+    license_evidence:
+      location: PDF inteiro
+      description: "O PDF não declara licença. Documento de orientação de agência reguladora; a proteção autoral não foi avaliada."
+    original_path: corpus/nutricao/originais/anvisa_rotulagem_nutricional_perguntas_respostas_4ed_2024.pdf
+    markdown_path: corpus/nutricao/markdown/anvisa_rotulagem_nutricional_perguntas_respostas_4ed_2024.md
+    report_path: corpus/nutricao/relatorios/anvisa_rotulagem_nutricional_perguntas_respostas_4ed_2024.json
+    sha256: a33443844c88483ac9fc394eb1f8da30f1deb1e9e8061badad9c0802f5c77ba3
+    pdf_pages: 124
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+    purpose_note: "Explica a tabela nutricional, a rotulagem frontal (lupa) e as alegações nutricionais, para apoiar a leitura de rótulos."
+    scope_note: "Documento regulatório voltado ao setor produtivo; vale para alimentos embalados no Brasil."
+    data_quality_note: "A URL exata do PDF da 4ª edição não foi localizada; a origem registrada é a pasta de perguntas e respostas da Anvisa. A Anvisa revisa o regulamento de rotulagem em consulta pública (2025); confirmar a vigência antes de aprovar."
+
+  - id: anvisa-suplementos-alimentares-perguntas-respostas-2025
+    title: "Perguntas e respostas: suplementos alimentares"
+    institutions:
+      - Agência Nacional de Vigilância Sanitária (Anvisa)
+    year: 2025
+    edition: "9ª edição, 16 de janeiro de 2025"
+    version: "2025-9ed"
+    source_type: diretriz
+    source: https://www.gov.br/anvisa/pt-br/centraisdeconteudo/publicacoes/alimentos/perguntas-e-respostas-arquivos/suplementos-alimentares.pdf
+    retrieved_on: "2026-11-20"
+    license: pendente
+    license_evidence:
+      location: PDF inteiro
+      description: "O PDF não declara licença. Documento de orientação de agência reguladora; a proteção autoral não foi avaliada."
+    original_path: corpus/nutricao/originais/anvisa_suplementos_alimentares_perguntas_respostas_9ed_2025.pdf
+    markdown_path: corpus/nutricao/markdown/anvisa_suplementos_alimentares_perguntas_respostas_9ed_2025.md
+    report_path: corpus/nutricao/relatorios/anvisa_suplementos_alimentares_perguntas_respostas_9ed_2025.json
+    sha256: 53783a158a342fb3f57f305f5b79bcddf3a8aca18e8cc2b45d40b784fa83118f
+    pdf_pages: 138
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+    purpose_note: "Define o que é suplemento alimentar no Brasil, o que pode constar no rótulo e quais alegações são autorizadas."
+    scope_note: "Documento regulatório voltado ao setor produtivo; não traz recomendação de consumo individual."
+    data_quality_note: "O arquivo foi recebido do autor da inclusão; não foi conferido se a URL de origem ainda serve a 9ª edição. A consulta pública CP 1.325/2025 propõe alterar a RDC 243/2018; confirmar a vigência antes de aprovar."
+
+  - id: sbd-terapia-nutricional-pre-diabetes-dm2-2023
+    title: "Terapia nutricional no pré-diabetes e no diabetes mellitus tipo 2"
+    authors:
+      - Silvia Ramos
+      - Letícia Fuganti Campos
+      - Deise Regina Baptista
+      - et al.
+    institutions:
+      - Sociedade Brasileira de Diabetes (SBD)
+    year: 2023
+    edition: "Diretriz Oficial da SBD (2023), ISBN 978-85-5722-906-8; página web impressa em 20/11/2026"
+    version: "2023-web-2026-11-20"
+    source_type: diretriz
+    doi: 10.29327/5238993.2023-8
+    source: https://diretriz.diabetes.org.br/terapia-nutricional-no-pre-diabetes-e-no-diabetes-mellitus-tipo-2/
+    retrieved_on: "2026-11-20"
+    license: pendente
+    license_evidence:
+      location: PDF inteiro
+      description: "O PDF, gerado a partir da página web da diretriz, não declara licença."
+    original_path: corpus/nutricao/originais/sbd_terapia_nutricional_pre_diabetes_dm2_2023.pdf
+    markdown_path: corpus/nutricao/markdown/sbd_terapia_nutricional_pre_diabetes_dm2_2023.md
+    report_path: corpus/nutricao/relatorios/sbd_terapia_nutricional_pre_diabetes_dm2_2023.json
+    sha256: 3a4e1302601b0065ccf501b91774d4d3478f2bf7d6b43dfe6ca09036a028555b
+    pdf_pages: 20
+    conversion_status: concluida_com_ressalvas
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+    purpose_note: "Recomendações nutricionais para pré-diabetes e diabetes tipo 2 (carboidratos, fibras, padrão alimentar, perda de peso)."
+    scope_note: "Diretriz para profissionais; o CULTIVA não acompanha tratamento de diabetes, e o uso é educativo."
+    data_quality_note: "O PDF não é publicação oficial: é a impressão da página web pelo navegador, com data e URL em cada página. A página informa duas datas de revisão (12/08/2026 e 13/10/2022). Uma segunda impressão do mesmo dia (SHA-256 723e5fd0…) foi descartada como duplicata."
+
   - id: guia-atividade-fisica-brasil-2021
     kind: original_only
     title: Guia de Atividade Física para a População Brasileira

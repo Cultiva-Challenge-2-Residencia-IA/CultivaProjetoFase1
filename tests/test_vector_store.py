@@ -14,7 +14,7 @@ def test_base_curada_tem_ao_menos_20_documentos_fonte() -> None:
     inventario = inventario_de_fontes(carregar_chunks_do_corpus(incluir_pendentes=True))
     assert len(inventario) >= 20
     assert all(f.kind == "pdf" for f in inventario)
-    assert len(inventario) == 22
+    assert len(inventario) == 31
     assert all(f.chunks_count > 0 for f in inventario)
 
 

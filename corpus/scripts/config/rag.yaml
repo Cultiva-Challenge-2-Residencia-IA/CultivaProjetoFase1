@@ -173,3 +173,40 @@ fusco-ansiedade-sono-compulsao-reeusp-2020:
     - '^Suzimar de Fátima Benato Fusco'
     - '^Autor correspondente'
     - '^Universidade Estadual'
+# Fontes incluídas em 20/11/2026: capas, fichas, equipes, declarações de conflito de interesse,
+# sumários, listas de siglas, índices remissivos e referências ficam fora dos Trechos.
+gabe-jaime-conhecimento-alimentar-guia-rsp-2026:
+  drop_paragraphs:
+    - '^Artigo Original$'
+    - '^https?://www\.rsp\.fsp\.usp\.br'
+    - '^Kamila Tiemann Gabe'
+    - '^I+\s+Universidade de São Paulo'
+    - '^Correspondência'
+ms-ufmg-desmistificando-duvidas-alimentacao-nutricao-2016:
+  skip_pages: [1, 2, 3, 4, 5, 6, 161, 162, 163, 164]
+protocolos-guia-alimentar-hipertensao-v3-2022:
+  skip_pages: [1, 2, 3, 4]
+sbc-diretriz-dislipidemias-aterosclerose-2025:
+  skip_pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110]
+  drop_paragraphs:
+    - '^(\d+\s+)?Arq Bras Cardiol\. \d{4}; \d+\(\d+\):e\d+(\s+\d+)?$'
+sbc-sbh-sbn-diretriz-hipertensao-arterial-2025:
+  skip_pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154]
+  drop_paragraphs:
+    - '^(\d+\s+)?Arq Bras Cardiol\. \d{4}; \d+\(\d+\):e\d+(\s+\d+)?$'
+fraiz-kombucha-revisao-sistematica-fermentation-2025:
+  drop_paragraphs:
+    - '^Gabriela Macedo Fraiz'
+    - '^-?\s*Correspondence:'
+    - '^Academic Editor:'
+    - '^Copyright:'
+    - '^Citation:'
+anvisa-rotulagem-nutricional-perguntas-respostas-2024:
+  skip_pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17]
+anvisa-suplementos-alimentares-perguntas-respostas-2025:
+  skip_pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19]
+sbd-terapia-nutricional-pre-diabetes-dm2-2023:
+  skip_pages: [20]
+  drop_paragraphs:
+    - '^Ultima revisao:'
+    - '^\d{1,2}/20$'
