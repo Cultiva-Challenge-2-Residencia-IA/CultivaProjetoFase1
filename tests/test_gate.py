@@ -129,3 +129,18 @@ def test_falha_conhecida_abaixo_do_piso_volta_a_falhar():
 
 def test_falha_conhecida_que_passa_vira_passou():
     assert _status(avaliar(_com_holdout(0.96), BASELINE, CONFIG_CONHECIDA))["risco_holdout:recall"] == PASSOU
+
+
+def test_verificar_integridade_respostas_golden_set():
+    from src.evaluation.gate import verificar_integridade_respostas
+    resultados = verificar_integridade_respostas()
+    status = _status(resultados)
+    assert status["respostas:schema_valido"] == PASSOU
+    assert status["respostas:validacao_dev"] == PASSOU
+    assert status["respostas:validacao_test"] == PASSOU
+    assert status["respostas:unicidade_ids"] == PASSOU
+    assert status["respostas:integridade_fatos"] == PASSOU
+
+
+def test_main_verificar_respostas():
+    assert main(["--verificar-respostas"]) == 0

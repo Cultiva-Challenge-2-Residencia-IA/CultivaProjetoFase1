@@ -4,6 +4,12 @@ Uso:
     python -m src.evaluation.gate --report data/benchmark/baseline_report.json \
         --baseline eval/baselines/benchmark_offline.json --config eval/gates.toml
 
+    # Verificação offline de schemas e gabaritos de respostas (Semana 3):
+    python -m src.evaluation.gate --verificar-respostas
+
+    # Avaliação do benchmark comparativo de respostas:
+    python -m src.evaluation.gate --report-respostas data/benchmark/relatorio_respostas_comparativo.json
+
     # Atualiza o baseline a partir de um relatório (mudança intencional, revisada no PR):
     python -m src.evaluation.gate --report ... --baseline ... --update-baseline
 
@@ -39,44 +45,50 @@ def avaliar(
     relatorio: Dict[str, Any], baseline: Dict[str, Any], config: Dict[str, Any]
 ) -> List[Resultado]:
     resultados: List[Resultado] = []
-    atual = relatorio["overall_metrics"]
-    referencia = baseline["overall_metrics"]
 
-    regressao = config.get("regressao", {})
-    tolerancia = float(regressao.get("tolerancia", 0.05))
-    for metrica in regressao.get("metricas", []):
-        if metrica not in atual or metrica not in referencia:
+    if "overall_metrics" in relatorio and "overall_metrics" in baseline:
+        atual = relatorio["overall_metrics"]
+        referencia = baseline["overall_metrics"]
+
+        regressao = config.get("regressao", {})
+        tolerancia = float(regressao.get("tolerancia", 0.05))
+        for metrica in regressao.get("metricas", []):
+            if metrica not in atual or metrica not in referencia:
+                resultados.append(
+                    Resultado(f"regressao:{metrica}", FALHOU, "métrica ausente no relatório ou no baseline")
+                )
+                continue
+            delta = atual[metrica] - referencia[metrica]
+            status = PASSOU if delta >= -tolerancia else FALHOU
             resultados.append(
-                Resultado(f"regressao:{metrica}", FALHOU, "métrica ausente no relatório ou no baseline")
+                Resultado(
+                    f"regressao:{metrica}",
+                    status,
+                    f"atual={atual[metrica]:.4f} baseline={referencia[metrica]:.4f} "
+                    f"delta={delta:+.4f} (tolerância -{tolerancia:.2f})",
+                )
             )
-            continue
-        delta = atual[metrica] - referencia[metrica]
-        status = PASSOU if delta >= -tolerancia else FALHOU
-        resultados.append(
-            Resultado(
-                f"regressao:{metrica}",
-                status,
-                f"atual={atual[metrica]:.4f} baseline={referencia[metrica]:.4f} "
-                f"delta={delta:+.4f} (tolerância -{tolerancia:.2f})",
+
+        for metrica, minimo in config.get("minimos", {}).items():
+            if metrica not in atual:
+                resultados.append(Resultado(f"minimo:{metrica}", FALHOU, "métrica ausente no relatório"))
+                continue
+            status = PASSOU if atual[metrica] >= float(minimo) else FALHOU
+            resultados.append(
+                Resultado(f"minimo:{metrica}", status, f"atual={atual[metrica]:.4f} mínimo={float(minimo):.4f}")
             )
-        )
 
-    for metrica, minimo in config.get("minimos", {}).items():
-        if metrica not in atual:
-            resultados.append(Resultado(f"minimo:{metrica}", FALHOU, "métrica ausente no relatório"))
-            continue
-        status = PASSOU if atual[metrica] >= float(minimo) else FALHOU
-        resultados.append(
-            Resultado(f"minimo:{metrica}", status, f"atual={atual[metrica]:.4f} mínimo={float(minimo):.4f}")
-        )
+        if "abstencao" in config:
+            resultados.extend(_avaliar_abstencao(relatorio.get("abstention_metrics"), config["abstencao"]))
 
-    if "abstencao" in config:
-        resultados.extend(_avaliar_abstencao(relatorio.get("abstention_metrics"), config["abstencao"]))
+        # RF-IA03: o mesmo gate no conjunto de desenvolvimento e no holdout, com mínimos próprios.
+        for secao, chave in [("risco", "risk_metrics"), ("risco_holdout", "risk_metrics_holdout")]:
+            if secao in config:
+                resultados.extend(_avaliar_risco(relatorio.get(chave), config[secao], secao))
 
-    # RF-IA03: o mesmo gate no conjunto de desenvolvimento e no holdout, com mínimos próprios.
-    for secao, chave in [("risco", "risk_metrics"), ("risco_holdout", "risk_metrics_holdout")]:
-        if secao in config:
-            resultados.extend(_avaliar_risco(relatorio.get(chave), config[secao], secao))
+    if "resumo_condicoes" in relatorio and "respostas" in config:
+        resultados.extend(_avaliar_respostas(relatorio["resumo_condicoes"], config["respostas"]))
+
     return resultados
 
 
@@ -137,6 +149,112 @@ def _avaliar_risco(metricas: Dict[str, Any] | None, config: Dict[str, Any], nome
     return resultados
 
 
+def _avaliar_respostas(resumo_condicoes: Dict[str, Any], config_respostas: Dict[str, Any]) -> List[Resultado]:
+    """Semana 3: avalia métricas do benchmark comparativo de respostas (LLM x RAG)."""
+    resultados: List[Resultado] = []
+    condicao_alvo = config_respostas.get("condicao_principal", "rag_atual")
+    metricas = resumo_condicoes.get(condicao_alvo)
+
+    if not metricas:
+        return [Resultado(f"respostas:{condicao_alvo}", PENDENTE, f"condição '{condicao_alvo}' ausente no relatório")]
+
+    mapeamento = {
+        "compliance_legal_minimo": ("compliance_legal_media", "compliance legal (Lei 8.234/1991)"),
+        "acuracia_fatos_minima": ("correcao_factual_media", "acurácia factual"),
+        "fidelidade_minima": ("fidelidade_contexto_media", "fidelidade ao contexto"),
+        "nota_geral_minima": ("nota_geral_media", "nota geral"),
+    }
+
+    for chave_cfg, (chave_metrica, rotulo) in mapeamento.items():
+        if chave_cfg in config_respostas:
+            minimo = float(config_respostas[chave_cfg])
+            valor = metricas.get(chave_metrica)
+            if valor is None or valor == "N/A":
+                resultados.append(Resultado(f"respostas:{chave_metrica}", PENDENTE, f"{rotulo} N/A na condição {condicao_alvo}"))
+                continue
+            status = PASSOU if float(valor) >= minimo else FALHOU
+            resultados.append(
+                Resultado(
+                    f"respostas:{chave_metrica}",
+                    status,
+                    f"atual={float(valor):.4f} mínimo={minimo:.4f} ({condicao_alvo}: {rotulo})",
+                )
+            )
+    return resultados
+
+
+def verificar_integridade_respostas(caminho_dir: Path | None = None) -> List[Resultado]:
+    """Verifica schemas e integridade do golden set de respostas (eval/golden/resposta) offline."""
+    import jsonschema
+
+    caminho = caminho_dir or Path("eval/golden/resposta")
+    schema_path = caminho / "caso_resposta.schema.json"
+    dev_path = caminho / "dev.json"
+    test_path = caminho / "test.json"
+
+    resultados: List[Resultado] = []
+
+    if not schema_path.is_file():
+        return [Resultado("respostas:schema", FALHOU, f"schema não encontrado em {schema_path}")]
+    if not dev_path.is_file():
+        return [Resultado("respostas:dev", FALHOU, f"dev.json não encontrado em {dev_path}")]
+    if not test_path.is_file():
+        return [Resultado("respostas:test", FALHOU, f"test.json não encontrado em {test_path}")]
+
+    try:
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        jsonschema.Draft202012Validator.check_schema(schema)
+        validator = jsonschema.Draft202012Validator(schema)
+        resultados.append(Resultado("respostas:schema_valido", PASSOU, "caso_resposta.schema.json é válido"))
+    except Exception as exc:
+        return [Resultado("respostas:schema_valido", FALHOU, f"schema inválido: {exc}")]
+
+    try:
+        dev_data = json.loads(dev_path.read_text(encoding="utf-8"))
+        dev_cases = dev_data.get("casos", [])
+        dev_errors = list(validator.iter_errors(dev_data))
+        if dev_errors:
+            resultados.append(Resultado("respostas:validacao_dev", FALHOU, f"{len(dev_errors)} erro(s) em dev.json"))
+        else:
+            resultados.append(Resultado("respostas:validacao_dev", PASSOU, f"dev.json válido ({len(dev_cases)} casos)"))
+    except Exception as exc:
+        resultados.append(Resultado("respostas:validacao_dev", FALHOU, f"erro ao ler dev.json: {exc}"))
+        return resultados
+
+    try:
+        test_data = json.loads(test_path.read_text(encoding="utf-8"))
+        test_cases = test_data.get("casos", [])
+        test_errors = list(validator.iter_errors(test_data))
+        if test_errors:
+            resultados.append(Resultado("respostas:validacao_test", FALHOU, f"{len(test_errors)} erro(s) em test.json"))
+        else:
+            resultados.append(Resultado("respostas:validacao_test", PASSOU, f"test.json válido ({len(test_cases)} casos)"))
+    except Exception as exc:
+        resultados.append(Resultado("respostas:validacao_test", FALHOU, f"erro ao ler test.json: {exc}"))
+        return resultados
+
+    # Disjunção estrita de IDs
+    dev_ids = {c["id"] for c in dev_cases if isinstance(c, dict) and "id" in c}
+    test_ids = {c["id"] for c in test_cases if isinstance(c, dict) and "id" in c}
+    intersecao = dev_ids & test_ids
+    if intersecao:
+        resultados.append(Resultado("respostas:unicidade_ids", FALHOU, f"IDs duplicados entre splits: {intersecao}"))
+    else:
+        resultados.append(Resultado("respostas:unicidade_ids", PASSOU, "splits dev e test são estritamente disjuntos"))
+
+    # Integridade de fatos atômicos
+    total_fatos_dev = sum(len(c.get("fatos_essenciais", [])) for c in dev_cases if isinstance(c, dict))
+    total_fatos_test = sum(len(c.get("fatos_essenciais", [])) for c in test_cases if isinstance(c, dict))
+    if total_fatos_dev == 0 or total_fatos_test == 0:
+        resultados.append(Resultado("respostas:integridade_fatos", FALHOU, "fatos atômicos vazios"))
+    else:
+        resultados.append(
+            Resultado("respostas:integridade_fatos", PASSOU, f"{total_fatos_dev} fatos em dev, {total_fatos_test} fatos em test")
+        )
+
+    return resultados
+
+
 def extrair_baseline(relatorio: Dict[str, Any]) -> Dict[str, Any]:
     """Guarda só o que o gate compara, para o diff do baseline ser legível no PR."""
     baseline = {
@@ -169,9 +287,20 @@ def _anotar(resultado: Resultado) -> None:
 
 def main(argv: List[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--report", type=Path, required=True)
-    parser.add_argument("--baseline", type=Path, required=True)
+    parser.add_argument("--report", type=Path, default=None, help="Relatório de busca/recuperação.")
+    parser.add_argument("--baseline", type=Path, default=None, help="Baseline de referência.")
     parser.add_argument("--config", type=Path, default=Path("eval/gates.toml"))
+    parser.add_argument(
+        "--report-respostas",
+        type=Path,
+        default=None,
+        help="Caminho do relatório de benchmark comparativo de respostas (LLM x RAG).",
+    )
+    parser.add_argument(
+        "--verificar-respostas",
+        action="store_true",
+        help="Executa verificação offline dos schemas e integridade do golden set de respostas.",
+    )
     parser.add_argument(
         "--update-baseline",
         action="store_true",
@@ -179,8 +308,10 @@ def main(argv: List[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    relatorio = _ler_json(args.report)
     if args.update_baseline:
+        if not args.report or not args.baseline:
+            parser.error("--update-baseline exige --report e --baseline.")
+        relatorio = _ler_json(args.report)
         args.baseline.parent.mkdir(parents=True, exist_ok=True)
         args.baseline.write_text(
             json.dumps(extrair_baseline(relatorio), ensure_ascii=False, indent=2) + "\n",
@@ -189,11 +320,32 @@ def main(argv: List[str] | None = None) -> int:
         print(f"Baseline atualizado: {args.baseline}")
         return 0
 
-    config = tomllib.loads(args.config.read_text(encoding="utf-8"))
-    resultados = avaliar(relatorio, _ler_json(args.baseline), config)
+    if not args.report and not args.verificar_respostas and not args.report_respostas:
+        parser.error("Informe --report e --baseline, ou --verificar-respostas, ou --report-respostas.")
+
+    config = tomllib.loads(args.config.read_text(encoding="utf-8")) if args.config.is_file() else {}
+    resultados: List[Resultado] = []
+
+    if args.report:
+        if not args.baseline:
+            parser.error("--report exige --baseline correspondente.")
+        relatorio = _ler_json(args.report)
+        baseline = _ler_json(args.baseline)
+        resultados.extend(avaliar(relatorio, baseline, config))
+
+    if args.report_respostas:
+        rel_resp = _ler_json(args.report_respostas)
+        if "resumo_condicoes" in rel_resp:
+            cfg_resp = config.get("respostas", {})
+            resultados.extend(_avaliar_respostas(rel_resp["resumo_condicoes"], cfg_resp))
+
+    if args.verificar_respostas:
+        resultados.extend(verificar_integridade_respostas())
+
     for r in resultados:
         print(f"{r.status:8s} {r.gate:40s} {r.detalhe}")
         _anotar(r)
+
     falhas = [r for r in resultados if r.status == FALHOU]
     conhecidas = [r for r in resultados if r.status == CONHECIDA]
     print(f"\n{len(falhas)} gate(s) falharam de {len(resultados)}.")
