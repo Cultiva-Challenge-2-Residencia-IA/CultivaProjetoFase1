@@ -495,3 +495,68 @@ def test_cegamento_separa_chave_em_arquivo_proprio(tmp_path):
     conteudo_chave = json.loads(arquivo_chave.read_text(encoding="utf-8"))
     assert "mapeamento_por_caso" in conteudo_chave
     assert "RESP-DIR-01" in conteudo_chave["mapeamento_por_caso"]
+
+
+def test_negacao_em_outra_frase_nao_desfaz_a_afirmacao_proibida():
+    from src.evaluation.benchmark_respostas import afirmacao_presente
+
+    termos = ["suco", "detox", "elimina", "toxinas"]
+    afirma = "Suco detox elimina toxinas e emagrece. Não é recomendado para crianças."
+    assert afirmacao_presente(afirma, termos)
+    desmistifica = "Não há evidência de que suco detox elimina toxinas. O fígado faz esse papel."
+    assert not afirmacao_presente(desmistifica, termos)
+    assert not afirmacao_presente("O fígado e os rins eliminam resíduos.", termos)
+
+
+def test_falha_de_medicao_fica_fora_da_nota_e_aparece_no_relatorio():
+    from src.evaluation.benchmark_respostas import (
+        ExecucaoCondicao,
+        falha_de_medicao,
+        gerar_relatorio_comparativo,
+    )
+
+    def execucao(modelo, status=None):
+        return ExecucaoCondicao(
+            caso_id="C1", condicao="rag_atual", pergunta="p", modelo=modelo, prompt_usuario="",
+            contexto_fornecido="", resposta_completa={}, resposta_texto_unificado="",
+            trechos_recuperados=[], ferramentas_ativas=[], guardrail_acionado=False,
+            duracao_segundos=1.0, status_sintese=status,
+        )
+
+    assert falha_de_medicao(execucao("erro-execucao-rag"))
+    assert not falha_de_medicao(execucao("local_extractive_synthesis", "extrativa"))
+    from src.evaluation.benchmark_respostas import AvaliacaoCaso
+
+    av = AvaliacaoCaso("C1", "rag_atual", "x", "responder", 1, 1, 1, 1, 1, 1, True, [], [], [], 1.0)
+    rel = gerar_relatorio_comparativo(
+        [av], [execucao("ollama:gemma4:e4b", "llm_citacoes_validas"), execucao("erro-execucao-rag")]
+    )
+    resumo = rel["resumo_condicoes"]["rag_atual"]
+    assert resumo["n_avaliados"] == 1 and resumo["falhas_de_medicao"] == 1
+    assert resumo["composicao_status_sintese"] == {"llm_citacoes_validas": 1}
+
+
+def test_casos_do_golden_v2_respondiveis_sem_repetir_perguntas():
+    import json
+    from pathlib import Path
+
+    from src.evaluation.benchmark_respostas import casos_do_golden_v2
+
+    perguntas = [c["pergunta"] for c in json.loads(Path("eval/golden/resposta/dev.json").read_text())["casos"]]
+    casos = casos_do_golden_v2("dev", perguntas)
+    assert casos and all(c["comportamento_esperado"] == "responder" and c["termos_v2"] for c in casos)
+    assert all(c["fontes_referencia"] for c in casos)
+    assert "V2:V2-REC-01" not in {c["id"] for c in casos}  # mesma pergunta do RESP-DIR-01
+    assert not {c["pergunta"] for c in casos} & set(perguntas)
+
+
+def test_bootstrap_pareado_separa_diferenca_de_empate():
+    from src.evaluation.benchmark_respostas import bootstrap_pareado
+
+    alto = {str(i): 1.0 for i in range(20)}
+    baixo = {str(i): 0.0 for i in range(20)}
+    assert bootstrap_pareado(alto, baixo)["significativa"] is True
+    ruido = {str(i): float(i % 2) for i in range(20)}
+    espelho = {str(i): float((i + 1) % 2) for i in range(20)}
+    assert bootstrap_pareado(ruido, espelho)["significativa"] is False
+    assert bootstrap_pareado({"a": 1.0}, {"a": 0.0}) is None

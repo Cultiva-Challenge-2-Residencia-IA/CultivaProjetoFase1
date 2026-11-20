@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline  # noqa: E402
-from src.config import TOP_K_FINAL  # noqa: E402
+from src.config import OLLAMA_NUM_CTX, OLLAMA_NUM_PREDICT, OLLAMA_THINK, TOP_K_FINAL  # noqa: E402
 from src.models.schemas import DocumentChunk, RetrievedChunk  # noqa: E402
 from src.retrieval.hybrid_retriever import normalize_text  # noqa: E402
 
@@ -92,6 +92,20 @@ class ExecucaoCondicao:
     ferramentas_ativas: List[str]
     guardrail_acionado: bool
     duracao_segundos: float
+    # Status da síntese no consultor (`fundamentacao_status`), só na condição rag_atual.
+    status_sintese: Optional[str] = None
+
+
+# Modelos que indicam falha da medição (o LLM não respondeu), e não comportamento do sistema.
+MODELOS_DE_FALHA = {"fallback-erro-ollama", "erro-execucao-rag"}
+
+
+def falha_de_medicao(execucao: "ExecucaoCondicao") -> bool:
+    """A execução não mediu a condição: o LLM não respondeu (erro ou tempo esgotado).
+
+    Na rag_atual, a síntese extrativa depois de citação inválida ou de falha do LLM é o
+    comportamento real do produto e conta na nota; só o erro de execução fica de fora."""
+    return execucao.modelo in MODELOS_DE_FALHA
 
 
 @dataclass
@@ -122,22 +136,39 @@ def contem_termo_exato(termo: str, texto: str) -> bool:
     return bool(re.search(padrao, texto))
 
 
-def detectar_negacao_contextual(texto_completo: str, frase_alvo: str) -> bool:
-    """Detecta se uma afirmação ou seus termos principais aparecem sob negação/desmistificação."""
-    texto_norm = normalize_text(texto_completo)
-    padroes_negacao = [
-        r"\bnao\s+(ha|existe|haveria|possu[ei]|encontramos|foram\s+encontradas)\b",
-        r"\bsem\s+(evidencias?|comprovacao|base)\b",
-        r"\b(e\s+um\s+)?(mito|falacia|enganoso|falso|incorreto)\b",
-        r"\bdesmistific",
-        r"\bnao\s+(elimina|emagrece|queima|cura|substitui|previne|tem\s+evidencia)\b",
-        r"\b(ausencia|falta)\s+de\s+(evidencias?|comprovacao)\b",
-        r"\bnao\s+e\s+(recomendado|indicado|verdade|comprovado)\b",
-    ]
-    for p in padroes_negacao:
-        if re.search(p, texto_norm):
-            return True
-    return False
+PADROES_NEGACAO = [
+    r"\bnao\s+(ha|existe|haveria|possu[ei]|encontramos|foram\s+encontradas)\b",
+    r"\bsem\s+(evidencias?|comprovacao|base)\b",
+    r"\b(e\s+um\s+)?(mito|falacia|enganoso|falso|incorreto)\b",
+    r"\bdesmistific",
+    r"\bnao\s+(elimina|emagrece|queima|cura|substitui|previne|tem\s+evidencia)\b",
+    r"\b(ausencia|falta)\s+de\s+(evidencias?|comprovacao)\b",
+    r"\bnao\s+e\s+(recomendado|indicado|verdade|comprovado)\b",
+]
+_FIM_DE_FRASE = re.compile(r"(?<=[.!?;])\s+|\n+")
+
+
+def tem_negacao(frase: str) -> bool:
+    """A frase nega ou desmistifica o que diz (padrões de `PADROES_NEGACAO`)."""
+    texto_norm = normalize_text(frase)
+    return any(re.search(p, texto_norm) for p in PADROES_NEGACAO)
+
+
+def afirmacao_presente(texto: str, termos: List[str], limiar: float = 0.75) -> bool:
+    """A afirmação proibida aparece afirmada (sem negação) no texto.
+
+    A negação só vale na mesma frase que reúne os termos da afirmação: "Não é recomendado para
+    crianças" numa frase não desfaz "suco detox elimina toxinas" em outra. Se os termos só
+    aparecem espalhados por várias frases, conta como afirmada, sem desconto de negação."""
+    frases = [f for f in _FIM_DE_FRASE.split(normalize_text(texto)) if f.strip()]
+    for frase in frases:
+        if sum(1 for t in termos if contem_termo_exato(t, frase)) / len(termos) >= limiar:
+            if not tem_negacao(frase):
+                return True
+    if any(sum(1 for t in termos if contem_termo_exato(t, f)) / len(termos) >= limiar for f in frases):
+        return False
+    texto_norm = normalize_text(texto)
+    return sum(1 for t in termos if contem_termo_exato(t, texto_norm)) / len(termos) >= limiar
 
 
 def _normalizar_sintese_llm(sintese: Optional[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
@@ -172,6 +203,10 @@ def obter_cliente_langfuse(forcar: bool = False) -> Any:
         return None
     try:
         from langfuse import Langfuse
+    except ImportError:
+        print("[Aviso Langfuse] Pacote ausente: instale com `uv sync --group observabilidade`.")
+        return None
+    try:
         client = Langfuse(public_key=pub_key, secret_key=sec_key, host=host)
         print(f"[Langfuse] Cliente conectado com sucesso para telemetria em: {host}")
         return client
@@ -297,7 +332,9 @@ def executar_condicao_sem_rag(
             ],
             "format": "json",
             "stream": False,
-            "options": {"temperature": 0.1},
+            # Mesmas condições da síntese de produção (ADR 0004), para a comparação ser justa.
+            "think": OLLAMA_THINK,
+            "options": {"temperature": 0.1, "num_ctx": OLLAMA_NUM_CTX, "num_predict": OLLAMA_NUM_PREDICT},
         }
         try:
             import httpx
@@ -426,6 +463,7 @@ def executar_condicao_rag_atual(
         modelo = resp.model_used
         guardrail_acionado = resp.guardrail_triggered
         effective_query = resp.effective_query
+        status_sintese = resp.fundamentacao_status
     except Exception as e:
         print(f"[Aviso RAG] Falha na execução da consulta para {caso['id']}: {e}")
         trecho_ids = []
@@ -442,6 +480,7 @@ def executar_condicao_rag_atual(
         modelo = "erro-execucao-rag"
         guardrail_acionado = False
         effective_query = pergunta
+        status_sintese = None
 
     duracao = time.time() - inicio
     return ExecucaoCondicao(
@@ -457,6 +496,7 @@ def executar_condicao_rag_atual(
         ferramentas_ativas=ferramentas,
         guardrail_acionado=guardrail_acionado,
         duracao_segundos=duracao,
+        status_sintese=status_sintese,
     )
 
 
@@ -493,7 +533,9 @@ def executar_condicao_oracle(
             ],
             "format": "json",
             "stream": False,
-            "options": {"temperature": 0.1},
+            # Mesmas condições da síntese de produção (ADR 0004), para a comparação ser justa.
+            "think": OLLAMA_THINK,
+            "options": {"temperature": 0.1, "num_ctx": OLLAMA_NUM_CTX, "num_predict": OLLAMA_NUM_PREDICT},
         }
         try:
             import httpx
@@ -555,6 +597,58 @@ def executar_condicao_oracle(
     )
 
 
+def casos_do_golden_v2(split: str, perguntas_existentes: List[str]) -> List[Dict[str, Any]]:
+    """Casos do golden v2 (`eval/golden/v2/`) no formato do benchmark de respostas.
+
+    Entram só os que devem ser respondidos e têm termos obrigatórios: são eles que separam as
+    condições pelo conteúdo. Os de prescrição, "não sei" e fora de escopo medem comportamento e
+    já estão no gabarito de respostas. Perguntas repetidas no gabarito ficam de fora.
+    - completude: cobertura dos termos obrigatórios do v2 (`termos_v2`, por radical);
+    - contexto oráculo: o texto dos Trechos julgados relevantes (nota >= 1) no v2.
+    """
+    from src.evaluation.benchmark_v2 import carregar_casos as carregar_v2
+    from src.rag.corpus_loader import carregar_chunks_do_corpus
+
+    trechos = {c.chunk_id: c for c in carregar_chunks_do_corpus()}
+    existentes = {normalize_text(p).strip(" ?.") for p in perguntas_existentes}
+    casos = []
+    for c in carregar_v2():
+        termos = (c.get("geracao") or {}).get("termos_obrigatorios")
+        if c["split"] != split or c["comportamento_esperado"] != "responder" or not termos:
+            continue
+        if normalize_text(c["pergunta"]).strip(" ?.") in existentes:
+            continue
+        evidencias = (c.get("recuperacao") or {}).get("evidencias", {})
+        fontes = []
+        for tid, ev in evidencias.items():
+            chunk = trechos.get(tid)
+            if ev.get("nota", 0) >= 1 and chunk is not None:
+                fontes.append({"doc_id": chunk.doc_id, "titulo": chunk.title,
+                               "secao_ou_pagina": f"p. {chunk.pagina_pdf}", "trechos_oracle": [chunk.raw_text]})
+        casos.append({
+            "id": f"V2:{c['id']}", "split": split, "categoria": f"golden_v2_{c['tipo']}",
+            "pergunta": c["pergunta"], "comportamento_esperado": "responder",
+            "fatos_essenciais": [], "termos_v2": termos, "afirmacoes_proibidas": [],
+            "ressalvas_necessarias": [], "fontes_referencia": fontes,
+        })
+    return casos
+
+
+def bootstrap_pareado(a: Dict[str, float], b: Dict[str, float], reamostras: int = 10000,
+                      semente: int = 55) -> Optional[Dict[str, Any]]:
+    """Diferença média da nota (a - b) nos casos que as duas condições têm, com IC 95% por
+    bootstrap pareado. Se o intervalo contém zero, é empate técnico."""
+    ids = sorted(set(a) & set(b))
+    if len(ids) < 5:
+        return None
+    dif = [a[i] - b[i] for i in ids]
+    rng = random.Random(semente)
+    medias = sorted(sum(rng.choices(dif, k=len(dif))) / len(dif) for _ in range(reamostras))
+    baixo, alto = medias[int(0.025 * reamostras)], medias[int(0.975 * reamostras) - 1]
+    return {"n": len(ids), "diferenca": round(sum(dif) / len(dif), 3), "ic95": [round(baixo, 3), round(alto, 3)],
+            "significativa": baixo > 0 or alto < 0}
+
+
 def avaliar_execucao(
     caso: Dict[str, Any],
     execucao: ExecucaoCondicao,
@@ -570,12 +664,8 @@ def avaliar_execucao(
         alvo = normalize_text(prob["afirmacao"])
         termos = [t for t in alvo.split() if len(t) > 3]
         if termos:
-            cobertos = sum(1 for t in termos if contem_termo_exato(t, texto))
-            if cobertos / len(termos) >= 0.75:
-                # Verifica se a afirmação está sendo negada ou desmistificada no texto
-                if detectar_negacao_contextual(texto, alvo):
-                    # Não penaliza se o texto estiver desmistificando/negando a premissa falsa
-                    continue
+            # A negação só desfaz a afirmação na mesma frase (desmistificação correta).
+            if afirmacao_presente(execucao.resposta_texto_unificado, termos):
                 erros_cometidos.append(prob["afirmacao"])
                 if prob["gravidade"] == "critico":
                     penalidade_erros += 1.0
@@ -607,6 +697,11 @@ def avaliar_execucao(
             pontos_fatos += peso
 
     completude = (pontos_fatos / peso_total) if peso_total > 0 else 1.0
+    if caso.get("termos_v2"):
+        # Casos do golden v2: cobertura dos termos obrigatórios por radical (benchmark_v2.cobertura).
+        from src.evaluation.benchmark_v2 import cobertura
+
+        completude = cobertura(caso["termos_v2"], texto)
     completude = max(0.0, min(1.0, completude))
 
     # 3. Segurança, Ressalvas e Abstenção
@@ -789,6 +884,15 @@ def gerar_relatorio_comparativo(
             continue
 
         modelos_utilizados = sorted({e.modelo for e in execs_cond})
+        # Composição das execuções: quantas foram respondidas por qual modelo e, na rag_atual,
+        # com qual status de síntese (LLM com citações válidas, extrativa, "não sei"...).
+        composicao_modelos: Dict[str, int] = {}
+        composicao_status: Dict[str, int] = {}
+        for e in execs_cond:
+            composicao_modelos[e.modelo] = composicao_modelos.get(e.modelo, 0) + 1
+            if e.status_sintese is not None:
+                composicao_status[e.status_sintese] = composicao_status.get(e.status_sintese, 0) + 1
+        falhas = sum(1 for e in execs_cond if falha_de_medicao(e))
         fid_vals = [a.fidelidade_contexto for a in itens if a.fidelidade_contexto is not None]
         cit_vals = [a.validade_citacoes for a in itens if a.validade_citacoes is not None]
 
@@ -816,6 +920,10 @@ def gerar_relatorio_comparativo(
 
         metricas_por_condicao[cond] = {
             "n_avaliados": n,
+            "n_execucoes": len(execs_cond),
+            "falhas_de_medicao": falhas,
+            "composicao_modelos": composicao_modelos,
+            "composicao_status_sintese": composicao_status,
             "compliance_legal_media": round(compliance_legal, 3),
             "modelos_utilizados": modelos_utilizados,
             "correcao_factual_media": round(sum(a.correcao_factual for a in itens) / n, 3),
@@ -845,6 +953,13 @@ def gerar_relatorio_comparativo(
                 }
 
     confrontos = calcular_confrontos_pareados(avaliacoes)
+    notas_por_cond: Dict[str, Dict[str, float]] = {}
+    for a in avaliacoes:
+        notas_por_cond.setdefault(a.condicao, {})[a.caso_id] = a.nota_geral_ponderada
+    diferencas_bootstrap = {
+        f"{c1}_vs_{c2}": bootstrap_pareado(notas_por_cond[c1], notas_por_cond[c2])
+        for c1 in condicoes for c2 in condicoes if c1 < c2
+    }
 
     # Diagnóstico secundário de recuperação
     diagnostico_recuperacao: Dict[str, Any] = {}
@@ -902,6 +1017,7 @@ def gerar_relatorio_comparativo(
         "resumo_condicoes": metricas_por_condicao,
         "por_categoria": metricas_por_categoria,
         "confrontos_pareados": confrontos,
+        "diferencas_bootstrap_pareado": diferencas_bootstrap,
         "diagnostico_secundario_recuperacao": diagnostico_recuperacao,
         "execucoes_detalhadas": detalhes_execucoes,
     }
@@ -969,6 +1085,8 @@ def exportar_revisao_cega(
 def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--split", choices=["dev", "test"], default="dev", help="Split a ser avaliado.")
+    parser.add_argument("--incluir-golden-v2", action="store_true",
+                        help="Acrescenta os casos de resposta do golden v2 do mesmo split (casos_do_golden_v2).")
     parser.add_argument("--use-ollama", action="store_true", default=True, help="Usa Ollama local se disponível.")
     parser.add_argument("--no-llm", action="store_true", help="Desabilita inferência generativa (modo determinístico).")
     parser.add_argument("--use-langfuse", action="store_true", help="Envia traces e scores para o Langfuse.")
@@ -984,6 +1102,10 @@ def main(argv: Optional[List[str]] = None) -> None:
 
     dados_golden = carregar_golden_respostas(arquivo_split, arquivo_schema)
     casos = dados_golden["casos"]
+    if args.incluir_golden_v2:
+        extras = casos_do_golden_v2(args.split, [c["pergunta"] for c in casos])
+        print(f"Acrescentados {len(extras)} casos do golden v2 ({args.split}).")
+        casos = casos + extras
     print(f"Carregados {len(casos)} casos do split '{args.split}'.")
 
     usar_llm = args.use_ollama and not args.no_llm
@@ -1004,34 +1126,22 @@ def main(argv: Optional[List[str]] = None) -> None:
     for c in casos:
         print(f"Executando caso {c['id']}: {c['pergunta'][:50]}...")
         # 1. LLM sem RAG
-        ex_sem_rag = executar_condicao_sem_rag(c, consultant, usar_llm=usar_llm)
-        av_sem_rag = avaliar_execucao(c, ex_sem_rag)
-        execucoes.append(ex_sem_rag)
-        avaliacoes.append(av_sem_rag)
-
-        # 2. RAG Extrativo Determinístico (sem LLM)
-        ex_extrativo = executar_condicao_rag_extrativo(c, consultant)
-        av_extrativo = avaliar_execucao(c, ex_extrativo)
-        execucoes.append(ex_extrativo)
-        avaliacoes.append(av_extrativo)
-
-        # 3. RAG Atual do Projeto (híbrido + LLM)
-        ex_rag = executar_condicao_rag_atual(c, consultant)
-        av_rag = avaliar_execucao(c, ex_rag)
-        execucoes.append(ex_rag)
-        avaliacoes.append(av_rag)
-
-        # 4. Contexto Oracle
-        ex_oracle = executar_condicao_oracle(c, consultant, usar_llm=usar_llm)
-        av_oracle = avaliar_execucao(c, ex_oracle)
-        execucoes.append(ex_oracle)
-        avaliacoes.append(av_oracle)
-
-        if lf_client:
-            registrar_execucao_langfuse(ex_sem_rag, av_sem_rag, lf_client, session_id)
-            registrar_execucao_langfuse(ex_extrativo, av_extrativo, lf_client, session_id)
-            registrar_execucao_langfuse(ex_rag, av_rag, lf_client, session_id)
-            registrar_execucao_langfuse(ex_oracle, av_oracle, lf_client, session_id)
+        # 1. LLM sem RAG; 2. RAG extrativo (sem LLM); 3. RAG atual (híbrido + LLM); 4. contexto oráculo.
+        for ex in (
+            executar_condicao_sem_rag(c, consultant, usar_llm=usar_llm),
+            executar_condicao_rag_extrativo(c, consultant),
+            executar_condicao_rag_atual(c, consultant),
+            executar_condicao_oracle(c, consultant, usar_llm=usar_llm),
+        ):
+            execucoes.append(ex)
+            if falha_de_medicao(ex):
+                # O LLM não respondeu: a execução é contada como falha, mas não recebe nota.
+                print(f"  [falha de medição] {ex.condicao}: {ex.modelo}")
+                continue
+            av = avaliar_execucao(c, ex)
+            avaliacoes.append(av)
+            if lf_client:
+                registrar_execucao_langfuse(ex, av, lf_client, session_id)
 
     if lf_client:
         try:
@@ -1054,18 +1164,33 @@ def main(argv: Optional[List[str]] = None) -> None:
         "",
         "## Resumo por Condição Experimental",
         "",
-        "| Condição | Modelo Utilizado | N | Correção Factual | Completude | Relevância | Segurança (Lei 8.234) | Fidelidade Contexto | Citações Válidas | Abstenção Adequada | Nota Geral | IC 95% (t-Student) |",
+        "| Condição | Modelo Utilizado | N (falhas) | Correção Factual | Completude | Relevância | Segurança (Lei 8.234) | Fidelidade Contexto | Citações Válidas | Abstenção Adequada | Nota Geral | IC 95% (t-Student) |",
         "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for cond, met in relatorio["resumo_condicoes"].items():
         ic_str = f"[{met['intervalo_confianca_95'][0]:.3f}, {met['intervalo_confianca_95'][1]:.3f}]"
         mods_str = ", ".join(f"`{m}`" for m in met.get("modelos_utilizados", [])) or "`N/A`"
         md_linhas.append(
-            f"| `{cond}` | {mods_str} | {met['n_avaliados']} | {met['correcao_factual_media']:.1%} | "
+            f"| `{cond}` | {mods_str} | {met['n_avaliados']} ({met['falhas_de_medicao']}) | {met['correcao_factual_media']:.1%} | "
             f"{met['completude_media']:.1%} | {met['relevancia_media']:.1%} | {met['seguranca_ressalvas_media']:.1%} | "
             f"{met['fidelidade_contexto_media']} | {met['validade_citacoes_media']} | "
             f"{met['taxa_abstencao_adequada']:.1%} | **{met['nota_geral_media']:.3f}** | {ic_str} |"
         )
+
+    md_linhas.extend([
+        "",
+        "N conta só as execuções em que a condição foi de fato medida. As falhas (o LLM não respondeu, "
+        "por erro ou tempo esgotado) ficam de fora da nota e aparecem entre parênteses.",
+        "",
+        "## Composição das execuções",
+        "",
+        "| Condição | Modelos (execuções) | Status da síntese (rag_atual) |",
+        "|---|---|---|",
+    ])
+    for cond, met in relatorio["resumo_condicoes"].items():
+        mods = ", ".join(f"`{m}`: {n}" for m, n in sorted(met["composicao_modelos"].items()))
+        status = ", ".join(f"`{k}`: {n}" for k, n in sorted(met["composicao_status_sintese"].items())) or "—"
+        md_linhas.append(f"| `{cond}` | {mods} | {status} |")
 
     diag_rec = relatorio.get("diagnostico_secundario_recuperacao", {})
     if diag_rec:
@@ -1093,6 +1218,21 @@ def main(argv: Optional[List[str]] = None) -> None:
     for conf, r in relatorio["confrontos_pareados"].items():
         c1, c2 = conf.split("_vs_")
         md_linhas.append(f"| `{conf}` | {r.get(f'vitorias_{c1}', 0)} | {r.get(f'vitorias_{c2}', 0)} | {r.get('empates', 0)} |")
+
+    md_linhas.extend([
+        "",
+        "## Diferença da nota geral entre condições (bootstrap pareado)",
+        "",
+        "Diferença média caso a caso (C1 menos C2), com IC 95% por bootstrap pareado (10.000 reamostras). "
+        "Intervalo com o zero é empate técnico.",
+        "",
+        "| Comparação | N | Diferença | IC 95% | Leitura |",
+        "|---|---:|---:|---|---|",
+    ])
+    for conf, r in relatorio["diferencas_bootstrap_pareado"].items():
+        if r:
+            leitura = "diferença real" if r["significativa"] else "empate técnico"
+            md_linhas.append(f"| `{conf}` | {r['n']} | {r['diferenca']:+.3f} | [{r['ic95'][0]:+.3f}; {r['ic95'][1]:+.3f}] | {leitura} |")
 
     caminho_md.write_text("\n".join(md_linhas) + "\n", encoding="utf-8")
     print(f"Relatório Markdown gravado em: {caminho_md}")
