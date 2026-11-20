@@ -53,7 +53,7 @@ Como as quatro condições respondem às mesmas perguntas, a comparação certa 
 
 | Comparação | Todos (36) | Golden v2 (16) | Perguntas a responder (25) |
 |---|---|---|---|
-| RAG atual − LLM sem RAG | −0,02 [−0,12; +0,08], empate | +0,05 [−0,10; +0,20], empate | +0,04 [−0,09; +0,16], empate |
+| RAG atual − LLM sem RAG | +0,02 [−0,08; +0,12], empate | +0,05 [−0,10; +0,20], empate | +0,04 [−0,09; +0,16], empate |
 | Oráculo − LLM sem RAG | +0,03 [−0,05; +0,12], empate | **+0,16 [+0,06; +0,27]** | +0,08 [−0,03; +0,19], empate |
 | RAG atual − RAG extrativo | **+0,09 [+0,03; +0,15]** | **+0,07 [+0,01; +0,15]** | **+0,10 [+0,03; +0,18]** |
 
