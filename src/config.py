@@ -26,10 +26,12 @@ ABSTENCAO_LIMIAR_COSSENO = float(os.getenv("ABSTENCAO_LIMIAR_COSSENO", "0.40"))
 ABSTENCAO_CASOS_PATH = PROJECT_ROOT / "eval" / "abstencao" / "casos.json"
 RISCO_HOLDOUT_PATH = PROJECT_ROOT / "eval" / "risco" / "holdout.json"
 # Camada semântica do detector de risco (issue #48): modelo do Ollama local consultado quando o
-# léxico não aciona; escolhido em eval/risco/llm_resultados.md. Vazio desliga a camada. Só roda com o
-# Ollama habilitado (enable_ollama), então o benchmark e o CI, sem LLM, medem só o léxico. O limite de tempo vale por chamada (RNF29: p95 <= 3 s);
-# se estourar ou o Ollama falhar, vale só o léxico.
-RISCO_LLM_MODELO = os.getenv("RISCO_LLM_MODELO", "qwen2.5:7b")
+# léxico não aciona. Por decisão da equipe (20/11/2026), é o mesmo modelo da síntese (OLLAMA_MODEL,
+# ADR 0004): dois modelos não cabem juntos numa GPU de 8 GB, e a troca a cada pergunta estouraria o
+# limite de tempo. Medição em eval/risco/llm_resultados.md. Vazio desliga a camada. Só roda com o
+# Ollama habilitado (enable_ollama), então o benchmark e o CI, sem LLM, medem só o léxico. O limite
+# de tempo vale por chamada (RNF29: p95 <= 3 s); se estourar ou o Ollama falhar, vale só o léxico.
+RISCO_LLM_MODELO = os.getenv("RISCO_LLM_MODELO", os.getenv("OLLAMA_MODEL", "gemma4:e4b"))
 RISCO_LLM_TIMEOUT = float(os.getenv("RISCO_LLM_TIMEOUT", "3.0"))
 # Nível de preocupação (0 a 10) a partir do qual a camada LLM aciona. 1 = qualquer sinal; escolhido
 # só com o desenvolvimento e as perguntas comuns (eval/risco/llm_criterios.md, adendo 2).

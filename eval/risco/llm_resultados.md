@@ -93,11 +93,35 @@ Os 4 perdidos: restrição a "uma bolacha por dia", meta de 38 kg, ficar sem ref
 
 **Não medida no holdout:** seria a quarta olhada no mesmo lote. O desempenho real dessa configuração só será conhecido com um lote cego novo, escrito por outra pessoa da equipe sem ver a política.
 
+## Troca para o `gemma4:e4b` (20/11/2026)
+
+**Decisão da equipe:** a camada LLM usa o mesmo modelo da síntese, `gemma4:e4b` (ADR 0004). O `qwen2.5:7b` fica só como reserva da síntese. Com os dois modelos, a GPU de 8 GB não comporta ambos: a cada pergunta o Ollama trocava de modelo, a chamada de risco estourava o `RISCO_LLM_TIMEOUT` e o portão voltava a usar só o léxico, sem erro visível.
+
+A chamada da camada passou a enviar `think: false`. Sem isso, o gemma gastaria os 40 tokens de saída raciocinando.
+
+Medição no desenvolvimento e nas perguntas comuns, com a política da versão 3 e o limiar 1 em uso. Foi feita numa RTX 5060 de 8 GB:
+
+```bash
+uv run python -m src.evaluation.risco_llm --modelo gemma4:e4b --limiar 1
+```
+
+| | `qwen2.5:7b` (versão 3, limiar 1) | `gemma4:e4b` (versão 3, limiar 1) |
+|---|---:|---:|
+| LLM sozinho: recall (dev) | 0,991 | **1,000** |
+| LLM sozinho: precisão (dev) | 0,865 | **0,880** |
+| Alarmes falsos (dev, LLM sozinho) | cerca de 17 | 15 |
+| Perguntas comuns marcadas | 0/151 | 0/151 |
+| Latência p95 por chamada | 1,15 s (Apple M4, versão 1) | **0,19 s** |
+
+O recall por categoria do gemma foi 1,000 nas três categorias. A primeira chamada levou 9,9 s, para carregar o modelo; o consultor já faz esse aquecimento na inicialização.
+
+**Não medido no holdout**, pelo mesmo motivo da decisão de 17/11: seria a quarta olhada no mesmo lote. A comparação vale só no desenvolvimento, e a comprovação do RF-IA03 continua exigindo um lote cego novo, escrito por outra pessoa.
+
 ## Limitações
 
 - **Viés de autoria:** o lote 3 e a política foram escritos pela mesma pessoa (MatheusSales2773, com Claude). A política não usa frases de nenhum conjunto, mas o 0,733 tende a ser otimista. A confirmação exige um lote novo, cego, escrito por outra pessoa sem ver a política.
 - **Desenvolvimento x holdout:** na versão 1, 0,973 contra 0,733; as frases do desenvolvimento são, em geral, mais explícitas que as do lote 3.
 - **Alarmes falsos:** com limiar 1, exageros ("quase morri", "acabou comigo") e perguntas comuns com palavras de sofrimento podem receber a mensagem de acolhimento. É a troca aceita pelo RF-IA03 (precisão ≥ 0,60), mas afeta quem só queria uma resposta de nutrição.
 - **CI:** não tem Ollama. O gate `risco_holdout:recall` continua medindo **só o léxico** (falha conhecida, piso 0,1333), e os testes usam um classificador simulado. O número do LLM vale para quem roda com o Ollama local.
-- **Custo:** cerca de 1,2 s a mais em toda pergunta que o léxico não marca, inclusive nas comuns.
+- **Custo:** com o `qwen2.5:7b`, cerca de 1,2 s a mais em toda pergunta que o léxico não marca, inclusive nas comuns; com o `gemma4:e4b` já carregado para a síntese, cerca de 0,2 s (RTX 5060).
 - **Uma máquina:** latência medida só no Apple M4; em computadores mais fracos, o p95 pode passar de 3 s, e aí o tempo limite (`RISCO_LLM_TIMEOUT`) faz valer só o léxico.

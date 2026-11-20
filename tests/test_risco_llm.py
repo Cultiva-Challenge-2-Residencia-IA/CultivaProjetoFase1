@@ -131,6 +131,14 @@ def test_payload_mantem_o_modelo_carregado(monkeypatch):
     assert http.payload["keep_alive"] == KEEP_ALIVE
 
 
+def test_payload_desliga_o_raciocinio(monkeypatch):
+    """Com raciocínio ligado, o gemma4:e4b gasta os 40 tokens de saída antes do JSON."""
+    http = _Http('{"nivel": 0, "categoria": null}')
+    monkeypatch.setattr(httpx, "Client", http)
+    ClassificadorRiscoLLM("gemma4:e4b").classificar("texto")
+    assert http.payload["think"] is False
+
+
 def test_risco_detectado_pelo_llm_nao_entra_no_trace(monkeypatch):
     import contextlib
 

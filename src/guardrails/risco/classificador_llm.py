@@ -120,6 +120,8 @@ class ClassificadorRiscoLLM:
             "model": self.modelo,
             "messages": self._mensagens(texto),
             "stream": False,
+            # Sem raciocínio: com ele ligado, o gemma4:e4b gasta os 40 tokens pensando (ADR 0004).
+            "think": False,
             "options": {"temperature": 0, "num_predict": 40},
             # Sem isso, o Ollama descarrega o modelo após 5 min sem uso e a chamada seguinte, com a
             # carga, estoura o tempo limite: o fluxo cairia só no léxico sem nenhum erro visível.
