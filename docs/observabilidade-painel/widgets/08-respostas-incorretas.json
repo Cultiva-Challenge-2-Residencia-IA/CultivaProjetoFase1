@@ -1,0 +1,29 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Respostas marcadas como incorretas (RF-IA15)",
+  "description": "Quantas respostas o usuário marcou como incorretas por dia, no período escolhido no topo do painel (padrão: últimos 7 dias), pelo botão de feedback (POST /feedback/incorrect).",
+  "view": "scores-numeric",
+  "dimensions": [],
+  "metrics": [
+    {
+      "measure": "value",
+      "agg": "sum"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "resposta_incorreta"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "BAR_TIME_SERIES",
+  "chartConfig": {
+    "type": "BAR_TIME_SERIES"
+  },
+  "minVersion": 1
+}

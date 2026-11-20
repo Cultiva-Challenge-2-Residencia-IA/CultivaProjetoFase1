@@ -1,0 +1,429 @@
+{
+  "$langfuseDashboard": true,
+  "version": 1,
+  "name": "CULTIVA: consultor de Nutrição",
+  "description": "Monitoramento do consultor de Nutrição (#46). Todos os cards usam o período escolhido no topo do painel.",
+  "widgets": [
+    {
+      "type": "widget",
+      "x": 0,
+      "y": 0,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Taxas no período (% das consultas)",
+        "description": "Fração das consultas em cada situação, no período escolhido no topo do painel (padrão: últimos 7 dias): síntese extrativa (o LLM falhou ou teve a citação bloqueada), citações válidas (respostas do LLM aprovadas pela checagem da citação por frase), não sei, risco, prompt injection e guardrail da Lei 8.234. 0,10 = 10%. Os experimentos gravam notas com os mesmos nomes e entram na média.",
+        "view": "scores-numeric",
+        "dimensions": [
+          {
+            "field": "name"
+          }
+        ],
+        "metrics": [
+          {
+            "measure": "value",
+            "agg": "avg"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "sintese_extrativa",
+              "citacoes_validas",
+              "nao_sei",
+              "risco_acionado",
+              "prompt_injection",
+              "guardrail_lei_8234"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "HORIZONTAL_BAR",
+        "chartConfig": {
+          "type": "HORIZONTAL_BAR",
+          "show_value_labels": true
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 6,
+      "y": 0,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Tempo de resposta no período (p95, RNF29)",
+        "description": "Tempo em que 95% das consultas terminaram, no período escolhido no topo do painel (padrão: últimos 7 dias). Um único número para comparar com a meta do RNF29.",
+        "view": "observations",
+        "dimensions": [],
+        "metrics": [
+          {
+            "measure": "latency",
+            "agg": "p95"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "consult"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "NUMBER",
+        "chartConfig": {
+          "type": "NUMBER"
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 0,
+      "y": 6,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Como cada consulta foi respondida",
+        "description": "Quantas consultas seguiram cada caminho, no período escolhido no topo do painel (padrão: últimos 7 dias): LLM com citações válidas, extrativa após citação inválida, extrativa sem LLM, 'não sei', risco ou prompt injection.",
+        "view": "scores-categorical",
+        "dimensions": [
+          {
+            "field": "stringValue"
+          }
+        ],
+        "metrics": [
+          {
+            "measure": "count",
+            "agg": "count"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "tipo_resposta"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "PIE",
+        "chartConfig": {
+          "type": "PIE"
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 6,
+      "y": 6,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Taxas por dia (% das consultas)",
+        "description": "Por dia, a fração das consultas em cada situação, no período escolhido no topo do painel (padrão: últimos 7 dias). Cada nota vale 0 ou 1 por consulta, então a média é a taxa: 0,10 = 10% das consultas. Atenção: os experimentos (langfuse_experimento) gravam notas com os mesmos nomes citacoes_validas e sintese_extrativa e entram na média.",
+        "view": "scores-numeric",
+        "dimensions": [
+          {
+            "field": "name"
+          }
+        ],
+        "metrics": [
+          {
+            "measure": "value",
+            "agg": "avg"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "sintese_extrativa",
+              "citacoes_validas",
+              "nao_sei",
+              "risco_acionado",
+              "prompt_injection",
+              "guardrail_lei_8234"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "LINE_TIME_SERIES",
+        "chartConfig": {
+          "type": "LINE_TIME_SERIES"
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 0,
+      "y": 12,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Tempo de resposta por dia (p95, RNF29)",
+        "description": "Por dia, o tempo em que 95% das consultas terminaram, no período escolhido no topo do painel (padrão: últimos 7 dias). Inclui busca, LLM e guardrails. A meta do RNF29 é p95 de até 3 s por chamada de LLM.",
+        "view": "observations",
+        "dimensions": [],
+        "metrics": [
+          {
+            "measure": "latency",
+            "agg": "p95"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "consult"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "LINE_TIME_SERIES",
+        "chartConfig": {
+          "type": "LINE_TIME_SERIES"
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 6,
+      "y": 12,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Consultas por dia",
+        "description": "Quantas perguntas o consultor de Nutrição respondeu por dia, no período escolhido no topo do painel (padrão: últimos 7 dias). Conta os traces 'consulta_nutricao', inclusive os de experimentos.",
+        "view": "traces",
+        "dimensions": [],
+        "metrics": [
+          {
+            "measure": "count",
+            "agg": "count"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "consulta_nutricao"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "LINE_TIME_SERIES",
+        "chartConfig": {
+          "type": "LINE_TIME_SERIES"
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 0,
+      "y": 18,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Tempo do LLM por modelo (p95)",
+        "description": "Tempo em que 95% das chamadas ao Ollama terminaram, separado por modelo, no período escolhido no topo do painel (padrão: últimos 7 dias). Se o modelo reserva aparecer, o principal falhou.",
+        "view": "observations",
+        "dimensions": [
+          {
+            "field": "providedModelName"
+          }
+        ],
+        "metrics": [
+          {
+            "measure": "latency",
+            "agg": "p95"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "ollama"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "VERTICAL_BAR",
+        "chartConfig": {
+          "type": "VERTICAL_BAR"
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 6,
+      "y": 18,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Falhas do LLM por dia",
+        "description": "Chamadas ao Ollama que deram erro por dia, no período escolhido no topo do painel (padrão: últimos 7 dias). Quase sempre é tempo esgotado; nesses casos a resposta cai na síntese extrativa.",
+        "view": "observations",
+        "dimensions": [],
+        "metrics": [
+          {
+            "measure": "count",
+            "agg": "count"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "ollama"
+            ],
+            "type": "stringOptions"
+          },
+          {
+            "column": "level",
+            "operator": "any of",
+            "value": [
+              "ERROR"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "BAR_TIME_SERIES",
+        "chartConfig": {
+          "type": "BAR_TIME_SERIES"
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 0,
+      "y": 24,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Respostas marcadas como incorretas (RF-IA15)",
+        "description": "Quantas respostas o usuário marcou como incorretas por dia, no período escolhido no topo do painel (padrão: últimos 7 dias), pelo botão de feedback (POST /feedback/incorrect).",
+        "view": "scores-numeric",
+        "dimensions": [],
+        "metrics": [
+          {
+            "measure": "value",
+            "agg": "sum"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "resposta_incorreta"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "BAR_TIME_SERIES",
+        "chartConfig": {
+          "type": "BAR_TIME_SERIES"
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 6,
+      "y": 24,
+      "x_size": 6,
+      "y_size": 6,
+      "widget": {
+        "name": "Tokens do LLM por dia",
+        "description": "Soma dos tokens de entrada e saída de todas as chamadas ao LLM por dia, no período escolhido no topo do painel (padrão: últimos 7 dias).",
+        "view": "observations",
+        "dimensions": [],
+        "metrics": [
+          {
+            "measure": "totalTokens",
+            "agg": "sum"
+          }
+        ],
+        "filters": [
+          {
+            "column": "type",
+            "operator": "any of",
+            "value": [
+              "GENERATION"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "BAR_TIME_SERIES",
+        "chartConfig": {
+          "type": "BAR_TIME_SERIES"
+        },
+        "minVersion": 1
+      }
+    },
+    {
+      "type": "widget",
+      "x": 0,
+      "y": 30,
+      "x_size": 12,
+      "y_size": 6,
+      "widget": {
+        "name": "Taxas por versão do código",
+        "description": "Taxa de cada situação para cada versão do código (commit do Git), no período escolhido no topo do painel (padrão: últimos 7 dias). Serve para comparar antes e depois de um merge.",
+        "view": "scores-numeric",
+        "dimensions": [
+          {
+            "field": "name"
+          },
+          {
+            "field": "traceRelease"
+          }
+        ],
+        "metrics": [
+          {
+            "measure": "value",
+            "agg": "avg"
+          }
+        ],
+        "filters": [
+          {
+            "column": "name",
+            "operator": "any of",
+            "value": [
+              "sintese_extrativa",
+              "citacoes_validas",
+              "nao_sei",
+              "risco_acionado",
+              "prompt_injection",
+              "guardrail_lei_8234"
+            ],
+            "type": "stringOptions"
+          }
+        ],
+        "chartType": "PIVOT_TABLE",
+        "chartConfig": {
+          "type": "PIVOT_TABLE"
+        },
+        "minVersion": 1
+      }
+    }
+  ]
+}

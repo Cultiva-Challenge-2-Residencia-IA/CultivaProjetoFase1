@@ -8,6 +8,7 @@ from src.rag.corpus_loader import inventario_de_fontes
 from src.config import TOP_K_FINAL
 from src.models.schemas import ConsultantResponse
 from src.agent.traceability import register_incorrect_feedback, save_response_trace
+from src.observabilidade import registrar_feedback_incorreto
 
 app = FastAPI(
     title="Consultor Científico de Nutrição Baseado em Evidências (Fase 1 - Baseline RAG Híbrido)",
@@ -81,6 +82,8 @@ def consult_endpoint(request: ConsultRequest) -> ConsultantResponse:
 def incorrect_answer_feedback(request: IncorrectAnswerFeedback) -> dict:
     if not register_incorrect_feedback(request.response_id, request.detail):
         raise HTTPException(status_code=404, detail="Resposta não encontrada para este response_id.")
+    # RF-IA15: com o Langfuse ligado, o feedback vira o score "resposta_incorreta" no trace da resposta.
+    registrar_feedback_incorreto(request.response_id, request.detail)
     return {"status": "registrado", "response_id": request.response_id}
 
 
