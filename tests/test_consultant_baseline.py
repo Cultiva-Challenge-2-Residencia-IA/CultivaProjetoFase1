@@ -249,17 +249,31 @@ def test_busca_vazia_no_produto_nunca_vira_llm_sem_fonte(monkeypatch) -> None:
     assert "Fibras aumentam o volume fecal." not in res.evidence_summary
 
 
+def _citacao_do_prompt(user_prompt: str, n: int) -> str:
+    """As 6 primeiras palavras do Trecho [Tn] do prompt: a citação literal de um modelo obediente (#67)."""
+    corpo = user_prompt.split(f"--- [T{n}] (", 1)[1].split("---\n", 1)[1]
+    return " ".join(corpo.split()[:6])
+
+
 def test_sintese_com_contexto_guarda_o_texto_bruto_do_llm(monkeypatch) -> None:
     consultant = NutritionConsultantBaseline(enable_ollama=True)
     consultant.llm_client.provider = "groq"
     consultant.llm_client.groq_api_key = "gsk_test_fake_key"
     consultant.llm_client.enable_groq = True
     consultant.llm_client.allow_external_llm = True
-    bruto = {
-        "evidence_summary": [{"frase": "Resumo do LLM.", "trechos": [1]}],
-        "physiological_mechanism": [{"frase": "Mecanismo do LLM.", "trechos": [1]}],
-    }
-    monkeypatch.setattr(consultant.llm_client, "_call_groq_model", lambda m, p: bruto)
+    bruto = {}
+
+    def fake_call_groq(model_name, user_prompt):
+        # Prompt v4 (#67): cada frase traz uma citação literal do Trecho citado.
+        bruto.update({
+            "evidence_summary": [{"frase": "Resumo do LLM.", "trechos": [1],
+                                  "citacao": _citacao_do_prompt(user_prompt, 1)}],
+            "physiological_mechanism": [{"frase": "Mecanismo do LLM.", "trechos": [1],
+                                         "citacao": _citacao_do_prompt(user_prompt, 1)}],
+        })
+        return bruto
+
+    monkeypatch.setattr(consultant.llm_client, "_call_groq_model", fake_call_groq)
     res = consultant.consult("Como a fibra solúvel da aveia reduz o colesterol LDL?")
     assert res.model_used.startswith("groq:")
     assert res.fundamentacao_status == "llm_citacoes_validas"
@@ -274,11 +288,14 @@ def test_lista_de_alimentos_com_objetos_nao_derruba_a_consulta(monkeypatch) -> N
     consultant.llm_client.groq_api_key = "gsk_test_fake_key"
     consultant.llm_client.enable_groq = True
     consultant.llm_client.allow_external_llm = True
-    bruto = {
-        "evidence_summary": [{"frase": "A beta-glucana da aveia reduz o colesterol LDL.", "trechos": [1]}],
-        "food_sources_or_compounds": [{"alimento": "Aveia", "composto": "beta-glucana"}, "Psyllium", None],
-    }
-    monkeypatch.setattr(consultant.llm_client, "_call_groq_model", lambda m, p: bruto)
+    def fake_call_groq(model_name, user_prompt):
+        return {
+            "evidence_summary": [{"frase": "A beta-glucana da aveia reduz o colesterol LDL.", "trechos": [1],
+                                  "citacao": _citacao_do_prompt(user_prompt, 1)}],
+            "food_sources_or_compounds": [{"alimento": "Aveia", "composto": "beta-glucana"}, "Psyllium", None],
+        }
+
+    monkeypatch.setattr(consultant.llm_client, "_call_groq_model", fake_call_groq)
     res = consultant.consult("Como a fibra solúvel da aveia reduz o colesterol LDL?")
     assert res.model_used.startswith("groq:")
     assert "Psyllium" in res.food_sources_or_compounds
