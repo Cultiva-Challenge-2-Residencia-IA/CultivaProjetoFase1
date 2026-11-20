@@ -25,15 +25,18 @@ Uso:
         obs.update(output=resumo)
 """
 
+import subprocess
 import sys
 from contextlib import contextmanager
-from typing import Any, Dict, Iterator, List
+from pathlib import Path
+from typing import Any, Dict, Iterator, List, Tuple
 
 from src.config import (
     ALLOW_EXTERNAL_LANGFUSE,
     LANGFUSE_ATIVO,
     LANGFUSE_BASE_URL,
     LANGFUSE_PEDIDO,
+    LANGFUSE_RELEASE,
     destino_local,
 )
 from src.guardrails.pii import mascarar_dados_pessoais
@@ -57,6 +60,23 @@ def _mascara_do_sdk(*, data: Any, **_: Any) -> Any:
     return mascarar_estrutura(data)
 
 
+def versao_do_codigo() -> str:
+    """`LANGFUSE_RELEASE` ou o commit atual do Git; "desconhecida" fora de um repositório."""
+    if LANGFUSE_RELEASE:
+        return LANGFUSE_RELEASE
+    try:
+        return subprocess.run(
+            ["git", "rev-parse", "--short=12", "HEAD"],
+            cwd=Path(__file__).resolve().parent,
+            capture_output=True,
+            text=True,
+            timeout=2,
+            check=True,
+        ).stdout.strip() or "desconhecida"
+    except (OSError, subprocess.SubprocessError):
+        return "desconhecida"
+
+
 if LANGFUSE_ATIVO:
     try:
         from langfuse import Langfuse, propagate_attributes
@@ -67,7 +87,7 @@ if LANGFUSE_ATIVO:
         ) from exc
 
     # O construtor registra o cliente; base_url explícito impede o SDK de cair na nuvem.
-    _cliente = Langfuse(base_url=LANGFUSE_BASE_URL, mask=_mascara_do_sdk)
+    _cliente = Langfuse(base_url=LANGFUSE_BASE_URL, mask=_mascara_do_sdk, release=versao_do_codigo())
     _propagar = propagate_attributes
 elif LANGFUSE_PEDIDO and not destino_local(LANGFUSE_BASE_URL) and not ALLOW_EXTERNAL_LANGFUSE:
     print(
@@ -138,6 +158,43 @@ def resumo_trechos(retrieved: List[Any]) -> List[Dict[str, Any]]:
             }
         )
     return resumo
+
+
+def tipo_de_resposta(resposta: Any) -> str:
+    """Caminho que produziu a resposta, para filtrar e contar no painel do Langfuse.
+
+    "risco", "prompt_injection" e "nao_sei" são respostas fixas; os demais valores são o
+    `fundamentacao_status` da síntese (citação por frase, issue #12).
+    """
+    if resposta.risk_triggered:
+        return "risco"
+    if resposta.prompt_injection_detected:
+        return "prompt_injection"
+    if resposta.fundamentacao_status:
+        return resposta.fundamentacao_status
+    if resposta.abstencao:
+        return "nao_sei"
+    return "outra"
+
+
+def scores_da_resposta(resposta: Any) -> List[Tuple[str, Any, str]]:
+    """Scores de cada trace: (nome, valor, tipo de dado do Langfuse).
+
+    Os indicadores valem 0 ou 1, para que a média no painel seja a taxa. `citacoes_validas` só
+    existe quando o LLM respondeu com citações (válidas ou bloqueadas pela checagem da #12).
+    """
+    tipo = tipo_de_resposta(resposta)
+    scores: List[Tuple[str, Any, str]] = [
+        ("tipo_resposta", tipo, "CATEGORICAL"),
+        ("guardrail_lei_8234", 1.0 if resposta.guardrail_triggered else 0.0, "NUMERIC"),
+        ("risco_acionado", 1.0 if resposta.risk_triggered else 0.0, "NUMERIC"),
+        ("prompt_injection", 1.0 if resposta.prompt_injection_detected else 0.0, "NUMERIC"),
+        ("nao_sei", 1.0 if resposta.abstencao else 0.0, "NUMERIC"),
+        ("sintese_extrativa", 1.0 if tipo.startswith("extrativa") else 0.0, "NUMERIC"),
+    ]
+    if tipo in {"llm_citacoes_validas", "extrativa_apos_citacao_invalida"}:
+        scores.append(("citacoes_validas", 1.0 if tipo == "llm_citacoes_validas" else 0.0, "NUMERIC"))
+    return scores
 
 
 def flush() -> None:

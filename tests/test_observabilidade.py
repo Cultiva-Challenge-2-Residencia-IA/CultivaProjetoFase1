@@ -89,6 +89,7 @@ def test_cliente_usa_destino_da_configuracao_e_mascara(monkeypatch):
         importlib.reload(observabilidade)
         assert capturado["base_url"] == "http://localhost:3000"
         assert capturado["mask"](data={"q": "CPF 123.456.789-09"}) == {"q": "CPF [CPF]"}
+        assert capturado["release"]
     finally:
         monkeypatch.undo()
         importlib.reload(observabilidade)
@@ -122,3 +123,93 @@ def test_mensagem_de_risco_nunca_entra_no_trace(monkeypatch):
     assert resposta.risk_triggered
     assert mensagem not in str(registrado)
     assert registrado[0]["input"]["risco_categorias"] == resposta.risk_categories
+
+
+def _resposta(**campos):
+    from types import SimpleNamespace
+
+    base = dict(
+        risk_triggered=False,
+        prompt_injection_detected=False,
+        fundamentacao_status=None,
+        abstencao=False,
+        guardrail_triggered=False,
+    )
+    base.update(campos)
+    return SimpleNamespace(**base)
+
+
+def test_tipo_de_resposta_cobre_respostas_fixas_e_sintese():
+    tipo = observabilidade.tipo_de_resposta
+    assert tipo(_resposta(risk_triggered=True)) == "risco"
+    assert tipo(_resposta(prompt_injection_detected=True)) == "prompt_injection"
+    assert tipo(_resposta(abstencao=True)) == "nao_sei"
+    assert tipo(_resposta(abstencao=True, fundamentacao_status="llm_sem_base")) == "llm_sem_base"
+    assert tipo(_resposta(fundamentacao_status="llm_citacoes_validas")) == "llm_citacoes_validas"
+
+
+def test_scores_sao_taxas_e_citacao_so_quando_o_llm_citou():
+    def como_dict(resposta):
+        return {nome: (valor, tipo) for nome, valor, tipo in observabilidade.scores_da_resposta(resposta)}
+
+    valida = como_dict(_resposta(fundamentacao_status="llm_citacoes_validas"))
+    assert valida["citacoes_validas"] == (1.0, "NUMERIC")
+    assert valida["sintese_extrativa"] == (0.0, "NUMERIC")
+    assert valida["tipo_resposta"] == ("llm_citacoes_validas", "CATEGORICAL")
+
+    bloqueada = como_dict(_resposta(fundamentacao_status="extrativa_apos_citacao_invalida"))
+    assert bloqueada["citacoes_validas"] == (0.0, "NUMERIC")
+    assert bloqueada["sintese_extrativa"] == (1.0, "NUMERIC")
+
+    sem_llm = como_dict(_resposta(fundamentacao_status="extrativa"))
+    assert "citacoes_validas" not in sem_llm
+    assert sem_llm["sintese_extrativa"] == (1.0, "NUMERIC")
+
+    risco = como_dict(_resposta(risk_triggered=True))
+    assert risco["risco_acionado"] == (1.0, "NUMERIC")
+    assert "citacoes_validas" not in risco
+    for _, (valor, tipo) in risco.items():
+        assert tipo == "CATEGORICAL" or valor in (0.0, 1.0)
+
+
+def test_versao_do_codigo_usa_a_variavel_ou_o_git(monkeypatch):
+    monkeypatch.setattr(observabilidade, "LANGFUSE_RELEASE", "v-teste")
+    assert observabilidade.versao_do_codigo() == "v-teste"
+    monkeypatch.setattr(observabilidade, "LANGFUSE_RELEASE", "")
+    versao = observabilidade.versao_do_codigo()
+    assert versao == "desconhecida" or len(versao) == 12
+
+
+def test_consulta_registra_scores_e_versoes_no_trace(monkeypatch):
+    import contextlib
+
+    from src.agent import consultant_baseline as cb
+
+    atualizacoes, scores, atributos = [], [], []
+
+    class Obs:
+        def update(self, **kwargs):
+            atualizacoes.append(kwargs)
+
+        def score_trace(self, **kwargs):
+            scores.append(kwargs)
+
+    @contextlib.contextmanager
+    def observacao_falsa(nome, tipo="span", **kwargs):
+        yield Obs()
+
+    @contextlib.contextmanager
+    def atributos_falsos(**kwargs):
+        atributos.append(kwargs)
+        yield
+
+    monkeypatch.setattr(cb, "observacao", observacao_falsa)
+    monkeypatch.setattr(cb, "atributos_do_trace", atributos_falsos)
+    consultor = cb.NutritionConsultantBaseline(enable_ollama=False)
+    resposta = consultor.consult("Quais alimentos são fontes de fibra?")
+
+    nomes = {s["name"] for s in scores}
+    assert {"tipo_resposta", "sintese_extrativa", "risco_acionado", "nao_sei", "guardrail_lei_8234"} <= nomes
+    assert atributos[0]["version"] == resposta.prompt_version
+    assert atributos[0]["metadata"]["corpus_version"] == resposta.corpus_version
+    assert atualizacoes[-1]["metadata"]["fundamentacao_status"] == resposta.fundamentacao_status

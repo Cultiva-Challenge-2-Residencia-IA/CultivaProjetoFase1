@@ -11,7 +11,7 @@ from src.config import INCLUDE_PENDING_SOURCES, TOP_K_FINAL
 from src.guardrails.risco import detectar_risco
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
-from src.observabilidade import atributos_do_trace, observacao
+from src.observabilidade import atributos_do_trace, observacao, scores_da_resposta
 from src.models.schemas import (
     ConsultantResponse,
     DocumentChunk,
@@ -145,9 +145,14 @@ class NutritionConsultantBaseline:
             if risco.risco
             else {"query": user_query, "top_k": top_k}
         )
-        with atributos_do_trace(trace_name="consulta_nutricao", tags=["nutricao"]), observacao(
-            "consult", input=entrada
-        ) as raiz:
+        with atributos_do_trace(
+            trace_name="consulta_nutricao",
+            tags=["nutricao"],
+            version=(
+                PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False) else PROMPT_VERSION
+            ),
+            metadata={"corpus_version": str(self.corpus_version)},
+        ), observacao("consult", input=entrada) as raiz:
             resposta = self._grafo().invoke({"pergunta": user_query, "top_k": top_k})["resposta"]
             raiz.update(
                 output={
@@ -160,11 +165,13 @@ class NutritionConsultantBaseline:
                     "retrieval_mode": resposta.retrieval_mode,
                     "guardrail_triggered": resposta.guardrail_triggered,
                     "intent_category": str(resposta.intent_category),
+                    "fundamentacao_status": resposta.fundamentacao_status,
+                    "corpus_version": resposta.corpus_version,
+                    "prompt_version": resposta.prompt_version,
+                    "model_version": resposta.model_version,
+                    "fontes_version": resposta.fontes_version,
                 },
             )
-            raiz.score_trace(
-                name="guardrail_lei_8234",
-                value=1.0 if resposta.guardrail_triggered else 0.0,
-                data_type="NUMERIC",
-            )
+            for nome, valor, tipo in scores_da_resposta(resposta):
+                raiz.score_trace(name=nome, value=valor, data_type=tipo)
             return resposta
