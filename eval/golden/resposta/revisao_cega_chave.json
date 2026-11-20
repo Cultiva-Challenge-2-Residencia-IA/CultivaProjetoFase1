@@ -1,0 +1,365 @@
+{
+  "semente_utilizada": 42,
+  "mapeamento_por_caso": {
+    "RESP-DIR-01": {
+      "Opção A": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção C": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-COMB-01": {
+      "Opção A": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      }
+    },
+    "RESP-CONF-01": {
+      "Opção A": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção B": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-PRES-01": {
+      "Opção A": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção B": {
+        "condicao": "rag_atual",
+        "modelo": "local_extractive_synthesis"
+      },
+      "Opção C": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-ADV-01": {
+      "Opção A": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção B": {
+        "condicao": "rag_atual",
+        "modelo": "mensagem_fixa"
+      },
+      "Opção C": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-NAOCOB-01": {
+      "Opção A": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção B": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-FORA-01": {
+      "Opção A": {
+        "condicao": "rag_atual",
+        "modelo": "mensagem_fixa"
+      },
+      "Opção B": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção C": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-DIR-03": {
+      "Opção A": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção B": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      }
+    },
+    "RESP-DIR-04": {
+      "Opção A": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção D": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-COMB-03": {
+      "Opção A": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      }
+    },
+    "RESP-COMB-04": {
+      "Opção A": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção C": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-CONF-02": {
+      "Opção A": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção D": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-CONF-03": {
+      "Opção A": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção C": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      }
+    },
+    "RESP-INSUF-01": {
+      "Opção A": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção D": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-INSUF-03": {
+      "Opção A": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção C": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      }
+    },
+    "RESP-PRES-03": {
+      "Opção A": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      }
+    },
+    "RESP-PRES-04": {
+      "Opção A": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção B": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "llm_sem_rag",
+        "modelo": "fallback-erro-ollama"
+      }
+    },
+    "RESP-ADV-03": {
+      "Opção A": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção B": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção D": {
+        "condicao": "rag_atual",
+        "modelo": "mensagem_fixa"
+      }
+    },
+    "RESP-NAOCOB-02": {
+      "Opção A": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "rag_atual",
+        "modelo": "ollama:qwen2.5:3b"
+      },
+      "Opção C": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção D": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      }
+    },
+    "RESP-FORA-03": {
+      "Opção A": {
+        "condicao": "llm_sem_rag",
+        "modelo": "qwen2.5:3b"
+      },
+      "Opção B": {
+        "condicao": "rag_extrativo",
+        "modelo": "sintese-extrativa-deterministica"
+      },
+      "Opção C": {
+        "condicao": "rag_atual",
+        "modelo": "mensagem_fixa"
+      },
+      "Opção D": {
+        "condicao": "contexto_oracle",
+        "modelo": "qwen2.5:3b"
+      }
+    }
+  }
+}

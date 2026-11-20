@@ -250,6 +250,8 @@ Recomenda-se também que novas pesquisas busquem amostras mais heterogêneas, co
 
 [Conferir no original](../originais/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.pdf#page=7)
 
+> **Nota de conversão — página 7:** Alerta lexical por palavras hifenizadas na quebra de linha das referências (ex.: 'alimen-ta'); todas as palavras apontadas estão no Markdown e todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 7:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Revista** Brasileira de **Terapias Cognitivas** 2022•18(2)•pp.00-00

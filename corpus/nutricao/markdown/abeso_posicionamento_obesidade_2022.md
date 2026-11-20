@@ -35,8 +35,6 @@ DEPARTAMENTO DE NUTRIÇÃO DA ASSOCIAÇÃO BRASILEIRA PARA O ESTUDO DA OBESIDADE
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=2)
 
-> **Nota de conversão — página 2:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -125,6 +123,8 @@ Renata Bressan Pepe Ana Maria Pita Lottenberg Clarissa Tamie Hiwatashi Fujiwara 
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=5)
 
+> **Nota de conversão — página 5:** Índice extraído como tabela, com palavras partidas entre colunas (ex.: 'Aprese|ntação'); conferir no PDF. Sem Trechos (sumário descartado na preparação).
+
 > **Nota de conversão — página 5:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 # ÍNDICE
@@ -164,6 +164,8 @@ Renata Bressan Pepe Ana Maria Pita Lottenberg Clarissa Tamie Hiwatashi Fujiwara 
 ## Página PDF 6
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=6)
+
+> **Nota de conversão — página 6:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -234,6 +236,8 @@ Para a elaboração do posicionamento, os autores buscaram utilizar como referê
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=9)
 
+> **Nota de conversão — página 9:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 9:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 INTRODUÇÃO
@@ -260,6 +264,8 @@ Promoção da Saúde Global do<br>indivíduo com obesidade<br>S Seguimento de Lo
 ## Página PDF 10
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=10)
+
+> **Nota de conversão — página 10:** Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro) numa palavra hifenizada (ex.: 'produpadrão'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 10:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -311,6 +317,8 @@ Diante deste panorama atual, é importante a recomendação de dieta equilibrada
 ## Página PDF 12
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=12)
+
+> **Nota de conversão — página 12:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 12:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -397,6 +405,8 @@ RCT: Estudo Clínico Randomizado, S: Sim, N: Não
 ## Página PDF 14
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=14)
+
+> **Nota de conversão — página 14:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 14:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -530,8 +540,6 @@ INTRODUÇÃO
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=18)
 
-> **Nota de conversão — página 18:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -542,13 +550,11 @@ INTRODUÇÃO
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=19)
 
-> **Nota de conversão — página 19:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-> **Nota de conversão — página 19:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
-CAPÍTULO 1
+### CAPÍTULO 1
 
 INFLAMAÇÃO NA OBESIDADE
+
+**19**
 
 ---
 
@@ -557,6 +563,8 @@ INFLAMAÇÃO NA OBESIDADE
 ## Página PDF 20
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=20)
+
+> **Nota de conversão — página 20:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 20:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -582,6 +590,8 @@ O acumulado de informações até meados da década de 2000 permitiu a compreens
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=21)
 
+> **Nota de conversão — página 21:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 21:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 1
@@ -605,6 +615,8 @@ A compreensão sobre a participação dos receptores TLR no processo inflamatór
 ## Página PDF 22
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=22)
+
+> **Nota de conversão — página 22:** Alerta lexical por tokenização: 'TAK126,27' é a proteína TAK1 seguida das citações 26 e 27, não um número; demais tokens são palavras coladas a citações. Todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026), exceto esse falso '126,27'.
 
 > **Nota de conversão — página 22:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -824,8 +836,6 @@ CAPÍTULO 1
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=29)
 
-> **Nota de conversão — página 29:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -835,8 +845,6 @@ CAPÍTULO 1
 ## Página PDF 30
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=30)
-
-> **Nota de conversão — página 30:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -848,11 +856,9 @@ CAPÍTULO 1
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=31)
 
-> **Nota de conversão — página 31:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-> **Nota de conversão — página 31:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
 CAPÍTULO 2 GENÔMICA NUTRICIONAL E OBESIDADE
+
+**31**
 
 ---
 
@@ -1120,8 +1126,6 @@ CAPÍTULO 2
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=42)
 
-> **Nota de conversão — página 42:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -1132,13 +1136,9 @@ CAPÍTULO 2
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=43)
 
-> **Nota de conversão — página 43:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+CAPÍTULO 3 MICROBIOTA INTESTINAL E OBESIDADE
 
-> **Nota de conversão — página 43:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
-CAPÍTULO 3
-
-MICROBIOTA INTESTINAL E OBESIDADE
+**43**
 
 ---
 
@@ -1147,6 +1147,8 @@ MICROBIOTA INTESTINAL E OBESIDADE
 ## Página PDF 44
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=44)
+
+> **Nota de conversão — página 44:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 44:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -1169,6 +1171,8 @@ Estudos experimentais prévios, que envolveram o transplante de microbiota intes
 ## Página PDF 45
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=45)
+
+> **Nota de conversão — página 45:** Alerta lexical por tokenização: 'IL-635,36' é IL-6 seguida das citações 35 e 36, não um número; demais tokens são palavras coladas a citações. Todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026), exceto esse falso '635,36'.
 
 > **Nota de conversão — página 45:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -1193,6 +1197,8 @@ O consumo elevado de açúcares provoca disbiose, induz inflamação e aumento d
 ## Página PDF 46
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=46)
+
+> **Nota de conversão — página 46:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 46:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -1219,6 +1225,8 @@ As crescentes evidências demonstram que a manutenção de peso adequado, restri
 ## Página PDF 47
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=47)
+
+> **Nota de conversão — página 47:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 47:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -1416,8 +1424,6 @@ CAPÍTULO 3
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=53)
 
-> **Nota de conversão — página 53:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -1427,8 +1433,6 @@ CAPÍTULO 3
 ## Página PDF 54
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=54)
-
-> **Nota de conversão — página 54:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -1440,13 +1444,11 @@ CAPÍTULO 3
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=55)
 
-> **Nota de conversão — página 55:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-> **Nota de conversão — página 55:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
-CAPÍTULO4
+### CAPÍTULO 4
 
 FATORES QUE INFLUENCIAM O CONSUMO ALIMENTAR
+
+**55**
 
 ---
 
@@ -1455,6 +1457,8 @@ FATORES QUE INFLUENCIAM O CONSUMO ALIMENTAR
 ## Página PDF 56
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=56)
+
+> **Nota de conversão — página 56:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 56:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -1485,6 +1489,8 @@ As pessoas podem usar o conhecimento em alimentação e saúde para mudar seu co
 ## Página PDF 57
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=57)
+
+> **Nota de conversão — página 57:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 57:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -1740,8 +1746,6 @@ CAPÍTULO 4
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=65)
 
-> **Nota de conversão — página 65:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -1751,8 +1755,6 @@ CAPÍTULO 4
 ## Página PDF 66
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=66)
-
-> **Nota de conversão — página 66:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -1764,13 +1766,11 @@ CAPÍTULO 4
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=67)
 
-> **Nota de conversão — página 67:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-> **Nota de conversão — página 67:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
-CAPÍTULO 5
+### CAPÍTULO 5
 
 TRATAMENTO NUTRICIONAL
+
+**67**
 
 ---
 
@@ -1779,6 +1779,8 @@ TRATAMENTO NUTRICIONAL
 ## Página PDF 68
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=68)
+
+> **Nota de conversão — página 68:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 68:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -1801,6 +1803,8 @@ A taxa metabólica de repouso (TMR) deve ser usada para determinar as necessidad
 ## Página PDF 69
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=69)
+
+> **Nota de conversão — página 69:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 69:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -1882,6 +1886,8 @@ Ensaio _crossover_ realizado com adultos (n = 59) e com duração de quatro sema
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=72)
 
+> **Nota de conversão — página 72:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 72:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -1947,6 +1953,8 @@ As associações da DED sobre desfechos de variação de peso tendem a ser mais 
 ## Página PDF 75
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=75)
+
+> **Nota de conversão — página 75:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 75:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -2116,6 +2124,8 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=80)
 
+> **Nota de conversão — página 80:** Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro) numa palavra hifenizada (ex.: 'concapítulo'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 80:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -2137,6 +2147,8 @@ Revisão sistemática e metanálise com dados da biblioteca Cochrane de Hollands
 ## Página PDF 81
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=81)
+
+> **Nota de conversão — página 81:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 81:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -2285,6 +2297,8 @@ CAPÍTULO 5
 ## Página PDF 86
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=86)
+
+> **Nota de conversão — página 86:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 86:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -2494,6 +2508,8 @@ Em uma publicação envolvendo dois RCTs _crossover_ - estudo de adição (n = 4
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=94)
 
+> **Nota de conversão — página 94:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 94:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -2517,6 +2533,8 @@ A revisão de Boeing et al. (2012)<sup>3</sup> sugere que o aumento no consumo d
 ## Página PDF 95
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=95)
+
+> **Nota de conversão — página 95:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 95:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -2543,6 +2561,8 @@ Cabe ressaltar que as frutas desidratadas também possuem composição nutricion
 ## Página PDF 96
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=96)
+
+> **Nota de conversão — página 96:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 96:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -2662,6 +2682,8 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=100)
 
+> **Nota de conversão — página 100:** Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro) numa palavra hifenizada (ex.: 'alimencapítulo'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 100:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -2704,6 +2726,8 @@ Em estudo transversal que avaliou 4.466 crianças e adolescentes norte-americano
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=102)
 
+> **Nota de conversão — página 102:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 102:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -2725,6 +2749,8 @@ No estudo de coorte _Coronary Artery Risk Development in Young Adults_ (CARDIA),
 ## Página PDF 103
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=103)
+
+> **Nota de conversão — página 103:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 103:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -2822,6 +2848,8 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=106)
 
+> **Nota de conversão — página 106:** Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro) numa palavra hifenizada (ex.: 'metacapítulo'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 106:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -2841,6 +2869,8 @@ O principal açúcar de adição utilizado nas bebidas adoçadas no Brasil é a 
 ## Página PDF 107
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=107)
+
+> **Nota de conversão — página 107:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 107:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -2964,6 +2994,8 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=111)
 
+> **Nota de conversão — página 111:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 111:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -3000,6 +3032,8 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=112)
 
+> **Nota de conversão — página 112:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 112:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -3019,6 +3053,8 @@ A IDA dos polióis é classificada como não especificada. Essa categoria signif
 ## Página PDF 113
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=113)
+
+> **Nota de conversão — página 113:** Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro) numa palavra hifenizada (ex.: 'conduedulcorante'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 113:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -3064,6 +3100,8 @@ Estudo duplo cego conduzido em homens com peso normal que consumiram agudamente 
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=114)
 
+> **Nota de conversão — página 114:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 114:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -3085,6 +3123,8 @@ Estudo clínico randomizado comparou o efeito do consumo de adoçantes sobre a p
 ## Página PDF 115
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=115)
+
+> **Nota de conversão — página 115:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 115:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -3209,6 +3249,8 @@ CAPÍTULO 5
 ## Página PDF 119
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=119)
+
+> **Nota de conversão — página 119:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 119:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -3366,6 +3408,8 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=125)
 
+> **Nota de conversão — página 125:** Alerta lexical por tokenização: palavras coladas a citações (ex.: 'm24'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 125:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -3442,6 +3486,8 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=128)
 
+> **Nota de conversão — página 128:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 128:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -3483,6 +3529,8 @@ Outro estudo conduzido em 2.459 adolescentes (12-21 anos), selecionados do banco
 ## Página PDF 130
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=130)
+
+> **Nota de conversão — página 130:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 130:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -3647,6 +3695,8 @@ De toda forma, quando bem orientada e planejada, a alimentação vegetariana é 
 ## Página PDF 136
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=136)
+
+> **Nota de conversão — página 136:** Tabela 1 (formas de alimentação vegetariana) legível; o cabeçalho 'CARACTERÍSTICA' saiu partido entre duas células ('CARACT' / 'ERÍSTICA'), e a camada nativa intercala o cabeçalho na palavra hifenizada 'térmi-co'. Todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 136:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -3936,6 +3986,8 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=147)
 
+> **Nota de conversão — página 147:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 147:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -4052,6 +4104,8 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=151)
 
+> **Nota de conversão — página 151:** Alerta lexical por tokenização: '4:14,5' é a proporção 4:1 seguida das citações 4 e 5; demais tokens são palavras coladas a citações. Todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026), exceto esse falso '14,5'.
+
 > **Nota de conversão — página 151:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -4073,6 +4127,8 @@ A associação entre o consumo de carboidratos com obesidade se fortaleceu em fu
 ## Página PDF 152
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=152)
+
+> **Nota de conversão — página 152:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 152:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -4098,6 +4154,8 @@ Embora popular, estudos controlados em humanos não corroboram o suposto benefí
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=153)
 
+> **Nota de conversão — página 153:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 153:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 5
@@ -4119,6 +4177,8 @@ Revisão sistemática e metanálise discutiu os dados de 12 estudos, envolvendo 
 ## Página PDF 154
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=154)
+
+> **Nota de conversão — página 154:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 154:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -4143,6 +4203,8 @@ Trabalho de revisão sistemática e metanálise que avaliou estudos com treino d
 ## Página PDF 155
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=155)
+
+> **Nota de conversão — página 155:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 155:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -4305,6 +4367,8 @@ Um ponto de reflexão importante sobre a aplicabilidade clínica do uso de tabel
 ## Página PDF 160
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=160)
+
+> **Nota de conversão — página 160:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 160:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -4604,8 +4668,6 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=171)
 
-> **Nota de conversão — página 171:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -4615,8 +4677,6 @@ CAPÍTULO 5
 ## Página PDF 172
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=172)
-
-> **Nota de conversão — página 172:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -4628,13 +4688,11 @@ CAPÍTULO 5
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=173)
 
-> **Nota de conversão — página 173:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-> **Nota de conversão — página 173:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
-CAPÍTULO 6
+### CAPÍTULO 6
 
 SUPLEMENTOS ALIMENTARES
+
+**173**
 
 ---
 
@@ -4643,6 +4701,8 @@ SUPLEMENTOS ALIMENTARES
 ## Página PDF 174
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=174)
+
+> **Nota de conversão — página 174:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 174:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -4669,6 +4729,8 @@ Em metanálise mais recente, a _E sínica_ foi examinada em cinco estudos (n = 5
 ## Página PDF 175
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=175)
+
+> **Nota de conversão — página 175:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 175:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -4697,6 +4759,8 @@ Psyllium é uma fibra solúvel em água, derivada da casca de sementes maduras d
 ## Página PDF 176
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=176)
+
+> **Nota de conversão — página 176:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 176:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -4910,6 +4974,8 @@ CAPÍTULO 6
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=183)
 
+> **Nota de conversão — página 183:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 183:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 6
@@ -4935,6 +5001,8 @@ Em humanos, o consumo de 250mg de cafeína em dose única elevou as concentraç�
 ## Página PDF 184
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=184)
+
+> **Nota de conversão — página 184:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 184:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -5026,6 +5094,8 @@ CAPÍTULO 6
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=187)
 
+> **Nota de conversão — página 187:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 187:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 6
@@ -5078,6 +5148,8 @@ A prescrição do _whey protein_ pode ser recomendada quando há necessidade de 
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=189)
 
+> **Nota de conversão — página 189:** Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro) numa palavra hifenizada (ex.: 'memcapítulo'); todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 189:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 6
@@ -5101,6 +5173,8 @@ Os ácidos graxos saturados estão naturalmente presentes na dieta, dentre eles 
 ## Página PDF 190
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=190)
+
+> **Nota de conversão — página 190:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 190:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -5258,6 +5332,8 @@ CAPÍTULO 6
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=195)
 
+> **Nota de conversão — página 195:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 195:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 6
@@ -5285,6 +5361,8 @@ A suplementação com _L. rhamnosus_ PL60 em camundongos levou à redução no p
 ## Página PDF 196
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=196)
+
+> **Nota de conversão — página 196:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 196:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -5438,8 +5516,6 @@ CAPÍTULO 6
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=201)
 
-> **Nota de conversão — página 201:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -5449,8 +5525,6 @@ CAPÍTULO 6
 ## Página PDF 202
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=202)
-
-> **Nota de conversão — página 202:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -5462,11 +5536,11 @@ CAPÍTULO 6
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=203)
 
-> **Nota de conversão — página 203:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+### CAPÍTULO 7
 
-> **Nota de conversão — página 203:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+COMPORTAMENTO
 
-CAPÍTULO 7 jm TO
+**203**
 
 ---
 
@@ -5493,6 +5567,8 @@ A obesidade é também uma condição cognitiva e comportamental, e esta condiç
 ## Página PDF 205
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=205)
+
+> **Nota de conversão — página 205:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 205:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -5670,6 +5746,8 @@ CAPÍTULO 7
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=211)
 
+> **Nota de conversão — página 211:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+
 > **Nota de conversão — página 211:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 7
@@ -5695,6 +5773,8 @@ O tratamento da obesidade é complexo e envolve redução no consumo alimentar e
 ## Página PDF 212
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=212)
+
+> **Nota de conversão — página 212:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 212:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -5808,8 +5888,6 @@ CAPÍTULO 7
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=216)
 
-> **Nota de conversão — página 216:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -5820,13 +5898,11 @@ CAPÍTULO 7
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=217)
 
-> **Nota de conversão — página 217:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+### CAPÍTULO 8
 
-> **Nota de conversão — página 217:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+PROCEDIMENTOS BARIÁTRICOS
 
-CAPÍTULO 8
-
-PROCEDIMENTOS BARIATRICOS
+**217**
 
 ---
 
@@ -5835,6 +5911,8 @@ PROCEDIMENTOS BARIATRICOS
 ## Página PDF 218
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=218)
+
+> **Nota de conversão — página 218:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 218:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -5867,6 +5945,8 @@ Os achados na literatura confirmaram o efeito do BIG na perda de peso em curto p
 ## Página PDF 219
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=219)
+
+> **Nota de conversão — página 219:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 219:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -5904,6 +5984,8 @@ O tratamento nutricional deve ser realizado por nutricionista que possua experi�
 ## Página PDF 220
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=220)
+
+> **Nota de conversão — página 220:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 220:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -6006,6 +6088,8 @@ A suplementação de vitaminas e minerais pode ser considerada no pré-operatór
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=223)
 
+> **Nota de conversão — página 223:** Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): texto fiel, incluindo percentuais de deficiências pós-cirurgia; falso alerta por sobrescritos colados a números.
+
 > **Nota de conversão — página 223:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 CAPÍTULO 8
@@ -6034,6 +6118,8 @@ A tabela 5 apresenta as recomendações de suplementação para prevenção e pa
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=224)
 
+> **Nota de conversão — página 224:** Tabela 5 (suplementação pós-cirurgia bariátrica: B12, tiamina, vitamina D) parcialmente embaralhada: rótulos partidos entre células (ex.: 'Cl… asse de Recomendação', 'valor l i'), mas cada dose permanece junto do micronutriente (conferência da issue #26, 19/11/2026). Mantida nos Trechos, mas ATENÇÃO: traz doses de suplementação pós-bariátrica, conteúdo para profissionais que o produto não pode repassar como recomendação individual (RN01; guardrail de prescrição, issue #39).
+
 CAPÍTULO 8
 
 Tabela 5. Recomendações de suplementação para prevenção e para os casos de deficiência pós-cirurgia bariátrica e metabólica
@@ -6060,6 +6146,8 @@ Tabela 5. Recomendações de suplementação para prevenção e para os casos de
 ## Página PDF 225
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=225)
+
+> **Nota de conversão — página 225:** DEFEITO: continuação da Tabela 5 (cálcio, vitaminas A e K, zinco, cobre) extraída com as colunas misturadas linha a linha; os números estão presentes, mas a associação entre dose, tipo de cirurgia (restritiva, RYGB, BPD/DS) e deficiência se perde. Página fora dos Trechos (skip_pages em rag.yaml, issue #26); consultar a tabela no PDF original.
 
 > **Nota de conversão — página 225:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -6118,6 +6206,8 @@ O conceito de perda de controle ( _Loss of control -_ LOC) sobre alimentação �
 ## Página PDF 227
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=227)
+
+> **Nota de conversão — página 227:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 227:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -6245,8 +6335,6 @@ CAPÍTULO 8
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=231)
 
-> **Nota de conversão — página 231:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -6256,8 +6344,6 @@ CAPÍTULO 8
 ## Página PDF 232
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=232)
-
-> **Nota de conversão — página 232:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -6269,13 +6355,9 @@ CAPÍTULO 8
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=233)
 
-> **Nota de conversão — página 233:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+CAPÍTULO 9 REGANHO DE PESO
 
-> **Nota de conversão — página 233:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
-CAPÍTULO 9
-
-REGANHO DE PESO
+**233**
 
 ---
 
@@ -6284,6 +6366,8 @@ REGANHO DE PESO
 ## Página PDF 234
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=234)
+
+> **Nota de conversão — página 234:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 234:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -6310,6 +6394,8 @@ Estudos em humanos apontam que, em resposta à perda de peso decorrente de restr
 ## Página PDF 235
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=235)
+
+> **Nota de conversão — página 235:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 235:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -6397,8 +6483,6 @@ CAPÍTULO 9
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=238)
 
-> **Nota de conversão — página 238:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -6409,13 +6493,9 @@ CAPÍTULO 9
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=239)
 
-> **Nota de conversão — página 239:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+CAPÍTULO 10 OBESIDADE NA INFÂNCIA E ADOLESCÊNCIA
 
-> **Nota de conversão — página 239:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
-CAPÍTULO 10
-
-OBESIDADE NA INFANCIA E ADOLESCENCIA
+**239**
 
 ---
 
@@ -6424,6 +6504,8 @@ OBESIDADE NA INFANCIA E ADOLESCENCIA
 ## Página PDF 240
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=240)
+
+> **Nota de conversão — página 240:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 240:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -6459,6 +6541,8 @@ O aleitamento materno desempenha papel central na alimentação humana e está d
 ## Página PDF 241
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=241)
+
+> **Nota de conversão — página 241:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 241:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -6539,6 +6623,8 @@ Como condutas práticas, orienta-se:
 ## Página PDF 243
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=243)
+
+> **Nota de conversão — página 243:** Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 243:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
@@ -6782,8 +6868,6 @@ CAPÍTULO 10
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=250)
 
-> **Nota de conversão — página 250:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -6794,13 +6878,11 @@ CAPÍTULO 10
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=251)
 
-> **Nota de conversão — página 251:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+> **Nota de conversão — página 251:** Folha de rosto do capítulo 11: o texto nativo saía com 'CAPÍTULO 11' como título e o nome em linha separada, o que deixava os Trechos do capítulo com a seção 'CAPÍTULO 11'; replacement junta número e nome numa linha, como nas demais folhas de rosto.
 
-> **Nota de conversão — página 251:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+CAPÍTULO 11 TELENUTRIÇÃO E USO DE SITES E SMARTPHONES
 
-CAPÍTULO 11
-
-TELENUTRIÇÃO E USO DE SITES E SMARTPHONES
+**251**
 
 ---
 
@@ -6956,8 +7038,6 @@ Como exposto neste documento, são inúmeras as abordagens desenvolvidas até o 
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=258)
 
-> **Nota de conversão — página 258:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -6967,8 +7047,6 @@ Como exposto neste documento, são inúmeras as abordagens desenvolvidas até o 
 ## Página PDF 259
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=259)
-
-> **Nota de conversão — página 259:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -6980,11 +7058,6 @@ Como exposto neste documento, são inúmeras as abordagens desenvolvidas até o 
 
 [Conferir no original](../originais/abeso_posicionamento_obesidade_2022.pdf#page=260)
 
-> **Nota de conversão — página 260:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-<!-- Start of picture text -->
-ABESO<br><!-- End of picture text -->
-
-“a “a
+<!-- Página sem texto extraível; consultar PDF original. -->
 
 ---

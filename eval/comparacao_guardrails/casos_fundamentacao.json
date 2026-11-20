@@ -1,0 +1,992 @@
+{
+ "descricao": "Casos de fundamentação da issue #52. Gerado por `python -m src.evaluation.comparacao_guardrails casos`; ver casos.py.",
+ "semente": 52,
+ "itens": [
+  {
+   "caso": "V2-REC-02",
+   "split": "dev",
+   "pergunta": "Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?",
+   "trechos": [
+    "Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias.\n\ndesde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente processados, os óleos, as gorduras, o sal e o açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem que fique nutricionalmente desbalanceada.\n\nÓleos, gorduras, sal e açúcar são produtos alimentícios usados para temperar e cozinhar alimentos e para criar preparações culinárias",
+    "PoR quE ólEoS, GoRduRAS, SAl E AçúCAR dEvEm SER uTIlIzAdoS Em PEquEnAs quAnTidAdEs Em PrEPArAçõEs culináriAs?\n\nóleos, gorduras, sal e açúcar são produtos alimentícios com alto teor de nutrientes cujo consumo pode ser prejudicial à saúde: gorduras saturadas (presentes em óleos e gorduras, em particular nessas últimas), sódio (componente básico do sal de cozinha) e açúcar livre (presente no açúcar de mesa). o consumo excessivo de sódio e de gorduras saturadas aumenta o risco de doenças do coração, enquanto o consumo excessivo de açúcar aumenta o risco de cárie dental, de obesidade e de várias outras doenças crônicas.\n\nalém disso, óleos, gorduras e açúcar têm elevada quantidade de calorias por grama. óleos e gorduras têm 6 vezes mais calorias por grama do que grãos cozidos e 20 vezes mais do que legumes e verduras após cozimento. o açúcar tem 5 a 10 vezes mais calorias por grama do que a maioria das frutas.",
+    "desde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente processados, óleos, gorduras, sal e açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem torná-la nutricionalmente desbalanceada.\n\nLimite o uso de alimentos processados, consumindo-os, em pequenas quantidades, como ingredientes de preparações culinárias ou como parte de refeições baseadas em alimentos in natura ou minimamente processados\n\nos ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compotas de frutas, queijos e pães – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam.",
+    "- Fazer de aLimentos IN NATuRA oU minimamente ProCessados\n\n- 1 a Base da aLimentação\n\nem grande variedade e predominantemente de origem vegetal, alimentos in natura ou minimamente processados são a base ideal para uma alimentação nutricionalmente balanceada, saborosa, culturalmente apropriada e promotora de um sistema alimentar socialmente e ambientalmente sustentável. Variedade significa alimentos de todos os tipos – grãos, raízes, tubérculos, farinhas, legumes, verduras, frutas, castanhas, leite, ovos e carnes – e variedade dentro de cada tipo – feijão, arroz, milho, batata, mandioca, tomate, abóbora, laranja, banana, frango, peixes etc.\n\nUtiLizar óLeos, GordUras,\n\nsaL e açúCar em PeQUenas QUantidades ao temPerar e CozinHar aLimentos e Criar PreParações CULinÁrias"
+   ],
+   "id": "V2-REC-02-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "PoR quE ólEoS, GoRduRAS, SAl E AçúCAR dEvEm SER uTIlIzAdoS Em PEquEnAs quAnTidAdEs Em PrEPArAçõEs culináriAs? Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias. Variedade significa alimentos de todos os tipos – grãos, raízes, tubérculos, farinhas, legumes, verduras, frutas, castanhas, leite, ovos e carnes – e variedade dentro de cada tipo – feijão, arroz, milho, batata, mandioca, tomate, abóbora, laranja, banana, frango, peixes etc.",
+   "frases": [
+    "PoR quE ólEoS, GoRduRAS, SAl E AçúCAR dEvEm SER uTIlIzAdoS Em PEquEnAs quAnTidAdEs Em PrEPArAçõEs culináriAs?",
+    "Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias.",
+    "Variedade significa alimentos de todos os tipos – grãos, raízes, tubérculos, farinhas, legumes, verduras, frutas, castanhas, leite, ovos e carnes – e variedade dentro de cada tipo – feijão, arroz, milho, batata, mandioca, tomate, abóbora, laranja, banana, frango, peixes etc."
+   ]
+  },
+  {
+   "caso": "V2-REC-02",
+   "split": "dev",
+   "pergunta": "Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?",
+   "trechos": [
+    "Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias.\n\ndesde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente processados, os óleos, as gorduras, o sal e o açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem que fique nutricionalmente desbalanceada.\n\nÓleos, gorduras, sal e açúcar são produtos alimentícios usados para temperar e cozinhar alimentos e para criar preparações culinárias",
+    "PoR quE ólEoS, GoRduRAS, SAl E AçúCAR dEvEm SER uTIlIzAdoS Em PEquEnAs quAnTidAdEs Em PrEPArAçõEs culináriAs?\n\nóleos, gorduras, sal e açúcar são produtos alimentícios com alto teor de nutrientes cujo consumo pode ser prejudicial à saúde: gorduras saturadas (presentes em óleos e gorduras, em particular nessas últimas), sódio (componente básico do sal de cozinha) e açúcar livre (presente no açúcar de mesa). o consumo excessivo de sódio e de gorduras saturadas aumenta o risco de doenças do coração, enquanto o consumo excessivo de açúcar aumenta o risco de cárie dental, de obesidade e de várias outras doenças crônicas.\n\nalém disso, óleos, gorduras e açúcar têm elevada quantidade de calorias por grama. óleos e gorduras têm 6 vezes mais calorias por grama do que grãos cozidos e 20 vezes mais do que legumes e verduras após cozimento. o açúcar tem 5 a 10 vezes mais calorias por grama do que a maioria das frutas.",
+    "desde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente processados, óleos, gorduras, sal e açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem torná-la nutricionalmente desbalanceada.\n\nLimite o uso de alimentos processados, consumindo-os, em pequenas quantidades, como ingredientes de preparações culinárias ou como parte de refeições baseadas em alimentos in natura ou minimamente processados\n\nos ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compotas de frutas, queijos e pães – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam.",
+    "- Fazer de aLimentos IN NATuRA oU minimamente ProCessados\n\n- 1 a Base da aLimentação\n\nem grande variedade e predominantemente de origem vegetal, alimentos in natura ou minimamente processados são a base ideal para uma alimentação nutricionalmente balanceada, saborosa, culturalmente apropriada e promotora de um sistema alimentar socialmente e ambientalmente sustentável. Variedade significa alimentos de todos os tipos – grãos, raízes, tubérculos, farinhas, legumes, verduras, frutas, castanhas, leite, ovos e carnes – e variedade dentro de cada tipo – feijão, arroz, milho, batata, mandioca, tomate, abóbora, laranja, banana, frango, peixes etc.\n\nUtiLizar óLeos, GordUras,\n\nsaL e açúCar em PeQUenas QUantidades ao temPerar e CozinHar aLimentos e Criar PreParações CULinÁrias"
+   ],
+   "id": "V2-REC-02-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "PoR quE ólEoS, GoRduRAS, SAl E AçúCAR dEvEm SER uTIlIzAdoS Em PEquEnAs quAnTidAdEs Em PrEPArAçõEs culináriAs? Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias. Variedade significa alimentos de todos os tipos – grãos, raízes, tubérculos, farinhas, legumes, verduras, frutas, castanhas, leite, ovos e carnes – e variedade dentro de cada tipo – feijão, arroz, milho, batata, mandioca, tomate, abóbora, laranja, banana, frango, peixes etc. Um ensaio clínico brasileiro de 2021 com 3.200 adultos mostrou redução de 41% no risco cardiovascular com essa prática.",
+   "invencao": "Um ensaio clínico brasileiro de 2021 com 3.200 adultos mostrou redução de 41% no risco cardiovascular com essa prática."
+  },
+  {
+   "caso": "V2-REC-02",
+   "split": "dev",
+   "pergunta": "Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?",
+   "trechos": [
+    "Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias.\n\ndesde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente processados, os óleos, as gorduras, o sal e o açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem que fique nutricionalmente desbalanceada.\n\nÓleos, gorduras, sal e açúcar são produtos alimentícios usados para temperar e cozinhar alimentos e para criar preparações culinárias",
+    "PoR quE ólEoS, GoRduRAS, SAl E AçúCAR dEvEm SER uTIlIzAdoS Em PEquEnAs quAnTidAdEs Em PrEPArAçõEs culináriAs?\n\nóleos, gorduras, sal e açúcar são produtos alimentícios com alto teor de nutrientes cujo consumo pode ser prejudicial à saúde: gorduras saturadas (presentes em óleos e gorduras, em particular nessas últimas), sódio (componente básico do sal de cozinha) e açúcar livre (presente no açúcar de mesa). o consumo excessivo de sódio e de gorduras saturadas aumenta o risco de doenças do coração, enquanto o consumo excessivo de açúcar aumenta o risco de cárie dental, de obesidade e de várias outras doenças crônicas.\n\nalém disso, óleos, gorduras e açúcar têm elevada quantidade de calorias por grama. óleos e gorduras têm 6 vezes mais calorias por grama do que grãos cozidos e 20 vezes mais do que legumes e verduras após cozimento. o açúcar tem 5 a 10 vezes mais calorias por grama do que a maioria das frutas.",
+    "desde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente processados, óleos, gorduras, sal e açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem torná-la nutricionalmente desbalanceada.\n\nLimite o uso de alimentos processados, consumindo-os, em pequenas quantidades, como ingredientes de preparações culinárias ou como parte de refeições baseadas em alimentos in natura ou minimamente processados\n\nos ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compotas de frutas, queijos e pães – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam.",
+    "- Fazer de aLimentos IN NATuRA oU minimamente ProCessados\n\n- 1 a Base da aLimentação\n\nem grande variedade e predominantemente de origem vegetal, alimentos in natura ou minimamente processados são a base ideal para uma alimentação nutricionalmente balanceada, saborosa, culturalmente apropriada e promotora de um sistema alimentar socialmente e ambientalmente sustentável. Variedade significa alimentos de todos os tipos – grãos, raízes, tubérculos, farinhas, legumes, verduras, frutas, castanhas, leite, ovos e carnes – e variedade dentro de cada tipo – feijão, arroz, milho, batata, mandioca, tomate, abóbora, laranja, banana, frango, peixes etc.\n\nUtiLizar óLeos, GordUras,\n\nsaL e açúCar em PeQUenas QUantidades ao temPerar e CozinHar aLimentos e Criar PreParações CULinÁrias"
+   ],
+   "id": "V2-REC-02-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "A partir do presente estudo verificou-se que os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional. Esta hipótese é reforçada pela ideia de que o problema da alimentação emocional não é a experiência da emoção em si, mas sim a inabilidade do sujeito para lidar com o desconforto que vivencia. Os sintomas de depressão, ansiedade e estresse podem contribuir para alimentação emocional.",
+   "origem_da_troca": "V2-REC-22"
+  },
+  {
+   "caso": "V2-REC-04",
+   "split": "dev",
+   "pergunta": "Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?",
+   "trechos": [
+    "o capítulo 5 examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia – informação, oferta, custo, habilidades culinárias, tempo e publicidade – e propõe para sua superação a combinação de ações no plano pessoal e familiar e no plano do exercício da cidadania.\n\nas recomendações deste guia são oferecidas de forma sintetizada em “dez Passos para uma alimentação adequada e saudável”.\n\nEm uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material.",
+    "este capítulo aborda obstáculos potenciais para a adoção das recomendações sobre a escolha de alimentos (Capítulo 2), sobre a combinação de alimentos na forma de refeições (Capítulo 3) e sobre o ato de comer e a comensalidade (Capítulo 4). esses obstáculos são identificados como: informação, oferta, custo, habilidades culinárias, tempo e publicidade.",
+    "Este capítulo examinou obstáculos que podem dificultar a adoção pelos brasileiros das várias recomendações feitas ao longo deste guia, incluindo a escassez de informações confiáveis sobre alimentação, problemas relacionados à oferta de alimentos in natura ou minimamente processados, o custo relativamente alto de legumes, verduras e frutas, o enfraquecimento da transmissão de habilidades culinárias, a falta de tempo das pessoas e a exposição incessante da população, em particular crianças e adolescentes, à publicidade de alimentos ultraprocessados.",
+    "O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde."
+   ],
+   "id": "V2-REC-04-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Em uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde. O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles.",
+   "frases": [
+    "Em uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material.",
+    "O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde.",
+    "O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles."
+   ]
+  },
+  {
+   "caso": "V2-REC-04",
+   "split": "dev",
+   "pergunta": "Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?",
+   "trechos": [
+    "o capítulo 5 examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia – informação, oferta, custo, habilidades culinárias, tempo e publicidade – e propõe para sua superação a combinação de ações no plano pessoal e familiar e no plano do exercício da cidadania.\n\nas recomendações deste guia são oferecidas de forma sintetizada em “dez Passos para uma alimentação adequada e saudável”.\n\nEm uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material.",
+    "este capítulo aborda obstáculos potenciais para a adoção das recomendações sobre a escolha de alimentos (Capítulo 2), sobre a combinação de alimentos na forma de refeições (Capítulo 3) e sobre o ato de comer e a comensalidade (Capítulo 4). esses obstáculos são identificados como: informação, oferta, custo, habilidades culinárias, tempo e publicidade.",
+    "Este capítulo examinou obstáculos que podem dificultar a adoção pelos brasileiros das várias recomendações feitas ao longo deste guia, incluindo a escassez de informações confiáveis sobre alimentação, problemas relacionados à oferta de alimentos in natura ou minimamente processados, o custo relativamente alto de legumes, verduras e frutas, o enfraquecimento da transmissão de habilidades culinárias, a falta de tempo das pessoas e a exposição incessante da população, em particular crianças e adolescentes, à publicidade de alimentos ultraprocessados.",
+    "O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde."
+   ],
+   "id": "V2-REC-04-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Em uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde. O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. A Organização Mundial da Saúde recomenda dobrar essa quantidade a partir dos 50 anos de idade.",
+   "invencao": "A Organização Mundial da Saúde recomenda dobrar essa quantidade a partir dos 50 anos de idade."
+  },
+  {
+   "caso": "V2-REC-04",
+   "split": "dev",
+   "pergunta": "Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?",
+   "trechos": [
+    "o capítulo 5 examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia – informação, oferta, custo, habilidades culinárias, tempo e publicidade – e propõe para sua superação a combinação de ações no plano pessoal e familiar e no plano do exercício da cidadania.\n\nas recomendações deste guia são oferecidas de forma sintetizada em “dez Passos para uma alimentação adequada e saudável”.\n\nEm uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material.",
+    "este capítulo aborda obstáculos potenciais para a adoção das recomendações sobre a escolha de alimentos (Capítulo 2), sobre a combinação de alimentos na forma de refeições (Capítulo 3) e sobre o ato de comer e a comensalidade (Capítulo 4). esses obstáculos são identificados como: informação, oferta, custo, habilidades culinárias, tempo e publicidade.",
+    "Este capítulo examinou obstáculos que podem dificultar a adoção pelos brasileiros das várias recomendações feitas ao longo deste guia, incluindo a escassez de informações confiáveis sobre alimentação, problemas relacionados à oferta de alimentos in natura ou minimamente processados, o custo relativamente alto de legumes, verduras e frutas, o enfraquecimento da transmissão de habilidades culinárias, a falta de tempo das pessoas e a exposição incessante da população, em particular crianças e adolescentes, à publicidade de alimentos ultraprocessados.",
+    "O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde."
+   ],
+   "id": "V2-REC-04-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado (p=0,003). Para Philips não há evidência alguma sugerindo que suplementos protéicos são necessários para a otimização do crescimento muscular ou ganho de força, pois as quantidades recomendadas para os praticantes de exercícios físicos podem ser facilmente obtidas a partir de uma dieta equilibrada. A população demonstrou moderado conhecimento quanto a conceitos básicos na área de nutrição e dificuldade em relacionar o alimento com sua fonte.",
+   "origem_da_troca": "V2-REC-23"
+  },
+  {
+   "caso": "V2-REC-10",
+   "split": "dev",
+   "pergunta": "Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?",
+   "trechos": [
+    "Para melhorar a biodisponibilidade do ferro da dieta, recomendamos que sempre se associe a ela o consumo de alimentos ricos em vitamina C, ácidos orgânicos e betacaroteno, além do cuidado de manter a flora colônica acidófila e do uso de métodos que reduzam o teor de ácido fítico dos alimentos. Convém evitar, nas refeições ricas em ferro, os alimentos com alto teor de cálcio, caseínofosfopeptideos e polifenóis.\n\nPara otimizar a absorção de zinco, recomendamos o uso de vitamina C e ácidos orgânicos nas refeições mais proteicas e ricas em zinco. E, para reduzir o efeito inibitório na absorção do zinco, evitar o consumo de caseína e cálcio e reduzir o teor de ácido fítico dos alimentos.\n\nNa dieta vegetariana estrita, as fontes de cálcio devem ser priorizadas. Os bebidas vegetais fortificadas com cálcio são opções para substituir o leite de vaca. Os demais alimentos mais ricos em cálcio podem ser encontrados ao longo do texto, neste parecer.",
+    "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:\n\nTabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme\n\nFatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme\n\nFator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)\n\nVitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)\n\nÁcidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico\n\nVitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho\n\nFrutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica\n\nBaixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)",
+    "O uso de fibras purificadas em doses muito elevadas tem interferência mínima na absorção de minerais da dieta. O efeito inibitório da absorção de ferro em alimentos ricos em fibra não se deve a elas mas ao ácido fítico, efeito que pode ser minimizado com métodos culinários [118, 119].\n\nA vitamina C é um dos estimuladores mais potentes de absorção do ferro, se contrapondo com o efeito inibitório dos polifenóis, fitato, cálcio e caseino-fosfatopeptídeos, sendo, por isso, importante estar presente sempre que houver ou não houver esses compostos na dieta [114, 120].\n\nO uso de panela de ferro aumenta o teor de mineral nos alimentos, mas sua quantidade é incerta. A prática de utilizar panela de ferro pode ter efeito preventivo, mas não servirá de tratamento da"
+   ],
+   "id": "V2-REC-10-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "O uso de panela de ferro aumenta o teor de mineral nos alimentos, mas sua quantidade é incerta. Para melhorar a biodisponibilidade do ferro da dieta, recomendamos que sempre se associe a ela o consumo de alimentos ricos em vitamina C, ácidos orgânicos e betacaroteno, além do cuidado de manter a flora colônica acidófila e do uso de métodos que reduzam o teor de ácido fítico dos alimentos. A vitamina C é um dos estimuladores mais potentes de absorção do ferro, se contrapondo com o efeito inibitório dos polifenóis, fitato, cálcio e caseino-fosfatopeptídeos, sendo, por isso, importante estar presente sempre que houver ou não houver esses compostos na dieta [114, 120].",
+   "frases": [
+    "O uso de panela de ferro aumenta o teor de mineral nos alimentos, mas sua quantidade é incerta.",
+    "Para melhorar a biodisponibilidade do ferro da dieta, recomendamos que sempre se associe a ela o consumo de alimentos ricos em vitamina C, ácidos orgânicos e betacaroteno, além do cuidado de manter a flora colônica acidófila e do uso de métodos que reduzam o teor de ácido fítico dos alimentos.",
+    "A vitamina C é um dos estimuladores mais potentes de absorção do ferro, se contrapondo com o efeito inibitório dos polifenóis, fitato, cálcio e caseino-fosfatopeptídeos, sendo, por isso, importante estar presente sempre que houver ou não houver esses compostos na dieta [114, 120]."
+   ]
+  },
+  {
+   "caso": "V2-REC-10",
+   "split": "dev",
+   "pergunta": "Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?",
+   "trechos": [
+    "Para melhorar a biodisponibilidade do ferro da dieta, recomendamos que sempre se associe a ela o consumo de alimentos ricos em vitamina C, ácidos orgânicos e betacaroteno, além do cuidado de manter a flora colônica acidófila e do uso de métodos que reduzam o teor de ácido fítico dos alimentos. Convém evitar, nas refeições ricas em ferro, os alimentos com alto teor de cálcio, caseínofosfopeptideos e polifenóis.\n\nPara otimizar a absorção de zinco, recomendamos o uso de vitamina C e ácidos orgânicos nas refeições mais proteicas e ricas em zinco. E, para reduzir o efeito inibitório na absorção do zinco, evitar o consumo de caseína e cálcio e reduzir o teor de ácido fítico dos alimentos.\n\nNa dieta vegetariana estrita, as fontes de cálcio devem ser priorizadas. Os bebidas vegetais fortificadas com cálcio são opções para substituir o leite de vaca. Os demais alimentos mais ricos em cálcio podem ser encontrados ao longo do texto, neste parecer.",
+    "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:\n\nTabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme\n\nFatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme\n\nFator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)\n\nVitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)\n\nÁcidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico\n\nVitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho\n\nFrutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica\n\nBaixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)",
+    "O uso de fibras purificadas em doses muito elevadas tem interferência mínima na absorção de minerais da dieta. O efeito inibitório da absorção de ferro em alimentos ricos em fibra não se deve a elas mas ao ácido fítico, efeito que pode ser minimizado com métodos culinários [118, 119].\n\nA vitamina C é um dos estimuladores mais potentes de absorção do ferro, se contrapondo com o efeito inibitório dos polifenóis, fitato, cálcio e caseino-fosfatopeptídeos, sendo, por isso, importante estar presente sempre que houver ou não houver esses compostos na dieta [114, 120].\n\nO uso de panela de ferro aumenta o teor de mineral nos alimentos, mas sua quantidade é incerta. A prática de utilizar panela de ferro pode ter efeito preventivo, mas não servirá de tratamento da"
+   ],
+   "id": "V2-REC-10-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "O uso de panela de ferro aumenta o teor de mineral nos alimentos, mas sua quantidade é incerta. Para melhorar a biodisponibilidade do ferro da dieta, recomendamos que sempre se associe a ela o consumo de alimentos ricos em vitamina C, ácidos orgânicos e betacaroteno, além do cuidado de manter a flora colônica acidófila e do uso de métodos que reduzam o teor de ácido fítico dos alimentos. A vitamina C é um dos estimuladores mais potentes de absorção do ferro, se contrapondo com o efeito inibitório dos polifenóis, fitato, cálcio e caseino-fosfatopeptídeos, sendo, por isso, importante estar presente sempre que houver ou não houver esses compostos na dieta [114, 120]. O efeito se deve à ativação direta da enzima hepática CYP-7Q, descrita em estudos japoneses recentes.",
+   "invencao": "O efeito se deve à ativação direta da enzima hepática CYP-7Q, descrita em estudos japoneses recentes."
+  },
+  {
+   "caso": "V2-REC-10",
+   "split": "dev",
+   "pergunta": "Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?",
+   "trechos": [
+    "Para melhorar a biodisponibilidade do ferro da dieta, recomendamos que sempre se associe a ela o consumo de alimentos ricos em vitamina C, ácidos orgânicos e betacaroteno, além do cuidado de manter a flora colônica acidófila e do uso de métodos que reduzam o teor de ácido fítico dos alimentos. Convém evitar, nas refeições ricas em ferro, os alimentos com alto teor de cálcio, caseínofosfopeptideos e polifenóis.\n\nPara otimizar a absorção de zinco, recomendamos o uso de vitamina C e ácidos orgânicos nas refeições mais proteicas e ricas em zinco. E, para reduzir o efeito inibitório na absorção do zinco, evitar o consumo de caseína e cálcio e reduzir o teor de ácido fítico dos alimentos.\n\nNa dieta vegetariana estrita, as fontes de cálcio devem ser priorizadas. Os bebidas vegetais fortificadas com cálcio são opções para substituir o leite de vaca. Os demais alimentos mais ricos em cálcio podem ser encontrados ao longo do texto, neste parecer.",
+    "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:\n\nTabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme\n\nFatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme\n\nFator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)\n\nVitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)\n\nÁcidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico\n\nVitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho\n\nFrutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica\n\nBaixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)",
+    "O uso de fibras purificadas em doses muito elevadas tem interferência mínima na absorção de minerais da dieta. O efeito inibitório da absorção de ferro em alimentos ricos em fibra não se deve a elas mas ao ácido fítico, efeito que pode ser minimizado com métodos culinários [118, 119].\n\nA vitamina C é um dos estimuladores mais potentes de absorção do ferro, se contrapondo com o efeito inibitório dos polifenóis, fitato, cálcio e caseino-fosfatopeptídeos, sendo, por isso, importante estar presente sempre que houver ou não houver esses compostos na dieta [114, 120].\n\nO uso de panela de ferro aumenta o teor de mineral nos alimentos, mas sua quantidade é incerta. A prática de utilizar panela de ferro pode ter efeito preventivo, mas não servirá de tratamento da"
+   ],
+   "id": "V2-REC-10-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Oriente também, que o usuário faça as refeições sempre que possível em companhia com a família ou amigos. Procure comer em locais limpos, confortáveis e tranquilos e onde não haja estímulos para o consumo de quantidades ilimitadas de alimento. Em outras palavras, comer de forma regular, devagar e com atenção é uma boa maneira de controlar naturalmente o quanto comemos.",
+   "origem_da_troca": "V2-REC-03"
+  },
+  {
+   "caso": "V2-REC-11",
+   "split": "dev",
+   "pergunta": "Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?",
+   "trechos": [
+    "A inclusão de sódio nas bebidas reidratantes promove maior absorção de água e carboidratos pelo intestino durante e após o exercício. Isso se dá porque o transporte de glicose na mucosa do enterócito é acoplado com o transporte de sódio, resultando em maior absorção de água.\n\nEm exercícios prolongados, que ultrapassam uma hora de duração, recomenda-se beber líquidos contendo de 0,5 a 0,7g.l (20 a 30mEq·l ) de sódio, que corresponde a concentração similar ou mesmo inferior àquela do suor de um indivíduo adulto, recomendação a ser estudada caso a caso quando o exercício for de alta intensidade e para algumas modalidades, mesmo que em menor duração.\n\nas acompanham. Alguns afirmam que ao chegar ao estômago, a temperatura do líquido ingerido já será próxima da temperatura corporal.",
+    "Devemos ingerir líquidos antes, durante e após o exercício.\n\nPara garantir que o indivíduo inicie o exercício bem hidratado, recomenda-se que ele beba cerca de 250 a 500ml de água duas horas antes do exercício.\n\nDurante o exercício recomenda-se iniciar a ingestão já nos primeiros 15 minutos e continuar bebendo a cada 15 a 20 minutos. O volume a ser ingerido varia conforme as taxas de sudorese, geralmente entre 500 e 2.000ml/hora. Se a atividade durar mais de uma hora, ou se for intensa do tipo intermitente mesmo com menos de uma hora, devemos repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l . A bebida deve estar em temperatura em torno de 15 a 22 C e apresentar um sabor de acordo com a preferência do indivíduo, favorecendo a palatabilidade."
+   ],
+   "id": "V2-REC-11-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "A inclusão de sódio nas bebidas reidratantes promove maior absorção de água e carboidratos pelo intestino durante e após o exercício. Alguns afirmam que ao chegar ao estômago, a temperatura do líquido ingerido já será próxima da temperatura corporal. Isso se dá porque o transporte de glicose na mucosa do enterócito é acoplado com o transporte de sódio, resultando em maior absorção de água.",
+   "frases": [
+    "A inclusão de sódio nas bebidas reidratantes promove maior absorção de água e carboidratos pelo intestino durante e após o exercício.",
+    "Alguns afirmam que ao chegar ao estômago, a temperatura do líquido ingerido já será próxima da temperatura corporal.",
+    "Isso se dá porque o transporte de glicose na mucosa do enterócito é acoplado com o transporte de sódio, resultando em maior absorção de água."
+   ]
+  },
+  {
+   "caso": "V2-REC-11",
+   "split": "dev",
+   "pergunta": "Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?",
+   "trechos": [
+    "A inclusão de sódio nas bebidas reidratantes promove maior absorção de água e carboidratos pelo intestino durante e após o exercício. Isso se dá porque o transporte de glicose na mucosa do enterócito é acoplado com o transporte de sódio, resultando em maior absorção de água.\n\nEm exercícios prolongados, que ultrapassam uma hora de duração, recomenda-se beber líquidos contendo de 0,5 a 0,7g.l (20 a 30mEq·l ) de sódio, que corresponde a concentração similar ou mesmo inferior àquela do suor de um indivíduo adulto, recomendação a ser estudada caso a caso quando o exercício for de alta intensidade e para algumas modalidades, mesmo que em menor duração.\n\nas acompanham. Alguns afirmam que ao chegar ao estômago, a temperatura do líquido ingerido já será próxima da temperatura corporal.",
+    "Devemos ingerir líquidos antes, durante e após o exercício.\n\nPara garantir que o indivíduo inicie o exercício bem hidratado, recomenda-se que ele beba cerca de 250 a 500ml de água duas horas antes do exercício.\n\nDurante o exercício recomenda-se iniciar a ingestão já nos primeiros 15 minutos e continuar bebendo a cada 15 a 20 minutos. O volume a ser ingerido varia conforme as taxas de sudorese, geralmente entre 500 e 2.000ml/hora. Se a atividade durar mais de uma hora, ou se for intensa do tipo intermitente mesmo com menos de uma hora, devemos repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l . A bebida deve estar em temperatura em torno de 15 a 22 C e apresentar um sabor de acordo com a preferência do indivíduo, favorecendo a palatabilidade."
+   ],
+   "id": "V2-REC-11-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "A inclusão de sódio nas bebidas reidratantes promove maior absorção de água e carboidratos pelo intestino durante e após o exercício. Alguns afirmam que ao chegar ao estômago, a temperatura do líquido ingerido já será próxima da temperatura corporal. Isso se dá porque o transporte de glicose na mucosa do enterócito é acoplado com o transporte de sódio, resultando em maior absorção de água. Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido depois das 18 horas.",
+   "invencao": "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido depois das 18 horas."
+  },
+  {
+   "caso": "V2-REC-11",
+   "split": "dev",
+   "pergunta": "Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?",
+   "trechos": [
+    "A inclusão de sódio nas bebidas reidratantes promove maior absorção de água e carboidratos pelo intestino durante e após o exercício. Isso se dá porque o transporte de glicose na mucosa do enterócito é acoplado com o transporte de sódio, resultando em maior absorção de água.\n\nEm exercícios prolongados, que ultrapassam uma hora de duração, recomenda-se beber líquidos contendo de 0,5 a 0,7g.l (20 a 30mEq·l ) de sódio, que corresponde a concentração similar ou mesmo inferior àquela do suor de um indivíduo adulto, recomendação a ser estudada caso a caso quando o exercício for de alta intensidade e para algumas modalidades, mesmo que em menor duração.\n\nas acompanham. Alguns afirmam que ao chegar ao estômago, a temperatura do líquido ingerido já será próxima da temperatura corporal.",
+    "Devemos ingerir líquidos antes, durante e após o exercício.\n\nPara garantir que o indivíduo inicie o exercício bem hidratado, recomenda-se que ele beba cerca de 250 a 500ml de água duas horas antes do exercício.\n\nDurante o exercício recomenda-se iniciar a ingestão já nos primeiros 15 minutos e continuar bebendo a cada 15 a 20 minutos. O volume a ser ingerido varia conforme as taxas de sudorese, geralmente entre 500 e 2.000ml/hora. Se a atividade durar mais de uma hora, ou se for intensa do tipo intermitente mesmo com menos de uma hora, devemos repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l . A bebida deve estar em temperatura em torno de 15 a 22 C e apresentar um sabor de acordo com a preferência do indivíduo, favorecendo a palatabilidade."
+   ],
+   "id": "V2-REC-11-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Evite “beliscar” nos intervalos entre as refeições. Oriente também, que o usuário faça as refeições sempre que possível em companhia com a família ou amigos. Em outras palavras, comer de forma regular, devagar e com atenção é uma boa maneira de controlar naturalmente o quanto comemos.",
+   "origem_da_troca": "V2-REC-03"
+  },
+  {
+   "caso": "V2-REC-13",
+   "split": "dev",
+   "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+   "trechos": [
+    "Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes. Muitos mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo, em geral, menos de um ano . Também já foi observado aumento do gasto energético total , da adiponectina , da oxidação de gorduras , das concentrações plasmáticas de HDL-colesterol e redução nos níveis de triglicérides e maior redução da circunferência abdominal com dietas restritas em carboidrato. Por outro lado, também já foi verificado um aumento nas concentrações plasmáticas de LDL-colesterol com esse tipo de dieta .",
+    "Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Além disso, já foi verificado que dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia .\n\nEstudo de metanálise avaliou o efeito de dietas low carb (muito pobres em carboidrato ou com restrição moderada de carboidratos) em relação à dieta controle contendo de 46 a 55% do valor energético total da dieta (VET) de carboidratos, 15 a 25% do VET de proteínas, 20 a 30%",
+    "do VET de gorduras ou manter a alimentação habitual na perda de peso em adultos com excesso de peso . Foram incluídos 14 RCTs, com um total de 1.805 participantes (906 submetidos à dieta com restrição de carboidratos e 899 à dieta controle) e o tempo de seguimento variou entre 2 e 24 meses. Nos estudos com menos de 12 meses de duração, observou-se perda de peso e de gordura maior nos pacientes que foram submetidos à dieta low carb . Nos estudos com mais de 12 meses de duração, a diferença na perda de peso entre os grupos não foi significativa, porém, ainda assim, houve maior perda de gordura com a restrição de carboidratos .",
+    "Por fim, a dieta low carb induz redução de peso em estudos de curta a média duração (3-6 meses) (Classe de Recomendação IIa, Nível de evidência A) e parece ser segura em curto prazo, podendo estar relacionada à restrição da opção de alimentos, monotonia e simplicidade da dieta, além do efeito mais potente da proteína na saciedade. Porém, a dieta low carb não induz maior perda de peso em relação a outros tipos de dieta em estudos de longa duração (Classe de Recomendação IIa, Nível de evidência A). Além disso, são necessários estudos mais longos e com amostras maiores para que seja possível avaliar o equilíbrio energético, a composição corporal, os efeitos adversos, os fatores de risco cardiovascular e de diabetes, a saúde óssea e renal e garantir a adequação nutricional durante a fase de manutenção de peso , além de analisar o efeito do baixo consumo de grãos integrais, frutas e fibras, inerente em dietas pobres em carboidrato, no risco de alguns tipos de câncer ."
+   ],
+   "id": "V2-REC-13-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Por outro lado, também já foi verificado um aumento nas concentrações plasmáticas de LDL-colesterol com esse tipo de dieta . Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Nos estudos com menos de 12 meses de duração, observou-se perda de peso e de gordura maior nos pacientes que foram submetidos à dieta low carb .",
+   "frases": [
+    "Por outro lado, também já foi verificado um aumento nas concentrações plasmáticas de LDL-colesterol com esse tipo de dieta .",
+    "Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante.",
+    "Nos estudos com menos de 12 meses de duração, observou-se perda de peso e de gordura maior nos pacientes que foram submetidos à dieta low carb ."
+   ]
+  },
+  {
+   "caso": "V2-REC-13",
+   "split": "dev",
+   "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+   "trechos": [
+    "Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes. Muitos mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo, em geral, menos de um ano . Também já foi observado aumento do gasto energético total , da adiponectina , da oxidação de gorduras , das concentrações plasmáticas de HDL-colesterol e redução nos níveis de triglicérides e maior redução da circunferência abdominal com dietas restritas em carboidrato. Por outro lado, também já foi verificado um aumento nas concentrações plasmáticas de LDL-colesterol com esse tipo de dieta .",
+    "Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Além disso, já foi verificado que dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia .\n\nEstudo de metanálise avaliou o efeito de dietas low carb (muito pobres em carboidrato ou com restrição moderada de carboidratos) em relação à dieta controle contendo de 46 a 55% do valor energético total da dieta (VET) de carboidratos, 15 a 25% do VET de proteínas, 20 a 30%",
+    "do VET de gorduras ou manter a alimentação habitual na perda de peso em adultos com excesso de peso . Foram incluídos 14 RCTs, com um total de 1.805 participantes (906 submetidos à dieta com restrição de carboidratos e 899 à dieta controle) e o tempo de seguimento variou entre 2 e 24 meses. Nos estudos com menos de 12 meses de duração, observou-se perda de peso e de gordura maior nos pacientes que foram submetidos à dieta low carb . Nos estudos com mais de 12 meses de duração, a diferença na perda de peso entre os grupos não foi significativa, porém, ainda assim, houve maior perda de gordura com a restrição de carboidratos .",
+    "Por fim, a dieta low carb induz redução de peso em estudos de curta a média duração (3-6 meses) (Classe de Recomendação IIa, Nível de evidência A) e parece ser segura em curto prazo, podendo estar relacionada à restrição da opção de alimentos, monotonia e simplicidade da dieta, além do efeito mais potente da proteína na saciedade. Porém, a dieta low carb não induz maior perda de peso em relação a outros tipos de dieta em estudos de longa duração (Classe de Recomendação IIa, Nível de evidência A). Além disso, são necessários estudos mais longos e com amostras maiores para que seja possível avaliar o equilíbrio energético, a composição corporal, os efeitos adversos, os fatores de risco cardiovascular e de diabetes, a saúde óssea e renal e garantir a adequação nutricional durante a fase de manutenção de peso , além de analisar o efeito do baixo consumo de grãos integrais, frutas e fibras, inerente em dietas pobres em carboidrato, no risco de alguns tipos de câncer ."
+   ],
+   "id": "V2-REC-13-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Por outro lado, também já foi verificado um aumento nas concentrações plasmáticas de LDL-colesterol com esse tipo de dieta . Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Nos estudos com menos de 12 meses de duração, observou-se perda de peso e de gordura maior nos pacientes que foram submetidos à dieta low carb . O Ministério da Saúde passou a exigir, desde 2023, que esse alimento seja consumido em todas as refeições escolares.",
+   "invencao": "O Ministério da Saúde passou a exigir, desde 2023, que esse alimento seja consumido em todas as refeições escolares."
+  },
+  {
+   "caso": "V2-REC-13",
+   "split": "dev",
+   "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+   "trechos": [
+    "Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes. Muitos mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo, em geral, menos de um ano . Também já foi observado aumento do gasto energético total , da adiponectina , da oxidação de gorduras , das concentrações plasmáticas de HDL-colesterol e redução nos níveis de triglicérides e maior redução da circunferência abdominal com dietas restritas em carboidrato. Por outro lado, também já foi verificado um aumento nas concentrações plasmáticas de LDL-colesterol com esse tipo de dieta .",
+    "Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Além disso, já foi verificado que dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia .\n\nEstudo de metanálise avaliou o efeito de dietas low carb (muito pobres em carboidrato ou com restrição moderada de carboidratos) em relação à dieta controle contendo de 46 a 55% do valor energético total da dieta (VET) de carboidratos, 15 a 25% do VET de proteínas, 20 a 30%",
+    "do VET de gorduras ou manter a alimentação habitual na perda de peso em adultos com excesso de peso . Foram incluídos 14 RCTs, com um total de 1.805 participantes (906 submetidos à dieta com restrição de carboidratos e 899 à dieta controle) e o tempo de seguimento variou entre 2 e 24 meses. Nos estudos com menos de 12 meses de duração, observou-se perda de peso e de gordura maior nos pacientes que foram submetidos à dieta low carb . Nos estudos com mais de 12 meses de duração, a diferença na perda de peso entre os grupos não foi significativa, porém, ainda assim, houve maior perda de gordura com a restrição de carboidratos .",
+    "Por fim, a dieta low carb induz redução de peso em estudos de curta a média duração (3-6 meses) (Classe de Recomendação IIa, Nível de evidência A) e parece ser segura em curto prazo, podendo estar relacionada à restrição da opção de alimentos, monotonia e simplicidade da dieta, além do efeito mais potente da proteína na saciedade. Porém, a dieta low carb não induz maior perda de peso em relação a outros tipos de dieta em estudos de longa duração (Classe de Recomendação IIa, Nível de evidência A). Além disso, são necessários estudos mais longos e com amostras maiores para que seja possível avaliar o equilíbrio energético, a composição corporal, os efeitos adversos, os fatores de risco cardiovascular e de diabetes, a saúde óssea e renal e garantir a adequação nutricional durante a fase de manutenção de peso , além de analisar o efeito do baixo consumo de grãos integrais, frutas e fibras, inerente em dietas pobres em carboidrato, no risco de alguns tipos de câncer ."
+   ],
+   "id": "V2-REC-13-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "A vitamina B12 é sintetizada por bactérias. A suplementação de vitamina B12 pode ser feita sob a forma de cápsulas vegetais ou gotas, na dose de pelo menos 10 mcg por dia, para manutenção do nível adequado. A dieta vegetariana estrita não apresenta fontes nutricionais de vitamina B12, que deve ser obtida por meio de alimentos enriquecidos ou suplementos.",
+   "origem_da_troca": "V2-REC-09"
+  },
+  {
+   "caso": "V2-REC-14",
+   "split": "dev",
+   "pergunta": "O que se sabe sobre a adesão de pessoas com obesidade ao jejum intermitente?",
+   "trechos": [
+    "animais têm mostrado alterac¸ões positivas no metabolismo glicídico (valores menores de glicemia e insulinemia) e lipídico (reduc¸ão no volume de gordura visceral e aumento nos valores de adiponectina plasmática), além de uma maior resistência ao estresse. Apesar dos estudos disponíveis apresentarem populac¸ões muito reduzidas, observaram-se resultados positivos com esta intervenc¸ão também na saúde humana. Os resultados indicam melhorias no perfil lipídico, reduc¸ão de respostas inflamatórias, com reduc¸ão na liberac¸ão de adipocinas inflamatórias e alterac¸ões na expressão de genes relacionados com a resposta inflamatória e de outros fatores. Em indivíduos obesos observou-se uma melhor adesão ao jejum intermitente em relac¸ão a intervenc¸ões tradicionais (restric¸ão calórica), além da reduc¸ão no estresse oxidativo desta populac¸ão. Dessa maneira, por se tratar de uma intervenc¸ão viável e acessível para a maioria dos indivíduos, novos estudos clínicos são necessários para testar a eficácia desta intervenc¸ão na prevenc¸ão e no controle de doenc¸as metabólicas e cardiovasculares."
+   ],
+   "id": "V2-REC-14-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Apesar dos estudos disponíveis apresentarem populac¸ões muito reduzidas, observaram-se resultados positivos com esta intervenc¸ão também na saúde humana. Dessa maneira, por se tratar de uma intervenc¸ão viável e acessível para a maioria dos indivíduos, novos estudos clínicos são necessários para testar a eficácia desta intervenc¸ão na prevenc¸ão e no controle de doenc¸as metabólicas e cardiovasculares. Os resultados indicam melhorias no perfil lipídico, reduc¸ão de respostas inflamatórias, com reduc¸ão na liberac¸ão de adipocinas inflamatórias e alterac¸ões na expressão de genes relacionados com a resposta inflamatória e de outros fatores.",
+   "frases": [
+    "Apesar dos estudos disponíveis apresentarem populac¸ões muito reduzidas, observaram-se resultados positivos com esta intervenc¸ão também na saúde humana.",
+    "Dessa maneira, por se tratar de uma intervenc¸ão viável e acessível para a maioria dos indivíduos, novos estudos clínicos são necessários para testar a eficácia desta intervenc¸ão na prevenc¸ão e no controle de doenc¸as metabólicas e cardiovasculares.",
+    "Os resultados indicam melhorias no perfil lipídico, reduc¸ão de respostas inflamatórias, com reduc¸ão na liberac¸ão de adipocinas inflamatórias e alterac¸ões na expressão de genes relacionados com a resposta inflamatória e de outros fatores."
+   ]
+  },
+  {
+   "caso": "V2-REC-14",
+   "split": "dev",
+   "pergunta": "O que se sabe sobre a adesão de pessoas com obesidade ao jejum intermitente?",
+   "trechos": [
+    "animais têm mostrado alterac¸ões positivas no metabolismo glicídico (valores menores de glicemia e insulinemia) e lipídico (reduc¸ão no volume de gordura visceral e aumento nos valores de adiponectina plasmática), além de uma maior resistência ao estresse. Apesar dos estudos disponíveis apresentarem populac¸ões muito reduzidas, observaram-se resultados positivos com esta intervenc¸ão também na saúde humana. Os resultados indicam melhorias no perfil lipídico, reduc¸ão de respostas inflamatórias, com reduc¸ão na liberac¸ão de adipocinas inflamatórias e alterac¸ões na expressão de genes relacionados com a resposta inflamatória e de outros fatores. Em indivíduos obesos observou-se uma melhor adesão ao jejum intermitente em relac¸ão a intervenc¸ões tradicionais (restric¸ão calórica), além da reduc¸ão no estresse oxidativo desta populac¸ão. Dessa maneira, por se tratar de uma intervenc¸ão viável e acessível para a maioria dos indivíduos, novos estudos clínicos são necessários para testar a eficácia desta intervenc¸ão na prevenc¸ão e no controle de doenc¸as metabólicas e cardiovasculares."
+   ],
+   "id": "V2-REC-14-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Apesar dos estudos disponíveis apresentarem populac¸ões muito reduzidas, observaram-se resultados positivos com esta intervenc¸ão também na saúde humana. Dessa maneira, por se tratar de uma intervenc¸ão viável e acessível para a maioria dos indivíduos, novos estudos clínicos são necessários para testar a eficácia desta intervenc¸ão na prevenc¸ão e no controle de doenc¸as metabólicas e cardiovasculares. Os resultados indicam melhorias no perfil lipídico, reduc¸ão de respostas inflamatórias, com reduc¸ão na liberac¸ão de adipocinas inflamatórias e alterac¸ões na expressão de genes relacionados com a resposta inflamatória e de outros fatores. Estudos com gêmeos estimam que 70% dessa resposta é determinada geneticamente.",
+   "invencao": "Estudos com gêmeos estimam que 70% dessa resposta é determinada geneticamente."
+  },
+  {
+   "caso": "V2-REC-14",
+   "split": "dev",
+   "pergunta": "O que se sabe sobre a adesão de pessoas com obesidade ao jejum intermitente?",
+   "trechos": [
+    "animais têm mostrado alterac¸ões positivas no metabolismo glicídico (valores menores de glicemia e insulinemia) e lipídico (reduc¸ão no volume de gordura visceral e aumento nos valores de adiponectina plasmática), além de uma maior resistência ao estresse. Apesar dos estudos disponíveis apresentarem populac¸ões muito reduzidas, observaram-se resultados positivos com esta intervenc¸ão também na saúde humana. Os resultados indicam melhorias no perfil lipídico, reduc¸ão de respostas inflamatórias, com reduc¸ão na liberac¸ão de adipocinas inflamatórias e alterac¸ões na expressão de genes relacionados com a resposta inflamatória e de outros fatores. Em indivíduos obesos observou-se uma melhor adesão ao jejum intermitente em relac¸ão a intervenc¸ões tradicionais (restric¸ão calórica), além da reduc¸ão no estresse oxidativo desta populac¸ão. Dessa maneira, por se tratar de uma intervenc¸ão viável e acessível para a maioria dos indivíduos, novos estudos clínicos são necessários para testar a eficácia desta intervenc¸ão na prevenc¸ão e no controle de doenc¸as metabólicas e cardiovasculares."
+   ],
+   "id": "V2-REC-14-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Para os demais desportistas fica estabelecida a recomendação de nunca usar. Somente para atletas competitivos de eventos de grande intensidade e curta duração, ou sejam, atividades nas quais predomina a utilização de fosfagênios, sempre em caráter excepcional, seu uso é permitido.",
+   "origem_da_troca": "V2-REC-12"
+  },
+  {
+   "caso": "V2-REC-16",
+   "split": "dev",
+   "pergunta": "Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?",
+   "trechos": [
+    "RESULTADOS: Houve aumento significativo da participação de produtos prontos para o consumo (de 23,0% para 27,8% das calorias), graças ao aumento no consumo de produtos ultraprocessados (de 20,8% para 25,4%) entre 2002-2003 e 2008-2009. Houve redução significativa na participação de alimentos e de ingredientes culinários nesse período. O aumento da participação de produtos ultraprocessados ocorreu em todos os estratos de renda. Observou-se aumento uniforme da participação calórica de produtos prontos para o consumo em áreas metropolitanas, novamente à custa de produtos ultraprocessados e acompanhada por reduções na participação de alimentos in natura ou minimamente processados quanto de ingredientes culinários.\n\nCONCLUSÕES: Produtos ultraprocessados apresentam participação crescente na dieta brasileira, evidenciada desde a década de 1980 nas áreas metropolitanas e confirmada para todo o País na década de 2000."
+   ],
+   "id": "V2-REC-16-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "O aumento da participação de produtos ultraprocessados ocorreu em todos os estratos de renda. Houve redução significativa na participação de alimentos e de ingredientes culinários nesse período. RESULTADOS: Houve aumento significativo da participação de produtos prontos para o consumo (de 23,0% para 27,8% das calorias), graças ao aumento no consumo de produtos ultraprocessados (de 20,8% para 25,4%) entre 2002-2003 e 2008-2009.",
+   "frases": [
+    "O aumento da participação de produtos ultraprocessados ocorreu em todos os estratos de renda.",
+    "Houve redução significativa na participação de alimentos e de ingredientes culinários nesse período.",
+    "RESULTADOS: Houve aumento significativo da participação de produtos prontos para o consumo (de 23,0% para 27,8% das calorias), graças ao aumento no consumo de produtos ultraprocessados (de 20,8% para 25,4%) entre 2002-2003 e 2008-2009."
+   ]
+  },
+  {
+   "caso": "V2-REC-16",
+   "split": "dev",
+   "pergunta": "Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?",
+   "trechos": [
+    "RESULTADOS: Houve aumento significativo da participação de produtos prontos para o consumo (de 23,0% para 27,8% das calorias), graças ao aumento no consumo de produtos ultraprocessados (de 20,8% para 25,4%) entre 2002-2003 e 2008-2009. Houve redução significativa na participação de alimentos e de ingredientes culinários nesse período. O aumento da participação de produtos ultraprocessados ocorreu em todos os estratos de renda. Observou-se aumento uniforme da participação calórica de produtos prontos para o consumo em áreas metropolitanas, novamente à custa de produtos ultraprocessados e acompanhada por reduções na participação de alimentos in natura ou minimamente processados quanto de ingredientes culinários.\n\nCONCLUSÕES: Produtos ultraprocessados apresentam participação crescente na dieta brasileira, evidenciada desde a década de 1980 nas áreas metropolitanas e confirmada para todo o País na década de 2000."
+   ],
+   "id": "V2-REC-16-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "O aumento da participação de produtos ultraprocessados ocorreu em todos os estratos de renda. Houve redução significativa na participação de alimentos e de ingredientes culinários nesse período. RESULTADOS: Houve aumento significativo da participação de produtos prontos para o consumo (de 23,0% para 27,8% das calorias), graças ao aumento no consumo de produtos ultraprocessados (de 20,8% para 25,4%) entre 2002-2003 e 2008-2009. Um ensaio clínico brasileiro de 2021 com 3.200 adultos mostrou redução de 41% no risco cardiovascular com essa prática.",
+   "invencao": "Um ensaio clínico brasileiro de 2021 com 3.200 adultos mostrou redução de 41% no risco cardiovascular com essa prática."
+  },
+  {
+   "caso": "V2-REC-16",
+   "split": "dev",
+   "pergunta": "Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?",
+   "trechos": [
+    "RESULTADOS: Houve aumento significativo da participação de produtos prontos para o consumo (de 23,0% para 27,8% das calorias), graças ao aumento no consumo de produtos ultraprocessados (de 20,8% para 25,4%) entre 2002-2003 e 2008-2009. Houve redução significativa na participação de alimentos e de ingredientes culinários nesse período. O aumento da participação de produtos ultraprocessados ocorreu em todos os estratos de renda. Observou-se aumento uniforme da participação calórica de produtos prontos para o consumo em áreas metropolitanas, novamente à custa de produtos ultraprocessados e acompanhada por reduções na participação de alimentos in natura ou minimamente processados quanto de ingredientes culinários.\n\nCONCLUSÕES: Produtos ultraprocessados apresentam participação crescente na dieta brasileira, evidenciada desde a década de 1980 nas áreas metropolitanas e confirmada para todo o País na década de 2000."
+   ],
+   "id": "V2-REC-16-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "A disponibilidade diária foi de 1.792kcal/capita, sendo 42,5% de alimentos do grupo 1, 37,5% do grupo 2 e 20% do grupo 3. A contribuição do grupo 3 aumentou com a renda familiar, correspondendo a um terço do total calórico nos domicílios mais afluentes. Três grupos são definidos: alimentos não processados ou minimamente processados (grupo 1), alimentos processados utilizados como ingredientes de preparações culinárias ou pela indústria de alimentos (grupo 2), e produtos alimentícios ultra-processados (grupo 3).",
+   "origem_da_troca": "V2-REC-15"
+  },
+  {
+   "caso": "V2-REC-17",
+   "split": "dev",
+   "pergunta": "Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?",
+   "trechos": [
+    "RESULTADOS: O consumo médio diário de energia per capita foi de 1.866 kcal, sendo 69,5% proveniente de alimentos: in natura ou minimamente processados, 9,0% de alimentos processados e 21,5% de alimentos ultraprocessados. O perfil nutricional da fração do consumo relativo a alimentos ultraprocessados mostrou maior densidade energética, maior teor de gorduras em geral, de gordura saturada, de gordura trans e de açúcar livre e menor teor de fibras, de proteínas, de sódio e de potássio, quando comparado à fração do consumo relativa a alimentos in natura ou minimamente processados. Alimentos ultraprocessados apresentaram, no geral, características desfavoráveis quando comparados aos alimentos processados. Maior participação de alimentos ultraprocessados na dieta determinou generalizada deterioração no perfil nutricional da alimentação. Os indicadores do perfil nutricional da dieta dos brasileiros que menos consumiram alimentos ultraprocessados, com exceção do sódio, aproximam este estrato da população das recomendações internacionais para uma alimentação saudável.",
+    "média, alimentos ultraprocessados possuem maior densidade energética, maior teor de açúcar livre e menor teor de fibra que alimentos in natura ou minimamente processados, mesmo quando se considera a combinação desses alimentos com ingredientes culinários como sal, açúcar e gorduras. Não há registro de estudos que tenham relacionado alimentos ultraprocessados à qualidade nutricional da dieta efetivamente consumida por indivíduos.\n\nO objetivo deste estudo foi avaliar o impacto que o consumo de alimentos ultraprocessados exerce sobre o perfil nutricional da dieta no Brasil.",
+    "açúcar livre, gordura trans e sódio e apresenta teores insuficientes de fibras e potássio.\n\nComparada à fração da dieta relativa a alimentos in natura ou minimamente processados, a fração relativa a alimentos ultraprocessados tem 2,5 vezes mais energia por grama, duas vezes mais açúcar livre, 1,5 vezes mais gorduras em geral e gorduras saturadas e oito vezes"
+   ],
+   "id": "V2-REC-17-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Alimentos ultraprocessados apresentaram, no geral, características desfavoráveis quando comparados aos alimentos processados. RESULTADOS: O consumo médio diário de energia per capita foi de 1.866 kcal, sendo 69,5% proveniente de alimentos: in natura ou minimamente processados, 9,0% de alimentos processados e 21,5% de alimentos ultraprocessados. O objetivo deste estudo foi avaliar o impacto que o consumo de alimentos ultraprocessados exerce sobre o perfil nutricional da dieta no Brasil.",
+   "frases": [
+    "Alimentos ultraprocessados apresentaram, no geral, características desfavoráveis quando comparados aos alimentos processados.",
+    "RESULTADOS: O consumo médio diário de energia per capita foi de 1.866 kcal, sendo 69,5% proveniente de alimentos: in natura ou minimamente processados, 9,0% de alimentos processados e 21,5% de alimentos ultraprocessados.",
+    "O objetivo deste estudo foi avaliar o impacto que o consumo de alimentos ultraprocessados exerce sobre o perfil nutricional da dieta no Brasil."
+   ]
+  },
+  {
+   "caso": "V2-REC-17",
+   "split": "dev",
+   "pergunta": "Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?",
+   "trechos": [
+    "RESULTADOS: O consumo médio diário de energia per capita foi de 1.866 kcal, sendo 69,5% proveniente de alimentos: in natura ou minimamente processados, 9,0% de alimentos processados e 21,5% de alimentos ultraprocessados. O perfil nutricional da fração do consumo relativo a alimentos ultraprocessados mostrou maior densidade energética, maior teor de gorduras em geral, de gordura saturada, de gordura trans e de açúcar livre e menor teor de fibras, de proteínas, de sódio e de potássio, quando comparado à fração do consumo relativa a alimentos in natura ou minimamente processados. Alimentos ultraprocessados apresentaram, no geral, características desfavoráveis quando comparados aos alimentos processados. Maior participação de alimentos ultraprocessados na dieta determinou generalizada deterioração no perfil nutricional da alimentação. Os indicadores do perfil nutricional da dieta dos brasileiros que menos consumiram alimentos ultraprocessados, com exceção do sódio, aproximam este estrato da população das recomendações internacionais para uma alimentação saudável.",
+    "média, alimentos ultraprocessados possuem maior densidade energética, maior teor de açúcar livre e menor teor de fibra que alimentos in natura ou minimamente processados, mesmo quando se considera a combinação desses alimentos com ingredientes culinários como sal, açúcar e gorduras. Não há registro de estudos que tenham relacionado alimentos ultraprocessados à qualidade nutricional da dieta efetivamente consumida por indivíduos.\n\nO objetivo deste estudo foi avaliar o impacto que o consumo de alimentos ultraprocessados exerce sobre o perfil nutricional da dieta no Brasil.",
+    "açúcar livre, gordura trans e sódio e apresenta teores insuficientes de fibras e potássio.\n\nComparada à fração da dieta relativa a alimentos in natura ou minimamente processados, a fração relativa a alimentos ultraprocessados tem 2,5 vezes mais energia por grama, duas vezes mais açúcar livre, 1,5 vezes mais gorduras em geral e gorduras saturadas e oito vezes"
+   ],
+   "id": "V2-REC-17-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Alimentos ultraprocessados apresentaram, no geral, características desfavoráveis quando comparados aos alimentos processados. RESULTADOS: O consumo médio diário de energia per capita foi de 1.866 kcal, sendo 69,5% proveniente de alimentos: in natura ou minimamente processados, 9,0% de alimentos processados e 21,5% de alimentos ultraprocessados. O objetivo deste estudo foi avaliar o impacto que o consumo de alimentos ultraprocessados exerce sobre o perfil nutricional da dieta no Brasil. A Organização Mundial da Saúde recomenda dobrar essa quantidade a partir dos 50 anos de idade.",
+   "invencao": "A Organização Mundial da Saúde recomenda dobrar essa quantidade a partir dos 50 anos de idade."
+  },
+  {
+   "caso": "V2-REC-17",
+   "split": "dev",
+   "pergunta": "Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?",
+   "trechos": [
+    "RESULTADOS: O consumo médio diário de energia per capita foi de 1.866 kcal, sendo 69,5% proveniente de alimentos: in natura ou minimamente processados, 9,0% de alimentos processados e 21,5% de alimentos ultraprocessados. O perfil nutricional da fração do consumo relativo a alimentos ultraprocessados mostrou maior densidade energética, maior teor de gorduras em geral, de gordura saturada, de gordura trans e de açúcar livre e menor teor de fibras, de proteínas, de sódio e de potássio, quando comparado à fração do consumo relativa a alimentos in natura ou minimamente processados. Alimentos ultraprocessados apresentaram, no geral, características desfavoráveis quando comparados aos alimentos processados. Maior participação de alimentos ultraprocessados na dieta determinou generalizada deterioração no perfil nutricional da alimentação. Os indicadores do perfil nutricional da dieta dos brasileiros que menos consumiram alimentos ultraprocessados, com exceção do sódio, aproximam este estrato da população das recomendações internacionais para uma alimentação saudável.",
+    "média, alimentos ultraprocessados possuem maior densidade energética, maior teor de açúcar livre e menor teor de fibra que alimentos in natura ou minimamente processados, mesmo quando se considera a combinação desses alimentos com ingredientes culinários como sal, açúcar e gorduras. Não há registro de estudos que tenham relacionado alimentos ultraprocessados à qualidade nutricional da dieta efetivamente consumida por indivíduos.\n\nO objetivo deste estudo foi avaliar o impacto que o consumo de alimentos ultraprocessados exerce sobre o perfil nutricional da dieta no Brasil.",
+    "açúcar livre, gordura trans e sódio e apresenta teores insuficientes de fibras e potássio.\n\nComparada à fração da dieta relativa a alimentos in natura ou minimamente processados, a fração relativa a alimentos ultraprocessados tem 2,5 vezes mais energia por grama, duas vezes mais açúcar livre, 1,5 vezes mais gorduras em geral e gorduras saturadas e oito vezes"
+   ],
+   "id": "V2-REC-17-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Um estudo cross over randomizado conduzido por Spiegel e cols. Dessa forma, um tempo adequado de sono parece ser essencial para a manutenção do estado nutricional e deve ser estimulado por profissionais da saúde. A figura 2 demonstra como a privação do sono pode alterar o padrão da leptina e da grelina e o balanço energético.",
+   "origem_da_troca": "V2-REC-18"
+  },
+  {
+   "caso": "V2-REC-19",
+   "split": "dev",
+   "pergunta": "Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?",
+   "trechos": [
+    "RESULTADOS: Menos da metade dos indivíduos referiu consumo regular de fruta (44,1%) ou hortaliças (43,8%), enquanto 23,9% referiram consumo regular de frutas e hortaliças em conjunto; o consumo adequado foi referido por 7,3% dos entrevistados. O consumo de frutas e hortaliças variou entre as cidades estudadas, foi maior entre as mulheres e aumentou com a idade e escolaridade.\n\nCONCLUSÕES: Iniciativas de promoção do consumo de frutas e hortaliças devem atender a população como um todo, especialmente às cidades das regiões Norte e Nordeste, aos jovens, aos homens e aos estratos populacionais com baixa escolaridade.",
+    "Os indicadores de consumo de frutas e hortaliças foram avaliados em 54.369 indivíduos com idade ≥18 anos, residentes nas capitais brasileiras e no Distrito Federal, 60,8% mulheres e 39,2% homens. Menos da metade dos indivíduos consumiu frutas (44,1%) ou hortaliças (43,8%) em cinco ou mais dias por semana, e menos de um quarto (23,9%) referiu o consumo regular de frutas e hortaliças em conjunto. O consumo adequado, ou seja, em cinco ou mais vezes por dia foi referido por 7,3% dos entrevistados. Embora a freqüência do consumo desses grupos de alimentos tenha sido significativamente maior entre mulheres do que entre homens, os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos (Tabela 1).",
+    "Tabela 1. Consumo de frutas e hortaliças, segundo sexo. Brasil, 2006. (N = 54.369)\n\nSex | o\n\nIndicador de consumo | Masculino | Feminino | p | Total\n\n(n = 21.294) % (IC 95%) | (n = 33.075) % (IC 95%) | (n = 54.369) % (IC 95%)\n\nRegular de frutas | 35,5 (34,9;36,1) | 51,4 (50,8;51,9) | <0,001 | 44,1 (43,6;44,5)\n\nRegular de hortaliças | 39,5 (38,9;40,1) | 47,4 (46,8;48,0) | <0,001 | 43,8 (43,4;44,2)\n\nRegular de frutas e hortaliças | 17,8 (17,3;18,2) | 29,2 (28,6;29,6) | <0,001 | 23,9 (23,5;24,2)\n\nAdequado de frutas e hortaliças | 5,0 (4,7;5,2) | 9,4 (9,0;9,7) | <0,001 | 7,3 (7,1;7,6)\n\n> a Percentual ponderado para ajustar a distribuição sociodemográfica da amostra do VIGITEL à distribuição da população com idade ≥ 18 anos da cidade, segundo o Censo Demográfico de 2000.\n\n> b Consumo de frutas em 5 ou mais dias por semana.\n\n> c Consumo de hortaliças em 5 ou mais dias por semana.\n\n> d Consumo conjunto de frutas e hortaliças em 5 ou mais dias por semana.",
+    "Total | 17,8 | 29,1 | 23,9 | 5,0 | 9,4 | 7,3\n\n> a Percentual ponderado para ajustar a distribuição sociodemográfica da amostra do VIGITEL à distribuição da população com idade ≥ 18 anos da cidade, segundo o Censo Demográfico de 2000.\n\n> b Consumo conjunto de frutas e hortaliças em 5 ou mais dias por semana.\n\n> c Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia. p<0,001; p<0,05 (teste qui-quadrado para diferenças entre sexo).\n\nO indicador sociodemográfico utilizado para estimar diferenças sociais foi a escolaridade dos indivíduos, o qual se associou de forma positiva e independente ao consumo de frutas e hortaliças. Dados sobre renda e poder de compra dos indivíduos não estão disponíveis no sistema VIGITEL. Jaime & Monteiro identificaram efeito independente da escolaridade sobre o consumo"
+   ],
+   "id": "V2-REC-19-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Dados sobre renda e poder de compra dos indivíduos não estão disponíveis no sistema VIGITEL. Embora a freqüência do consumo desses grupos de alimentos tenha sido significativamente maior entre mulheres do que entre homens, os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos (Tabela 1). RESULTADOS: Menos da metade dos indivíduos referiu consumo regular de fruta (44,1%) ou hortaliças (43,8%), enquanto 23,9% referiram consumo regular de frutas e hortaliças em conjunto; o consumo adequado foi referido por 7,3% dos entrevistados.",
+   "frases": [
+    "Dados sobre renda e poder de compra dos indivíduos não estão disponíveis no sistema VIGITEL.",
+    "Embora a freqüência do consumo desses grupos de alimentos tenha sido significativamente maior entre mulheres do que entre homens, os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos (Tabela 1).",
+    "RESULTADOS: Menos da metade dos indivíduos referiu consumo regular de fruta (44,1%) ou hortaliças (43,8%), enquanto 23,9% referiram consumo regular de frutas e hortaliças em conjunto; o consumo adequado foi referido por 7,3% dos entrevistados."
+   ]
+  },
+  {
+   "caso": "V2-REC-19",
+   "split": "dev",
+   "pergunta": "Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?",
+   "trechos": [
+    "RESULTADOS: Menos da metade dos indivíduos referiu consumo regular de fruta (44,1%) ou hortaliças (43,8%), enquanto 23,9% referiram consumo regular de frutas e hortaliças em conjunto; o consumo adequado foi referido por 7,3% dos entrevistados. O consumo de frutas e hortaliças variou entre as cidades estudadas, foi maior entre as mulheres e aumentou com a idade e escolaridade.\n\nCONCLUSÕES: Iniciativas de promoção do consumo de frutas e hortaliças devem atender a população como um todo, especialmente às cidades das regiões Norte e Nordeste, aos jovens, aos homens e aos estratos populacionais com baixa escolaridade.",
+    "Os indicadores de consumo de frutas e hortaliças foram avaliados em 54.369 indivíduos com idade ≥18 anos, residentes nas capitais brasileiras e no Distrito Federal, 60,8% mulheres e 39,2% homens. Menos da metade dos indivíduos consumiu frutas (44,1%) ou hortaliças (43,8%) em cinco ou mais dias por semana, e menos de um quarto (23,9%) referiu o consumo regular de frutas e hortaliças em conjunto. O consumo adequado, ou seja, em cinco ou mais vezes por dia foi referido por 7,3% dos entrevistados. Embora a freqüência do consumo desses grupos de alimentos tenha sido significativamente maior entre mulheres do que entre homens, os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos (Tabela 1).",
+    "Tabela 1. Consumo de frutas e hortaliças, segundo sexo. Brasil, 2006. (N = 54.369)\n\nSex | o\n\nIndicador de consumo | Masculino | Feminino | p | Total\n\n(n = 21.294) % (IC 95%) | (n = 33.075) % (IC 95%) | (n = 54.369) % (IC 95%)\n\nRegular de frutas | 35,5 (34,9;36,1) | 51,4 (50,8;51,9) | <0,001 | 44,1 (43,6;44,5)\n\nRegular de hortaliças | 39,5 (38,9;40,1) | 47,4 (46,8;48,0) | <0,001 | 43,8 (43,4;44,2)\n\nRegular de frutas e hortaliças | 17,8 (17,3;18,2) | 29,2 (28,6;29,6) | <0,001 | 23,9 (23,5;24,2)\n\nAdequado de frutas e hortaliças | 5,0 (4,7;5,2) | 9,4 (9,0;9,7) | <0,001 | 7,3 (7,1;7,6)\n\n> a Percentual ponderado para ajustar a distribuição sociodemográfica da amostra do VIGITEL à distribuição da população com idade ≥ 18 anos da cidade, segundo o Censo Demográfico de 2000.\n\n> b Consumo de frutas em 5 ou mais dias por semana.\n\n> c Consumo de hortaliças em 5 ou mais dias por semana.\n\n> d Consumo conjunto de frutas e hortaliças em 5 ou mais dias por semana.",
+    "Total | 17,8 | 29,1 | 23,9 | 5,0 | 9,4 | 7,3\n\n> a Percentual ponderado para ajustar a distribuição sociodemográfica da amostra do VIGITEL à distribuição da população com idade ≥ 18 anos da cidade, segundo o Censo Demográfico de 2000.\n\n> b Consumo conjunto de frutas e hortaliças em 5 ou mais dias por semana.\n\n> c Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia. p<0,001; p<0,05 (teste qui-quadrado para diferenças entre sexo).\n\nO indicador sociodemográfico utilizado para estimar diferenças sociais foi a escolaridade dos indivíduos, o qual se associou de forma positiva e independente ao consumo de frutas e hortaliças. Dados sobre renda e poder de compra dos indivíduos não estão disponíveis no sistema VIGITEL. Jaime & Monteiro identificaram efeito independente da escolaridade sobre o consumo"
+   ],
+   "id": "V2-REC-19-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Dados sobre renda e poder de compra dos indivíduos não estão disponíveis no sistema VIGITEL. Embora a freqüência do consumo desses grupos de alimentos tenha sido significativamente maior entre mulheres do que entre homens, os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos (Tabela 1). RESULTADOS: Menos da metade dos indivíduos referiu consumo regular de fruta (44,1%) ou hortaliças (43,8%), enquanto 23,9% referiram consumo regular de frutas e hortaliças em conjunto; o consumo adequado foi referido por 7,3% dos entrevistados. O efeito se deve à ativação direta da enzima hepática CYP-7Q, descrita em estudos japoneses recentes.",
+   "invencao": "O efeito se deve à ativação direta da enzima hepática CYP-7Q, descrita em estudos japoneses recentes."
+  },
+  {
+   "caso": "V2-REC-19",
+   "split": "dev",
+   "pergunta": "Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?",
+   "trechos": [
+    "RESULTADOS: Menos da metade dos indivíduos referiu consumo regular de fruta (44,1%) ou hortaliças (43,8%), enquanto 23,9% referiram consumo regular de frutas e hortaliças em conjunto; o consumo adequado foi referido por 7,3% dos entrevistados. O consumo de frutas e hortaliças variou entre as cidades estudadas, foi maior entre as mulheres e aumentou com a idade e escolaridade.\n\nCONCLUSÕES: Iniciativas de promoção do consumo de frutas e hortaliças devem atender a população como um todo, especialmente às cidades das regiões Norte e Nordeste, aos jovens, aos homens e aos estratos populacionais com baixa escolaridade.",
+    "Os indicadores de consumo de frutas e hortaliças foram avaliados em 54.369 indivíduos com idade ≥18 anos, residentes nas capitais brasileiras e no Distrito Federal, 60,8% mulheres e 39,2% homens. Menos da metade dos indivíduos consumiu frutas (44,1%) ou hortaliças (43,8%) em cinco ou mais dias por semana, e menos de um quarto (23,9%) referiu o consumo regular de frutas e hortaliças em conjunto. O consumo adequado, ou seja, em cinco ou mais vezes por dia foi referido por 7,3% dos entrevistados. Embora a freqüência do consumo desses grupos de alimentos tenha sido significativamente maior entre mulheres do que entre homens, os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos (Tabela 1).",
+    "Tabela 1. Consumo de frutas e hortaliças, segundo sexo. Brasil, 2006. (N = 54.369)\n\nSex | o\n\nIndicador de consumo | Masculino | Feminino | p | Total\n\n(n = 21.294) % (IC 95%) | (n = 33.075) % (IC 95%) | (n = 54.369) % (IC 95%)\n\nRegular de frutas | 35,5 (34,9;36,1) | 51,4 (50,8;51,9) | <0,001 | 44,1 (43,6;44,5)\n\nRegular de hortaliças | 39,5 (38,9;40,1) | 47,4 (46,8;48,0) | <0,001 | 43,8 (43,4;44,2)\n\nRegular de frutas e hortaliças | 17,8 (17,3;18,2) | 29,2 (28,6;29,6) | <0,001 | 23,9 (23,5;24,2)\n\nAdequado de frutas e hortaliças | 5,0 (4,7;5,2) | 9,4 (9,0;9,7) | <0,001 | 7,3 (7,1;7,6)\n\n> a Percentual ponderado para ajustar a distribuição sociodemográfica da amostra do VIGITEL à distribuição da população com idade ≥ 18 anos da cidade, segundo o Censo Demográfico de 2000.\n\n> b Consumo de frutas em 5 ou mais dias por semana.\n\n> c Consumo de hortaliças em 5 ou mais dias por semana.\n\n> d Consumo conjunto de frutas e hortaliças em 5 ou mais dias por semana.",
+    "Total | 17,8 | 29,1 | 23,9 | 5,0 | 9,4 | 7,3\n\n> a Percentual ponderado para ajustar a distribuição sociodemográfica da amostra do VIGITEL à distribuição da população com idade ≥ 18 anos da cidade, segundo o Censo Demográfico de 2000.\n\n> b Consumo conjunto de frutas e hortaliças em 5 ou mais dias por semana.\n\n> c Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia. p<0,001; p<0,05 (teste qui-quadrado para diferenças entre sexo).\n\nO indicador sociodemográfico utilizado para estimar diferenças sociais foi a escolaridade dos indivíduos, o qual se associou de forma positiva e independente ao consumo de frutas e hortaliças. Dados sobre renda e poder de compra dos indivíduos não estão disponíveis no sistema VIGITEL. Jaime & Monteiro identificaram efeito independente da escolaridade sobre o consumo"
+   ],
+   "id": "V2-REC-19-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Os resultados demonstraram que o sexo feminino foi prevalente (87,1%); 71,0% dos estudantes apresentaram qualidade de sono ruim; 98,9% faziam uso de aparelhos eletrônicos antes de dormir. Objetivo: traçar o perfil e analisar a qualidade do sono, qualidade de vida e hábitos alimentares dos estudantes de enfermagem. Quanto à latência do sono, quase metade dos participantes indicou que demorava, em média, de 31 a 60 minutos para pegar no sono, dado este que difere do estudo realizado na Universidade Federal do Ceará, em que boa parte dos estudantes entrevistados apontou que levava 15 minutos ou menos para adormecer no último mês .",
+   "origem_da_troca": "V2-REC-21"
+  },
+  {
+   "caso": "V2-REC-20",
+   "split": "dev",
+   "pergunta": "Quais barreiras dificultam o consumo de frutas, verduras e legumes?",
+   "trechos": [
+    "resumo Buscou-se verificar a associação entre barreiras percebidas para o consumo de frutas (CF) e de verduras ou legumes (CV/L) com características demográficas. Foi realizado estudo transversal (n = 877 pessoas com ≤ 44 anos de Cambé/PR). Investigaram-se 5 barreiras para o CF e CV/L. Foi utilizada análise de regressão logística binária ajustada para variáveis demográficas. “Custo pesa no orçamento familiar” foi a barreira mais prevalente (CF 57,7%; CV/L 49,9%), com maior chance da barreira no CF nas mulheres e pessoas com menor escolaridade (0 a 4 anos de estudo) e no CV/L nas mulheres, pessoas com menor escolaridade e de nível econômico B/C. A prevalência da barreira “Família não tem hábito”, foi de 16,4% para CF e 10,9% no CV/L, com maior chance para pessoas com 50 a 59 anos no CF. “Falta de tempo para comprar alimentos frescos”, foi citada por 8,0% (CF) e 7,6% (CV/L), com maior chance da barreira no CF em mulheres e indivíduos sem companheiro. A barreira “Necessidade de preparo” teve prevalência de 7,6% para CF, com maior chance para pessoas com idade entre 44 e 59 anos e no CV/L (9,7%), maior nas mulheres. A prevalência de “Não gostar do sabor” foi de 6,2% para o CF e 6,6% CV/L, e observou-se maior chance nos negros/pardos/indígenas (para CV/L) . Palavras-chave Hábitos alimentares, Comportamento alimentar, Frutas, Verduras, Estudos transversais",
+    "envolveu 796 indivíduos de baixa renda, recrutados em programas de alimentação, mercearias e outros locais públicos em quatro comunidades dos Estados Unidos da América. Pesquisa desenvolvida em Santiago do Chile teve como sujeitos 449 estudantes universitários , e outra, no mesmo país, incluiu 463 mães de escolares de distintos níveis socioeconômicos e 412 professores do ensino básico . Estudo em Brasília investigou 98 adultos . Entre as barreiras citadas nos referidos estudos encontram-se o alto custo, a falta de tempo, o sabor desagradável, a falta de hábito, a alta perecibilidade destes alimentos, “preguiça”, esquecimento, ausência de saciabilidade, dificuldade de transportar para o trabalho, pouca disponibilidade no comércio, forma de preparo, entre outras.",
+    "Dentre estas, as mais citadas sobre o consumo de frutas foram: “falta de hábito pessoal” (4,3%), seguida por “problemas relacionados à saúde” (2,1%) e “falta de tempo para consumir no trabalho (1,9%). Para o consumo de verduras ou legumes, as mais citadas como “outras barreiras” foram: “falta de hábito pessoal” (2,1%) e “não encontrar verduras variadas e/ou de qualidade no mercado” (1%) (dados não apresentados nas tabelas).",
+    "A terceira barreira mais citada para o consumo de frutas foi a “falta de tempo para ir ao mercado/feira com frequência para comprar frutas frescas” e esta foi a quarta barreira mais prevalente para o consumo de verduras ou legumes. Estudo realizado com adultos em 11 municípios da região central do Rio Grande do Sul, observou que a maioria dos entrevistados realizavam suas compras de frutas e hortaliças uma vez por semana, e apenas 10% adquiriam esses alimentos diariamente ."
+   ],
+   "id": "V2-REC-20-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Para o consumo de verduras ou legumes, as mais citadas como “outras barreiras” foram: “falta de hábito pessoal” (2,1%) e “não encontrar verduras variadas e/ou de qualidade no mercado” (1%) (dados não apresentados nas tabelas). A terceira barreira mais citada para o consumo de frutas foi a “falta de tempo para ir ao mercado/feira com frequência para comprar frutas frescas” e esta foi a quarta barreira mais prevalente para o consumo de verduras ou legumes. Entre as barreiras citadas nos referidos estudos encontram-se o alto custo, a falta de tempo, o sabor desagradável, a falta de hábito, a alta perecibilidade destes alimentos, “preguiça”, esquecimento, ausência de saciabilidade, dificuldade de transportar para o trabalho, pouca disponibilidade no comércio, forma de preparo, entre outras.",
+   "frases": [
+    "Para o consumo de verduras ou legumes, as mais citadas como “outras barreiras” foram: “falta de hábito pessoal” (2,1%) e “não encontrar verduras variadas e/ou de qualidade no mercado” (1%) (dados não apresentados nas tabelas).",
+    "A terceira barreira mais citada para o consumo de frutas foi a “falta de tempo para ir ao mercado/feira com frequência para comprar frutas frescas” e esta foi a quarta barreira mais prevalente para o consumo de verduras ou legumes.",
+    "Entre as barreiras citadas nos referidos estudos encontram-se o alto custo, a falta de tempo, o sabor desagradável, a falta de hábito, a alta perecibilidade destes alimentos, “preguiça”, esquecimento, ausência de saciabilidade, dificuldade de transportar para o trabalho, pouca disponibilidade no comércio, forma de preparo, entre outras."
+   ]
+  },
+  {
+   "caso": "V2-REC-20",
+   "split": "dev",
+   "pergunta": "Quais barreiras dificultam o consumo de frutas, verduras e legumes?",
+   "trechos": [
+    "resumo Buscou-se verificar a associação entre barreiras percebidas para o consumo de frutas (CF) e de verduras ou legumes (CV/L) com características demográficas. Foi realizado estudo transversal (n = 877 pessoas com ≤ 44 anos de Cambé/PR). Investigaram-se 5 barreiras para o CF e CV/L. Foi utilizada análise de regressão logística binária ajustada para variáveis demográficas. “Custo pesa no orçamento familiar” foi a barreira mais prevalente (CF 57,7%; CV/L 49,9%), com maior chance da barreira no CF nas mulheres e pessoas com menor escolaridade (0 a 4 anos de estudo) e no CV/L nas mulheres, pessoas com menor escolaridade e de nível econômico B/C. A prevalência da barreira “Família não tem hábito”, foi de 16,4% para CF e 10,9% no CV/L, com maior chance para pessoas com 50 a 59 anos no CF. “Falta de tempo para comprar alimentos frescos”, foi citada por 8,0% (CF) e 7,6% (CV/L), com maior chance da barreira no CF em mulheres e indivíduos sem companheiro. A barreira “Necessidade de preparo” teve prevalência de 7,6% para CF, com maior chance para pessoas com idade entre 44 e 59 anos e no CV/L (9,7%), maior nas mulheres. A prevalência de “Não gostar do sabor” foi de 6,2% para o CF e 6,6% CV/L, e observou-se maior chance nos negros/pardos/indígenas (para CV/L) . Palavras-chave Hábitos alimentares, Comportamento alimentar, Frutas, Verduras, Estudos transversais",
+    "envolveu 796 indivíduos de baixa renda, recrutados em programas de alimentação, mercearias e outros locais públicos em quatro comunidades dos Estados Unidos da América. Pesquisa desenvolvida em Santiago do Chile teve como sujeitos 449 estudantes universitários , e outra, no mesmo país, incluiu 463 mães de escolares de distintos níveis socioeconômicos e 412 professores do ensino básico . Estudo em Brasília investigou 98 adultos . Entre as barreiras citadas nos referidos estudos encontram-se o alto custo, a falta de tempo, o sabor desagradável, a falta de hábito, a alta perecibilidade destes alimentos, “preguiça”, esquecimento, ausência de saciabilidade, dificuldade de transportar para o trabalho, pouca disponibilidade no comércio, forma de preparo, entre outras.",
+    "Dentre estas, as mais citadas sobre o consumo de frutas foram: “falta de hábito pessoal” (4,3%), seguida por “problemas relacionados à saúde” (2,1%) e “falta de tempo para consumir no trabalho (1,9%). Para o consumo de verduras ou legumes, as mais citadas como “outras barreiras” foram: “falta de hábito pessoal” (2,1%) e “não encontrar verduras variadas e/ou de qualidade no mercado” (1%) (dados não apresentados nas tabelas).",
+    "A terceira barreira mais citada para o consumo de frutas foi a “falta de tempo para ir ao mercado/feira com frequência para comprar frutas frescas” e esta foi a quarta barreira mais prevalente para o consumo de verduras ou legumes. Estudo realizado com adultos em 11 municípios da região central do Rio Grande do Sul, observou que a maioria dos entrevistados realizavam suas compras de frutas e hortaliças uma vez por semana, e apenas 10% adquiriam esses alimentos diariamente ."
+   ],
+   "id": "V2-REC-20-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Para o consumo de verduras ou legumes, as mais citadas como “outras barreiras” foram: “falta de hábito pessoal” (2,1%) e “não encontrar verduras variadas e/ou de qualidade no mercado” (1%) (dados não apresentados nas tabelas). A terceira barreira mais citada para o consumo de frutas foi a “falta de tempo para ir ao mercado/feira com frequência para comprar frutas frescas” e esta foi a quarta barreira mais prevalente para o consumo de verduras ou legumes. Entre as barreiras citadas nos referidos estudos encontram-se o alto custo, a falta de tempo, o sabor desagradável, a falta de hábito, a alta perecibilidade destes alimentos, “preguiça”, esquecimento, ausência de saciabilidade, dificuldade de transportar para o trabalho, pouca disponibilidade no comércio, forma de preparo, entre outras. Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido depois das 18 horas.",
+   "invencao": "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido depois das 18 horas."
+  },
+  {
+   "caso": "V2-REC-20",
+   "split": "dev",
+   "pergunta": "Quais barreiras dificultam o consumo de frutas, verduras e legumes?",
+   "trechos": [
+    "resumo Buscou-se verificar a associação entre barreiras percebidas para o consumo de frutas (CF) e de verduras ou legumes (CV/L) com características demográficas. Foi realizado estudo transversal (n = 877 pessoas com ≤ 44 anos de Cambé/PR). Investigaram-se 5 barreiras para o CF e CV/L. Foi utilizada análise de regressão logística binária ajustada para variáveis demográficas. “Custo pesa no orçamento familiar” foi a barreira mais prevalente (CF 57,7%; CV/L 49,9%), com maior chance da barreira no CF nas mulheres e pessoas com menor escolaridade (0 a 4 anos de estudo) e no CV/L nas mulheres, pessoas com menor escolaridade e de nível econômico B/C. A prevalência da barreira “Família não tem hábito”, foi de 16,4% para CF e 10,9% no CV/L, com maior chance para pessoas com 50 a 59 anos no CF. “Falta de tempo para comprar alimentos frescos”, foi citada por 8,0% (CF) e 7,6% (CV/L), com maior chance da barreira no CF em mulheres e indivíduos sem companheiro. A barreira “Necessidade de preparo” teve prevalência de 7,6% para CF, com maior chance para pessoas com idade entre 44 e 59 anos e no CV/L (9,7%), maior nas mulheres. A prevalência de “Não gostar do sabor” foi de 6,2% para o CF e 6,6% CV/L, e observou-se maior chance nos negros/pardos/indígenas (para CV/L) . Palavras-chave Hábitos alimentares, Comportamento alimentar, Frutas, Verduras, Estudos transversais",
+    "envolveu 796 indivíduos de baixa renda, recrutados em programas de alimentação, mercearias e outros locais públicos em quatro comunidades dos Estados Unidos da América. Pesquisa desenvolvida em Santiago do Chile teve como sujeitos 449 estudantes universitários , e outra, no mesmo país, incluiu 463 mães de escolares de distintos níveis socioeconômicos e 412 professores do ensino básico . Estudo em Brasília investigou 98 adultos . Entre as barreiras citadas nos referidos estudos encontram-se o alto custo, a falta de tempo, o sabor desagradável, a falta de hábito, a alta perecibilidade destes alimentos, “preguiça”, esquecimento, ausência de saciabilidade, dificuldade de transportar para o trabalho, pouca disponibilidade no comércio, forma de preparo, entre outras.",
+    "Dentre estas, as mais citadas sobre o consumo de frutas foram: “falta de hábito pessoal” (4,3%), seguida por “problemas relacionados à saúde” (2,1%) e “falta de tempo para consumir no trabalho (1,9%). Para o consumo de verduras ou legumes, as mais citadas como “outras barreiras” foram: “falta de hábito pessoal” (2,1%) e “não encontrar verduras variadas e/ou de qualidade no mercado” (1%) (dados não apresentados nas tabelas).",
+    "A terceira barreira mais citada para o consumo de frutas foi a “falta de tempo para ir ao mercado/feira com frequência para comprar frutas frescas” e esta foi a quarta barreira mais prevalente para o consumo de verduras ou legumes. Estudo realizado com adultos em 11 municípios da região central do Rio Grande do Sul, observou que a maioria dos entrevistados realizavam suas compras de frutas e hortaliças uma vez por semana, e apenas 10% adquiriam esses alimentos diariamente ."
+   ],
+   "id": "V2-REC-20-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis. Legumes e verduras aparecem em todas as refeições, por vezes crus, na forma de saladas, cozidos ou refogados acompanhando o feijão com o arroz e, ainda, utilizados no preparo de sopas.",
+   "origem_da_troca": "V2-ADV-03"
+  },
+  {
+   "caso": "V2-REC-22",
+   "split": "dev",
+   "pergunta": "Estresse, ansiedade e depressão influenciam a alimentação emocional?",
+   "trechos": [
+    "Os sintomas de depressão, ansiedade e estresse podem contribuir para alimentação emocional. Pesquisas sinalizam ainda a existência de uma relação inversa entre esses sintomas e o comportamento alimentar saudável. O objetivo desse estudo é investigar as relações potenciais preditivas entre os sintomas de depressão, ansiedade e estresse e os escores de alimentação emocional e intuitiva. Trata-se de um estudo quantitativo e explicativo, composto por 209 participantes maiores de 18 anos. Os participantes responderam o questionário sociodemográfíco, a Escala de Alimentação Emocional (EES), a Escala de Alimentação Intuitiva (IES-2) e a Escala para Depressão, Ansiedade e Estresse (DASS-21). Os resultados indicaram relações positivas e significativas entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional.",
+    "Na análise de regressão linear simples, constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, 9,2% pelos sintomas de depressão e 4,7% pelos sintomas ansiosos. Verifica-se que os sintomas emocionais citados a cima podem explicar, individualmente, variações únicas na alimentação emocional. Sugere-se que esta relação possa ser melhor compreendida, com novos estudos que considerem outras variáveis mediadoras como, por exemplo, a regulação emocional, visto que esta última vem apresentando potencial preditivo para a alimentação emocional. Palavras-chave: Depressão. Ansiedade. Comportamento Alimentar",
+    "Este estudo teve como objetivo investigar as associações e potenciais valores preditivos dos sintomas de ansiedade, depressão e estresse para a alimentação emocional e intuitiva. Embora a relação entre os sintomas emocionais de ansiedade, depressão, estresse e a alimentação emocional terem sido baixas, foram significativas nesta pesquisa, o que mostra-se em consonância com achados anteriores ao constatar que, de fato, estes sintomas podem, em partes, influenciar este tipo específico de comportamento (Goossens et al., 2008; Schneider et al., 2012).",
+    "A partir do presente estudo verificou-se que os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional. Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p. ex. regulação emocional) que, de acordo com estudos pregressos, também apresentam potencial preditivo para o comportamento alimentar em questão.\n\nEsta hipótese é reforçada pela ideia de que o problema da alimentação emocional não é a experiência da emoção em si, mas sim a inabilidade do sujeito para lidar com o desconforto que vivencia. Dessa maneira, sugere-se para futuros estudos a investigação da regulação emocional como mediador da relação entre sintomas emocionais e alimentação emocional.",
+    "A partir das análises bivariadas verificou-se a existência de relações positivas e significativas (fracas a moderadas) entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional. Por outro lado, não foram observadas associações significativas entre estes sintomas e a alimentação intuitiva, conforme pode ser visto na Tabela 1."
+   ],
+   "id": "V2-REC-22-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Os resultados indicaram relações positivas e significativas entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional. Trata-se de um estudo quantitativo e explicativo, composto por 209 participantes maiores de 18 anos. Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p.",
+   "frases": [
+    "Os resultados indicaram relações positivas e significativas entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional.",
+    "Trata-se de um estudo quantitativo e explicativo, composto por 209 participantes maiores de 18 anos.",
+    "Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p."
+   ]
+  },
+  {
+   "caso": "V2-REC-22",
+   "split": "dev",
+   "pergunta": "Estresse, ansiedade e depressão influenciam a alimentação emocional?",
+   "trechos": [
+    "Os sintomas de depressão, ansiedade e estresse podem contribuir para alimentação emocional. Pesquisas sinalizam ainda a existência de uma relação inversa entre esses sintomas e o comportamento alimentar saudável. O objetivo desse estudo é investigar as relações potenciais preditivas entre os sintomas de depressão, ansiedade e estresse e os escores de alimentação emocional e intuitiva. Trata-se de um estudo quantitativo e explicativo, composto por 209 participantes maiores de 18 anos. Os participantes responderam o questionário sociodemográfíco, a Escala de Alimentação Emocional (EES), a Escala de Alimentação Intuitiva (IES-2) e a Escala para Depressão, Ansiedade e Estresse (DASS-21). Os resultados indicaram relações positivas e significativas entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional.",
+    "Na análise de regressão linear simples, constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, 9,2% pelos sintomas de depressão e 4,7% pelos sintomas ansiosos. Verifica-se que os sintomas emocionais citados a cima podem explicar, individualmente, variações únicas na alimentação emocional. Sugere-se que esta relação possa ser melhor compreendida, com novos estudos que considerem outras variáveis mediadoras como, por exemplo, a regulação emocional, visto que esta última vem apresentando potencial preditivo para a alimentação emocional. Palavras-chave: Depressão. Ansiedade. Comportamento Alimentar",
+    "Este estudo teve como objetivo investigar as associações e potenciais valores preditivos dos sintomas de ansiedade, depressão e estresse para a alimentação emocional e intuitiva. Embora a relação entre os sintomas emocionais de ansiedade, depressão, estresse e a alimentação emocional terem sido baixas, foram significativas nesta pesquisa, o que mostra-se em consonância com achados anteriores ao constatar que, de fato, estes sintomas podem, em partes, influenciar este tipo específico de comportamento (Goossens et al., 2008; Schneider et al., 2012).",
+    "A partir do presente estudo verificou-se que os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional. Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p. ex. regulação emocional) que, de acordo com estudos pregressos, também apresentam potencial preditivo para o comportamento alimentar em questão.\n\nEsta hipótese é reforçada pela ideia de que o problema da alimentação emocional não é a experiência da emoção em si, mas sim a inabilidade do sujeito para lidar com o desconforto que vivencia. Dessa maneira, sugere-se para futuros estudos a investigação da regulação emocional como mediador da relação entre sintomas emocionais e alimentação emocional.",
+    "A partir das análises bivariadas verificou-se a existência de relações positivas e significativas (fracas a moderadas) entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional. Por outro lado, não foram observadas associações significativas entre estes sintomas e a alimentação intuitiva, conforme pode ser visto na Tabela 1."
+   ],
+   "id": "V2-REC-22-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Os resultados indicaram relações positivas e significativas entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional. Trata-se de um estudo quantitativo e explicativo, composto por 209 participantes maiores de 18 anos. Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p. O Ministério da Saúde passou a exigir, desde 2023, que esse alimento seja consumido em todas as refeições escolares.",
+   "invencao": "O Ministério da Saúde passou a exigir, desde 2023, que esse alimento seja consumido em todas as refeições escolares."
+  },
+  {
+   "caso": "V2-REC-22",
+   "split": "dev",
+   "pergunta": "Estresse, ansiedade e depressão influenciam a alimentação emocional?",
+   "trechos": [
+    "Os sintomas de depressão, ansiedade e estresse podem contribuir para alimentação emocional. Pesquisas sinalizam ainda a existência de uma relação inversa entre esses sintomas e o comportamento alimentar saudável. O objetivo desse estudo é investigar as relações potenciais preditivas entre os sintomas de depressão, ansiedade e estresse e os escores de alimentação emocional e intuitiva. Trata-se de um estudo quantitativo e explicativo, composto por 209 participantes maiores de 18 anos. Os participantes responderam o questionário sociodemográfíco, a Escala de Alimentação Emocional (EES), a Escala de Alimentação Intuitiva (IES-2) e a Escala para Depressão, Ansiedade e Estresse (DASS-21). Os resultados indicaram relações positivas e significativas entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional.",
+    "Na análise de regressão linear simples, constatou-se que 12% da variação na alimentação emocional é explicada por sintomas de estresse, 9,2% pelos sintomas de depressão e 4,7% pelos sintomas ansiosos. Verifica-se que os sintomas emocionais citados a cima podem explicar, individualmente, variações únicas na alimentação emocional. Sugere-se que esta relação possa ser melhor compreendida, com novos estudos que considerem outras variáveis mediadoras como, por exemplo, a regulação emocional, visto que esta última vem apresentando potencial preditivo para a alimentação emocional. Palavras-chave: Depressão. Ansiedade. Comportamento Alimentar",
+    "Este estudo teve como objetivo investigar as associações e potenciais valores preditivos dos sintomas de ansiedade, depressão e estresse para a alimentação emocional e intuitiva. Embora a relação entre os sintomas emocionais de ansiedade, depressão, estresse e a alimentação emocional terem sido baixas, foram significativas nesta pesquisa, o que mostra-se em consonância com achados anteriores ao constatar que, de fato, estes sintomas podem, em partes, influenciar este tipo específico de comportamento (Goossens et al., 2008; Schneider et al., 2012).",
+    "A partir do presente estudo verificou-se que os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional. Entretanto, acredita-se que esta relação possa ser melhor compreendida a partir da inclusão de variáveis mediadoras (p. ex. regulação emocional) que, de acordo com estudos pregressos, também apresentam potencial preditivo para o comportamento alimentar em questão.\n\nEsta hipótese é reforçada pela ideia de que o problema da alimentação emocional não é a experiência da emoção em si, mas sim a inabilidade do sujeito para lidar com o desconforto que vivencia. Dessa maneira, sugere-se para futuros estudos a investigação da regulação emocional como mediador da relação entre sintomas emocionais e alimentação emocional.",
+    "A partir das análises bivariadas verificou-se a existência de relações positivas e significativas (fracas a moderadas) entre os sintomas emocionais de ansiedade, depressão e estresse e o escore total de alimentação emocional. Por outro lado, não foram observadas associações significativas entre estes sintomas e a alimentação intuitiva, conforme pode ser visto na Tabela 1."
+   ],
+   "id": "V2-REC-22-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias. Variedade significa alimentos de todos os tipos – grãos, raízes, tubérculos, farinhas, legumes, verduras, frutas, castanhas, leite, ovos e carnes – e variedade dentro de cada tipo – feijão, arroz, milho, batata, mandioca, tomate, abóbora, laranja, banana, frango, peixes etc. PoR quE ólEoS, GoRduRAS, SAl E AçúCAR dEvEm SER uTIlIzAdoS Em PEquEnAs quAnTidAdEs Em PrEPArAçõEs culináriAs?",
+   "origem_da_troca": "V2-REC-02"
+  },
+  {
+   "caso": "V2-REC-23",
+   "split": "dev",
+   "pergunta": "Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?",
+   "trechos": [
+    "A fonte de indicação mais citada foram os instrutores e professores de Educação Física, seguida de autoindicação. A análise das dietas mostrou-se hipoglicídica, hiperprotéica e hiperlipídica. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado (p=0,003). A população demonstrou moderado conhecimento quanto a conceitos básicos na área de nutrição e dificuldade em relacionar o alimento com sua fonte. Conclusão: Ressalta-se a necessidade de orientação nutricional, auxiliando os frequentadores de academia a atingir seus objetivos bem como o esclarecimento de dúvidas, visando melhorar o desempenho desportivo com os benefícios de uma alimentação adequada.\n\nPalavras-chave: macronutrientes, exercício, hábitos alimentares.",
+    "Praticantes de musculação costumam ter alimentação rica em proteína, muitas vezes, acima das recomendações, devido a modismos, falta de informação e/ou orientação adequada. Para Philips não há evidência alguma sugerindo que suplementos protéicos são necessários para a otimização do crescimento muscular ou ganho de força, pois as quantidades recomendadas para os praticantes de exercícios físicos podem ser facilmente obtidas a partir de uma dieta equilibrada."
+   ],
+   "id": "V2-REC-23-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "A população demonstrou moderado conhecimento quanto a conceitos básicos na área de nutrição e dificuldade em relacionar o alimento com sua fonte. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado (p=0,003). A análise das dietas mostrou-se hipoglicídica, hiperprotéica e hiperlipídica.",
+   "frases": [
+    "A população demonstrou moderado conhecimento quanto a conceitos básicos na área de nutrição e dificuldade em relacionar o alimento com sua fonte.",
+    "Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado (p=0,003).",
+    "A análise das dietas mostrou-se hipoglicídica, hiperprotéica e hiperlipídica."
+   ]
+  },
+  {
+   "caso": "V2-REC-23",
+   "split": "dev",
+   "pergunta": "Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?",
+   "trechos": [
+    "A fonte de indicação mais citada foram os instrutores e professores de Educação Física, seguida de autoindicação. A análise das dietas mostrou-se hipoglicídica, hiperprotéica e hiperlipídica. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado (p=0,003). A população demonstrou moderado conhecimento quanto a conceitos básicos na área de nutrição e dificuldade em relacionar o alimento com sua fonte. Conclusão: Ressalta-se a necessidade de orientação nutricional, auxiliando os frequentadores de academia a atingir seus objetivos bem como o esclarecimento de dúvidas, visando melhorar o desempenho desportivo com os benefícios de uma alimentação adequada.\n\nPalavras-chave: macronutrientes, exercício, hábitos alimentares.",
+    "Praticantes de musculação costumam ter alimentação rica em proteína, muitas vezes, acima das recomendações, devido a modismos, falta de informação e/ou orientação adequada. Para Philips não há evidência alguma sugerindo que suplementos protéicos são necessários para a otimização do crescimento muscular ou ganho de força, pois as quantidades recomendadas para os praticantes de exercícios físicos podem ser facilmente obtidas a partir de uma dieta equilibrada."
+   ],
+   "id": "V2-REC-23-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "A população demonstrou moderado conhecimento quanto a conceitos básicos na área de nutrição e dificuldade em relacionar o alimento com sua fonte. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado (p=0,003). A análise das dietas mostrou-se hipoglicídica, hiperprotéica e hiperlipídica. Estudos com gêmeos estimam que 70% dessa resposta é determinada geneticamente.",
+   "invencao": "Estudos com gêmeos estimam que 70% dessa resposta é determinada geneticamente."
+  },
+  {
+   "caso": "V2-REC-23",
+   "split": "dev",
+   "pergunta": "Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?",
+   "trechos": [
+    "A fonte de indicação mais citada foram os instrutores e professores de Educação Física, seguida de autoindicação. A análise das dietas mostrou-se hipoglicídica, hiperprotéica e hiperlipídica. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado (p=0,003). A população demonstrou moderado conhecimento quanto a conceitos básicos na área de nutrição e dificuldade em relacionar o alimento com sua fonte. Conclusão: Ressalta-se a necessidade de orientação nutricional, auxiliando os frequentadores de academia a atingir seus objetivos bem como o esclarecimento de dúvidas, visando melhorar o desempenho desportivo com os benefícios de uma alimentação adequada.\n\nPalavras-chave: macronutrientes, exercício, hábitos alimentares.",
+    "Praticantes de musculação costumam ter alimentação rica em proteína, muitas vezes, acima das recomendações, devido a modismos, falta de informação e/ou orientação adequada. Para Philips não há evidência alguma sugerindo que suplementos protéicos são necessários para a otimização do crescimento muscular ou ganho de força, pois as quantidades recomendadas para os praticantes de exercícios físicos podem ser facilmente obtidas a partir de uma dieta equilibrada."
+   ],
+   "id": "V2-REC-23-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde. O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. Em uma seção final, são relacionadas sugestões de leituras adicionais, organizadas por capítulos, as quais aprofundam os temas abordados e discutidos neste material.",
+   "origem_da_troca": "V2-REC-04"
+  },
+  {
+   "caso": "V2-GRA-01",
+   "split": "dev",
+   "pergunta": "Comer feijão com laranja na mesma refeição ajuda a absorver o ferro?",
+   "trechos": [
+    "Para melhorar a biodisponibilidade do ferro da dieta, recomendamos que sempre se associe a ela o consumo de alimentos ricos em vitamina C, ácidos orgânicos e betacaroteno, além do cuidado de manter a flora colônica acidófila e do uso de métodos que reduzam o teor de ácido fítico dos alimentos. Convém evitar, nas refeições ricas em ferro, os alimentos com alto teor de cálcio, caseínofosfopeptideos e polifenóis.\n\nPara otimizar a absorção de zinco, recomendamos o uso de vitamina C e ácidos orgânicos nas refeições mais proteicas e ricas em zinco. E, para reduzir o efeito inibitório na absorção do zinco, evitar o consumo de caseína e cálcio e reduzir o teor de ácido fítico dos alimentos.\n\nNa dieta vegetariana estrita, as fontes de cálcio devem ser priorizadas. Os bebidas vegetais fortificadas com cálcio são opções para substituir o leite de vaca. Os demais alimentos mais ricos em cálcio podem ser encontrados ao longo do texto, neste parecer.",
+    "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:\n\nTabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme\n\nFatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme\n\nFator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)\n\nVitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)\n\nÁcidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico\n\nVitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho\n\nFrutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica\n\nBaixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)"
+   ],
+   "id": "V2-GRA-01-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Na dieta vegetariana estrita, as fontes de cálcio devem ser priorizadas. Convém evitar, nas refeições ricas em ferro, os alimentos com alto teor de cálcio, caseínofosfopeptideos e polifenóis. Os bebidas vegetais fortificadas com cálcio são opções para substituir o leite de vaca.",
+   "frases": [
+    "Na dieta vegetariana estrita, as fontes de cálcio devem ser priorizadas.",
+    "Convém evitar, nas refeições ricas em ferro, os alimentos com alto teor de cálcio, caseínofosfopeptideos e polifenóis.",
+    "Os bebidas vegetais fortificadas com cálcio são opções para substituir o leite de vaca."
+   ]
+  },
+  {
+   "caso": "V2-GRA-01",
+   "split": "dev",
+   "pergunta": "Comer feijão com laranja na mesma refeição ajuda a absorver o ferro?",
+   "trechos": [
+    "Para melhorar a biodisponibilidade do ferro da dieta, recomendamos que sempre se associe a ela o consumo de alimentos ricos em vitamina C, ácidos orgânicos e betacaroteno, além do cuidado de manter a flora colônica acidófila e do uso de métodos que reduzam o teor de ácido fítico dos alimentos. Convém evitar, nas refeições ricas em ferro, os alimentos com alto teor de cálcio, caseínofosfopeptideos e polifenóis.\n\nPara otimizar a absorção de zinco, recomendamos o uso de vitamina C e ácidos orgânicos nas refeições mais proteicas e ricas em zinco. E, para reduzir o efeito inibitório na absorção do zinco, evitar o consumo de caseína e cálcio e reduzir o teor de ácido fítico dos alimentos.\n\nNa dieta vegetariana estrita, as fontes de cálcio devem ser priorizadas. Os bebidas vegetais fortificadas com cálcio são opções para substituir o leite de vaca. Os demais alimentos mais ricos em cálcio podem ser encontrados ao longo do texto, neste parecer.",
+    "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:\n\nTabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme\n\nFatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme\n\nFator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)\n\nVitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)\n\nÁcidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico\n\nVitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho\n\nFrutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica\n\nBaixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)"
+   ],
+   "id": "V2-GRA-01-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Na dieta vegetariana estrita, as fontes de cálcio devem ser priorizadas. Convém evitar, nas refeições ricas em ferro, os alimentos com alto teor de cálcio, caseínofosfopeptideos e polifenóis. Os bebidas vegetais fortificadas com cálcio são opções para substituir o leite de vaca. Um ensaio clínico brasileiro de 2021 com 3.200 adultos mostrou redução de 41% no risco cardiovascular com essa prática.",
+   "invencao": "Um ensaio clínico brasileiro de 2021 com 3.200 adultos mostrou redução de 41% no risco cardiovascular com essa prática."
+  },
+  {
+   "caso": "V2-GRA-01",
+   "split": "dev",
+   "pergunta": "Comer feijão com laranja na mesma refeição ajuda a absorver o ferro?",
+   "trechos": [
+    "Para melhorar a biodisponibilidade do ferro da dieta, recomendamos que sempre se associe a ela o consumo de alimentos ricos em vitamina C, ácidos orgânicos e betacaroteno, além do cuidado de manter a flora colônica acidófila e do uso de métodos que reduzam o teor de ácido fítico dos alimentos. Convém evitar, nas refeições ricas em ferro, os alimentos com alto teor de cálcio, caseínofosfopeptideos e polifenóis.\n\nPara otimizar a absorção de zinco, recomendamos o uso de vitamina C e ácidos orgânicos nas refeições mais proteicas e ricas em zinco. E, para reduzir o efeito inibitório na absorção do zinco, evitar o consumo de caseína e cálcio e reduzir o teor de ácido fítico dos alimentos.\n\nNa dieta vegetariana estrita, as fontes de cálcio devem ser priorizadas. Os bebidas vegetais fortificadas com cálcio são opções para substituir o leite de vaca. Os demais alimentos mais ricos em cálcio podem ser encontrados ao longo do texto, neste parecer.",
+    "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:\n\nTabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme\n\nFatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme\n\nFator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)\n\nVitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)\n\nÁcidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico\n\nVitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho\n\nFrutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica\n\nBaixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)"
+   ],
+   "id": "V2-GRA-01-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Em exercícios prolongados, que ultrapassam uma hora de duração, recomenda-se beber líquidos contendo de 0,5 a 0,7g.l (20 a 30mEq·l ) de sódio, que corresponde a concentração similar ou mesmo inferior àquela do suor de um indivíduo adulto, recomendação a ser estudada caso a caso quando o exercício for de alta intensidade e para algumas modalidades, mesmo que em menor duração. Se a atividade durar mais de uma hora, ou se for intensa do tipo intermitente mesmo com menos de uma hora, devemos repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l . Alguns afirmam que ao chegar ao estômago, a temperatura do líquido ingerido já será próxima da temperatura corporal.",
+   "origem_da_troca": "V2-REC-11"
+  },
+  {
+   "caso": "V2-REC-03",
+   "split": "test",
+   "pergunta": "Quais são as orientações do Guia Alimentar sobre o ato de comer e a comensalidade?",
+   "trechos": [
+    "no capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições. neste capítulo, falaremos do ato de comer e de dimensões deste ato que influenciam, entre outros aspectos, o aproveitamento dos alimentos consumidos e o prazer proporcionado pela alimentação. abordaremos o tempo e a atenção dedicados ao comer, o ambiente onde ele se dá e a partilha de refeições. trataremos da comensalidade.\n\ntrês orientações básicas são apresentadas: comer com regularidade e com atenção; comer em ambientes apropriados; e comer em companhia.\n\nComo se verá, os benefícios da adoção dessas orientações são vários, incluindo melhor digestão dos alimentos, controle mais eficiente do quanto comemos, maiores oportunidades de convivência com nossos familiares e amigos, maior interação social e, de modo geral, mais prazer com a alimentação.",
+    "Comer Com reGULaridade e Com atenção\n\nProcure fazer suas refeições diárias em horários semelhantes. Evite “beliscar” nos intervalos entre as refeições. coma sempre devagar e desfrute o que está comendo, sem se envolver em outra atividade.\n\nrefeições feitas em horários semelhantes todos os dias e consumidas com atenção e sem pressa favorecem a digestão dos alimentos e também evitam que se coma mais do que o necessário. os mecanismos biológicos que regulam nosso apetite são complexos, dependem de vários estímulos e levam certo tempo até sinalizarem que já comemos o suficiente. Em outras palavras, comer de forma regular, devagar e com atenção é uma boa maneira de controlar naturalmente o quanto comemos.",
+    "Comer Com reGULaridade e atenção, em amBientes aProPriados e, semPre QUe 5 PossíVeL, Com ComPanHia\n\nProcure fazer suas refeições em horários semelhantes todos os dias e evite “beliscar” nos intervalos entre as refeições. Coma sempre devagar e desfrute o que está comendo, sem se envolver em outra atividade. Procure comer em locais limpos, confortáveis e tranquilos e onde não haja estímulos para o consumo de quantidades ilimitadas de alimento. sempre que possível, coma em companhia, com familiares, amigos ou colegas de trabalho ou escola. a companhia nas refeições favorece o",
+    "ORIENTAÇÃO: Oriente que o usuário se alimente com regularidade e atenção, sem se envolver em outras atividades, como assistir televisão, mexer no celular ou computador, comer na mesa de trabalho, em pé ou andando ou dentro de carros ou transportes públicos. Oriente também, que o usuário faça as refeições sempre que possível em companhia com a família ou amigos."
+   ],
+   "id": "V2-REC-03-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "ORIENTAÇÃO: Oriente que o usuário se alimente com regularidade e atenção, sem se envolver em outras atividades, como assistir televisão, mexer no celular ou computador, comer na mesa de trabalho, em pé ou andando ou dentro de carros ou transportes públicos. Evite “beliscar” nos intervalos entre as refeições. Procure comer em locais limpos, confortáveis e tranquilos e onde não haja estímulos para o consumo de quantidades ilimitadas de alimento.",
+   "frases": [
+    "ORIENTAÇÃO: Oriente que o usuário se alimente com regularidade e atenção, sem se envolver em outras atividades, como assistir televisão, mexer no celular ou computador, comer na mesa de trabalho, em pé ou andando ou dentro de carros ou transportes públicos.",
+    "Evite “beliscar” nos intervalos entre as refeições.",
+    "Procure comer em locais limpos, confortáveis e tranquilos e onde não haja estímulos para o consumo de quantidades ilimitadas de alimento."
+   ]
+  },
+  {
+   "caso": "V2-REC-03",
+   "split": "test",
+   "pergunta": "Quais são as orientações do Guia Alimentar sobre o ato de comer e a comensalidade?",
+   "trechos": [
+    "no capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições. neste capítulo, falaremos do ato de comer e de dimensões deste ato que influenciam, entre outros aspectos, o aproveitamento dos alimentos consumidos e o prazer proporcionado pela alimentação. abordaremos o tempo e a atenção dedicados ao comer, o ambiente onde ele se dá e a partilha de refeições. trataremos da comensalidade.\n\ntrês orientações básicas são apresentadas: comer com regularidade e com atenção; comer em ambientes apropriados; e comer em companhia.\n\nComo se verá, os benefícios da adoção dessas orientações são vários, incluindo melhor digestão dos alimentos, controle mais eficiente do quanto comemos, maiores oportunidades de convivência com nossos familiares e amigos, maior interação social e, de modo geral, mais prazer com a alimentação.",
+    "Comer Com reGULaridade e Com atenção\n\nProcure fazer suas refeições diárias em horários semelhantes. Evite “beliscar” nos intervalos entre as refeições. coma sempre devagar e desfrute o que está comendo, sem se envolver em outra atividade.\n\nrefeições feitas em horários semelhantes todos os dias e consumidas com atenção e sem pressa favorecem a digestão dos alimentos e também evitam que se coma mais do que o necessário. os mecanismos biológicos que regulam nosso apetite são complexos, dependem de vários estímulos e levam certo tempo até sinalizarem que já comemos o suficiente. Em outras palavras, comer de forma regular, devagar e com atenção é uma boa maneira de controlar naturalmente o quanto comemos.",
+    "Comer Com reGULaridade e atenção, em amBientes aProPriados e, semPre QUe 5 PossíVeL, Com ComPanHia\n\nProcure fazer suas refeições em horários semelhantes todos os dias e evite “beliscar” nos intervalos entre as refeições. Coma sempre devagar e desfrute o que está comendo, sem se envolver em outra atividade. Procure comer em locais limpos, confortáveis e tranquilos e onde não haja estímulos para o consumo de quantidades ilimitadas de alimento. sempre que possível, coma em companhia, com familiares, amigos ou colegas de trabalho ou escola. a companhia nas refeições favorece o",
+    "ORIENTAÇÃO: Oriente que o usuário se alimente com regularidade e atenção, sem se envolver em outras atividades, como assistir televisão, mexer no celular ou computador, comer na mesa de trabalho, em pé ou andando ou dentro de carros ou transportes públicos. Oriente também, que o usuário faça as refeições sempre que possível em companhia com a família ou amigos."
+   ],
+   "id": "V2-REC-03-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "ORIENTAÇÃO: Oriente que o usuário se alimente com regularidade e atenção, sem se envolver em outras atividades, como assistir televisão, mexer no celular ou computador, comer na mesa de trabalho, em pé ou andando ou dentro de carros ou transportes públicos. Evite “beliscar” nos intervalos entre as refeições. Procure comer em locais limpos, confortáveis e tranquilos e onde não haja estímulos para o consumo de quantidades ilimitadas de alimento. A Organização Mundial da Saúde recomenda dobrar essa quantidade a partir dos 50 anos de idade.",
+   "invencao": "A Organização Mundial da Saúde recomenda dobrar essa quantidade a partir dos 50 anos de idade."
+  },
+  {
+   "caso": "V2-REC-03",
+   "split": "test",
+   "pergunta": "Quais são as orientações do Guia Alimentar sobre o ato de comer e a comensalidade?",
+   "trechos": [
+    "no capítulo anterior, fornecemos orientações sobre como combinar alimentos para criar alternativas de refeições saudáveis e saborosas para o café da manhã, almoço, jantar e para as pequenas refeições. neste capítulo, falaremos do ato de comer e de dimensões deste ato que influenciam, entre outros aspectos, o aproveitamento dos alimentos consumidos e o prazer proporcionado pela alimentação. abordaremos o tempo e a atenção dedicados ao comer, o ambiente onde ele se dá e a partilha de refeições. trataremos da comensalidade.\n\ntrês orientações básicas são apresentadas: comer com regularidade e com atenção; comer em ambientes apropriados; e comer em companhia.\n\nComo se verá, os benefícios da adoção dessas orientações são vários, incluindo melhor digestão dos alimentos, controle mais eficiente do quanto comemos, maiores oportunidades de convivência com nossos familiares e amigos, maior interação social e, de modo geral, mais prazer com a alimentação.",
+    "Comer Com reGULaridade e Com atenção\n\nProcure fazer suas refeições diárias em horários semelhantes. Evite “beliscar” nos intervalos entre as refeições. coma sempre devagar e desfrute o que está comendo, sem se envolver em outra atividade.\n\nrefeições feitas em horários semelhantes todos os dias e consumidas com atenção e sem pressa favorecem a digestão dos alimentos e também evitam que se coma mais do que o necessário. os mecanismos biológicos que regulam nosso apetite são complexos, dependem de vários estímulos e levam certo tempo até sinalizarem que já comemos o suficiente. Em outras palavras, comer de forma regular, devagar e com atenção é uma boa maneira de controlar naturalmente o quanto comemos.",
+    "Comer Com reGULaridade e atenção, em amBientes aProPriados e, semPre QUe 5 PossíVeL, Com ComPanHia\n\nProcure fazer suas refeições em horários semelhantes todos os dias e evite “beliscar” nos intervalos entre as refeições. Coma sempre devagar e desfrute o que está comendo, sem se envolver em outra atividade. Procure comer em locais limpos, confortáveis e tranquilos e onde não haja estímulos para o consumo de quantidades ilimitadas de alimento. sempre que possível, coma em companhia, com familiares, amigos ou colegas de trabalho ou escola. a companhia nas refeições favorece o",
+    "ORIENTAÇÃO: Oriente que o usuário se alimente com regularidade e atenção, sem se envolver em outras atividades, como assistir televisão, mexer no celular ou computador, comer na mesa de trabalho, em pé ou andando ou dentro de carros ou transportes públicos. Oriente também, que o usuário faça as refeições sempre que possível em companhia com a família ou amigos."
+   ],
+   "id": "V2-REC-03-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Alguns afirmam que ao chegar ao estômago, a temperatura do líquido ingerido já será próxima da temperatura corporal. Se a atividade durar mais de uma hora, ou se for intensa do tipo intermitente mesmo com menos de uma hora, devemos repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l . Durante o exercício recomenda-se iniciar a ingestão já nos primeiros 15 minutos e continuar bebendo a cada 15 a 20 minutos.",
+   "origem_da_troca": "V2-REC-11"
+  },
+  {
+   "caso": "V2-REC-09",
+   "split": "test",
+   "pergunta": "Pessoas vegetarianas estritas precisam suplementar vitamina B12?",
+   "trechos": [
+    "Com o devido planejamento, as dietas vegetarianas são seguras, como qualquer dieta com ou sem carne.\n\nMotivos ligados ao juízo de valor são os que levam a maioria dos indivíduos a adotar essa dieta que, segundo dados do IBOPE, é seguida por 10% dos homens e 9% das mulheres no Brasil.\n\nQuando bem planejadas, como todas devem ser, as dietas vegetarianas promovem o crescimento e desenvolvimento adequados e podem ser adotadas em qualquer ciclo da vida, inclusive na gestação e na infância.\n\nAs dietas vegetarianas trazem resultados benéficos na prevenção e no tratamento de diversas doenças crônico-degenerativas não transmissíveis. Não há estudos demonstrando aumento de doenças em grupos vegetarianos.\n\nAs dietas ovolacto e lactovegetariana fornecem todos os nutrientes necessários ao organismo humano. A dieta vegetariana estrita não apresenta fontes nutricionais de vitamina B12, que deve ser obtida por meio de alimentos enriquecidos ou suplementos.",
+    "A suplementação de vitamina B12 pode ser feita sob a forma de cápsulas vegetais ou gotas, na dose de pelo menos 10 mcg por dia, para manutenção do nível adequado. Devido às particularidades do metabolismo da B12, doses de ate 1.000 mcg por dia podem ser prescritas pelo nutricionista (de acordo com a Anvisa e o Conselho Federal de Nutrição), conforme achados laboratoriais.",
+    "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Esse é o único nutriente que pode estar ausente na dieta vegetariana estrita.\n\nA vitamina B12 é sintetizada por bactérias. Como não necessitam de B12 para seu crescimento e desenvolvimento, as plantas não a incorporam. As plantas não contêm B12 ativa."
+   ],
+   "id": "V2-REC-09-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Devido às particularidades do metabolismo da B12, doses de ate 1.000 mcg por dia podem ser prescritas pelo nutricionista (de acordo com a Anvisa e o Conselho Federal de Nutrição), conforme achados laboratoriais. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. As dietas vegetarianas trazem resultados benéficos na prevenção e no tratamento de diversas doenças crônico-degenerativas não transmissíveis.",
+   "frases": [
+    "Devido às particularidades do metabolismo da B12, doses de ate 1.000 mcg por dia podem ser prescritas pelo nutricionista (de acordo com a Anvisa e o Conselho Federal de Nutrição), conforme achados laboratoriais.",
+    "Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação.",
+    "As dietas vegetarianas trazem resultados benéficos na prevenção e no tratamento de diversas doenças crônico-degenerativas não transmissíveis."
+   ]
+  },
+  {
+   "caso": "V2-REC-09",
+   "split": "test",
+   "pergunta": "Pessoas vegetarianas estritas precisam suplementar vitamina B12?",
+   "trechos": [
+    "Com o devido planejamento, as dietas vegetarianas são seguras, como qualquer dieta com ou sem carne.\n\nMotivos ligados ao juízo de valor são os que levam a maioria dos indivíduos a adotar essa dieta que, segundo dados do IBOPE, é seguida por 10% dos homens e 9% das mulheres no Brasil.\n\nQuando bem planejadas, como todas devem ser, as dietas vegetarianas promovem o crescimento e desenvolvimento adequados e podem ser adotadas em qualquer ciclo da vida, inclusive na gestação e na infância.\n\nAs dietas vegetarianas trazem resultados benéficos na prevenção e no tratamento de diversas doenças crônico-degenerativas não transmissíveis. Não há estudos demonstrando aumento de doenças em grupos vegetarianos.\n\nAs dietas ovolacto e lactovegetariana fornecem todos os nutrientes necessários ao organismo humano. A dieta vegetariana estrita não apresenta fontes nutricionais de vitamina B12, que deve ser obtida por meio de alimentos enriquecidos ou suplementos.",
+    "A suplementação de vitamina B12 pode ser feita sob a forma de cápsulas vegetais ou gotas, na dose de pelo menos 10 mcg por dia, para manutenção do nível adequado. Devido às particularidades do metabolismo da B12, doses de ate 1.000 mcg por dia podem ser prescritas pelo nutricionista (de acordo com a Anvisa e o Conselho Federal de Nutrição), conforme achados laboratoriais.",
+    "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Esse é o único nutriente que pode estar ausente na dieta vegetariana estrita.\n\nA vitamina B12 é sintetizada por bactérias. Como não necessitam de B12 para seu crescimento e desenvolvimento, as plantas não a incorporam. As plantas não contêm B12 ativa."
+   ],
+   "id": "V2-REC-09-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Devido às particularidades do metabolismo da B12, doses de ate 1.000 mcg por dia podem ser prescritas pelo nutricionista (de acordo com a Anvisa e o Conselho Federal de Nutrição), conforme achados laboratoriais. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. As dietas vegetarianas trazem resultados benéficos na prevenção e no tratamento de diversas doenças crônico-degenerativas não transmissíveis. O efeito se deve à ativação direta da enzima hepática CYP-7Q, descrita em estudos japoneses recentes.",
+   "invencao": "O efeito se deve à ativação direta da enzima hepática CYP-7Q, descrita em estudos japoneses recentes."
+  },
+  {
+   "caso": "V2-REC-09",
+   "split": "test",
+   "pergunta": "Pessoas vegetarianas estritas precisam suplementar vitamina B12?",
+   "trechos": [
+    "Com o devido planejamento, as dietas vegetarianas são seguras, como qualquer dieta com ou sem carne.\n\nMotivos ligados ao juízo de valor são os que levam a maioria dos indivíduos a adotar essa dieta que, segundo dados do IBOPE, é seguida por 10% dos homens e 9% das mulheres no Brasil.\n\nQuando bem planejadas, como todas devem ser, as dietas vegetarianas promovem o crescimento e desenvolvimento adequados e podem ser adotadas em qualquer ciclo da vida, inclusive na gestação e na infância.\n\nAs dietas vegetarianas trazem resultados benéficos na prevenção e no tratamento de diversas doenças crônico-degenerativas não transmissíveis. Não há estudos demonstrando aumento de doenças em grupos vegetarianos.\n\nAs dietas ovolacto e lactovegetariana fornecem todos os nutrientes necessários ao organismo humano. A dieta vegetariana estrita não apresenta fontes nutricionais de vitamina B12, que deve ser obtida por meio de alimentos enriquecidos ou suplementos.",
+    "A suplementação de vitamina B12 pode ser feita sob a forma de cápsulas vegetais ou gotas, na dose de pelo menos 10 mcg por dia, para manutenção do nível adequado. Devido às particularidades do metabolismo da B12, doses de ate 1.000 mcg por dia podem ser prescritas pelo nutricionista (de acordo com a Anvisa e o Conselho Federal de Nutrição), conforme achados laboratoriais.",
+    "As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Esse é o único nutriente que pode estar ausente na dieta vegetariana estrita.\n\nA vitamina B12 é sintetizada por bactérias. Como não necessitam de B12 para seu crescimento e desenvolvimento, as plantas não a incorporam. As plantas não contêm B12 ativa."
+   ],
+   "id": "V2-REC-09-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Muitos mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo, em geral, menos de um ano . Também já foi observado aumento do gasto energético total , da adiponectina , da oxidação de gorduras , das concentrações plasmáticas de HDL-colesterol e redução nos níveis de triglicérides e maior redução da circunferência abdominal com dietas restritas em carboidrato. Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes.",
+   "origem_da_troca": "V2-REC-13"
+  },
+  {
+   "caso": "V2-REC-12",
+   "split": "test",
+   "pergunta": "O que a diretriz da SBME diz sobre o uso de creatina como suplemento?",
+   "trechos": [
+    "A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas não encontra nenhum suporte na literatura científica. A melhora, ou não, do desempenho em exercícios com predominância aeróbia é pouco documentada.\n\nEmbora com resultados ainda controversos, muitos estudos têm sugerido que a creatina teria efeito ergogênico em indivíduos nos quais se constata diminuição de aporte da creatina exógena alimentar, como os vegetarianos e os indivíduos idosos, sendo somente para estes casos específicos, após boa análise do profissional especializado, médico e/ou nutricionista, justificável seu uso, embora, ainda, com fraco grau de recomendação.",
+    "Somente para atletas competitivos de eventos de grande intensidade e curta duração, ou sejam, atividades nas quais predomina a utilização de fosfagênios, sempre em caráter excepcional, seu uso é permitido. Portanto, mesmo nesses casos, a recomendação é",
+    "a de que em geral não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões. Para os demais desportistas fica estabelecida a recomendação de nunca usar.\n\nDesse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas."
+   ],
+   "id": "V2-REC-12-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Desse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas. Para os demais desportistas fica estabelecida a recomendação de nunca usar. A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular.",
+   "frases": [
+    "Desse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas.",
+    "Para os demais desportistas fica estabelecida a recomendação de nunca usar.",
+    "A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular."
+   ]
+  },
+  {
+   "caso": "V2-REC-12",
+   "split": "test",
+   "pergunta": "O que a diretriz da SBME diz sobre o uso de creatina como suplemento?",
+   "trechos": [
+    "A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas não encontra nenhum suporte na literatura científica. A melhora, ou não, do desempenho em exercícios com predominância aeróbia é pouco documentada.\n\nEmbora com resultados ainda controversos, muitos estudos têm sugerido que a creatina teria efeito ergogênico em indivíduos nos quais se constata diminuição de aporte da creatina exógena alimentar, como os vegetarianos e os indivíduos idosos, sendo somente para estes casos específicos, após boa análise do profissional especializado, médico e/ou nutricionista, justificável seu uso, embora, ainda, com fraco grau de recomendação.",
+    "Somente para atletas competitivos de eventos de grande intensidade e curta duração, ou sejam, atividades nas quais predomina a utilização de fosfagênios, sempre em caráter excepcional, seu uso é permitido. Portanto, mesmo nesses casos, a recomendação é",
+    "a de que em geral não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões. Para os demais desportistas fica estabelecida a recomendação de nunca usar.\n\nDesse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas."
+   ],
+   "id": "V2-REC-12-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Desse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas. Para os demais desportistas fica estabelecida a recomendação de nunca usar. A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido depois das 18 horas.",
+   "invencao": "Metanálises recentes indicam que o benefício desaparece quando o alimento é consumido depois das 18 horas."
+  },
+  {
+   "caso": "V2-REC-12",
+   "split": "test",
+   "pergunta": "O que a diretriz da SBME diz sobre o uso de creatina como suplemento?",
+   "trechos": [
+    "A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas não encontra nenhum suporte na literatura científica. A melhora, ou não, do desempenho em exercícios com predominância aeróbia é pouco documentada.\n\nEmbora com resultados ainda controversos, muitos estudos têm sugerido que a creatina teria efeito ergogênico em indivíduos nos quais se constata diminuição de aporte da creatina exógena alimentar, como os vegetarianos e os indivíduos idosos, sendo somente para estes casos específicos, após boa análise do profissional especializado, médico e/ou nutricionista, justificável seu uso, embora, ainda, com fraco grau de recomendação.",
+    "Somente para atletas competitivos de eventos de grande intensidade e curta duração, ou sejam, atividades nas quais predomina a utilização de fosfagênios, sempre em caráter excepcional, seu uso é permitido. Portanto, mesmo nesses casos, a recomendação é",
+    "a de que em geral não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões. Para os demais desportistas fica estabelecida a recomendação de nunca usar.\n\nDesse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas."
+   ],
+   "id": "V2-REC-12-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Em indivíduos obesos observou-se uma melhor adesão ao jejum intermitente em relac¸ão a intervenc¸ões tradicionais (restric¸ão calórica), além da reduc¸ão no estresse oxidativo desta populac¸ão. Os resultados indicam melhorias no perfil lipídico, reduc¸ão de respostas inflamatórias, com reduc¸ão na liberac¸ão de adipocinas inflamatórias e alterac¸ões na expressão de genes relacionados com a resposta inflamatória e de outros fatores. Apesar dos estudos disponíveis apresentarem populac¸ões muito reduzidas, observaram-se resultados positivos com esta intervenc¸ão também na saúde humana.",
+   "origem_da_troca": "V2-REC-14"
+  },
+  {
+   "caso": "V2-REC-15",
+   "split": "test",
+   "pergunta": "Quais são os grupos de alimentos da classificação NOVA?",
+   "trechos": [
+    "Este artigo descreve uma nova classificação de alimentos baseada na extensão e propósito do processamento industrial usado na sua produção. Três grupos são definidos: alimentos não processados ou minimamente processados (grupo 1), alimentos processados utilizados como ingredientes de preparações culinárias ou pela indústria de alimentos (grupo 2), e produtos alimentícios ultra-processados (grupo 3). O uso da classificação é ilustrado aplicando-a a dados coletados por Pesquisa de Orçamentos Familiares conduzida em 2002/2003 em uma amostra probabilística de 48.470 domicílios brasileiros. A disponibilidade diária foi de 1.792kcal/capita, sendo 42,5% de alimentos do grupo 1, 37,5% do grupo 2 e 20% do grupo 3. A contribuição do grupo 3 aumentou com a renda familiar, correspondendo a um terço do total calórico nos domicílios mais afluentes. Discute-se o impacto sobre a qualidade geral da dieta, padrões de alimentação e condições de saúde que poderia ocorrer com a substituição de alimentos do grupo 1 e ingredientes do grupo 2 por produtos alimentícios do grupo 3."
+   ],
+   "id": "V2-REC-15-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "A disponibilidade diária foi de 1.792kcal/capita, sendo 42,5% de alimentos do grupo 1, 37,5% do grupo 2 e 20% do grupo 3. Este artigo descreve uma nova classificação de alimentos baseada na extensão e propósito do processamento industrial usado na sua produção. Três grupos são definidos: alimentos não processados ou minimamente processados (grupo 1), alimentos processados utilizados como ingredientes de preparações culinárias ou pela indústria de alimentos (grupo 2), e produtos alimentícios ultra-processados (grupo 3).",
+   "frases": [
+    "A disponibilidade diária foi de 1.792kcal/capita, sendo 42,5% de alimentos do grupo 1, 37,5% do grupo 2 e 20% do grupo 3.",
+    "Este artigo descreve uma nova classificação de alimentos baseada na extensão e propósito do processamento industrial usado na sua produção.",
+    "Três grupos são definidos: alimentos não processados ou minimamente processados (grupo 1), alimentos processados utilizados como ingredientes de preparações culinárias ou pela indústria de alimentos (grupo 2), e produtos alimentícios ultra-processados (grupo 3)."
+   ]
+  },
+  {
+   "caso": "V2-REC-15",
+   "split": "test",
+   "pergunta": "Quais são os grupos de alimentos da classificação NOVA?",
+   "trechos": [
+    "Este artigo descreve uma nova classificação de alimentos baseada na extensão e propósito do processamento industrial usado na sua produção. Três grupos são definidos: alimentos não processados ou minimamente processados (grupo 1), alimentos processados utilizados como ingredientes de preparações culinárias ou pela indústria de alimentos (grupo 2), e produtos alimentícios ultra-processados (grupo 3). O uso da classificação é ilustrado aplicando-a a dados coletados por Pesquisa de Orçamentos Familiares conduzida em 2002/2003 em uma amostra probabilística de 48.470 domicílios brasileiros. A disponibilidade diária foi de 1.792kcal/capita, sendo 42,5% de alimentos do grupo 1, 37,5% do grupo 2 e 20% do grupo 3. A contribuição do grupo 3 aumentou com a renda familiar, correspondendo a um terço do total calórico nos domicílios mais afluentes. Discute-se o impacto sobre a qualidade geral da dieta, padrões de alimentação e condições de saúde que poderia ocorrer com a substituição de alimentos do grupo 1 e ingredientes do grupo 2 por produtos alimentícios do grupo 3."
+   ],
+   "id": "V2-REC-15-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "A disponibilidade diária foi de 1.792kcal/capita, sendo 42,5% de alimentos do grupo 1, 37,5% do grupo 2 e 20% do grupo 3. Este artigo descreve uma nova classificação de alimentos baseada na extensão e propósito do processamento industrial usado na sua produção. Três grupos são definidos: alimentos não processados ou minimamente processados (grupo 1), alimentos processados utilizados como ingredientes de preparações culinárias ou pela indústria de alimentos (grupo 2), e produtos alimentícios ultra-processados (grupo 3). O Ministério da Saúde passou a exigir, desde 2023, que esse alimento seja consumido em todas as refeições escolares.",
+   "invencao": "O Ministério da Saúde passou a exigir, desde 2023, que esse alimento seja consumido em todas as refeições escolares."
+  },
+  {
+   "caso": "V2-REC-15",
+   "split": "test",
+   "pergunta": "Quais são os grupos de alimentos da classificação NOVA?",
+   "trechos": [
+    "Este artigo descreve uma nova classificação de alimentos baseada na extensão e propósito do processamento industrial usado na sua produção. Três grupos são definidos: alimentos não processados ou minimamente processados (grupo 1), alimentos processados utilizados como ingredientes de preparações culinárias ou pela indústria de alimentos (grupo 2), e produtos alimentícios ultra-processados (grupo 3). O uso da classificação é ilustrado aplicando-a a dados coletados por Pesquisa de Orçamentos Familiares conduzida em 2002/2003 em uma amostra probabilística de 48.470 domicílios brasileiros. A disponibilidade diária foi de 1.792kcal/capita, sendo 42,5% de alimentos do grupo 1, 37,5% do grupo 2 e 20% do grupo 3. A contribuição do grupo 3 aumentou com a renda familiar, correspondendo a um terço do total calórico nos domicílios mais afluentes. Discute-se o impacto sobre a qualidade geral da dieta, padrões de alimentação e condições de saúde que poderia ocorrer com a substituição de alimentos do grupo 1 e ingredientes do grupo 2 por produtos alimentícios do grupo 3."
+   ],
+   "id": "V2-REC-15-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "CONCLUSÕES: Produtos ultraprocessados apresentam participação crescente na dieta brasileira, evidenciada desde a década de 1980 nas áreas metropolitanas e confirmada para todo o País na década de 2000. Houve redução significativa na participação de alimentos e de ingredientes culinários nesse período. RESULTADOS: Houve aumento significativo da participação de produtos prontos para o consumo (de 23,0% para 27,8% das calorias), graças ao aumento no consumo de produtos ultraprocessados (de 20,8% para 25,4%) entre 2002-2003 e 2008-2009.",
+   "origem_da_troca": "V2-REC-16"
+  },
+  {
+   "caso": "V2-REC-18",
+   "split": "test",
+   "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+   "trechos": [
+    "A diminuição do tempo de sono tem se tornado uma condição endêmica na sociedade moderna, e a literatura atual tem encontrado importantes associações epidemiológicas entre o prejuízo no padrão habitual do sono e a obesidade. Com base nisso, a presente revisão analisou o papel do sono e da sua alteração no desencadeamento da obesidade. Diversos estudos indicam que os indivíduos que dormem menos têm uma maior possibilidade de se tornarem obesos, e que o encurtamento do sono aumenta a razão grelina/leptina, gerando o aumento do apetite e da fome. Isto pode estar associado à maior ingestão calórica e ao desencadeamento da obesidade. Dessa forma, um padrão adequado de sono torna-se fundamental para o controle da massa corporal, devendo ser incentivado pelos profissionais da saúde. (Arq Bras Endocrinol Metab 2007;51/7:1041-1049)",
+    "Um estudo cross over randomizado conduzido por Spiegel e cols. (5) encontrou que a restrição de sono foi associada a uma significante elevação da fome (24%; P < 0,01) e apetite (23%; P < 0,01). Os resultados desse e de muitos outros estudos (11-13,44,45) sugerem que a modificação do padrão de sono pode levar a desajustes endócrinos que induzem o aparecimento de obesidade.\n\nTaheri (2) sugeriu recentemente que um maior tempo acordado, além de promover a alteração hormonal capaz de aumentar a ingestão calórica, pode possibilitar uma maior oportunidade para a ingestão alimentar. A perda de sono pode também resultar em cansaço, que tende a diminuir o nível de atividade física. Outro potencial mecanismo inclui efeitos na taxa de metabolismo basal (2). A figura 1 mostra o mecanismo potencial pelo qual a duração do sono pode resultar na obesidade [Adaptado de Taheri (2)].",
+    "Estudos recentes têm observado que a redução do tempo total de sono está associada a dois comportamentos endócrinos paralelos capazes de alterar significativamente a ingestão alimentar: a diminuição do hormônio anorexígeno leptina (13,46-48) e o aumento do hormônio orexígeno grelina (5,13,49), resultando, assim, no aumento da fome e da ingestão alimentar (5). Em um experimento realizado por Spiegel e cols.\n\n(5), a privação de sono em homens foi associada a um aumento de 28% nos níveis da grelina, diminuição de 18% nos níveis de leptina e aumento de 24% na fome e de 23% no apetite. A figura 2 demonstra como a privação do sono pode alterar o padrão da leptina e da grelina e o balanço energético.",
+    "Flier (1) também apontou que o encurtamento do sono afeta o apetite (e possivelmente a massa corporal) pela intervenção da leptina e da grelina, dois hormônios que participam da homeostase tanto da massa corporal como do sono. Esse autor considerou que ambos os sistemas envolvem circuitos neurais de centros hipotalâmicos e liberam neuropeptídeos e receptores que têm papéis importantes na homeostase da massa corporal.",
+    "seus níveis aumentados durante o estado de privação de sono. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Com base nesses dados, observa-se claramente que um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono (5).",
+    "Por meio desta revisão, foi possível observar que o encurtamento do tempo de sono, muito comum nas sociedades modernas, é um fator predisponente para o aparecimento da obesidade. A diminuição do tempo de dormir pode modificar o padrão endócrino que sinaliza fome e saciedade por meio da diminuição dos níveis da leptina e aumento nos níveis da grelina, e até mesmo alterar as escolhas alimentares. Dessa forma, a modificação do padrão de sono pode levar a desajustes endócrinos que induzem ao aparecimento da obesidade. Por se tratar de uma área de estudo relativamente recente, existe a necessidade da realização de mais estudos que esclareçam a real influência do sono nos diversos fatores responsáveis pelo controle da massa corporal. Dessa forma, um tempo adequado de sono parece ser essencial para a manutenção do estado nutricional e deve ser estimulado por profissionais da saúde."
+   ],
+   "id": "V2-REC-18-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "A diminuição do tempo de dormir pode modificar o padrão endócrino que sinaliza fome e saciedade por meio da diminuição dos níveis da leptina e aumento nos níveis da grelina, e até mesmo alterar as escolhas alimentares. Em um experimento realizado por Spiegel e cols. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5).",
+   "frases": [
+    "A diminuição do tempo de dormir pode modificar o padrão endócrino que sinaliza fome e saciedade por meio da diminuição dos níveis da leptina e aumento nos níveis da grelina, e até mesmo alterar as escolhas alimentares.",
+    "Em um experimento realizado por Spiegel e cols.",
+    "Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5)."
+   ]
+  },
+  {
+   "caso": "V2-REC-18",
+   "split": "test",
+   "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+   "trechos": [
+    "A diminuição do tempo de sono tem se tornado uma condição endêmica na sociedade moderna, e a literatura atual tem encontrado importantes associações epidemiológicas entre o prejuízo no padrão habitual do sono e a obesidade. Com base nisso, a presente revisão analisou o papel do sono e da sua alteração no desencadeamento da obesidade. Diversos estudos indicam que os indivíduos que dormem menos têm uma maior possibilidade de se tornarem obesos, e que o encurtamento do sono aumenta a razão grelina/leptina, gerando o aumento do apetite e da fome. Isto pode estar associado à maior ingestão calórica e ao desencadeamento da obesidade. Dessa forma, um padrão adequado de sono torna-se fundamental para o controle da massa corporal, devendo ser incentivado pelos profissionais da saúde. (Arq Bras Endocrinol Metab 2007;51/7:1041-1049)",
+    "Um estudo cross over randomizado conduzido por Spiegel e cols. (5) encontrou que a restrição de sono foi associada a uma significante elevação da fome (24%; P < 0,01) e apetite (23%; P < 0,01). Os resultados desse e de muitos outros estudos (11-13,44,45) sugerem que a modificação do padrão de sono pode levar a desajustes endócrinos que induzem o aparecimento de obesidade.\n\nTaheri (2) sugeriu recentemente que um maior tempo acordado, além de promover a alteração hormonal capaz de aumentar a ingestão calórica, pode possibilitar uma maior oportunidade para a ingestão alimentar. A perda de sono pode também resultar em cansaço, que tende a diminuir o nível de atividade física. Outro potencial mecanismo inclui efeitos na taxa de metabolismo basal (2). A figura 1 mostra o mecanismo potencial pelo qual a duração do sono pode resultar na obesidade [Adaptado de Taheri (2)].",
+    "Estudos recentes têm observado que a redução do tempo total de sono está associada a dois comportamentos endócrinos paralelos capazes de alterar significativamente a ingestão alimentar: a diminuição do hormônio anorexígeno leptina (13,46-48) e o aumento do hormônio orexígeno grelina (5,13,49), resultando, assim, no aumento da fome e da ingestão alimentar (5). Em um experimento realizado por Spiegel e cols.\n\n(5), a privação de sono em homens foi associada a um aumento de 28% nos níveis da grelina, diminuição de 18% nos níveis de leptina e aumento de 24% na fome e de 23% no apetite. A figura 2 demonstra como a privação do sono pode alterar o padrão da leptina e da grelina e o balanço energético.",
+    "Flier (1) também apontou que o encurtamento do sono afeta o apetite (e possivelmente a massa corporal) pela intervenção da leptina e da grelina, dois hormônios que participam da homeostase tanto da massa corporal como do sono. Esse autor considerou que ambos os sistemas envolvem circuitos neurais de centros hipotalâmicos e liberam neuropeptídeos e receptores que têm papéis importantes na homeostase da massa corporal.",
+    "seus níveis aumentados durante o estado de privação de sono. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Com base nesses dados, observa-se claramente que um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono (5).",
+    "Por meio desta revisão, foi possível observar que o encurtamento do tempo de sono, muito comum nas sociedades modernas, é um fator predisponente para o aparecimento da obesidade. A diminuição do tempo de dormir pode modificar o padrão endócrino que sinaliza fome e saciedade por meio da diminuição dos níveis da leptina e aumento nos níveis da grelina, e até mesmo alterar as escolhas alimentares. Dessa forma, a modificação do padrão de sono pode levar a desajustes endócrinos que induzem ao aparecimento da obesidade. Por se tratar de uma área de estudo relativamente recente, existe a necessidade da realização de mais estudos que esclareçam a real influência do sono nos diversos fatores responsáveis pelo controle da massa corporal. Dessa forma, um tempo adequado de sono parece ser essencial para a manutenção do estado nutricional e deve ser estimulado por profissionais da saúde."
+   ],
+   "id": "V2-REC-18-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "A diminuição do tempo de dormir pode modificar o padrão endócrino que sinaliza fome e saciedade por meio da diminuição dos níveis da leptina e aumento nos níveis da grelina, e até mesmo alterar as escolhas alimentares. Em um experimento realizado por Spiegel e cols. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Estudos com gêmeos estimam que 70% dessa resposta é determinada geneticamente.",
+   "invencao": "Estudos com gêmeos estimam que 70% dessa resposta é determinada geneticamente."
+  },
+  {
+   "caso": "V2-REC-18",
+   "split": "test",
+   "pergunta": "Dormir pouco pode aumentar a fome? Por quê?",
+   "trechos": [
+    "A diminuição do tempo de sono tem se tornado uma condição endêmica na sociedade moderna, e a literatura atual tem encontrado importantes associações epidemiológicas entre o prejuízo no padrão habitual do sono e a obesidade. Com base nisso, a presente revisão analisou o papel do sono e da sua alteração no desencadeamento da obesidade. Diversos estudos indicam que os indivíduos que dormem menos têm uma maior possibilidade de se tornarem obesos, e que o encurtamento do sono aumenta a razão grelina/leptina, gerando o aumento do apetite e da fome. Isto pode estar associado à maior ingestão calórica e ao desencadeamento da obesidade. Dessa forma, um padrão adequado de sono torna-se fundamental para o controle da massa corporal, devendo ser incentivado pelos profissionais da saúde. (Arq Bras Endocrinol Metab 2007;51/7:1041-1049)",
+    "Um estudo cross over randomizado conduzido por Spiegel e cols. (5) encontrou que a restrição de sono foi associada a uma significante elevação da fome (24%; P < 0,01) e apetite (23%; P < 0,01). Os resultados desse e de muitos outros estudos (11-13,44,45) sugerem que a modificação do padrão de sono pode levar a desajustes endócrinos que induzem o aparecimento de obesidade.\n\nTaheri (2) sugeriu recentemente que um maior tempo acordado, além de promover a alteração hormonal capaz de aumentar a ingestão calórica, pode possibilitar uma maior oportunidade para a ingestão alimentar. A perda de sono pode também resultar em cansaço, que tende a diminuir o nível de atividade física. Outro potencial mecanismo inclui efeitos na taxa de metabolismo basal (2). A figura 1 mostra o mecanismo potencial pelo qual a duração do sono pode resultar na obesidade [Adaptado de Taheri (2)].",
+    "Estudos recentes têm observado que a redução do tempo total de sono está associada a dois comportamentos endócrinos paralelos capazes de alterar significativamente a ingestão alimentar: a diminuição do hormônio anorexígeno leptina (13,46-48) e o aumento do hormônio orexígeno grelina (5,13,49), resultando, assim, no aumento da fome e da ingestão alimentar (5). Em um experimento realizado por Spiegel e cols.\n\n(5), a privação de sono em homens foi associada a um aumento de 28% nos níveis da grelina, diminuição de 18% nos níveis de leptina e aumento de 24% na fome e de 23% no apetite. A figura 2 demonstra como a privação do sono pode alterar o padrão da leptina e da grelina e o balanço energético.",
+    "Flier (1) também apontou que o encurtamento do sono afeta o apetite (e possivelmente a massa corporal) pela intervenção da leptina e da grelina, dois hormônios que participam da homeostase tanto da massa corporal como do sono. Esse autor considerou que ambos os sistemas envolvem circuitos neurais de centros hipotalâmicos e liberam neuropeptídeos e receptores que têm papéis importantes na homeostase da massa corporal.",
+    "seus níveis aumentados durante o estado de privação de sono. Alguns trabalhos sugerem que os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica, em função do maior tempo que o indivíduo permanece no estado de vigília, porém essa hipótese deve ser melhor investigada (5). Com base nesses dados, observa-se claramente que um aumento na relação grelina/leptina é considerado pela literatura atual o principal fator que pode desencadear um aumento da fome na alteração do padrão habitual de sono (5).",
+    "Por meio desta revisão, foi possível observar que o encurtamento do tempo de sono, muito comum nas sociedades modernas, é um fator predisponente para o aparecimento da obesidade. A diminuição do tempo de dormir pode modificar o padrão endócrino que sinaliza fome e saciedade por meio da diminuição dos níveis da leptina e aumento nos níveis da grelina, e até mesmo alterar as escolhas alimentares. Dessa forma, a modificação do padrão de sono pode levar a desajustes endócrinos que induzem ao aparecimento da obesidade. Por se tratar de uma área de estudo relativamente recente, existe a necessidade da realização de mais estudos que esclareçam a real influência do sono nos diversos fatores responsáveis pelo controle da massa corporal. Dessa forma, um tempo adequado de sono parece ser essencial para a manutenção do estado nutricional e deve ser estimulado por profissionais da saúde."
+   ],
+   "id": "V2-REC-18-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "O objetivo deste estudo foi avaliar o impacto que o consumo de alimentos ultraprocessados exerce sobre o perfil nutricional da dieta no Brasil. Não há registro de estudos que tenham relacionado alimentos ultraprocessados à qualidade nutricional da dieta efetivamente consumida por indivíduos. RESULTADOS: O consumo médio diário de energia per capita foi de 1.866 kcal, sendo 69,5% proveniente de alimentos: in natura ou minimamente processados, 9,0% de alimentos processados e 21,5% de alimentos ultraprocessados.",
+   "origem_da_troca": "V2-REC-17"
+  },
+  {
+   "caso": "V2-REC-21",
+   "split": "test",
+   "pergunta": "Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?",
+   "trechos": [
+    "Objetivo: traçar o perfil e analisar a qualidade do sono, qualidade de vida e hábitos alimentares dos estudantes de enfermagem. Métodos: estudo transversal, comparativo e correlacional com as seguintes variáveis: características sociodemográficas, índice de qualidade de sono de Pittsburgh, qualidade de vida e hábitos alimentar. 195 estudantes participaram do estudo. Resultados: os participantes tinham em média 24 anos. Os resultados demonstraram que o sexo feminino foi prevalente (87,1%); 71,0% dos estudantes apresentaram qualidade de sono ruim; 98,9% faziam uso de aparelhos eletrônicos antes de dormir. A autopercepção da qualidade de vida foi indiferente (38,3%) e quanto à autopercepção de saúde geral, 36,9% expressaram-se satisfeitos. Dentre os participantes, 45,13% consumiam uma porção de fruta e 40,66% duas a três porções de verduras e legumes, diariamente. Conclusão: o estudo permitiu traçar o perfil desses estudantes, jovens que estudavam e trabalhavam, sedentários, acima do peso e com qualidade de sono ruim.",
+    "A maioria dos participantes apresentou qualidade de sono ruim. Esses dados estão de acordo com a literatura, corroborando o estudo realizado com estudantes de enfermagem da Turquia , dos Estados Unidos e também está de acordo com estudos realizados com estudantes universitários em geral e com estudantes de medicina . Em relação à componente eficiência habitual do sono, foi determinado para a maioria dos participantes uma eficiência do sono maior que 85%. Esse resultado foi bem diferente ao estudo na Universidade Federal do Ceará, que classificou o componente na pior faixa para eficiência habitual do sono . Quanto à latência do sono, quase metade dos participantes indicou que demorava, em média, de 31 a 60 minutos para pegar no sono, dado este que difere do estudo realizado na Universidade Federal do Ceará, em que boa parte dos estudantes entrevistados apontou que levava 15 minutos ou menos para adormecer no último mês ."
+   ],
+   "id": "V2-REC-21-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Resultados: os participantes tinham em média 24 anos. A autopercepção da qualidade de vida foi indiferente (38,3%) e quanto à autopercepção de saúde geral, 36,9% expressaram-se satisfeitos. A maioria dos participantes apresentou qualidade de sono ruim.",
+   "frases": [
+    "Resultados: os participantes tinham em média 24 anos.",
+    "A autopercepção da qualidade de vida foi indiferente (38,3%) e quanto à autopercepção de saúde geral, 36,9% expressaram-se satisfeitos.",
+    "A maioria dos participantes apresentou qualidade de sono ruim."
+   ]
+  },
+  {
+   "caso": "V2-REC-21",
+   "split": "test",
+   "pergunta": "Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?",
+   "trechos": [
+    "Objetivo: traçar o perfil e analisar a qualidade do sono, qualidade de vida e hábitos alimentares dos estudantes de enfermagem. Métodos: estudo transversal, comparativo e correlacional com as seguintes variáveis: características sociodemográficas, índice de qualidade de sono de Pittsburgh, qualidade de vida e hábitos alimentar. 195 estudantes participaram do estudo. Resultados: os participantes tinham em média 24 anos. Os resultados demonstraram que o sexo feminino foi prevalente (87,1%); 71,0% dos estudantes apresentaram qualidade de sono ruim; 98,9% faziam uso de aparelhos eletrônicos antes de dormir. A autopercepção da qualidade de vida foi indiferente (38,3%) e quanto à autopercepção de saúde geral, 36,9% expressaram-se satisfeitos. Dentre os participantes, 45,13% consumiam uma porção de fruta e 40,66% duas a três porções de verduras e legumes, diariamente. Conclusão: o estudo permitiu traçar o perfil desses estudantes, jovens que estudavam e trabalhavam, sedentários, acima do peso e com qualidade de sono ruim.",
+    "A maioria dos participantes apresentou qualidade de sono ruim. Esses dados estão de acordo com a literatura, corroborando o estudo realizado com estudantes de enfermagem da Turquia , dos Estados Unidos e também está de acordo com estudos realizados com estudantes universitários em geral e com estudantes de medicina . Em relação à componente eficiência habitual do sono, foi determinado para a maioria dos participantes uma eficiência do sono maior que 85%. Esse resultado foi bem diferente ao estudo na Universidade Federal do Ceará, que classificou o componente na pior faixa para eficiência habitual do sono . Quanto à latência do sono, quase metade dos participantes indicou que demorava, em média, de 31 a 60 minutos para pegar no sono, dado este que difere do estudo realizado na Universidade Federal do Ceará, em que boa parte dos estudantes entrevistados apontou que levava 15 minutos ou menos para adormecer no último mês ."
+   ],
+   "id": "V2-REC-21-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Resultados: os participantes tinham em média 24 anos. A autopercepção da qualidade de vida foi indiferente (38,3%) e quanto à autopercepção de saúde geral, 36,9% expressaram-se satisfeitos. A maioria dos participantes apresentou qualidade de sono ruim. Um ensaio clínico brasileiro de 2021 com 3.200 adultos mostrou redução de 41% no risco cardiovascular com essa prática.",
+   "invencao": "Um ensaio clínico brasileiro de 2021 com 3.200 adultos mostrou redução de 41% no risco cardiovascular com essa prática."
+  },
+  {
+   "caso": "V2-REC-21",
+   "split": "test",
+   "pergunta": "Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?",
+   "trechos": [
+    "Objetivo: traçar o perfil e analisar a qualidade do sono, qualidade de vida e hábitos alimentares dos estudantes de enfermagem. Métodos: estudo transversal, comparativo e correlacional com as seguintes variáveis: características sociodemográficas, índice de qualidade de sono de Pittsburgh, qualidade de vida e hábitos alimentar. 195 estudantes participaram do estudo. Resultados: os participantes tinham em média 24 anos. Os resultados demonstraram que o sexo feminino foi prevalente (87,1%); 71,0% dos estudantes apresentaram qualidade de sono ruim; 98,9% faziam uso de aparelhos eletrônicos antes de dormir. A autopercepção da qualidade de vida foi indiferente (38,3%) e quanto à autopercepção de saúde geral, 36,9% expressaram-se satisfeitos. Dentre os participantes, 45,13% consumiam uma porção de fruta e 40,66% duas a três porções de verduras e legumes, diariamente. Conclusão: o estudo permitiu traçar o perfil desses estudantes, jovens que estudavam e trabalhavam, sedentários, acima do peso e com qualidade de sono ruim.",
+    "A maioria dos participantes apresentou qualidade de sono ruim. Esses dados estão de acordo com a literatura, corroborando o estudo realizado com estudantes de enfermagem da Turquia , dos Estados Unidos e também está de acordo com estudos realizados com estudantes universitários em geral e com estudantes de medicina . Em relação à componente eficiência habitual do sono, foi determinado para a maioria dos participantes uma eficiência do sono maior que 85%. Esse resultado foi bem diferente ao estudo na Universidade Federal do Ceará, que classificou o componente na pior faixa para eficiência habitual do sono . Quanto à latência do sono, quase metade dos participantes indicou que demorava, em média, de 31 a 60 minutos para pegar no sono, dado este que difere do estudo realizado na Universidade Federal do Ceará, em que boa parte dos estudantes entrevistados apontou que levava 15 minutos ou menos para adormecer no último mês ."
+   ],
+   "id": "V2-REC-21-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "RESULTADOS: Menos da metade dos indivíduos referiu consumo regular de fruta (44,1%) ou hortaliças (43,8%), enquanto 23,9% referiram consumo regular de frutas e hortaliças em conjunto; o consumo adequado foi referido por 7,3% dos entrevistados. CONCLUSÕES: Iniciativas de promoção do consumo de frutas e hortaliças devem atender a população como um todo, especialmente às cidades das regiões Norte e Nordeste, aos jovens, aos homens e aos estratos populacionais com baixa escolaridade. O indicador sociodemográfico utilizado para estimar diferenças sociais foi a escolaridade dos indivíduos, o qual se associou de forma positiva e independente ao consumo de frutas e hortaliças.",
+   "origem_da_troca": "V2-REC-19"
+  },
+  {
+   "caso": "V2-ADV-03",
+   "split": "test",
+   "pergunta": "Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?",
+   "trechos": [
+    "opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque a “comida feita na hora” (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (“sopas de pacote”, “macarrão instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas) e fique com sobremesas caseiras, dispensando as industrializadas.",
+    "Arroz, feijão, coxa de frango assada, beterraba e polenta com queijo\n\nFeijoada, arroz, vinagrete de cebola e tomate, farofa, couve refogada e laranja\n\nArroz, feijão, omelete e jiló refogado\n\nSalada de tomate, arroz, feijão, bife grelhado e salada de frutas\n\naqui apresentamos a composição do almoço de oito brasileiros selecionados entre aqueles que baseiam sua alimentação em alimentos in natura ou minimamente processados.\n\na mistura de feijão com arroz aparece em quase todos os almoços selecionados. esta situação traduz a realidade alimentar da imensa maioria dos brasileiros que privilegiam alimentos in natura ou minimamente processados e, de fato, da grande maioria da população brasileira.",
+    "Arroz, feijão, fígado bovino e abobrinha refogada\n\nSopa de legumes, farinha de mandioca e açaí\n\nSalada de folhas, arroz, feijão, ovo e maçã\n\nSalada de folhas, macarrão e galeto\n\naqui apresentamos a composição do jantar de oito brasileiros selecionados entre aqueles que baseiam sua alimentação em alimentos in natura ou minimamente processados.\n\nrepetindo a situação encontrada no almoço, a combinação de feijão com arroz é encontrada na grande maioria das refeições do jantar.\n\nem um dos exemplos, o feijão com arroz é substituído pela farinha de mandioca com açaí e, em outro, por uma preparação de macarrão, neste caso servida com frango.\n\nLegumes e verduras aparecem em todas as refeições, por vezes crus, na forma de saladas, cozidos ou refogados acompanhando o feijão com o arroz e, ainda, utilizados no preparo de sopas.",
+    "Arroz e feijão é o prato típico do brasileiro. O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. O feijão é rico em fibras, proteínas e diversas vitaminas e minerais, como ferro. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis."
+   ],
+   "id": "V2-ADV-03-fiel",
+   "tipo": "fiel",
+   "sustentada": true,
+   "resposta": "Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis. Legumes e verduras aparecem em todas as refeições, por vezes crus, na forma de saladas, cozidos ou refogados acompanhando o feijão com o arroz e, ainda, utilizados no preparo de sopas. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes.",
+   "frases": [
+    "Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis.",
+    "Legumes e verduras aparecem em todas as refeições, por vezes crus, na forma de saladas, cozidos ou refogados acompanhando o feijão com o arroz e, ainda, utilizados no preparo de sopas.",
+    "A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes."
+   ]
+  },
+  {
+   "caso": "V2-ADV-03",
+   "split": "test",
+   "pergunta": "Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?",
+   "trechos": [
+    "opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque a “comida feita na hora” (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (“sopas de pacote”, “macarrão instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas) e fique com sobremesas caseiras, dispensando as industrializadas.",
+    "Arroz, feijão, coxa de frango assada, beterraba e polenta com queijo\n\nFeijoada, arroz, vinagrete de cebola e tomate, farofa, couve refogada e laranja\n\nArroz, feijão, omelete e jiló refogado\n\nSalada de tomate, arroz, feijão, bife grelhado e salada de frutas\n\naqui apresentamos a composição do almoço de oito brasileiros selecionados entre aqueles que baseiam sua alimentação em alimentos in natura ou minimamente processados.\n\na mistura de feijão com arroz aparece em quase todos os almoços selecionados. esta situação traduz a realidade alimentar da imensa maioria dos brasileiros que privilegiam alimentos in natura ou minimamente processados e, de fato, da grande maioria da população brasileira.",
+    "Arroz, feijão, fígado bovino e abobrinha refogada\n\nSopa de legumes, farinha de mandioca e açaí\n\nSalada de folhas, arroz, feijão, ovo e maçã\n\nSalada de folhas, macarrão e galeto\n\naqui apresentamos a composição do jantar de oito brasileiros selecionados entre aqueles que baseiam sua alimentação em alimentos in natura ou minimamente processados.\n\nrepetindo a situação encontrada no almoço, a combinação de feijão com arroz é encontrada na grande maioria das refeições do jantar.\n\nem um dos exemplos, o feijão com arroz é substituído pela farinha de mandioca com açaí e, em outro, por uma preparação de macarrão, neste caso servida com frango.\n\nLegumes e verduras aparecem em todas as refeições, por vezes crus, na forma de saladas, cozidos ou refogados acompanhando o feijão com o arroz e, ainda, utilizados no preparo de sopas.",
+    "Arroz e feijão é o prato típico do brasileiro. O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. O feijão é rico em fibras, proteínas e diversas vitaminas e minerais, como ferro. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis."
+   ],
+   "id": "V2-ADV-03-inventada",
+   "tipo": "inventada",
+   "sustentada": false,
+   "resposta": "Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis. Legumes e verduras aparecem em todas as refeições, por vezes crus, na forma de saladas, cozidos ou refogados acompanhando o feijão com o arroz e, ainda, utilizados no preparo de sopas. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. A Organização Mundial da Saúde recomenda dobrar essa quantidade a partir dos 50 anos de idade.",
+   "invencao": "A Organização Mundial da Saúde recomenda dobrar essa quantidade a partir dos 50 anos de idade."
+  },
+  {
+   "caso": "V2-ADV-03",
+   "split": "test",
+   "pergunta": "Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?",
+   "trechos": [
+    "opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque a “comida feita na hora” (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (“sopas de pacote”, “macarrão instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas) e fique com sobremesas caseiras, dispensando as industrializadas.",
+    "Arroz, feijão, coxa de frango assada, beterraba e polenta com queijo\n\nFeijoada, arroz, vinagrete de cebola e tomate, farofa, couve refogada e laranja\n\nArroz, feijão, omelete e jiló refogado\n\nSalada de tomate, arroz, feijão, bife grelhado e salada de frutas\n\naqui apresentamos a composição do almoço de oito brasileiros selecionados entre aqueles que baseiam sua alimentação em alimentos in natura ou minimamente processados.\n\na mistura de feijão com arroz aparece em quase todos os almoços selecionados. esta situação traduz a realidade alimentar da imensa maioria dos brasileiros que privilegiam alimentos in natura ou minimamente processados e, de fato, da grande maioria da população brasileira.",
+    "Arroz, feijão, fígado bovino e abobrinha refogada\n\nSopa de legumes, farinha de mandioca e açaí\n\nSalada de folhas, arroz, feijão, ovo e maçã\n\nSalada de folhas, macarrão e galeto\n\naqui apresentamos a composição do jantar de oito brasileiros selecionados entre aqueles que baseiam sua alimentação em alimentos in natura ou minimamente processados.\n\nrepetindo a situação encontrada no almoço, a combinação de feijão com arroz é encontrada na grande maioria das refeições do jantar.\n\nem um dos exemplos, o feijão com arroz é substituído pela farinha de mandioca com açaí e, em outro, por uma preparação de macarrão, neste caso servida com frango.\n\nLegumes e verduras aparecem em todas as refeições, por vezes crus, na forma de saladas, cozidos ou refogados acompanhando o feijão com o arroz e, ainda, utilizados no preparo de sopas.",
+    "Arroz e feijão é o prato típico do brasileiro. O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. O feijão é rico em fibras, proteínas e diversas vitaminas e minerais, como ferro. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis."
+   ],
+   "id": "V2-ADV-03-trocada",
+   "tipo": "trocada",
+   "sustentada": false,
+   "resposta": "Investigaram-se 5 barreiras para o CF e CV/L. A terceira barreira mais citada para o consumo de frutas foi a “falta de tempo para ir ao mercado/feira com frequência para comprar frutas frescas” e esta foi a quarta barreira mais prevalente para o consumo de verduras ou legumes. A prevalência da barreira “Família não tem hábito”, foi de 16,4% para CF e 10,9% no CV/L, com maior chance para pessoas com 50 a 59 anos no CF.",
+   "origem_da_troca": "V2-REC-20"
+  }
+ ]
+}

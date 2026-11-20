@@ -1,0 +1,13 @@
+# Configuração de conversão de souza-backes-universitarios-csc-2020 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: 3c31861b720181790a0fb052c5ceb9036a02fa2ea5cf3ef826b54a599b4596a2
+page_notes:
+  4: 'Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md).
+    Alerta lexical baixo (96,4%); só o token ''rk'' não aparece. Página sem números decimais.'
+  7: 'Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md).
+    Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.:
+    ''mundo15'', ''mussi4'') e rodapé da revista; todos os números decimais do PDF estão no Markdown (conferência
+    da issue #26, 19/11/2026).'
+  8: 'Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md):
+    cobertura de 77,7%, com tokens fundidos a citações (ex.: ''alimentação22'', ''culinárias21''); todos
+    os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'

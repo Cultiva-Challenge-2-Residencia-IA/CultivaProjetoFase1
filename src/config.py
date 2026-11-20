@@ -79,8 +79,15 @@ GROQ_TIMEOUT = float(os.getenv("GROQ_TIMEOUT", "30.0"))
 
 # Configurações do Modelo Local (Ollama - Fallback Opcional)
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
-OLLAMA_FALLBACK_MODEL = os.getenv("OLLAMA_FALLBACK_MODEL", "qwen2.5:3b")
+# Modelo principal e reserva escolhidos por medição na issue #55 (ADR 0004).
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "gemma4:e4b")
+OLLAMA_FALLBACK_MODEL = os.getenv("OLLAMA_FALLBACK_MODEL", "qwen2.5:7b")
+# Condições da medição do ADR 0004: contexto de 8192 tokens e modo de raciocínio desligado (modelos
+# que raciocinam por padrão, como o qwen3.5, multiplicam a latência). A saída vai até 2048 tokens:
+# com 1024, o gemma4:e4b truncava o JSON da citação por frase (issue #12) em 3 de 30 casos do dev.
+OLLAMA_NUM_CTX = int(os.getenv("OLLAMA_NUM_CTX", "8192"))
+OLLAMA_NUM_PREDICT = int(os.getenv("OLLAMA_NUM_PREDICT", "2048"))
+OLLAMA_THINK = os.getenv("OLLAMA_THINK", "false").strip().lower() in {"1", "true", "sim", "yes"}
 OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text")
 OLLAMA_TIMEOUT = float(os.getenv("OLLAMA_TIMEOUT", "45.0"))
 
@@ -104,3 +111,38 @@ MAX_CHUNKS_PER_DOC = int(os.getenv("MAX_CHUNKS_PER_DOC", "2"))
 MODO_DENSO = os.getenv("MODO_DENSO", "chromadb_pure")
 RERANK_PESO_SOBREPOSICAO = float(os.getenv("RERANK_PESO_SOBREPOSICAO", "0.0"))
 RERANK_BONUS_EVIDENCIA = os.getenv("RERANK_BONUS_EVIDENCIA", "false").strip().lower() in {"1", "true", "sim"}
+
+# Observabilidade (proposta técnica, ainda não documentada na Documentacao-Cultiva; ADR 0003).
+# Desligada por padrão: só envia traces ao Langfuse com CULTIVA_LANGFUSE=true e as chaves
+# LANGFUSE_PUBLIC_KEY e LANGFUSE_SECRET_KEY definidas. O destino padrão é um Langfuse local
+# (LANGFUSE_BASE_URL=http://localhost:3000), e não a nuvem, que é o padrão do SDK: servidor fora
+# desta máquina, inclusive auto-hospedado pela equipe, exige ALLOW_EXTERNAL_LANGFUSE=true, como o
+# ALLOW_EXTERNAL_LLM faz para a Groq. Sem essa liberação, o Langfuse fica desligado.
+LANGFUSE_BASE_URL = (
+    os.getenv("LANGFUSE_BASE_URL") or os.getenv("LANGFUSE_HOST") or "http://localhost:3000"
+).strip()
+ALLOW_EXTERNAL_LANGFUSE = os.getenv("ALLOW_EXTERNAL_LANGFUSE", "false").strip().lower() in {
+    "1", "true", "sim", "yes"
+}
+
+
+def destino_local(url: str) -> bool:
+    """O endereço aponta para esta máquina (loopback)?"""
+    from urllib.parse import urlparse
+
+    return (urlparse(url).hostname or "").lower() in {"localhost", "127.0.0.1", "::1"}
+
+
+LANGFUSE_PEDIDO = (
+    os.getenv("CULTIVA_LANGFUSE", "false").strip().lower() in {"1", "true", "sim", "yes"}
+    and bool(os.getenv("LANGFUSE_PUBLIC_KEY", "").strip())
+    and bool(os.getenv("LANGFUSE_SECRET_KEY", "").strip())
+)
+
+
+def langfuse_liberado(pedido: bool, url: str, permitir_externo: bool) -> bool:
+    """Liga o Langfuse só se foi pedido e o destino é local ou o envio externo foi liberado."""
+    return pedido and (destino_local(url) or permitir_externo)
+
+
+LANGFUSE_ATIVO = langfuse_liberado(LANGFUSE_PEDIDO, LANGFUSE_BASE_URL, ALLOW_EXTERNAL_LANGFUSE)

@@ -3,12 +3,11 @@ import inspect
 from pathlib import Path
 from typing import List, Optional
 
-from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE, LegalGuardrail
+from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
-from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
+from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import (
-    ABSTENCAO_LIMIAR_COSSENO,
     INCLUDE_PENDING_SOURCES,
     OLLAMA_BASE_URL,
     RISCO_LLM_LIMIAR,
@@ -16,17 +15,14 @@ from src.config import (
     RISCO_LLM_TIMEOUT,
     TOP_K_FINAL,
 )
-from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio
-from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
-from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
+from src.guardrails.risco import detectar_risco
 from src.guardrails.risco.classificador_llm import ClassificadorRiscoLLM
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
+from src.observabilidade import atributos_do_trace, observacao
 from src.models.schemas import (
-    CausalGraphPath,
     ConsultantResponse,
     DocumentChunk,
-    TacoFoodNutrientRecord,
 )
 from src.retrieval.graph_engine import CausalKnowledgeGraphEngine
 from src.retrieval.hybrid_retriever import HybridRetriever
@@ -36,6 +32,10 @@ from src.retrieval.taco_tool import TacoDeterministicTool
 # Versão do prompt (RNF08): hash do prompt de sistema e do template da pergunta enviada ao LLM.
 PROMPT_VERSION = hashlib.sha256(
     (SYSTEM_PROMPT_CONSULTANT + inspect.getsource(LocalLLMClient._build_user_prompt)).encode("utf-8")
+).hexdigest()
+# Linha de base "LLM puro" da ablação: outro prompt de sistema, sem Trechos no prompt do usuário.
+PROMPT_VERSION_SEM_CONTEXTO = hashlib.sha256(
+    (SYSTEM_PROMPT_SEM_CONTEXTO + inspect.getsource(LocalLLMClient.generate_structured_synthesis)).encode("utf-8")
 ).hexdigest()
 
 
@@ -54,6 +54,7 @@ class NutritionConsultantBaseline:
         enable_ollama: bool = True,
         enable_taco_tool: bool = True,
         enable_graph_engine: bool = True,
+        enable_rag: bool = True,
         risco_llm: Optional[ClassificadorRiscoLLM] = None,
     ) -> None:
         self.chunker = ContextualChunker()
@@ -74,9 +75,14 @@ class NutritionConsultantBaseline:
         self.llm_client = LocalLLMClient(enable_ollama=enable_ollama)
         self.enable_taco_tool = enable_taco_tool
         self.enable_graph_engine = enable_graph_engine
+        # Desligar a busca só faz sentido nos experimentos de ablação (linha de base "LLM puro").
+        self.enable_rag = enable_rag
         self.taco_tool: Optional[TacoDeterministicTool] = (
             TacoDeterministicTool() if enable_taco_tool else None
         )
+        # Linha de base "LLM puro" da ablação: só quando as três fontes de contexto estão
+        # desligadas por configuração. Não é modo do produto.
+        self.modo_llm_puro = not enable_rag and not enable_taco_tool and not enable_graph_engine
         self.graph_engine: Optional[CausalKnowledgeGraphEngine] = (
             CausalKnowledgeGraphEngine() if enable_graph_engine else None
         )
@@ -100,7 +106,9 @@ class NutritionConsultantBaseline:
         return {
             "response_id": new_response_id(),
             "corpus_version": self.corpus_version,
-            "prompt_version": PROMPT_VERSION,
+            "prompt_version": (
+                PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False) else PROMPT_VERSION
+            ),
             "model_version": model_used,
             "fontes_version": fontes_version,
             "trechos_usados": trechos_usados,
@@ -120,178 +128,68 @@ class NutritionConsultantBaseline:
             **campos,
         )
 
+    def _grafo(self):
+        """Grafo do orquestrador (issue #76), compilado na primeira chamada e reaproveitado."""
+        grafo = getattr(self, "_grafo_compilado", None)
+        if grafo is None:
+            # Import tardio: src.agents.nutricao reexporta esta classe.
+            from src.agents.nutricao.grafo import construir_subgrafo
+            from src.orquestrador.grafo import construir_grafo
+
+            grafo = construir_grafo(
+                agentes={"nutricao": construir_subgrafo(self)},
+                resposta_fixa=self._resposta_fixa,
+                agente_padrao="nutricao",
+                risco_llm=getattr(self, "risco_llm", None),
+            )
+            self._grafo_compilado = grafo
+        return grafo
+
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:
-        # 0. Risco antes de tudo (RF-IA03, RNF29): interrompe o fluxo com mensagem fixa.
-        # O léxico é o piso; o LLM local só é consultado quando ele não aciona (issue #48).
+        """Responde pela orquestração em LangGraph: portões de risco e de prompt injection no grafo
+        principal (`src/orquestrador/grafo.py`) e o fluxo de Nutrição no subgrafo
+        (`src/agents/nutricao/grafo.py`).
+
+        Com a observabilidade desligada (padrão), os blocos de observação são no-ops. Ligada, todo
+        texto passa pela máscara de dados pessoais no SDK (src/observabilidade.py, ADR 0003). A
+        observação raiz fica fora do grafo, e não no callback do LangGraph, porque a entrada só pode
+        ser decidida depois do portão de risco: mensagem que ele detecta não é registrada, nem
+        mascarada, e o trace guarda só as categorias. A entrada inicial usa só o léxico, que deixa
+        passar a maioria das frases novas (recall de 0,133 no holdout); quando a camada LLM (#48)
+        detecta o risco, a entrada é sobrescrita pelas categorias antes de a observação fechar.
+        """
         risco = detectar_risco(user_query)
-        categorias, camada, status_llm = risco.categorias, "lexico", None
-        risco_llm = getattr(self, "risco_llm", None)
-        if not risco.risco and risco_llm is not None:
-            resultado = risco_llm.classificar(user_query)
-            status_llm = "falhou" if resultado is None else "ok"
-            if resultado is not None and resultado.risco:
-                categorias, camada = resultado.categorias, "llm"
-        if categorias:
-            return self._resposta_fixa(
-                user_query,
-                MENSAGEM_ACOLHIMENTO,
-                guardrail_triggered=False,
-                intent_category="RISK_SUPPORT",
-                risk_triggered=True,
-                risk_categories=categorias,
-                risk_layer=camada,
-                risk_llm_status=status_llm,
-                retrieval_mode="RISK_FIXED_MESSAGE",
-            )
-        resposta = self._consultar_sem_risco(user_query, top_k)
-        resposta.risk_llm_status = status_llm
-        return resposta
-
-    def _consultar_sem_risco(self, user_query: str, top_k: int) -> ConsultantResponse:
-        # 0.1 Prompt injection na pergunta (RNF04): recusa fixa, sem repassar o pedido ao LLM.
-        if has_prompt_injection(user_query):
-            return self._resposta_fixa(
-                user_query,
-                MENSAGEM_INJECAO,
-                guardrail_triggered=True,
-                intent_category="PROMPT_INJECTION_BLOCKED",
-                legal_compliance_notice=LAW_8234_COMPLIANCE_NOTICE,
-                prompt_injection_detected=True,
-                retrieval_mode="PROMPT_INJECTION_FIXED_MESSAGE",
-            )
-
-        # 1. Input Guardrail & Reframing (Conformidade com Lei nº 8.234/91)
-        assessment = self.guardrail.assess_and_reframe(user_query)
-        effective_query = assessment.reframed_population_query
-
-        # 2. Recuperação Híbrida (BM25 + Vetorial Local + RRF + Reranker + Diversificação)
-        search_query = (
-            f"{effective_query} {user_query}"
-            if assessment.is_restricted_by_law_8234
-            else effective_query
+        entrada = (
+            {"risco_categorias": risco.categorias, "top_k": top_k}
+            if risco.risco
+            else {"query": user_query, "top_k": top_k}
         )
-        retrieved = self.retriever.retrieve(search_query, top_k=top_k)
-
-        # 3. Ferramenta Determinística da Tabela TACO (Passo 2)
-        taco_records: List[TacoFoodNutrientRecord] = []
-        taco_context_str = ""
-        if self.taco_tool is not None:
-            taco_records, taco_context_str = self.taco_tool.auto_query_from_question(
-                search_query
+        with atributos_do_trace(trace_name="consulta_nutricao", tags=["nutricao"]), observacao(
+            "consult", input=entrada
+        ) as raiz:
+            estado = self._grafo().invoke({"pergunta": user_query, "top_k": top_k})
+            resposta = estado["resposta"]
+            if resposta.risk_triggered:
+                if not risco.risco:
+                    raiz.update(input={"risco_categorias": resposta.risk_categories, "top_k": top_k})
+            else:
+                resposta.risk_llm_status = estado.get("risco_llm_status")
+            raiz.update(
+                output={
+                    "evidence_summary": resposta.evidence_summary,
+                    "evidence_grade": resposta.evidence_grade,
+                    "citations": resposta.citations,
+                },
+                metadata={
+                    "model_used": resposta.model_used,
+                    "retrieval_mode": resposta.retrieval_mode,
+                    "guardrail_triggered": resposta.guardrail_triggered,
+                    "intent_category": str(resposta.intent_category),
+                },
             )
-
-        # 4. Travessia no Grafo de Conhecimento de 4 Camadas (Passo 3 - NetworkX)
-        graph_paths: List[CausalGraphPath] = []
-        graph_context_str = ""
-        if self.graph_engine is not None:
-            graph_paths, graph_context_str = self.graph_engine.traverse_for_query(
-                search_query, max_paths=4
+            raiz.score_trace(
+                name="guardrail_lei_8234",
+                value=1.0 if resposta.guardrail_triggered else 0.0,
+                data_type="NUMERIC",
             )
-
-        # 4.1 "Não sei" (RF-IA01): pergunta fora do domínio de Nutrição (cosseno baixo e nenhum termo
-        #     de Nutrição) recebe resposta fixa, sem LLM. Se o grafo ou a TACO tiverem resultado,
-        #     responde só com eles. Dentro do domínio, o fluxo segue com os Trechos que a busca achou.
-        similaridade = round(self.retriever.similaridade_maxima(search_query), 4)
-        if fora_do_dominio(user_query, similaridade, ABSTENCAO_LIMIAR_COSSENO):
-            if not taco_records and not graph_paths:
-                return self._resposta_fixa(
-                    user_query,
-                    MENSAGEM_NAO_SEI,
-                    guardrail_triggered=assessment.is_restricted_by_law_8234,
-                    intent_category="NO_EVIDENCE",
-                    legal_compliance_notice=assessment.legal_notice_required,
-                    abstencao=True,
-                    similaridade_maxima=similaridade,
-                    retrieval_mode="ABSTENTION_FIXED_MESSAGE",
-                )
-            retrieved = []
-
-        # 5. Síntese Baseada em Evidências (Modelo Local Ollama / Extrativo + Grafo + TACO)
-        synthesis, model_used = self.llm_client.generate_structured_synthesis(
-            query=effective_query,
-            retrieved_chunks=retrieved,
-            taco_context_str=taco_context_str,
-            graph_context_str=graph_context_str,
-        )
-
-        # 6. Output Guardrail (Sanitização contra linguagem prescritiva individual)
-        evidence_summary = self.guardrail.sanitize_output_text(
-            str(synthesis.get("evidence_summary", ""))
-        )
-        physiological_mechanism = self.guardrail.sanitize_output_text(
-            str(synthesis.get("physiological_mechanism", ""))
-        )
-        protocol_findings = self.guardrail.sanitize_output_text(
-            str(synthesis.get("protocol_findings", ""))
-        )
-
-        citations: List[str] = []
-        seen_docs = set()
-        for item in retrieved:
-            c = item.chunk
-            cite_key = f"{c.doc_id}:{c.section_path}"
-            if cite_key not in seen_docs:
-                seen_docs.add(cite_key)
-                src_meta = []
-                link = c.fonte_url or (f"https://doi.org/{c.doi}" if c.doi else None)
-                if link:
-                    src_meta.append(f"Link: {link}")
-                if c.doi:
-                    src_meta.append(f"DOI: {c.doi}")
-                if c.licenca:
-                    src_meta.append(f"Licença: {c.licenca}")
-                if c.approval_status:
-                    src_meta.append(f"Aprovação: {c.approval_status}")
-                meta_suffix = f" | {' | '.join(src_meta)}" if src_meta else ""
-                citations.append(
-                    f"[{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), "
-                    f"Seção: '{c.section_path}' (Evidência: {c.evidence_level}{meta_suffix})"
-                )
-
-        if graph_paths:
-            citations.append(
-                f"[KG_4LAYER_PICO_GRADE] Grafo de Conhecimento de 4 Camadas (NetworkX: {len(graph_paths)} cadeias causais Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho)"
-            )
-
-        if taco_records:
-            citations.append(
-                "[TACO_4ED_UNICAMP] Tabela Brasileira de Composição de Alimentos (TACO 4ª Edição - NEPA/Unicamp & TBCA-USP) — Consulta Determinística por 100g"
-            )
-
-        food_list = list(synthesis.get("food_sources_or_compounds", []))
-        for gp in graph_paths:
-            if gp.food_node not in food_list and not gp.is_contraindicated_for_query:
-                food_list.append(f"{gp.food_node} ({gp.compound_node})")
-        for rec in taco_records:
-            if rec.description not in food_list:
-                food_list.append(rec.description)
-
-        if taco_records and graph_paths:
-            mode = "HYBRID_RAG_PLUS_GRAPH_AND_TACO"
-        elif graph_paths:
-            mode = "HYBRID_RAG_PLUS_GRAPH_TOOL"
-        elif taco_records:
-            mode = "HYBRID_RAG_PLUS_TACO_TOOL"
-        else:
-            mode = "HYBRID_RAG_BASELINE"
-
-        return ConsultantResponse(
-            original_query=user_query,
-            effective_query=effective_query,
-            guardrail_triggered=assessment.is_restricted_by_law_8234,
-            intent_category=assessment.intent_category,
-            legal_compliance_notice=assessment.legal_notice_required,
-            evidence_summary=evidence_summary,
-            physiological_mechanism=physiological_mechanism,
-            protocol_findings=protocol_findings,
-            food_sources_or_compounds=food_list,
-            taco_records=taco_records,
-            graph_paths=graph_paths,
-            evidence_grade=str(synthesis.get("evidence_grade", "N/A")),
-            citations=citations,
-            retrieved_chunks=retrieved,
-            model_used=model_used,
-            retrieval_mode=mode,
-            similaridade_maxima=similaridade,
-            **self._rastreabilidade([item.chunk for item in retrieved], model_used),
-        )
+            return resposta

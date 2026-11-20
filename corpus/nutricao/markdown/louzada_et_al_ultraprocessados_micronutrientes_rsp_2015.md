@@ -205,6 +205,8 @@ Os resultados deste estudo, representativos da dieta brasileira, mostram que o t
 
 [Conferir no original](../originais/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.pdf#page=5)
 
+> **Nota de conversão — página 5:** Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): Tabela 3 confere valor a valor; o cabeçalho 'Quintos de consumo de alimentos ultraprocessados' saiu partido entre colunas, com os dados corretos.
+
 > **Nota de conversão — página 5:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **5**
@@ -257,6 +259,8 @@ Deficiências de ferro, zinco e vitamina A, nutrientes presentes em menor quanti
 ## Página PDF 6
 
 [Conferir no original](../originais/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.pdf#page=6)
+
+> **Nota de conversão — página 6:** Alerta lexical por tabela numérica (cobertura de 63,6%); todas as palavras apontadas estão no Markdown e todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
 
 > **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 

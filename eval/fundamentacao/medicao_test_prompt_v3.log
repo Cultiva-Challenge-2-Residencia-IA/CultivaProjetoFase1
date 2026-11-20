@@ -1,0 +1,26 @@
+V2-REC-03    llm_citacoes_validas              34.0 s 
+V2-REC-06    llm_citacoes_validas              23.8 s 
+V2-REC-09    llm_citacoes_validas              34.8 s 
+V2-REC-12    llm_citacoes_validas              41.3 s 
+V2-REC-15    llm_citacoes_validas              35.5 s 
+V2-REC-18    llm_citacoes_validas              30.6 s 
+V2-REC-21    llm_citacoes_validas              22.0 s 
+V2-PRE-03    extrativa                         45.1 s 
+V2-ADV-03    extrativa                         45.1 s 
+V2-FOR-03    extrativa_apos_citacao_invalida   24.1 s frase_sem_citacao:1
+V2-GRA-03    llm_citacoes_validas              40.7 s 
+V2-TAC-03    extrativa                         45.1 s 
+{
+  "split": "test",
+  "modelo": "qwen2.5:7b",
+  "casos": 12,
+  "chegaram_ao_llm": 9,
+  "checadas": 9,
+  "llm_sem_base_vira_nao_sei": 0,
+  "conformidade_citacao_llm": 0.8889,
+  "taxa_fallback": 0.1111,
+  "problemas_por_tipo": {
+    "frase_sem_citacao": 1
+  },
+  "segundos_mediana": 35.5
+}

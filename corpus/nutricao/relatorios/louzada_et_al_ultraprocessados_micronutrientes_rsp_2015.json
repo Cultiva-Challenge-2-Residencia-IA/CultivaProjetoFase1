@@ -4,7 +4,7 @@
   "pdf_pages": 8,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": null,
+  "config_sha256": "5fd5fc47176f07d09896685d9d9596c147f2a51e9de1b6b3122abda9873dcfa3",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -100,6 +100,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): Tabela 3 confere valor a valor; o cabeçalho 'Quintos de consumo de alimentos ultraprocessados' saiu partido entre colunas, com os dados corretos.",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -321,6 +322,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Alerta lexical por tabela numérica (cobertura de 63,6%); todas as palavras apontadas estão no Markdown e todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -465,7 +467,7 @@
       "markdown_characters": 2758
     }
   ],
-  "markdown_sha256": "f0f85ffa8af3eef4ffc2568a8d2b28884883f7afe035560deab40d90533b7548",
+  "markdown_sha256": "2b1364e18fab477427420c705d4187a269480a1881267401ee55b6552bd9f038",
   "summary": {
     "pages_converted": 8,
     "sparse_pages": [],

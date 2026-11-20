@@ -4,19 +4,27 @@ from unittest.mock import MagicMock
 
 import httpx
 import pytest
+from langgraph.graph import END, START, StateGraph
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO
 from src.guardrails.risco.classificador_llm import ClassificadorRiscoLLM, ResultadoLLM
+from src.orquestrador.grafo import EstadoOrquestrador, construir_grafo
 
 
 def _consultor(risco_llm):
+    """Consultor sem índice: grafo real do orquestrador com um agente falso no lugar do de Nutrição."""
     consultor = NutritionConsultantBaseline.__new__(NutritionConsultantBaseline)
     consultor.risco_llm = risco_llm
     consultor.corpus_version = "corpus-teste"
-    consultor._consultar_sem_risco = MagicMock(
-        side_effect=lambda q, k: NutritionConsultantBaseline._resposta_fixa(
-            consultor, q, "resposta normal", guardrail_triggered=False, intent_category="GENERAL"))
+    consultor.agente = MagicMock(side_effect=lambda estado: {"resposta": NutritionConsultantBaseline._resposta_fixa(
+        consultor, estado["pergunta"], "resposta normal", guardrail_triggered=False, intent_category="GENERAL")})
+    agente = StateGraph(EstadoOrquestrador)
+    agente.add_node("responder", lambda estado: consultor.agente(estado))
+    agente.add_edge(START, "responder")
+    agente.add_edge("responder", END)
+    consultor._grafo_compilado = construir_grafo(
+        {"nutricao": agente.compile()}, consultor._resposta_fixa, "nutricao", risco_llm=risco_llm)
     return consultor
 
 
@@ -40,7 +48,7 @@ def test_llm_acrescenta_deteccao_quando_o_lexico_nao_aciona():
     assert resposta.risk_triggered and resposta.risk_layer == "llm"
     assert resposta.evidence_summary == MENSAGEM_ACOLHIMENTO
     assert resposta.risk_categories == ["ideacao_suicida"]
-    consultor._consultar_sem_risco.assert_not_called()
+    consultor.agente.assert_not_called()
 
 
 def test_llm_sem_risco_segue_o_fluxo_normal():
@@ -74,6 +82,7 @@ class _Http:
         return False
 
     def post(self, url, json):
+        self.payload = json
         if self.erro:
             raise self.erro
         resposta = MagicMock()
@@ -113,3 +122,29 @@ def test_limiar_do_nivel_de_preocupacao(monkeypatch, nivel, limiar, risco):
 def test_falha_ou_saida_invalida_devolve_none(monkeypatch, conteudo, erro):
     monkeypatch.setattr(httpx, "Client", _Http(conteudo, erro))
     assert ClassificadorRiscoLLM("qwen2.5:7b").classificar("texto") is None
+
+
+def test_risco_detectado_pelo_llm_nao_entra_no_trace(monkeypatch):
+    import contextlib
+
+    from src.agent import consultant_baseline as cb
+
+    registrado = []
+
+    class Obs:
+        def update(self, **kwargs):
+            registrado.append(kwargs)
+
+        def score_trace(self, **kwargs):
+            pass
+
+    @contextlib.contextmanager
+    def observacao_falsa(nome, tipo="span", **kwargs):
+        registrado.append(kwargs)
+        yield Obs()
+
+    monkeypatch.setattr(cb, "observacao", observacao_falsa)
+    resposta = _consultor(_llm(ResultadoLLM(True, ["autolesao"], 0.2))).consult("uma frase que nenhuma regra prevê")
+    assert resposta.risk_layer == "llm"
+    entradas = [r["input"] for r in registrado if "input" in r]
+    assert entradas[-1] == {"risco_categorias": ["autolesao"], "top_k": cb.TOP_K_FINAL}
