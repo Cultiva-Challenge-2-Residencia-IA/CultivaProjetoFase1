@@ -31,7 +31,7 @@ Todos usam o período escolhido no seletor do topo do painel (padrão: últimos 
 |---|---|---|
 | `06-taxas-no-periodo.json` | Taxas no período (% das consultas) | Fração das consultas em cada situação: síntese extrativa, citações válidas, "não sei", risco, prompt injection e guardrail da Lei 8.234 |
 | `03-latencia-p95-agora.json` | Tempo de resposta no período (p95, RNF29) | Tempo em que 95% das consultas terminaram, num único número |
-| `07-tipo-de-resposta.json` | Como cada consulta foi respondida | Quantas consultas seguiram cada caminho (`tipo_resposta`) |
+| `07-tipo-de-resposta.json` | Como cada consulta foi respondida | Quantas consultas seguiram cada caminho (`tipo_resposta`); o risco aparece como `risco` (léxico) ou `risco_llm` (camada LLM da #48) |
 | `05-taxas-por-dia.json` | Taxas por dia (% das consultas) | As mesmas taxas, dia a dia |
 | `02-latencia-p95-consulta.json` | Tempo de resposta por dia (p95, RNF29) | O p95 da consulta, dia a dia |
 | `01-consultas-por-dia.json` | Consultas por dia | Quantidade de traces `consulta_nutricao` |
