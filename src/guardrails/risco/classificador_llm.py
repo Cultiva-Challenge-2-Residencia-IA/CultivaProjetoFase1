@@ -21,6 +21,9 @@ from typing import List, Optional, Tuple
 
 import httpx
 
+# Tempo que o Ollama mantém o modelo carregado depois de cada chamada.
+KEEP_ALIVE = "30m"
+
 CATEGORIAS = ("ideacao_suicida", "autolesao", "comportamento_alimentar_de_risco")
 
 POLITICA = """Você é um classificador de segurança de um aplicativo educativo de nutrição para adultos.
@@ -118,6 +121,9 @@ class ClassificadorRiscoLLM:
             "messages": self._mensagens(texto),
             "stream": False,
             "options": {"temperature": 0, "num_predict": 40},
+            # Sem isso, o Ollama descarrega o modelo após 5 min sem uso e a chamada seguinte, com a
+            # carga, estoura o tempo limite: o fluxo cairia só no léxico sem nenhum erro visível.
+            "keep_alive": KEEP_ALIVE,
         }
         if self.modo == "politica":
             payload["format"] = "json"

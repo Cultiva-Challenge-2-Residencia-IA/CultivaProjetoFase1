@@ -8,7 +8,7 @@ from langgraph.graph import END, START, StateGraph
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO
-from src.guardrails.risco.classificador_llm import ClassificadorRiscoLLM, ResultadoLLM
+from src.guardrails.risco.classificador_llm import KEEP_ALIVE, ClassificadorRiscoLLM, ResultadoLLM
 from src.orquestrador.grafo import EstadoOrquestrador, construir_grafo
 
 
@@ -122,6 +122,13 @@ def test_limiar_do_nivel_de_preocupacao(monkeypatch, nivel, limiar, risco):
 def test_falha_ou_saida_invalida_devolve_none(monkeypatch, conteudo, erro):
     monkeypatch.setattr(httpx, "Client", _Http(conteudo, erro))
     assert ClassificadorRiscoLLM("qwen2.5:7b").classificar("texto") is None
+
+
+def test_payload_mantem_o_modelo_carregado(monkeypatch):
+    http = _Http('{"nivel": 0, "categoria": null}')
+    monkeypatch.setattr(httpx, "Client", http)
+    ClassificadorRiscoLLM("qwen2.5:7b").classificar("texto")
+    assert http.payload["keep_alive"] == KEEP_ALIVE
 
 
 def test_risco_detectado_pelo_llm_nao_entra_no_trace(monkeypatch):
