@@ -224,12 +224,23 @@ def test_citacao_curta_ou_alterada_nao_vale_e_caixa_nao_conta():
     assert not citacao_literal_valida("recomenda evitar todos os alimentos", ["O Guia recomenda evitar alimentos ultraprocessados."])
 
 
-def test_citacao_de_outra_fonte_nao_vale():
+def test_citacao_de_outra_fonte_nao_vale_para_a_fonte_citada():
     from src.rag.verificador.citacoes import filtrar_citacoes_literais
-    _, removidas = filtrar_citacoes_literais(
+    r, ajustes = filtrar_citacoes_literais(
         {"evidence_summary": [{"frase": "x y z w.", "trechos": [2], "citacao": "O Guia recomenda evitar alimentos"}]},
         {"T1": "O Guia recomenda evitar alimentos ultraprocessados.", "T2": "A fibra solúvel forma gel."})
-    assert len(removidas) == 1  # a citação está no T1, mas a frase cita o T2
+    # A citação está no T1, mas a frase cita o T2: a frase fica, com o rótulo trocado para o T1.
+    assert [a["motivo"] for a in ajustes] == ["rotulo_corrigido"]
+    assert r["evidence_summary"][0]["trechos"] == [1]
+
+
+def test_citacao_ausente_de_todas_as_fontes_remove_a_frase():
+    from src.rag.verificador.citacoes import filtrar_citacoes_literais
+    r, ajustes = filtrar_citacoes_literais(
+        {"evidence_summary": [{"frase": "x y z w.", "trechos": [1], "citacao": "o Guia proíbe todos os ultraprocessados"}]},
+        {"T1": "O Guia recomenda evitar alimentos ultraprocessados.", "T2": "A fibra solúvel forma gel."})
+    assert r["evidence_summary"] == []
+    assert [a["motivo"] for a in ajustes] == ["citacao_literal_ausente_na_fonte"]
 
 
 def test_citacao_verdadeira_com_rotulo_errado_fica_com_o_rotulo_corrigido():
