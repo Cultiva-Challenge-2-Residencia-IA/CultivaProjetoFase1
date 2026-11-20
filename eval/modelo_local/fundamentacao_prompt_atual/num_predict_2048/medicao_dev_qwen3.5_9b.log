@@ -1,0 +1,45 @@
+V2-REC-01    llm_citacoes_validas              17.2 s 
+V2-REC-02    llm_citacoes_validas              16.0 s 
+V2-REC-04    llm_citacoes_validas               8.7 s 
+V2-REC-05    extrativa_apos_citacao_invalida   11.8 s frase_sem_citacao:1
+V2-REC-07    llm_citacoes_validas              14.3 s 
+V2-REC-08    llm_citacoes_validas              10.4 s 
+V2-REC-10    llm_citacoes_validas              22.2 s 
+V2-REC-11    llm_citacoes_validas              12.5 s 
+V2-REC-13    llm_citacoes_validas              15.7 s 
+V2-REC-14    llm_citacoes_validas              13.0 s 
+V2-REC-16    llm_citacoes_validas               6.3 s 
+V2-REC-17    llm_citacoes_validas               8.0 s 
+V2-REC-19    llm_citacoes_validas              16.8 s 
+V2-REC-20    llm_citacoes_validas               7.5 s 
+V2-REC-22    llm_citacoes_validas              10.1 s 
+V2-REC-23    llm_citacoes_validas               9.6 s 
+V2-PRE-01    llm_citacoes_validas              21.4 s 
+V2-PRE-02    extrativa_apos_citacao_invalida   19.8 s frase_sem_citacao:1
+V2-PRE-04    llm_citacoes_validas              13.0 s 
+V2-PRE-05    llm_citacoes_validas              11.0 s 
+V2-ADV-01    -                                  0.0 s 
+V2-ADV-02    -                                  0.0 s 
+V2-ADV-04    llm_citacoes_validas              13.0 s 
+V2-FOR-01    extrativa_apos_citacao_invalida   12.4 s frase_sem_citacao:2
+V2-FOR-02    extrativa_apos_citacao_invalida    5.7 s frase_sem_citacao:1 nenhum_trecho_citado
+V2-FOR-04    -                                  0.0 s 
+V2-GRA-01    llm_citacoes_validas              15.5 s 
+V2-GRA-02    llm_citacoes_validas              15.3 s 
+V2-TAC-01    llm_citacoes_validas              12.2 s 
+V2-TAC-02    extrativa_apos_citacao_invalida   10.2 s nenhum_trecho_citado
+{
+  "split": "dev",
+  "modelo": "qwen3.5:9b",
+  "casos": 30,
+  "chegaram_ao_llm": 27,
+  "checadas": 27,
+  "llm_sem_base_vira_nao_sei": 0,
+  "conformidade_citacao_llm": 0.8148,
+  "taxa_fallback": 0.1852,
+  "problemas_por_tipo": {
+    "frase_sem_citacao": 4,
+    "nenhum_trecho_citado": 2
+  },
+  "segundos_mediana": 12.4
+}
