@@ -23,7 +23,7 @@ A primeira chamada de cada modelo carrega o modelo na memória (cerca de 2 s no 
 
 ## Decisão
 
-Pela regra registrada, o `qwen2.5:7b` é o único que cumpre os quatro critérios e passa a ser o padrão (`RISCO_LLM_MODELO`). Ele já é o modelo de geração do projeto (`OLLAMA_MODEL`), então o app mantém um só modelo na memória.
+Pela regra registrada, o `qwen2.5:7b` é o único que cumpre os quatro critérios e passa a ser o padrão (`RISCO_LLM_MODELO`). Ele já é o modelo de geração do projeto (`OLLAMA_MODEL`), então o app mantém um só modelo na memória. **Atualização (20/11/2026):** desde o ADR 0004, o modelo de geração é o `gemma4:e4b` e o `qwen2.5:7b` virou a reserva; o detector de risco manteve o `qwen2.5:7b`, que é o modelo medido aqui, e o app passa a ter dois modelos disputando a memória (cerca de 4,6 GB e 4,9 GB de VRAM, segundo o ADR 0004). A latência com os dois carregados não foi medida.
 
 ## Holdout (lote 3: 30 positivos, 25 negativos), medido uma vez
 
