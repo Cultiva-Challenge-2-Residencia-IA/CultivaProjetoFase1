@@ -11,3 +11,4 @@ data/traceability.sqlite3*
 
 # Saídas brutas da comparação de modelos locais (issue #55), regeneráveis
 data/modelo_local/
+data/comparacao_guardrails/

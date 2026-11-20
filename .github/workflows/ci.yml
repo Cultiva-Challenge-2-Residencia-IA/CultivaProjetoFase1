@@ -118,3 +118,8 @@ jobs:
             --report data/benchmark/baseline_report.json \
             --baseline "$RUNNER_TEMP/baseline.json" \
             --config eval/gates.toml
+
+      - name: Verificação offline de gabaritos e schemas de respostas (Semana 3)
+        run: |
+          uv run pytest tests/test_avaliacao_respostas.py -q
+          uv run python -m src.evaluation.gate --verificar-respostas

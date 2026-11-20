@@ -1,6 +1,6 @@
 # Comparação de modelos locais (issue #55)
 
-Escolhe o modelo do Ollama que faz a síntese do consultor de Nutrição, com o protocolo da issue #55: restrições eliminatórias primeiro, decisão pela avaliação na nossa própria tarefa e empate técnico declarado quando a diferença não é significativa. A decisão final vai para o ADR 0004.
+Escolhe o modelo do Ollama que faz a síntese do consultor de Nutrição, com o protocolo da issue #55: restrições eliminatórias primeiro, decisão pela avaliação na nossa própria tarefa e empate técnico declarado quando a diferença não é significativa. A decisão está no [ADR 0004](../../docs/adrs/0004-modelo-local-ollama.md): `gemma4:e4b` como principal e `qwen2.5:7b` como reserva (a reserva se afastou da regra do 2º colocado depois da medição com o prompt atual; ver o ADR).
 
 Para ler os números: [`resultados_explicados.md`](resultados_explicados.md) explica as sementes, os julgamentos e cada coluna de [`resultados.md`](resultados.md).
 
@@ -14,7 +14,7 @@ Para ler os números: [`resultados_explicados.md`](resultados_explicados.md) exp
 
 ## Candidatos
 
-`qwen2.5:7b` (referência, o atual), `qwen3.5:9b`, `gemma4:e4b`, `llama3.1:8b` e `mistral-nemo:12b`. O relatório registra o digest, a quantização, a licença e a memória de cada um.
+`qwen2.5:7b` (referência, o modelo em uso antes do ADR 0004), `qwen3.5:9b`, `gemma4:e4b`, `llama3.1:8b` e `mistral-nemo:12b`. O relatório registra o digest, a quantização, a licença e a memória de cada um.
 
 **Reserva** (decisão de 13/11/2026): não há lista separada de modelos pequenos. O modelo de reserva é o **2º colocado** entre esses cinco. Risco conhecido: se o principal falhar por falta de memória ou lentidão, um reserva de porte parecido pode falhar junto; nesse caso, a síntese extrativa continua como último recurso (ADR 0003).
 
@@ -69,6 +69,8 @@ Ficam 40 casos por modelo. A **semente 1** é julgada nos cinco candidatos (200 
 ## Prompt congelado anterior à #12
 
 Os prompts de `entradas.json` foram congelados antes do merge da issue #12, que mudou o prompt de sistema do consultor: agora cada frase vem numa lista com os números dos Trechos que a sustentam (`[T1]`, `TACO`, `GRAFO`). A comparação mediu o formato antigo, com cinco campos de texto. O formato novo exige mais do modelo (JSON aninhado e citação por frase), então, antes de trocar `OLLAMA_MODEL`, convém congelar de novo e rodar ao menos os dois finalistas para confirmar JSON ≥ 99% e a conformidade das citações (`eval/fundamentacao/`).
+
+Essa conferência foi feita em 19/11/2026 na RTX 5060, com `fundamentacao medir --split dev` e o prompt atual (`fundamentacao_prompt_atual/`, resumo no ADR 0004). Ela mede a forma das citações, não a fidelidade do conteúdo.
 
 ## Como rodar
 

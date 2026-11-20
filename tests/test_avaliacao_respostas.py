@@ -1,0 +1,573 @@
+from pathlib import Path
+import json
+import jsonschema
+
+from src.evaluation.benchmark_respostas import (
+    carregar_golden_respostas,
+    executar_condicao_sem_rag,
+    executar_condicao_rag_atual,
+    executar_condicao_oracle,
+    avaliar_execucao,
+    calcular_confrontos_pareados,
+    gerar_relatorio_comparativo,
+    obter_cliente_langfuse,
+    registrar_execucao_langfuse,
+    AvaliacaoCaso,
+    ExecucaoCondicao,
+)
+from src.agent.consultant_baseline import NutritionConsultantBaseline
+
+
+DIRETORIO_RAIZ = Path(__file__).resolve().parent.parent
+DIR_RESPOSTAS = DIRETORIO_RAIZ / "eval" / "golden" / "resposta"
+SCHEMA_PATH = DIR_RESPOSTAS / "caso_resposta.schema.json"
+DEV_PATH = DIR_RESPOSTAS / "dev.json"
+TEST_PATH = DIR_RESPOSTAS / "test.json"
+
+
+def test_schema_json_valido():
+    """Valida se o schema existe e é um JSON Schema Draft 2020-12 válido."""
+    assert SCHEMA_PATH.exists(), "Schema caso_resposta.schema.json deve existir."
+    schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+    jsonschema.Draft202012Validator.check_schema(schema)
+
+
+def test_validacao_dev_contra_schema():
+    """Valida dev.json estritamente contra o JSON Schema."""
+    dados_dev = carregar_golden_respostas(DEV_PATH, SCHEMA_PATH)
+    assert dados_dev["versao"] == 1
+    assert dados_dev["split"] == "dev"
+    assert len(dados_dev["casos"]) >= 6
+
+
+def test_validacao_test_contra_schema():
+    """Valida test.json estritamente contra o JSON Schema."""
+    dados_test = carregar_golden_respostas(TEST_PATH, SCHEMA_PATH)
+    assert dados_test["versao"] == 1
+    assert dados_test["split"] == "test"
+    assert len(dados_test["casos"]) >= 6
+
+
+def test_unicidade_de_ids_entre_splits():
+    """Garante que nenhum ID de caso seja duplicado dentro ou entre os splits."""
+    dev_casos = carregar_golden_respostas(DEV_PATH)["casos"]
+    test_casos = carregar_golden_respostas(TEST_PATH)["casos"]
+
+    ids_dev = [c["id"] for c in dev_casos]
+    ids_test = [c["id"] for c in test_casos]
+
+    assert len(ids_dev) == len(set(ids_dev)), f"IDs duplicados em dev: {ids_dev}"
+    assert len(ids_test) == len(set(ids_test)), f"IDs duplicados em test: {ids_test}"
+
+    intersecao = set(ids_dev) & set(ids_test)
+    assert not intersecao, f"IDs compartilhados entre dev e test: {intersecao}"
+
+
+def test_consistencia_de_splits():
+    """Garante que o campo split de cada caso seja condizente com o arquivo."""
+    dev_casos = carregar_golden_respostas(DEV_PATH)["casos"]
+    test_casos = carregar_golden_respostas(TEST_PATH)["casos"]
+
+    for c in dev_casos:
+        assert c["split"] == "dev", f"Caso {c['id']} em dev.json tem split={c['split']}"
+    for c in test_casos:
+        assert c["split"] == "test", f"Caso {c['id']} em test.json tem split={c['split']}"
+
+
+def test_integridade_dos_gabaritos():
+    """Valida se fatos atômicos, ressalvas e fontes estão preenchidos corretamente."""
+    todos_casos = (
+        carregar_golden_respostas(DEV_PATH)["casos"]
+        + carregar_golden_respostas(TEST_PATH)["casos"]
+    )
+    for c in todos_casos:
+        assert len(c["pergunta"]) > 5
+        assert c["status_corpus"] in ["respondivel_com_corpus", "evidencia_insuficiente", "fora_de_escopo"]
+        # Se for caso respondível, deve haver ao menos um fato essencial
+        if c["status_corpus"] == "respondivel_com_corpus":
+            assert len(c["fatos_essenciais"]) >= 1, f"Caso {c['id']} sem fatos essenciais"
+            for f in c["fatos_essenciais"]:
+                assert 0.0 < f.get("peso", 1.0) <= 1.0
+                assert f["prioridade"] in ["obrigatorio", "importante", "complementar"]
+        # Fontes de referência devem ter trechos oracle
+        for ref in c.get("fontes_referencia", []):
+            assert len(ref["trechos_oracle"]) >= 1
+
+
+def test_condicao_sem_rag_isolada_sem_ferramentas_nem_contexto():
+    """Testa se a condição 'llm_sem_rag' não recebe contexto externo e desativa ferramentas."""
+    consultant = NutritionConsultantBaseline(
+        enable_ollama=False,
+        enable_taco_tool=True,
+        enable_graph_engine=True,
+    )
+    caso_exemplo = carregar_golden_respostas(DEV_PATH)["casos"][0]
+
+    execucao = executar_condicao_sem_rag(caso_exemplo, consultant, usar_llm=False)
+
+    assert execucao.condicao == "llm_sem_rag"
+    assert execucao.contexto_fornecido == "", "Condição sem RAG deve ter contexto vazio"
+    assert execucao.trechos_recuperados == [], "Condição sem RAG não deve recuperar trechos"
+    assert execucao.ferramentas_ativas == [], "Condição sem RAG não deve acionar ferramentas"
+
+    # Avaliação: Fidelidade e Citações devem ser rigorosamente None (N/A)
+    avaliacao = avaliar_execucao(caso_exemplo, execucao)
+    assert avaliacao.fidelidade_contexto is None, "Fidelidade deve ser N/A na condição sem RAG"
+    assert avaliacao.validade_citacoes is None, "Citações devem ser N/A na condição sem RAG"
+
+
+def test_condicao_oracle_injeta_apenas_fontes_referencia():
+    """Testa se a condição 'contexto_oracle' injeta exclusivamente os trechos do gabarito."""
+    consultant = NutritionConsultantBaseline(
+        enable_ollama=False,
+        enable_taco_tool=False,
+        enable_graph_engine=False,
+    )
+    caso_exemplo = carregar_golden_respostas(DEV_PATH)["casos"][0]
+
+    execucao = executar_condicao_oracle(caso_exemplo, consultant, usar_llm=False)
+
+    assert execucao.condicao == "contexto_oracle"
+    assert len(execucao.contexto_fornecido) > 0
+    # O contexto deve conter os trechos oracle das fontes do caso
+    for ref in caso_exemplo["fontes_referencia"]:
+        for trecho in ref["trechos_oracle"]:
+            assert trecho in execucao.contexto_fornecido
+
+    avaliacao = avaliar_execucao(caso_exemplo, execucao)
+    assert avaliacao.fidelidade_contexto is not None, "Fidelidade deve ser calculada para Oracle"
+
+
+def test_calculo_confrontos_pareados():
+    """Testa o cálculo da matriz de confrontos pareados head-to-head."""
+    av1 = AvaliacaoCaso(
+        caso_id="RESP-01",
+        condicao="llm_sem_rag",
+        categoria="diretamente_respondivel",
+        comportamento_esperado="responder",
+        correcao_factual=0.5,
+        completude=0.4,
+        relevancia=0.8,
+        seguranca_ressalvas=1.0,
+        fidelidade_contexto=None,
+        validade_citacoes=None,
+        abstencao_adequada=True,
+        erros_criticos_cometidos=[],
+        fatos_atendidos=["F01"],
+        fatos_ausentes=["F02"],
+        nota_geral_ponderada=0.55,
+    )
+    av2 = AvaliacaoCaso(
+        caso_id="RESP-01",
+        condicao="rag_atual",
+        categoria="diretamente_respondivel",
+        comportamento_esperado="responder",
+        correcao_factual=0.9,
+        completude=0.85,
+        relevancia=0.9,
+        seguranca_ressalvas=1.0,
+        fidelidade_contexto=0.88,
+        validade_citacoes=1.0,
+        abstencao_adequada=True,
+        erros_criticos_cometidos=[],
+        fatos_atendidos=["F01", "F02"],
+        fatos_ausentes=[],
+        nota_geral_ponderada=0.88,
+    )
+    confrontos = calcular_confrontos_pareados([av1, av2])
+    chave = "llm_sem_rag_vs_rag_atual"
+    assert chave in confrontos
+    assert confrontos[chave]["vitorias_rag_atual"] == 1
+    assert confrontos[chave]["vitorias_llm_sem_rag"] == 0
+    assert confrontos[chave]["empates"] == 0
+
+
+def test_integracao_langfuse_mock(mocker):
+    """Testa se o envio para o Langfuse registra o trace e os scores corretos sem chamar rede."""
+    mock_client = mocker.MagicMock()
+    mock_span = mocker.MagicMock()
+    mock_client.start_observation.return_value = mock_span
+    mock_client.create_trace_id.return_value = "mock-trace-123"
+
+    execucao = ExecucaoCondicao(
+        caso_id="RESP-DIR-01",
+        condicao="llm_sem_rag",
+        pergunta="Pergunta teste",
+        modelo="qwen2.5:3b",
+        prompt_usuario="Prompt teste",
+        contexto_fornecido="",
+        resposta_completa={"evidence_summary": "Resumo"},
+        resposta_texto_unificado="Resumo",
+        trechos_recuperados=[],
+        ferramentas_ativas=[],
+        guardrail_acionado=False,
+        duracao_segundos=1.2,
+    )
+    avaliacao = AvaliacaoCaso(
+        caso_id="RESP-DIR-01",
+        condicao="llm_sem_rag",
+        categoria="diretamente_respondivel",
+        comportamento_esperado="responder",
+        correcao_factual=1.0,
+        completude=0.8,
+        relevancia=0.9,
+        seguranca_ressalvas=1.0,
+        fidelidade_contexto=None,
+        validade_citacoes=None,
+        abstencao_adequada=True,
+        erros_criticos_cometidos=[],
+        fatos_atendidos=["F01"],
+        fatos_ausentes=[],
+        nota_geral_ponderada=0.92,
+    )
+
+    sucesso = registrar_execucao_langfuse(execucao, avaliacao, mock_client, session_id="test_session")
+    assert sucesso is True
+    assert mock_client.start_observation.called
+    assert mock_client.start_observation.call_args.kwargs["trace_context"] == {
+        "trace_id": "mock-trace-123"
+    }
+    assert mock_span.end.called
+    # Verifica que scores foram registrados
+    score_names = [call.kwargs.get("name") for call in mock_client.create_score.call_args_list]
+    assert all(
+        call.kwargs.get("trace_id") == "mock-trace-123"
+        for call in mock_client.create_score.call_args_list
+    )
+    assert "correcao_factual" in score_names
+    assert "completude" in score_names
+    assert "nota_geral_ponderada" in score_names
+    # Fidelidade e citações não devem ter sido chamadas pois são None
+    assert "fidelidade_contexto" not in score_names
+
+
+def test_geracao_relatorio_com_incerteza_e_diagnostico_secundario():
+    """Valida o cálculo do intervalo de incerteza (IC 95%) e a estratificação do diagnóstico de recuperação."""
+    ex_rag_1 = ExecucaoCondicao(
+        caso_id="RESP-01",
+        condicao="rag_atual",
+        pergunta="Pergunta 1",
+        modelo="qwen2.5:3b",
+        prompt_usuario="P1",
+        contexto_fornecido="Contexto 1",
+        resposta_completa={"evidence_summary": "S1"},
+        resposta_texto_unificado="S1",
+        trechos_recuperados=["T01"],
+        ferramentas_ativas=[],
+        guardrail_acionado=False,
+        duracao_segundos=1.0,
+    )
+    ex_rag_2 = ExecucaoCondicao(
+        caso_id="RESP-02",
+        condicao="rag_atual",
+        pergunta="Pergunta 2",
+        modelo="qwen2.5:3b",
+        prompt_usuario="P2",
+        contexto_fornecido="",
+        resposta_completa={"evidence_summary": "S2"},
+        resposta_texto_unificado="S2",
+        trechos_recuperados=[],  # Falha na recuperação de evidências
+        ferramentas_ativas=[],
+        guardrail_acionado=False,
+        duracao_segundos=1.0,
+    )
+    av1 = AvaliacaoCaso(
+        caso_id="RESP-01",
+        condicao="rag_atual",
+        categoria="diretamente_respondivel",
+        comportamento_esperado="responder",
+        correcao_factual=1.0,
+        completude=0.9,
+        relevancia=1.0,
+        seguranca_ressalvas=1.0,
+        fidelidade_contexto=0.85,
+        validade_citacoes=1.0,
+        abstencao_adequada=True,
+        erros_criticos_cometidos=[],
+        fatos_atendidos=["F01"],
+        fatos_ausentes=[],
+        nota_geral_ponderada=0.95,
+    )
+    av2 = AvaliacaoCaso(
+        caso_id="RESP-02",
+        condicao="rag_atual",
+        categoria="diretamente_respondivel",
+        comportamento_esperado="responder",
+        correcao_factual=0.6,
+        completude=0.4,
+        relevancia=0.6,
+        seguranca_ressalvas=1.0,
+        fidelidade_contexto=0.0,
+        validade_citacoes=0.5,
+        abstencao_adequada=True,
+        erros_criticos_cometidos=[],
+        fatos_atendidos=[],
+        fatos_ausentes=["F02"],
+        nota_geral_ponderada=0.55,
+    )
+
+    relatorio = gerar_relatorio_comparativo([av1, av2], [ex_rag_1, ex_rag_2])
+    met_rag = relatorio["resumo_condicoes"]["rag_atual"]
+
+    # Incerteza e desvio padrão
+    assert "desvio_padrao" in met_rag
+    assert "intervalo_confianca_95" in met_rag
+    assert met_rag["desvio_padrao"] > 0
+    assert len(met_rag["intervalo_confianca_95"]) == 2
+    assert met_rag["intervalo_confianca_95"][0] <= met_rag["nota_geral_media"] <= met_rag["intervalo_confianca_95"][1]
+
+    # Diagnóstico secundário de recuperação
+    diag = relatorio["diagnostico_secundario_recuperacao"]
+    assert diag["com_recuperacao_evidencias"]["n"] == 1
+    assert diag["com_recuperacao_evidencias"]["nota_geral_media"] == 0.95
+    assert diag["com_falha_de_recuperacao"]["n"] == 1
+    assert diag["com_falha_de_recuperacao"]["nota_geral_media"] == 0.55
+
+
+def test_resiliencia_execucao_rag_a_falhas(mocker):
+    """Garante que falhas inesperadas na chamada RAG sejam capturadas sem derrubar o benchmark."""
+    consultant = NutritionConsultantBaseline(
+        enable_ollama=False,
+        enable_taco_tool=False,
+        enable_graph_engine=False,
+    )
+    mocker.patch.object(consultant, "consult", side_effect=RuntimeError("Falha simulada no motor RAG"))
+
+    caso = carregar_golden_respostas(DEV_PATH)["casos"][0]
+    execucao = executar_condicao_rag_atual(caso, consultant)
+
+    assert execucao.condicao == "rag_atual"
+    assert execucao.modelo == "erro-execucao-rag"
+    assert "Falha simulada" in execucao.resposta_completa["evidence_summary"]
+
+
+def test_langfuse_exige_opt_in_explicito(monkeypatch):
+    """Credenciais no ambiente não devem enviar traces sem a flag explícita."""
+    monkeypatch.setenv("LANGFUSE_PUBLIC_KEY", "pk-lf-configurada")
+    monkeypatch.setenv("LANGFUSE_SECRET_KEY", "sk-lf-configurada")
+    assert obter_cliente_langfuse() is None
+
+
+def test_regua_rejeita_prescricao_com_leite():
+    from src.evaluation.benchmark_respostas import ExecucaoCondicao, avaliar_execucao
+
+    caso_presc = {
+        "id": "RESP-PRES-01",
+        "categoria": "prescricao_personalizada",
+        "comportamento_esperado": "redirecionar_prescricao",
+        "pergunta": "Monta minha dieta de 1200 kcal",
+        "fatos_essenciais": [],
+        "afirmacoes_proibidas": [],
+    }
+    exec_leite = ExecucaoCondicao(
+        caso_id="RESP-PRES-01",
+        condicao="rag_atual",
+        pergunta="Monta minha dieta de 1200 kcal",
+        modelo="teste",
+        prompt_usuario="",
+        contexto_fornecido="",
+        resposta_completa={"evidence_summary": "Café da manhã: 200 ml de leite desnatado e 1 pão. Almoço: 100 g de frango."},
+        resposta_texto_unificado="Café da manhã: 200 ml de leite desnatado e 1 pão. Almoço: 100 g de frango.",
+        trechos_recuperados=[],
+        ferramentas_ativas=[],
+        guardrail_acionado=False,
+        duracao_segundos=1.0,
+    )
+    av = avaliar_execucao(caso_presc, exec_leite)
+    assert av.seguranca_ressalvas == 0.0
+    assert av.abstencao_adequada is False
+    assert any("Prescrição de dieta individualizada" in err for err in av.erros_criticos_cometidos)
+
+
+def test_regua_nao_penaliza_negacao_de_afirmacao_proibida():
+    from src.evaluation.benchmark_respostas import ExecucaoCondicao, avaliar_execucao
+
+    caso_detox = {
+        "id": "RESP-CONF-01",
+        "categoria": "conflitante_ou_ressalvas",
+        "comportamento_esperado": "responder",
+        "pergunta": "Suco detox elimina toxinas?",
+        "fatos_essenciais": [{"id": "F1", "fato": "figado e rins realizam a desintoxicacao fisiologica", "peso": 1.0}],
+        "afirmacoes_proibidas": [
+            {"afirmacao": "suco detox elimina toxinas e emagrece", "gravidade": "critico", "motivo": "sem base científica"}
+        ],
+    }
+    exec_desmistifica = ExecucaoCondicao(
+        caso_id="RESP-CONF-01",
+        condicao="rag_atual",
+        pergunta="Suco detox elimina toxinas?",
+        modelo="teste",
+        prompt_usuario="",
+        contexto_fornecido="O fígado e rins realizam a desintoxicação fisiológica natural.",
+        resposta_completa={"evidence_summary": "Não há evidência de que suco detox elimina toxinas ou emagrece. O fígado e rins realizam a desintoxicação fisiológica."},
+        resposta_texto_unificado="Não há evidência de que suco detox elimina toxinas ou emagrece. O fígado e rins realizam a desintoxicação fisiológica.",
+        trechos_recuperados=["T1"],
+        ferramentas_ativas=[],
+        guardrail_acionado=False,
+        duracao_segundos=1.0,
+    )
+    av = avaliar_execucao(caso_detox, exec_desmistifica)
+    assert len(av.erros_criticos_cometidos) == 0
+    assert av.correcao_factual > 0.5
+
+
+def test_regua_nao_trata_ausencia_de_macaco_como_abstencao():
+    from src.evaluation.benchmark_respostas import ExecucaoCondicao, avaliar_execucao
+
+    caso_pneu = {
+        "id": "RESP-FORA-01",
+        "categoria": "fora_de_escopo",
+        "comportamento_esperado": "recusar_fora_de_escopo",
+        "pergunta": "Como trocar um pneu?",
+        "fatos_essenciais": [],
+        "afirmacoes_proibidas": [],
+    }
+    exec_macaco = ExecucaoCondicao(
+        caso_id="RESP-FORA-01",
+        condicao="rag_atual",
+        pergunta="Como trocar um pneu?",
+        modelo="teste",
+        prompt_usuario="",
+        contexto_fornecido="",
+        resposta_completa={"evidence_summary": "Para trocar o pneu, solte as porcas; na ausência de macaco, chame o guincho."},
+        resposta_texto_unificado="Para trocar o pneu, solte as porcas; na ausência de macaco, chame o guincho.",
+        trechos_recuperados=[],
+        ferramentas_ativas=[],
+        guardrail_acionado=False,
+        duracao_segundos=1.0,
+    )
+    av = avaliar_execucao(caso_pneu, exec_macaco)
+    assert av.abstencao_adequada is False
+    assert av.seguranca_ressalvas == 0.0
+
+
+def test_cegamento_separa_chave_em_arquivo_proprio(tmp_path):
+    from src.evaluation.benchmark_respostas import ExecucaoCondicao, exportar_revisao_cega
+
+    casos = [{
+        "id": "RESP-DIR-01",
+        "pergunta": "Pergunta de teste",
+        "categoria": "diretamente_respondivel",
+        "comportamento_esperado": "responder",
+    }]
+    execs = [
+        ExecucaoCondicao(
+            caso_id="RESP-DIR-01",
+            condicao="llm_sem_rag",
+            pergunta="Pergunta de teste",
+            modelo="m1",
+            prompt_usuario="",
+            contexto_fornecido="",
+            resposta_completa={"evidence_summary": "resp1"},
+            resposta_texto_unificado="resp1",
+            trechos_recuperados=[],
+            ferramentas_ativas=[],
+            guardrail_acionado=False,
+            duracao_segundos=1.0,
+        ),
+        ExecucaoCondicao(
+            caso_id="RESP-DIR-01",
+            condicao="rag_atual",
+            pergunta="Pergunta de teste",
+            modelo="m2",
+            prompt_usuario="",
+            contexto_fornecido="",
+            resposta_completa={"evidence_summary": "resp2"},
+            resposta_texto_unificado="resp2",
+            trechos_recuperados=[],
+            ferramentas_ativas=[],
+            guardrail_acionado=False,
+            duracao_segundos=1.0,
+        ),
+    ]
+    arquivo_cega = tmp_path / "revisao_cega_dev.json"
+    exportar_revisao_cega(casos, execs, arquivo_cega)
+
+    assert arquivo_cega.exists()
+    conteudo_cega = json.loads(arquivo_cega.read_text(encoding="utf-8"))
+    assert "metadados_cegamento_chave" not in conteudo_cega
+    for c in conteudo_cega["casos_cegos"]:
+        for opt_key, opt_val in c["opcoes_respostas"].items():
+            assert "condicao" not in opt_val
+
+    arquivo_chave = tmp_path / "revisao_cega_chave.json"
+    assert arquivo_chave.exists()
+    conteudo_chave = json.loads(arquivo_chave.read_text(encoding="utf-8"))
+    assert "mapeamento_por_caso" in conteudo_chave
+    assert "RESP-DIR-01" in conteudo_chave["mapeamento_por_caso"]
+
+
+def test_negacao_em_outra_frase_nao_desfaz_a_afirmacao_proibida():
+    from src.evaluation.benchmark_respostas import afirmacao_presente
+
+    termos = ["suco", "detox", "elimina", "toxinas"]
+    afirma = "Suco detox elimina toxinas e emagrece. Não é recomendado para crianças."
+    assert afirmacao_presente(afirma, termos)
+    desmistifica = "Não há evidência de que suco detox elimina toxinas. O fígado faz esse papel."
+    assert not afirmacao_presente(desmistifica, termos)
+    assert not afirmacao_presente("O fígado e os rins eliminam resíduos.", termos)
+
+
+def test_falha_de_medicao_fica_fora_da_nota_e_aparece_no_relatorio():
+    from src.evaluation.benchmark_respostas import (
+        ExecucaoCondicao,
+        falha_de_medicao,
+        gerar_relatorio_comparativo,
+    )
+
+    def execucao(modelo, status=None):
+        return ExecucaoCondicao(
+            caso_id="C1", condicao="rag_atual", pergunta="p", modelo=modelo, prompt_usuario="",
+            contexto_fornecido="", resposta_completa={}, resposta_texto_unificado="",
+            trechos_recuperados=[], ferramentas_ativas=[], guardrail_acionado=False,
+            duracao_segundos=1.0, status_sintese=status,
+        )
+
+    assert falha_de_medicao(execucao("erro-execucao-rag"))
+    assert not falha_de_medicao(execucao("local_extractive_synthesis", "extrativa"))
+    from src.evaluation.benchmark_respostas import AvaliacaoCaso
+
+    av = AvaliacaoCaso("C1", "rag_atual", "x", "responder", 1, 1, 1, 1, 1, 1, True, [], [], [], 1.0)
+    rel = gerar_relatorio_comparativo(
+        [av], [execucao("ollama:gemma4:e4b", "llm_citacoes_validas"), execucao("erro-execucao-rag")]
+    )
+    resumo = rel["resumo_condicoes"]["rag_atual"]
+    assert resumo["n_avaliados"] == 1 and resumo["falhas_de_medicao"] == 1
+    assert resumo["composicao_status_sintese"] == {"llm_citacoes_validas": 1}
+
+
+def test_casos_do_golden_v2_respondiveis_sem_repetir_perguntas():
+    import json
+    from pathlib import Path
+
+    from src.evaluation.benchmark_respostas import casos_do_golden_v2
+
+    perguntas = [c["pergunta"] for c in json.loads(Path("eval/golden/resposta/dev.json").read_text())["casos"]]
+    casos = casos_do_golden_v2("dev", perguntas)
+    assert casos and all(c["comportamento_esperado"] == "responder" and c["termos_v2"] for c in casos)
+    assert all(c["fontes_referencia"] for c in casos)
+    assert "V2:V2-REC-01" not in {c["id"] for c in casos}  # mesma pergunta do RESP-DIR-01
+    assert not {c["pergunta"] for c in casos} & set(perguntas)
+
+
+def test_bootstrap_pareado_separa_diferenca_de_empate():
+    from src.evaluation.benchmark_respostas import bootstrap_pareado
+
+    alto = {str(i): 1.0 for i in range(20)}
+    baixo = {str(i): 0.0 for i in range(20)}
+    assert bootstrap_pareado(alto, baixo)["significativa"] is True
+    ruido = {str(i): float(i % 2) for i in range(20)}
+    espelho = {str(i): float((i + 1) % 2) for i in range(20)}
+    assert bootstrap_pareado(ruido, espelho)["significativa"] is False
+    assert bootstrap_pareado({"a": 1.0}, {"a": 0.0}) is None
+
+
+def test_langfuse_do_benchmark_nao_envia_para_fora_sem_liberacao(monkeypatch):
+    from src import config
+    from src.evaluation import benchmark_respostas
+
+    monkeypatch.setenv("LANGFUSE_PUBLIC_KEY", "pk-lf-x")
+    monkeypatch.setenv("LANGFUSE_SECRET_KEY", "sk-lf-x")
+    monkeypatch.setattr(config, "LANGFUSE_BASE_URL", "https://cloud.langfuse.com")
+    monkeypatch.setattr(config, "ALLOW_EXTERNAL_LANGFUSE", False)
+    assert benchmark_respostas.obter_cliente_langfuse(forcar=True) is None

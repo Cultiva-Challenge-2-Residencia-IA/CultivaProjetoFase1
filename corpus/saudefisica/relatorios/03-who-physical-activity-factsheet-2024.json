@@ -1,0 +1,18 @@
+{
+  "source_id": "who-physical-activity-factsheet-2024",
+  "source_sha256": "62bf97a4d350dd6989fdae270085a8f82c9c5b9f6d3fb14f1e1922330dcb3c79",
+  "markdown_sha256": "a23e00835b0b525c8aae665d3f351bbbc7fd320e123759932a17d9a5a6c09e30",
+  "script_sha256": "c08f94542cf59c75e82d6400f58680d2c0ad77eb6d96380a907dcb1daa5a61df",
+  "converter": "markdownify",
+  "converter_version": "1.2.0",
+  "beautifulsoup_version": "4.14.3",
+  "content_selector": ".sf-detail-body-wrapper",
+  "html_tables": 0,
+  "html_images": 0,
+  "limitations": [
+    "Cabeçalhos, tabelas e links podem perder estrutura ou relações semânticas durante a conversão.",
+    "Figuras não são copiadas; o texto alternativo e a referência ao HTML original são mantidos quando disponíveis.",
+    "A conversão estrutural e a checagem de hashes não substituem conferência integral contra o original.",
+    "A fonte continua pendente de revisão e aprovação."
+  ]
+}
