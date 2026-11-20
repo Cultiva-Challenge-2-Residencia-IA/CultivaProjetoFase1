@@ -5,11 +5,13 @@ from typing import List, Optional
 
 from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
-from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT
+from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import INCLUDE_PENDING_SOURCES, TOP_K_FINAL
+from src.guardrails.risco import detectar_risco
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
+from src.observabilidade import atributos_do_trace, observacao
 from src.models.schemas import (
     ConsultantResponse,
     DocumentChunk,
@@ -22,6 +24,10 @@ from src.retrieval.taco_tool import TacoDeterministicTool
 # Versão do prompt (RNF08): hash do prompt de sistema e do template da pergunta enviada ao LLM.
 PROMPT_VERSION = hashlib.sha256(
     (SYSTEM_PROMPT_CONSULTANT + inspect.getsource(LocalLLMClient._build_user_prompt)).encode("utf-8")
+).hexdigest()
+# Linha de base "LLM puro" da ablação: outro prompt de sistema, sem Trechos no prompt do usuário.
+PROMPT_VERSION_SEM_CONTEXTO = hashlib.sha256(
+    (SYSTEM_PROMPT_SEM_CONTEXTO + inspect.getsource(LocalLLMClient.generate_structured_synthesis)).encode("utf-8")
 ).hexdigest()
 
 
@@ -40,6 +46,7 @@ class NutritionConsultantBaseline:
         enable_ollama: bool = True,
         enable_taco_tool: bool = True,
         enable_graph_engine: bool = True,
+        enable_rag: bool = True,
     ) -> None:
         self.chunker = ContextualChunker()
         # Base padrão: Trechos do corpus curado (ADR 0002), com o gate de aprovação.
@@ -59,9 +66,14 @@ class NutritionConsultantBaseline:
         self.llm_client = LocalLLMClient(enable_ollama=enable_ollama)
         self.enable_taco_tool = enable_taco_tool
         self.enable_graph_engine = enable_graph_engine
+        # Desligar a busca só faz sentido nos experimentos de ablação (linha de base "LLM puro").
+        self.enable_rag = enable_rag
         self.taco_tool: Optional[TacoDeterministicTool] = (
             TacoDeterministicTool() if enable_taco_tool else None
         )
+        # Linha de base "LLM puro" da ablação: só quando as três fontes de contexto estão
+        # desligadas por configuração. Não é modo do produto.
+        self.modo_llm_puro = not enable_rag and not enable_taco_tool and not enable_graph_engine
         self.graph_engine: Optional[CausalKnowledgeGraphEngine] = (
             CausalKnowledgeGraphEngine() if enable_graph_engine else None
         )
@@ -76,7 +88,9 @@ class NutritionConsultantBaseline:
         return {
             "response_id": new_response_id(),
             "corpus_version": self.corpus_version,
-            "prompt_version": PROMPT_VERSION,
+            "prompt_version": (
+                PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False) else PROMPT_VERSION
+            ),
             "model_version": model_used,
             "fontes_version": fontes_version,
             "trechos_usados": trechos_usados,
@@ -115,5 +129,42 @@ class NutritionConsultantBaseline:
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:
         """Responde pela orquestração em LangGraph: portões de risco e de prompt injection no grafo
         principal (`src/orquestrador/grafo.py`) e o fluxo de Nutrição no subgrafo
-        (`src/agents/nutricao/grafo.py`)."""
-        return self._grafo().invoke({"pergunta": user_query, "top_k": top_k})["resposta"]
+        (`src/agents/nutricao/grafo.py`).
+
+        Com a observabilidade desligada (padrão), os blocos de observação são no-ops. Ligada, todo
+        texto passa pela máscara de dados pessoais no SDK (src/observabilidade.py, ADR 0003). A
+        observação raiz fica fora do grafo, e não no callback do LangGraph, porque a entrada só pode
+        ser decidida depois do portão de risco: mensagem que ele detecta não é registrada, nem
+        mascarada, e o trace guarda só as categorias. O portão é por léxico e deixa passar a maioria
+        das frases novas (recall de 0,133 no holdout, #48); essas vão ao trace como qualquer pergunta,
+        só com a máscara.
+        """
+        risco = detectar_risco(user_query)
+        entrada = (
+            {"risco_categorias": risco.categorias, "top_k": top_k}
+            if risco.risco
+            else {"query": user_query, "top_k": top_k}
+        )
+        with atributos_do_trace(trace_name="consulta_nutricao", tags=["nutricao"]), observacao(
+            "consult", input=entrada
+        ) as raiz:
+            resposta = self._grafo().invoke({"pergunta": user_query, "top_k": top_k})["resposta"]
+            raiz.update(
+                output={
+                    "evidence_summary": resposta.evidence_summary,
+                    "evidence_grade": resposta.evidence_grade,
+                    "citations": resposta.citations,
+                },
+                metadata={
+                    "model_used": resposta.model_used,
+                    "retrieval_mode": resposta.retrieval_mode,
+                    "guardrail_triggered": resposta.guardrail_triggered,
+                    "intent_category": str(resposta.intent_category),
+                },
+            )
+            raiz.score_trace(
+                name="guardrail_lei_8234",
+                value=1.0 if resposta.guardrail_triggered else 0.0,
+                data_type="NUMERIC",
+            )
+            return resposta

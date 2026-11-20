@@ -4,7 +4,7 @@ Guia de leitura do [`resultados.md`](resultados.md), que é gerado pelo script e
 
 ## Resultado em uma frase
 
-**Principal: `gemma4:e4b`. Reserva: `qwen3.5:9b`.** Das afirmações do gemma, 94% estão apoiadas nos trechos do corpus, contra 68% a 71% nos outros modelos, e a resposta típica dele sai em cerca de 3 segundos. Na cobertura dos termos esperados, os cinco modelos empatam.
+**Principal: `gemma4:e4b`.** Nesta comparação, o 2º colocado foi o `qwen3.5:9b`; a reserva adotada no ADR 0004 acabou sendo o `qwen2.5:7b`, depois da medição com o prompt atual. Das afirmações do gemma, 94% estão apoiadas nos trechos do corpus, contra 68% a 71% nos outros modelos, e a resposta típica dele sai em cerca de 3 segundos. Na cobertura dos termos esperados, os cinco modelos empatam.
 
 > **Atenção:** O prompt medido é o anterior à issue #12 (cinco campos de texto, sem citação por frase). Ver "Prompt congelado anterior à #12" no README antes de trocar o modelo em produção.
 
@@ -77,7 +77,7 @@ Latência, tok/s e VRAM vêm só das respostas geradas na RTX 5060, que é a má
 
 ### Tabela "Diferença para a referência"
 
-Compara cada modelo com o `qwen2.5:7b`, o modelo usado hoje.
+Compara cada modelo com o `qwen2.5:7b`, o modelo em uso antes do ADR 0004.
 
 - **dif.** é a diferença em pontos percentuais: positivo quer dizer melhor que o qwen2.5.
 - **[IC 95%]** é o intervalo de confiança por bootstrap pareado: os casos são reamostrados 10.000 vezes, comparando sempre os dois modelos no mesmo caso.

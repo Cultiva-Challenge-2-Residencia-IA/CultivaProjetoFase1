@@ -6,6 +6,8 @@ Grafo que recebe a pergunta, passa pelos portões de segurança e entrega ao age
 - `src/agents/nutricao/grafo.py`: subgrafo de Nutrição, com a mesma sequência de antes. As saídas antecipadas ("não sei" por falta de domínio ou por `llm_sem_base`) são arestas condicionais para o fim.
 - `NutritionConsultantBaseline.consult()` monta o grafo na primeira chamada e o invoca, com a mesma assinatura e a mesma `ConsultantResponse` de antes. A API, os benchmarks e a demonstração não mudam.
 
+**Observabilidade (Langfuse, opcional):** a observação raiz é aberta em `consult()`, fora do grafo, e cada nó abre a sua. O callback do LangGraph para o Langfuse não é usado: ele registraria a entrada do grafo, inclusive a pergunta que o portão de risco barra (ADR 0003, item 5).
+
 **Contrato de um agente:** subgrafo compilado cujo estado tem `pergunta`, `top_k` e `resposta`. Ele lê os dois primeiros e escreve o terceiro. O que mais ele usar fica no estado interno dele e não vaza para o grafo principal nem para outros agentes (RF-IA09).
 
 **Para acrescentar um agente:** crie `src/agents/<agente>/grafo.py` com `construir_subgrafo(...)` e passe-o em `agentes` de `construir_grafo`. O nó de roteamento que escolhe entre eles ainda não existe: enquanto houver um só agente, a pergunta vai para o `agente_padrao`.

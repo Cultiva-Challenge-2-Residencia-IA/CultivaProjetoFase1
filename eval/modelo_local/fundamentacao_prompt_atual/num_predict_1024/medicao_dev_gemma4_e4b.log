@@ -1,0 +1,45 @@
+V2-REC-01    extrativa                         14.2 s 
+V2-REC-02    extrativa_apos_citacao_invalida   11.5 s marcador_invalido:[?T1, T4]
+V2-REC-04    llm_citacoes_validas              11.9 s 
+V2-REC-05    llm_citacoes_validas               9.5 s 
+V2-REC-07    llm_citacoes_validas              13.4 s 
+V2-REC-08    extrativa                         16.7 s 
+V2-REC-10    llm_citacoes_validas              10.2 s 
+V2-REC-11    llm_citacoes_validas               5.2 s 
+V2-REC-13    llm_citacoes_validas               5.1 s 
+V2-REC-14    llm_citacoes_validas               9.9 s 
+V2-REC-16    llm_citacoes_validas               2.8 s 
+V2-REC-17    llm_citacoes_validas               4.8 s 
+V2-REC-19    llm_citacoes_validas               7.5 s 
+V2-REC-20    llm_citacoes_validas               9.0 s 
+V2-REC-22    llm_citacoes_validas               4.8 s 
+V2-REC-23    llm_citacoes_validas               3.7 s 
+V2-PRE-01    llm_citacoes_validas               9.2 s 
+V2-PRE-02    extrativa                          9.5 s 
+V2-PRE-04    llm_citacoes_validas               7.0 s 
+V2-PRE-05    llm_citacoes_validas               6.6 s 
+V2-ADV-01    -                                  0.0 s 
+V2-ADV-02    -                                  0.0 s 
+V2-ADV-04    llm_citacoes_validas               6.0 s 
+V2-FOR-01    llm_sem_base                       2.4 s 
+V2-FOR-02    llm_sem_base                       2.6 s 
+V2-FOR-04    -                                  0.0 s 
+V2-GRA-01    llm_citacoes_validas               6.9 s 
+V2-GRA-02    extrativa_apos_citacao_invalida    6.0 s nenhum_trecho_citado
+V2-TAC-01    extrativa_apos_citacao_invalida    4.2 s nenhum_trecho_citado
+V2-TAC-02    llm_citacoes_validas               6.5 s 
+{
+  "split": "dev",
+  "modelo": "gemma4:e4b",
+  "casos": 30,
+  "chegaram_ao_llm": 24,
+  "checadas": 22,
+  "llm_sem_base_vira_nao_sei": 2,
+  "conformidade_citacao_llm": 0.8636,
+  "taxa_fallback": 0.1364,
+  "problemas_por_tipo": {
+    "marcador_invalido": 1,
+    "nenhum_trecho_citado": 2
+  },
+  "segundos_mediana": 6.6
+}

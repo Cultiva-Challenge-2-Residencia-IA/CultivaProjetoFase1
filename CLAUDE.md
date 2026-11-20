@@ -10,26 +10,27 @@ As regras de trabalho estão em [AGENTS.md](AGENTS.md) e valem integralmente aqu
 
 - O CULTIVA é um app de apoio educativo/organizacional (18+) em Nutrição, Saúde Física e Estudos. A IA **não** diagnostica nem prescreve.
 - Requisitos (RN, RF-A, RF-IA, RNF) e a arquitetura vêm do repositório [Documentacao-Cultiva](https://github.com/Cultiva-Challenge-2-Residencia-IA/Documentacao-Cultiva). A arquitetura é uma **proposta provisória, ainda não validada**. Classifique as afirmações em: requisito aprovado / documentado, aprovação não confirmada / proposta técnica / hipótese.
-- Etapa atual: **aba Nutrição**, com o corpus e o RAG implementados (entrega da semana 2, PRs #30 a #33). Saúde Física, Estudos e a infraestrutura de produção ainda não existem; não os implemente sem pedido explícito. O portão de risco (issue #9) existe só para texto; o léxico e a mensagem de acolhimento foram revisados pela equipe, sem profissional de saúde.
+- Etapa funcional atual: **aba Nutrição**, com o corpus e o RAG implementados (entrega da semana 2, PRs #30 a #33). Em 19/11/2026, oito originais prioritários de Saúde Física foram arquivados e onze fontes foram incluídas no manifesto como `kind: original_only`; oito têm Markdown candidato à revisão, ainda sem Trechos, RAG ou aba funcional de Saúde Física. Estudos e a infraestrutura de produção também não existem. O portão de risco (issue #9) existe só para texto; o léxico e a mensagem de acolhimento foram revisados pela equipe, sem profissional de saúde.
 - Escreva em português do Brasil, como o restante do repositório.
 
 ## Estado real do código
 
-- **Pipeline de corpus** em `corpus/scripts/` (PyMuPDF): conversão, verificação e preparação dos Trechos. Ambiente próprio em `corpus/.venv`.
+- **Pipeline de corpus** em `corpus/scripts/`: conversão de PDF (PyMuPDF), conversão de HTML (`convert_html.py`), verificação e preparação dos Trechos. Ambiente próprio em `corpus/.venv`.
 - **Aplicação Python** (Python 3.11+, `uv`, `pyproject.toml`):
   - `src/rag/`: contrato do ADR 0002 (`contrato.py`) e `corpus_loader.py`, que carrega os Trechos e aplica o gate de aprovação;
   - `src/retrieval/`: `hybrid_retriever.py`, `vector_store.py` (ChromaDB), `taco_tool.py` e `graph_engine.py`;
   - `src/orquestrador/`: grafo principal em LangGraph (issue #76), com os portões de risco e de prompt injection antes de qualquer agente; diagrama em `src/orquestrador/README.md` (`uv run python -m src.orquestrador`);
-  - `src/agent/`: `consultant_baseline.py` (`consult()` invoca o grafo do orquestrador; montagem dos componentes e da rastreabilidade), `llm_client.py` (Ollama local por padrão; Groq só com liberação explícita; sem LLM, síntese extrativa; ADR 0003) e `guardrails.py` (guardrail legal da Lei 8.234/1991);
+  - `src/agent/`: `consultant_baseline.py` (`consult()` abre a observação raiz do Langfuse e invoca o grafo do orquestrador; montagem dos componentes e da rastreabilidade), `llm_client.py` (Ollama local por padrão, `gemma4:e4b` com reserva `qwen2.5:7b`, `think: false` e até 2048 tokens de saída, ADR 0004; Groq só com liberação explícita; sem LLM, síntese extrativa; ADR 0003) e `guardrails.py` (guardrail legal da Lei 8.234/1991);
   - `src/guardrails/`: `risco/` (detector de risco por léxico, `lexico.yaml`, e mensagem de acolhimento), `injection/` (prompt injection e delimitação dos Trechos como dado) e `pii/` (máscara de dados pessoais); `prescricao/` e `tom/` reexportam o guardrail legal;
   - `src/rag/abstencao.py`: o "não sei" fora do domínio (issue #6);
   - `src/evaluation/`: `run_benchmark.py` (v1, com `risk_metrics`, `risk_metrics_holdout` e `abstention_metrics`), `benchmark_v2.py`, `risco.py`, `abstencao.py`, `ablacao_ranking.py`, `ablacao_seed.py` (issue #5: efeito do `seed_guidelines`, que saiu do índice; resultado em `eval/runs/ablacao_seed_issue5.md`), `fundamentacao.py` (issue #12: conformidade das citações do LLM e amostra humana do RNF27, em `eval/fundamentacao/`), `gate.py` e `modelo_local/` (comparação de modelos do Ollama, issue #55; fora do CI);
   - `src/api.py` (FastAPI e CLI) e `src/demo_entrega.py` (demonstração da entrega);
   - `src/config.py`: caminhos e parâmetros, quase todos sobrescrevíveis por variável de ambiente.
+  - `src/observabilidade.py`: Langfuse opcional (proposta técnica; ADR 0003, item 5). Desligado por padrão e no CI; pacote no grupo `observabilidade` (`uv sync --group observabilidade`). Liga com `CULTIVA_LANGFUSE=true` e as chaves; destino padrão `http://localhost:3000`, e servidor externo só com `ALLOW_EXTERNAL_LANGFUSE=true`. O SDK mascara todo texto dos spans, e mensagem que o portão de risco detecta vai só com as categorias (as que o léxico não detecta, a maioria das frases novas pela #48, vão mascaradas como qualquer pergunta). `src/evaluation/langfuse_experimento.py` roda o golden v2 como experimento, com ablação (`--config llm-puro|llm-rag|llm-rag-grafo|completo`); só o `dev` sobe para o dataset, e o `test` exige `--incluir-test`. O "LLM puro" é só da ablação: liga quando busca, TACO e grafo estão desligados na configuração (`modo_llm_puro`), nunca por busca vazia.
 - `src/rag/verificador/citacoes.py`: checagem determinística das citações por frase (`[T#]`, `[GRAFO]`, `[TACO]`; issue #12).
 - `src/agents/nutricao/grafo.py` é o subgrafo de Nutrição (guardrail de entrada, busca, TACO, grafo causal, "não sei", síntese, guardrail de saída e citações). O resto de `src/agents/nutricao/` e `src/rag/{chunking,reranker,retriever,verificador}/` são fachadas que reexportam ou complementam os módulos acima. `src/agents/{estudos,fisica,sincronizador}/`, `src/api/` e `src/broker/` ainda contêm apenas `.gitkeep`.
 - **Testes** em `tests/` (pytest, inclusive o contrato do Trecho contra o JSON Schema) e **lint** com ruff.
-- **Decisões de arquitetura** em `docs/adrs/`: 0001 (RAG híbrido, TACO e grafo), 0002 (contrato entre corpus e retriever) e 0003 (provedor de LLM e dados pessoais).
+- **Decisões de arquitetura** em `docs/adrs/`: 0001 (RAG híbrido, TACO e grafo), 0002 (contrato entre corpus e retriever), 0003 (provedor de LLM e dados pessoais) e 0004 (modelo local do Ollama: `gemma4:e4b`, reserva `qwen2.5:7b`).
 - **Modelos de issue e de PR** em `.github/` (tarefa, bug, fonte para o corpus e decisão).
 - **Avaliação:** perguntas em `data/benchmark/eval_questions.json`, relatório em `data/benchmark/baseline_report.json`, baseline do gate em `eval/baselines/benchmark_offline.json` e limites em `eval/gates.toml`. O benchmark v2 (issue #13) fica em `eval/golden/v2/` (golden set com Trecho e página esperados, `dev` e `test`) e `src/evaluation/benchmark_v2.py`, com relatório em `data/benchmark/benchmark_v2_report.json`. Ele ainda não é gate do CI: o gate continua no v1. `eval/golden/dev` e `eval/golden/test` são cópias das 16 perguntas do v1.
 
@@ -57,6 +58,9 @@ uv sync --group modelo-local   # bert-score e PyTorch para CPU, só para o BERTS
 
 # Demonstração da entrega (regrava entrega_semanal/ com --salvar-artefatos)
 uv run python -m src.demo_entrega --salvar-artefatos
+
+# Experimento no Langfuse (opcional; exige uv sync --group observabilidade e as variáveis do .env.example)
+uv run python -m src.evaluation.langfuse_experimento --config completo --split dev
 ```
 
 Corpus:
@@ -84,13 +88,13 @@ Após cada alteração documental, rode `git diff --check`. `corpus/.venv/`, `co
 
 O fluxo atravessa vários arquivos, encadeados por hashes:
 
-1. **`corpus/manifest.yaml`**: catálogo único (`version: 1`, `sources`). Cada fonte declara `id`, `source`, `license`, `version`, `sha256`, `pdf_pages`, caminhos (`original_path`, `markdown_path`, `report_path`, `conversion_config`) e status (`conversion_status`, `approval_status`, `intended_use_license_review`). Não crie `sources.yaml`. Os scripts **leem** o manifesto, mas nunca o alteram.
+1. **`corpus/manifest.yaml`**: catálogo único (`version: 1`, `sources`). Fontes do pipeline de Nutrição declaram `id`, `source`, `license`, `version`, `sha256`, `pdf_pages`, caminhos (`original_path`, `markdown_path`, `report_path`, `conversion_config`) e status (`conversion_status`, `approval_status`, `intended_use_license_review`). Fontes `kind: original_only` não entram nos Trechos/RAG; podem ter Markdown candidato à revisão, ligado ao original e ao relatório por hash. Não crie `sources.yaml`. Os scripts **leem** o manifesto, mas nunca o alteram.
 2. **`corpus/nutricao/originais/*.pdf`**: bytes preservados. O hash precisa corresponder ao manifesto, e os originais nunca são sobrescritos.
 3. **`corpus/scripts/config/<fonte>.yaml`**: decisões por fonte, vinculadas ao SHA-256 do PDF (`sparse_page_decisions`, `ocr_regions`, `page_overrides`, `replacements`, `page_notes`, `strip_false_strikethrough_pages`). Substituições estritas falham se o trecho esperado mudar.
 4. **`corpus/scripts/ajustes/*.md`**: transcrições manuais de páginas problemáticas, referenciadas em `page_overrides`.
 5. **`convert_pdfs.py`** gera `nutricao/markdown/<nome>.md`, com `<!-- PDF_PAGE: N -->`, âncora `pagina-pdf-NNN` e link `...pdf#page=N` em cada página física (base 1, sem imagens exportadas). Também gera `nutricao/relatorios/<nome>.json`, com diagnóstico por página, OCR bruto, cobertura lexical (limiar de 98%, apenas diagnóstico) e hashes do PDF, Markdown, script, config e ajustes.
 6. **`prepare_rag.py`** limpa o Markdown e gera os Trechos em `nutricao/rag/*.jsonl` (cerca de 1.000 caracteres, sem atravessar página nem seção), no formato de `corpus/schemas/trecho.schema.json`. Copia o `approval_status` do manifesto; `scripts/config/rag.yaml` define `skip_pages` e descartes por fonte. Registra em `nutricao/rag/geracao.json` os hashes do JSONL, do `.md`, do script e da seção da fonte no `rag.yaml`.
-7. **`verify_corpus.py`** recalcula os hashes e falha se: o PDF divergir; o **Markdown for editado após a conversão**; `convert_pdfs.py`, a configuração ou um ajuste mudar sem regeneração; marcadores/links de página faltarem ou estiverem fora de ordem; ou houver imagem `![]()`. Também chama o `verify_trechos.py`, que falha se um JSONL faltar, foi editado à mão ou ficou para trás em relação ao `.md`, ao `prepare_rag.py` ou ao `rag.yaml`, se um campo copiado do manifesto (como `approval_status` e `licenca`) divergir, ou se `pagina_pdf` sair do intervalo do PDF. Ele não exige nenhum status.
+7. **`verify_corpus.py`** recalcula os hashes e falha se: o PDF divergir; o **Markdown for editado após a conversão**; `convert_pdfs.py`, a configuração ou um ajuste mudar sem regeneração; marcadores/links de página faltarem ou estiverem fora de ordem; ou houver imagem `![]()`. Também confere formato e hash dos originais `kind: original_only` e, quando declarados, dos Markdown e relatórios candidatos; informa originais ainda indisponíveis. Chama `verify_trechos.py`, que exclui fontes `original_only` do RAG e falha se um JSONL faltar, foi editado à mão ou ficou para trás em relação ao `.md`, ao `prepare_rag.py` ou ao `rag.yaml`, se um campo copiado do manifesto (como `approval_status` e `licenca`) divergir, ou se `pagina_pdf` sair do intervalo do PDF. Ele não exige nenhum status.
 
 Consequências práticas:
 

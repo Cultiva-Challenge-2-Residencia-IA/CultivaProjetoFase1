@@ -7,7 +7,9 @@ guardrail de entrada → busca híbrida → TACO → grafo causal → "não sei"
 saída e montagem da resposta.
 
 Os nós leem os componentes do consultor (`retriever`, `taco_tool`, `graph_engine`,
-`llm_client`, `guardrail`) no momento da chamada, e não na construção do grafo.
+`llm_client`, `guardrail`) no momento da chamada, e não na construção do grafo. Cada nó abre a
+sua observação no Langfuse quando a observabilidade está ligada (`src/observabilidade.py`), aninhada
+à observação raiz aberta por `consult()`.
 """
 
 from typing import Any, Dict, List, Optional, TypedDict
@@ -16,6 +18,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.graph.state import CompiledStateGraph
 
 from src.config import ABSTENCAO_LIMIAR_COSSENO
+from src.observabilidade import observacao, resumo_trechos
 from src.models.schemas import (
     CausalGraphPath,
     ConsultantResponse,
@@ -41,7 +44,7 @@ class EstadoNutricao(TypedDict, total=False):
     contexto_taco: str
     caminhos_grafo: List[CausalGraphPath]
     contexto_grafo: str
-    similaridade: float
+    similaridade: Optional[float]
     sintese: Dict[str, Any]
     modelo: str
     fundamentacao: Dict[str, Any]
@@ -57,30 +60,51 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
     def guardrail_entrada(estado: EstadoNutricao) -> dict:
         # Conformidade com a Lei nº 8.234/91: pedidos individuais viram pergunta populacional.
         pergunta = estado["pergunta"]
-        avaliacao = consultor.guardrail.assess_and_reframe(pergunta)
+        with observacao("guardrail_entrada", tipo="guardrail", input={"query": pergunta}) as obs:
+            avaliacao = consultor.guardrail.assess_and_reframe(pergunta)
+            obs.update(
+                output={
+                    "restrito_lei_8234": avaliacao.is_restricted_by_law_8234,
+                    "intent_category": str(avaliacao.intent_category),
+                    "query_reformulada": avaliacao.reframed_population_query,
+                }
+            )
         efetiva = avaliacao.reframed_population_query
         busca = f"{efetiva} {pergunta}" if avaliacao.is_restricted_by_law_8234 else efetiva
         return {"avaliacao": avaliacao, "pergunta_efetiva": efetiva, "consulta_busca": busca}
 
     def busca_hibrida(estado: EstadoNutricao) -> dict:
-        # BM25 + vetorial local + RRF (ADR 0001).
-        return {"recuperados": consultor.retriever.retrieve(estado["consulta_busca"], top_k=estado["top_k"])}
+        # BM25 + vetorial local + RRF (ADR 0001). Sem busca só na linha de base "LLM puro" da ablação.
+        if not getattr(consultor, "enable_rag", True):
+            return {"recuperados": []}
+        consulta, top_k = estado["consulta_busca"], estado["top_k"]
+        with observacao("retrieve", tipo="retriever", input={"query": consulta, "top_k": top_k}) as obs:
+            recuperados = consultor.retriever.retrieve(consulta, top_k=top_k)
+            obs.update(output=resumo_trechos(recuperados))
+        return {"recuperados": recuperados}
 
     def tabela_taco(estado: EstadoNutricao) -> dict:
         if consultor.taco_tool is None:
             return {"registros_taco": [], "contexto_taco": ""}
-        registros, contexto = consultor.taco_tool.auto_query_from_question(estado["consulta_busca"])
+        with observacao("taco", tipo="tool", input={"query": estado["consulta_busca"]}) as obs:
+            registros, contexto = consultor.taco_tool.auto_query_from_question(estado["consulta_busca"])
+            obs.update(output=[rec.description for rec in registros])
         return {"registros_taco": registros, "contexto_taco": contexto}
 
     def grafo_causal(estado: EstadoNutricao) -> dict:
         if consultor.graph_engine is None:
             return {"caminhos_grafo": [], "contexto_grafo": ""}
-        caminhos, contexto = consultor.graph_engine.traverse_for_query(estado["consulta_busca"], max_paths=4)
+        with observacao("grafo_causal", tipo="tool", input={"query": estado["consulta_busca"]}) as obs:
+            caminhos, contexto = consultor.graph_engine.traverse_for_query(estado["consulta_busca"], max_paths=4)
+            obs.update(output=contexto)
         return {"caminhos_grafo": caminhos, "contexto_grafo": contexto}
 
     def abstencao(estado: EstadoNutricao) -> dict:
         # "Não sei" (RF-IA01): fora do domínio (cosseno baixo e nenhum termo de Nutrição), resposta
-        # fixa sem LLM. Se o grafo ou a TACO tiverem resultado, responde só com eles.
+        # fixa sem LLM. Se o grafo ou a TACO tiverem resultado, responde só com eles. Só com a busca
+        # ligada: sem RAG (linha de base "LLM puro" da ablação) não há similaridade a medir.
+        if not getattr(consultor, "enable_rag", True):
+            return {"similaridade": None}
         similaridade = round(consultor.retriever.similaridade_maxima(estado["consulta_busca"]), 4)
         atualizacao: Dict[str, Any] = {"similaridade": similaridade}
         if fora_do_dominio(estado["pergunta"], similaridade, ABSTENCAO_LIMIAR_COSSENO):
@@ -102,12 +126,23 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
 
     def sintese(estado: EstadoNutricao) -> dict:
         # Ollama local, Groq com liberação explícita ou síntese extrativa (ADR 0003).
-        resultado, modelo = consultor.llm_client.generate_structured_synthesis(
-            query=estado["pergunta_efetiva"],
-            retrieved_chunks=estado["recuperados"],
-            taco_context_str=estado["contexto_taco"],
-            graph_context_str=estado["contexto_grafo"],
-        )
+        with observacao("sintese", input={"query": estado["pergunta_efetiva"]}) as obs:
+            resultado, modelo = consultor.llm_client.generate_structured_synthesis(
+                query=estado["pergunta_efetiva"],
+                retrieved_chunks=estado["recuperados"],
+                taco_context_str=estado["contexto_taco"],
+                graph_context_str=estado["contexto_grafo"],
+                # Só a configuração liga o "LLM puro"; resultado vazio da busca não liga.
+                sem_contexto=getattr(consultor, "modo_llm_puro", False),
+            )
+            obs.update(output=resultado, metadata={"model_used": modelo})
+            # Scores do trace para filtrar e montar painéis no Langfuse.
+            obs.score_trace(name="modelo_usado", value=modelo, data_type="CATEGORICAL")
+            obs.score_trace(
+                name="sintese_extrativa",
+                value=1.0 if modelo == "local_extractive_synthesis" else 0.0,
+                data_type="NUMERIC",
+            )
         fundamentacao = resultado.pop("_fundamentacao", {"status": None, "problemas": []})
         atualizacao: Dict[str, Any] = {"sintese": resultado, "modelo": modelo, "fundamentacao": fundamentacao}
         if fundamentacao.get("status") == "llm_sem_base":
@@ -161,11 +196,18 @@ def _montar_resposta(consultor: Any, estado: EstadoNutricao) -> ConsultantRespon
     fundamentacao = estado["fundamentacao"]
 
     # Guardrail de saída: sanitização contra linguagem prescritiva individual.
-    evidence_summary = consultor.guardrail.sanitize_output_text(str(sintese.get("evidence_summary", "")))
-    physiological_mechanism = consultor.guardrail.sanitize_output_text(
-        str(sintese.get("physiological_mechanism", ""))
-    )
-    protocol_findings = consultor.guardrail.sanitize_output_text(str(sintese.get("protocol_findings", "")))
+    with observacao("guardrail_saida", tipo="guardrail") as obs:
+        brutos = {
+            campo: str(sintese.get(campo, ""))
+            for campo in ("evidence_summary", "physiological_mechanism", "protocol_findings")
+        }
+        sanitizados = {campo: consultor.guardrail.sanitize_output_text(texto) for campo, texto in brutos.items()}
+        alterados = [campo for campo in brutos if brutos[campo] != sanitizados[campo]]
+        obs.update(output={"campos_alterados": alterados})
+        obs.score_trace(name="guardrail_saida_alterou", value=1.0 if alterados else 0.0, data_type="NUMERIC")
+    evidence_summary = sanitizados["evidence_summary"]
+    physiological_mechanism = sanitizados["physiological_mechanism"]
+    protocol_findings = sanitizados["protocol_findings"]
 
     # Citações (issue #12): só os Trechos marcados [T#] no texto final, com o número e a página.
     # O prefixo "[doc_id]" se mantém para o citacoes_validas do benchmark v2.

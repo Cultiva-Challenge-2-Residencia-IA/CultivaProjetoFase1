@@ -1,6 +1,6 @@
 # Entrega: RAG de Nutrição com base curada, banco vetorial e rastreabilidade de fontes
 
-> **Estado das fontes.** O corpus tem 22 fontes catalogadas em [`corpus/manifest.yaml`](../corpus/manifest.yaml). Depois da revisão de aprovação ([`revisao-aprovacao-corpus.md`](../corpus/nutricao/relatorios/revisao-aprovacao-corpus.md), PR #31), **21 estão aprovadas** e só a SBAN segue `pendente`, por possível conflito de interesse. O índice padrão, a demonstração e o benchmark usam **só as fontes aprovadas**; as pendentes entram apenas com `CULTIVA_INCLUIR_PENDENTES=true` (ADR 0002, issue #7). A licença não é critério de aprovação: vale o aceite de risco para projeto acadêmico sem fins lucrativos ([`corpus/README.md`](../corpus/README.md)).
+> **Estado das fontes.** O corpus de Nutrição mantém 22 fontes no [`corpus/manifest.yaml`](../corpus/manifest.yaml); o manifesto agora tem 33 registros no total, incluindo onze fontes prioritárias de Saúde Física em `kind: original_only` (oito com Markdown candidato, todas fora dos Trechos). Depois da revisão de aprovação do corpus de Nutrição ([`revisao-aprovacao-corpus.md`](../corpus/nutricao/relatorios/revisao-aprovacao-corpus.md), PR #31), **21 das 22 fontes de Nutrição estão aprovadas** e só a SBAN segue `pendente`, por possível conflito de interesse. O índice padrão, a demonstração e o benchmark usam **só as fontes aprovadas de Nutrição**; as pendentes entram apenas com `CULTIVA_INCLUIR_PENDENTES=true` (ADR 0002, issue #7). A licença não é critério de aprovação: vale o aceite de risco para projeto acadêmico sem fins lucrativos ([`corpus/README.md`](../corpus/README.md)).
 
 Os números deste documento foram gerados pelo sistema, não escritos à mão: `uv run python -m src.demo_entrega --salvar-artefatos` regrava os artefatos em [`entrega_semanal/`](../entrega_semanal/), e `uv run python -m src.evaluation.run_benchmark --no-ollama` regrava o benchmark.
 
@@ -74,7 +74,7 @@ A página e a seção nunca são misturadas entre Trechos. É isso que permite c
 
 ```mermaid
 flowchart LR
-    M["corpus/manifest.yaml<br/>22 fontes: origem,<br/>SHA-256, source_type, aprovação"] --> C
+    M["corpus/manifest.yaml<br/>22 fontes de Nutrição alimentam este fluxo;<br/>11 original_only de Saúde Física ficam fora da conversão/Trechos"] --> C
     P["PDFs originais<br/>corpus/nutricao/originais"] --> C["convert_pdfs.py<br/>Markdown por página + OCR<br/>+ relatório de cobertura"]
     C --> V{"verify_corpus.py<br/>cadeia de hashes do PDF<br/>aos Trechos (CI)"}
     C --> R["prepare_rag.py<br/>limpeza + Trechos de ~1000 caracteres<br/>sem atravessar página nem seção"]
