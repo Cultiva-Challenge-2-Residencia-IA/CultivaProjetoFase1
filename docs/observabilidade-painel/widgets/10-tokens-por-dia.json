@@ -1,0 +1,29 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Tokens do LLM por dia",
+  "description": "Soma dos tokens de entrada e saída de todas as chamadas ao LLM por dia, no período escolhido no topo do painel (padrão: últimos 7 dias).",
+  "view": "observations",
+  "dimensions": [],
+  "metrics": [
+    {
+      "measure": "totalTokens",
+      "agg": "sum"
+    }
+  ],
+  "filters": [
+    {
+      "column": "type",
+      "operator": "any of",
+      "value": [
+        "GENERATION"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "BAR_TIME_SERIES",
+  "chartConfig": {
+    "type": "BAR_TIME_SERIES"
+  },
+  "minVersion": 1
+}
