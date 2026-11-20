@@ -102,10 +102,11 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
     script_sha = sha256_file(SCRIPT_PATH)
     problemas: dict[str, list[str]] = defaultdict(list)
     cache_jsonl: dict[Path, list[dict]] = {}
-    ids_manifesto = {s["id"] for s in manifest["sources"]}
+    fontes_indexaveis = [s for s in manifest["sources"] if s.get("kind") != "original_only"]
+    ids_manifesto = {s["id"] for s in fontes_indexaveis}
     script_desatualizado: list[str] = []
 
-    for source in manifest["sources"]:
+    for source in fontes_indexaveis:
         sid = source["id"]
         entrada = geracao.get(sid)
         if entrada is None:
@@ -152,6 +153,7 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
 
 def verify(manifest: dict | None = None) -> None:
     manifest = manifest or yaml.safe_load(MANIFEST_PATH.read_text(encoding="utf-8"))
+    fontes_indexaveis = [s for s in manifest["sources"] if s.get("kind") != "original_only"]
     problemas = problemas_dos_trechos(manifest)
     if problemas:
         ids = {s["id"] for s in manifest["sources"]}
@@ -165,7 +167,7 @@ def verify(manifest: dict | None = None) -> None:
                 linhas.append(f"    regenerar: {COMANDO.format(id=chave)}")
         raise ValueError("\n".join(linhas))
     total = sum(len(_ler_jsonl(p)) for p in OUTPUT_DIR.glob("*.jsonl"))
-    print(f"OK Trechos: {len(manifest['sources'])} fontes, {total} Trechos; campos do manifesto, "
+    print(f"OK Trechos: {len(fontes_indexaveis)} fontes indexáveis, {total} Trechos; campos do manifesto, "
           "páginas e hashes de origem, script e configuração conferidos.")
 
 

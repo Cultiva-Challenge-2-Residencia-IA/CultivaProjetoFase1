@@ -19,14 +19,33 @@ dependencies = [
     "pillow>=10.0.0",
     "chromadb>=1.0.0",
     "fastembed>=0.4.0",
+    "langgraph>=1.2.23,<2",
 ]
 
 [dependency-groups]
+# Observabilidade opcional (src/observabilidade.py, ADR 0003): uv sync --group observabilidade
+observabilidade = [
+    "langfuse>=5.2.0",
+]
 dev = [
     "jsonschema>=4.26.0",
     "pytest>=8.0.0",
     "pytest-mock>=3.14.0",
     "ruff==0.14.0",
+]
+# Comparação de modelos locais (issue #55): BERTScore de referência. Fora do CI:
+# uv sync --group modelo-local
+modelo-local = [
+    "bert-score>=0.3.13",
+    "torch>=2.4",
+]
+# Comparação de frameworks de guardrail (issue #52). Fora do CI:
+# uv sync --group guardrails-frameworks
+guardrails-frameworks = [
+    "nemoguardrails>=0.25.0",
+    "guardrails-ai>=0.11.0",
+    "guardrails-ai-provenance-llm>=0.0.2",
+    "torch>=2.4",
 ]
 
 [tool.pytest.ini_options]
@@ -38,3 +57,12 @@ target-version = "py311"
 
 [tool.uv]
 package = false
+
+# PyTorch só para CPU (o grupo modelo-local não usa GPU, que fica com o Ollama).
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]

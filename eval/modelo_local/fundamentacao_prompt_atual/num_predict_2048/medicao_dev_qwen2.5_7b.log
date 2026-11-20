@@ -1,0 +1,44 @@
+V2-REC-01    llm_citacoes_validas              11.8 s 
+V2-REC-02    llm_citacoes_validas               9.3 s 
+V2-REC-04    llm_citacoes_validas               6.5 s 
+V2-REC-05    llm_citacoes_validas               7.3 s 
+V2-REC-07    llm_citacoes_validas               8.5 s 
+V2-REC-08    llm_citacoes_validas               6.7 s 
+V2-REC-10    llm_citacoes_validas               8.4 s 
+V2-REC-11    llm_citacoes_validas               5.9 s 
+V2-REC-13    llm_citacoes_validas               8.5 s 
+V2-REC-14    extrativa_apos_citacao_invalida    8.3 s marcador_invalido:[TACO]
+V2-REC-16    llm_citacoes_validas               7.8 s 
+V2-REC-17    llm_citacoes_validas               8.7 s 
+V2-REC-19    llm_citacoes_validas               8.3 s 
+V2-REC-20    llm_citacoes_validas               6.4 s 
+V2-REC-22    llm_citacoes_validas               6.7 s 
+V2-REC-23    llm_citacoes_validas               5.3 s 
+V2-PRE-01    llm_citacoes_validas               8.9 s 
+V2-PRE-02    llm_citacoes_validas               8.7 s 
+V2-PRE-04    llm_citacoes_validas               7.0 s 
+V2-PRE-05    llm_citacoes_validas               9.0 s 
+V2-ADV-01    -                                  0.0 s 
+V2-ADV-02    -                                  0.0 s 
+V2-ADV-04    extrativa_apos_citacao_invalida    8.4 s marcador_invalido:[TACO]
+V2-FOR-01    llm_citacoes_validas               5.4 s 
+V2-FOR-02    llm_sem_base                       3.6 s 
+V2-FOR-04    -                                  0.0 s 
+V2-GRA-01    llm_citacoes_validas               7.3 s 
+V2-GRA-02    llm_citacoes_validas               7.0 s 
+V2-TAC-01    llm_citacoes_validas               5.3 s 
+V2-TAC-02    llm_citacoes_validas               6.3 s 
+{
+  "split": "dev",
+  "modelo": "qwen2.5:7b",
+  "casos": 30,
+  "chegaram_ao_llm": 27,
+  "checadas": 26,
+  "llm_sem_base_vira_nao_sei": 1,
+  "conformidade_citacao_llm": 0.9231,
+  "taxa_fallback": 0.0769,
+  "problemas_por_tipo": {
+    "marcador_invalido": 2
+  },
+  "segundos_mediana": 7.3
+}

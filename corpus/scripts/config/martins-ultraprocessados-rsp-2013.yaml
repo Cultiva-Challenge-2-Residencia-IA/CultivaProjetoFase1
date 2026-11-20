@@ -1,0 +1,16 @@
+# Configuração de conversão de martins-ultraprocessados-rsp-2013 (issue #26, 19/11/2026).
+# Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
+sha256: e606387251889e4e9364b436689a85838b346b01ce87fe6dba52df474a398c49
+page_notes:
+  5: 'Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md).
+    Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.:
+    ''2a'', ''processadob''); todos os números decimais do PDF estão no Markdown (conferência da issue
+    #26, 19/11/2026).'
+  6: 'Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md).
+    Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.:
+    ''2a'', ''processadob''); todos os números decimais do PDF estão no Markdown (conferência da issue
+    #26, 19/11/2026).'
+  7: 'Página fora dos Trechos (skip_pages em rag.yaml) por decisão da revisão do issue #8 (relatorios/revisao-issue-8.md).
+    Alerta lexical por tokenização: números e palavras colados a sobrescritos de nota ou citação (ex.:
+    ''2a'', ''processadob''); todos os números decimais do PDF estão no Markdown (conferência da issue
+    #26, 19/11/2026).'

@@ -4,7 +4,7 @@
   "pdf_pages": 10,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": null,
+  "config_sha256": "873954ebf97a21488a49855112838da216e16d1dc7a79a61387b9591756e4762",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -112,6 +112,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Tabela girada extraída embaralhada: 9 números decimais do PDF não aparecem no Markdown. Página fora dos Trechos (skip_pages em rag.yaml, data_quality_note no manifesto); consultar o PDF original.",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -166,6 +167,7 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [
+        "Página fora dos Trechos (skip_pages em rag.yaml) junto com a 5; alerta lexical por tabela e quebra de colunas; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).",
         "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
       ],
       "adjustments": [],
@@ -302,7 +304,7 @@
       "markdown_characters": 6487
     }
   ],
-  "markdown_sha256": "a3e35942ccddbd17cf63f44becb220a2323b451aa1799a96f4f68698db9b8079",
+  "markdown_sha256": "6f43542cd87e6d654f0e6a7a35e0b302dc3c867928221a96aca9c0f8a4c6ba10",
   "summary": {
     "pages_converted": 10,
     "sparse_pages": [],
