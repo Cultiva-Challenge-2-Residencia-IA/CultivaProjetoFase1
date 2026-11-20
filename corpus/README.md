@@ -159,6 +159,7 @@ Decisões de 06/11/2026.
   - **Resultado no Guia:** os Trechos com frase em minúscula depois de ponto caíram de 195 para 6, e os com palavra em caixa irregular, de 63 para 25 (sobram nomes compostos e siglas, mais seis palavras em que o próprio nativo é irregular).
   - **Crispim:** a capitular e a primeira linha da página 1, extraídas fora de ordem, foram refeitas por `replacements`.
   - **Reaprovação:** as 21 fontes aprovadas passaram por `pendente` para a regeneração, porque o script mudou. Só os Markdown do Guia e do Crispim mudaram.
+  - **Saúde Física:** os seis candidatos em PDF (`kind: original_only`, ainda `pendente`) também foram reconvertidos com o script novo, depois da mesclagem da `main`. A opção não vale para eles; só mudaram o hash do script nos relatórios e o texto de OCR das figuras sem decisão de página no WHO 2020 e no WHO 2023 (caracteres espúrios que variam com a versão do Tesseract).
 - **Configuração da ABESO (issue #26, 19/11/2026).**
   - **Notas:** `page_notes` nas 71 páginas com aviso: alertas de tokenização (palavras coladas a citações, palavras de cabeçalho intercaladas em palavras hifenizadas), com todos os números decimais do PDF presentes no Markdown.
   - **OCR:** `sparse_page_decisions` nas 32 páginas que passavam por OCR (separadores em branco, folhas de rosto e contracapa), que agora usam o texto nativo. O título da seção de 37 Trechos ficou melhor ("CAPÍTULO 3 MICROBIOTA…", acentos do capítulo 10), e um `replacement` na página 251 junta número e nome do capítulo 11.

@@ -3,7 +3,7 @@
   "source_sha256": "50b66c44e7083cc3752849f301ae1d60d9360d511e34c0c948b39bdf6e13dc88",
   "pdf_pages": 104,
   "conversion_status": "concluida_com_ressalvas",
-  "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
+  "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
   "config_sha256": null,
   "versions": {
     "PyMuPDF": "2.1",
@@ -591,7 +591,7 @@
       "ocr": [
         {
           "label": "Página inteira",
-          "raw_text": "PÁ)\nIN a\ned\nCASE\n+ ço +\nfG\nN\n"
+          "raw_text": "1\nDA a\ned\nASP\n+ ço +\nfeG\n|\n"
         }
       ],
       "sparse_page_decision": "OCR automático por pouco texto nativo",
@@ -607,7 +607,7 @@
         "sedentary": 1,
         "who": 1
       },
-      "markdown_characters": 94
+      "markdown_characters": 92
     },
     {
       "pdf_page": 25,
@@ -1878,7 +1878,7 @@
       "ocr": [
         {
           "label": "Página inteira",
-          "raw_text": ".\nº\nIN B\n€\n|\nAS\n“HA\nÉ\n+N\n) Pg\n|\n"
+          "raw_text": ":\nNy B\n|\n|\nÉ\n+N\nYU\n|\n"
         }
       ],
       "sparse_page_decision": "OCR automático por pouco texto nativo",
@@ -1894,7 +1894,7 @@
         "sedentary": 1,
         "who": 1
       },
-      "markdown_characters": 175
+      "markdown_characters": 153
     },
     {
       "pdf_page": 85,
@@ -2077,7 +2077,7 @@
       "ocr": [
         {
           "label": "Página inteira",
-          "raw_text": ".\nº\nIN B\n€\n|\nAS\n“HA\nÉ\n+N\n) Pg\n|\n"
+          "raw_text": ":\nNy B\n|\n|\nÉ\n+N\nYU\n|\n"
         }
       ],
       "sparse_page_decision": "OCR automático por pouco texto nativo",
@@ -2093,7 +2093,7 @@
         "sedentary": 1,
         "who": 1
       },
-      "markdown_characters": 175
+      "markdown_characters": 153
     },
     {
       "pdf_page": 95,
@@ -2260,7 +2260,7 @@
       "ocr": [
         {
           "label": "Página inteira",
-          "raw_text": "IN\n| Á)\nN\nN\n)\n“q\nLs NR)\nsv\nLD\nCm SM\nDez\n(/ e\na\nFoo (iso\ngi!\n"
+          "raw_text": "O\n| Á)\nN\nN\n)\n“q\nANG\n)\nsv\nLD\nCm SM\nDez\n(/ e\nCia\nFoo (iso\ngi!\n"
         }
       ],
       "sparse_page_decision": "OCR automático por pouco texto nativo",
@@ -2275,10 +2275,10 @@
         "978": 2,
         "isbn": 2
       },
-      "markdown_characters": 146
+      "markdown_characters": 142
     }
   ],
-  "markdown_sha256": "6c50c5b4378d4a09eec1f6f87ea5ad1e55af7207bd6c291dd0c44e0ea2f9ec11",
+  "markdown_sha256": "8f850a5b3ab3dd1e53bb833988b64909346d696f97c33680849bb2831f0933d8",
   "summary": {
     "pages_converted": 104,
     "sparse_pages": [

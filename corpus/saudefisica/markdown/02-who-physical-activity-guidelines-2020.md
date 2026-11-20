@@ -912,9 +912,9 @@ Executive summaryRecommendations **1** 53
 > **Nota de conversão — página 24:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 <!-- Start of picture text -->
-IN aPÁ)<br>ed+ çoCASE+<br>fG<br><!-- End of picture text -->
+DA a1<br>ed+ çoASP+<br>feG<br><!-- End of picture text -->
 
-N
+|
 
 ---
 
@@ -3079,10 +3079,12 @@ Adoption, dissemination, implementation and evaluation
 É
 
 <!-- Start of picture text -->
-º<br>.<br>IN B € |<br>AS “HA<br>Pg +N<br><!-- End of picture text -->
+:<br>Ny B | |<br><!-- End of picture text -->
+
+YU
 
 <!-- Start of picture text -->
-) Pg<br><!-- End of picture text -->
++N<br><!-- End of picture text -->
 
 |
 
@@ -3471,10 +3473,12 @@ a | CS ida
 É
 
 <!-- Start of picture text -->
-º<br>.<br>IN B € |<br>AS “HA<br>Pg +N<br><!-- End of picture text -->
+:<br>Ny B | |<br><!-- End of picture text -->
+
+YU
 
 <!-- Start of picture text -->
-) Pg<br><!-- End of picture text -->
++N<br><!-- End of picture text -->
 
 |
 
@@ -3946,6 +3950,6 @@ Annex 3
 > **Nota de conversão — página 104:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 <!-- Start of picture text -->
-IN<br>N | Á)<br>N )<br>“q Ls NR) sv<br>LD Cm SM<br>Dez<br>(/ e<br>a<br>Foo (iso gi!<br><!-- End of picture text -->
+O<br>N | Á)<br>N )<br>“q ANG ) sv<br>LD Cm SM<br>Dez<br>(/ e<br>CiaFoo (iso gi!<br><!-- End of picture text -->
 
 ---
