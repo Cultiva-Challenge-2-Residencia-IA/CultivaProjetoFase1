@@ -560,3 +560,14 @@ def test_bootstrap_pareado_separa_diferenca_de_empate():
     espelho = {str(i): float((i + 1) % 2) for i in range(20)}
     assert bootstrap_pareado(ruido, espelho)["significativa"] is False
     assert bootstrap_pareado({"a": 1.0}, {"a": 0.0}) is None
+
+
+def test_langfuse_do_benchmark_nao_envia_para_fora_sem_liberacao(monkeypatch):
+    from src import config
+    from src.evaluation import benchmark_respostas
+
+    monkeypatch.setenv("LANGFUSE_PUBLIC_KEY", "pk-lf-x")
+    monkeypatch.setenv("LANGFUSE_SECRET_KEY", "sk-lf-x")
+    monkeypatch.setattr(config, "LANGFUSE_BASE_URL", "https://cloud.langfuse.com")
+    monkeypatch.setattr(config, "ALLOW_EXTERNAL_LANGFUSE", False)
+    assert benchmark_respostas.obter_cliente_langfuse(forcar=True) is None

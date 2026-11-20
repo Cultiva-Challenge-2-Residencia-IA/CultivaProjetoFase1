@@ -195,8 +195,16 @@ def obter_cliente_langfuse(forcar: bool = False) -> Any:
     import os
     pub_key = os.getenv("LANGFUSE_PUBLIC_KEY", "").strip()
     sec_key = os.getenv("LANGFUSE_SECRET_KEY", "").strip()
-    host = os.getenv("LANGFUSE_HOST") or os.getenv("LANGFUSE_BASE_URL", "https://cloud.langfuse.com")
+    from src.config import ALLOW_EXTERNAL_LANGFUSE, LANGFUSE_BASE_URL, destino_local
+
+    # Mesma regra da observabilidade do consultor (ADR 0003): destino local por padrão; servidor
+    # externo, inclusive a nuvem do Langfuse, só com ALLOW_EXTERNAL_LANGFUSE=true.
+    host = LANGFUSE_BASE_URL
     if not forcar:
+        return None
+    if not destino_local(host) and not ALLOW_EXTERNAL_LANGFUSE:
+        print(f"[Aviso Langfuse] {host} não é local. Para enviar a outro servidor, defina "
+              "ALLOW_EXTERNAL_LANGFUSE=true (ADR 0003).")
         return None
     if not pub_key or not sec_key or pub_key.startswith("pk-lf-sua-chave") or sec_key.startswith("sk-lf-sua-chave"):
         print("[Aviso Langfuse] --use-langfuse foi informado, mas as credenciais não estão configuradas.")

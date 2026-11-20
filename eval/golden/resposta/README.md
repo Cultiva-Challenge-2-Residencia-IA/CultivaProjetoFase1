@@ -99,8 +99,8 @@ Para executar o runner de comparação de respostas:
 # Modo determinístico offline (usando o gerador extrativo padrão do projeto, sem rede e sem LLM)
 uv run python -m src.evaluation.benchmark_respostas --split dev --no-llm
 
-# Modo completo com o modelo local Ollama (qwen2.5:3b)
-uv run python -m src.evaluation.benchmark_respostas --split dev --use-ollama
+# Modo completo com o modelo local do ADR 0004 (gemma4:e4b), com os 16 casos de resposta do golden v2
+uv run python -m src.evaluation.benchmark_respostas --split dev --use-ollama --incluir-golden-v2
 
 # Exportar para avaliação humana cega (Blind Review)
 uv run python -m src.evaluation.benchmark_respostas --split dev --no-llm --export-blind eval/golden/resposta/revisao_cega_dev.json
