@@ -1,0 +1,529 @@
+{
+ "modelo": "gemma4:e4b",
+ "maquina": "referência",
+ "criterios": "eval/comparacao_guardrails/criterios.md",
+ "camadas_locais": {
+  "nutricao_fora_do_corpus": {
+   "test": {
+    "k": 1,
+    "n": 6,
+    "taxa": 0.1667,
+    "ic95": [
+     0.0301,
+     0.5635
+    ]
+   },
+   "todos": {
+    "k": 6,
+    "n": 28,
+    "taxa": 0.2143,
+    "ic95": [
+     0.1021,
+     0.3954
+    ]
+   }
+  },
+  "fora_de_nutricao": {
+   "k": 24,
+   "n": 26,
+   "taxa": 0.9231,
+   "ic95": [
+    0.7586,
+    0.9786
+   ]
+  },
+  "recusa_indevida": {
+   "abstencao_test": {
+    "k": 0,
+    "n": 7,
+    "taxa": 0.0,
+    "ic95": [
+     0.0,
+     0.3543
+    ]
+   },
+   "abstencao_todos": {
+    "k": 0,
+    "n": 42,
+    "taxa": 0.0,
+    "ic95": [
+     0.0,
+     0.0838
+    ]
+   },
+   "golden_v2": {
+    "k": 1,
+    "n": 31,
+    "taxa": 0.0323,
+    "ic95": [
+     0.0057,
+     0.1619
+    ]
+   }
+  },
+  "segundos_geracao_p50": 3.71
+ },
+ "candidatos": {
+  "direto_pre": {
+   "abstencao": {
+    "nutricao_fora_do_corpus": {
+     "test": {
+      "k": 6,
+      "n": 6,
+      "taxa": 1.0,
+      "ic95": [
+       0.6097,
+       1.0
+      ]
+     },
+     "todos": {
+      "k": 22,
+      "n": 28,
+      "taxa": 0.7857,
+      "ic95": [
+       0.6046,
+       0.8979
+      ]
+     }
+    },
+    "fora_de_nutricao": {
+     "k": 26,
+     "n": 26,
+     "taxa": 1.0,
+     "ic95": [
+      0.8713,
+      1.0
+     ]
+    },
+    "recusa_indevida": {
+     "abstencao_test": {
+      "k": 1,
+      "n": 7,
+      "taxa": 0.1429,
+      "ic95": [
+       0.0257,
+       0.5131
+      ]
+     },
+     "abstencao_todos": {
+      "k": 9,
+      "n": 42,
+      "taxa": 0.2143,
+      "ic95": [
+       0.1171,
+       0.3594
+      ]
+     },
+     "golden_v2": {
+      "k": 11,
+      "n": 31,
+      "taxa": 0.3548,
+      "ic95": [
+       0.2112,
+       0.5305
+      ]
+     }
+    },
+    "erros": 0,
+    "segundos_p50": 0.43,
+    "segundos_p95": 0.54,
+    "chamadas_por_pergunta": 1.0
+   },
+   "fundamentacao": null,
+   "fundamentacao_reais": null
+  },
+  "direto_pos": {
+   "abstencao": {
+    "nutricao_fora_do_corpus": {
+     "test": {
+      "k": 5,
+      "n": 6,
+      "taxa": 0.8333,
+      "ic95": [
+       0.4365,
+       0.9699
+      ]
+     },
+     "todos": {
+      "k": 17,
+      "n": 28,
+      "taxa": 0.6071,
+      "ic95": [
+       0.4241,
+       0.7643
+      ]
+     }
+    },
+    "fora_de_nutricao": {
+     "k": 25,
+     "n": 26,
+     "taxa": 0.9615,
+     "ic95": [
+      0.8111,
+      0.9932
+     ]
+    },
+    "recusa_indevida": {
+     "abstencao_test": {
+      "k": 2,
+      "n": 7,
+      "taxa": 0.2857,
+      "ic95": [
+       0.0822,
+       0.6411
+      ]
+     },
+     "abstencao_todos": {
+      "k": 12,
+      "n": 42,
+      "taxa": 0.2857,
+      "ic95": [
+       0.1717,
+       0.4357
+      ]
+     },
+     "golden_v2": {
+      "k": 8,
+      "n": 31,
+      "taxa": 0.2581,
+      "ic95": [
+       0.137,
+       0.4325
+      ]
+     }
+    },
+    "erros": 0,
+    "segundos_p50": 1.1,
+    "segundos_p95": 2.54,
+    "chamadas_por_pergunta": 1.0
+   },
+   "fundamentacao": {
+    "por_tipo": {
+     "fiel": {
+      "k": 19,
+      "n": 20,
+      "taxa": 0.95,
+      "ic95": [
+       0.7639,
+       0.9911
+      ]
+     },
+     "inventada": {
+      "k": 20,
+      "n": 20,
+      "taxa": 1.0,
+      "ic95": [
+       0.8389,
+       1.0
+      ]
+     },
+     "trocada": {
+      "k": 20,
+      "n": 20,
+      "taxa": 1.0,
+      "ic95": [
+       0.8389,
+       1.0
+      ]
+     }
+    },
+    "erros": 0,
+    "segundos_p50": 1.01,
+    "segundos_p95": 3.12
+   },
+   "fundamentacao_reais": {
+    "concordancia": {
+     "k": 44,
+     "n": 60,
+     "taxa": 0.7333,
+     "ic95": [
+      0.6099,
+      0.8287
+     ]
+    },
+    "sustentada_aceita": {
+     "k": 21,
+     "n": 21,
+     "taxa": 1.0,
+     "ic95": [
+      0.8454,
+      1.0
+     ]
+    },
+    "nao_sustentada_barrada": {
+     "k": 23,
+     "n": 39,
+     "taxa": 0.5897,
+     "ic95": [
+      0.4342,
+      0.7292
+     ]
+    },
+    "kappa": 0.5016,
+    "erros": 0
+   }
+  },
+  "nemo": {
+   "abstencao": {
+    "nutricao_fora_do_corpus": {
+     "test": {
+      "k": 3,
+      "n": 6,
+      "taxa": 0.5,
+      "ic95": [
+       0.1876,
+       0.8124
+      ]
+     },
+     "todos": {
+      "k": 13,
+      "n": 28,
+      "taxa": 0.4643,
+      "ic95": [
+       0.2953,
+       0.6419
+      ]
+     }
+    },
+    "fora_de_nutricao": {
+     "k": 26,
+     "n": 26,
+     "taxa": 1.0,
+     "ic95": [
+      0.8713,
+      1.0
+     ]
+    },
+    "recusa_indevida": {
+     "abstencao_test": {
+      "k": 2,
+      "n": 7,
+      "taxa": 0.2857,
+      "ic95": [
+       0.0822,
+       0.6411
+      ]
+     },
+     "abstencao_todos": {
+      "k": 19,
+      "n": 42,
+      "taxa": 0.4524,
+      "ic95": [
+       0.3122,
+       0.6005
+      ]
+     },
+     "golden_v2": {
+      "k": 12,
+      "n": 31,
+      "taxa": 0.3871,
+      "ic95": [
+       0.2373,
+       0.5618
+      ]
+     }
+    },
+    "erros": 0,
+    "segundos_p50": 5.62,
+    "segundos_p95": 6.55,
+    "chamadas_por_pergunta": 1.0
+   },
+   "fundamentacao": {
+    "por_tipo": {
+     "fiel": {
+      "k": 17,
+      "n": 20,
+      "taxa": 0.85,
+      "ic95": [
+       0.6396,
+       0.9476
+      ]
+     },
+     "inventada": {
+      "k": 15,
+      "n": 20,
+      "taxa": 0.75,
+      "ic95": [
+       0.5313,
+       0.8881
+      ]
+     },
+     "trocada": {
+      "k": 20,
+      "n": 20,
+      "taxa": 1.0,
+      "ic95": [
+       0.8389,
+       1.0
+      ]
+     }
+    },
+    "erros": 0,
+    "segundos_p50": 6.21,
+    "segundos_p95": 8.5
+   },
+   "fundamentacao_reais": {
+    "concordancia": {
+     "k": 43,
+     "n": 60,
+     "taxa": 0.7167,
+     "ic95": [
+      0.5923,
+      0.8149
+     ]
+    },
+    "sustentada_aceita": {
+     "k": 18,
+     "n": 21,
+     "taxa": 0.8571,
+     "ic95": [
+      0.6536,
+      0.9502
+     ]
+    },
+    "nao_sustentada_barrada": {
+     "k": 25,
+     "n": 39,
+     "taxa": 0.641,
+     "ic95": [
+      0.4842,
+      0.7726
+     ]
+    },
+    "kappa": 0.4444,
+    "erros": 0
+   }
+  },
+  "guardrails_ai": {
+   "abstencao": {
+    "nutricao_fora_do_corpus": {
+     "test": {
+      "k": 4,
+      "n": 6,
+      "taxa": 0.6667,
+      "ic95": [
+       0.3,
+       0.9032
+      ]
+     },
+     "todos": {
+      "k": 22,
+      "n": 28,
+      "taxa": 0.7857,
+      "ic95": [
+       0.6046,
+       0.8979
+      ]
+     }
+    },
+    "fora_de_nutricao": {
+     "k": 24,
+     "n": 26,
+     "taxa": 0.9231,
+     "ic95": [
+      0.7586,
+      0.9786
+     ]
+    },
+    "recusa_indevida": {
+     "abstencao_test": {
+      "k": 4,
+      "n": 7,
+      "taxa": 0.5714,
+      "ic95": [
+       0.2505,
+       0.8418
+      ]
+     },
+     "abstencao_todos": {
+      "k": 33,
+      "n": 42,
+      "taxa": 0.7857,
+      "ic95": [
+       0.6406,
+       0.8829
+      ]
+     },
+     "golden_v2": {
+      "k": 28,
+      "n": 31,
+      "taxa": 0.9032,
+      "ic95": [
+       0.751,
+       0.9665
+      ]
+     }
+    },
+    "erros": 0,
+    "segundos_p50": 97.18,
+    "segundos_p95": 200.65,
+    "chamadas_por_pergunta": 15.92
+   },
+   "fundamentacao": {
+    "por_tipo": {
+     "fiel": {
+      "k": 19,
+      "n": 20,
+      "taxa": 0.95,
+      "ic95": [
+       0.7639,
+       0.9911
+      ]
+     },
+     "inventada": {
+      "k": 20,
+      "n": 20,
+      "taxa": 1.0,
+      "ic95": [
+       0.8389,
+       1.0
+      ]
+     },
+     "trocada": {
+      "k": 20,
+      "n": 20,
+      "taxa": 1.0,
+      "ic95": [
+       0.8389,
+       1.0
+      ]
+     }
+    },
+    "erros": 0,
+    "segundos_p50": 18.8,
+    "segundos_p95": 38.89
+   },
+   "fundamentacao_reais": {
+    "concordancia": {
+     "k": 42,
+     "n": 60,
+     "taxa": 0.7,
+     "ic95": [
+      0.5749,
+      0.801
+     ]
+    },
+    "sustentada_aceita": {
+     "k": 17,
+     "n": 21,
+     "taxa": 0.8095,
+     "ic95": [
+      0.6,
+      0.9233
+     ]
+    },
+    "nao_sustentada_barrada": {
+     "k": 25,
+     "n": 39,
+     "taxa": 0.641,
+     "ic95": [
+      0.4842,
+      0.7726
+     ]
+    },
+    "kappa": 0.4059,
+    "erros": 0
+   }
+  }
+ }
+}
