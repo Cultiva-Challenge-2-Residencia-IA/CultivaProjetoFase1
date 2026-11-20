@@ -4,7 +4,7 @@ Registrado em 19/11/2026. Critérios em [`criterios.md`](criterios.md), rubrica 
 
 ## Como foi avaliado (leia antes dos números)
 
-- **Amostra:** 60 frases de 28 respostas do `qwen2.5:7b` com o prompt v3 (42 do `dev`, 18 do `test`), sorteadas com semente fixa entre as respostas que passaram na checagem de citações.
+- **Amostra:** 60 frases de 28 respostas do `qwen2.5:7b` com o prompt v3 (42 do `dev`, 18 do `test`), sorteadas com semente fixa entre as respostas que passaram na checagem de citações. O `qwen2.5:7b` era o modelo padrão na época; desde o ADR 0004 o padrão é o `gemma4:e4b`, e o `qwen2.5:7b` é a reserva. A amostra não foi refeita com o `gemma4:e4b`.
 - **Avaliador:**
   - os julgamentos foram produzidos com um **LLM externo, o ChatGPT**, a pedido de MatheusSales2773, que é autor do PR #61;
   - **não houve avaliação humana independente**, que é o que o RNF27 e os critérios pedem;
@@ -45,7 +45,7 @@ Registrado em 19/11/2026. Critérios em [`criterios.md`](criterios.md), rubrica 
 
 ## Conclusão
 
-O RNF27 **não está cumprido** pela estimativa disponível (35% contra a meta de 95%), e a medição humana independente que o requisito pede não foi feita. A melhoria fica para uma issue própria. Alguns caminhos:
+O RNF27 **não está cumprido** pela estimativa disponível (35% contra a meta de 95%), e a medição humana independente que o requisito pede não foi feita. A melhoria fica na #67 (citação literal verificável e mecanismo opcional). Alguns caminhos:
 
 - tirar ou tornar opcional o campo de mecanismo;
 - exigir que cada frase traga um trecho literal da fonte;
