@@ -4,6 +4,11 @@ pymupdf4llm==2.1
 pymupdf_layout==2.1
 PyYAML==6.0.3
 Pillow==13.0.0
+beautifulsoup4==4.14.3
+markdownify==1.2.0
+six==1.17.0
+soupsieve==4.1.2
+typing-extensions==4.16.0
 flatbuffers==25.12.19
 networkx==3.6.1
 numpy==2.4.6
