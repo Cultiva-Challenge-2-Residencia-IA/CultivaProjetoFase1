@@ -75,7 +75,7 @@ def source_config_sha256(config: dict, source_id: str) -> str:
 
 def generation_entry(output: Path, origin: dict, config: dict, source_id: str, trechos: int) -> dict:
     return {
-        "jsonl_path": str(output.relative_to(ROOT)),
+        "jsonl_path": output.relative_to(ROOT).as_posix(),
         "jsonl_sha256": sha256_file(output),
         **origin,
         "prepare_rag_sha256": sha256_file(SCRIPT_PATH),
@@ -371,7 +371,7 @@ def prepare(source: dict) -> tuple[dict, dict]:
     entry = generation_entry(output, {"markdown_sha256": report["markdown_sha256"]}, config,
                              source["id"], len(records))
     return entry, {
-        "arquivo": str(output.relative_to(ROOT)),
+        "arquivo": output.relative_to(ROOT).as_posix(),
         "trechos": len(records),
         "descartados_curtos": discarded_short,
         "paginas_com_trecho": len({r["pagina_pdf"] for r in records}),
@@ -434,7 +434,7 @@ def prepare_resumos(sources: list[dict]) -> tuple[dict[str, dict], dict]:
                                   sum(r["fonte_id"] == s["id"] for r in records))
         for s in sources
     }
-    return entries, {"arquivo": str(output.relative_to(ROOT)), "fontes": len(por_pmid), "trechos": len(records)}
+    return entries, {"arquivo": output.relative_to(ROOT).as_posix(), "fontes": len(por_pmid), "trechos": len(records)}
 
 
 def main() -> int:

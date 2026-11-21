@@ -112,6 +112,11 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
         if entrada is None:
             problemas[sid].append("fonte sem registro em geracao.json (JSONL nunca gerado)")
             continue
+        if "\\" in entrada["jsonl_path"]:
+            # No Windows o caminho com "\" é achado, mas no Linux do CI não (issue #88).
+            problemas[sid].append(
+                f"jsonl_path com barra invertida: {entrada['jsonl_path']} (use \"/\"; regenere com prepare_rag.py)")
+            continue
         jsonl = root / entrada["jsonl_path"]
         if not jsonl.exists():
             problemas[sid].append(f"JSONL ausente: {entrada['jsonl_path']}")

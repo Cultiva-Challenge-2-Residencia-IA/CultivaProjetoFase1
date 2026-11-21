@@ -190,3 +190,10 @@ def test_todos_os_trechos_cumprem_padrao_de_secao():
 
     assert not erros, f"Encontradas {len(erros)} seções fora do padrão:\n" + "\n".join(erros[:20])
     assert total_trechos > 0
+
+
+def test_generation_entry_grava_caminho_com_barra_normal():
+    """O jsonl_path sai com "/" em qualquer sistema; com "\\" o CI no Linux não acha o arquivo (#88)."""
+    saida = prepare_rag.OUTPUT_DIR / "guia_alimentar_populacao_brasileira_2ed_2014.jsonl"
+    entrada = prepare_rag.generation_entry(saida, {}, {}, "guia-alimentar-populacao-brasileira-2014", 0)
+    assert entrada["jsonl_path"] == "corpus/nutricao/rag/guia_alimentar_populacao_brasileira_2ed_2014.jsonl"
