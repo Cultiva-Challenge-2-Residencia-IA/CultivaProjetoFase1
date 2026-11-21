@@ -7,7 +7,8 @@ Registrado em 19/11/2026. Critérios na seção "Issue #67" de [`criterios.md`](
 - **Respostas:** 27 respostas do `qwen2.5:7b` com o prompt v4 (citação literal e mecanismo opcional), já sem as frases removidas, ou seja, o texto que chega ao usuário.
 - **Amostra:** 59 frases (44 do `dev`, 15 do `test`), sorteadas como na amostra v3; havia só 59 frases elegíveis.
 - **Juiz:**
-  - o **ChatGPT**, com a mesma rubrica e o mesmo juiz da amostra v3, a pedido de MatheusSales2773;
+  - o **ChatGPT 6.2 Astra**, no modo Ultra (segundo o autor), o mesmo juiz da amostra v3, a pedido de MatheusSales2773. O texto do pedido não foi guardado, e não está confirmado que a `rubrica.md` foi enviada;
+  - em 20/11/2026 a mesma planilha, sem os julgamentos, foi julgada de novo em conversa nova com a `rubrica.md` e o pedido salvo em `prompt_juiz.md`, e os 59 julgamentos se repetiram (#85). A concordância total pode refletir memória do ChatGPT entre conversas, o que não foi verificado;
   - é uma **estimativa por juiz automático**, sem avaliação humana independente;
   - foram enviados perguntas sintéticas e textos públicos do corpus, sem dados pessoais.
 
