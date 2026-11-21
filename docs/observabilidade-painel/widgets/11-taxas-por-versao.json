@@ -1,0 +1,41 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Taxas por versão do código",
+  "description": "Taxa de cada situação para cada versão do código (commit do Git), no período escolhido no topo do painel (padrão: últimos 7 dias). Serve para comparar antes e depois de um merge.",
+  "view": "scores-numeric",
+  "dimensions": [
+    {
+      "field": "name"
+    },
+    {
+      "field": "traceRelease"
+    }
+  ],
+  "metrics": [
+    {
+      "measure": "value",
+      "agg": "avg"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "sintese_extrativa",
+        "citacoes_validas",
+        "nao_sei",
+        "risco_acionado",
+        "prompt_injection",
+        "guardrail_lei_8234"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "PIVOT_TABLE",
+  "chartConfig": {
+    "type": "PIVOT_TABLE"
+  },
+  "minVersion": 1
+}

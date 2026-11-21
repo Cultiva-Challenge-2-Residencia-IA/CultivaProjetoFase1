@@ -1,0 +1,33 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Como cada consulta foi respondida",
+  "description": "Quantas consultas seguiram cada caminho, no período escolhido no topo do painel (padrão: últimos 7 dias): LLM com citações válidas, extrativa após citação inválida, extrativa sem LLM, 'não sei', risco ou prompt injection.",
+  "view": "scores-categorical",
+  "dimensions": [
+    {
+      "field": "stringValue"
+    }
+  ],
+  "metrics": [
+    {
+      "measure": "count",
+      "agg": "count"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "tipo_resposta"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "PIE",
+  "chartConfig": {
+    "type": "PIE"
+  },
+  "minVersion": 1
+}

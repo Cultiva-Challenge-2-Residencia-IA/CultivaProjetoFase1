@@ -1,0 +1,29 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Tempo de resposta por dia (p95, RNF29)",
+  "description": "Por dia, o tempo em que 95% das consultas terminaram, no período escolhido no topo do painel (padrão: últimos 7 dias). Inclui busca, LLM e guardrails. A meta do RNF29 é p95 de até 3 s por chamada de LLM.",
+  "view": "observations",
+  "dimensions": [],
+  "metrics": [
+    {
+      "measure": "latency",
+      "agg": "p95"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "consult"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "LINE_TIME_SERIES",
+  "chartConfig": {
+    "type": "LINE_TIME_SERIES"
+  },
+  "minVersion": 1
+}

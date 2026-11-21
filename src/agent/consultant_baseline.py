@@ -1,5 +1,6 @@
 import hashlib
 import inspect
+from contextvars import ContextVar
 from pathlib import Path
 from typing import List, Optional
 
@@ -7,11 +8,19 @@ from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
 from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
-from src.config import INCLUDE_PENDING_SOURCES, TOP_K_FINAL
+from src.config import (
+    INCLUDE_PENDING_SOURCES,
+    OLLAMA_BASE_URL,
+    RISCO_LLM_LIMIAR,
+    RISCO_LLM_MODELO,
+    RISCO_LLM_TIMEOUT,
+    TOP_K_FINAL,
+)
 from src.guardrails.risco import detectar_risco
+from src.guardrails.risco.classificador_llm import ClassificadorRiscoLLM
 from src.ingestion.contextual_chunker import ContextualChunker
 from src.rag.corpus_loader import carregar_chunks_do_corpus
-from src.observabilidade import atributos_do_trace, observacao
+from src.observabilidade import atributos_do_trace, id_do_trace, observacao, scores_da_resposta
 from src.models.schemas import (
     ConsultantResponse,
     DocumentChunk,
@@ -22,6 +31,10 @@ from src.retrieval.taco_tool import TacoDeterministicTool
 
 
 # Versão do prompt (RNF08): hash do prompt de sistema e do template da pergunta enviada ao LLM.
+# response_id da consulta em andamento: `consult()` o gera antes de abrir o trace, para o id do trace
+# no Langfuse sair dele (`id_do_trace`) e o feedback de resposta incorreta achar o trace certo.
+_RESPONSE_ID_ATUAL: ContextVar[Optional[str]] = ContextVar("response_id_atual", default=None)
+
 PROMPT_VERSION = hashlib.sha256(
     (SYSTEM_PROMPT_CONSULTANT + inspect.getsource(LocalLLMClient._build_user_prompt)).encode("utf-8")
 ).hexdigest()
@@ -47,6 +60,7 @@ class NutritionConsultantBaseline:
         enable_taco_tool: bool = True,
         enable_graph_engine: bool = True,
         enable_rag: bool = True,
+        risco_llm: Optional[ClassificadorRiscoLLM] = None,
     ) -> None:
         self.chunker = ContextualChunker()
         # Base padrão: Trechos do corpus curado (ADR 0002), com o gate de aprovação.
@@ -77,6 +91,15 @@ class NutritionConsultantBaseline:
         self.graph_engine: Optional[CausalKnowledgeGraphEngine] = (
             CausalKnowledgeGraphEngine() if enable_graph_engine else None
         )
+        # Camada semântica do risco (issue #48): só com Ollama habilitado e modelo configurado.
+        if risco_llm is None and enable_ollama and RISCO_LLM_MODELO:
+            risco_llm = ClassificadorRiscoLLM(RISCO_LLM_MODELO, base_url=OLLAMA_BASE_URL,
+                                              timeout=RISCO_LLM_TIMEOUT, limiar=RISCO_LLM_LIMIAR)
+        self.risco_llm = risco_llm
+        if self.risco_llm is not None:
+            # Carrega o modelo na memória já na inicialização, para a primeira pergunta caber no RNF29.
+            ClassificadorRiscoLLM(self.risco_llm.modelo, base_url=self.risco_llm.base_url,
+                                  timeout=60.0, modo=self.risco_llm.modo).classificar("Olá")
 
     def _rastreabilidade(self, chunks: List[DocumentChunk], model_used: str) -> dict:
         """Campos de rastreabilidade (#11, RNF08) de qualquer resposta, inclusive as fixas.
@@ -86,7 +109,7 @@ class NutritionConsultantBaseline:
         """
         fontes_version, trechos_usados = passages_fingerprint(chunks)
         return {
-            "response_id": new_response_id(),
+            "response_id": _RESPONSE_ID_ATUAL.get() or new_response_id(),
             "corpus_version": self.corpus_version,
             "prompt_version": (
                 PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False) else PROMPT_VERSION
@@ -122,6 +145,7 @@ class NutritionConsultantBaseline:
                 agentes={"nutricao": construir_subgrafo(self)},
                 resposta_fixa=self._resposta_fixa,
                 agente_padrao="nutricao",
+                risco_llm=getattr(self, "risco_llm", None),
             )
             self._grafo_compilado = grafo
         return grafo
@@ -135,9 +159,9 @@ class NutritionConsultantBaseline:
         texto passa pela máscara de dados pessoais no SDK (src/observabilidade.py, ADR 0003). A
         observação raiz fica fora do grafo, e não no callback do LangGraph, porque a entrada só pode
         ser decidida depois do portão de risco: mensagem que ele detecta não é registrada, nem
-        mascarada, e o trace guarda só as categorias. O portão é por léxico e deixa passar a maioria
-        das frases novas (recall de 0,133 no holdout, #48); essas vão ao trace como qualquer pergunta,
-        só com a máscara.
+        mascarada, e o trace guarda só as categorias. A entrada inicial usa só o léxico, que deixa
+        passar a maioria das frases novas (recall de 0,133 no holdout); quando a camada LLM (#48)
+        detecta o risco, a entrada é sobrescrita pelas categorias antes de a observação fechar.
         """
         risco = detectar_risco(user_query)
         entrada = (
@@ -145,10 +169,32 @@ class NutritionConsultantBaseline:
             if risco.risco
             else {"query": user_query, "top_k": top_k}
         )
-        with atributos_do_trace(trace_name="consulta_nutricao", tags=["nutricao"]), observacao(
-            "consult", input=entrada
-        ) as raiz:
-            resposta = self._grafo().invoke({"pergunta": user_query, "top_k": top_k})["resposta"]
+        response_id = new_response_id()
+        marcador = _RESPONSE_ID_ATUAL.set(response_id)
+        try:
+            return self._consultar_com_trace(user_query, top_k, entrada, response_id, risco.risco)
+        finally:
+            _RESPONSE_ID_ATUAL.reset(marcador)
+
+    def _consultar_com_trace(
+        self, user_query: str, top_k: int, entrada: dict, response_id: str, risco_lexico: bool
+    ) -> ConsultantResponse:
+        with atributos_do_trace(
+            trace_name="consulta_nutricao",
+            tags=["nutricao"],
+            version=(
+                PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False) else PROMPT_VERSION
+            ),
+            metadata={"corpus_version": str(self.corpus_version)},
+        ), observacao("consult", input=entrada, trace_id=id_do_trace(response_id)) as raiz:
+            estado = self._grafo().invoke({"pergunta": user_query, "top_k": top_k})
+            resposta = estado["resposta"]
+            if resposta.risk_triggered:
+                # Risco detectado só pelo LLM (o léxico não viu): a pergunta sai do trace, ficam as categorias.
+                if not risco_lexico:
+                    raiz.update(input={"risco_categorias": resposta.risk_categories, "top_k": top_k})
+            else:
+                resposta.risk_llm_status = estado.get("risco_llm_status")
             raiz.update(
                 output={
                     "evidence_summary": resposta.evidence_summary,
@@ -156,15 +202,18 @@ class NutritionConsultantBaseline:
                     "citations": resposta.citations,
                 },
                 metadata={
+                    "response_id": resposta.response_id,
                     "model_used": resposta.model_used,
                     "retrieval_mode": resposta.retrieval_mode,
                     "guardrail_triggered": resposta.guardrail_triggered,
                     "intent_category": str(resposta.intent_category),
+                    "fundamentacao_status": resposta.fundamentacao_status,
+                    "corpus_version": resposta.corpus_version,
+                    "prompt_version": resposta.prompt_version,
+                    "model_version": resposta.model_version,
+                    "fontes_version": resposta.fontes_version,
                 },
             )
-            raiz.score_trace(
-                name="guardrail_lei_8234",
-                value=1.0 if resposta.guardrail_triggered else 0.0,
-                data_type="NUMERIC",
-            )
+            for nome, valor, tipo in scores_da_resposta(resposta):
+                raiz.score_trace(name=nome, value=valor, data_type=tipo)
             return resposta
