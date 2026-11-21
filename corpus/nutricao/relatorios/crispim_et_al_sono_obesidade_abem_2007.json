@@ -3,8 +3,8 @@
   "source_sha256": "6e22a611b963ed42af2e52e36dfceb4f6a947c3bfd8c705f0a6162c533d2239a",
   "pdf_pages": 9,
   "conversion_status": "concluida_com_ressalvas",
-  "script_sha256": "b1f39e3692c2ec20ff648f4768e9689762d2742520f2df95cd239a55ac6d64c6",
-  "config_sha256": "93409ad2caf8a5d1592d17093f4d72713acd39c555004e5a0e327fde67c46df4",
+  "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
+  "config_sha256": "936118c9122c8b38c35b38a8ab478ea35c847ff9ada9f7fb8a853d2b573c28f7",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -29,18 +29,22 @@
       "native_characters": 3021,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Letra capitular e primeira linha em versalete do primeiro parágrafo foram extraídas depois da segunda linha ('Ocomponentes centrais… osSISTEMA FISIOLÓGICO'); ordem refeita por replacement conforme o PDF (issue #27)."
+      ],
+      "adjustments": [
+        {
+          "page": 1,
+          "old": "Ocomponentes centrais como periféricos, os quais interagem com osSISTEMA FISIOLÓGICO QUE REGULA a massa corporal envolve tanto aspectos ambientais",
+          "new": "O SISTEMA FISIOLÓGICO QUE REGULA a massa corporal envolve tanto componentes centrais como periféricos, os quais interagem com os aspectos ambientais"
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 0.98934,
+      "native_word_coverage": 0.99787,
       "missing_native_tokens": {
-        "amrevisão": 1,
-        "componentes": 1,
-        "o": 1,
-        "os": 1,
-        "sistema": 1
+        "amrevisão": 1
       },
-      "markdown_characters": 3064
+      "markdown_characters": 3066
     },
     {
       "pdf_page": 2,
@@ -356,7 +360,7 @@
       "markdown_characters": 3015
     }
   ],
-  "markdown_sha256": "964d356af5ce2bfdaae30c79fa25d50dd4b452e6cd5d332c3a032c808ba11a14",
+  "markdown_sha256": "59b1d9d8ffcef0ea5b0c213641ff33fd7d294cd198207d3c3f6d276b3180518a",
   "summary": {
     "pages_converted": 9,
     "sparse_pages": [],
@@ -365,8 +369,11 @@
       3
     ],
     "pages_with_warnings": [
+      1,
       4
     ],
-    "pages_with_adjustments": []
+    "pages_with_adjustments": [
+      1
+    ]
   }
 }

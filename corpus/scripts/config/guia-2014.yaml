@@ -22,23 +22,41 @@ sparse_page_decisions:
   156: Página visualmente em branco; texto de cabeçalho/rodapé existe na camada nativa.
   158: Contracapa com logotipos; OCR complementar em região delimitada.
 ocr_regions:
-  - page: 1
-    bbox: [442, 595, 540, 675]
-    label: Selo de distribuição
-    rotation: -22
-    invert: true
-    verified_text: "DISTRIBUIÇÃO\nVENDA PROIBIDA\nGRATUITA"
-    note: OCR isolado não reconheceu o selo curvo; transcrição literal conferida visualmente pelo assistente, ainda pendente de revisão humana.
-  - page: 158
-    bbox: [0, 550, 567, 738]
-    label: Logotipos e contatos da contracapa
-    note: OCR dos logotipos pequenos é impreciso; resultado bruto fica apenas no relatório. Consultar a imagem e o PDF para leitura fiel.
+- page: 1
+  bbox:
+  - 442
+  - 595
+  - 540
+  - 675
+  label: Selo de distribuição
+  rotation: -22
+  invert: true
+  verified_text: 'DISTRIBUIÇÃO
+
+    VENDA PROIBIDA
+
+    GRATUITA'
+  note: OCR isolado não reconheceu o selo curvo; transcrição literal conferida visualmente pelo assistente,
+    ainda pendente de revisão humana.
+- page: 158
+  bbox:
+  - 0
+  - 550
+  - 567
+  - 738
+  label: Logotipos e contatos da contracapa
+  note: OCR dos logotipos pequenos é impreciso; resultado bruto fica apenas no relatório. Consultar a
+    imagem e o PDF para leitura fiel.
 page_overrides:
   52: corpus/scripts/ajustes/guia-p052.md
 page_notes:
-  1: Selo vetorial sem texto nativo recuperado por transcrição pontual após tentativa de OCR; revisar com a imagem.
+  1: Selo vetorial sem texto nativo recuperado por transcrição pontual após tentativa de OCR; revisar
+    com a imagem.
   3: Créditos em colunas; ordem de leitura e agrupamento dos nomes requerem revisão.
   4: Sumário convertido em tabela; conferir a continuidade de títulos em linhas separadas.
-  52: Rótulos do diagrama reorganizados em três tabelas por transcrição literal; ilustração integral disponível no PDF original.
+  52: Rótulos do diagrama reorganizados em três tabelas por transcrição literal; ilustração integral disponível
+    no PDF original.
   148: Tabela numérica conferida por amostra; capitalização de versaletes difere da aparência no PDF.
-  158: Logotipos pequenos, código de barras e composição visual não são integralmente transcritos; imagem disponível no PDF original e OCR bruto registrado.
+  158: Logotipos pequenos, código de barras e composição visual não são integralmente transcritos; imagem
+    disponível no PDF original e OCR bruto registrado.
+restore_case_from_native: true

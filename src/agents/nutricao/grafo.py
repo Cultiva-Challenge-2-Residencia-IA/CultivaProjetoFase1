@@ -286,6 +286,7 @@ def _montar_resposta(consultor: Any, estado: EstadoNutricao) -> ConsultantRespon
         trechos_citados=trechos_citados,
         fundamentacao_status=fundamentacao.get("status"),
         fundamentacao_problemas=list(fundamentacao.get("problemas", [])),
+        fundamentacao_frases_removidas=int(fundamentacao.get("frases_removidas", 0)),
         retrieved_chunks=recuperados,
         model_used=modelo,
         retrieval_mode=mode,

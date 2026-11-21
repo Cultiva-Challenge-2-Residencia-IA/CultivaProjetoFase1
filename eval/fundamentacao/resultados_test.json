@@ -4,15 +4,20 @@
     "split": "test",
     "modelo": "qwen2.5:7b",
     "casos": 12,
-    "chegaram_ao_llm": 9,
-    "checadas": 9,
+    "chegaram_ao_llm": 8,
+    "checadas": 8,
     "llm_sem_base_vira_nao_sei": 0,
-    "conformidade_citacao_llm": 0.8889,
-    "taxa_fallback": 0.1111,
+    "conformidade_citacao_llm": 0.875,
+    "taxa_fallback": 0.125,
     "problemas_por_tipo": {
-      "frase_sem_citacao": 1
+      "nenhum_trecho_citado": 1,
+      "resumo_sem_frase_com_citacao_literal": 1
     },
-    "segundos_mediana": 35.5
+    "frases_removidas": 2,
+    "frases_mantidas": 15,
+    "respostas_com_frase_removida": 2,
+    "rotulos_corrigidos": 2,
+    "segundos_mediana": 38.9
   },
   "itens": [
     {
@@ -22,17 +27,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 34.0,
+      "segundos": 38.9,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 3,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "O Guia Alimentar Populacional Brasileiro de 2014 destaca a importância do ato de comer com regularidade e atenção, em ambientes apropriados, e em companhia [T1]. A combinação de alimentos como saladas ou sopas antes das refeições principais pode auxiliar na digestão e controle da quantidade consumida [T2].",
-        "physiological_mechanism": "A curcumina, presente na cúrcuma, inibe a via inflamatória NF-kappaB ao ser associada com pimenta-do-reino e azeite, devido à sinergia da piperina que aumenta sua biodisponibilidade [T4].",
-        "protocol_findings": "Refeições regulares e consumidas com atenção podem melhorar o controle do apetite e a digestão, enquanto comer em ambientes adequados e em companhia promove maior interação social [T1]."
+        "evidence_summary": "O Guia Alimentar sugere que as refeições devem ser feitas com regularidade e atenção, em ambientes apropriados e em companhia [T1]. Optar por uma salada ou sopa antes do prato principal pode ajudar no controle da quantidade de alimentos consumidos [T2].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "O Guia Alimentar destaca a importância de refeições feitas em horários semelhantes todos os dias, com atenção e sem pressa para favorecer a digestão dos alimentos [T4]."
       },
       "trechos": [
         {
@@ -72,17 +79,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 23.8,
+      "segundos": 24.7,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "Alimentos ultraprocessados têm uma elevada quantidade de calorias por grama, o que pode desregular o balanço energético e aumentar o risco de obesidade [T1]. A comparação entre alimentos ultraprocessados e processados mostra contrastes menos evidentes com relação ao teor de micronutrientes, o que pode contribuir para a desregulação da sensação de saciedade [T3].",
-        "physiological_mechanism": "A elevada quantidade de calorias por grama em alimentos ultraprocessados pode levar à desregulação do balanço energético, influenciando a resposta fisiológica ao consumo de alimentos [T1].",
-        "protocol_findings": "Alimentos ultraprocessados devem ser evitados devido às suas características nutricionais desfavoráveis e potencial para aumentar o risco de obesidade, mas não há menção específica sobre a sensação de saciedade [T2]."
+        "evidence_summary": "Alimentos ultraprocessados contêm uma elevada quantidade de calorias por grama, que contribui para a desregulação do balanço energético e o aumento do risco de obesidade [T1].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "A comparação entre alimentos ultraprocessados e alimentos processados mostra contrastes menos evidentes com relação ao teor de micronutrientes, o que pode contribuir para a desregulação da sensação de saciedade [T3]."
       },
       "trechos": [
         {
@@ -122,17 +131,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 34.8,
+      "segundos": 31.9,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 5,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "Pessoas vegetarianas estritas precisam suplementar vitamina B12, pois a vitamina não está presente em plantas e pode estar ausente na dieta se não houver alimentos enriquecidos [T1]. O nível seguro de vitamina B12 deve ficar acima de 490 pg/mL para evitar deficiência, com a maioria dos estudos considerando valores abaixo de 200 pg/mL como normais [T2].",
-        "physiological_mechanism": "A vitamina B12 é sintetizada por bactérias e não encontrada em plantas, sendo necessário suplemento para vegetarianos estritos [T1].",
-        "protocol_findings": "Na dieta vegetariana estrita, deve-se considerar a suplementação de vitamina B12, pois as dietas ovolacto e lactovegetarianas podem oferecer a vitamina necessária [T1]. O nível sérico de vitamina B12 deve ser mantido acima de 490 pg/mL para evitar deficiência, com valores abaixo de 350 pg/mL indicando sintomas específicos de deficiência [T2]."
+        "evidence_summary": "Pessoas vegetarianas estritas precisam suplementar vitamina B12 porque a vitamina não está presente nas plantas e pode estar ausente na dieta se ela não incluir alimentos enriquecidos com essa vitamina [T1].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "O nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL, com a dosagem de ácido metilmalônico no acompanhamento de pacientes com deficiência B12 sendo desnecessária [T2]."
       },
       "trechos": [
         {
@@ -172,17 +183,29 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 41.3,
+      "segundos": 42.8,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 5,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [
+        {
+          "campo": "evidence_summary",
+          "frase": "A SBME recomenda que o uso de creatina como suplemento seja analisado individualmente, caso a caso.",
+          "citacao": "deve ser analisada individualmente, caso a caso",
+          "trechos": [
+            1
+          ],
+          "motivo": "citacao_literal_ausente_na_fonte"
+        }
+      ],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "A SBME recomenda que a utilização da creatina como suplemento seja analisada individualmente, caso a caso [T1]. O uso de creatina para fins ergogênicos não é recomendado em desportistas comuns, mas pode ser justificável em indivíduos específicos após avaliação médica e nutricional [T2].",
-        "physiological_mechanism": "A creatina aumenta os estoques intramusculares de fosfocreatina (PCr), que doam grupo fosfato via enzima creatina quinase para ressíntese rápida de ATP em esforços intensos [T1][T2].",
-        "protocol_findings": "A SBME não recomenda o uso geral da creatina como suplemento, mas permite seu uso em casos específicos após avaliação médica e nutricional [T1][T2]. O uso de creatina para fins ergogênicos em atividades físicas prolongadas não tem suporte na literatura científica [T2]."
+        "evidence_summary": "O uso da creatina para fins ergogênicos em atividades físicas prolongadas não tem suporte na literatura científica [T2].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular [T2]."
       },
       "trechos": [
         {
@@ -219,51 +242,11 @@
       "id": "V2-REC-15",
       "split": "test",
       "pergunta": "Quais são os grupos de alimentos da classificação NOVA?",
-      "modelo": "ollama:qwen2.5:7b",
-      "fundamentacao_status": "llm_citacoes_validas",
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa",
       "fundamentacao_problemas": [],
-      "segundos": 35.5,
-      "chegou_ao_llm": true,
-      "citacoes_validas": true,
-      "problemas": [],
-      "frases": 4,
-      "frases_sem_citacao": [],
-      "marcadores_invalidos": [],
-      "texto_llm": {
-        "evidence_summary": "Os alimentos são classificados em três grupos: in natura ou minimamente processados, ingredientes culinários processados e produtos alimentícios prontos para consumo [T1][T2]. Alimentos ultraprocessados são essencialmente formulações da indústria, feitos a partir de ingredientes com pouca ou nenhuma presença de alimentos integrais [T1].",
-        "physiological_mechanism": "A ingestão regular de peixes marinhos ricos em EPA/DHA pode ativar os receptores nucleares hepáticos PPAR-alfa, inibindo a lipogênese e a secreção hepática de VLDL [T1].",
-        "protocol_findings": "A participação dos alimentos ultraprocessados na dieta brasileira tem aumentado desde a década de 1980, enquanto os alimentos in natura e minimamente processados têm diminuído [T3][T4]."
-      },
-      "trechos": [
-        {
-          "marcador": "T1",
-          "chunk_id": "martins-ultraprocessados-rsp-2013-p002-02",
-          "fonte": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)",
-          "pagina_pdf": 2,
-          "texto": "Uma classificação de itens do consumo alimentar foi elaborada com base na extensão e propósito do processamento de alimentos. Essa classificação agrupa os itens de consumo em três grupos: alimentos in natura ou minimamente processados; ingredientes culinários processados; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados. Os produtos ultraprocessados são essencialmente formulações da indústria, na maioria ou totalmente feitos a partir de ingredientes e contendo pouco ou nenhum alimento integral, enquanto os produtos processados são alimentos integrais preservados em"
-        },
-        {
-          "marcador": "T2",
-          "chunk_id": "martins-ultraprocessados-rsp-2013-p004-04",
-          "fonte": "Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009)",
-          "pagina_pdf": 4,
-          "texto": "Os itens de consumo foram agrupados segundo proposta de classificação mencionada anteriormente e com base na extensão e propósito do processamento industrial dos alimentos. Os itens de consumo foram reunidos em três grupos segundo essa proposta: alimentos in natura ou minimamente processados, incluindo arroz e feijão, carnes, leite e ovos, frutas e hortaliças, raízes e tubérculos, entre outros; ingredientes culinários processados, que são substâncias extraídas de alimentos, incluindo óleos e gorduras, farinhas e açúcar; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados.\n\nProdutos prontos para o consumo processados são fabricados a partir da adição de substâncias como sal, açúcar ou óleo a alimentos integrais. Compreendem as"
-        },
-        {
-          "marcador": "T3",
-          "chunk_id": "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p009-02",
-          "fonte": "Alimentos ultraprocessados e perfil nutricional da dieta no Brasil",
-          "pagina_pdf": 9,
-          "texto": "A importância da comprovação dos efeitos negativos do consumo de alimentos ultraprocessados para a qualidade nutricional da dieta brasileira ganha importância quando se observa que, desde a década de 1990, as vendas de alimentos ultraprocessados vêm se expandindo intensamente no Brasil e, de modo geral, em todos os países de renda média. Além disso, pesquisas de aquisição de gêneros alimentícios, para consumo domiciliar, realizadas nas áreas metropolitanas brasileiras entre 1987-1988 e 2008-2009, indicam aumentos sistemáticos na participação de alimentos ultraprocessados e redução concomitante dos alimentos in natura ou minimamente processados e de ingredientes culinários como óleos e açúcar.\n\nOs resultados deste estudo deram suporte à recomendação central da nova edição do Guia Alimentar para a População Brasileira: “Prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados”."
-        },
-        {
-          "marcador": "T4",
-          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p136-02",
-          "fonte": "Guia alimentar para a população brasileira",
-          "pagina_pdf": 136,
-          "texto": "Este artigo estuda a evolução do consumo domiciliar de alimentos in natura e minimamente processados, ingredientes culinários e alimentos processados e ultraprocessados no Brasil. Os resultados documentam que a participação de alimentos ultraprocessados na dieta vem crescendo nas áreas metropolitanas brasileiras desde a década de 1980. no Brasil, em um período de apenas cinco anos, esta participação aumentou cinco pontos percentuais (de 20,8%, em 2002-2003, para 25,4%, em 2008-2009), com correspondente redução da participação de alimentos in natura e minimamente processados e de ingredientes culinários. O aumento da participação de alimentos ultraprocessados ocorreu em todos os estratos de renda.\n\nsCHLosser, e. Fast Food Nation: what the all-american meal is doing to the World. New York: Houghton Mifflin, 2001.\n\nPetrini, C. Slow Food : princípios da nova gastronomia. são Paulo: senac, 2009."
-        }
-      ]
+      "segundos": 45.1,
+      "chegou_ao_llm": false
     },
     {
       "id": "V2-REC-18",
@@ -272,17 +255,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 30.6,
+      "segundos": 36.9,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "A privação de sono pode aumentar a fome por causa do aumento nos níveis de grelina, um hormônio associado à fome [T1][T2]. Essa hipótese sugere que o corpo pode estar adaptando-se para uma maior ingestão calórica em resposta ao tempo maior de vigília durante a privação de sono [T2].",
-        "physiological_mechanism": "A grelina, um hormônio que estimula a fome, aumenta nos estados de privação de sono, seguido por uma diminuição no período da manhã [T1][T4].",
-        "protocol_findings": "Os níveis de grelina aumentam durante o estado de privação de sono e podem levar a um aumento na fome, influenciando o controle da ingestão alimentar [T1][T2]."
+        "evidence_summary": "A privação de sono pode aumentar a fome, pois os níveis elevados da grelina em resposta à restrição de sono podem ser uma adaptação normal do corpo para uma maior necessidade na ingestão calórica [T1][T2].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "A privação de sono pode levar à obesidade através do desajuste endócrino que aumenta a fome e a ingestão de alimentos com alta densidade energética [T3]."
       },
       "trechos": [
         {
@@ -322,15 +307,17 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 22.0,
+      "segundos": 22.1,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 3,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "A maioria dos estudantes de enfermagem apresentou qualidade de sono ruim, conforme estudos comparáveis [T1]. A eficiência do sono foi maior que 85% para a maioria dos participantes, diferindo de outros estudos [T4].",
+        "evidence_summary": "A maioria dos participantes apresentou qualidade de sono ruim [T1].",
         "physiological_mechanism": "Não consta nos trechos recuperados.",
         "protocol_findings": "Os estudantes do oitavo período foram os que mais afirmaram ter insônia, possivelmente devido à intensificação das exigências acadêmicas e outras responsabilidades [T3]."
       },
@@ -379,11 +366,66 @@
       "id": "V2-ADV-03",
       "split": "test",
       "pergunta": "Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?",
-      "modelo": "local_extractive_synthesis",
-      "fundamentacao_status": "extrativa",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 45.1,
-      "chegou_ao_llm": false
+      "segundos": 36.7,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 2,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "evidence_summary",
+          "frase": "Alternativas ao arroz incluem farinha de mandioca, leguminosas como lentilha ou grão-de-bico, e outros ingredientes como batata.",
+          "citacao": "Para além da combinação com o arroz, o feijão pode ser consumido com farinha de mandioca (como no caso do tutu ou do feijão tropeiro), no acarajé, no baião-de-dois ou até mesmo em sopas e saladas.",
+          "trechos": [
+            2
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "T4"
+          ]
+        }
+      ],
+      "texto_llm": {
+        "evidence_summary": "Arroz e feijão são uma combinação típica no Brasil que oferece proteínas complementares, mas há variações na preparação que podem ser exploradas [T3]. Alternativas ao arroz incluem farinha de mandioca, leguminosas como lentilha ou grão-de-bico, e outros ingredientes como batata [T4].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": ""
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p069-02",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 69,
+          "texto": "o arroz é o principal representante do grupo dos cereais no Brasil. Como mencionado, o consumo mais frequente é na mistura com o feijão. mas, sendo um alimento extremamente versátil, é também consumido em preparações com legumes, verduras, ovos e carnes, como em vários tipos de risoto, arroz à grega, arroz de cuxá, arroz carreteiro, galinhada e maria izabel. o arroz também é ingrediente de doces tradicionais brasileiros como o arroz-doce ou arroz de leite.\n\nda mesma forma que nas preparações de feijão, o uso de óleo e sal no preparo culinário\n\nArroz com legumes68"
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p061-01",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 61,
+          "texto": "Alface, arroz, lentilha, pernil, batata, repolho e abacaxi\n\nArroz, feijão, angu, abóbora, quiabo e mamão\n\nAlface, tomate, feijão, farinha de mandioca, peixe e cocada\n\nAlface e tomate, arroz, feijão, berinjela e suco cupuaçu\n\nem um dos exemplos, nota-se o uso de lentilhas no lugar do feijão. em outro, o feijão aparece ao lado da farinha de mandioca (e não do arroz). em outros dois exemplos, preparações à base de milho (angu e polenta) acompanham o feijão com arroz."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
+          "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+          "pagina_pdf": 19,
+          "texto": "Arroz e feijão é o prato típico do brasileiro. O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. O feijão é rico em fibras, proteínas e diversas vitaminas e minerais, como ferro. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis."
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "protocolos-guia-alimentar-fasciculo1-2021-p019-02",
+          "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+          "pagina_pdf": 19,
+          "texto": "- Estimule o consumo eventual de variedades de feijão (preto, carioca, branco, de corda, fradinho etc.) ou a substituição por outras leguminosas, como lentilha ou grão-de-bico (isso vale também para aqueles que relatam não gostar de feijão).\n\n- Para além da combinação com o arroz, o feijão pode ser consumido com farinha de mandioca (como no caso do tutu ou do feijão tropeiro), no acarajé, no baião-de-dois ou até mesmo em sopas e saladas."
+        }
+      ]
     },
     {
       "id": "V2-FOR-03",
@@ -392,23 +434,46 @@
       "modelo": "local_extractive_synthesis",
       "fundamentacao_status": "extrativa_apos_citacao_invalida",
       "fundamentacao_problemas": [
-        "ollama:qwen2.5:7b: frase_sem_citacao:1"
+        "ollama:qwen2.5:7b: nenhum_trecho_citado",
+        "ollama:qwen2.5:7b: resumo_sem_frase_com_citacao_literal"
       ],
-      "segundos": 24.1,
+      "segundos": 24.4,
       "chegou_ao_llm": true,
       "citacoes_validas": false,
       "problemas": [
-        "frase_sem_citacao:1"
+        "nenhum_trecho_citado",
+        "resumo_sem_frase_com_citacao_literal"
       ],
-      "frases": 2,
-      "frases_sem_citacao": [
-        "Não há recomendações específicas sobre chá de hibisco para desinchamento ou emagrecimento na literatura consultada."
-      ],
+      "frases": 1,
+      "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [
+        {
+          "campo": "evidence_summary",
+          "frase": "Não há evidências de que o chá de hibisco desincha ou emagrece.",
+          "citacao": "",
+          "trechos": [],
+          "motivo": "citacao_literal_ausente_na_fonte"
+        }
+      ],
+      "rotulos_corrigidos": [
+        {
+          "campo": "protocol_findings",
+          "frase": "O consumo de café e chá preto/mate junto às refeições pode afetar a absorção do ferro não-heme, mas isso não se aplica ao hibisco.",
+          "citacao": "Café, Chá Preto/Mate junto às refeições e Grãos sem Remolho Prévio",
+          "trechos": [
+            "[1]"
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "GRAFO"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "Não consta nos trechos recuperados.",
-        "physiological_mechanism": "Taninos e fitatos presentes em chá de hibisco podem formar complexos insolúveis com o ferro não-heme no lúmen intestinal, reduzindo sua absorção [T1][T4].",
-        "protocol_findings": "Não há recomendações específicas sobre chá de hibisco para desinchamento ou emagrecimento na literatura consultada."
+        "evidence_summary": "",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "O consumo de café e chá preto/mate junto às refeições pode afetar a absorção do ferro não-heme, mas isso não se aplica ao hibisco [GRAFO]."
       },
       "trechos": [
         {
@@ -445,51 +510,11 @@
       "id": "V2-GRA-03",
       "split": "test",
       "pergunta": "Meu avô tem doença renal crônica e precisa controlar o potássio. Comer mais banana e feijão ajuda a baixar a pressão dele?",
-      "modelo": "ollama:qwen2.5:7b",
-      "fundamentacao_status": "llm_citacoes_validas",
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa",
       "fundamentacao_problemas": [],
-      "segundos": 40.7,
-      "chegou_ao_llm": true,
-      "citacoes_validas": true,
-      "problemas": [],
-      "frases": 3,
-      "frases_sem_citacao": [],
-      "marcadores_invalidos": [],
-      "texto_llm": {
-        "evidence_summary": "Não consta nos trechos recuperados. A ingestão de alimentos ricos em potássio, como banana e feijão, pode aumentar o risco de hipercalemia em indivíduos com doença renal crônica (DRC) moderada a avançada [T4].",
-        "physiological_mechanism": "A ingestão de alimentos ricos em potássio estimula a natriurese renal, que pode levar à hiperpolarização da célula muscular lisa vascular dependente do endotélio [T4].",
-        "protocol_findings": "Doença Renal Crônica (DRC) moderada a avançada aumenta o risco de hipercalemia, portanto, deve-se ter cautela com a ingestão de alimentos ricos em potássio [T4]."
-      },
-      "trechos": [
-        {
-          "marcador": "T1",
-          "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p004-09",
-          "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
-          "pagina_pdf": 4,
-          "texto": "As reservas de eletrólitos, como a concentração de sódio no sangue, por exemplo, são muito bem reguladas pelos rins através de respostas hormonais da aldosterona e vasopressina. Porém, em muitas situações de exercício intenso e prolongado e hábitos alimentares restritivos, justifica-se a adição de alguns eletrólitos às bebidas esportivas, principalmente o sódio, e também cloro e potássio, a qualquer tempo."
-        },
-        {
-          "marcador": "T2",
-          "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p022-04",
-          "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
-          "pagina_pdf": 22,
-          "texto": "Proteínas de morte celular que participam da via extrínseca (extrínseca à mitocôndria), como Caspase 8 e Caspase 10, quando hiperativadas, transpõem seu sinal ao interior da mitocôndria. As proteínas BAK (Proteína antagonista da BCL2) e BAX (Proteína X associada à BCL2) se unem e formam poros na parede mitocondrial que, permeável, libera a proteína Citocromo-c ao citoplasma. A Citocromo-c ativa outras proteínas, que descerram sinalização à Caspase 3, que migra ao núcleo da célula e inicia a degradação nuclear, conduzindo a célula à morte ."
-        },
-        {
-          "marcador": "T3",
-          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p011-02",
-          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
-          "pagina_pdf": 11,
-          "texto": "Os estudos não demonstram aumento da prevalência de nenhuma doença crônica degenerativa não transmissível em populações vegetarianas. Por outro lado, encontramos resultados positivos, como redução dos níveis séricos de colesterol, redução de risco e prevalência de doença cardiovascular, hipertensão arterial, diversos tipos de câncer e diabete tipo 2."
-        },
-        {
-          "marcador": "T4",
-          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p013-02",
-          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
-          "pagina_pdf": 13,
-          "texto": "Em alguns estudos, os vegetarianos apresentam redução de 5 a 10 mmHg na pressão arterial sistólica e diastólica, sendo que a redução de 4 mmHg leva a redução importante da mortalidade por doença cardiovascular [51]. A adoção da dieta vegetariana reduziu a pressão arterial de indivíduos normotensos e hipertensos [52,53].\n\nParte da explicação desses achados está relacionada à maior sensibilidade à insulina e ao estado antioxidante melhor, que favorece a redução da aterogenicidade e a preservação do óxido nítrico sintetizado pelo endotélio [43,54]."
-        }
-      ]
+      "segundos": 45.1,
+      "chegou_ao_llm": false
     },
     {
       "id": "V2-TAC-03",

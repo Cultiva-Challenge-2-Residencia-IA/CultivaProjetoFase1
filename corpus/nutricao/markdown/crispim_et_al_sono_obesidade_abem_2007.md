@@ -22,6 +22,8 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/crispim_et_al_sono_obesidade_abem_2007.pdf#page=1)
 
+> **Nota de conversão — página 1:** Letra capitular e primeira linha em versalete do primeiro parágrafo foram extraídas depois da segunda linha ('Ocomponentes centrais… osSISTEMA FISIOLÓGICO'); ordem refeita por replacement conforme o PDF (issue #27).
+
 # Relação entre Sono e Obesidade: uma Revisão da Literatura
 
 ## **RESUMO**
@@ -44,7 +46,7 @@ Reduction in sleep time has become an endemic condition in modern society and cu
 
 **Keywords:** Obesity; Sleep; Leptin; Ghrelin; Food intake
 
-Ocomponentes centrais como periféricos, os quais interagem com osSISTEMA FISIOLÓGICO QUE REGULA a massa corporal envolve tanto aspectos ambientais, como a disponibilidade e a composição da dieta e o exercício físico, influenciando, assim, a massa corporal. Embora a genética desempenhe um papel importante na determinação da massa corporal, a aumentada prevalência da obesidade nas últimas décadas tem sido fortemente relacionada com as mudanças no ambiente em que se vive. Analisando as variáveis ambientais que são provavelmente responsáveis pela “epidemia de obesidade”, a maior parte da atenção está voltada para o estado, custo e composição do alimento ingerido, e para a capacidade de anular o esforço físico. No entanto, é possível que outras variáveis am-
+O SISTEMA FISIOLÓGICO QUE REGULA a massa corporal envolve tanto componentes centrais como periféricos, os quais interagem com os aspectos ambientais, como a disponibilidade e a composição da dieta e o exercício físico, influenciando, assim, a massa corporal. Embora a genética desempenhe um papel importante na determinação da massa corporal, a aumentada prevalência da obesidade nas últimas décadas tem sido fortemente relacionada com as mudanças no ambiente em que se vive. Analisando as variáveis ambientais que são provavelmente responsáveis pela “epidemia de obesidade”, a maior parte da atenção está voltada para o estado, custo e composição do alimento ingerido, e para a capacidade de anular o esforço físico. No entanto, é possível que outras variáveis am-
 
 _Recebido em 16/02/07 Revisado em 18/05/07 Aceito em 28/05/07_
 

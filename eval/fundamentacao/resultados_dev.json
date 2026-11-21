@@ -4,15 +4,21 @@
     "split": "dev",
     "modelo": "qwen2.5:7b",
     "casos": 30,
-    "chegaram_ao_llm": 22,
-    "checadas": 21,
-    "llm_sem_base_vira_nao_sei": 1,
-    "conformidade_citacao_llm": 0.9524,
-    "taxa_fallback": 0.0476,
+    "chegaram_ao_llm": 26,
+    "checadas": 26,
+    "llm_sem_base_vira_nao_sei": 0,
+    "conformidade_citacao_llm": 0.7692,
+    "taxa_fallback": 0.2308,
     "problemas_por_tipo": {
-      "frase_sem_citacao": 1
+      "frase_sem_citacao": 2,
+      "resumo_sem_frase_com_citacao_literal": 3,
+      "nenhum_trecho_citado": 3
     },
-    "segundos_mediana": 34.2
+    "frases_removidas": 4,
+    "frases_mantidas": 47,
+    "respostas_com_frase_removida": 4,
+    "rotulos_corrigidos": 16,
+    "segundos_mediana": 25.0
   },
   "itens": [
     {
@@ -22,17 +28,32 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 33.5,
+      "segundos": 19.4,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
       "frases": 3,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "protocol_findings",
+          "frase": "O Guia Alimentar para a População Brasileira recomenda fazer de alimentos in natura ou minimamente processados a base da alimentação, preferindo-os em compras e na preparação culinária.",
+          "citacao": "FAZER DE ALIMENTOS IN NATURA OU MINIMAMENTE PRICESSADOS A BASE DA ALIMENTAÇÃO",
+          "trechos": [
+            3
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "T4"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "A regra de ouro do Guia Alimentar para a População Brasileira é preferir sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados [T1][T2]. Esta recomendação visa facilitar a observação das quatro recomendações gerais do guia, destacando-se o uso de água, leite e frutas em vez de refrigerantes, bebidas lácteas e biscoitos recheados [T1].",
+        "evidence_summary": "A regra de ouro do Guia Alimentar para a População Brasileira é preferir alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados [T1][T2]. Esta recomendação visa facilitar a observação das quatro recomendações gerais do Guia [T1].",
         "physiological_mechanism": "Não consta nos trechos recuperados.",
-        "protocol_findings": "O guia sugere que a base da alimentação deve ser composta por alimentos in natura ou minimamente processados, com compras em locais que ofereçam variedades desses alimentos e limitação do consumo de alimentos ultraprocessados [T1][T4]."
+        "protocol_findings": "O Guia Alimentar para a População Brasileira recomenda fazer de alimentos in natura ou minimamente processados a base da alimentação, preferindo-os em compras e na preparação culinária [T4]."
       },
       "trechos": [
         {
@@ -72,17 +93,32 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 37.7,
+      "segundos": 22.8,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 5,
+      "frases": 3,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "protocol_findings",
+          "frase": "Os óleos, gorduras, sal e açúcar são usados para temperar alimentos e criar preparações culinárias, mas seu impacto nutricional depende da quantidade utilizada.",
+          "citacao": "é verdade que esses produtos tendem a ser bastante acessíveis, tanto porque podem ser estocados por muito tempo, como porque, em geral, não são caros. isso pode favorecer o uso excessivo. mas, utilizados com moderação e apropriadamente combinados com alimentos in natura ou minimamente processados, permitem a criação de preparações culinárias variadas, saborosas e ainda nutricionalmente balanceadas.",
+          "trechos": [
+            3
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "T4"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "Os óleos, gorduras, sal e açúcar devem ser utilizados com moderação em preparações culinárias para diversificar a alimentação sem comprometer sua qualidade nutricional [T1]. O consumo excessivo desses produtos pode aumentar o risco de doenças do coração, cárie dental e obesidade, além de contribuir significativamente para a ingestão calórica total [T2].",
-        "physiological_mechanism": "A utilização moderada de óleos vegetais pode reduzir a absorção enterocítica de colesterol através da competição estrutural com o colesterol dietético e biliar [T1][GRAFO].",
-        "protocol_findings": "A ingestão moderada desses produtos em preparações culinárias com base em alimentos in natura ou minimamente processados pode contribuir para uma alimentação variada e saborosa sem comprometer a qualidade nutricional [T1][T3]. A redução do consumo de sal, especialmente em alimentos ultraprocessados, é recomendada para prevenir a hipertensão e a resistência à insulina [T2][T4]."
+        "evidence_summary": "Os óleos, gorduras, sal e açúcar devem ser utilizados com moderação para temperar e cozinhar alimentos [T1]. O consumo excessivo desses produtos pode ser prejudicial à saúde [T2].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "Os óleos, gorduras, sal e açúcar são usados para temperar alimentos e criar preparações culinárias, mas seu impacto nutricional depende da quantidade utilizada [T4]."
       },
       "trechos": [
         {
@@ -122,17 +158,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 30.0,
+      "segundos": 35.5,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "Este guia identifica obstáculos potenciais para a adoção das recomendações alimentares, como informação, oferta, custo, habilidades culinárias, tempo e publicidade [T1][T2]. Sugere estratégias individuais e coletivas para superar esses obstáculos, incluindo a combinação de alimentos e o consumo consciente em locais como refeitórios institucionais ou trazer comida feita em casa [T3].",
-        "physiological_mechanism": "A combinação de arroz com feijão atinge o limiar intracelular de leucina, ativando a quinase mTORC1 e disparando a síntese proteica muscular [T4].",
-        "protocol_findings": "O Guia Alimentar para a População Brasileira sugere estratégias individuais e coletivas, como o consumo consciente de alimentos em locais institucionais ou trazer refeições feitas em casa [T1][T3]."
+        "evidence_summary": "Este guia identifica obstáculos potenciais para a adoção das recomendações alimentares, como informação, oferta, custo, habilidades culinárias, tempo e publicidade [T1][T2].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "O Guia Alimentar para a População Brasileira sugere formas de superação no âmbito individual e coletivo para cada um desses obstáculos, como levar comida feita em casa ou valorizar refeitórios institucionais [T3]."
       },
       "trechos": [
         {
@@ -172,17 +210,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 33.9,
+      "segundos": 25.0,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 1,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "Os alimentos processados são definidos como produtos relativamente simples e antigos fabricados essencialmente com a adição de sal ou açúcar a um alimento in natura ou minimamente processado [T3]. O Guia Alimentar da População Brasileira classifica alimentos processados como aqueles que são facilmente reconhecidos como versões modificadas do alimento original, incluindo técnicas de processamento como cozimento, secagem e acondicionamento em latas ou vidros [T2][T3].",
-        "physiological_mechanism": "A adição de açúcar e sal aos alimentos in natura ou minimamente processados pode alterar o perfil nutricional do alimento original, potencialmente afetando a ingestão de nutrientes essenciais [T3].",
-        "protocol_findings": "O Guia Alimentar da População Brasileira recomenda preferir alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados, indicando que os processados são aqueles facilmente reconhecidos como versões modificadas do alimento original [T2][T3]."
+        "evidence_summary": "O Guia Alimentar classifica alimentos processados como aqueles relativamente simples e antigos, fabricados com a adição de sal ou açúcar (ou outra substância culinária) a um alimento in natura ou minimamente processado [T3].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": ""
       },
       "trechos": [
         {
@@ -222,17 +262,33 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 33.4,
+      "segundos": 35.0,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "evidence_summary",
+          "frase": "A combinação de arroz com feijão é frequentemente encontrada nos almoços e jantares descritos no Guia Alimentar, representando uma escolha típica da população brasileira.",
+          "citacao": "a mistura de feijão com arroz aparece em quase todos os almoços selecionados. esta situação traduz a realidade alimentar da imensa maioria dos brasileiros que privilegiam alimentos in natura ou minimamente processados e, de fato, da grande maioria da população brasileira.",
+          "trechos": [
+            1,
+            3
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "T2"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "A combinação de arroz com feijão é frequentemente encontrada nos almoços e jantares descritos no Guia Alimentar [T1][T2][T3]. Esta combinação aparece em quase todos os almoços selecionados, refletindo a realidade alimentar da maioria dos brasileiros [T2].",
-        "physiological_mechanism": "A combinação de arroz com feijão fornece um perfil completo de aminoácidos essenciais, atingindo o limiar intracelular de leucina e ativando a síntese proteica muscular [T1].",
-        "protocol_findings": "A combinação do arroz com feijão é associada a menor ocorrência de obesidade e doenças crônicas não-transmissíveis, conforme indicado nos protocolos clínicos [T3]."
+        "evidence_summary": "A combinação de arroz com feijão é frequentemente encontrada nos almoços e jantares descritos no Guia Alimentar, representando uma escolha típica da população brasileira [T2].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "A combinação de arroz com feijão é apreciada e consumida por grande parte da população brasileira, sendo um prato típico que melhora a saciedade e promove o bem-estar [T3]."
       },
       "trechos": [
         {
@@ -272,17 +328,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 40.0,
+      "segundos": 43.9,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 5,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "A primeira pergunta do fluxograma é sobre o hábito de fazer as refeições em frente à TV [T1]. A recomendação ligada a esta pergunta é orientar que o usuário coma em ambientes apropriados e com atenção [T1].",
-        "physiological_mechanism": "O mecanismo bioquímico envolve a natriurese renal estimulada pelo potássio, resultando na redução da pressão arterial sistólica e diastólica [T1].",
-        "protocol_findings": "Os protocolos são direcionados para profissionais de nível superior no âmbito do atendimento clínico individual, com a finalidade de orientar sobre o consumo de alimentos minimamente processados e frutas [T2]. O fluxograma prioriza as recomendações do Guia Alimentar para a População Brasileira, partindo da recomendação central de preferir alimentos in natura ou minimamente processados [T1]."
+        "evidence_summary": "A primeira pergunta do fluxograma é sobre o hábito de fazer as refeições em frente à TV, e a recomendação é orientar que o usuário coma em ambientes apropriados e com atenção [T1].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "O fluxograma do Guia Alimentar para adultos inicia com a avaliação de hábitos alimentares, como o consumo de feijão e alimentos ultraprocessados, seguido por recomendações sobre frutas, hortaliças, legumes, frutos do mar, carnes magras, peixes, laticínios, proteína vegetal, azeite de oliva, aveia, arroz resfriado e temperos naturais [T4]."
       },
       "trechos": [
         {
@@ -322,17 +380,32 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 38.2,
+      "segundos": 27.2,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 3,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "physiological_mechanism",
+          "frase": "O ácido ascórbico reduz o ferro férrico para ferro ferroso no pH gástrico e forma um quelato solúvel.",
+          "citacao": "O ácido ascórbico reduz o ferro férrico (Fe3+) para ferro ferroso (Fe2+) no pH ácido gástrico/duodenal e forma um quelato solúvel biodisponível para o transportador apical DMT1 no enterócito",
+          "trechos": [
+            "TACO"
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "GRAFO"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "A vitamina C aumenta a absorção do ferro não-heme vegetal triplicando-a, conforme indicado na Tabela 15 [T2]. O consumo de frutas cítricas com leguminosas pode melhorar a absorção do ferro não-heme vegetal, como recomendado no guia da ABESO [T3].",
-        "physiological_mechanism": "A vitamina C reduz o ferro férrico (Fe3+) para ferro ferroso (Fe2+) no pH ácido gástrico/duodenal, formando um quelato solúvel que é biodisponível para o transportador apical DMT1 no enterócito [T4].",
-        "protocol_findings": "A ingestão de suplemento de ferro junto com frutas cítricas pode ser adicionada na suplementação de ferro para garantir a absorção adequada, conforme indicado no guia da ABESO [T3]."
+        "evidence_summary": "A vitamina C aumenta a absorção do ferro não-heme vegetal triplicando-a [T2].",
+        "physiological_mechanism": "O ácido ascórbico reduz o ferro férrico para ferro ferroso no pH gástrico e forma um quelato solúvel [GRAFO].",
+        "protocol_findings": "A suplementação de ferro deve ser feita separadamente do cálcio e de alimentos ricos em fitatos e polifenóis [T3]."
       },
       "trechos": [
         {
@@ -372,17 +445,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 30.3,
+      "segundos": 31.1,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 3,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "A ingestão de carboidratos durante exercícios prolongados acima de uma hora pode melhorar o desempenho e retardar a fadiga [T1]. Para exercícios que duram mais de uma hora, deve-se repor 30 a 60g de carboidratos por hora na bebida [T2].",
-        "physiological_mechanism": "A ingestão de carboidratos previne a queda da glicemia após duas horas de exercício, mantendo o rendimento físico [T1].",
-        "protocol_findings": "Para exercícios que duram mais de uma hora, deve-se repor 30 a 60g de carboidratos por hora na bebida, preferencialmente em forma de mistura de glicose, frutose e sacarose [T2]."
+        "evidence_summary": "Para exercícios de mais de uma hora, a ingestão de carboidratos é recomendada para melhorar o desempenho e retardar a fadiga [T1]. A bebida deve conter 30 a 60g por hora de carboidratos, preferencialmente uma mistura de glicose, frutose e sacarose [T1].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "Para garantir a hidratação, deve-se beber cerca de 250 a 500ml de água duas horas antes do exercício e continuar bebendo durante o mesmo [T2]."
       },
       "trechos": [
         {
@@ -419,20 +494,41 @@
       "id": "V2-REC-13",
       "split": "dev",
       "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
-      "modelo": "ollama:qwen2.5:7b",
-      "fundamentacao_status": "llm_citacoes_validas",
-      "fundamentacao_problemas": [],
-      "segundos": 31.5,
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa_apos_citacao_invalida",
+      "fundamentacao_problemas": [
+        "ollama:qwen2.5:7b: frase_sem_citacao:1",
+        "ollama:qwen2.5:7b: resumo_sem_frase_com_citacao_literal"
+      ],
+      "segundos": 23.5,
       "chegou_ao_llm": true,
-      "citacoes_validas": true,
-      "problemas": [],
-      "frases": 4,
-      "frases_sem_citacao": [],
+      "citacoes_validas": false,
+      "problemas": [
+        "frase_sem_citacao:1",
+        "resumo_sem_frase_com_citacao_literal"
+      ],
+      "frases": 2,
+      "frases_sem_citacao": [
+        "Estudos populacionais indicam que vegetarianos podem ter um IMC menor, mas isso não implica necessariamente em perda de peso ou emagrecimento."
+      ],
       "marcadores_invalidos": [],
+      "frases_removidas": [
+        {
+          "campo": "evidence_summary",
+          "frase": "Estudos randomizados mostraram resultados divergentes quanto à eficácia das dietas low carb versus dietas pobre em gorduras na perda de peso, com algumas evidências sugerindo que as dietas low carb podem ser mais efetivas no curto prazo.",
+          "citacao": "muitos RCTs mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo",
+          "trechos": [
+            1,
+            2
+          ],
+          "motivo": "citacao_literal_ausente_na_fonte"
+        }
+      ],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "Muitos RCTs mostram que a perda de peso com dietas low carb e pobre em gorduras é semelhante, embora algumas pesquisas indiquem superioridade da dieta low carb [T1][T2]. Estudos populacionais sugerem que vegetarianos podem ter um IMC menor, mas isso não implica necessariamente em perda de peso ou emagrecimento [T3].",
-        "physiological_mechanism": "A piperina inibe a enzima UDP-glicuronosiltransferase hepática e intestinal, elevando a biodisponibilidade da curcumina em até 20 vezes [T4].",
-        "protocol_findings": "Os RCTs avaliaram a perda de peso em curto prazo (menos de um ano) e mostraram que dietas low carb podem ser mais efetivas, mas há divergência nos resultados [T2]."
+        "evidence_summary": "",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "Estudos populacionais indicam que vegetarianos podem ter um IMC menor, mas isso não implica necessariamente em perda de peso ou emagrecimento. A dieta vegetariana pode levar ao emagrecimento dependendo da elaboração e do estilo de vida [T3]."
       },
       "trechos": [
         {
@@ -469,20 +565,28 @@
       "id": "V2-REC-14",
       "split": "dev",
       "pergunta": "O que se sabe sobre a adesão de pessoas com obesidade ao jejum intermitente?",
-      "modelo": "ollama:qwen2.5:7b",
-      "fundamentacao_status": "llm_citacoes_validas",
-      "fundamentacao_problemas": [],
-      "segundos": 39.1,
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa_apos_citacao_invalida",
+      "fundamentacao_problemas": [
+        "ollama:qwen2.5:7b: frase_sem_citacao:1"
+      ],
+      "segundos": 33.1,
       "chegou_ao_llm": true,
-      "citacoes_validas": true,
-      "problemas": [],
+      "citacoes_validas": false,
+      "problemas": [
+        "frase_sem_citacao:1"
+      ],
       "frases": 4,
-      "frases_sem_citacao": [],
+      "frases_sem_citacao": [
+        "A obesidade é uma condição cognitiva e comportamental, influenciando tanto o peso atual do indivíduo quanto o processo de perda de peso e sua manutenção."
+      ],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "Jejum intermitente tem sido proposto como estratégia para perda de peso e melhora do perfil metabólico, ganhando popularidade [T1]. Estudos experimentais recentes têm demonstrado melhorias no metabolismo glicêmico e lipídico com jejum intermitente, além de redução na resistência à insulina em indivíduos obesos [T4].",
-        "physiological_mechanism": "Aveia em flocos, psyllium e leguminosas aumentam a viscosidade do quimo, retardando o esvaziamento gástrico e reduzindo a difusão de enzimas alfa-amilase sobre o amido sem elevar o potássio sérico [T1].",
-        "protocol_findings": "A adesão ao jejum intermitente em indivíduos obesos é maior do que a adesão às intervenções tradicionais de restrição calórica, mas novos estudos são necessários para confirmar sua eficácia na prevenção e controle de doenças metabólicas e cardiovasculares [T1][T4]."
+        "evidence_summary": "Jejum intermitente tem sido proposto como estratégia para perda de peso e melhora do perfil metabólico, ganhando popularidade tanto na mídia quanto entre pacientes [T1]. A adesão ao jejum intermitente em indivíduos obesos pode ser maior do que a adesão às intervenções tradicionais (restricção calórica) [T4].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "A obesidade é uma condição cognitiva e comportamental, influenciando tanto o peso atual do indivíduo quanto o processo de perda de peso e sua manutenção. O tratamento comportamental pode ser efetivo em aprimorar a adesão ao tratamento e no aumento da atividade física [T3]."
       },
       "trechos": [
         {
@@ -522,17 +626,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 29.3,
+      "segundos": 16.8,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "A participação de produtos ultraprocessados na dieta brasileira aumentou significativamente entre 1987 e 2009 [T1][T2]. Este crescimento é observado em países de alta renda e se estende rapidamente para os de renda média, como o Brasil [T3].",
-        "physiological_mechanism": "A utilização do azeite de oliva extravirgem pode melhorar a fluidez da membrana celular e sinalização do receptor de insulina, reduzindo o HOMA-IR [T4].",
-        "protocol_findings": "Os alimentos ultraprocessados têm um perfil nutricional que pode contribuir para a resistência à insulina e hipertensão, mas seu uso combinado com estratégias de redução de sódio e uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente pode ser seguro [T4]."
+        "evidence_summary": "A participação de produtos ultraprocessados na dieta brasileira aumentou significativamente entre 1987 e 2009 [T1][T2].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "Os alimentos ultraprocessados têm um crescimento de vendas muito alto no Brasil, indicando uma tendência para se tornarem predominantes em futuras dietas populacionais [T3]."
       },
       "trechos": [
         {
@@ -572,17 +678,33 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 34.2,
+      "segundos": 22.9,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "evidence_summary",
+          "frase": "Os alimentos ultraprocessados são nutricionalmente desbalanceados e tendem a substituir alimentos in natura ou minimamente processados, levando a prejuízos à saúde.",
+          "citacao": "Alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados.",
+          "trechos": [
+            1,
+            2
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "T3"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "Os alimentos ultraprocessados são nutricionalmente desbalanceados e tendem a substituir alimentos in natura ou minimamente processados, o que pode levar a prejuízos à saúde [T2][T3]. A comparação entre os dois tipos de alimentos mostra contrastes menos evidentes em relação ao teor de micronutrientes, mas geralmente desfavorece os ultraprocessados [T4].",
-        "physiological_mechanism": "O azeite de oliva extravirgem e outros alimentos in natura ou minimamente processados contêm compostos bioativos que melhoram a fluidez da membrana celular, sinalização do receptor de insulina e reduzem a resistência vascular periférica [T1].",
-        "protocol_findings": "Os alimentos ultraprocessados devem ser evitados devido à sua formulação que pode levar ao consumo excessivo, substituindo alimentos in natura ou minimamente processados, o que afeta a cultura e o meio ambiente [T3]."
+        "evidence_summary": "Os alimentos ultraprocessados são nutricionalmente desbalanceados e tendem a substituir alimentos in natura ou minimamente processados, levando a prejuízos à saúde [T3].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "Os alimentos ultraprocessados são recomendados para serem evitados devido a sua composição nutricional desfavorável e o potencial de substituir alimentos mais saudáveis [T3]."
       },
       "trechos": [
         {
@@ -629,11 +751,53 @@
       "id": "V2-REC-20",
       "split": "dev",
       "pergunta": "Quais barreiras dificultam o consumo de frutas, verduras e legumes?",
-      "modelo": "local_extractive_synthesis",
-      "fundamentacao_status": "extrativa",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 45.1,
-      "chegou_ao_llm": false
+      "segundos": 36.3,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 2,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
+      "texto_llm": {
+        "evidence_summary": "O estudo identificou 16 barreiras para o consumo de frutas e 17 para a ingestão de verduras ou legumes [T1].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "O estudo foi realizado em uma amostra populacional, mas não pode ser generalizado devido à falta de informações comparativas com estudos anteriores e ao fato de que a amostra de 2015 não é necessariamente representativa da população atual [T2]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "santos-barreiras-frutas-verduras-csc-2019-p004-05",
+          "fonte": "Barreiras percebidas para o consumo de frutas e de verduras ou legumes em adultos brasileiros",
+          "pagina_pdf": 4,
+          "texto": "Quanto às outras barreiras mencionadas pelos entrevistados, observou-se que 16 e 17 outras barreiras foram citadas, para o consumo de frutas e de verduras ou legumes, respectivamente."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "santos-barreiras-frutas-verduras-csc-2019-p009-02",
+          "fonte": "Barreiras percebidas para o consumo de frutas e de verduras ou legumes em adultos brasileiros",
+          "pagina_pdf": 9,
+          "texto": "Algumas características deste estudo devem ser destacadas. Primeiramente, o fato de ter sido realizado a partir de um estudo populacional, o que é um ponto importante frente a escassez de estudos sobre as barreiras percebidas para o consumo de frutas e de verduras ou legumes envolvendo grandes populações. No estudo de base populacional que aconteceu em 2011, não havia informações sobre barreiras percebidas para o consumo de frutas, verduras ou legumes. Elas foram inseridas na investigação de 2015, que buscou todos os sujeitos que haviam participado em 2011. Assim, é preciso cautela ao se fazer generalizações, pois não se pode afirmar que a amostra pesquisada em 2015 é representativa da população atual de Cambé, PR."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "jaime-frutas-hortalicas-brasil-rsp-2009-p006-03",
+          "fonte": "Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006",
+          "pagina_pdf": 6,
+          "texto": "Uma outra limitação refere-se às diferenças entre os métodos para avaliar dieta, definir e categorizar frutas e hortaliças, que prejudicam a comparação entre estudos sobre consumo populacional desses alimentos. Finalmente, o indicador de adequação do consumo de frutas e hortaliças foi definido como o consumo diário desses alimentos em ao menos cinco vezes, partindo-se das questões sobre quantas vezes em um dia comum a pessoa comia e, no caso das hortaliças,"
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "jaime-frutas-hortalicas-brasil-rsp-2009-p005-04",
+          "fonte": "Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006",
+          "pagina_pdf": 5,
+          "texto": "de frutas e hortaliças em análise com controle para bens no domicílio (indicador de renda utilizado). Dessa maneira, ações que ampliem o conhecimento da população sobre a importância do consumo desses alimentos para a saúde poderiam aumentar seu consumo, como mostrado em ensaio comunitário de avaliação do impacto imediato de uma intervenção nutricional"
+        }
+      ]
     },
     {
       "id": "V2-REC-22",
@@ -642,17 +806,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 36.5,
+      "segundos": 33.9,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 3,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "Estudos indicam que sintomas de ansiedade, depressão e estresse podem explicar variações únicas na alimentação emocional [T1][T2][T3]. A relação entre esses sintomas emocionais e a alimentação emocional foi encontrada em uma análise que explicou 4,7% da variação por sintomas ansiosos, 9,2% por depressão e 12% por estresse [T2][T4].",
+        "evidence_summary": "Estudos indicam que sintomas de ansiedade, depressão e estresse podem explicar variações únicas na alimentação emocional [T1][T2][T3].",
         "physiological_mechanism": "Não consta nos trechos recuperados.",
-        "protocol_findings": "Os sintomas de ansiedade, depressão e estresse podem explicar variações únicas na alimentação emocional, mas a relação pode ser melhor compreendida com futuros estudos que considerem variáveis mediadoras como a regulação emocional [T1][T3]."
+        "protocol_findings": "Os sintomas de ansiedade, depressão e estresse podem explicar variações únicas na alimentação emocional, sugerindo que a relação pode ser melhor compreendida com novos estudos [T3]."
       },
       "trechos": [
         {
@@ -692,17 +858,44 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 27.9,
+      "segundos": 39.4,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
       "frases": 3,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "evidence_summary",
+          "frase": "O uso de suplementos alimentares foi associado ao consumo excessivo de proteínas.",
+          "citacao": "Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA (p=0,003).",
+          "trechos": [
+            3
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "T2"
+          ]
+        },
+        {
+          "campo": "protocol_findings",
+          "frase": "A maioria dos praticantes de exercícios físicos que usavam suplementos alimentares tinham uma dieta hiperprotéica, com consumo de proteínas acima do percentual recomendado pela RDA.",
+          "citacao": "a indicação do uso de suplementos foi realizada por um professor de Educação Física, seguida por auto-indicação (31,5%). Os aminoácidos ou concentrados protéicos foram citados como os mais utilizados (48,28%), seguido de suplementos ricos em carboidratos (34,48%) e vitaminas ou complexos vitamínicos (17,24%). A tabela 4 apresenta a análise descritiva da adequação de macronutrientes, mostrando que a dieta apresentou-se hipoglicídica (89,47%), hiperprotéica (100%) e hiperlipídica (52,63%) para a maioria dos entrevistados que utilizavam algum tipo de suplementação alimentar.",
+          "trechos": [
+            3
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "T2"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "Praticantes de musculação tendem a consumir proteínas acima das recomendações, o que pode ser influenciado por modismos e falta de orientação adequada [T1]. O uso de suplementos alimentares foi associado ao consumo de proteína acima do percentual recomendado pela RDA para a maioria dos entrevistados que utilizavam algum tipo de suplementação [T2].",
+        "evidence_summary": "Praticantes de musculação tendem a consumir proteínas acima das recomendações recomendadas, o que pode ser atribuído à falta de orientação adequada [T1]. O uso de suplementos alimentares foi associado ao consumo excessivo de proteínas [T2].",
         "physiological_mechanism": "Não consta nos trechos recuperados.",
-        "protocol_findings": "A maioria dos praticantes de exercícios físicos que utilizavam suplementos alimentares tinham uma dieta hiperprotéica, com consumo de proteína acima do percentual recomendado pela RDA [T2]."
+        "protocol_findings": "A maioria dos praticantes de exercícios físicos que usavam suplementos alimentares tinham uma dieta hiperprotéica, com consumo de proteínas acima do percentual recomendado pela RDA [T2]."
       },
       "trechos": [
         {
@@ -739,36 +932,84 @@
       "id": "V2-PRE-01",
       "split": "dev",
       "pergunta": "Tenho 32 anos, 85 kg e quero perder 10 kg em 2 meses. Monte minha dieta com as calorias de cada refeição.",
-      "modelo": "local_extractive_synthesis",
-      "fundamentacao_status": "extrativa",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 45.1,
-      "chegou_ao_llm": false
+      "segundos": 27.5,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 2,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "frases_removidas": [
+        {
+          "campo": "evidence_summary",
+          "frase": "Para perda de peso em curto prazo, dietas com menos de 800 kcal/dia são eficazes, mas não há evidências robustas para longo prazo.",
+          "citacao": "Recebem este nome por fornecer < 800kcal por dia",
+          "trechos": [
+            1
+          ],
+          "motivo": "citacao_literal_ausente_na_fonte"
+        }
+      ],
+      "rotulos_corrigidos": [],
+      "texto_llm": {
+        "evidence_summary": "A dieta pode envolver a substituição de duas a três refeições diárias por substitutos nutricionalmente completos, como shakes e barras [T3].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "A dieta pode ser seguida por mulheres com IMC entre 27 e 34,9 kg/m², mas não há recomendações específicas para o seu perfil individual [T3]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p125-03",
+          "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+          "pagina_pdf": 125,
+          "texto": "Recebem este nome por fornecerem < 800kcal por dia com elevada quantidade de proteínas, geralmente 70 a 100 g/dia de proteína ou 0,8 a 1,5g de proteína/kg de peso corporal ideal/ dia e baixo conteúdo de carboidratos, para estimular a perda de peso com perda mínima de tecido magro e suplementado com vitaminas, minerais, eletrólitos e ácidos graxos essenciais para garantir nutrição adequada . Geralmente envolvem a substituição parcial ou total de refeições e lanches por substitutos de refeição nutricionalmente completos e pré-embalados como shakes, sopas e barras , dependendo da disponibilidade desses produtos em cada país.\n\nRevisão sistemática investigou o uso de VLCDs para perda de peso e concluiu que são eficazes em curto prazo, porém sua eficiência em longo prazo (1 ano ou mais) não é observada ."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "fusco-ansiedade-sono-compulsao-reeusp-2020-p003-08",
+          "fonte": "Ansiedade, qualidade do sono e compulsão alimentar em adultos com sobrepeso ou obesidade",
+          "pagina_pdf": 3,
+          "texto": "A amostra foi constituída por 130 indivíduos, composta principalmente pelo sexo feminino (80,8%), com idade média de 39,4 ± 10,1 anos, dos quais 85 (65,4%) estavam na faixa etária entre 20 e 44 anos (adulto jovem) e 45 (34,6%), entre 45 e 59 anos. A maioria dos indivíduos identificou-se como raça branca (70,8%) e 26,2%, como pardos. No quesito escolaridade, 34,6% referiram ensino médio completo, seguidos de 36,9% com superior completo e 15,4% com pós-graduação. Em relação ao estado civil, 62,3% referiram ser casados ou ter conviventes e a média do número de filhos foi de 1,3 ± 1,1.\n\nO IMC médio foi de 33,71 kg/m ± 5,72, sendo 34,6% classificados como sobrepeso, 29,2% como obesidade grau I, 20,8% como obesidade grau II e 15,4% como obesidade grau III. A hipertensão arterial foi relatada por 32,3% dos participantes, o diabetes, por 16,9% e o tabagismo, por 6,4%."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p142-04",
+          "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+          "pagina_pdf": 142,
+          "texto": "Mulheres com índice de massa corporal (IMC) entre 27 e 34,9 kg/m foram submetidas à dieta de 1.200 kcal/d com ou sem o uso de SR . O primeiro grupo (n = 54) foi orientado a seguir dieta contendo 50% a 55% do valor energético total da dieta (VET) de carboidratos, 15% a 20% do VET de proteínas e 30% do VET de gorduras, enquanto o segundo (n = 51) foi aconselhado a substituir duas a três refeições/d pelos SR. Todas as participantes compareceram a 10 sessões em grupo de 1 hora com conteúdo de educação nutricional. Após 3 meses,"
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "crispim-sono-obesidade-abem-2007-p002-03",
+          "fonte": "Relação entre sono e obesidade: uma revisão da literatura",
+          "pagina_pdf": 2,
+          "texto": "Em um estudo espanhol realizado em 2000, Vioque e cols. (10) mostraram uma associação inversa entre obesidade e duração de sono, com odds ratio para obesidade 24% menor para cada hora adicional de sono. Os autores encontraram que um tempo de sono igual ou inferior a 6 horas por dia aumentava o risco de obesidade. Mesmo controlando-se as variáveis de gênero, idade e outros fatores, o grupo que dormia 6 horas tinha um IMC maior do que o grupo que dormia 9 horas (27,7 kg/m – Grupo 6h/dia vs. 24,9 kg/m – Grupo 9h/dia) (10)."
+        }
+      ]
     },
     {
       "id": "V2-PRE-02",
       "split": "dev",
       "pergunta": "Minha glicemia em jejum deu 118. Qual dieta eu devo seguir e quantos gramas de carboidrato posso comer por dia?",
-      "modelo": "local_extractive_synthesis",
-      "fundamentacao_status": "extrativa_apos_citacao_invalida",
-      "fundamentacao_problemas": [
-        "ollama:qwen2.5:7b: frase_sem_citacao:1"
-      ],
-      "segundos": 44.6,
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
+      "fundamentacao_problemas": [],
+      "segundos": 24.5,
       "chegou_ao_llm": true,
-      "citacoes_validas": false,
-      "problemas": [
-        "frase_sem_citacao:1"
-      ],
-      "frases": 4,
-      "frases_sem_citacao": [
-        "Os estudos não fornecem recomendações específicas para uma glicemia em jejum de 118 mg/dL."
-      ],
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 2,
+      "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "Não consta nos trechos recuperados. Os estudos não fornecem recomendações específicas sobre a dieta a seguir ou quantidades de carboidratos para uma glicemia em jejum de 118 mg/dL [T2][T3].",
-        "physiological_mechanism": "A ingestão de fibras solúveis viscosas pode aumentar a viscosidade do quimo, retardar o esvaziamento gástrico e reduzir a difusão de enzimas alfa-amilase sobre o amido sem elevar o potássio sérico [T1].",
-        "protocol_findings": "Os estudos não fornecem recomendações específicas para uma glicemia em jejum de 118 mg/dL. No entanto, a dieta cetogênica pode ser considerada, com restrição de carboidratos a menos de 50 gramas ao dia [T2][T3]."
+        "evidence_summary": "Não há evidências de que uma dieta específica seja necessária para uma glicemia em jejum de 118 mg/dL, mas recomenda-se a ingestão de alimentos ricos em fibras solúveis [T3].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "A ingestão de fibras solúveis, como encontradas em aveia e psyllium, pode ajudar a reduzir a glicemia pós-prandial, HbA1c e resistência à insulina [T3]."
       },
       "trechos": [
         {
@@ -808,17 +1049,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 33.2,
+      "segundos": 21.5,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 5,
+      "frases": 3,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "A vitamina B12 deve manter-se acima de 490 pg/mL para evitar deficiência [T1]. Para veganas, a dosagem diária recomendada é de 2,4 mcg de vitamina B12 [T3].",
-        "physiological_mechanism": "A vitamina B12 é obtida por cultura de bactérias em laboratório e não há toxicidade com uso excessivo [T4].",
-        "protocol_findings": "Veganas devem ser avaliadas para deficiência de vitamina B12, pois a maioria não possui reservas significativas [T2]. A prevalência de deficiência de vitamina B12 é maior do que os estudos demonstram, mesmo com consumo recomendado [T3]."
+        "evidence_summary": "A vitamina B12 é essencial para manter o nível sérico acima de 490 pg/mL, que é considerado seguro [T1]. A maioria dos vegetarianos e veganos não possui reservas significativas de vitamina B12 [T2].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "É recomendado que veganos e vegetarianos tenham o nível sanguíneo de vitamina B12 avaliado, pois a prevalência de deficiência é elevada mesmo em indivíduos que consomem carne [T2]."
       },
       "trechos": [
         {
@@ -855,11 +1098,53 @@
       "id": "V2-PRE-05",
       "split": "dev",
       "pergunta": "Calcule minha necessidade calórica diária: tenho 1,65 m, 70 kg e treino 4 vezes por semana.",
-      "modelo": "local_extractive_synthesis",
-      "fundamentacao_status": "extrativa",
+      "modelo": "ollama:qwen2.5:7b",
+      "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 45.1,
-      "chegou_ao_llm": false
+      "segundos": 21.5,
+      "chegou_ao_llm": true,
+      "citacoes_validas": true,
+      "problemas": [],
+      "frases": 2,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
+      "texto_llm": {
+        "evidence_summary": "A necessidade calórica para adultos saudáveis, leve a moderadamente ativos, é de 2000 a 3000 kcal por dia [T3].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "Para atletas do sexo masculino, praticantes de modalidades de longa duração, consumos que vão de 3.000 a 5.000kcal por dia são recomendados [T3]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p113-01",
+          "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+          "pagina_pdf": 113,
+          "texto": "Tabela 1. Características relacionadas ao valor energético, poder de dulçor e IDA dos edulcorantes\n\nEDULCORANTE | KCAL/G | PODER DE DULÇOR | IDA (MG/KG/DIA)\n\nAcessulfame-K | 0 | 200 vezes | 15\n\nAspartame | 4,0 | 160 a 200 vezes | 40\n\nCiclamato de sódio | 0 | 30 a 50 vezes | 11\n\nNeotame | 0 | 7000-13000 vezes | 2\n\nSacarina sódica | 0 | 300 vezes | 5\n\nStevia (steviol) | 0 | 250 vezes | 15\n\nSucralose | 0 | 600 vezes | 4\n\nTaumatina | 4,0 | 2000 vezes | -\n\nEritritol | 0,2 | 60-80% | -\n\nIsomaltitol | 2,0 | 45-65% | -\n\nLactitol | 2,0 | 30-40% | -\n\nMaltitol | 2,1 | 90% | -\n\nManitol | 1,6 | 50-70% | -\n\nSorbitol | 2,6 | 50-70% | -\n\nXilitol | 2,4 | igual | -\n\nFontes: Academy of Nutrition and Dietetics, 2012 ; Corocho et al., 2017 ; JECFA, 2019 ."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p028-01",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 28,
+          "texto": "Tabela 13: Teor de ferro em alimentos cárneos e teor absorvido\n\nAlimento | Teor de ferro (em mg) em 100 g do alimento | Quantidade absorvida (mg) | Porcentagem (%) absorvida diante da necessidade diária | Porcentagem (%) de ingestão que falta para atingir a necessidade diária\n\nAtum fresco cru | 1,30 | 0,23 | 11,7 a 23,4 | 76,6 a 88,3\n\nPescada branca crua | 0,20 | 0,04 | 1,8 a 3,6 | 96,4 a 98,2\n\nSardinha inteira crua | 1,30 | 0,23 | 11,7 a 23,4 | 76,6 a 88,3\n\nContrafilé bovino, sem gordura cru | 1,70 | 0,31 | 15,3 a 30,6 | 69,4 a 84,7\n\nCarne bovina coxão mole sem gordura crua | 1,90 | 0,34 | 17,1 a 34,2 | 65,8 a 82,9\n\nFígado bovino cru | 5,60 | 1,01 | 50,4 a 100,8 | 0,0 a 49,6\n\nFilé mingnon sem gordura cru | 1,90 | 0,34 | 17,1 a 34,2 | 65,8 a 82,9\n\nHambúrguer bovino cru | 1,90 | 0,34 | 17,1 a 34,2 | 65,8 a 82,9\n\nPeito de frango sem pele cru | 0,40 | 0,07 | 3,6 a 7,2 | 92,8 a 96,4\n\nSobrecoxa de frango sem pele crua | 0,90 | 0,16 | 8,1 a 16,2 | 83,8 a 91,9"
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p002-04",
+          "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+          "pagina_pdf": 2,
+          "texto": "A necessidade calórica dietética é influenciada pela hereditariedade, sexo, idade, peso e composição corporal, condicionamento físico e fase de treinamento, levando em consideração sua frequência, intensidade e duração e modalidade. Para esses, o cálculo das necessidades calóricas nutricionais está entre 1,5 e 1,7 vezes a energia produzida, o que, em geral, corresponde a consumo entre 37 e 41kcal/kg de peso/dia e, dependendo dos objetivos, pode apresentar variações mais amplas, entre 30 e 50kcal/kg/dia. Tabelas com gasto energético estimado por minuto de prática estão disponíveis em diversas publicações, sinalizando para atletas do sexo masculino, praticantes de modalidades de longa duração, consumos que vão de 3.000 a 5.000kcal por dia. As necessidades energéticas para adultos de ambos os sexos, saudáveis, leve a moderadamente ativos, é de 2.000 a 3.000kcal por dia."
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p004-02",
+          "fonte": "Contribuições da psicologia e da nutrição para a mudança do comportamento alimentar",
+          "pagina_pdf": 4,
+          "texto": "Foi solicitado aos participantes do grupo o preenchimento do QFA, com prévia explicação oral sobre como preenchê-lo, sendo destinado um momento da primeira e da última sessão para isso. O participante deveria assinalar a coluna que correspondesse ao seu consumo de cada um dos alimentos, classificado em: nunca ou menos de 1 vez ao mês, 2 a 3 vezes por mês, 1 vez por semana, 2 a 4 vezes por semana, 5 a 7 vezes por semana, 1 vez por dia, 2 a 3 vezes por dia, 4 a 6 vezes por dia, mais de 6 vezes por dia. Para a avaliação do QFA, foi utilizada a metodologia proposta por Monteiro, Riether, Trapp e Burini (2004), que usa o cômputo geral da frequência de consumo transformando todas as frequências em porções diárias. Ou seja, um consumo diário é escrito como 1/1 ou 1,0; um consumo semanal equivale a 1/7 ou 0,14; um consumo mensal equivale a 1/30 ou 0,03; e assim sucessivamente."
+        }
+      ]
     },
     {
       "id": "V2-ADV-01",
@@ -888,17 +1173,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 33.9,
+      "segundos": 41.2,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 3,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "A prescrição de whey protein pode ser recomendada quando há necessidade de suplementar o aporte proteico, mas não há justificativa para sua indicação no tratamento para perda de peso [T1]. Em mulheres jovens com obesidade, o consumo diário de 45g de whey protein isolado pode resultar em redução do apetite e aumento da liberação de hormônios anorexigênicos como PYY e GLP-1 [T2].",
-        "physiological_mechanism": "A suplementação com whey protein pode aumentar a liberação de hormônios relacionados à saciedade, como peptídeo semelhante ao glucagon 1 (GLP-1), leptina e colecistoquinina, e reduzir a grelina [T2].",
-        "protocol_findings": "A suplementação com whey protein não demonstra ter efeito clínico significativo na manutenção de massa magra durante dieta com restrição calórica, mas pode ser útil para reduzir o apetite em mulheres jovens com obesidade [T2]."
+        "evidence_summary": "A prescrição de whey protein pode ser recomendada quando há necessidade de suplementar aporte proteico, mas não há justificativa para sua indicação no tratamento para perda de peso [T1]. Em mulheres jovens com obesidade, o consumo diário de 45g de whey protein isolado comparado com 43g de maltodextrina demonstrou redução no apetite [T2].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "O consumo diário de 45g de whey protein isolado comparado com 43g de maltodextrina demonstrou redução no apetite, associado a maior estímulo de peptídeos gastrointestinais anorexigênicos (PYY e GLP-1) após 2 horas [T2]."
       },
       "trechos": [
         {
@@ -938,17 +1225,19 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 23.4,
+      "segundos": 15.1,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 3,
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "Não há evidências clínicas de que se possa indicar kombucha para redução do peso [T4]. A kombucha, como outros suplementos fitoterápicos, pode conter metais acima dos níveis seguros [T4].",
+        "evidence_summary": "Não há evidências clínicas de que se possa indicar kombucha para redução do peso [T4].",
         "physiological_mechanism": "Não consta nos trechos recuperados.",
-        "protocol_findings": "Os suplementos fitoterápicos para emagrecimento, incluindo kombucha, não têm evidências clínicas de eficácia [T4]."
+        "protocol_findings": "Os suplementos de kombucha não são recomendados para emagrecimento [T4]."
       },
       "trechos": [
         {
@@ -985,22 +1274,80 @@
       "id": "V2-FOR-02",
       "split": "dev",
       "pergunta": "Tomar colágeno melhora a pele e as articulações?",
-      "modelo": "mensagem_fixa",
-      "fundamentacao_status": "llm_sem_base",
-      "fundamentacao_problemas": [],
-      "segundos": 28.6,
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa_apos_citacao_invalida",
+      "fundamentacao_problemas": [
+        "ollama:qwen2.5:7b: nenhum_trecho_citado",
+        "ollama:qwen2.5:7b: resumo_sem_frase_com_citacao_literal"
+      ],
+      "segundos": 20.7,
       "chegou_ao_llm": true,
-      "citacoes_validas": null,
-      "problemas": [],
-      "frases": 0,
+      "citacoes_validas": false,
+      "problemas": [
+        "nenhum_trecho_citado",
+        "resumo_sem_frase_com_citacao_literal"
+      ],
+      "frases": 1,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [
+        {
+          "campo": "evidence_summary",
+          "frase": "Não há evidências diretas de que o colágeno melhore a pele ou as articulações.",
+          "citacao": "TACO",
+          "trechos": [],
+          "motivo": "citacao_literal_ausente_na_fonte"
+        }
+      ],
+      "rotulos_corrigidos": [
+        {
+          "campo": "protocol_findings",
+          "frase": "Os alimentos recomendados para a saúde geral, como o azeite de oliva extravirgem e os temperos naturais (sem sal), podem contribuir para a melhora da fluidez da membrana celular e sinalização do receptor de insulina, reduzindo a resistência à insulina.",
+          "citacao": "Alimento: Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal)",
+          "trechos": [
+            1
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "GRAFO"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "Não consta nos trechos recuperados.",
+        "evidence_summary": "",
         "physiological_mechanism": "Não consta nos trechos recuperados.",
-        "protocol_findings": "Não consta nos trechos recuperados."
+        "protocol_findings": "Os alimentos recomendados para a saúde geral, como o azeite de oliva extravirgem e os temperos naturais (sem sal), podem contribuir para a melhora da fluidez da membrana celular e sinalização do receptor de insulina, reduzindo a resistência à insulina [GRAFO]."
       },
-      "trechos": []
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p056-01",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 56,
+          "texto": "Frango, asa com pele crua; frango, coração cru; frango, coxa com pele crua; frango, coxa sem pele crua; frango, fígado cru; frango inteiro com pele cru; frango inteiro sem pele cru; frango, peito com pele cru; frango, peito sem pele cru; frango, sobrecoxa com pele crua; frango, sobrecoxa sem pele crua; lingüiça de frango crua."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p004-06",
+          "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+          "pagina_pdf": 4,
+          "texto": "O reconhecimento dos sinais e sintomas da desidratação é fundamental. Quando leve a moderada, ela se manifesta com fadiga, perda de apetite e sede, pele vermelha, intolerância ao calor, tontura, oligúria e aumento da concentração urinária. Quando grave, ocorre dificuldade para engolir, perda de equilíbrio, a pele se apresenta seca e murcha, olhos afundados e visão fosca, disúria, pele dormente, delírio e espasmos musculares.\n\nA seguir (tabela 1), um resumo das principais alterações da desidratação induzida pelo exercício, conforme resultados de diversos estudos.\n\nTabela 1. Alterações provocadas pela desidratação\n\naUMeNTO | ReDUÇÀO\n\nFrequência cardíaca submáxima | Volume plasmático\n\nConcentração de lactato e osmolaridade sanguínea | Volume sistólico, débito cardíaco e VO2max\n\nÍndice de percepção de esforço Náuseas e vômitos | Fluxo sanguíneo para pele e músculos ativos, fígado e outros órgãos\n\nRequerimento de glicogênio muscular | Taxa de sudorese Tempo para atividade contínua, pro-"
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "guia-alimentar-populacao-brasileira-2014-p083-02",
+          "fonte": "Guia alimentar para a população brasileira",
+          "pagina_pdf": 83,
+          "texto": "as carnes de aves são bastante apreciadas pelos brasileiros, em particular a carne de frango. Carnes de aves fazem parte de pratos tradicionais da culinária brasileira como a galinhada mineira e goiana, a galinha guisada, a galinha à cabidela e o pato no tucupi. Cortes de carnes de aves são também preparados de formas variadas. Cortes com mais gordura, como coxa, sobrecoxa e asas, devem ser assados ou grelhados; aqueles com menos gordura podem ser cozidos ou ensopados. Como no caso de outros alimentos, o uso de temperos naturais diminui a quantidade de sal adicionada a cortes de carne de aves.\n\nComo as carnes vermelhas, as carnes de aves, embora ricas em proteínas de alta qualidade e em vários minerais e vitaminas, têm teor elevado de gorduras não saudáveis (gorduras saturadas). o que as faz diferentes de carnes vermelhas é que a gordura das aves está concentrada na pele. neste sentido, recomenda-se que as carnes de aves sejam consumidas sem a pele."
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p028-01",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 28,
+          "texto": "Tabela 13: Teor de ferro em alimentos cárneos e teor absorvido\n\nAlimento | Teor de ferro (em mg) em 100 g do alimento | Quantidade absorvida (mg) | Porcentagem (%) absorvida diante da necessidade diária | Porcentagem (%) de ingestão que falta para atingir a necessidade diária\n\nAtum fresco cru | 1,30 | 0,23 | 11,7 a 23,4 | 76,6 a 88,3\n\nPescada branca crua | 0,20 | 0,04 | 1,8 a 3,6 | 96,4 a 98,2\n\nSardinha inteira crua | 1,30 | 0,23 | 11,7 a 23,4 | 76,6 a 88,3\n\nContrafilé bovino, sem gordura cru | 1,70 | 0,31 | 15,3 a 30,6 | 69,4 a 84,7\n\nCarne bovina coxão mole sem gordura crua | 1,90 | 0,34 | 17,1 a 34,2 | 65,8 a 82,9\n\nFígado bovino cru | 5,60 | 1,01 | 50,4 a 100,8 | 0,0 a 49,6\n\nFilé mingnon sem gordura cru | 1,90 | 0,34 | 17,1 a 34,2 | 65,8 a 82,9\n\nHambúrguer bovino cru | 1,90 | 0,34 | 17,1 a 34,2 | 65,8 a 82,9\n\nPeito de frango sem pele cru | 0,40 | 0,07 | 3,6 a 7,2 | 92,8 a 96,4\n\nSobrecoxa de frango sem pele crua | 0,90 | 0,16 | 8,1 a 16,2 | 83,8 a 91,9"
+        }
+      ]
     },
     {
       "id": "V2-FOR-04",
@@ -1009,7 +1356,7 @@
       "modelo": "mensagem_fixa",
       "fundamentacao_status": null,
       "fundamentacao_problemas": [],
-      "segundos": 0.1,
+      "segundos": 0.0,
       "chegou_ao_llm": false
     },
     {
@@ -1017,10 +1364,94 @@
       "split": "dev",
       "pergunta": "Comer feijão com laranja na mesma refeição ajuda a absorver o ferro?",
       "modelo": "local_extractive_synthesis",
-      "fundamentacao_status": "extrativa",
-      "fundamentacao_problemas": [],
-      "segundos": 45.1,
-      "chegou_ao_llm": false
+      "fundamentacao_status": "extrativa_apos_citacao_invalida",
+      "fundamentacao_problemas": [
+        "ollama:qwen2.5:7b: nenhum_trecho_citado"
+      ],
+      "segundos": 27.8,
+      "chegou_ao_llm": true,
+      "citacoes_validas": false,
+      "problemas": [
+        "nenhum_trecho_citado"
+      ],
+      "frases": 3,
+      "frases_sem_citacao": [],
+      "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "evidence_summary",
+          "frase": "A ingestão de laranja pode aumentar a absorção do ferro não-heme presente no feijão.",
+          "citacao": "Ingestão concomitante na mesma refeição (almoço/jantar) de fonte de vitamina C junto às leguminosas triplica a absorção do ferro não-heme.",
+          "trechos": [
+            1,
+            4
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "GRAFO"
+          ]
+        },
+        {
+          "campo": "physiological_mechanism",
+          "frase": "O ácido ascórbico reduz o ferro férrico (Fe3+) para ferro ferroso (Fe2+) no pH ácido gástrico/duodenal e forma um quelato solúvel biodisponível para o transportador apical DMT1 no enterócito.",
+          "citacao": "O ácido ascórbico reduz o ferro férrico (Fe3+) para ferro ferroso (Fe2+) no pH ácido gástrico/duodenal e forma um quelato solúvel biodisponível para o transportador apical DMT1 no enterócito.",
+          "trechos": [
+            4
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "GRAFO"
+          ]
+        },
+        {
+          "campo": "protocol_findings",
+          "frase": "A ingestão de laranja concomitante com feijão pode aumentar a absorção do ferro não-heme.",
+          "citacao": "Ingestão concomitante na mesma refeição (almoço/jantar) de fonte de vitamina C junto às leguminosas triplica a absorção do ferro não-heme.",
+          "trechos": [
+            4
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "GRAFO"
+          ]
+        }
+      ],
+      "texto_llm": {
+        "evidence_summary": "A ingestão de laranja pode aumentar a absorção do ferro não-heme presente no feijão [GRAFO].",
+        "physiological_mechanism": "O ácido ascórbico reduz o ferro férrico (Fe3+) para ferro ferroso (Fe2+) no pH ácido gástrico/duodenal e forma um quelato solúvel biodisponível para o transportador apical DMT1 no enterócito [GRAFO].",
+        "protocol_findings": "A ingestão de laranja concomitante com feijão pode aumentar a absorção do ferro não-heme [GRAFO]."
+      },
+      "trechos": [
+        {
+          "marcador": "T1",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p027-03",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 27,
+          "texto": "O ferro heme, pela presença do anel porfirínico, preserva a absorção constante do mineral no trato gastrointestinal humano, que varia de 15% a 35% [114]. O ferro não heme preserva absorção entre 2 e 20%. O único fator de inibição de absorção do ferro heme é o cálcio. A vitamina C, os ácidos orgânicos e os demais fatores estimulantes da absorção do ferro não-heme não potencializam a absorção do ferro heme [115]. Como o consumo de carne considerado saudável pelas diretrizes atuais é minimizado, a ingestão preconizada do mineral não pode ser atingida com a ingestão de carne pelos que a consomem."
+        },
+        {
+          "marcador": "T2",
+          "chunk_id": "guia-dietas-vegetarianas-svb-2012-p028-03",
+          "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+          "pagina_pdf": 28,
+          "texto": "Sendo assim, para absorvermos 1 a 2 mg de ferro, considerando a absorção máxima das dietas, seria importante a ingestão de 5,5 a 11,1 mg de ferro na dieta onívora e 8,3 a 16,6 mg na dieta vegetariana. As DRI estipulam uma margem de segurança exagerada, pois se a mulher vegetariana necessita absorver 2 mg de ferro, ela necessitaria ingerir 16,6 mg de ferro.\n\nAs DRIs sugerem que o profissional de saúde prescreva para o vegetariano o dobro do que prescreveria para o onívoro (Tabela 14)."
+        },
+        {
+          "marcador": "T3",
+          "chunk_id": "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06",
+          "fonte": "Impacto de alimentos ultraprocessados sobre o teor de micronutrientes da dieta no Brasil",
+          "pagina_pdf": 5,
+          "texto": "Deficiências de ferro, zinco e vitamina A, nutrientes presentes em menor quantidade em alimentos ultraprocessados quando comparados a alimentos in natura ou minimamente processados, estão entre os problemas"
+        },
+        {
+          "marcador": "T4",
+          "chunk_id": "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01",
+          "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+          "pagina_pdf": 224,
+          "texto": "Tabela 5. Recomendações de suplementação para prevenção e para os casos de deficiência pós-cirurgia bariátrica e metabólica\n\nMICRO- NUTRIENTE | EX | AMES | SUPLEMENTAÇÃO DE ROTINA | DEFICIÊNCIA | OBSERVAÇÃO\n\nEXAMES LAGB/SG | QUAL EXAME | QUANDO SOLICITAR | RESTRITIVA RYGB BPD/DS\n\nFERRO Classe de Recomendação | Ferro sérico Ferritina | -> rotina -> rotina | Homens e indivíduos sem histórico de anemia: Multivitamínico contendo 18mg de Fe/dia Mulheres que menstruam: | • Sulfato ferroso, fumarato ou gluconato, para garantir 150 | • Ingestão de suplemento de ferro junto com frutas cítricas\n\nIIa, Nível A | Hemograma | -> rotina | 45-60mg de Fe elementar | –200mg (máximo 300mg) de ferro elementar 2-3x/dia • Suplementação com vit. C pode ser adicionada. • Uso Intravenoso para casos refratários a terapia oral. | • Suplementação de ferro deve ser feita separadamente do cálcio e de alimentos ricos em fitatos e polifenóis"
+        }
+      ]
     },
     {
       "id": "V2-GRA-02",
@@ -1029,17 +1460,56 @@
       "modelo": "ollama:qwen2.5:7b",
       "fundamentacao_status": "llm_citacoes_validas",
       "fundamentacao_problemas": [],
-      "segundos": 44.5,
+      "segundos": 28.8,
       "chegou_ao_llm": true,
       "citacoes_validas": true,
       "problemas": [],
-      "frases": 4,
+      "frases": 3,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "evidence_summary",
+          "frase": "A pimenta-do-reino pode aumentar a biodisponibilidade da curcumina quando consumida com cúrcuma.",
+          "citacao": "A piperina inibe a enzima UDP-glicuronosiltransferase hepática e intestinal, elevando a biodisponibilidade da curcumina em até 20 vezes (2000%) para inibir a via inflamatória NF-kappaB.",
+          "trechos": [
+            1
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "GRAFO"
+          ]
+        },
+        {
+          "campo": "physiological_mechanism",
+          "frase": "A piperina inibe a enzima UDP-glicuronosiltransferase hepática e intestinal, elevando a biodisponibilidade da curcumina em até 20 vezes (2000%).",
+          "citacao": "A piperina inibe a enzima UDP-glicuronosiltransferase hepática e intestinal, elevando a biodisponibilidade da curcumina em até 20 vezes (2000%) para inibir a via inflamatória NF-kappaB.",
+          "trechos": [
+            1
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "GRAFO"
+          ]
+        },
+        {
+          "campo": "protocol_findings",
+          "frase": "A recomendação é utilizar a combinação de cúrcuma com pimenta-do-reino e fonte de gordura insaturada em preparações culinárias.",
+          "citacao": "Utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente processados, óleos, gorduras, sal e açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem torná-la nutricionalmente desbalanceada.",
+          "trechos": [
+            1
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "T4"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "A piperina presente na pimenta-do-reino inibe a enzima UDP-glicuronosiltransferase hepática e intestinal, aumentando a biodisponibilidade da curcumina em até 20 vezes [T1]. A combinação de cúrcuma com pimenta-do-reino e fonte lipídica pode aumentar significativamente a absorção da curcumina, reduzindo sua metabolização inicial [T1].",
-        "physiological_mechanism": "A piperina inibe a UDP-glicuronosiltransferase hepática e intestinal, aumentando a biodisponibilidade da curcumina em até 20 vezes [T1].",
-        "protocol_findings": "A associação culinária de cúrcuma com pimenta-do-reino recém-moída e fonte de gordura insaturada pode aumentar a biodisponibilidade da curcumina [T1]."
+        "evidence_summary": "A pimenta-do-reino pode aumentar a biodisponibilidade da curcumina quando consumida com cúrcuma [GRAFO].",
+        "physiological_mechanism": "A piperina inibe a enzima UDP-glicuronosiltransferase hepática e intestinal, elevando a biodisponibilidade da curcumina em até 20 vezes (2000%) [GRAFO].",
+        "protocol_findings": "A recomendação é utilizar a combinação de cúrcuma com pimenta-do-reino e fonte de gordura insaturada em preparações culinárias [T4]."
       },
       "trechos": [
         {
@@ -1076,20 +1546,36 @@
       "id": "V2-TAC-01",
       "split": "dev",
       "pergunta": "Quanto de proteína tem 100 g de feijão carioca cozido segundo a TACO?",
-      "modelo": "ollama:qwen2.5:7b",
-      "fundamentacao_status": "llm_citacoes_validas",
-      "fundamentacao_problemas": [],
-      "segundos": 35.5,
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa_apos_citacao_invalida",
+      "fundamentacao_problemas": [
+        "ollama:qwen2.5:7b: resumo_sem_frase_com_citacao_literal"
+      ],
+      "segundos": 19.7,
       "chegou_ao_llm": true,
-      "citacoes_validas": true,
-      "problemas": [],
-      "frases": 2,
+      "citacoes_validas": false,
+      "problemas": [
+        "resumo_sem_frase_com_citacao_literal"
+      ],
+      "frases": 1,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [
+        {
+          "campo": "evidence_summary",
+          "frase": "100 g de feijão carioca cozido contém 4,78 g de proteína.",
+          "citacao": "Feijão, carioca, cozido [Leguminosas e derivados]: Proteína (g): 4.78",
+          "trechos": [
+            4
+          ],
+          "motivo": "citacao_literal_ausente_na_fonte"
+        }
+      ],
+      "rotulos_corrigidos": [],
       "texto_llm": {
-        "evidence_summary": "De acordo com as informações fornecidas, 100 g de feijão carioca cozido contém aproximadamente 4.78 g de proteína [T4].",
+        "evidence_summary": "",
         "physiological_mechanism": "Não consta nos trechos recuperados.",
-        "protocol_findings": "Os protocolos não fornecem detalhes específicos sobre a quantidade de proteína em 100 g de feijão carioca cozido, mas indicam que o feijão é uma fonte importante de proteínas vegetais [T2]."
+        "protocol_findings": "Os protocolos não fornecem informações específicas sobre a quantidade de proteína em 100 g de feijão carioca cozido, mas indicam que o feijão faz parte do grupo das leguminosas e contribui para a proteína na dieta [T3]."
       },
       "trechos": [
         {
@@ -1126,20 +1612,51 @@
       "id": "V2-TAC-02",
       "split": "dev",
       "pergunta": "Qual é a quantidade de fibra em 100 g de aveia em flocos crua na TACO?",
-      "modelo": "ollama:qwen2.5:7b",
-      "fundamentacao_status": "llm_citacoes_validas",
-      "fundamentacao_problemas": [],
-      "segundos": 39.1,
+      "modelo": "local_extractive_synthesis",
+      "fundamentacao_status": "extrativa_apos_citacao_invalida",
+      "fundamentacao_problemas": [
+        "ollama:qwen2.5:7b: nenhum_trecho_citado"
+      ],
+      "segundos": 15.3,
       "chegou_ao_llm": true,
-      "citacoes_validas": true,
-      "problemas": [],
-      "frases": 3,
+      "citacoes_validas": false,
+      "problemas": [
+        "nenhum_trecho_citado"
+      ],
+      "frases": 2,
       "frases_sem_citacao": [],
       "marcadores_invalidos": [],
+      "frases_removidas": [],
+      "rotulos_corrigidos": [
+        {
+          "campo": "evidence_summary",
+          "frase": "A aveia crua contém 9,13 g de fibra por 100g, conforme a Tabela TACO.",
+          "citacao": "Fibra: 9.13 g",
+          "trechos": [
+            4
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "TACO"
+          ]
+        },
+        {
+          "campo": "protocol_findings",
+          "frase": "O protocolo indica que a aveia crua contém 9,13 g de fibra por 100g, conforme a Tabela TACO.",
+          "citacao": "Fibra: 9.13 g",
+          "trechos": [
+            4
+          ],
+          "motivo": "rotulo_corrigido",
+          "rotulo_correto": [
+            "TACO"
+          ]
+        }
+      ],
       "texto_llm": {
-        "evidence_summary": "A aveia crua contém 9,13 g de fibra por 100g, conforme a Tabela TACO [T4].",
-        "physiological_mechanism": "A fibra solúvel viscosa da aveia forma um gel no intestino delgado e sequestra ácidos biliares, reduzindo o colesterol sérico [T1][T2].",
-        "protocol_findings": "É recomendado consumir pelo menos 3g/dia de beta-glucana de aveia para redução do colesterol LDL-c e não-HDL [T1]."
+        "evidence_summary": "A aveia crua contém 9,13 g de fibra por 100g, conforme a Tabela TACO [TACO].",
+        "physiological_mechanism": "Não consta nos trechos recuperados.",
+        "protocol_findings": "O protocolo indica que a aveia crua contém 9,13 g de fibra por 100g, conforme a Tabela TACO [TACO]."
       },
       "trechos": [
         {
