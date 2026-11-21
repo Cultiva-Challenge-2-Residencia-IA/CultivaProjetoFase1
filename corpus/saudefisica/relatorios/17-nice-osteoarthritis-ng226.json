@@ -1,0 +1,12 @@
+{
+  "source_id": "nice-osteoarthritis-ng226",
+  "source_sha256": "e34c6fecdddf3ba69f935c8fc966431c7c7e403dc99ce05bf52562655142bd80",
+  "original_path": "corpus/saudefisica/originais/17-nice-osteoarthritis-ng226.html",
+  "markdown_path": "corpus/saudefisica/markdown/17-nice-osteoarthritis-ng226.md",
+  "markdown_sha256": "351f3b5dd4ce271295c63dd5eeb3f4c532ce167e1c0c847ff143320effc2c840",
+  "script_sha256": "96850ec0c704eeecbc09172c358b30027a1d020462f212c5a5335a93982e2eb5",
+  "content_selector": "main",
+  "tables_found": 0,
+  "images_found": 0,
+  "status": "concluida_com_ressalvas"
+}

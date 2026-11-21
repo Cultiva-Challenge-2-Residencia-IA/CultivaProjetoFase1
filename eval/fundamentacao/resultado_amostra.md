@@ -6,7 +6,8 @@ Registrado em 19/11/2026. Critérios em [`criterios.md`](criterios.md), rubrica 
 
 - **Amostra:** 60 frases de 28 respostas do `qwen2.5:7b` com o prompt v3 (42 do `dev`, 18 do `test`), sorteadas com semente fixa entre as respostas que passaram na checagem de citações. O `qwen2.5:7b` era o modelo padrão na época; desde o ADR 0004 o padrão é o `gemma4:e4b`, e o `qwen2.5:7b` é a reserva. A amostra não foi refeita com o `gemma4:e4b`.
 - **Avaliador:**
-  - os julgamentos foram produzidos com um **LLM externo, o ChatGPT**, a pedido de MatheusSales2773, que é autor do PR #61;
+  - os julgamentos foram produzidos com um **LLM externo, o ChatGPT** (modelo 6.2 Astra, segundo o autor), em 19/11/2026, a pedido de MatheusSales2773, que é autor do PR #61;
+  - o ChatGPT recebeu a planilha `amostra_para_avaliar.csv` para julgar; o texto exato do pedido não foi guardado, então uma nova amostra só fica comparável se repetir o mesmo juiz e a mesma entrada, ou se for julgada por uma pessoa;
   - **não houve avaliação humana independente**, que é o que o RNF27 e os critérios pedem;
   - o resultado é, portanto, uma **estimativa por juiz automático**, não a medição humana do requisito.
 - **Envio a serviço externo:** a planilha tem perguntas sintéticas do benchmark e textos públicos do corpus, sem dados pessoais (ADR 0003).

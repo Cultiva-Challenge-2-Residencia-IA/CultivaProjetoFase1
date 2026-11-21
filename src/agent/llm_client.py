@@ -477,6 +477,14 @@ class LocalLLMClient:
         return " ".join(f"{f[:-1].rstrip()} {marcador}{f[-1]}" if f[-1] in ".!?" else f"{f} {marcador}" for f in frases)
 
     @staticmethod
+    def _mecanismo(llm_result: Dict[str, Any], extractive: Dict[str, Any]) -> str:
+        """Mecanismo opcional (#67): se o LLM disse que não há base, a resposta não ganha texto extrativo."""
+        mecanismo = str(llm_result.get("physiological_mechanism") or "").strip()
+        if mecanismo == FRASE_SEM_BASE:
+            return mecanismo
+        return f"{mecanismo} ({extractive['physiological_mechanism']})".strip()
+
+    @staticmethod
     def _merge_llm_with_extractive(
         llm_result: Dict[str, Any],
         extractive: Dict[str, Any],
@@ -491,10 +499,7 @@ class LocalLLMClient:
             "evidence_summary": str(
                 llm_result.get("evidence_summary") or extractive["evidence_summary"]
             ),
-            "physiological_mechanism": (
-                f"{llm_result.get('physiological_mechanism', '')} "
-                f"({extractive['physiological_mechanism']})"
-            ).strip(),
+            "physiological_mechanism": LocalLLMClient._mecanismo(llm_result, extractive),
             "protocol_findings": llm_protocol,
             "food_sources_or_compounds": (
                 LocalLLMClient._lista_de_textos(llm_result.get("food_sources_or_compounds"))

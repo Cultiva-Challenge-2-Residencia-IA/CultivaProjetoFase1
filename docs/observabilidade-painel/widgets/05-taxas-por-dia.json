@@ -1,0 +1,38 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Taxas por dia (% das consultas)",
+  "description": "Por dia, a fração das consultas em cada situação, no período escolhido no topo do painel (padrão: últimos 7 dias). Cada nota vale 0 ou 1 por consulta, então a média é a taxa: 0,10 = 10% das consultas. Atenção: os experimentos (langfuse_experimento) gravam notas com os mesmos nomes citacoes_validas e sintese_extrativa e entram na média.",
+  "view": "scores-numeric",
+  "dimensions": [
+    {
+      "field": "name"
+    }
+  ],
+  "metrics": [
+    {
+      "measure": "value",
+      "agg": "avg"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "sintese_extrativa",
+        "citacoes_validas",
+        "nao_sei",
+        "risco_acionado",
+        "prompt_injection",
+        "guardrail_lei_8234"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "LINE_TIME_SERIES",
+  "chartConfig": {
+    "type": "LINE_TIME_SERIES"
+  },
+  "minVersion": 1
+}

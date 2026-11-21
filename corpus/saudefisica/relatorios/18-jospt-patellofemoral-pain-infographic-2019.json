@@ -1,0 +1,39 @@
+{
+  "source_id": "jospt-patellofemoral-pain-infographic-2019",
+  "source_sha256": "5702bbe3f3a8e586b778e56b57899cb8724dea04372945b41250f3259258c59a",
+  "pdf_pages": 1,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "99da34315c612f2c47c791d267a1433a35f6753607bec4c7ade32ab91e3ea954",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.5.4"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, sem imagens exportadas; consulta no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "summary": {
+    "pages_converted": 1
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "characters_native": 1875,
+      "characters_markdown": 1886,
+      "lexical_coverage": 1.0,
+      "notes": []
+    }
+  ],
+  "markdown_sha256": "b8787984c46f5ac4159ec5fb7f80e89f422f44ac4423fae5021bb73c4d8a63d5"
+}
