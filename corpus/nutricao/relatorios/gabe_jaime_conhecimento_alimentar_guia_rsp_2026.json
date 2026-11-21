@@ -1,0 +1,292 @@
+{
+  "source_id": "gabe-jaime-conhecimento-alimentar-guia-rsp-2026",
+  "source_sha256": "edb5c23e972673fe4510029d5adbf9d80f282b8016439cda5cf98e8a6b520ed2",
+  "pdf_pages": 12,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 3341,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99618,
+      "missing_native_tokens": {
+        "gabei": 1,
+        "jaimei": 1
+      },
+      "markdown_characters": 3419
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 4158,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98837,
+      "missing_native_tokens": {
+        "alimentares3": 1,
+        "educativos2": 1,
+        "individual5": 1,
+        "numerosas2": 1,
+        "saudáveis1": 1,
+        "saúde8": 1,
+        "ultraprocessados4": 1
+      },
+      "markdown_characters": 4253
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 4581,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99295,
+      "missing_native_tokens": {
+        "7213": 1,
+        "conhecimento15": 1,
+        "documento13": 1,
+        "estatística12": 1,
+        "foodprok16": 1
+      },
+      "markdown_characters": 4631
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 4378,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99407,
+      "missing_native_tokens": {
+        "analisada20": 1,
+        "esperado15": 1,
+        "guia18": 1,
+        "pesquisas17": 1
+      },
+      "markdown_characters": 4425
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 2210,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99516,
+      "missing_native_tokens": {
+        "44621": 1,
+        "informadaa": 1
+      },
+      "markdown_characters": 2390
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 2672,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2781
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 2492,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95862,
+      "missing_native_tokens": {
+        "001": 1,
+        "007": 1,
+        "27a": 1,
+        "associação": 2,
+        "comportamental": 1,
+        "de": 1,
+        "dia": 1,
+        "horas": 1,
+        "telas": 1,
+        "univariada": 1,
+        "uso": 1
+      },
+      "markdown_characters": 2775
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 3436,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.83942,
+      "missing_native_tokens": {
+        "0": 21,
+        "00": 1,
+        "001": 6,
+        "002": 1,
+        "017": 1,
+        "020": 1,
+        "023": 1,
+        "026": 1,
+        "1": 2,
+        "15": 1,
+        "17": 1,
+        "2": 4,
+        "3": 1,
+        "30": 1,
+        "4": 1,
+        "40": 1,
+        "5": 1,
+        "50": 1,
+        "6": 1,
+        "66": 1,
+        "69": 1,
+        "8": 1,
+        "81": 1,
+        "90": 1,
+        "alimentos26": 1,
+        "anos": 1,
+        "b1": 1,
+        "b2": 1,
+        "branca": 1,
+        "c1": 1,
+        "c2": 1,
+        "class": 1,
+        "cor": 1,
+        "de": 2,
+        "direta22": 1,
+        "e": 2,
+        "guia22": 1,
+        "idade": 1,
+        "informadaa": 1,
+        "modelo": 4,
+        "não": 1,
+        "ou": 1,
+        "outra": 1,
+        "parda": 1,
+        "plano": 1,
+        "preta": 1,
+        "raça": 1,
+        "ref": 3,
+        "refeições1": 1,
+        "saúde": 1,
+        "sexo": 1,
+        "socioeconômica": 1
+      },
+      "markdown_characters": 3589
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 4606,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98705,
+      "missing_native_tokens": {
+        "alimentação32": 1,
+        "alimentos18": 1,
+        "alimentos31": 1,
+        "guia27": 1,
+        "pardas27": 1,
+        "quintil28": 1,
+        "saudáveis29": 1,
+        "saúde2": 1,
+        "telas34": 1
+      },
+      "markdown_characters": 4692
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 4270,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4252
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 4605,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4585
+    },
+    {
+      "pdf_page": 12,
+      "native_characters": 2219,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2242
+    }
+  ],
+  "markdown_sha256": "d91b0f3835a3975cf6b946a34cbe85c182c95da1b541d8d21a5a524b218f5899",
+  "summary": {
+    "pages_converted": 12,
+    "sparse_pages": [],
+    "ocr_pages": [],
+    "pages_with_tables_detected": [
+      5,
+      7,
+      8
+    ],
+    "pages_with_warnings": [
+      7,
+      8
+    ],
+    "pages_with_adjustments": []
+  }
+}

@@ -111,6 +111,37 @@ Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licen
 - **Sono e alimentação:** o título "O impacto da privação de sono e fadiga no comportamento alimentar" (Revista de Nutrição) não foi localizado. Entraram, em português, Crispim et al. (2007), revisão sobre sono e obesidade, e Fusco et al. (2020), sobre ansiedade, sono e compulsão alimentar em adultos.
 - **Não localizado:** o texto exato "Comportamento alimentar e suas interfaces com a saúde e o estresse". O estudo de Penaforte et al. (Demetra, 2016), sobre estresse e comportamento alimentar de universitários, foi identificado, mas o servidor da revista não respondeu para o download.
 
+### Nove fontes para lacunas do corpus (inclusão de 20/11/2026)
+
+PDFs reunidos pelo autor da inclusão para cobrir temas perguntados e ausentes do corpus: kombucha, hipertensão, dislipidemias, diabetes, rótulos, suplementos e mitos alimentares. **Todas entram com `approval_status: pendente`**, então não chegam ao RAG até uma revisão de aprovação.
+
+- **Fontes:**
+  - Gabe e Jaime (Rev Saúde Pública, 2026), sobre conhecimento em alimentação e adesão ao Guia (NutriNet-Brasil);
+  - "Desmistificando dúvidas sobre alimentação e nutrição" (Ministério da Saúde e UFMG, 2016);
+  - Protocolo de uso do Guia Alimentar, volume 3: orientação alimentar de adultos com hipertensão (Ministério da Saúde e UnB, 2022);
+  - Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose (SBC, 2025);
+  - Diretriz Brasileira de Hipertensão Arterial (SBC, SBH e SBN, 2025);
+  - Fraiz et al. (Fermentation, 2025), revisão sistemática sobre kombucha, **em inglês** (`language: en`);
+  - Perguntas e respostas da Anvisa sobre rotulagem nutricional (4ª edição, 2024) e sobre suplementos alimentares (9ª edição, 2025);
+  - Terapia nutricional no pré-diabetes e no diabetes tipo 2 (Diretriz SBD 2023, versão web).
+- **Licenças, conforme o próprio PDF:**
+  - CC BY-NC-SA 4.0 no material do Ministério da Saúde e da UFMG e no protocolo de hipertensão;
+  - CC BY 4.0 na revisão de kombucha;
+  - "Licença de Atribuição Creative Commons", sem versão impressa, em Gabe e Jaime e nas duas diretrizes da SBC;
+  - sem licença declarada nos dois documentos da Anvisa e na diretriz da SBD (`license: pendente`, `risco_aceito_uso_academico_sem_fins_lucrativos`). **A equipe precisa confirmar se o aceite de risco de 06/11/2026 se estende a essas três.**
+- **Escopo:**
+  - as diretrizes da SBC, da SBD e o protocolo de hipertensão são documentos para profissionais e tratam de diagnóstico e de remédios. Preservá-los não autoriza o aplicativo a diagnosticar nem a prescrever (RN01);
+  - na aprovação, avaliar restringir os Trechos das diretrizes da SBC às seções de alimentação e estilo de vida (`skip_pages`).
+- **Ressalvas da origem:**
+  - a URL exata do PDF de rotulagem da Anvisa não foi localizada, e a origem registrada é a pasta de publicações;
+  - o PDF da SBD é a impressão da página web pelo navegador e traz duas datas de revisão; uma segunda impressão idêntica foi descartada;
+  - os documentos da Anvisa podem mudar com as consultas públicas de 2025. Confirmar a vigência antes de aprovar.
+- **Conversão:**
+  - sem OCR, exceto 7 páginas quase vazias (capas e separadores do material do Ministério da Saúde e do protocolo);
+  - a maior parte dos alertas de cobertura lexical vem de tabelas (`<br>` dentro das células) e de números de citação colados às palavras. A perda real fica em tabelas e quadros com texto girado, como o formulário de marcadores do protocolo (página 10) e quadros de remédios da diretriz de hipertensão;
+  - capas, equipes, declarações de conflito de interesse, sumários, siglas, índices e referências ficam fora dos Trechos (`scripts/config/rag.yaml`).
+- **Windows:** com `core.autocrlf=true`, o Git grava os Markdown com CRLF e o `verify_corpus.py` acusa edição. Os scripts também gravam CRLF no Windows. Nesta inclusão, os derivados foram gerados com LF, como no restante do repositório. O `prepare_rag.py` grava o `jsonl_path` do `geracao.json` com a barra do sistema (`str(Path)`): no Windows sai `corpus\nutricao\rag\…`, que o verificador acha no Windows, mas não no Linux do CI. Os nove caminhos foram corrigidos para `/`; corrigir o script (`as_posix()`) muda o hash dele e exige regenerar os Trechos de todas as fontes, por isso fica para a #88.
+
 
 ## Decisão sobre licenças e uso das fontes
 

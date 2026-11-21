@@ -1,0 +1,525 @@
+{
+  "source_id": "protocolos-guia-alimentar-hipertensao-v3-2022",
+  "source_sha256": "1b1e2faeccedc21e51fdd60ffa44a7434001bfd31b1cbff789bbd563ca72c759",
+  "pdf_pages": 35,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": {
+    "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata",
+    "sha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 207,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 209
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 202,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 211
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 2931,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2946
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 735,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 855
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 2291,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2284
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 3179,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3170
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 1028,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1098
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 2174,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2181
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 2293,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.97923,
+      "missing_native_tokens": {
+        "8": 1,
+        "brasília": 1,
+        "da": 1,
+        "de": 1,
+        "ministério": 1,
+        "saúde": 1,
+        "universidade": 1
+      },
+      "markdown_characters": 2258
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 2130,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.96918,
+      "missing_native_tokens": {
+        "adolescentes": 1,
+        "adultos": 1,
+        "ceia": 1,
+        "crianças": 1,
+        "da": 1,
+        "gestantes": 1,
+        "idosos": 1,
+        "jantar": 1,
+        "mais": 1
+      },
+      "markdown_characters": 2084
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 1508,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9913,
+      "missing_native_tokens": {
+        "alimentar": 1,
+        "valorize": 1
+      },
+      "markdown_characters": 1688
+    },
+    {
+      "pdf_page": 12,
+      "native_characters": 2071,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2071
+    },
+    {
+      "pdf_page": 13,
+      "native_characters": 2214,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2194
+    },
+    {
+      "pdf_page": 14,
+      "native_characters": 842,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99296,
+      "missing_native_tokens": {
+        "13": 1
+      },
+      "markdown_characters": 842
+    },
+    {
+      "pdf_page": 15,
+      "native_characters": 2093,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2115
+    },
+    {
+      "pdf_page": 16,
+      "native_characters": 2814,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2793
+    },
+    {
+      "pdf_page": 17,
+      "native_characters": 782,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 774
+    },
+    {
+      "pdf_page": 18,
+      "native_characters": 1854,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1852
+    },
+    {
+      "pdf_page": 19,
+      "native_characters": 2499,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2541
+    },
+    {
+      "pdf_page": 20,
+      "native_characters": 678,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 679
+    },
+    {
+      "pdf_page": 21,
+      "native_characters": 1747,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1768
+    },
+    {
+      "pdf_page": 22,
+      "native_characters": 2916,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2951
+    },
+    {
+      "pdf_page": 23,
+      "native_characters": 2182,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99708,
+      "missing_native_tokens": {
+        "embutidos": 1
+      },
+      "markdown_characters": 2245
+    },
+    {
+      "pdf_page": 24,
+      "native_characters": 1745,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1761
+    },
+    {
+      "pdf_page": 25,
+      "native_characters": 2319,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2348
+    },
+    {
+      "pdf_page": 26,
+      "native_characters": 2214,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2210
+    },
+    {
+      "pdf_page": 27,
+      "native_characters": 2390,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2402
+    },
+    {
+      "pdf_page": 28,
+      "native_characters": 2171,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2175
+    },
+    {
+      "pdf_page": 29,
+      "native_characters": 2470,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99485,
+      "missing_native_tokens": {
+        "o": 1,
+        "opçã": 1
+      },
+      "markdown_characters": 2446
+    },
+    {
+      "pdf_page": 30,
+      "native_characters": 2760,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2755
+    },
+    {
+      "pdf_page": 31,
+      "native_characters": 2626,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2630
+    },
+    {
+      "pdf_page": 32,
+      "native_characters": 1503,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1518
+    },
+    {
+      "pdf_page": 33,
+      "native_characters": 1225,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1271
+    },
+    {
+      "pdf_page": 34,
+      "native_characters": 2645,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99268,
+      "missing_native_tokens": {
+        "33": 1,
+        "coordenaçã": 1,
+        "o": 1
+      },
+      "markdown_characters": 2729
+    },
+    {
+      "pdf_page": 35,
+      "native_characters": 124,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": "DISQUE\nSAÚDE 136\nBiblioteca Virtual em Saúde do Ministé\nbvsms.saude.gov.br\n,\nm MINISTERIO D\nA\nSUS Ea\nnu\n)\n"
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 0.45,
+      "missing_native_tokens": {
+        "36": 1,
+        "brasília": 1,
+        "da": 2,
+        "de": 1,
+        "ministério": 2,
+        "saúde": 3,
+        "universidade": 1
+      },
+      "markdown_characters": 179
+    }
+  ],
+  "markdown_sha256": "81cba125a3f7d58b8ea9a74576bc1d8afc6ebc1041f5a9331ae6fb7609308207",
+  "summary": {
+    "pages_converted": 35,
+    "sparse_pages": [
+      35
+    ],
+    "ocr_pages": [
+      35
+    ],
+    "pages_with_tables_detected": [
+      4,
+      10,
+      23
+    ],
+    "pages_with_warnings": [
+      9,
+      10,
+      35
+    ],
+    "pages_with_adjustments": []
+  }
+}
