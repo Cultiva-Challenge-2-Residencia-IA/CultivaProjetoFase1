@@ -1,0 +1,375 @@
+id,pergunta,frase,trechos_citados,julgamento,comentario
+F001,Que tipos de alimento o Guia Alimentar classifica como processados?,Alimentos processados são definidos como produtos relativamente simples e antigos fabricados essencialmente com a adição de sal ou açúcar (ou outra substância de uso culinário como óleo ou vinagre) a um alimento in natura ou minimamente processado [T3].,"[T3] Guia alimentar para a população brasileira, p. 38: alimentos processados são produtos relativamente simples e antigos fabricados essencialmente com a adição de sal ou açúcar (ou outra substância de uso culinário como óleo ou vinagre) a um alimento in natura ou minimamente processado. as técnicas de processamento desses produtos se assemelham a técnicas culinárias, podendo incluir cozimento, secagem, fermentação, acondicionamento dos alimentos em latas ou vidros e uso de métodos de preservação como salga, salmoura, cura e defumação. alimentos processados em geral são facilmente reconhecidos como versões modificadas do alimento original.",sustentada,O trecho define alimentos processados pelos mesmos ingredientes adicionados e especifica a mesma base de alimentos in natura ou minimamente processados.
+F002,"No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?",A abordagem do fluxograma visa direcionar as orientações alimentares com base nas respostas obtidas ao aplicar o formulário de marcadores de consumo alimentar do SISVAN durante a consulta individual [T2].,"[T2] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 14: Os Protocolos de Uso do Guia Alimentar propostos nesta série foram desenvolvidos considerando o contexto do cuidado individual oferecido na APS, com forma de apoio à prática clínica. Portanto, os protocolos aqui apresentados destinam-se a profissionais de nível superior no âmbito do atendimento clínico individual.
+
+A abordagem sugerida neste protocolo estão organizada em formato de fluxograma, que tem como funcionalidade direcionar as orientações alimentares que devem ser oferecidas ao usuário a partir das respostas captadas na aplicação do formulário de marcadores de consumo alimentar do SISVAN no momento da consulta individual. A ordenação das etapas do fluxograma foi feita com intuito de direcionar a priorização das mensagens que são mais importantes para a construção de uma alimentação mais saudável.",sustentada,O protocolo diz que o fluxograma direciona as orientações a partir das respostas ao formulário de marcadores do SISVAN aplicado na consulta individual.
+F003,Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?,Foi observada uma relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA [T2].,"[T2] Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos, p. 3: a indicação do uso de suplementos foi realizada por um professor de Educação Física, seguida por auto-indicação (31,5%). Os aminoácidos ou concentrados protéicos foram citados como os mais utilizados (48,28%), seguido de suplementos ricos em carboidratos (34,48%) e vitaminas ou complexos vitamínicos (17,24%).
+
+A tabela 4 apresenta a análise descritiva da adequação de macronutrientes, mostrando que a dieta apresentou-se hipoglicídica (89,47%), hiperprotéica (100%) e hiperlipídica (52,63%) para a maioria dos entrevistados que utilizavam algum tipo de suplementação alimentar. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA (p=0,003).
+
+Analisando o conhecimento nutricional dos entrevistados observou-se que mais da metade (51,7%) apresentou conhecimento moderado (figura 1).
+
+Tabela 1 . Distribuição absoluta e percentual de gênero, escolaridade e renda de praticantes de exercícios físicos.",sustentada,O estudo relata expressamente uma associação estatística entre o uso de suplementos e a ingestão de proteína acima do percentual recomendado pela RDA.
+F004,Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?,"A comparação entre alimentos ultraprocessados e alimentos processados mostra contrastes menos evidentes com relação ao teor de micronutrientes, tendendo a desfavorecer [T4].","[T4] Impacto de alimentos ultraprocessados sobre o teor de micronutrientes da dieta no Brasil, p. 3: A comparação entre alimentos ultraprocessados e alimentos processados mostra contrastes menos evidentes com relação ao teor de micronutrientes. De modo geral, a comparação tende novamente a desfavorecer",sustentada,O trecho confirma os contrastes menos evidentes no teor de micronutrientes. O final fica incompleto tanto na frase quanto na passagem citada.
+F005,Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?,"A combinação de arroz e feijão é considerada o prato típico do brasileiro, sendo acessível e possuindo um excelente perfil de nutrientes [T3].","[T3] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 19: Arroz e feijão é o prato típico do brasileiro. O consumo dessa combinação melhora a saciedade e promove o bem-estar por ser uma preparação completa, saborosa e da nossa cultura. O feijão é rico em fibras, proteínas e diversas vitaminas e minerais, como ferro. A combinação do arroz com feijão, apreciada e consumida por grande parte da nossa população, é bastante acessível e possui um excelente perfil de nutrientes. Ao contrário do que o senso comum aponta, a combinação do arroz e feijão faz parte de padrões alimentares associados a menor ocorrência de obesidade e doenças crônicas não-transmissíveis.",sustentada,"O protocolo descreve arroz com feijão como um prato típico, acessível e com bom perfil nutricional."
+F006,"Quais barreiras dificultam o consumo de frutas, verduras e legumes?","Foram citadas 16 barreiras para o consumo de frutas e 17 barreiras para o consumo de verduras ou legumes, de acordo com os entrevistados [T1].","[T1] Barreiras percebidas para o consumo de frutas e de verduras ou legumes em adultos brasileiros, p. 4: Quanto às outras barreiras mencionadas pelos entrevistados, observou-se que 16 e 17 outras barreiras foram citadas, para o consumo de frutas e de verduras ou legumes, respectivamente.",parcial,"Os números coincidem, mas o trecho os atribui a barreiras adicionais. A frase perdeu a ressalva de que eram outras barreiras."
+F007,Quais são as orientações do Guia Alimentar sobre o ato de comer e a comensalidade?,Comer em horários semelhantes todos os dias e com atenção e sem pressa favorece a digestão dos alimentos e evita que se coma mais do que o necessário [T4].,"[T4] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 24: - Fale que refeições feitas em horários semelhantes todos os dias e consumidas com atenção e sem pressa favorecem a digestão dos alimentos e também evitam que se coma mais do que o necessário. Os mecanismos biológicos que regulam nosso apetite são complexos, dependem de vários estímulos e levam certo tempo até sinalizarem que já comemos o suficiente. Uma salada ou uma sopa ou caldo antes do prato principal é outra maneira de conceder ao organismo o tempo necessário para que os alimentos sejam mais bem aproveitados e para que não se coma mais que o necessário.
+
+- Oriente que o usuário prefira sempre restaurantes de comida por quilo ao invés de restaurantes fast-food, que se apresentam como lugares particularmente inapropriados para comer. Além de oferecerem pouca ou nenhuma opção de alimentos in natura ou minimamente processados, são em geral muito barulhentos e pouco confortáveis, onde levam os clientes a comerem muito rapidamente e, comumente, em quantidade excessiva.",sustentada,"O trecho associa horários semelhantes, atenção e ausência de pressa à digestão e a evitar comer além do necessário."
+F008,Qual marca de whey protein um nutricionista pode me indicar publicamente?,"Quando da prescrição dietética, orientação para consumo ou compra institucional, havendo necessidade de mencionar aos indivíduos e coletividades as marcas de produtos, empresas ou indústrias, o nutricionista deverá apresentar mais de uma opção, quando disponível [T3].","[T3] Código de Ética e de Conduta do Nutricionista (Resolução CFN nº 599/2018), p. 12: II – Caso o nutricionista seja contratado pela empresa ou indústria para desempenhar a função de divulgação de serviços ou produtos de uma única marca, empresa ou indústria, esta deve ser voltada apenas a profissionais que prescrevam ou comercializem os produtos e vedada aos demais públicos.
+
+III – Quando da prescrição dietética, orientação para consumo ou compra institucional, havendo necessidade de mencionar aos indivíduos e coletividades as marcas de produtos, empresas ou indústrias, o nutricionista deverá apresentar mais de uma opção, quando disponível. Não havendo outra opção que tenha a mesma composição ou que atenda a mesma finalidade, é permitido indicar o único existente.",sustentada,A passagem exige mais de uma opção nas situações descritas e preserva a condição de que exista alternativa disponível.
+F009,Meu avô tem doença renal crônica e precisa controlar o potássio. Comer mais banana e feijão ajuda a baixar a pressão dele?,"A adoção de dietas vegetarianas foi associada à redução de risco e prevalência de hipertensão arterial, com alguns estudos mostrando redução de 5 a 10 mmHg na pressão arterial sistólica e diastólica [T3][T4].","[T3] Guia alimentar de dietas vegetarianas para adultos, p. 11: Os estudos não demonstram aumento da prevalência de nenhuma doença crônica degenerativa não transmissível em populações vegetarianas. Por outro lado, encontramos resultados positivos, como redução dos níveis séricos de colesterol, redução de risco e prevalência de doença cardiovascular, hipertensão arterial, diversos tipos de câncer e diabete tipo 2.
+
+[T4] Guia alimentar de dietas vegetarianas para adultos, p. 13: Em alguns estudos, os vegetarianos apresentam redução de 5 a 10 mmHg na pressão arterial sistólica e diastólica, sendo que a redução de 4 mmHg leva a redução importante da mortalidade por doença cardiovascular [51]. A adoção da dieta vegetariana reduziu a pressão arterial de indivíduos normotensos e hipertensos [52,53].
+
+Parte da explicação desses achados está relacionada à maior sensibilidade à insulina e ao estado antioxidante melhor, que favorece a redução da aterogenicidade e a preservação do óxido nítrico sintetizado pelo endotélio [43,54].",sustentada,Um trecho cita menor risco e prevalência de hipertensão. O outro traz a faixa de redução da pressão sistólica e diastólica observada em alguns estudos.
+F010,"Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?","Ácidos orgânicos como cítrico, málico e tartárico são fatores que estimulam a absorção de ferro não-heme [T2].","[T2] Guia alimentar de dietas vegetarianas para adultos, p. 29: Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:
+
+Tabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme
+
+Fatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme
+
+Fator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)
+
+Vitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)
+
+Ácidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico
+
+Vitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho
+
+Frutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica
+
+Baixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)",sustentada,"A tabela lista os ácidos cítrico, málico e tartárico entre os fatores que estimulam a absorção de ferro não-heme."
+F011,Chá de hibisco desincha e emagrece?,"O consumo de café e chá deve ser feito sem adicionar açúcar ou, pelo menos, reduzir a quantidade ao mínimo [T2].","[T2] Guia alimentar para a população brasileira, p. 87: a água pura (ou, como preferido por algumas pessoas, “temperada” com rodelas de limão ou folhas de hortelã) é a melhor opção para a ingestão de líquidos. também faz parte da cultura alimentar do brasileiro o consumo na forma de bebidas como café e chá. neste caso, entretanto, convém não adicionar açúcar ou, pelo menos, reduzir a quantidade ao mínimo.
+
+Para proteger o ambiente, utensílios não descartáveis como copos de vidro ou canecas de louça devem ser usados para tomar água, café ou chá. ter à mão cantis ou pequenas garrafas com água fresca é boa providência quando se está fora de casa. tanto a água para beber quanto a água usada na preparação de alimentos devem ser seguras e próprias para o consumo.",parcial,O Guia aconselha evitar ou minimizar o açúcar nessas bebidas. A formulação com deve torna a recomendação mais categórica.
+F012,O que a diretriz da SBME diz sobre o uso de creatina como suplemento?,O uso da creatina como recurso ergogênico em atividades físicas prolongadas não possui suporte na literatura científica [T2].,"[T2] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 6: A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas não encontra nenhum suporte na literatura científica. A melhora, ou não, do desempenho em exercícios com predominância aeróbia é pouco documentada.
+
+Embora com resultados ainda controversos, muitos estudos têm sugerido que a creatina teria efeito ergogênico em indivíduos nos quais se constata diminuição de aporte da creatina exógena alimentar, como os vegetarianos e os indivíduos idosos, sendo somente para estes casos específicos, após boa análise do profissional especializado, médico e/ou nutricionista, justificável seu uso, embora, ainda, com fraco grau de recomendação.",sustentada,O trecho afirma que o uso ergogênico da creatina em atividades físicas prolongadas carece de suporte na literatura discutida.
+F013,Quais são os grupos de alimentos da classificação NOVA?,A classificação de itens do consumo alimentar é baseada na extensão e propósito do processamento de alimentos [T1].,"[T1] Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009), p. 2: Uma classificação de itens do consumo alimentar foi elaborada com base na extensão e propósito do processamento de alimentos. Essa classificação agrupa os itens de consumo em três grupos: alimentos in natura ou minimamente processados; ingredientes culinários processados; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados. Os produtos ultraprocessados são essencialmente formulações da indústria, na maioria ou totalmente feitos a partir de ingredientes e contendo pouco ou nenhum alimento integral, enquanto os produtos processados são alimentos integrais preservados em",sustentada,O trecho descreve a extensão e o propósito do processamento como a base da classificação usada no estudo.
+F014,"Quanto potássio tem 100 g de banana prata, pela TACO?",O teor de potássio é semelhante em alimentos processados e ultraprocessados [T3].,"[T3] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil, p. 6: Pratos prontos e semi-prontos | 0,0 | 0,1 | 0,6 | 1,9 | 6,1
+
+Bebidas lácteas adoçadas | 0,1 | 0,4 | 1,2 | 2,3 | 4,2
+
+Outros produtos | 0,4 | 1,6 | 2,0 | 2,0 | 1,7
+
+Total | 100 | 100 | 100 | 100 | 100
+
+a,b,c,d,e,f,g Ver Tabela 1. h p < 0,001 para tendência linear da variação da contribuição do item segundo quintis do consumo de ultraprocessados.
+
+mais gorduras trans , além de apresentar teores inferiores de fibras (três vezes menos), de proteínas (duas vezes menos) e de potássio (2,5 vezes menos). Em comparação a alimentos processados, os ultraprocessados possuem também maior densidade energética, maior teor de açúcar livre, de gorduras em geral, de gorduras saturadas e de gorduras trans e menor teor de proteínas e de fibras. O teor de potássio é semelhante em alimentos processados e ultraprocessados. O teor de sódio é particularmente elevado em alimentos processados: 2,5 g por 1.000 kcal",sustentada,A passagem afirma expressamente que o teor de potássio é semelhante nos dois grupos comparados.
+F015,"Tenho 32 anos, 85 kg e quero perder 10 kg em 2 meses. Monte minha dieta com as calorias de cada refeição.","Mulheres com Índice de Massa Corporal (IMC) entre 27 e 34,9 kg/m foram submetidas a uma dieta de 1.200 kcal/d, podendo ou não utilizar Substitutos de Refeição (SR) [T3].","[T3] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 142: Mulheres com índice de massa corporal (IMC) entre 27 e 34,9 kg/m foram submetidas à dieta de 1.200 kcal/d com ou sem o uso de SR . O primeiro grupo (n = 54) foi orientado a seguir dieta contendo 50% a 55% do valor energético total da dieta (VET) de carboidratos, 15% a 20% do VET de proteínas e 30% do VET de gorduras, enquanto o segundo (n = 51) foi aconselhado a substituir duas a três refeições/d pelos SR. Todas as participantes compareceram a 10 sessões em grupo de 1 hora com conteúdo de educação nutricional. Após 3 meses,",sustentada,"O trecho confirma a faixa de IMC, a ingestão calórica da dieta e os braços com e sem substitutos de refeição. A unidade de IMC aparece incompleta nos dois textos."
+F016,Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?,"Quanto melhor a qualidade de sono, melhor a qualidade de vida [T3].","[T3] Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares, p. 6: Perfil dos estudantes que cursam enfermagem: qualidade de vida, sono e hábitos alimentares
+
+Salvi CPP, Mendes SS, De Martino MMF.
+
+os seus domínios, podendo prejudicar o rendimento acadêmico, ou seja, quanto melhor a qualidade de sono, melhor a qualidade de vida.
+
+Os estudantes do oitavo período foram os que mais afirmaram ter insônia. Esse fato possivelmente se deve à intensificação das exigências acadêmicas, nas diferentes oportunidades da área de ensino e pesquisa, a necessidade de trabalhar para a própria manutenção, a proximidade da conclusão do curso de graduação e suas responsabilidades e, ainda, a expectativa de vida como formando egresso/profissional. Esse dado também foi demonstrado em um estudo com estudantes de enfermagem italianos, onde foi observado que a alteração do padrão de sono foi frequente, sendo a prevalência de insônia e ocorrendo aumento dessa alteração com o avançar da idade dos estudantes .",sustentada,A passagem relaciona melhor qualidade do sono a melhor qualidade de vida nos mesmos termos.
+F017,Quais são os grupos de alimentos da classificação NOVA?,"Os ingredientes culinários processados são substâncias extraídas de alimentos, como óleos e gorduras, farinhas e açúcar [T2].","[T2] Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009), p. 4: Os itens de consumo foram agrupados segundo proposta de classificação mencionada anteriormente e com base na extensão e propósito do processamento industrial dos alimentos. Os itens de consumo foram reunidos em três grupos segundo essa proposta: alimentos in natura ou minimamente processados, incluindo arroz e feijão, carnes, leite e ovos, frutas e hortaliças, raízes e tubérculos, entre outros; ingredientes culinários processados, que são substâncias extraídas de alimentos, incluindo óleos e gorduras, farinhas e açúcar; e produtos alimentícios prontos para consumo, que podem ser processados ou ultraprocessados.
+
+Produtos prontos para o consumo processados são fabricados a partir da adição de substâncias como sal, açúcar ou óleo a alimentos integrais. Compreendem as",sustentada,O trecho define os ingredientes culinários processados como substâncias extraídas dos alimentos e dá os mesmos exemplos.
+F018,Minha glicemia em jejum deu 118. Qual dieta eu devo seguir e quantos gramas de carboidrato posso comer por dia?,"Na dieta cetogênica, a restrição de carboidratos em quantidades inferiores a 50 gramas por dia induz a produção hepática de corpos cetônicos, como acetoacetato e beta-hidroxibutirato a partir de ácidos graxos, que servem como fonte alternativa de energia [T3].","[T3] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 152: não caracterizam dieta rica em carboidratos ou mesmo pobre em gorduras. Na verdade, o que se observou foi aumento da ingestão de açúcares simultaneamente ao consumo adicional de aproximadamente 300 kcal/dia . Portanto, os carboidratos não podem ser responsabilizados isoladamente pelo aumento da obesidade entre a população americana.
+
+O percentual de gorduras utilizado em estudos que avaliaram o efeito da dieta cetogênica no tratamento da obesidade varia entre 60%-70% do VCT da dieta . Quanto aos carboidratos, fornecem de 5% a 10% do VCT ou menos que 50 gramas ao dia . A restrição de carboidratos em quantidades inferiores a 50 gramas por dia induz produção hepática de corpos cetônicos, como acetoacetato e beta-hidroxibutirato a partir de ácidos graxos. Tais mediadores serão utilizados como fonte alternativa de energia para tecidos extra-hepáticos, em substituição à glicose .",sustentada,"O recorte sustenta o limite de carboidratos, a produção hepática dos corpos cetônicos citados e o uso deles como fonte alternativa de energia."
+F019,"Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?","Quando utilizados com moderação em preparações culinárias baseadas em alimentos in natura ou minimamente processados, óleos, gorduras, sal e açúcar ajudam a diversificar e tornar a alimentação mais saborosa sem causar desequilíbrio nutricional [T1].","[T1] Guia alimentar para a população brasileira, p. 34: Utilize óleos, gorduras, sal e açúcar em pequenas quantidades ao temperar e cozinhar alimentos e criar preparações culinárias.
+
+desde que utilizados com moderação em preparações culinárias com base em alimentos in natura ou minimamente processados, os óleos, as gorduras, o sal e o açúcar contribuem para diversificar e tornar mais saborosa a alimentação sem que fique nutricionalmente desbalanceada.
+
+Óleos, gorduras, sal e açúcar são produtos alimentícios usados para temperar e cozinhar alimentos e para criar preparações culinárias",sustentada,O trecho confirma o efeito descrito e mantém as condições de moderação e de preparações à base de alimentos in natura ou minimamente processados.
+F020,Kombucha caseira ajuda a emagrecer?,Não há evidências clínicas de que suplementos contendo Camellia sinensis possam ser indicados para redução de peso [T4].,"[T4] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 178: Uma das limitações observadas sobre os fitoterápicos é a presença de metais acima dos níveis de segurança. Um estudo avaliou o teor de metais em extratos de plantas prescritas como suplementos para emagrecer, entre elas Camellia sinensis , Cordia ecalyculata e outros. Os metais mais frequentemente detectados foram manganês, alumínio e ferro, com concentração mais elevada na Camellia sinensis .
+
+Até o momento, não há evidências clínicas de que se possa indicar os suplementos aqui descritos para redução peso. Classe de recomendação III, Nível de evidência B.",parcial,O trecho inclui extratos de Camellia sinensis e limita a conclusão aos suplementos descritos. A frase estende a conclusão a produtos que contenham a planta em geral.
+F021,Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?,"Praticantes de musculação frequentemente apresentam uma alimentação rica em proteína, podendo exceder as recomendações, o que é atribuído a modismos, falta de informação e/ou orientação inadequada [T1].","[T1] Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos, p. 4: Praticantes de musculação costumam ter alimentação rica em proteína, muitas vezes, acima das recomendações, devido a modismos, falta de informação e/ou orientação adequada. Para Philips não há evidência alguma sugerindo que suplementos protéicos são necessários para a otimização do crescimento muscular ou ganho de força, pois as quantidades recomendadas para os praticantes de exercícios físicos podem ser facilmente obtidas a partir de uma dieta equilibrada.",sustentada,"A passagem descreve o consumo elevado de proteína entre praticantes de musculação e lista modismos, falta de informação e falta de orientação como fatores."
+F022,Qual é a regra de ouro do Guia Alimentar para a População Brasileira?,"É recomendado optar por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados [T1][T2].","[T1] Guia alimentar para a população brasileira, p. 48: PREfIRA SEmPRE AlImENToS in natUra ou mINImAmENTE PRoCESSAdoS E PREPARAçõES CulINáRIAS A AlImENToS ulTRAPRoCESSAdoS
+
+a regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras de ouro: prefira sempre alimentos in natura ou minimamente processados e preparações culinárias a alimentos ultraprocessados.
+
+ou seja: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque comida feita na hora (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (sopas “de pacote”, macarrão “instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas); e fique com sobremesas caseiras, dispensando as industrializadas.
+
+[T2] Guia alimentar para a população brasileira, p. 51: opte por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados; não troque a “comida feita na hora” (caldos, sopas, saladas, molhos, arroz e feijão, macarronada, refogados de legumes e verduras, farofas, tortas) por produtos que dispensam preparação culinária (“sopas de pacote”, “macarrão instantâneo”, pratos congelados prontos para aquecer, sanduíches, frios e embutidos, maioneses e molhos industrializados, misturas prontas para tortas) e fique com sobremesas caseiras, dispensando as industrializadas.",sustentada,Os dois trechos indicam as mesmas substituições de bebidas e alimentos.
+F023,"Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?","Uma bebida com 8% de carboidrato ocasiona maior lentidão na absorção e no esvaziamento gástrico, em comparação com a água e as bebidas que contêm até 6% de carboidrato [T1].","[T1] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 5: A ingestão de carboidratos durante atividades prolongadas, acima de uma hora, melhora o desempenho e pode retardar a fadiga nas modalidades esportivas que envolvem exercícios intermitentes e de alta intensidade. A ingestão de carboidratos previne a queda da glicemia após duas horas de exercício. Existem estudos indicando que uma bebida com 8% de carboidrato ocasiona maior lentidão na absorção e no esvaziamento gástrico, em comparação com a água e as bebidas que contêm até 6% de carboidrato. Preferencialmente, deve ser utilizada uma mistura de glicose, frutose e sacarose. O uso isolado de frutose pode causar distúrbios gastrintestinais e retardar sua absorção.
+
+A reposição necessária de carboidratos para manter a glicemia e retardar a fadiga é de 30 a 60g por hora, com concentração de 4 a 8g/decilitro. Mesmo com uso combinado de diversos carboidratos, sua ingestão não deve exceder 80g/hora.",parcial,A comparação e as concentrações constam na passagem como achados indicados por alguns estudos. A frase apresenta o efeito de forma categórica.
+F024,Chá de hibisco desincha e emagrece?,"O extrato de chá verde, derivado de *Camellia sinensis*, contém polifenóis, catequinas e cafeína [T1].","[T1] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 177: Camellia sinensis ( C. sinensis ) é fonte de diferentes tipos de chá, uma das bebidas mais consumidas no mundo . Foi sugerido que o extrato de chá verde feito de folhas frescas de C. sinensis , contendo uma mistura de polifenol catequina e cafeína (galato de epigalocatequina",sustentada,"O trecho descreve o extrato de chá verde de Camellia sinensis e menciona catequina, um polifenol, e cafeína na sua composição."
+F025,Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?,A presença de legumes e verduras foi priorizada na seleção de exemplos de almoços e jantares para atender ao desejável consumo regular desses alimentos [T1].,"[T1] Guia alimentar para a população brasileira, p. 57: na seleção dos exemplos, para atender ao desejável consumo regular de legumes e verduras (pouco consumidos em todo o Brasil), foram selecionados almoços e jantares em que havia a presença de pelo menos um desses alimentos. do lado oposto, carnes vermelhas (excessivamente consumidas no País) aparecem em apenas um terço dos almoços e jantares selecionados.
+
+as refeições apresentadas não devem ser tomadas como recomendações rígidas ou como cardápios fixos a serem seguidos por todos. mostram apenas combinações de alimentos que, em seu conjunto, atendem às recomendações gerais deste guia descritas no capítulo anterior e que são efetivamente praticadas por um grupo numeroso de homens e mulheres de todas as regiões do País, do meio urbano e do meio rural e de várias classes de renda.",sustentada,O Guia diz que selecionou almoços e jantares com legumes ou verduras para representar o consumo regular desses alimentos.
+F026,Qual marca de whey protein um nutricionista pode me indicar publicamente?,"Observam-se efeitos metabólicos favoráveis da suplementação com proteína do soro do leite, como aumento da liberação de hormônios, incluindo peptídeo semelhante ao glucagon 1 (GLP-1), leptina e colecistoquinina e a redução da grelina, alterações relacionadas à saciedade, o que pode resultar na redução de peso [T2].","[T2] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 187: Em relação à manutenção de massa magra durante dieta com restrição calórica, a suplementação com whey não demonstra ter efeito clínico significativo . Ao mesmo tempo, observam-se alguns efeitos metabólicos favoráveis da suplementação com proteína do soro do leite, como aumento da liberação de hormônios, incluindo peptídeo semelhante ao glucagon 1 (GLP-1), leptina e colecistoquinina e a redução da grelina, alterações relacionadas à saciedade, o que pode resultar na redução de peso. Em mulheres jovens com obesidade, o consumo diário de 45g de whey protein isolado comparado com 43g de maltodextrina demonstrou redução no apetite, associado a maior estímulo de peptídeos gastrointestinais anorexigênicos (PYY e GLP-1) após 2 horas . Os benefícios biológicos da proteína do soro também podem estar associados aos seus componentes nutricionais, especialmente à cisteína e aos BCAA",sustentada,O trecho cita os mesmos efeitos hormonais e sua relação com a saciedade. A frase preserva a redução de peso como possibilidade.
+F027,Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?,"A tabela detalha o percentual de consumo adequado por sexo e região, indicando que para o total, o consumo adequado foi de 7,3% (Masculino: 5,0%; Feminino: 9,4%) [T2][T3][T4].","[T2] Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006, p. 5: Tabela 2. Percentual de indivíduos com consumo regular e adequado de frutas e hortaliças, por sexo, segundo região e capitais dos estados brasileiros e Distrito Federal. Brasil, 2006. (N = 54.369)
+
+C | onsumo regular | Consu | mo adequado
+
+Região/Cidade | Masculino | Feminino | Total | Masculino | Feminino | total
+
+% | % | % | % | % | %
+
+Norte | 9,0 | 14,6 | 11,9 | 2,6 | 3,6 | 3,2
+
+Belém | 6,4 | 14,2 | 10,6 | 2,5 | 3,4 | 3,0
+
+Boa Vista | 9,7 | 14,0 | 11,9 | 1,8 | 3,5 | 2,6
+
+Macapá | 5,3 | 9,3 | 7,4 | 2,7 | 3,8 | 3,2
+
+Manaus | 10,5 | 12,0 | 11,3 | 2,8 | 3,6 | 3,2
+
+Palmas | 12,2 | 32,9 | 22,6 | 3,6 | 4,9 | 4,3
+
+Porto Velho | 13,5 | 21,4 | 17,5 | 3,1 | 5,1 | 4,1
+
+Rio Branco | 10,0 | 19,0 | 14,4 | 2,2 | 2,6 | 2,4
+
+Nordeste | 15,6 | 22,7 | 19,5 | 3,4 | 4,8 | 4,2
+
+Aracaju | 18,8 | 28,6 | 24,2 | 2,2 | 5,5 | 4,0
+
+Fortaleza | 16,8 | 21,6 | 19,4 | 3,0 | 4,6 | 3,9
+
+João Pessoa | 21,1 | 29,8 | 25,9 | 3,1 | 5,1 | 4,1
+
+Maceió | 14,0 | 23,3 | 19,0 | 2,6 | 4,0 | 3,4
+
+[T3] Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006, p. 4: Tabela 1. Consumo de frutas e hortaliças, segundo sexo. Brasil, 2006. (N = 54.369)
+
+Sex | o
+
+Indicador de consumo | Masculino | Feminino | p | Total
+
+(n = 21.294) % (IC 95%) | (n = 33.075) % (IC 95%) | (n = 54.369) % (IC 95%)
+
+Regular de frutas | 35,5 (34,9;36,1) | 51,4 (50,8;51,9) | <0,001 | 44,1 (43,6;44,5)
+
+Regular de hortaliças | 39,5 (38,9;40,1) | 47,4 (46,8;48,0) | <0,001 | 43,8 (43,4;44,2)
+
+Regular de frutas e hortaliças | 17,8 (17,3;18,2) | 29,2 (28,6;29,6) | <0,001 | 23,9 (23,5;24,2)
+
+Adequado de frutas e hortaliças | 5,0 (4,7;5,2) | 9,4 (9,0;9,7) | <0,001 | 7,3 (7,1;7,6)
+
+> a Percentual ponderado para ajustar a distribuição sociodemográfica da amostra do VIGITEL à distribuição da população com idade ≥ 18 anos da cidade, segundo o Censo Demográfico de 2000.
+
+> b Consumo de frutas em 5 ou mais dias por semana.
+
+> c Consumo de hortaliças em 5 ou mais dias por semana.
+
+> d Consumo conjunto de frutas e hortaliças em 5 ou mais dias por semana.
+
+[T4] Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006, p. 5: Total | 17,8 | 29,1 | 23,9 | 5,0 | 9,4 | 7,3
+
+> a Percentual ponderado para ajustar a distribuição sociodemográfica da amostra do VIGITEL à distribuição da população com idade ≥ 18 anos da cidade, segundo o Censo Demográfico de 2000.
+
+> b Consumo conjunto de frutas e hortaliças em 5 ou mais dias por semana.
+
+> c Consumo conjunto de frutas e hortaliças em 5 ou mais vezes ao dia. p<0,001; p<0,05 (teste qui-quadrado para diferenças entre sexo).
+
+O indicador sociodemográfico utilizado para estimar diferenças sociais foi a escolaridade dos indivíduos, o qual se associou de forma positiva e independente ao consumo de frutas e hortaliças. Dados sobre renda e poder de compra dos indivíduos não estão disponíveis no sistema VIGITEL. Jaime & Monteiro identificaram efeito independente da escolaridade sobre o consumo",sustentada,"A tabela traz o consumo adequado por sexo e região. As linhas de total nos trechos confirmam 7,3% no conjunto, 5,0% entre homens e 9,4% entre mulheres."
+F028,Pessoas vegetarianas estritas precisam suplementar vitamina B12?,"Para manter o indivíduo sem deficiência de vitamina B12, o nível sérico deve ficar acima de 490 pg/mL, embora parâmetros menos seguros sugiram um nível acima de 350 pg/mL [T2].","[T2] Guia alimentar de dietas vegetarianas para adultos, p. 40: Assim, o nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL [164].
+
+Caso se adote esse valor como referência, a dosagem de ácido metilmalônico no acompanhamento de pacientes com deficiência B12 é desnecessária.
+
+Estudos também demonstram que, quando o nível sérico de vitamina B12 fica abaixo de 350 pg/mL, já há sintomas específicos de deficiência [176, 177].
+
+Dessa forma, para manter o indivíduo sem deficiência de vitamina B12 é preciso que o nível sérico fique acima de 490 pg/mL.
+
+Se quisermos adotar parâmetros menos seguros, o nível deve ficar acima de 350 pg/mL.
+
+No entanto, a maioria dos estudos científicos, por desconhecimento dos autores, utiliza apenas o valor oferecido como normal pelos laboratórios e acaba considerando que há deficiência quando o nível de B12 está abaixo de 200 pg/mL.
+
+Portanto, na realidade a deficiência de B12 é maior do que os estudos demonstram.",sustentada,"Os dois valores de referência estão expressos no trecho, que apresenta 350 pg/mL como o parâmetro menos seguro."
+F029,"Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?",O cálcio é um fator que inibe a absorção de ferro heme e não-heme [T2][T3].,"[T2] Guia alimentar de dietas vegetarianas para adultos, p. 29: Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:
+
+Tabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme
+
+Fatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme
+
+Fator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)
+
+Vitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)
+
+Ácidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico
+
+Vitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho
+
+Frutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica
+
+Baixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)
+
+[T3] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 224: Tabela 5. Recomendações de suplementação para prevenção e para os casos de deficiência pós-cirurgia bariátrica e metabólica
+
+MICRO- NUTRIENTE | EX | AMES | SUPLEMENTAÇÃO DE ROTINA | DEFICIÊNCIA | OBSERVAÇÃO
+
+EXAMES LAGB/SG | QUAL EXAME | QUANDO SOLICITAR | RESTRITIVA RYGB BPD/DS
+
+FERRO Classe de Recomendação | Ferro sérico Ferritina | -> rotina -> rotina | Homens e indivíduos sem histórico de anemia: Multivitamínico contendo 18mg de Fe/dia Mulheres que menstruam: | • Sulfato ferroso, fumarato ou gluconato, para garantir 150 | • Ingestão de suplemento de ferro junto com frutas cítricas
+
+IIa, Nível A | Hemograma | -> rotina | 45-60mg de Fe elementar | –200mg (máximo 300mg) de ferro elementar 2-3x/dia • Suplementação com vit. C pode ser adicionada. • Uso Intravenoso para casos refratários a terapia oral. | • Suplementação de ferro deve ser feita separadamente do cálcio e de alimentos ricos em fitatos e polifenóis",sustentada,A tabela identifica explicitamente o cálcio como inibidor da absorção de ferro heme e não-heme.
+F030,Quanto de proteína tem 100 g de feijão carioca cozido segundo a TACO?,"O consumo de leguminosas, como feijão, deve ser alternado com outros tipos de feijão e leguminosas para ampliar o aporte de nutrientes [T3].","[T3] Guia alimentar para a população brasileira, p. 67: Grão-de-bico em salada
+
+Feijão preto
+
+este grupo inclui vários tipos de feijão e outros alimentos do grupo das leguminosas, como ervilhas, lentilhas e grão-de-bico.
+
+Há muitas variedades de feijão no Brasil: preto, branco, mulatinho, carioca, fradinho, feijãofava, feijão-de-corda, entre muitos outros. entre os alimentos que fazem parte do grupo das leguminosas e compartilham propriedades nutricionais e usos culinários com o feijão, os mais consumidos são as ervilhas, as lentilhas e o grão-de-bico. a alternância entre diferentes tipos de feijão e de outras leguminosas amplifica o aporte de nutrientes e, mais importante, traz novos sabores e diversidade para a alimentação.
+
+a mistura de feijão com arroz é a mais popular no País, mas são várias as preparações apreciadas pelos brasileiros, como tutu à mineira, feijão-
+
+Feijão carioca",parcial,O Guia afirma que alternar tipos de feijão e outras leguminosas amplia o aporte de nutrientes. A frase transforma esse benefício em uma prescrição.
+F031,"Quais barreiras dificultam o consumo de frutas, verduras e legumes?","É preciso cautela ao se fazer generalizações, pois não se pode afirmar que a amostra pesquisada em 2015 é representativa da população atual de Cambé, PR [T2].","[T2] Barreiras percebidas para o consumo de frutas e de verduras ou legumes em adultos brasileiros, p. 9: Algumas características deste estudo devem ser destacadas. Primeiramente, o fato de ter sido realizado a partir de um estudo populacional, o que é um ponto importante frente a escassez de estudos sobre as barreiras percebidas para o consumo de frutas e de verduras ou legumes envolvendo grandes populações. No estudo de base populacional que aconteceu em 2011, não havia informações sobre barreiras percebidas para o consumo de frutas, verduras ou legumes. Elas foram inseridas na investigação de 2015, que buscou todos os sujeitos que haviam participado em 2011. Assim, é preciso cautela ao se fazer generalizações, pois não se pode afirmar que a amostra pesquisada em 2015 é representativa da população atual de Cambé, PR.",sustentada,"O trecho pede cautela ao extrapolar a amostra de 2015 para a população atual de Cambé, nos mesmos termos."
+F032,Pessoas vegetarianas estritas precisam suplementar vitamina B12?,"Em dietas vegetarianas estritas, a suplementação de vitamina B12 é necessária se não houver inclusão de alimentos enriquecidos com essa vitamina em teor adequado [T1].","[T1] Guia alimentar de dietas vegetarianas para adultos, p. 37: As dietas ovolacto e lactovegetarianas podem oferecer a vitamina B12 necessária ao organismo. Na dieta vegetariana estrita que não inclua alimentos enriquecidos com essa vitamina em teor adequado deve haver suplementação. Esse é o único nutriente que pode estar ausente na dieta vegetariana estrita.
+
+A vitamina B12 é sintetizada por bactérias. Como não necessitam de B12 para seu crescimento e desenvolvimento, as plantas não a incorporam. As plantas não contêm B12 ativa.",sustentada,O trecho sustenta a indicação de suplementação e a condição referente à falta de alimentos enriquecidos em teor adequado.
+F033,Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?,"A mistura de feijão com arroz aparece em quase todos os almoços selecionados, refletindo a realidade alimentar da maioria da população brasileira que prioriza alimentos in natura ou minimamente processados [T2].","[T2] Guia alimentar para a população brasileira, p. 60: Arroz, feijão, coxa de frango assada, beterraba e polenta com queijo
+
+Feijoada, arroz, vinagrete de cebola e tomate, farofa, couve refogada e laranja
+
+Arroz, feijão, omelete e jiló refogado
+
+Salada de tomate, arroz, feijão, bife grelhado e salada de frutas
+
+aqui apresentamos a composição do almoço de oito brasileiros selecionados entre aqueles que baseiam sua alimentação em alimentos in natura ou minimamente processados.
+
+a mistura de feijão com arroz aparece em quase todos os almoços selecionados. esta situação traduz a realidade alimentar da imensa maioria dos brasileiros que privilegiam alimentos in natura ou minimamente processados e, de fato, da grande maioria da população brasileira.",sustentada,A fonte confirma a presença da combinação em quase todos os almoços selecionados e a relaciona ao padrão alimentar descrito.
+F034,"Tenho 32 anos, 85 kg e quero perder 10 kg em 2 meses. Monte minha dieta com as calorias de cada refeição.","Dietas de Muito Baixas Calorias (VLCDs) são consideradas eficazes para perda de peso no curto prazo, mas sua eficácia em longo prazo (1 ano ou mais) não foi observada [T1].","[T1] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 125: Recebem este nome por fornecerem < 800kcal por dia com elevada quantidade de proteínas, geralmente 70 a 100 g/dia de proteína ou 0,8 a 1,5g de proteína/kg de peso corporal ideal/ dia e baixo conteúdo de carboidratos, para estimular a perda de peso com perda mínima de tecido magro e suplementado com vitaminas, minerais, eletrólitos e ácidos graxos essenciais para garantir nutrição adequada . Geralmente envolvem a substituição parcial ou total de refeições e lanches por substitutos de refeição nutricionalmente completos e pré-embalados como shakes, sopas e barras , dependendo da disponibilidade desses produtos em cada país.
+
+Revisão sistemática investigou o uso de VLCDs para perda de peso e concluiu que são eficazes em curto prazo, porém sua eficiência em longo prazo (1 ano ou mais) não é observada .",sustentada,A revisão citada relata eficácia de curto prazo e ausência de eficácia observada no acompanhamento de um ano ou mais.
+F035,Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?,"Os alimentos nos países de alta renda e que, naqueles de renda média, como o Brasil, a velocidade de crescimento de suas vendas é muito alta e compatível com um cenário de hegemonia em futuro não muito distante [T3].","[T3] Guia alimentar para a população brasileira, p. 136: alimentos nos países de alta renda e que, naqueles de renda média, como o Brasil, a velocidade de crescimento de suas vendas é muito alta e compatível com um cenário de hegemonia em futuro não muito distante.
+
+martins, a. P. B. et al. Participação crescente de produtos ultraprocessados na dieta brasileira (1987-2009). Revista de Saúde Pública , são Paulo, v. 47, p. 656-665, 2013.",sustentada,"O trecho sustenta a afirmação sobre o crescimento das vendas nos países de renda média, incluindo o Brasil. A abertura já está truncada no recorte."
+F036,"Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?","A ingestão de carboidratos durante atividades prolongadas, acima de uma hora, melhora o desempenho e pode retardar a fadiga [T1].","[T1] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 5: A ingestão de carboidratos durante atividades prolongadas, acima de uma hora, melhora o desempenho e pode retardar a fadiga nas modalidades esportivas que envolvem exercícios intermitentes e de alta intensidade. A ingestão de carboidratos previne a queda da glicemia após duas horas de exercício. Existem estudos indicando que uma bebida com 8% de carboidrato ocasiona maior lentidão na absorção e no esvaziamento gástrico, em comparação com a água e as bebidas que contêm até 6% de carboidrato. Preferencialmente, deve ser utilizada uma mistura de glicose, frutose e sacarose. O uso isolado de frutose pode causar distúrbios gastrintestinais e retardar sua absorção.
+
+A reposição necessária de carboidratos para manter a glicemia e retardar a fadiga é de 30 a 60g por hora, com concentração de 4 a 8g/decilitro. Mesmo com uso combinado de diversos carboidratos, sua ingestão não deve exceder 80g/hora.",parcial,A melhora do desempenho aparece no trecho. O possível atraso da fadiga é descrito para modalidades com exercícios intermitentes e de alta intensidade.
+F037,"Estresse, ansiedade e depressão influenciam a alimentação emocional?","Os sintomas emocionais de ansiedade, depressão e estresse podem influenciar a alimentação emocional, embora a relação encontrada em um estudo específico tenha sido baixa, mas significativa [T1].","[T1] Depressão, ansiedade e estresse e o comportamento alimentar, p. 5: Este estudo teve como objetivo investigar as associações e potenciais valores preditivos dos sintomas de ansiedade, depressão e estresse para a alimentação emocional e intuitiva. Embora a relação entre os sintomas emocionais de ansiedade, depressão, estresse e a alimentação emocional terem sido baixas, foram significativas nesta pesquisa, o que mostra-se em consonância com achados anteriores ao constatar que, de fato, estes sintomas podem, em partes, influenciar este tipo específico de comportamento (Goossens et al., 2008; Schneider et al., 2012).",sustentada,"O estudo relata associações de baixa magnitude, mas significativas, entre os três grupos de sintomas e a alimentação emocional."
+F038,Dietas low carb emagrecem mais do que dietas com pouca gordura?,Diversos Ensaios Clínicos Randomizados (RCTs) mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso [T1].,"[T1] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 147: Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Além disso, já foi verificado que dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia .
+
+Estudo de metanálise avaliou o efeito de dietas low carb (muito pobres em carboidrato ou com restrição moderada de carboidratos) em relação à dieta controle contendo de 46 a 55% do valor energético total da dieta (VET) de carboidratos, 15 a 25% do VET de proteínas, 20 a 30%",sustentada,O trecho relata que diversos ensaios apontam possível superioridade da dieta low carb na perda de peso. A frase preserva a possibilidade e o recorte dos estudos.
+F039,"Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?","O feijão pode ser consumido com farinha de mandioca, como no caso do tutu ou do feijão tropeiro, ou em sopas e saladas [T4].","[T4] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 19: - Estimule o consumo eventual de variedades de feijão (preto, carioca, branco, de corda, fradinho etc.) ou a substituição por outras leguminosas, como lentilha ou grão-de-bico (isso vale também para aqueles que relatam não gostar de feijão).
+
+- Para além da combinação com o arroz, o feijão pode ser consumido com farinha de mandioca (como no caso do tutu ou do feijão tropeiro), no acarajé, no baião-de-dois ou até mesmo em sopas e saladas.",sustentada,"O trecho cita farinha de mandioca, tutu, feijão tropeiro, sopas e saladas como formas de consumir feijão."
+F040,Sou vegana. Quanto de vitamina B12 eu preciso tomar e por quanto tempo?,"A recomendação de ingestão de vitamina B12 para seres humanos após os 14 anos de idade (fora do período de gestação ou lactação) é de 2,4 mcg/dia [T4].","[T4] Guia alimentar de dietas vegetarianas para adultos, p. 38: A vitamina B12 dos suplementos é obtida por cultura de bactérias em laboratório.
+
+Não há toxicidade por uso excessivo de vitamina, seja proveniente de suplementos, seja de alimentos enriquecidos[166].
+
+A recomendação de ingestão de vitamina B12 para seres humanos após os 14 anos de idade (fora do período de gestação ou lactação) é de 2,4 mcg/dia, sendo a necessidade de absorção de 1 mcg/dia[167].
+
+Seu teor nos alimentos pode ser visto na Tabela 23:
+
+Tabela 23: Teor de vitamina B12 nos alimentos
+
+Alimento Teor de B12 em mcg (em 100 g do alimento)
+
+Queijo Suíço 3,34
+
+Queijo mussarela 0,73 a 2,31
+
+Queijo Brie 1,65
+
+Queijo Prato 1,5
+
+Ovo de galinha inteiro cru 1,29
+
+Queijo cheddar 0,83
+
+Ricota 0,29 a 0,34
+
+Leite de vaca semidesnatado 0,46
+
+Iogurte natural semidesnatado 0,46
+
+Leite de vaca integra 0,36
+
+Fonte: Departamento de Agricultura dos EUA – SR23 [105]",sustentada,"A passagem traz o mesmo valor diário, a faixa etária e as ressalvas referentes à gestação e à lactação."
+F041,Dietas low carb emagrecem mais do que dietas com pouca gordura?,O consumo de dietas low carb pode estar associado a um aumento nas concentrações plasmáticas de LDL-colesterol [T2].,"[T2] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 147: Apesar disso, os resultados de ensaios clínicos randomizados (RCTs) ainda são divergentes. Muitos mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo, em geral, menos de um ano . Também já foi observado aumento do gasto energético total , da adiponectina , da oxidação de gorduras , das concentrações plasmáticas de HDL-colesterol e redução nos níveis de triglicérides e maior redução da circunferência abdominal com dietas restritas em carboidrato. Por outro lado, também já foi verificado um aumento nas concentrações plasmáticas de LDL-colesterol com esse tipo de dieta .",sustentada,O texto relata aumento observado de LDL-colesterol com esse tipo de dieta. A frase o apresenta como uma associação possível.
+F042,Comer feijão com laranja na mesma refeição ajuda a absorver o ferro?,A suplementação de ferro deve ser feita separadamente do cálcio e de alimentos ricos em fitatos e polifenóis [T4].,"[T4] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 224: Tabela 5. Recomendações de suplementação para prevenção e para os casos de deficiência pós-cirurgia bariátrica e metabólica
+
+MICRO- NUTRIENTE | EX | AMES | SUPLEMENTAÇÃO DE ROTINA | DEFICIÊNCIA | OBSERVAÇÃO
+
+EXAMES LAGB/SG | QUAL EXAME | QUANDO SOLICITAR | RESTRITIVA RYGB BPD/DS
+
+FERRO Classe de Recomendação | Ferro sérico Ferritina | -> rotina -> rotina | Homens e indivíduos sem histórico de anemia: Multivitamínico contendo 18mg de Fe/dia Mulheres que menstruam: | • Sulfato ferroso, fumarato ou gluconato, para garantir 150 | • Ingestão de suplemento de ferro junto com frutas cítricas
+
+IIa, Nível A | Hemograma | -> rotina | 45-60mg de Fe elementar | –200mg (máximo 300mg) de ferro elementar 2-3x/dia • Suplementação com vit. C pode ser adicionada. • Uso Intravenoso para casos refratários a terapia oral. | • Suplementação de ferro deve ser feita separadamente do cálcio e de alimentos ricos em fitatos e polifenóis",parcial,A orientação está em uma tabela de suplementação após cirurgia bariátrica e metabólica. A frase apresenta a regra sem essa condição.
+F043,"Quais barreiras dificultam o consumo de frutas, verduras e legumes?",Ações que ampliem o conhecimento da população sobre a importância do consumo desses alimentos para a saúde poderiam aumentar seu consumo [T4].,"[T4] Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006, p. 5: de frutas e hortaliças em análise com controle para bens no domicílio (indicador de renda utilizado). Dessa maneira, ações que ampliem o conhecimento da população sobre a importância do consumo desses alimentos para a saúde poderiam aumentar seu consumo, como mostrado em ensaio comunitário de avaliação do impacto imediato de uma intervenção nutricional",sustentada,O trecho formula do mesmo modo a hipótese de que informar a população sobre os benefícios à saúde poderia elevar o consumo.
+F044,Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?,"Os indicadores de consumo foram avaliados em 54.369 indivíduos com idade ≥18 anos, residentes nas capitais brasileiras e no Distrito Federal [T1].","[T1] Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006, p. 3: Os indicadores de consumo de frutas e hortaliças foram avaliados em 54.369 indivíduos com idade ≥18 anos, residentes nas capitais brasileiras e no Distrito Federal, 60,8% mulheres e 39,2% homens. Menos da metade dos indivíduos consumiu frutas (44,1%) ou hortaliças (43,8%) em cinco ou mais dias por semana, e menos de um quarto (23,9%) referiu o consumo regular de frutas e hortaliças em conjunto. O consumo adequado, ou seja, em cinco ou mais vezes por dia foi referido por 7,3% dos entrevistados. Embora a freqüência do consumo desses grupos de alimentos tenha sido significativamente maior entre mulheres do que entre homens, os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos (Tabela 1).",sustentada,"O trecho confirma a quantidade de participantes, a idade mínima e a residência nas capitais e no Distrito Federal."
+F045,Minha glicemia em jejum deu 118. Qual dieta eu devo seguir e quantos gramas de carboidrato posso comer por dia?,"Um estudo com pacientes com Diabetes Mellitus tipo 2 (DM2) com IMC ≥ 27,0 kg/m e HbA1c ≥ 7,0%, que recebeu orientações nutricionais mais detalhadas e redução de 500 kcal/dia, não apresentou diferença significativa em relação ao grupo controle após 3 meses quanto a glicose em jejum ou A1c [T1].","[T1] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 212: Por outro lado, um RCT avaliou o impacto do MB-EAT adaptado para o manejo do diabetes tipos 2 em pacientes com DM2 há pelo menos um ano, IMC ≥ 27,0 kg/m , HbA1c ≥ 7,0%, sem uso de insulina para o controle glicêmico (n= 27) . Em comparação a um grupo controle (n=25) que teve orientações nutricionais mais detalhadas e com recomendação de redução de 500 kcal/dia no valor energético total da dieta habitual, além de orientações gerais para controle do DM2, após 3 meses não foi observada diferença significativa entre os grupos quanto à perda de peso, IMC, circunferência da cintura (CA), valores de glicose em jejum, A1c ou insulina .",parcial,"A população, o prazo e os desfechos citados correspondem ao trecho. A orientação detalhada e a redução calórica foram destinadas ao grupo controle."
+F046,Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?,"A análise detalhada por região e cidade mostra os percentuais de consumo adequado por sexo, como em João Pessoa, onde o total foi de 4,1% (Masculino: 3,1%; Feminino: 5,1%) [T2].","[T2] Fatores associados ao consumo de frutas e hortaliças no Brasil, 2006, p. 5: Tabela 2. Percentual de indivíduos com consumo regular e adequado de frutas e hortaliças, por sexo, segundo região e capitais dos estados brasileiros e Distrito Federal. Brasil, 2006. (N = 54.369)
+
+C | onsumo regular | Consu | mo adequado
+
+Região/Cidade | Masculino | Feminino | Total | Masculino | Feminino | total
+
+% | % | % | % | % | %
+
+Norte | 9,0 | 14,6 | 11,9 | 2,6 | 3,6 | 3,2
+
+Belém | 6,4 | 14,2 | 10,6 | 2,5 | 3,4 | 3,0
+
+Boa Vista | 9,7 | 14,0 | 11,9 | 1,8 | 3,5 | 2,6
+
+Macapá | 5,3 | 9,3 | 7,4 | 2,7 | 3,8 | 3,2
+
+Manaus | 10,5 | 12,0 | 11,3 | 2,8 | 3,6 | 3,2
+
+Palmas | 12,2 | 32,9 | 22,6 | 3,6 | 4,9 | 4,3
+
+Porto Velho | 13,5 | 21,4 | 17,5 | 3,1 | 5,1 | 4,1
+
+Rio Branco | 10,0 | 19,0 | 14,4 | 2,2 | 2,6 | 2,4
+
+Nordeste | 15,6 | 22,7 | 19,5 | 3,4 | 4,8 | 4,2
+
+Aracaju | 18,8 | 28,6 | 24,2 | 2,2 | 5,5 | 4,0
+
+Fortaleza | 16,8 | 21,6 | 19,4 | 3,0 | 4,6 | 3,9
+
+João Pessoa | 21,1 | 29,8 | 25,9 | 3,1 | 5,1 | 4,1
+
+Maceió | 14,0 | 23,3 | 19,0 | 2,6 | 4,0 | 3,4",sustentada,A linha de João Pessoa confirma os três percentuais nas colunas de consumo adequado por sexo e total.
+F047,O que a diretriz da SBME diz sobre o uso de creatina como suplemento?,"O uso da creatina pode ser justificado após análise especializada em casos específicos, como vegetarianos e indivíduos idosos, embora com fraco grau de recomendação [T2].","[T2] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 6: A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas não encontra nenhum suporte na literatura científica. A melhora, ou não, do desempenho em exercícios com predominância aeróbia é pouco documentada.
+
+Embora com resultados ainda controversos, muitos estudos têm sugerido que a creatina teria efeito ergogênico em indivíduos nos quais se constata diminuição de aporte da creatina exógena alimentar, como os vegetarianos e os indivíduos idosos, sendo somente para estes casos específicos, após boa análise do profissional especializado, médico e/ou nutricionista, justificável seu uso, embora, ainda, com fraco grau de recomendação.",parcial,A fonte admite o uso após avaliação especializada em casos com menor aporte alimentar de creatina. A frase cita vegetarianos e idosos sem explicitar esse critério.
+F048,Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?,A substituição de refeições tradicionais baseadas em alimentos in natura ou minimamente processados por alimentos ultraprocessados está associada a prejuízos à saúde [T2].,"[T2] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil, p. 1: CONCLUSÕES: Os resultados indicam prejuízos à saúde decorrentes da tendência observada no Brasil de substituir refeições tradicionais baseadas em alimentos in natura ou minimamente processados por alimentos ultraprocessados e apoiam a recomendação para ser evitado o consumo desses alimentos.",sustentada,A conclusão do texto liga a substituição dessas refeições por ultraprocessados a prejuízos à saúde.
+F049,Dormir pouco pode aumentar a fome? Por quê?,A privação do sono pode levar a um desajuste endócrino que aumenta a ingestão alimentar e a massa corporal [T1].,"[T1] Relação entre sono e obesidade: uma revisão da literatura, p. 5: Efeitos da privação do sono Grelina - secretada pelo Leptina - secretada pelo estômago tecido adiposo Leptina Grelina circulante circulante Hipotálamo SACIEDADE FOME Massa corporal
+
+Figura 2. Efeito da privação de sono no desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal.",sustentada,A legenda da figura liga a privação do sono a um desajuste endócrino capaz de aumentar a ingestão alimentar e a massa corporal.
+F050,Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?,"O último capítulo do Guia Alimentar refere-se aos possíveis obstáculos para cumprir as recomendações, como informação, oferta, custo, habilidades culinárias, tempo e publicidade, e sugere formas de superação no âmbito individual e coletivo [T3].","[T3] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 8: O último capítulo refere-se aos possíveis obstáculos para cumprir as recomendações - informação, oferta, custo, habilidades culinárias, tempo e publicidade – ao mesmo tempo em que sugere formas de superação no âmbito individual e coletivo para cada um deles. O Guia Alimentar para a População Brasileira em formato digital está disponibilizado no site do Ministério da Saúde.",sustentada,O protocolo cita os seis obstáculos e descreve propostas de superação nos âmbitos individual e coletivo.
+F051,Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?,"Para algumas pessoas, levar comida feita em casa (“marmita”) para o local de trabalho ou estudo pode ser outra boa opção [T4].","[T4] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 22: FORA DE CASA , restaurantes que servem refeições preparadas na hora como “quilos”, “buffets” ou “pratos feitos” são boas opções para o consumo de verduras e legumes. Valorize refeitórios institucionais (em locais de trabalho e instituições de ensino) que servem comida fresca e os restaurantes populares. Para algumas pessoas, levar comida feita em casa (“marmita”) para o local de trabalho ou estudo pode ser outra boa opção.",sustentada,A passagem sugere levar refeições de casa ao trabalho ou estudo e delimita a recomendação a algumas pessoas.
+F052,Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?,A análise descritiva de uma amostra de entrevistados que utilizavam suplementação alimentar mostrou que a dieta apresentou-se hiperprotéica (100%) [T2].,"[T2] Conhecimento nutricional e suplementação alimentar por praticantes de exercícios físicos, p. 3: a indicação do uso de suplementos foi realizada por um professor de Educação Física, seguida por auto-indicação (31,5%). Os aminoácidos ou concentrados protéicos foram citados como os mais utilizados (48,28%), seguido de suplementos ricos em carboidratos (34,48%) e vitaminas ou complexos vitamínicos (17,24%).
+
+A tabela 4 apresenta a análise descritiva da adequação de macronutrientes, mostrando que a dieta apresentou-se hipoglicídica (89,47%), hiperprotéica (100%) e hiperlipídica (52,63%) para a maioria dos entrevistados que utilizavam algum tipo de suplementação alimentar. Houve relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA (p=0,003).
+
+Analisando o conhecimento nutricional dos entrevistados observou-se que mais da metade (51,7%) apresentou conhecimento moderado (figura 1).
+
+Tabela 1 . Distribuição absoluta e percentual de gênero, escolaridade e renda de praticantes de exercícios físicos.",sustentada,A análise descritiva apresenta dieta hiperproteica em 100% do grupo de entrevistados que utilizava suplementação.
+F053,Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?,Alimentos ultraprocessados tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados por conta de sua formulação e apresentação [T3].,"[T3] Guia alimentar para a população brasileira, p. 51: devido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados. suas formas de produção, distribuição, comercialização e consumo afetam de modo desfavorável a cultura, a vida social e o meio ambiente.",sustentada,O Guia atribui à formulação e apresentação dos ultraprocessados tanto a tendência ao consumo excessivo quanto a substituição de outros alimentos.
+F054,Kombucha caseira ajuda a emagrecer?,"Um estudo avaliou o teor de metais em extratos de plantas prescritas como suplementos para emagrecer, entre elas Camellia sinensis, Cordia ecalyculata e outros [T4].","[T4] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 178: Uma das limitações observadas sobre os fitoterápicos é a presença de metais acima dos níveis de segurança. Um estudo avaliou o teor de metais em extratos de plantas prescritas como suplementos para emagrecer, entre elas Camellia sinensis , Cordia ecalyculata e outros. Os metais mais frequentemente detectados foram manganês, alumínio e ferro, com concentração mais elevada na Camellia sinensis .
+
+Até o momento, não há evidências clínicas de que se possa indicar os suplementos aqui descritos para redução peso. Classe de recomendação III, Nível de evidência B.",sustentada,O trecho relata o estudo sobre metais nos extratos usados como suplementos e nomeia as mesmas plantas.
+F055,"No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?","O fluxograma é um formato de apoio à prática clínica, destinado a profissionais de nível superior no âmbito do atendimento clínico individual [T2].","[T2] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 14: Os Protocolos de Uso do Guia Alimentar propostos nesta série foram desenvolvidos considerando o contexto do cuidado individual oferecido na APS, com forma de apoio à prática clínica. Portanto, os protocolos aqui apresentados destinam-se a profissionais de nível superior no âmbito do atendimento clínico individual.
+
+A abordagem sugerida neste protocolo estão organizada em formato de fluxograma, que tem como funcionalidade direcionar as orientações alimentares que devem ser oferecidas ao usuário a partir das respostas captadas na aplicação do formulário de marcadores de consumo alimentar do SISVAN no momento da consulta individual. A ordenação das etapas do fluxograma foi feita com intuito de direcionar a priorização das mensagens que são mais importantes para a construção de uma alimentação mais saudável.",sustentada,O texto apresenta o protocolo como apoio ao atendimento clínico individual por profissionais de nível superior e descreve sua organização em fluxograma.
+F056,Sou vegana. Quanto de vitamina B12 eu preciso tomar e por quanto tempo?,"Para manter o indivíduo sem deficiência de vitamina B12, o nível sérico deve ficar acima de 490 pg/mL [T1].","[T1] Guia alimentar de dietas vegetarianas para adultos, p. 40: Assim, o nível seguro de vitamina B12 deve ficar sempre acima de 490 pg/mL [164].
+
+Caso se adote esse valor como referência, a dosagem de ácido metilmalônico no acompanhamento de pacientes com deficiência B12 é desnecessária.
+
+Estudos também demonstram que, quando o nível sérico de vitamina B12 fica abaixo de 350 pg/mL, já há sintomas específicos de deficiência [176, 177].
+
+Dessa forma, para manter o indivíduo sem deficiência de vitamina B12 é preciso que o nível sérico fique acima de 490 pg/mL.
+
+Se quisermos adotar parâmetros menos seguros, o nível deve ficar acima de 350 pg/mL.
+
+No entanto, a maioria dos estudos científicos, por desconhecimento dos autores, utiliza apenas o valor oferecido como normal pelos laboratórios e acaba considerando que há deficiência quando o nível de B12 está abaixo de 200 pg/mL.
+
+Portanto, na realidade a deficiência de B12 é maior do que os estudos demonstram.",sustentada,O trecho apresenta explicitamente esse valor sérico como referência para manter o indivíduo sem deficiência.
+F057,O que a diretriz da SBME diz sobre o uso de creatina como suplemento?,"Para a maioria dos desportistas, a recomendação da SBME é de nunca usar creatina como suplemento [T1].","[T1] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 7: a de que em geral não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões. Para os demais desportistas fica estabelecida a recomendação de nunca usar.
+
+Desse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas.",parcial,A passagem admite raras exceções e reserva a orientação de nunca usar aos demais desportistas. Ela não estabelece que esse grupo represente a maioria.
+F058,"No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?","Uma das etapas do fluxograma avalia o consumo de feijão, que é um marcador de uma das preparações culinárias brasileiras e também um marcador do consumo de uma refeição [T4].","[T4] Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta, p. 15: As etapas do fluxograma objetivam abordar, de forma progressiva, as recomendações do Guia Alimentar para a População Brasileira, partindo da recomendação central “ prefira alimentos in natura ou minimamente processados e as preparações culinárias a alimentos ultraprocessados” . A avaliação é feita pelo marcador de consumo de feijão - base de uma das mais importantes preparações culinárias brasileiras e marcador do consumo de uma refeição - e pelos marcadores de consumo de alimentos ultraprocessados, representados por bebidas adoçadas, hambúrguer e/ou embutido, macarrão instantâneo, salgadinhos de pacote ou biscoitos salgados ou biscoito recheado, doces ou guloseimas. Em seguida, o fluxograma aborda o consumo de verduras, legumes e de frutas, cujo consumo diário é uma recomendação complementar do Guia Alimentar para a População Brasileira.",sustentada,O trecho confirma que o fluxo avalia o consumo de feijão e o usa como marcador de uma preparação típica e do consumo de uma refeição.
+F059,"Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?","Para atividades que duram mais de uma hora, é recomendado repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l [T2].","[T2] Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde, p. 5: Devemos ingerir líquidos antes, durante e após o exercício.
+
+Para garantir que o indivíduo inicie o exercício bem hidratado, recomenda-se que ele beba cerca de 250 a 500ml de água duas horas antes do exercício.
+
+Durante o exercício recomenda-se iniciar a ingestão já nos primeiros 15 minutos e continuar bebendo a cada 15 a 20 minutos. O volume a ser ingerido varia conforme as taxas de sudorese, geralmente entre 500 e 2.000ml/hora. Se a atividade durar mais de uma hora, ou se for intensa do tipo intermitente mesmo com menos de uma hora, devemos repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l . A bebida deve estar em temperatura em torno de 15 a 22 C e apresentar um sabor de acordo com a preferência do indivíduo, favorecendo a palatabilidade.",sustentada,O trecho confirma o limiar de duração e as duas faixas. As unidades foram reproduzidas como aparecem na extração citada.
+F060,Dietas low carb emagrecem mais do que dietas com pouca gordura?,"Muitos RCTs, tanto de curto quanto de longo prazo, indicam que a perda de peso com os dois tipos de dieta (low carb e pobre em gordura) é semelhante [T1].","[T1] Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade, p. 147: Assim como diversos RCTs mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso, muitos RCTs de curto (menos de um ano) ou longo prazo (um ano ou mais) , mostram que a perda de peso com os dois tipos de dieta é semelhante. Além disso, já foi verificado que dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia .
+
+Estudo de metanálise avaliou o efeito de dietas low carb (muito pobres em carboidrato ou com restrição moderada de carboidratos) em relação à dieta controle contendo de 46 a 55% do valor energético total da dieta (VET) de carboidratos, 15 a 25% do VET de proteínas, 20 a 30%",sustentada,A revisão relata que muitos ensaios de curto ou longo prazo encontraram perda de peso semelhante entre as duas dietas.
