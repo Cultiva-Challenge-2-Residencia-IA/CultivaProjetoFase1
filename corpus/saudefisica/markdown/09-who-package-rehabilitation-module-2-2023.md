@@ -22,13 +22,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/09-who-package-rehabilitation-module-2-2023.pdf#page=1)
 
-> **Nota de conversão — página 1:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-> **Nota de conversão — página 1:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
-
-º .º o 1) [1] e ... e 0ººº 090. "o 0 “0º qc... O e O oº Q0990%0., .s o o o 1] o 000 º 00000 º. os o 000 2. 0. o 0 0000065 Cc. “. + 060 DS ad 000006, o Co 0 qo 00 0%6º “o ns q 0º 209 00 º o .ºo O) 0 o ºo ,ºe.: “o E hd Dos o. Package of interventions for 1º .0 000. EE = E ..º o . 00 oec:: Rehabilitalion :-.e0 DoS..:[1] Õ Module 2 000o Do e... Musculoskeletal conditions “00 oº o. * 00 o e. E - “0% ) [) o. Cc: 0 (1) ) o: o “2,0 20 o"... 1000 oº |) no . '. “000 (1 O e: o ', 000000 e o O O oCo to O 0:00 000 o. o 00000 070 O te Coco 0009 40 0 “0% [) Co * 0. 00 O º cc000 oº oº Po. "coco 00. o: Corr çe O:
-
-Vie:87) OrganizationWorld Health
+**Package of interventions for rehabilitation Module 2 Musculoskeletal conditions**
 
 ---
 
@@ -37,8 +31,6 @@ Vie:87) OrganizationWorld Health
 ## Página PDF 2
 
 [Conferir no original](../originais/09-who-package-rehabilitation-module-2-2023.pdf#page=2)
-
-> **Nota de conversão — página 2:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -50,13 +42,9 @@ Vie:87) OrganizationWorld Health
 
 [Conferir no original](../originais/09-who-package-rehabilitation-module-2-2023.pdf#page=3)
 
-> **Nota de conversão — página 3:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
+### **Package of interventions for rehabilitation**
 
-Package of interventions for rehabilitation
-
-Module 2 Musculoskeletal conditions
-
-Ve)(ee) Organization World Health
+**Module 2 Musculoskeletal conditions**
 
 ---
 
@@ -152,8 +140,6 @@ iii
 ## Página PDF 6
 
 [Conferir no original](../originais/09-who-package-rehabilitation-module-2-2023.pdf#page=6)
-
-> **Nota de conversão — página 6:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -452,8 +438,6 @@ Hana ALYOBAYEL (Physiotherapist, Saudi Arabia); Nicole ANDREWS (Occupational the
 ## Página PDF 18
 
 [Conferir no original](../originais/09-who-package-rehabilitation-module-2-2023.pdf#page=18)
-
-> **Nota de conversão — página 18:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -1500,8 +1484,6 @@ Henrietta FAWOLE (Physiotherapist, Nigeria); Marco INZITARI (Medical doctor, Ger
 
 [Conferir no original](../originais/09-who-package-rehabilitation-module-2-2023.pdf#page=52)
 
-> **Nota de conversão — página 52:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -2028,8 +2010,6 @@ Nicole ANDREWS (Occupational therapist, Australia); Godfrey ASIIMWE (Prosthetist
 ## Página PDF 68
 
 [Conferir no original](../originais/09-who-package-rehabilitation-module-2-2023.pdf#page=68)
-
-> **Nota de conversão — página 68:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -2835,8 +2815,6 @@ For each assessment and intervention included in the _Package of interventions f
 
 [Conferir no original](../originais/09-who-package-rehabilitation-module-2-2023.pdf#page=98)
 
-> **Nota de conversão — página 98:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 <!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
@@ -3204,15 +3182,6 @@ All members of the technical working groups, development groups and peer review 
 
 [Conferir no original](../originais/09-who-package-rehabilitation-module-2-2023.pdf#page=108)
 
-> **Nota de conversão — página 108:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-<!-- Start of picture text -->
-e 0<br>a,<br>. º<br>0<br>º0<br>oo<br>(1,00<br>1,000<br>..000<br>"000<br>e “O<br>“cc, *0<br>o º 0 0<br>e “e. .,0<br>e ct o o O O<br>0000" e 00 00 00<br>000009020 00<br>0004090200<br>0090040<br>000990<br>0000<br><!-- End of picture text -->
-
-<!-- Start of picture text -->
-5785240071100<br><!-- End of picture text -->
-
-<!-- Start of picture text -->
-WI ||<br><!-- End of picture text -->
+<!-- Página sem texto extraível; consultar PDF original. -->
 
 ---

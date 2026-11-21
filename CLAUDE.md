@@ -79,6 +79,9 @@ corpus/.venv/bin/python corpus/scripts/verify_corpus.py
 # Regenerar Markdown + relatório de UMA fonte (id do manifest.yaml)
 corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --source <id> --overwrite
 
+# Regenerar os candidatos de Saúde Física em PDF (kind: original_only; sem Trechos)
+corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --candidatos --overwrite
+
 # Primeira execução / originais ou modelo OCR ausentes
 corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download --download-ocr
 
@@ -104,7 +107,7 @@ Consequências práticas:
 
 - Ao mudar qualquer campo de uma fonte no manifesto (inclusive o `approval_status`), o `prepare_rag.py` ou o `rag.yaml`, regenere os Trechos no mesmo PR; senão o `verify_corpus.py` falha.
 - Correções de transcrição devem ir para `config/` ou `ajustes/` e ser seguidas de `--source <id> --overwrite`. Edições diretas no `.md` quebram a verificação e são perdidas na regeneração.
-- Qualquer mudança em `convert_pdfs.py` invalida os relatórios de **todas** as fontes até que sejam regeneradas.
+- Qualquer mudança em `convert_pdfs.py` invalida os relatórios de **todas** as fontes até que sejam regeneradas: as de Nutrição (`--overwrite`, com as aprovadas passando por `pendente`) e os candidatos de Saúde Física (`--candidatos --overwrite`, issue #87). Faça isso também depois de mesclar a `main` se ela trouxe mudança no script.
 - `restore_case_from_native: true` (hoje no Guia, issue #27, e na SBME, issue #72) devolve ao Markdown a caixa do texto nativo do PDF, que o `to_markdown` do PyMuPDF perde em versaletes e em inícios de frase. A caixa do nativo só é usada quando é regular e nunca rebaixa uma maiúscula correta.
 - Há um único status de aprovação por fonte, `approval_status` (`pendente` ou `aprovado`), que vive só no manifesto (decisão de 06/11/2026; veja `corpus/README.md`). `convert_pdfs.py` se recusa a converter fonte com `approval_status` diferente de `pendente`, para não regenerar uma fonte aprovada por engano, e o verificador não exige nenhum status.
 - Para incluir uma nova fonte, siga a seção "Como incluir outro documento" em [corpus/README.md](corpus/README.md). Não copie a licença de outra fonte e use `pendente` quando ela for desconhecida.
