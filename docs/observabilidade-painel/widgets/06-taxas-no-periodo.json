@@ -1,0 +1,39 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Taxas no período (% das consultas)",
+  "description": "Fração das consultas em cada situação, no período escolhido no topo do painel (padrão: últimos 7 dias): síntese extrativa (o LLM falhou ou teve a citação bloqueada), citações válidas (respostas do LLM aprovadas pela checagem da citação por frase), não sei, risco, prompt injection e guardrail da Lei 8.234. 0,10 = 10%. Os experimentos gravam notas com os mesmos nomes e entram na média.",
+  "view": "scores-numeric",
+  "dimensions": [
+    {
+      "field": "name"
+    }
+  ],
+  "metrics": [
+    {
+      "measure": "value",
+      "agg": "avg"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "sintese_extrativa",
+        "citacoes_validas",
+        "nao_sei",
+        "risco_acionado",
+        "prompt_injection",
+        "guardrail_lei_8234"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "HORIZONTAL_BAR",
+  "chartConfig": {
+    "type": "HORIZONTAL_BAR",
+    "show_value_labels": true
+  },
+  "minVersion": 1
+}

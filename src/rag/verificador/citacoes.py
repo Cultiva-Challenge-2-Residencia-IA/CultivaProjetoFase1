@@ -3,7 +3,9 @@
 O LLM recebe os Trechos numerados como [T1]..[Tn] e marca cada frase com os Trechos que a
 sustentam; dados do grafo causal levam [GRAFO], e da TACO, [TACO]. Esta checagem confere só a
 forma: toda frase citada, todo marcador apontando para algo que foi de fato entregue ao modelo.
-Se o Trecho citado sustenta a frase é a amostra humana (eval/fundamentacao/).
+A partir do prompt v4 (issue #67), cada frase também traz uma citação literal da fonte;
+`filtrar_citacoes_literais` remove as frases cuja citação não existe na fonte citada. Se o Trecho
+sustenta a frase continua sendo medido por amostra (eval/fundamentacao/).
 
 Critérios: eval/fundamentacao/criterios.md.
 """
@@ -12,7 +14,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 import re
-from typing import Any, Dict, List
+import unicodedata
+from typing import Any, Dict, List, Tuple
 
 MARCADOR = re.compile(r"\[(T\d+|GRAFO|TACO|\?[^\]]*)\]")
 # Marcadores logo depois do ponto final ("frase. [T1]") voltam para antes dele ("frase [T1].").
@@ -21,6 +24,9 @@ _FIM_DE_FRASE = re.compile(r"(?<=[.!?])\s+")
 FRASE_SEM_BASE = "Não consta nos trechos recuperados."
 CAMPOS_DO_LLM = ("evidence_summary", "physiological_mechanism", "protocol_findings")
 MIN_PALAVRAS = 4
+# Citação literal mínima (critérios da #67). O prompt pede pelo menos 5 palavras; aceitar 4 é margem
+# intencional, para não descartar uma citação verdadeira que o modelo encurtou em uma palavra.
+MIN_PALAVRAS_CITACAO = 4
 
 
 @dataclass
@@ -82,6 +88,74 @@ def normalizar_frases_citadas(resposta: Dict[str, Any]) -> Dict[str, Any]:
             frases.append(f"{corpo} {marcadores}{final}" if marcadores else f"{corpo}{final}")
         saida[campo] = " ".join(frases)
     return saida
+
+
+def _normalizar_para_busca(texto: str) -> str:
+    """Caixa, formas Unicode, hifenização, pontuação e espaços não contam na busca da citação."""
+    texto = unicodedata.normalize("NFKC", texto).casefold()
+    texto = re.sub(r"(\w)-\s*\n\s*(\w)", r"\1\2", texto)
+    texto = re.sub(r"(?<=\d)(?=[^\W\d_])|(?<=[^\W\d_])(?=\d)", " ", texto)  # "800kcal" = "800 kcal"
+    return " " + " ".join(re.findall(r"\w+", texto)) + " "
+
+
+def _fontes_da_frase(refs: List[Any]) -> List[str]:
+    """Rótulos (T1, TACO, GRAFO) que a frase cita; referências fora do formato são ignoradas."""
+    rotulos = [_marcador(r).strip("[]") for r in refs]
+    return [r for r in rotulos if eh_trecho(r) or r in ("TACO", "GRAFO")]
+
+
+def citacao_literal_valida(citacao: str, fontes: List[str]) -> bool:
+    """A citação tem ao menos MIN_PALAVRAS_CITACAO palavras e aparece, como sequência contínua de
+    palavras, no texto de alguma das fontes citadas."""
+    alvo = _normalizar_para_busca(citacao or "")
+    if len(alvo.split()) < MIN_PALAVRAS_CITACAO:
+        return False
+    return any(alvo in _normalizar_para_busca(f) for f in fontes if f)
+
+
+def filtrar_citacoes_literais(
+    resposta: Dict[str, Any], textos: Dict[str, str]
+) -> Tuple[Dict[str, Any], List[Dict[str, Any]]]:
+    """Prompt v4 (issue #67): mantém só as frases cuja `citacao` existe na fonte que elas citam.
+
+    `textos` mapeia o rótulo da fonte ("T1", "TACO", "GRAFO") para o texto entregue ao modelo. A
+    frase fixa FRASE_SEM_BASE dispensa citação. Campo em texto corrido (formato antigo) não tem
+    citação verificável e fica vazio. Devolve a resposta filtrada e as frases removidas.
+    """
+    saida = dict(resposta)
+    removidas: List[Dict[str, Any]] = []
+    for campo in CAMPOS_DO_LLM:
+        valor = resposta.get(campo)
+        if not isinstance(valor, list):
+            if str(valor or "").strip() not in ("", FRASE_SEM_BASE):
+                removidas.append({"campo": campo, "frase": str(valor), "motivo": "sem_formato_estruturado"})
+                saida[campo] = []
+            continue
+        mantidas = []
+        for item in valor:
+            frase = str(item.get("frase") or "").strip() if isinstance(item, dict) else str(item).strip()
+            if frase == FRASE_SEM_BASE:
+                mantidas.append(item)
+                continue
+            refs = item.get("trechos") or [] if isinstance(item, dict) else []
+            refs = refs if isinstance(refs, list) else [refs]
+            citacao = str(item.get("citacao") or "") if isinstance(item, dict) else ""
+            fontes = [textos.get(r, "") for r in _fontes_da_frase(refs)]
+            if citacao_literal_valida(citacao, fontes):
+                mantidas.append(item)
+                continue
+            # A citação existe, mas em outra fonte entregue ao modelo: o rótulo é corrigido.
+            onde = [rotulo for rotulo, texto in textos.items() if citacao_literal_valida(citacao, [texto])]
+            if onde:
+                corrigido = dict(item, trechos=[int(r[1:]) if eh_trecho(r) else r for r in onde])
+                mantidas.append(corrigido)
+                removidas.append({"campo": campo, "frase": frase, "citacao": citacao, "trechos": refs,
+                                  "motivo": "rotulo_corrigido", "rotulo_correto": onde})
+            else:
+                removidas.append({"campo": campo, "frase": frase, "citacao": citacao,
+                                  "trechos": refs, "motivo": "citacao_literal_ausente_na_fonte"})
+        saida[campo] = mantidas
+    return saida, removidas
 
 
 def dividir_frases(texto: str) -> List[str]:

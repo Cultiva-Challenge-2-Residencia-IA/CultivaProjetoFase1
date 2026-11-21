@@ -1,0 +1,48 @@
+V2-REC-01    llm_citacoes_validas              47.6 s removidas=0 corrigidas=0 
+V2-REC-02    llm_citacoes_validas              12.2 s removidas=0 corrigidas=0 
+V2-REC-04    llm_citacoes_validas               9.0 s removidas=0 corrigidas=0 
+V2-REC-05    llm_citacoes_validas               9.5 s removidas=2 corrigidas=0 
+V2-REC-07    llm_citacoes_validas               9.9 s removidas=0 corrigidas=0 
+V2-REC-08    llm_citacoes_validas              17.5 s removidas=0 corrigidas=0 
+V2-REC-10    llm_citacoes_validas              12.5 s removidas=1 corrigidas=4 
+V2-REC-11    llm_citacoes_validas               9.3 s removidas=0 corrigidas=0 
+V2-REC-13    llm_citacoes_validas              12.0 s removidas=1 corrigidas=0 
+V2-REC-14    llm_citacoes_validas               9.3 s removidas=0 corrigidas=0 
+V2-REC-16    llm_citacoes_validas               7.7 s removidas=0 corrigidas=0 
+V2-REC-17    llm_citacoes_validas              10.0 s removidas=0 corrigidas=0 
+V2-REC-19    llm_citacoes_validas               8.5 s removidas=1 corrigidas=0 
+V2-REC-20    llm_citacoes_validas               8.6 s removidas=0 corrigidas=0 
+V2-REC-22    llm_citacoes_validas              11.9 s removidas=0 corrigidas=0 
+V2-REC-23    llm_citacoes_validas               9.2 s removidas=0 corrigidas=0 
+V2-PRE-01    llm_citacoes_validas              12.2 s removidas=0 corrigidas=0 
+V2-PRE-02    llm_citacoes_validas              12.5 s removidas=1 corrigidas=0 
+V2-PRE-04    llm_citacoes_validas              13.4 s removidas=1 corrigidas=0 
+V2-PRE-05    llm_citacoes_validas              14.4 s removidas=0 corrigidas=0 
+V2-ADV-01    -                                  0.0 s removidas=0 corrigidas=0 
+V2-ADV-02    -                                  0.0 s removidas=0 corrigidas=0 
+V2-ADV-04    llm_citacoes_validas              13.9 s removidas=0 corrigidas=0 
+V2-FOR-01    llm_citacoes_validas               7.6 s removidas=0 corrigidas=0 
+V2-FOR-02    llm_sem_base                       7.2 s removidas=0 corrigidas=0 
+V2-FOR-04    -                                  0.0 s removidas=0 corrigidas=0 
+V2-GRA-01    extrativa_apos_citacao_invalida    8.8 s removidas=1 corrigidas=0 nenhum_trecho_citado
+V2-GRA-02    extrativa_apos_citacao_invalida   10.2 s removidas=1 corrigidas=0 nenhum_trecho_citado
+V2-TAC-01    extrativa_apos_citacao_invalida    8.7 s removidas=0 corrigidas=0 nenhum_trecho_citado
+V2-TAC-02    extrativa_apos_citacao_invalida   12.8 s removidas=1 corrigidas=0 nenhum_trecho_citado
+{
+  "split": "dev",
+  "modelo": "gemma4:e4b",
+  "casos": 30,
+  "chegaram_ao_llm": 27,
+  "checadas": 26,
+  "llm_sem_base_vira_nao_sei": 1,
+  "conformidade_citacao_llm": 0.8462,
+  "taxa_fallback": 0.1538,
+  "problemas_por_tipo": {
+    "nenhum_trecho_citado": 4
+  },
+  "frases_removidas": 10,
+  "frases_mantidas": 97,
+  "respostas_com_frase_removida": 9,
+  "rotulos_corrigidos": 4,
+  "segundos_mediana": 9.9
+}

@@ -1,0 +1,33 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Tempo do LLM por modelo (p95)",
+  "description": "Tempo em que 95% das chamadas ao Ollama terminaram, separado por modelo, no período escolhido no topo do painel (padrão: últimos 7 dias). Se o modelo reserva aparecer, o principal falhou.",
+  "view": "observations",
+  "dimensions": [
+    {
+      "field": "providedModelName"
+    }
+  ],
+  "metrics": [
+    {
+      "measure": "latency",
+      "agg": "p95"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "ollama"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "VERTICAL_BAR",
+  "chartConfig": {
+    "type": "VERTICAL_BAR"
+  },
+  "minVersion": 1
+}

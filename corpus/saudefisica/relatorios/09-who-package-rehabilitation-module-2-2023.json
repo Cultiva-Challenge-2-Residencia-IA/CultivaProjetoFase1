@@ -1,0 +1,2013 @@
+{
+  "source_id": "who-package-rehabilitation-musculoskeletal-2023",
+  "source_sha256": "e6248d68fe4ca7a800e0a5f24d6ea3837cd3df8697a858d5ea48d5b19605e394",
+  "pdf_pages": 108,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": {
+    "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata",
+    "sha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 85,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.",
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": ".º o\n1)\n[1]\ne ... e\nº\n0ººº 090.\n\"o\n0 “0º qc...\nO\n.s\no\n1]\ne O oº Q0990%0.,\no\no\no\n000\nº\n00000\nº.\nos\no\n000\n2.\n0. o\n0\n0000065\nCc.\n“.\n+\n060\nDS\nad\n000006,\no Co\n0\nqo 00 0%6º\n“o ns q 0º\n209 00 º\no .ºo\nO)\n0\no ºo\n,ºe.:\n“o E\nhd\nDos o.\nPackage of interventions for\n1º .0\n000.\nEE\n=\nE\n..º\no\n.\n00\noec::\nRehabilitalion\n:-.e0\n[1]\nÕ\no\nDoS..:\nModule 2\n000\nDo\ne...\nMusculoskeletal conditions\n“00\noº o.\n* 00 o\ne.\nE\n- “0%\n[)\no. Cc:\n0\n(1)\n)\n) o:\no\n“2,0 20\no\"...\n1000\noº\n|) no\n. '.\n“000\n(1\nO e:\no\n',\n000000\ne\no\nO\noCo\nto O\n0:00\n000\nO\no\n00000\n070\nO\no.\nte\nCoco 0009 40 0 “0%\n[)\nCo\n* 0.\n00\nO\nº\ncc000\noº oº\nPo.\n\"coco 00.\no:\nCorr çe O:\nWorld Health\nVie:87) Organization\n"
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 0.88889,
+      "missing_native_tokens": {
+        "rehabilitation": 1
+      },
+      "markdown_characters": 637
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 0,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": ""
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 0
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 82,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": "Package of interventions for\nrehabilitation\nModule 2\nMusculoskeletal conditions\n(ee) World Health\nVe) Organization\n"
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 115
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 3805,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3832
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 1707,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1813
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 0,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": ""
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 0
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 2478,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2503
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 980,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 999
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 1323,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.88636,
+      "missing_native_tokens": {
+        "assessmentb": 1,
+        "assessmentsa": 1,
+        "capacityb": 1,
+        "conditionb": 1,
+        "exerciseb": 1,
+        "factorsb": 1,
+        "interventiona": 1,
+        "lifestyleb": 1,
+        "living": 1,
+        "mobilizationb": 1,
+        "nsaidsb": 1,
+        "painb": 1,
+        "selfmanagement": 2,
+        "supportb": 1,
+        "therapyb": 1,
+        "therapyc": 2,
+        "trainingb": 2
+      },
+      "markdown_characters": 1510
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 612,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9186,
+      "missing_native_tokens": {
+        "antidepressantsc": 1,
+        "assessmentsa": 1,
+        "healthb": 1,
+        "interventionsa": 1,
+        "therapiese": 1,
+        "trainingb": 2
+      },
+      "markdown_characters": 717
+    },
+    {
+      "pdf_page": 11,
+      "native_characters": 1222,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.96183,
+      "missing_native_tokens": {
+        "5": 1,
+        "catastrophizing": 1,
+        "cognitive": 1,
+        "functions": 1,
+        "management": 1
+      },
+      "markdown_characters": 1487
+    },
+    {
+      "pdf_page": 12,
+      "native_characters": 1142,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95489,
+      "missing_native_tokens": {
+        "6": 1,
+        "employment": 1,
+        "functions": 1,
+        "living": 2,
+        "vocation": 1
+      },
+      "markdown_characters": 1413
+    },
+    {
+      "pdf_page": 13,
+      "native_characters": 1310,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98582,
+      "missing_native_tokens": {
+        "7": 1,
+        "selfmanagement": 1
+      },
+      "markdown_characters": 1562
+    },
+    {
+      "pdf_page": 14,
+      "native_characters": 852,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98925,
+      "missing_native_tokens": {
+        "8": 1
+      },
+      "markdown_characters": 976
+    },
+    {
+      "pdf_page": 15,
+      "native_characters": 1040,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1168
+    },
+    {
+      "pdf_page": 16,
+      "native_characters": 3533,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3548
+    },
+    {
+      "pdf_page": 17,
+      "native_characters": 2469,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2462
+    },
+    {
+      "pdf_page": 18,
+      "native_characters": 0,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": ""
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 0
+    },
+    {
+      "pdf_page": 19,
+      "native_characters": 2195,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2211
+    },
+    {
+      "pdf_page": 20,
+      "native_characters": 1044,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1058
+    },
+    {
+      "pdf_page": 21,
+      "native_characters": 1277,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.84242,
+      "missing_native_tokens": {
+        "assessmentb": 1,
+        "assessmentsa": 1,
+        "balanceg": 1,
+        "capacityb": 1,
+        "careb": 1,
+        "environmentb": 1,
+        "exercisesb": 1,
+        "functionsb": 1,
+        "injectionsb": 1,
+        "interventionsa": 1,
+        "mobilityb": 1,
+        "mobilityg": 1,
+        "nsaidsb": 1,
+        "nsaidsc": 1,
+        "orthosisf": 1,
+        "painb": 1,
+        "paracetamolb": 1,
+        "supportb": 1,
+        "therapyb": 3,
+        "trainingb": 3,
+        "trainingg": 1,
+        "walkingg": 1
+      },
+      "markdown_characters": 1473
+    },
+    {
+      "pdf_page": 22,
+      "native_characters": 1242,
+      "method": "native",
+      "tables_detected": 2,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.91667,
+      "missing_native_tokens": {
+        "antidepressantsc": 1,
+        "assessmentsa": 2,
+        "conditionb": 1,
+        "factorsb": 1,
+        "healthb": 1,
+        "interventionsa": 2,
+        "lifestyleb": 1,
+        "selfmanagement": 2,
+        "therapiesb": 1,
+        "trainingb": 2
+      },
+      "markdown_characters": 1617
+    },
+    {
+      "pdf_page": 23,
+      "native_characters": 1273,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95588,
+      "missing_native_tokens": {
+        "17": 1,
+        "catastrophizing": 1,
+        "cognitive": 1,
+        "fatigue": 1,
+        "management": 1,
+        "mental": 1
+      },
+      "markdown_characters": 1558
+    },
+    {
+      "pdf_page": 24,
+      "native_characters": 1549,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9521,
+      "missing_native_tokens": {
+        "18": 1,
+        "functions": 3,
+        "management": 1,
+        "mobility": 1,
+        "movement": 1,
+        "reaction": 1
+      },
+      "markdown_characters": 1859
+    },
+    {
+      "pdf_page": 25,
+      "native_characters": 1498,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9435,
+      "missing_native_tokens": {
+        "19": 1,
+        "and": 1,
+        "daily": 1,
+        "functions": 2,
+        "living": 2,
+        "mobility": 1,
+        "motor": 1,
+        "walking": 1
+      },
+      "markdown_characters": 1836
+    },
+    {
+      "pdf_page": 26,
+      "native_characters": 1489,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.97576,
+      "missing_native_tokens": {
+        "20": 1,
+        "employment": 2,
+        "lifestyle": 1
+      },
+      "markdown_characters": 1784
+    },
+    {
+      "pdf_page": 27,
+      "native_characters": 1583,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98844,
+      "missing_native_tokens": {
+        "21": 1,
+        "selfmanagement": 1
+      },
+      "markdown_characters": 1851
+    },
+    {
+      "pdf_page": 28,
+      "native_characters": 1737,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1849
+    },
+    {
+      "pdf_page": 29,
+      "native_characters": 3053,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3073
+    },
+    {
+      "pdf_page": 30,
+      "native_characters": 1748,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1746
+    },
+    {
+      "pdf_page": 31,
+      "native_characters": 2454,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2477
+    },
+    {
+      "pdf_page": 32,
+      "native_characters": 871,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 887
+    },
+    {
+      "pdf_page": 33,
+      "native_characters": 1132,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.8543,
+      "missing_native_tokens": {
+        "assessmentsa": 1,
+        "capacityb": 1,
+        "careb": 1,
+        "environmentb": 1,
+        "exercisesb": 2,
+        "fatigueb": 1,
+        "functionsb": 1,
+        "injectionsb": 1,
+        "interventionsa": 1,
+        "mobilitye": 2,
+        "nsaidsb": 1,
+        "orthosisb": 2,
+        "painb": 1,
+        "therapyb": 2,
+        "trainingb": 4
+      },
+      "markdown_characters": 1317
+    },
+    {
+      "pdf_page": 34,
+      "native_characters": 1542,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.90148,
+      "missing_native_tokens": {
+        "antidepressantsc": 1,
+        "assessmentb": 1,
+        "assessmentsa": 2,
+        "conditionb": 1,
+        "employmentb": 1,
+        "environmentb": 1,
+        "factorsb": 1,
+        "healthb": 1,
+        "interventionsa": 2,
+        "lifestyleb": 1,
+        "managementb": 1,
+        "selfmanagement": 2,
+        "statusb": 1,
+        "supportb": 1,
+        "therapiesb": 1,
+        "trainingb": 2
+      },
+      "markdown_characters": 1754
+    },
+    {
+      "pdf_page": 35,
+      "native_characters": 1243,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.96296,
+      "missing_native_tokens": {
+        "29": 1,
+        "antiinflammatory": 1,
+        "fatigue": 1,
+        "mental": 1,
+        "pain": 1
+      },
+      "markdown_characters": 1510
+    },
+    {
+      "pdf_page": 36,
+      "native_characters": 1469,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.96894,
+      "missing_native_tokens": {
+        "30": 1,
+        "and": 1,
+        "functions": 1,
+        "mobility": 1,
+        "motor": 1
+      },
+      "markdown_characters": 1747
+    },
+    {
+      "pdf_page": 37,
+      "native_characters": 1572,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.97802,
+      "missing_native_tokens": {
+        "31": 1,
+        "activities": 1,
+        "and": 1,
+        "functions": 1
+      },
+      "markdown_characters": 1853
+    },
+    {
+      "pdf_page": 38,
+      "native_characters": 1888,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98551,
+      "missing_native_tokens": {
+        "32": 1,
+        "education": 1,
+        "vocation": 1
+      },
+      "markdown_characters": 2204
+    },
+    {
+      "pdf_page": 39,
+      "native_characters": 1219,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95349,
+      "missing_native_tokens": {
+        "33": 1,
+        "depression": 1,
+        "health": 1,
+        "malnutrition": 1,
+        "mental": 1,
+        "particular": 1
+      },
+      "markdown_characters": 1493
+    },
+    {
+      "pdf_page": 40,
+      "native_characters": 1898,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2077
+    },
+    {
+      "pdf_page": 41,
+      "native_characters": 3528,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3544
+    },
+    {
+      "pdf_page": 42,
+      "native_characters": 2051,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2046
+    },
+    {
+      "pdf_page": 43,
+      "native_characters": 3013,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3033
+    },
+    {
+      "pdf_page": 44,
+      "native_characters": 579,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 593
+    },
+    {
+      "pdf_page": 45,
+      "native_characters": 1244,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.88485,
+      "missing_native_tokens": {
+        "assessmentsa": 1,
+        "balanceb": 1,
+        "capacityb": 1,
+        "carec": 1,
+        "conditionb": 1,
+        "environmentc": 1,
+        "exercisesb": 2,
+        "factorsb": 1,
+        "functionsb": 1,
+        "interventionsa": 1,
+        "lifestyleb": 1,
+        "mobilityc": 1,
+        "selfmanagement": 2,
+        "statusb": 1,
+        "trainingb": 1,
+        "trainingc": 1,
+        "walkingb": 1
+      },
+      "markdown_characters": 1414
+    },
+    {
+      "pdf_page": 46,
+      "native_characters": 1453,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95484,
+      "missing_native_tokens": {
+        "40": 1,
+        "and": 1,
+        "functions": 3,
+        "movement": 1,
+        "nutrition": 1
+      },
+      "markdown_characters": 1771
+    },
+    {
+      "pdf_page": 47,
+      "native_characters": 1417,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95783,
+      "missing_native_tokens": {
+        "41": 1,
+        "activities": 1,
+        "exercise": 1,
+        "fitness": 1,
+        "functions": 1,
+        "living": 2
+      },
+      "markdown_characters": 1727
+    },
+    {
+      "pdf_page": 48,
+      "native_characters": 1052,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9823,
+      "missing_native_tokens": {
+        "42": 1,
+        "selfmanagement": 1
+      },
+      "markdown_characters": 1283
+    },
+    {
+      "pdf_page": 49,
+      "native_characters": 1378,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1504
+    },
+    {
+      "pdf_page": 50,
+      "native_characters": 1811,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1844
+    },
+    {
+      "pdf_page": 51,
+      "native_characters": 1090,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1093
+    },
+    {
+      "pdf_page": 52,
+      "native_characters": 0,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": ""
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 0
+    },
+    {
+      "pdf_page": 53,
+      "native_characters": 2859,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2864
+    },
+    {
+      "pdf_page": 54,
+      "native_characters": 1001,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1025
+    },
+    {
+      "pdf_page": 55,
+      "native_characters": 927,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.80328,
+      "missing_native_tokens": {
+        "assessmentsa": 1,
+        "balanced": 1,
+        "bonesb": 1,
+        "careb": 1,
+        "controlb": 1,
+        "exercisesb": 4,
+        "functionsb": 1,
+        "interventionsa": 1,
+        "mobilityb": 1,
+        "mobilizationb": 1,
+        "oedemab": 1,
+        "orthosesb": 2,
+        "painb": 1,
+        "paracetamolb": 1,
+        "skinb": 1,
+        "stretchingb": 1,
+        "techniquesb": 1,
+        "therapyb": 1,
+        "thermotherapyb": 1,
+        "trainingd": 1
+      },
+      "markdown_characters": 1103
+    },
+    {
+      "pdf_page": 56,
+      "native_characters": 1736,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.88664,
+      "missing_native_tokens": {
+        "anticoagulantsc": 1,
+        "assessmentb": 1,
+        "assessmentsa": 2,
+        "careb": 1,
+        "conditionb": 1,
+        "environmentb": 1,
+        "exerciseb": 1,
+        "exercisec": 1,
+        "exercisesb": 1,
+        "functionsb": 1,
+        "interventionsa": 2,
+        "mobilityd": 2,
+        "needsb": 1,
+        "selfmanagement": 2,
+        "supportb": 1,
+        "supportf": 1,
+        "thromboembolism": 1,
+        "trainingb": 1,
+        "trainingd": 3,
+        "usee": 2,
+        "walkingd": 1
+      },
+      "markdown_characters": 2063
+    },
+    {
+      "pdf_page": 57,
+      "native_characters": 1197,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.97778,
+      "missing_native_tokens": {
+        "51": 1,
+        "management": 1,
+        "the": 1
+      },
+      "markdown_characters": 1438
+    },
+    {
+      "pdf_page": 58,
+      "native_characters": 1677,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.96791,
+      "missing_native_tokens": {
+        "52": 1,
+        "cardiovascular": 1,
+        "functions": 2,
+        "immunological": 1,
+        "motor": 1
+      },
+      "markdown_characters": 2019
+    },
+    {
+      "pdf_page": 59,
+      "native_characters": 1273,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95385,
+      "missing_native_tokens": {
+        "53": 1,
+        "functions": 3,
+        "mobility": 1,
+        "movement": 1
+      },
+      "markdown_characters": 1531
+    },
+    {
+      "pdf_page": 60,
+      "native_characters": 1383,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.96774,
+      "missing_native_tokens": {
+        "54": 1,
+        "functions": 2,
+        "mobility": 1,
+        "walking": 1
+      },
+      "markdown_characters": 1661
+    },
+    {
+      "pdf_page": 61,
+      "native_characters": 1596,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.97382,
+      "missing_native_tokens": {
+        "55": 1,
+        "activities": 1,
+        "employment": 1,
+        "living": 1,
+        "vocation": 1
+      },
+      "markdown_characters": 1889
+    },
+    {
+      "pdf_page": 62,
+      "native_characters": 1156,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.96947,
+      "missing_native_tokens": {
+        "56": 1,
+        "family": 1,
+        "selfmanagement": 1,
+        "support": 1
+      },
+      "markdown_characters": 1388
+    },
+    {
+      "pdf_page": 63,
+      "native_characters": 869,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95604,
+      "missing_native_tokens": {
+        "57": 1,
+        "pneumonia": 1,
+        "thromboembolism": 2
+      },
+      "markdown_characters": 1067
+    },
+    {
+      "pdf_page": 64,
+      "native_characters": 2027,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2207
+    },
+    {
+      "pdf_page": 65,
+      "native_characters": 369,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 388
+    },
+    {
+      "pdf_page": 66,
+      "native_characters": 3200,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3218
+    },
+    {
+      "pdf_page": 67,
+      "native_characters": 935,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 938
+    },
+    {
+      "pdf_page": 68,
+      "native_characters": 0,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": ""
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 0
+    },
+    {
+      "pdf_page": 69,
+      "native_characters": 2760,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2762
+    },
+    {
+      "pdf_page": 70,
+      "native_characters": 1123,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1138
+    },
+    {
+      "pdf_page": 71,
+      "native_characters": 669,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.81395,
+      "missing_native_tokens": {
+        "amitriptylineb": 1,
+        "assessmentsa": 1,
+        "careb": 1,
+        "controlb": 1,
+        "dressingd": 2,
+        "exercisesd": 1,
+        "functionsb": 1,
+        "imageb": 1,
+        "interventionsa": 1,
+        "oedemab": 1,
+        "painb": 1,
+        "skinb": 1,
+        "therapyb": 3
+      },
+      "markdown_characters": 823
+    },
+    {
+      "pdf_page": 72,
+      "native_characters": 1182,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.81169,
+      "missing_native_tokens": {
+        "assessmentf": 1,
+        "assessmentg": 1,
+        "assessmentsa": 1,
+        "balanceb": 1,
+        "capacityb": 1,
+        "careb": 1,
+        "environmentb": 1,
+        "environmentf": 1,
+        "environmentg": 1,
+        "exercisesb": 2,
+        "functionsb": 1,
+        "interventionsa": 1,
+        "mobilityb": 2,
+        "mobilityd": 1,
+        "prosthesisd": 1,
+        "prosthesise": 1,
+        "relationshipsb": 1,
+        "stretchingb": 1,
+        "supportb": 1,
+        "supportf": 1,
+        "supportg": 1,
+        "trainingb": 4,
+        "trainingd": 1,
+        "walkingd": 1
+      },
+      "markdown_characters": 1360
+    },
+    {
+      "pdf_page": 73,
+      "native_characters": 1661,
+      "method": "native",
+      "tables_detected": 2,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.91845,
+      "missing_native_tokens": {
+        "antidepressantsc": 1,
+        "assessmentsa": 2,
+        "conditionb": 1,
+        "factorsb": 1,
+        "healthb": 1,
+        "interventionsa": 2,
+        "interventionsb": 1,
+        "lifeb": 1,
+        "lifestyleb": 1,
+        "needsh": 1,
+        "recreationb": 1,
+        "selfmanagement": 2,
+        "supporth": 1,
+        "therapiesb": 1,
+        "trainingb": 2
+      },
+      "markdown_characters": 2153
+    },
+    {
+      "pdf_page": 74,
+      "native_characters": 931,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.94175,
+      "missing_native_tokens": {
+        "68": 1,
+        "and": 1,
+        "cognitive": 1,
+        "functions": 1,
+        "management": 1,
+        "pain": 1
+      },
+      "markdown_characters": 1189
+    },
+    {
+      "pdf_page": 75,
+      "native_characters": 1446,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.97419,
+      "missing_native_tokens": {
+        "69": 1,
+        "cardiovascular": 1,
+        "functions": 1,
+        "the": 1
+      },
+      "markdown_characters": 1743
+    },
+    {
+      "pdf_page": 76,
+      "native_characters": 1396,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.95238,
+      "missing_native_tokens": {
+        "70": 1,
+        "functions": 4,
+        "motor": 1,
+        "movement": 1
+      },
+      "markdown_characters": 1700
+    },
+    {
+      "pdf_page": 77,
+      "native_characters": 1453,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99412,
+      "missing_native_tokens": {
+        "71": 1
+      },
+      "markdown_characters": 1716
+    },
+    {
+      "pdf_page": 78,
+      "native_characters": 1284,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.97368,
+      "missing_native_tokens": {
+        "72": 1,
+        "activities": 1,
+        "functions": 1,
+        "living": 1
+      },
+      "markdown_characters": 1533
+    },
+    {
+      "pdf_page": 79,
+      "native_characters": 1302,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.94245,
+      "missing_native_tokens": {
+        "73": 1,
+        "and": 1,
+        "education": 1,
+        "employment": 1,
+        "interactions": 2,
+        "relationships": 1,
+        "vocation": 1
+      },
+      "markdown_characters": 1592
+    },
+    {
+      "pdf_page": 80,
+      "native_characters": 966,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.92593,
+      "missing_native_tokens": {
+        "74": 1,
+        "and": 1,
+        "community": 1,
+        "life": 1,
+        "management": 1,
+        "self": 1,
+        "social": 2
+      },
+      "markdown_characters": 1123
+    },
+    {
+      "pdf_page": 81,
+      "native_characters": 1210,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9771,
+      "missing_native_tokens": {
+        "75": 1,
+        "family": 1,
+        "support": 1
+      },
+      "markdown_characters": 1455
+    },
+    {
+      "pdf_page": 82,
+      "native_characters": 849,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.98901,
+      "missing_native_tokens": {
+        "76": 1
+      },
+      "markdown_characters": 974
+    },
+    {
+      "pdf_page": 83,
+      "native_characters": 1981,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2166
+    },
+    {
+      "pdf_page": 84,
+      "native_characters": 431,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 446
+    },
+    {
+      "pdf_page": 85,
+      "native_characters": 2268,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2294
+    },
+    {
+      "pdf_page": 86,
+      "native_characters": 1140,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1137
+    },
+    {
+      "pdf_page": 87,
+      "native_characters": 3400,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99797,
+      "missing_native_tokens": {
+        "selfreported": 1
+      },
+      "markdown_characters": 3582
+    },
+    {
+      "pdf_page": 88,
+      "native_characters": 5078,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9986,
+      "missing_native_tokens": {
+        "selfreported": 1
+      },
+      "markdown_characters": 5327
+    },
+    {
+      "pdf_page": 89,
+      "native_characters": 4567,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99846,
+      "missing_native_tokens": {
+        "underor": 1
+      },
+      "markdown_characters": 4771
+    },
+    {
+      "pdf_page": 90,
+      "native_characters": 4854,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 5056
+    },
+    {
+      "pdf_page": 91,
+      "native_characters": 4005,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9983,
+      "missing_native_tokens": {
+        "selfdirected": 1
+      },
+      "markdown_characters": 4172
+    },
+    {
+      "pdf_page": 92,
+      "native_characters": 4503,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99843,
+      "missing_native_tokens": {
+        "selfdirected": 1
+      },
+      "markdown_characters": 4713
+    },
+    {
+      "pdf_page": 93,
+      "native_characters": 4012,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4190
+    },
+    {
+      "pdf_page": 94,
+      "native_characters": 3913,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99628,
+      "missing_native_tokens": {
+        "micronutrientrelated": 1,
+        "musclestrengthening": 1
+      },
+      "markdown_characters": 4112
+    },
+    {
+      "pdf_page": 95,
+      "native_characters": 4483,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4755
+    },
+    {
+      "pdf_page": 96,
+      "native_characters": 4507,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 4729
+    },
+    {
+      "pdf_page": 97,
+      "native_characters": 1863,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1959
+    },
+    {
+      "pdf_page": 98,
+      "native_characters": 0,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": ""
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 0
+    },
+    {
+      "pdf_page": 99,
+      "native_characters": 1967,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 2072
+    },
+    {
+      "pdf_page": 100,
+      "native_characters": 1650,
+      "method": "native",
+      "tables_detected": 2,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.9958,
+      "missing_native_tokens": {
+        "nonmonetary": 1
+      },
+      "markdown_characters": 1828
+    },
+    {
+      "pdf_page": 101,
+      "native_characters": 1791,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99595,
+      "missing_native_tokens": {
+        "nonmonetary": 1
+      },
+      "markdown_characters": 1913
+    },
+    {
+      "pdf_page": 102,
+      "native_characters": 1828,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1930
+    },
+    {
+      "pdf_page": 103,
+      "native_characters": 1657,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1742
+    },
+    {
+      "pdf_page": 104,
+      "native_characters": 1763,
+      "method": "native",
+      "tables_detected": 2,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99138,
+      "missing_native_tokens": {
+        "nonmonetary": 1,
+        "osteoarthritis": 1
+      },
+      "markdown_characters": 1954
+    },
+    {
+      "pdf_page": 105,
+      "native_characters": 1741,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1833
+    },
+    {
+      "pdf_page": 106,
+      "native_characters": 1695,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 1795
+    },
+    {
+      "pdf_page": 107,
+      "native_characters": 702,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 752
+    },
+    {
+      "pdf_page": 108,
+      "native_characters": 0,
+      "method": "ocr_full_page",
+      "tables_detected": 0,
+      "warnings": [
+        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
+      ],
+      "adjustments": [],
+      "ocr": [
+        {
+          "label": "Página inteira",
+          "raw_text": "e\n0\na,\n.\nº\n0\nº0\noo\n(1,00\n1,000\n..000\n\"000\ne “O\n“cc,\n*0\no\nº 0 0\ne “e. .,0\no\nct\no O O\ne\ne\n0000\" 00 00 00\n000009020 00\n0004090200\n0090040\n000990\n0000\n5785240071100\nWI||\n"
+        }
+      ],
+      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 417
+    }
+  ],
+  "markdown_sha256": "936bc99dcd3d75153ecc02a4d4ba2503e455238b9b0c8d59c7c8e007ab26b343",
+  "summary": {
+    "pages_converted": 108,
+    "sparse_pages": [
+      1,
+      2,
+      3,
+      6,
+      18,
+      52,
+      68,
+      98,
+      108
+    ],
+    "ocr_pages": [
+      1,
+      2,
+      3,
+      6,
+      18,
+      52,
+      68,
+      98,
+      108
+    ],
+    "pages_with_tables_detected": [
+      5,
+      11,
+      12,
+      13,
+      15,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      35,
+      36,
+      37,
+      38,
+      39,
+      46,
+      47,
+      48,
+      49,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107
+    ],
+    "pages_with_warnings": [
+      1,
+      2,
+      3,
+      6,
+      9,
+      10,
+      11,
+      12,
+      18,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      33,
+      34,
+      35,
+      36,
+      37,
+      39,
+      45,
+      46,
+      47,
+      52,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      68,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      78,
+      79,
+      80,
+      81,
+      98,
+      108
+    ],
+    "pages_with_adjustments": []
+  }
+}

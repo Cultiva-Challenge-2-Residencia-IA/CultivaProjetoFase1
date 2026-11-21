@@ -4,3 +4,12 @@ sha256: 6e22a611b963ed42af2e52e36dfceb4f6a947c3bfd8c705f0a6162c533d2239a
 page_notes:
   4: 'Conferida na revisão de aprovação de 08/11/2026 (relatorios/revisao-aprovacao-corpus.md): todo o
     texto corrido presente; falso alerta porque a camada nativa do PDF repete o texto.'
+  1: 'Letra capitular e primeira linha em versalete do primeiro parágrafo foram extraídas depois da segunda
+    linha (''Ocomponentes centrais… osSISTEMA FISIOLÓGICO''); ordem refeita por replacement conforme o
+    PDF (issue #27).'
+replacements:
+- page: 1
+  old: Ocomponentes centrais como periféricos, os quais interagem com osSISTEMA FISIOLÓGICO QUE REGULA
+    a massa corporal envolve tanto aspectos ambientais
+  new: O SISTEMA FISIOLÓGICO QUE REGULA a massa corporal envolve tanto componentes centrais como periféricos,
+    os quais interagem com os aspectos ambientais

@@ -1,6 +1,6 @@
 # Entrega: RAG de Nutrição com base curada, banco vetorial e rastreabilidade de fontes
 
-> **Estado das fontes.** O corpus tem 22 fontes catalogadas em [`corpus/manifest.yaml`](../corpus/manifest.yaml). Depois da revisão de aprovação ([`revisao-aprovacao-corpus.md`](../corpus/nutricao/relatorios/revisao-aprovacao-corpus.md), PR #31), **21 estão aprovadas** e só a SBAN segue `pendente`, por possível conflito de interesse. O índice padrão, a demonstração e o benchmark usam **só as fontes aprovadas**; as pendentes entram apenas com `CULTIVA_INCLUIR_PENDENTES=true` (ADR 0002, issue #7). A licença não é critério de aprovação: vale o aceite de risco para projeto acadêmico sem fins lucrativos ([`corpus/README.md`](../corpus/README.md)).
+> **Estado das fontes.** O corpus de Nutrição mantém 22 fontes no [`corpus/manifest.yaml`](../corpus/manifest.yaml); o manifesto agora tem 33 registros no total, incluindo onze fontes prioritárias de Saúde Física em `kind: original_only` (oito com Markdown candidato, todas fora dos Trechos). Depois da revisão de aprovação do corpus de Nutrição ([`revisao-aprovacao-corpus.md`](../corpus/nutricao/relatorios/revisao-aprovacao-corpus.md), PR #31), **21 das 22 fontes de Nutrição estão aprovadas** e só a SBAN segue `pendente`, por possível conflito de interesse. O índice padrão, a demonstração e o benchmark usam **só as fontes aprovadas de Nutrição**; as pendentes entram apenas com `CULTIVA_INCLUIR_PENDENTES=true` (ADR 0002, issue #7). A licença não é critério de aprovação: vale o aceite de risco para projeto acadêmico sem fins lucrativos ([`corpus/README.md`](../corpus/README.md)).
 
 Os números deste documento foram gerados pelo sistema, não escritos à mão: `uv run python -m src.demo_entrega --salvar-artefatos` regrava os artefatos em [`entrega_semanal/`](../entrega_semanal/), e `uv run python -m src.evaluation.run_benchmark --no-ollama` regrava o benchmark.
 
@@ -74,7 +74,7 @@ A página e a seção nunca são misturadas entre Trechos. É isso que permite c
 
 ```mermaid
 flowchart LR
-    M["corpus/manifest.yaml<br/>22 fontes: origem,<br/>SHA-256, source_type, aprovação"] --> C
+    M["corpus/manifest.yaml<br/>22 fontes de Nutrição alimentam este fluxo;<br/>11 original_only de Saúde Física ficam fora da conversão/Trechos"] --> C
     P["PDFs originais<br/>corpus/nutricao/originais"] --> C["convert_pdfs.py<br/>Markdown por página + OCR<br/>+ relatório de cobertura"]
     C --> V{"verify_corpus.py<br/>cadeia de hashes do PDF<br/>aos Trechos (CI)"}
     C --> R["prepare_rag.py<br/>limpeza + Trechos de ~1000 caracteres<br/>sem atravessar página nem seção"]
@@ -144,7 +144,7 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 - **Reranker e idioma:** o bônus por sobreposição de termos favorecia Trechos em português e foi um dos motivos para deixar o PubMed (em inglês) fora desta entrega. Ele foi desligado na #35; a reavaliação do PubMed segue na #28.
 - **Aprovação das fontes:** 21 de 22 aprovadas (PR #31), por revisão com amostra de páginas e conferência numérica das tabelas, feita com apoio de IA. A SBAN segue pendente por possível conflito de interesse (material com marca da Nestlé). SVB e CFN foram aprovados com ressalva (`data_quality_note`).
 - **Código de Ética do CFN:** a versão de 2018 provavelmente foi revogada pela Resolução CFN 856/2026, ainda sem texto oficial localizado.
-- **Extração:** há defeitos conhecidos (versaletes do Guia, uma página do Crispim) nas issues #26 e #27.
+- **Extração:** a caixa perdida no Guia (versaletes e inícios de frase) e a página de duas colunas do Crispim foram corrigidas na issue #27. No Guia, os Trechos com frase começando em minúscula depois de ponto caíram de 195 para 6.
 
 ## 5. Relação com as issues
 

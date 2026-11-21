@@ -111,6 +111,37 @@ Buscadas para cobrir a lista de fontes do projeto. Os PDFs vêm do SciELO (licen
 - **Sono e alimentação:** o título "O impacto da privação de sono e fadiga no comportamento alimentar" (Revista de Nutrição) não foi localizado. Entraram, em português, Crispim et al. (2007), revisão sobre sono e obesidade, e Fusco et al. (2020), sobre ansiedade, sono e compulsão alimentar em adultos.
 - **Não localizado:** o texto exato "Comportamento alimentar e suas interfaces com a saúde e o estresse". O estudo de Penaforte et al. (Demetra, 2016), sobre estresse e comportamento alimentar de universitários, foi identificado, mas o servidor da revista não respondeu para o download.
 
+### Nove fontes para lacunas do corpus (inclusão de 20/11/2026)
+
+PDFs reunidos pelo autor da inclusão para cobrir temas perguntados e ausentes do corpus: kombucha, hipertensão, dislipidemias, diabetes, rótulos, suplementos e mitos alimentares. **Todas entram com `approval_status: pendente`**, então não chegam ao RAG até uma revisão de aprovação.
+
+- **Fontes:**
+  - Gabe e Jaime (Rev Saúde Pública, 2026), sobre conhecimento em alimentação e adesão ao Guia (NutriNet-Brasil);
+  - "Desmistificando dúvidas sobre alimentação e nutrição" (Ministério da Saúde e UFMG, 2016);
+  - Protocolo de uso do Guia Alimentar, volume 3: orientação alimentar de adultos com hipertensão (Ministério da Saúde e UnB, 2022);
+  - Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose (SBC, 2025);
+  - Diretriz Brasileira de Hipertensão Arterial (SBC, SBH e SBN, 2025);
+  - Fraiz et al. (Fermentation, 2025), revisão sistemática sobre kombucha, **em inglês** (`language: en`);
+  - Perguntas e respostas da Anvisa sobre rotulagem nutricional (4ª edição, 2024) e sobre suplementos alimentares (9ª edição, 2025);
+  - Terapia nutricional no pré-diabetes e no diabetes tipo 2 (Diretriz SBD 2023, versão web).
+- **Licenças, conforme o próprio PDF:**
+  - CC BY-NC-SA 4.0 no material do Ministério da Saúde e da UFMG e no protocolo de hipertensão;
+  - CC BY 4.0 na revisão de kombucha;
+  - "Licença de Atribuição Creative Commons", sem versão impressa, em Gabe e Jaime e nas duas diretrizes da SBC;
+  - sem licença declarada nos dois documentos da Anvisa e na diretriz da SBD (`license: pendente`, `risco_aceito_uso_academico_sem_fins_lucrativos`). **A equipe precisa confirmar se o aceite de risco de 06/11/2026 se estende a essas três.**
+- **Escopo:**
+  - as diretrizes da SBC, da SBD e o protocolo de hipertensão são documentos para profissionais e tratam de diagnóstico e de remédios. Preservá-los não autoriza o aplicativo a diagnosticar nem a prescrever (RN01);
+  - na aprovação, avaliar restringir os Trechos das diretrizes da SBC às seções de alimentação e estilo de vida (`skip_pages`).
+- **Ressalvas da origem:**
+  - a URL exata do PDF de rotulagem da Anvisa não foi localizada, e a origem registrada é a pasta de publicações;
+  - o PDF da SBD é a impressão da página web pelo navegador e traz duas datas de revisão; uma segunda impressão idêntica foi descartada;
+  - os documentos da Anvisa podem mudar com as consultas públicas de 2025. Confirmar a vigência antes de aprovar.
+- **Conversão:**
+  - sem OCR, exceto 7 páginas quase vazias (capas e separadores do material do Ministério da Saúde e do protocolo);
+  - a maior parte dos alertas de cobertura lexical vem de tabelas (`<br>` dentro das células) e de números de citação colados às palavras. A perda real fica em tabelas e quadros com texto girado, como o formulário de marcadores do protocolo (página 10) e quadros de remédios da diretriz de hipertensão;
+  - capas, equipes, declarações de conflito de interesse, sumários, siglas, índices e referências ficam fora dos Trechos (`scripts/config/rag.yaml`).
+- **Windows:** com `core.autocrlf=true`, o Git grava os Markdown com CRLF e o `verify_corpus.py` acusa edição. Os scripts também gravam CRLF no Windows. Nesta inclusão, os derivados foram gerados com LF, como no restante do repositório. O `prepare_rag.py` grava o `jsonl_path` do `geracao.json` com a barra do sistema (`str(Path)`): no Windows sai `corpus\nutricao\rag\…`, que o verificador acha no Windows, mas não no Linux do CI. Os nove caminhos foram corrigidos para `/`; corrigir o script (`as_posix()`) muda o hash dele e exige regenerar os Trechos de todas as fontes, por isso fica para a #88.
+
 
 ## Decisão sobre licenças e uso das fontes
 
@@ -157,6 +188,13 @@ Decisões de 06/11/2026.
   - **CFN:** nas páginas 7 a 18, um colchete decorativo da camada nativa vinha com tachado (`~~[~~`) no cabeçalho corrido e no rodapé com o número da página. Os `replacements` (com `count` exato) tiram o colchete e o rodapé inteiro.
   - **ABESO:** nas páginas 184 e 218, o tachado partia palavras ("qu ~~e a~~ cafeína", "bastant ~~e h~~ eterogêneos"), refeitas por `replacements`.
   - **Efeito:** nenhum Trecho tem mais `~~`. Mudaram o texto de 16 Trechos (14 sem o ruído e 2 da p17 do CFN redivididos, com o conteúdo da página idêntico); v1, v2, risco e abstenção ficaram iguais.
+- **Caixa do texto (issue #27, 19/11/2026).**
+  - **Causa:** o `to_markdown` do PyMuPDF perde a caixa em fontes com versalete e no início de frases. No Guia, saía "PREfIRA SEmPRE AlImENToS" e "também", onde o PDF tem "Prefira sempre alimentos" e "Também".
+  - **Correção:** a opção `restore_case_from_native` alinha as palavras do Markdown com o texto nativo da página e usa a caixa do nativo quando ela é regular. Ela não rebaixa maiúsculas corretas e não importa a caixa irregular do próprio nativo, como "SAÚde" na capa.
+  - **Resultado no Guia:** os Trechos com frase em minúscula depois de ponto caíram de 195 para 6, e os com palavra em caixa irregular, de 63 para 25 (sobram nomes compostos e siglas, mais seis palavras em que o próprio nativo é irregular).
+  - **Crispim:** a capitular e a primeira linha da página 1, extraídas fora de ordem, foram refeitas por `replacements`.
+  - **Reaprovação:** as 21 fontes aprovadas passaram por `pendente` para a regeneração, porque o script mudou. Só os Markdown do Guia e do Crispim mudaram.
+  - **Saúde Física:** os seis candidatos em PDF (`kind: original_only`, ainda `pendente`) também foram reconvertidos com o script novo, depois da mesclagem da `main`. A opção não vale para eles; só mudaram o hash do script nos relatórios e o texto de OCR das figuras sem decisão de página no WHO 2020 e no WHO 2023 (caracteres espúrios que variam com a versão do Tesseract).
 - **Configuração da ABESO (issue #26, 19/11/2026).**
   - **Notas:** `page_notes` nas 71 páginas com aviso: alertas de tokenização (palavras coladas a citações, palavras de cabeçalho intercaladas em palavras hifenizadas), com todos os números decimais do PDF presentes no Markdown.
   - **OCR:** `sparse_page_decisions` nas 32 páginas que passavam por OCR (separadores em branco, folhas de rosto e contracapa), que agora usam o texto nativo. O título da seção de 37 Trechos ficou melhor ("CAPÍTULO 3 MICROBIOTA…", acentos do capítulo 10), e um `replacement` na página 251 junta número e nome do capítulo 11.
@@ -181,13 +219,39 @@ corpus/
     requirements.txt
     config/         # decisões de OCR e correções vinculadas ao SHA-256
     ajustes/        # transcrições pontuais de páginas problemáticas
+  saudefisica/
+    originais/      # fontes prioritárias obtidas no formato publicado
+    markdown/       # candidatas convertidas; ainda sem Trechos ou RAG
+    relatorios/     # relatórios por página das conversões
 ```
+
+## Saúde Física — originais prioritários
+
+Em 19/11/2026, oito dos onze documentos prioritários registrados no manifesto têm original arquivado: seis PDFs e dois HTMLs (a ficha da OMS e o manuscrito JOSPT de dor lombar). Todos os oito originais obtidos foram convertidos em Markdown candidato à revisão. Os arquivos preservam SHA-256 e vínculo entre original e derivado.
+
+As onze fontes estão catalogadas em `manifest.yaml` como `kind: original_only`, inclusive as que têm Markdown candidato. Esse tipo preserva os arquivos e derivados sem gerar Trechos nem entrar no RAG. O `verify_corpus.py` confere formato e hash dos originais, Markdown e relatórios, e informa os originais pendentes; o `prepare_rag.py` não processa esse tipo. Todas seguem com `approval_status: pendente`; obtenção e conversão não são revisão de fidelidade, aprovação de conteúdo nem decisão de uso técnico.
+
+| Prioridade | Estado | Observação de obtenção |
+|---|---|---|
+| Guia brasileiro (2021) | Original obtido + Markdown candidato | PDF oficial do Ministério da Saúde; 52 páginas. |
+| WHO Guidelines (2020) | Original obtido + Markdown candidato | PDF oficial em inglês; 104 páginas. |
+| Physical Activity — WHO | Original HTML + Markdown candidato | Página oficial consultada em 19/11/2026; pode mudar no endereço de origem. |
+| ACSM Resistance Training Position Stand (2026, PMID 41843416) | Pendente | PDF do PMC retornou desafio anti-bot; o texto integral em HTML está disponível no PMC. Substitui o item ACSM de 2009. Licença CC BY-NC-ND 4.0. |
+| ACSM Preparticipation Screening (2015) | Pendente | PubMed fornece referência e resumo; texto integral não obtido em acesso aberto. |
+| ACC Exercise Prescriptions (2026) | Pendente | Página integral do editor retornou HTTP 403. |
+| IOC Load and Injury (2016, parte 1) | Original obtido + Markdown candidato | PDF em cópia do Oslo Sports Trauma Research Center; 13 páginas. |
+| IOC Load and Illness (2016, parte 2) | Original obtido + Markdown candidato | PDF no repositório da University of Pretoria; 11 páginas, com uma tabela que requer conferência visual na página 2. |
+| JOSPT Low Back Pain CPG (2021) | Original HTML + Markdown candidato | HTML integral do manuscrito público no PubMed Central; o PDF acionou desafio anti-bot. Contém 32 tabelas e imagens, que exigem conferência no HTML. |
+| WHO Package of Interventions, Module 2 (2023) | Original obtido + Markdown candidato | PDF oficial da OMS; 108 páginas. |
+| JOSPT Rotator Cuff Tendinopathy (2025) | Original obtido + Markdown candidato | PDF hospedado pela IFSPT; 40 páginas. O PDF contém aviso de uso pessoal e reserva de outros usos mediante permissão. |
+
+Licenças e termos permanecem registrados no manifesto para rastreabilidade. Pelo aceite de risco de 06/11/2026 e pela decisão de publicação de 12/11/2026, licença ausente, restritiva ou em conflito **não bloqueia a aquisição, conversão, aprovação ou manutenção pública dos arquivos neste projeto acadêmico sem fins lucrativos**. Esse aceite não declara que o titular concedeu autorização nem se estende a uso comercial, vitrine paga ou distribuição fora do projeto; se um titular solicitar remoção, o arquivo e seus derivados saem do repositório. A cópia JOSPT do manguito traz aviso de uso pessoal e a licença do ACSM 2026 é CC BY-NC-ND; esses termos ficam documentados, sem funcionar como impedimento no escopo aceito. Os arquivos de repositórios institucionais são distinguidos dos endpoints do editor. O manuscrito HTML de dor lombar é diferente da versão final diagramada.
 
 O diretório `markdown/` contém **candidatos à revisão**, conforme esta etapa autorizada. Não interpretar sua presença ali como revisão concluída. As orientações anteriores em `docs/contexto-projeto.md` registram a situação antes da obtenção dos documentos; seus arquivos locais foram preservados.
 
 ## Dependências e execução
 
-Ambiente utilizado: Python **3.11**, PyMuPDF/PyMuPDF4LLM **2.1**, PyYAML **6.0.3**, Pillow **13.0.0** e dependências fixadas em `scripts/requirements.txt`. PyMuPDF inclui renderização, análise local de layout e suporte a OCR via MuPDF/Tesseract. Não são necessários Poppler, serviço de OCR remoto, chave de API ou LLM generativo. `curl` é usado apenas quando há download solicitado. Para OCR é necessário o modelo português `por.traineddata`, baixado do repositório oficial `tesseract-ocr/tessdata_fast` e validado por SHA-256.
+Ambiente utilizado: Python **3.11**, PyMuPDF/PyMuPDF4LLM **2.1**, PyYAML **6.0.3**, Pillow **13.0.0**, BeautifulSoup **4.14.3**, Markdownify **1.2.0** e dependências fixadas em `scripts/requirements.txt`. PyMuPDF inclui renderização, análise local de layout e suporte a OCR via MuPDF/Tesseract. A conversão HTML extrai os elementos indicados por `content_selector` no manifesto e preserva tabelas em Markdown quando possível; figuras não são copiadas. Não são necessários Poppler, serviço de OCR remoto, chave de API ou LLM generativo. `curl` é usado apenas quando há download solicitado. Para OCR é necessário o modelo português `por.traineddata`, baixado do repositório oficial `tesseract-ocr/tessdata_fast` e validado por SHA-256.
 
 Na raiz do repositório:
 
@@ -203,6 +267,10 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download-ocr --overwrit
 
 # Verificação dos artefatos locais:
 corpus/.venv/bin/python corpus/scripts/verify_corpus.py
+
+# Converte um original HTML sem substituir o arquivo de origem:
+corpus/.venv/bin/python corpus/scripts/convert_html.py \
+  --source who-physical-activity-factsheet-2024
 ```
 
 Após obter o modelo OCR em `corpus/.cache/tessdata/`, a conversão pode rodar offline, sem as opções `--download` e `--download-ocr`. Para usar outro diretório, informar `--tessdata /caminho/tessdata`. O modelo esperado tem SHA-256 `c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb`; se o endereço remoto mudar de conteúdo, o processo falha em vez de usar silenciosamente outro modelo. O ambiente e o cache estão ignorados pelo Git.

@@ -1,0 +1,49 @@
+V2-REC-01    llm_citacoes_validas              44.8 s removidas=1 
+V2-REC-02    extrativa                         45.1 s removidas=0 
+V2-REC-04    llm_citacoes_validas              26.0 s removidas=1 
+V2-REC-05    llm_citacoes_validas              24.3 s removidas=0 
+V2-REC-07    llm_citacoes_validas              32.2 s removidas=1 
+V2-REC-08    llm_citacoes_validas              43.0 s removidas=0 
+V2-REC-10    llm_citacoes_validas              39.4 s removidas=1 
+V2-REC-11    llm_citacoes_validas              39.7 s removidas=0 
+V2-REC-13    extrativa                         45.1 s removidas=0 
+V2-REC-14    llm_citacoes_validas              44.2 s removidas=0 
+V2-REC-16    extrativa                         45.2 s removidas=0 
+V2-REC-17    extrativa_apos_citacao_invalida   30.5 s removidas=1 resumo_sem_frase_com_citacao_literal
+V2-REC-19    extrativa                         45.1 s removidas=0 
+V2-REC-20    llm_citacoes_validas              27.2 s removidas=0 
+V2-REC-22    llm_citacoes_validas              26.1 s removidas=0 
+V2-REC-23    llm_citacoes_validas              27.4 s removidas=0 
+V2-PRE-01    extrativa_apos_citacao_invalida   34.6 s removidas=2 nenhum_trecho_citado sem_frases resumo_sem_frase_com_citacao_literal
+V2-PRE-02    llm_citacoes_validas              36.3 s removidas=0 
+V2-PRE-04    llm_citacoes_validas              30.5 s removidas=0 
+V2-PRE-05    llm_citacoes_validas              37.7 s removidas=0 
+V2-ADV-01    -                                  0.0 s removidas=0 
+V2-ADV-02    -                                  0.0 s removidas=0 
+V2-ADV-04    llm_citacoes_validas              36.5 s removidas=0 
+V2-FOR-01    llm_citacoes_validas              21.5 s removidas=0 
+V2-FOR-02    extrativa_apos_citacao_invalida   28.4 s removidas=2 nenhum_trecho_citado sem_frases resumo_sem_frase_com_citacao_literal
+V2-FOR-04    -                                  0.0 s removidas=0 
+V2-GRA-01    extrativa_apos_citacao_invalida   40.4 s removidas=3 nenhum_trecho_citado sem_frases resumo_sem_frase_com_citacao_literal
+V2-GRA-02    extrativa_apos_citacao_invalida   41.9 s removidas=3 nenhum_trecho_citado sem_frases resumo_sem_frase_com_citacao_literal
+V2-TAC-01    extrativa_apos_citacao_invalida   38.0 s removidas=1 resumo_sem_frase_com_citacao_literal
+V2-TAC-02    extrativa_apos_citacao_invalida   34.0 s removidas=2 nenhum_trecho_citado sem_frases resumo_sem_frase_com_citacao_literal
+{
+  "split": "dev",
+  "modelo": "qwen2.5:7b",
+  "casos": 30,
+  "chegaram_ao_llm": 23,
+  "checadas": 23,
+  "llm_sem_base_vira_nao_sei": 0,
+  "conformidade_citacao_llm": 0.6957,
+  "taxa_fallback": 0.3043,
+  "problemas_por_tipo": {
+    "resumo_sem_frase_com_citacao_literal": 7,
+    "nenhum_trecho_citado": 5,
+    "sem_frases": 5
+  },
+  "frases_removidas": 18,
+  "frases_mantidas": 34,
+  "respostas_com_frase_removida": 11,
+  "segundos_mediana": 36.3
+}
