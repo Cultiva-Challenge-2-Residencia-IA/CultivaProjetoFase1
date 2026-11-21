@@ -1,0 +1,12 @@
+{
+  "source_id": "nhs-physical-activity-adults-19-64",
+  "source_sha256": "49b93f8d374b7d1c9978811bc05760d706f759b29edb394cf995299879ce220e",
+  "original_path": "corpus/saudefisica/originais/13-nhs-physical-activity-adults-19-64.html",
+  "markdown_path": "corpus/saudefisica/markdown/13-nhs-physical-activity-adults-19-64.md",
+  "markdown_sha256": "558d054b9ea91816b59b8719b6e1824f28a51c21f411bcdaf695f0a56841ebf3",
+  "script_sha256": "96850ec0c704eeecbc09172c358b30027a1d020462f212c5a5335a93982e2eb5",
+  "content_selector": "main",
+  "tables_found": 0,
+  "images_found": 0,
+  "status": "concluida_com_ressalvas"
+}
