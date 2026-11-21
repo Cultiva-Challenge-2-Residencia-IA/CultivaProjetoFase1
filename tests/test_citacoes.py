@@ -277,3 +277,28 @@ def test_frases_removidas_ficam_no_estado_da_thread():
     t.start()
     t.join()
     assert vistos == {"removidas": [], "aceita": None}
+
+
+def test_citacao_presente_em_varias_fontes_recebe_todos_os_rotulos():
+    from src.rag.verificador.citacoes import filtrar_citacoes_literais
+    textos = {"T1": "O Guia recomenda evitar alimentos ultraprocessados.",
+              "T2": "A fibra solúvel forma gel.",
+              "T3": "Em resumo, o Guia recomenda evitar alimentos ultraprocessados."}
+    r, ajustes = filtrar_citacoes_literais(
+        {"evidence_summary": [{"frase": "x y z w.", "trechos": [2], "citacao": "o Guia recomenda evitar alimentos"}]},
+        textos)
+    assert [a["motivo"] for a in ajustes] == ["rotulo_corrigido"]
+    assert r["evidence_summary"][0]["trechos"] == [1, 3]
+
+
+def test_mecanismo_sem_base_nao_recebe_texto_extrativo():
+    from src.agent.llm_client import LocalLLMClient
+    from src.rag.verificador.citacoes import FRASE_SEM_BASE
+    extrativa = {"evidence_summary": "e", "physiological_mechanism": "Frase copiada do trecho [T1].",
+                 "protocol_findings": "p", "food_sources_or_compounds": [], "evidence_grade": "g"}
+    sem_base = LocalLLMClient._merge_llm_with_extractive(
+        {"evidence_summary": "a [T1].", "physiological_mechanism": FRASE_SEM_BASE}, extrativa)
+    assert sem_base["physiological_mechanism"] == FRASE_SEM_BASE
+    com_base = LocalLLMClient._merge_llm_with_extractive(
+        {"evidence_summary": "a [T1].", "physiological_mechanism": "Mecanismo do trecho [T2]."}, extrativa)
+    assert com_base["physiological_mechanism"] == "Mecanismo do trecho [T2]. (Frase copiada do trecho [T1].)"

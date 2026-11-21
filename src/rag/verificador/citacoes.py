@@ -24,7 +24,9 @@ _FIM_DE_FRASE = re.compile(r"(?<=[.!?])\s+")
 FRASE_SEM_BASE = "Não consta nos trechos recuperados."
 CAMPOS_DO_LLM = ("evidence_summary", "physiological_mechanism", "protocol_findings")
 MIN_PALAVRAS = 4
-MIN_PALAVRAS_CITACAO = 4  # citação literal mínima (critérios da #67)
+# Citação literal mínima (critérios da #67). O prompt pede pelo menos 5 palavras; aceitar 4 é margem
+# intencional, para não descartar uma citação verdadeira que o modelo encurtou em uma palavra.
+MIN_PALAVRAS_CITACAO = 4
 
 
 @dataclass
