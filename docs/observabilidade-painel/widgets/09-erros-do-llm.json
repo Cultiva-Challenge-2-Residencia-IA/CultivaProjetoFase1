@@ -1,0 +1,37 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Falhas do LLM por dia",
+  "description": "Chamadas ao Ollama que deram erro por dia, no período escolhido no topo do painel (padrão: últimos 7 dias). Quase sempre é tempo esgotado; nesses casos a resposta cai na síntese extrativa.",
+  "view": "observations",
+  "dimensions": [],
+  "metrics": [
+    {
+      "measure": "count",
+      "agg": "count"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "ollama"
+      ],
+      "type": "stringOptions"
+    },
+    {
+      "column": "level",
+      "operator": "any of",
+      "value": [
+        "ERROR"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "BAR_TIME_SERIES",
+  "chartConfig": {
+    "type": "BAR_TIME_SERIES"
+  },
+  "minVersion": 1
+}

@@ -1,0 +1,12 @@
+{
+  "source_id": "cochrane-exercise-chronic-low-back-pain-2021",
+  "source_sha256": "86c9542539a1bb717c0a7975f803cb313befd5987f747ac25a9f547ec7664894",
+  "original_path": "corpus/saudefisica/originais/16-cochrane-exercise-chronic-low-back-pain-2021-pt.html",
+  "markdown_path": "corpus/saudefisica/markdown/16-cochrane-exercise-chronic-low-back-pain-2021.md",
+  "markdown_sha256": "130cdcdbd940c7a2b0c65c3c33663a4b45f1ba96f0c8a8a0020540b897daaf72",
+  "script_sha256": "96850ec0c704eeecbc09172c358b30027a1d020462f212c5a5335a93982e2eb5",
+  "content_selector": "main",
+  "tables_found": 0,
+  "images_found": 0,
+  "status": "concluida_com_ressalvas"
+}

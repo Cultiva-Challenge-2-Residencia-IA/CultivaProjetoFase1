@@ -1,0 +1,12 @@
+{
+  "source_id": "nhs-warm-up-before-exercise",
+  "source_sha256": "78158db4b007d63a501d0e846411a12eb9d1ac8c727cd45a245790ecb3cefb3c",
+  "original_path": "corpus/saudefisica/originais/14-nhs-warm-up-before-exercise.html",
+  "markdown_path": "corpus/saudefisica/markdown/14-nhs-warm-up-before-exercise.md",
+  "markdown_sha256": "0907ce2685d098fb55f1bd7410b2efee7de337cc6a93185f2bebab7c54d637fe",
+  "script_sha256": "96850ec0c704eeecbc09172c358b30027a1d020462f212c5a5335a93982e2eb5",
+  "content_selector": "main",
+  "tables_found": 0,
+  "images_found": 5,
+  "status": "concluida_com_ressalvas"
+}

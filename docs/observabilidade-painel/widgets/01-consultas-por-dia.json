@@ -1,0 +1,29 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Consultas por dia",
+  "description": "Quantas perguntas o consultor de Nutrição respondeu por dia, no período escolhido no topo do painel (padrão: últimos 7 dias). Conta os traces 'consulta_nutricao', inclusive os de experimentos.",
+  "view": "traces",
+  "dimensions": [],
+  "metrics": [
+    {
+      "measure": "count",
+      "agg": "count"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "consulta_nutricao"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "LINE_TIME_SERIES",
+  "chartConfig": {
+    "type": "LINE_TIME_SERIES"
+  },
+  "minVersion": 1
+}

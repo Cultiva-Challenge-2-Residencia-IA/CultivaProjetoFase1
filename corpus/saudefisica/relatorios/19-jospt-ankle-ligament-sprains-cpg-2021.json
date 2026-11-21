@@ -1,0 +1,752 @@
+{
+  "source_id": "jospt-ankle-ligament-sprains-cpg-2021",
+  "source_sha256": "7aaf19cd4ca5a2fbd2bf194156a2653a7fe2dabc488e8bf56ed86b45d93dde36",
+  "pdf_pages": 80,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "99da34315c612f2c47c791d267a1433a35f6753607bec4c7ade32ab91e3ea954",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.5.4"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, sem imagens exportadas; consulta no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "summary": {
+    "pages_converted": 80
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "characters_native": 3159,
+      "characters_markdown": 3026,
+      "lexical_coverage": 0.9075,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "characters_native": 5153,
+      "characters_markdown": 5095,
+      "lexical_coverage": 0.9416,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "characters_native": 4795,
+      "characters_markdown": 4875,
+      "lexical_coverage": 0.9355,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "characters_native": 3269,
+      "characters_markdown": 3275,
+      "lexical_coverage": 0.9034,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "characters_native": 6248,
+      "characters_markdown": 5965,
+      "lexical_coverage": 0.9487,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 6,
+      "characters_native": 5562,
+      "characters_markdown": 5266,
+      "lexical_coverage": 0.9435,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 7,
+      "characters_native": 5298,
+      "characters_markdown": 5212,
+      "lexical_coverage": 0.9298,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 8,
+      "characters_native": 2108,
+      "characters_markdown": 1855,
+      "lexical_coverage": 0.8562,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 9,
+      "characters_native": 5580,
+      "characters_markdown": 5779,
+      "lexical_coverage": 0.9535,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 10,
+      "characters_native": 6660,
+      "characters_markdown": 6779,
+      "lexical_coverage": 0.9536,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 11,
+      "characters_native": 5141,
+      "characters_markdown": 5192,
+      "lexical_coverage": 0.9421,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 12,
+      "characters_native": 5393,
+      "characters_markdown": 5425,
+      "lexical_coverage": 0.9439,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 13,
+      "characters_native": 5416,
+      "characters_markdown": 5323,
+      "lexical_coverage": 0.9223,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 14,
+      "characters_native": 5444,
+      "characters_markdown": 5532,
+      "lexical_coverage": 0.89,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 15,
+      "characters_native": 5893,
+      "characters_markdown": 5863,
+      "lexical_coverage": 0.9312,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 16,
+      "characters_native": 5576,
+      "characters_markdown": 5475,
+      "lexical_coverage": 0.9413,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 17,
+      "characters_native": 5878,
+      "characters_markdown": 5676,
+      "lexical_coverage": 0.8874,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 18,
+      "characters_native": 5882,
+      "characters_markdown": 6000,
+      "lexical_coverage": 0.9439,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 19,
+      "characters_native": 5316,
+      "characters_markdown": 5383,
+      "lexical_coverage": 0.9174,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 20,
+      "characters_native": 2556,
+      "characters_markdown": 2313,
+      "lexical_coverage": 0.8824,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 21,
+      "characters_native": 4840,
+      "characters_markdown": 4841,
+      "lexical_coverage": 0.9166,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 22,
+      "characters_native": 5156,
+      "characters_markdown": 5096,
+      "lexical_coverage": 0.8625,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 23,
+      "characters_native": 5748,
+      "characters_markdown": 5893,
+      "lexical_coverage": 0.8544,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 24,
+      "characters_native": 5388,
+      "characters_markdown": 5344,
+      "lexical_coverage": 0.8418,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 25,
+      "characters_native": 1916,
+      "characters_markdown": 1645,
+      "lexical_coverage": 0.8562,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 26,
+      "characters_native": 4824,
+      "characters_markdown": 4625,
+      "lexical_coverage": 0.9265,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 27,
+      "characters_native": 4402,
+      "characters_markdown": 4259,
+      "lexical_coverage": 0.9241,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 28,
+      "characters_native": 5219,
+      "characters_markdown": 5087,
+      "lexical_coverage": 0.9327,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 29,
+      "characters_native": 5488,
+      "characters_markdown": 5299,
+      "lexical_coverage": 0.9383,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 30,
+      "characters_native": 3775,
+      "characters_markdown": 3656,
+      "lexical_coverage": 0.9152,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 31,
+      "characters_native": 5265,
+      "characters_markdown": 5134,
+      "lexical_coverage": 0.9351,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 32,
+      "characters_native": 4239,
+      "characters_markdown": 4179,
+      "lexical_coverage": 0.9141,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 33,
+      "characters_native": 4598,
+      "characters_markdown": 4532,
+      "lexical_coverage": 0.9224,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 34,
+      "characters_native": 5260,
+      "characters_markdown": 5160,
+      "lexical_coverage": 0.923,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 35,
+      "characters_native": 4915,
+      "characters_markdown": 4781,
+      "lexical_coverage": 0.9321,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 36,
+      "characters_native": 4844,
+      "characters_markdown": 4690,
+      "lexical_coverage": 0.9293,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 37,
+      "characters_native": 2750,
+      "characters_markdown": 2604,
+      "lexical_coverage": 0.888,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 38,
+      "characters_native": 2683,
+      "characters_markdown": 2468,
+      "lexical_coverage": 0.8775,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 39,
+      "characters_native": 2795,
+      "characters_markdown": 2531,
+      "lexical_coverage": 0.8877,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 40,
+      "characters_native": 9065,
+      "characters_markdown": 8888,
+      "lexical_coverage": 0.9689,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 41,
+      "characters_native": 8965,
+      "characters_markdown": 8780,
+      "lexical_coverage": 0.9712,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 42,
+      "characters_native": 8805,
+      "characters_markdown": 8612,
+      "lexical_coverage": 0.9685,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 43,
+      "characters_native": 8961,
+      "characters_markdown": 8784,
+      "lexical_coverage": 0.971,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 44,
+      "characters_native": 9203,
+      "characters_markdown": 9038,
+      "lexical_coverage": 0.9712,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 45,
+      "characters_native": 8995,
+      "characters_markdown": 8856,
+      "lexical_coverage": 0.9712,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 46,
+      "characters_native": 9082,
+      "characters_markdown": 8922,
+      "lexical_coverage": 0.9708,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 47,
+      "characters_native": 8950,
+      "characters_markdown": 8773,
+      "lexical_coverage": 0.9711,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 48,
+      "characters_native": 9155,
+      "characters_markdown": 9010,
+      "lexical_coverage": 0.9717,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 49,
+      "characters_native": 9113,
+      "characters_markdown": 8959,
+      "lexical_coverage": 0.9696,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 50,
+      "characters_native": 9122,
+      "characters_markdown": 8972,
+      "lexical_coverage": 0.9704,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 51,
+      "characters_native": 9091,
+      "characters_markdown": 8933,
+      "lexical_coverage": 0.971,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 52,
+      "characters_native": 9091,
+      "characters_markdown": 8938,
+      "lexical_coverage": 0.9711,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 53,
+      "characters_native": 8902,
+      "characters_markdown": 8756,
+      "lexical_coverage": 0.97,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 54,
+      "characters_native": 5700,
+      "characters_markdown": 5563,
+      "lexical_coverage": 0.9385,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 55,
+      "characters_native": 7961,
+      "characters_markdown": 7807,
+      "lexical_coverage": 0.9594,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 56,
+      "characters_native": 6343,
+      "characters_markdown": 6231,
+      "lexical_coverage": 0.9487,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 57,
+      "characters_native": 5458,
+      "characters_markdown": 5285,
+      "lexical_coverage": 0.9385,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 58,
+      "characters_native": 8360,
+      "characters_markdown": 8229,
+      "lexical_coverage": 0.9643,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 59,
+      "characters_native": 7345,
+      "characters_markdown": 7230,
+      "lexical_coverage": 0.9539,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 60,
+      "characters_native": 9232,
+      "characters_markdown": 9107,
+      "lexical_coverage": 0.9676,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 61,
+      "characters_native": 7262,
+      "characters_markdown": 7163,
+      "lexical_coverage": 0.9494,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 62,
+      "characters_native": 7816,
+      "characters_markdown": 7672,
+      "lexical_coverage": 0.9517,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 63,
+      "characters_native": 4983,
+      "characters_markdown": 4889,
+      "lexical_coverage": 0.9318,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 64,
+      "characters_native": 4594,
+      "characters_markdown": 4498,
+      "lexical_coverage": 0.927,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 65,
+      "characters_native": 7655,
+      "characters_markdown": 7502,
+      "lexical_coverage": 0.9629,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 66,
+      "characters_native": 7758,
+      "characters_markdown": 7596,
+      "lexical_coverage": 0.9601,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 67,
+      "characters_native": 6349,
+      "characters_markdown": 6205,
+      "lexical_coverage": 0.9474,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 68,
+      "characters_native": 8652,
+      "characters_markdown": 8515,
+      "lexical_coverage": 0.9738,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 69,
+      "characters_native": 5983,
+      "characters_markdown": 5810,
+      "lexical_coverage": 0.9511,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 70,
+      "characters_native": 6938,
+      "characters_markdown": 6832,
+      "lexical_coverage": 0.9546,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 71,
+      "characters_native": 8216,
+      "characters_markdown": 8076,
+      "lexical_coverage": 0.9572,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 72,
+      "characters_native": 7468,
+      "characters_markdown": 7362,
+      "lexical_coverage": 0.9522,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 73,
+      "characters_native": 8008,
+      "characters_markdown": 7877,
+      "lexical_coverage": 0.9564,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 74,
+      "characters_native": 3516,
+      "characters_markdown": 3428,
+      "lexical_coverage": 0.9117,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 75,
+      "characters_native": 676,
+      "characters_markdown": 432,
+      "lexical_coverage": 0.5521,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 76,
+      "characters_native": 886,
+      "characters_markdown": 683,
+      "lexical_coverage": 0.6691,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 77,
+      "characters_native": 4942,
+      "characters_markdown": 4661,
+      "lexical_coverage": 0.9343,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 78,
+      "characters_native": 1746,
+      "characters_markdown": 1688,
+      "lexical_coverage": 0.8697,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 79,
+      "characters_native": 3134,
+      "characters_markdown": 3171,
+      "lexical_coverage": 0.8551,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 80,
+      "characters_native": 2062,
+      "characters_markdown": 1790,
+      "lexical_coverage": 0.8517,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    }
+  ],
+  "markdown_sha256": "046ec7268a544a5de99bd866b36d1ebc08df3b386aa49855a5ca755eaf5611e0"
+}
