@@ -2,10 +2,10 @@
   "phase": "PHASE_2_FULL_HYBRID_RAG_PLUS_GRAPH_AND_TACO",
   "total_questions": 16,
   "top_k": 4,
-  "recall_questions_evaluated": 12,
+  "recall_questions_evaluated": 13,
   "overall_metrics": {
-    "mean_doc_recall_at_k": 0.9167,
-    "mean_reciprocal_rank_mrr": 0.7778,
+    "mean_doc_recall_at_k": 0.8846,
+    "mean_reciprocal_rank_mrr": 0.7692,
     "mean_keyword_coverage": 0.925,
     "legal_guardrail_accuracy": 1.0
   },
@@ -20,16 +20,16 @@
     },
     "multi_hop_and_composition_gap": {
       "questions": 7,
-      "recall_questions_evaluated": 5,
-      "mean_doc_recall_at_k": 0.8,
-      "mean_mrr": 0.5667,
+      "recall_questions_evaluated": 4,
+      "mean_doc_recall_at_k": 0.75,
+      "mean_mrr": 0.625,
       "mean_keyword_coverage": 0.9286,
       "guardrail_accuracy": 1.0
     },
     "legal_guardrail_trap": {
       "questions": 3,
-      "recall_questions_evaluated": 1,
-      "mean_doc_recall_at_k": 1.0,
+      "recall_questions_evaluated": 3,
+      "mean_doc_recall_at_k": 0.8333,
       "mean_mrr": 0.5,
       "mean_keyword_coverage": 0.9167,
       "guardrail_accuracy": 1.0
@@ -295,7 +295,6 @@
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_HIPERTENSAO_DASH_05",
         "GUIA_MS_INTRO"
       ],
       "expected_sources": [
@@ -303,9 +302,7 @@
           "guia-alimentar-populacao-brasileira-2014"
         ]
       ],
-      "expected_removed_from_index": [
-        "DOC_HIPERTENSAO_DASH_05"
-      ],
+      "expected_removed_from_index": [],
       "recall_evaluated": true,
       "retrieved_doc_ids": [
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
@@ -333,17 +330,18 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_GLICEMIA_CARBOIDRATOS_03",
-        "GUIA_MS_CAP3_REFEICOES"
+        "GUIA_MS_CAP3_REFEICOES",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022"
       ],
       "expected_sources": [
         [
           "guia-alimentar-populacao-brasileira-2014"
+        ],
+        [
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022"
         ]
       ],
-      "expected_removed_from_index": [
-        "DOC_GLICEMIA_CARBOIDRATOS_03"
-      ],
+      "expected_removed_from_index": [],
       "recall_evaluated": true,
       "retrieved_doc_ids": [
         "protocolos-guia-alimentar-fasciculo1-2021",
@@ -351,7 +349,7 @@
         "guia-alimentar-populacao-brasileira-2014",
         "louzada-ultraprocessados-micronutrientes-rsp-2015"
       ],
-      "doc_recall_at_k": 1.0,
+      "doc_recall_at_k": 0.5,
       "reciprocal_rank": 0.5,
       "keyword_coverage": 0.75,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
@@ -371,23 +369,23 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_LIPIDIOS_COLESTEROL_04",
-        "DOC_MICRONUTRIENTES_INTERACOES_09"
+        "guia-dietas-vegetarianas-svb-2012"
       ],
-      "expected_sources": [],
-      "expected_removed_from_index": [
-        "DOC_LIPIDIOS_COLESTEROL_04",
-        "DOC_MICRONUTRIENTES_INTERACOES_09"
+      "expected_sources": [
+        [
+          "guia-dietas-vegetarianas-svb-2012"
+        ]
       ],
-      "recall_evaluated": false,
+      "expected_removed_from_index": [],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
         "louzada-ultraprocessados-micronutrientes-rsp-2015",
         "guia-dietas-vegetarianas-svb-2012",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
         "guia-dietas-vegetarianas-svb-2012"
       ],
-      "doc_recall_at_k": 0.0,
-      "reciprocal_rank": 0.0,
+      "doc_recall_at_k": 1.0,
+      "reciprocal_rank": 0.5,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 3,
@@ -406,23 +404,23 @@
       "expect_guardrail_trigger": true,
       "guardrail_accurate": true,
       "expected_doc_ids": [
-        "DOC_PROTEINAS_MASSA_MUSCULAR_06",
-        "DOC_SUPLEMENTOS_EVIDENCIA_07"
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009"
       ],
-      "expected_sources": [],
-      "expected_removed_from_index": [
-        "DOC_PROTEINAS_MASSA_MUSCULAR_06",
-        "DOC_SUPLEMENTOS_EVIDENCIA_07"
+      "expected_sources": [
+        [
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009"
+        ]
       ],
-      "recall_evaluated": false,
+      "expected_removed_from_index": [],
+      "recall_evaluated": true,
       "retrieved_doc_ids": [
         "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014",
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
         "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014"
       ],
-      "doc_recall_at_k": 0.0,
-      "reciprocal_rank": 0.0,
+      "doc_recall_at_k": 1.0,
+      "reciprocal_rank": 0.5,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 5,
@@ -476,15 +474,9 @@
       "guardrail_triggered": false,
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
-      "expected_doc_ids": [
-        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS"
-      ],
+      "expected_doc_ids": [],
       "expected_sources": [],
-      "expected_removed_from_index": [
-        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
-        "PUBMED_BIOACTIVES_MICRONUTRIENTS"
-      ],
+      "expected_removed_from_index": [],
       "recall_evaluated": false,
       "retrieved_doc_ids": [
         "guia-alimentar-populacao-brasileira-2014",
@@ -549,27 +541,18 @@
       "guardrail_triggered": false,
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
-      "expected_doc_ids": [
-        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08",
-        "GUIA_MS_CAP3_REFEICOES"
-      ],
-      "expected_sources": [
-        [
-          "guia-alimentar-populacao-brasileira-2014"
-        ]
-      ],
-      "expected_removed_from_index": [
-        "DOC_BIOATIVOS_BIODISPONIBILIDADE_08"
-      ],
-      "recall_evaluated": true,
+      "expected_doc_ids": [],
+      "expected_sources": [],
+      "expected_removed_from_index": [],
+      "recall_evaluated": false,
       "retrieved_doc_ids": [
         "guia-dietas-vegetarianas-svb-2012",
         "guia-dietas-vegetarianas-svb-2012",
         "guia-alimentar-populacao-brasileira-2014",
         "guia-alimentar-populacao-brasileira-2014"
       ],
-      "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 0.3333,
+      "doc_recall_at_k": 0.0,
+      "reciprocal_rank": 0.0,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 1,
@@ -587,15 +570,9 @@
       "guardrail_triggered": false,
       "expect_guardrail_trigger": false,
       "guardrail_accurate": true,
-      "expected_doc_ids": [
-        "DOC_HIPERTENSAO_DASH_05",
-        "PUBMED_DASH_HYPERTENSION"
-      ],
+      "expected_doc_ids": [],
       "expected_sources": [],
-      "expected_removed_from_index": [
-        "DOC_HIPERTENSAO_DASH_05",
-        "PUBMED_DASH_HYPERTENSION"
-      ],
+      "expected_removed_from_index": [],
       "recall_evaluated": false,
       "retrieved_doc_ids": [
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
