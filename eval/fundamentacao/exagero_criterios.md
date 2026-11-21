@@ -38,3 +38,14 @@ Métricas, por conjunto:
 5. Uma chamada por frase, com o `gemma4:e4b` local (ADR 0003), temperatura 0 e semente fixa.
 6. Se ligar, a confirmação é a do critério da issue: `fundamentacao medir` no `dev` e no `test` e uma
    amostra nova de 60 frases julgada com o `prompt_juiz.md`.
+
+## Adendo: segundo verificador, modelo de NLI (21/11/2026, antes de rodar)
+
+Escrito depois do resultado do `gemma4:e4b` (0 de 5 parciais no `test`) e antes de rodar o modelo abaixo em qualquer frase.
+
+- **Por quê:** o modelo principal não deve mudar, e um segundo LLM do mesmo porte não cabe junto na GPU de 8 GB. Um modelo de inferência textual (NLI) é pequeno, roda no processador e é treinado para a pergunta "o texto A garante o texto B?".
+- **Modelo, fixado agora:** `MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7`, local, no processador. Não será trocado por outro modelo dentro desta medição.
+- **Entrada:** premissa = texto de cada Trecho citado; hipótese = a frase sem marcadores. Até 512 tokens, com truncamento só da premissa. A pontuação da frase é a maior probabilidade de `entailment` entre os Trechos que ela cita.
+- **Veredito:** a frase é marcada quando a pontuação fica abaixo de um limiar. O limiar é o único ajuste: é escolhido no `dev` como o maior valor com remoção indevida ≤ 10% no `dev`, e congelado antes de rodar o `test` uma única vez.
+- **Decisão:** a mesma regra 3 (parciais achadas ≥ 50% **e** remoção indevida ≤ 10%), só no `test`.
+- **Ressalva:** o `test` já foi usado uma vez, com o `gemma4:e4b`. Nada daquela rodada influenciou esta além do conhecimento de que ela falhou, e esta é a segunda tentativa sobre o mesmo conjunto.
