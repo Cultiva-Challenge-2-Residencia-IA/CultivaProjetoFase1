@@ -1,0 +1,29 @@
+{
+  "$langfuseWidget": true,
+  "version": 1,
+  "name": "Tempo de resposta no período (p95, RNF29)",
+  "description": "Tempo em que 95% das consultas terminaram, no período escolhido no topo do painel (padrão: últimos 7 dias). Um único número para comparar com a meta do RNF29.",
+  "view": "observations",
+  "dimensions": [],
+  "metrics": [
+    {
+      "measure": "latency",
+      "agg": "p95"
+    }
+  ],
+  "filters": [
+    {
+      "column": "name",
+      "operator": "any of",
+      "value": [
+        "consult"
+      ],
+      "type": "stringOptions"
+    }
+  ],
+  "chartType": "NUMBER",
+  "chartConfig": {
+    "type": "NUMBER"
+  },
+  "minVersion": 1
+}

@@ -1,0 +1,12 @@
+{
+  "source_id": "jospt-patellofemoral-pain-cpg-2019",
+  "source_sha256": "354007b682ed74748c0a82e235ab5783b27bc915ea0b10c9672852e34072db15",
+  "original_path": "corpus/saudefisica/originais/18-jospt-patellofemoral-pain-cpg-2019.html",
+  "markdown_path": "corpus/saudefisica/markdown/18-jospt-patellofemoral-pain-cpg-2019.md",
+  "markdown_sha256": "6de82c9f646a96173034013855976fe9ea3893471e4c52e41b374bb6d8678d4c",
+  "script_sha256": "96850ec0c704eeecbc09172c358b30027a1d020462f212c5a5335a93982e2eb5",
+  "content_selector": "main",
+  "tables_found": 0,
+  "images_found": 6,
+  "status": "concluida_com_ressalvas"
+}

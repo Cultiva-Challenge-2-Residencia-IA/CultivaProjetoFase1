@@ -1,0 +1,226 @@
+{
+  "source_id": "who-physical-activity-at-a-glance-2020",
+  "source_sha256": "37c822c430ccf8c1b7729930ef03bb4b50534d285ac128824a6f322a3d2431c9",
+  "pdf_pages": 24,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "99da34315c612f2c47c791d267a1433a35f6753607bec4c7ade32ab91e3ea954",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.5.4"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, sem imagens exportadas; consulta no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "summary": {
+    "pages_converted": 24
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "characters_native": 74,
+      "characters_markdown": 75,
+      "lexical_coverage": 1.0,
+      "notes": [
+        "Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original."
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "characters_native": 0,
+      "characters_markdown": 0,
+      "lexical_coverage": 1.0,
+      "notes": [
+        "Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original."
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "characters_native": 74,
+      "characters_markdown": 85,
+      "lexical_coverage": 1.0,
+      "notes": [
+        "Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original."
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "characters_native": 3509,
+      "characters_markdown": 3426,
+      "lexical_coverage": 0.9802,
+      "notes": []
+    },
+    {
+      "pdf_page": 5,
+      "characters_native": 1043,
+      "characters_markdown": 930,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 6,
+      "characters_native": 3806,
+      "characters_markdown": 3718,
+      "lexical_coverage": 0.9792,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 7,
+      "characters_native": 2418,
+      "characters_markdown": 2600,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 8,
+      "characters_native": 3913,
+      "characters_markdown": 3863,
+      "lexical_coverage": 0.9802,
+      "notes": []
+    },
+    {
+      "pdf_page": 9,
+      "characters_native": 2357,
+      "characters_markdown": 2512,
+      "lexical_coverage": 0.9906,
+      "notes": []
+    },
+    {
+      "pdf_page": 10,
+      "characters_native": 1685,
+      "characters_markdown": 1816,
+      "lexical_coverage": 0.9524,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 11,
+      "characters_native": 1866,
+      "characters_markdown": 1935,
+      "lexical_coverage": 0.9882,
+      "notes": []
+    },
+    {
+      "pdf_page": 12,
+      "characters_native": 2245,
+      "characters_markdown": 2244,
+      "lexical_coverage": 0.9711,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 13,
+      "characters_native": 2109,
+      "characters_markdown": 2191,
+      "lexical_coverage": 0.9896,
+      "notes": []
+    },
+    {
+      "pdf_page": 14,
+      "characters_native": 1440,
+      "characters_markdown": 1498,
+      "lexical_coverage": 0.9392,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 15,
+      "characters_native": 2448,
+      "characters_markdown": 2668,
+      "lexical_coverage": 0.9912,
+      "notes": []
+    },
+    {
+      "pdf_page": 16,
+      "characters_native": 2769,
+      "characters_markdown": 2896,
+      "lexical_coverage": 0.9688,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 17,
+      "characters_native": 2820,
+      "characters_markdown": 2953,
+      "lexical_coverage": 0.9922,
+      "notes": []
+    },
+    {
+      "pdf_page": 18,
+      "characters_native": 1478,
+      "characters_markdown": 1449,
+      "lexical_coverage": 0.9484,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 19,
+      "characters_native": 1637,
+      "characters_markdown": 1635,
+      "lexical_coverage": 0.9868,
+      "notes": []
+    },
+    {
+      "pdf_page": 20,
+      "characters_native": 2324,
+      "characters_markdown": 2443,
+      "lexical_coverage": 0.9667,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 21,
+      "characters_native": 2995,
+      "characters_markdown": 3046,
+      "lexical_coverage": 0.9879,
+      "notes": []
+    },
+    {
+      "pdf_page": 22,
+      "characters_native": 2404,
+      "characters_markdown": 2313,
+      "lexical_coverage": 0.9668,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 23,
+      "characters_native": 4325,
+      "characters_markdown": 4250,
+      "lexical_coverage": 0.9787,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 24,
+      "characters_native": 46,
+      "characters_markdown": 35,
+      "lexical_coverage": 0.3333,
+      "notes": [
+        "Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original."
+      ]
+    }
+  ],
+  "markdown_sha256": "6c5a5df60f368bad3544000b8e3f5995be707c5286b40cc93e738da267b917fe"
+}
