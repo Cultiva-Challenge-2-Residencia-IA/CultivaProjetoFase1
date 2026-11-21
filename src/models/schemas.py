@@ -140,6 +140,8 @@ class ConsultantResponse(BaseModel):
     # "não sei" do cosseno).
     fundamentacao_status: Optional[str] = None
     fundamentacao_problemas: List[str] = Field(default_factory=list)
+    # Frases do LLM removidas por citação literal ausente na fonte (prompt v4, issue #67).
+    fundamentacao_frases_removidas: int = 0
     retrieved_chunks: List[RetrievedChunk] = Field(default_factory=list)
     model_used: str = "local"
     # Fluxo de risco (RF-IA03): mensagem fixa de acolhimento, sem busca e sem LLM.

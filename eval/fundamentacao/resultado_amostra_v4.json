@@ -1,0 +1,16 @@
+{
+  "frases_na_amostra": 59,
+  "frases_julgadas": 59,
+  "contagem": {
+    "sustentada": 27,
+    "parcial": 27,
+    "nao_sustentada": 5
+  },
+  "fidelidade": 0.4576,
+  "ic95_wilson": [
+    0.337,
+    0.5834
+  ],
+  "meta_rnf27": 0.95,
+  "atinge_meta": false
+}
