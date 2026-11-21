@@ -54,3 +54,10 @@ def test_falha_do_ollama_ou_json_invalido_mantem_a_frase():
 
 def test_marcadores_saem_da_frase_enviada():
     assert exagero.sem_marcadores("Feijão tem ferro [T1] [TACO].") == "Feijão tem ferro."
+
+
+def test_limiar_do_nli_e_o_maior_com_remocao_indevida_ate_10_por_cento():
+    pontuadas = ([{"julgamento": "sustentada", "pontuacao": p} for p in (0.1, 0.5, 0.6, 0.7, 0.8, 0.9, 0.9, 0.9, 0.9, 0.9)]
+                 + [{"julgamento": "parcial", "pontuacao": p} for p in (0.05, 0.55)])
+    limiar = exagero.escolher_limiar(pontuadas)
+    assert limiar == 0.5  # remove só a sustentada de 0,1 (10%); 0,55 já removeria duas

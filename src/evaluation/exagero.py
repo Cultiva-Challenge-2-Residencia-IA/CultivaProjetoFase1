@@ -12,6 +12,8 @@ medição com outro modelo ou outro prompt.
 
     uv run python -m src.evaluation.exagero --split dev
     uv run python -m src.evaluation.exagero --split test
+    uv run --group modelo-local python -m src.evaluation.exagero --verificador nli --split dev
+    uv run --group modelo-local python -m src.evaluation.exagero --verificador nli --split test --limiar <do dev>
 
 Exige o Ollama local (ADR 0003). Qualquer falha do verificador devolve veredito `None`, que conta
 como frase mantida. Grava `eval/fundamentacao/exagero_<versão>_<split>.json`.
@@ -161,10 +163,85 @@ def resumir(resultados: List[Dict]) -> Dict:
     }
 
 
+MODELO_NLI = "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7"
+REMOCAO_MAXIMA_DEV = 0.10
+
+
+class VerificadorNLI:
+    """Modelo de inferência textual no processador (adendo dos critérios): só pontua, não decide.
+
+    A pontuação da frase é a maior probabilidade de `entailment` entre os Trechos que ela cita;
+    a frase é marcada quando ela fica abaixo do limiar escolhido no `dev`.
+    Exige `uv sync --group modelo-local` (PyTorch para CPU e transformers).
+    """
+
+    def __init__(self, modelo: str = MODELO_NLI) -> None:
+        from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+        self.tokenizer = AutoTokenizer.from_pretrained(modelo)
+        self.modelo = AutoModelForSequenceClassification.from_pretrained(modelo).eval()
+        rotulos = {v.lower(): int(k) for k, v in self.modelo.config.id2label.items()}
+        self.indice_entailment = rotulos["entailment"]
+
+    def pontuar(self, frase: str, trechos: List[str]) -> float:
+        import torch
+
+        hipotese = sem_marcadores(frase)
+        entrada = self.tokenizer(list(trechos), [hipotese] * len(trechos), truncation="only_first",
+                                 max_length=512, padding=True, return_tensors="pt")
+        with torch.no_grad():
+            probs = torch.softmax(self.modelo(**entrada).logits, dim=-1)
+        return float(probs[:, self.indice_entailment].max())
+
+
+def escolher_limiar(pontuadas: List[Dict], remocao_maxima: float = REMOCAO_MAXIMA_DEV) -> float:
+    """Maior limiar com remoção indevida <= `remocao_maxima` (frase marcada quando pontuação < limiar)."""
+    sust = sorted(r["pontuacao"] for r in pontuadas if r["julgamento"] == "sustentada")
+    candidatos = sorted({r["pontuacao"] for r in pontuadas} | {0.0, 1.0 + 1e-9})
+    melhor = 0.0
+    for limiar in candidatos:
+        if sum(s < limiar for s in sust) / max(1, len(sust)) <= remocao_maxima:
+            melhor = limiar
+    return melhor
+
+
+def _salvar(nome: str, dados: Dict) -> Path:
+    saida = PASTA / nome
+    saida.write_text(json.dumps(dados, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    return saida
+
+
+def main_nli(split: str, limiar: Optional[float]) -> int:
+    if split == "test" and limiar is None:
+        raise SystemExit("No test, passe o --limiar escolhido no dev (critérios: o test roda uma vez).")
+    verificador = VerificadorNLI()
+    resultados = []
+    for frase in carregar(split):
+        inicio = time.perf_counter()
+        pontuacao = verificador.pontuar(frase["frase"], frase["trechos"])
+        resultados.append({**{k: frase[k] for k in ("id", "split", "julgamento", "frase")},
+                           "pontuacao": round(pontuacao, 4), "segundos": round(time.perf_counter() - inicio, 2)})
+        print(f"{frase['id']:10} {frase['julgamento']:10} {pontuacao:.3f}", flush=True)
+    if limiar is None:
+        limiar = escolher_limiar(resultados)
+    for r in resultados:
+        r["veredito"] = r["pontuacao"] >= limiar
+    resumo = {"limiar": limiar, **resumir(resultados)}
+    saida = _salvar(f"exagero_nli_{split}.json", {"modelo": MODELO_NLI, "split": split, "resumo": resumo,
+                                                  "frases": resultados})
+    print(json.dumps(resumo, ensure_ascii=False, indent=2))
+    print(f"Resultado: {saida}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--split", choices=["dev", "test", "todos"], required=True)
+    parser.add_argument("--verificador", choices=["llm", "nli"], default="llm")
+    parser.add_argument("--limiar", type=float, help="Só NLI: limiar congelado do dev, obrigatório no test")
     args = parser.parse_args()
+    if args.verificador == "nli":
+        return main_nli(args.split, args.limiar)
     verificador = VerificadorExagero()
     resultados = []
     for frase in carregar(args.split):

@@ -4,7 +4,7 @@ Registrado em 21/11/2026. Critérios definidos antes da medição em [`exagero_c
 
 ## Conclusão
 
-**A checagem não foi ligada no produto.** Com o `gemma4:e4b`, a versão final do verificador não achou nenhuma das 5 parciais do `test`. O critério pedia pelo menos 50% de parciais achadas, com no máximo 10% de frases sustentadas removidas. No `dev`, onde ele foi ajustado, achou 36%.
+**A checagem não foi ligada no produto.** Foram testados dois verificadores, e nenhum passou no critério: o próprio `gemma4:e4b` e, separado do modelo principal, um modelo pequeno de NLI no processador (seção "Segunda tentativa"). Com o `gemma4:e4b`, a versão final do verificador não achou nenhuma das 5 parciais do `test`. O critério pedia pelo menos 50% de parciais achadas, com no máximo 10% de frases sustentadas removidas. No `dev`, onde ele foi ajustado, achou 36%.
 
 A hipótese da issue era que uma segunda chamada ao mesmo modelo acharia a maioria das parciais. Os dados não a sustentam: o modelo que perde a condição ao escrever também não a vê ao conferir.
 
@@ -48,8 +48,22 @@ As 5 parciais do `test`, todas mantidas pelo verificador, com o motivo do juiz:
 
 Arquivos: [`exagero_exagero-v1_dev.json`](exagero_exagero-v1_dev.json), [`exagero_exagero-v2_dev.json`](exagero_exagero-v2_dev.json), [`exagero_exagero-v2_test.json`](exagero_exagero-v2_test.json).
 
+## Segunda tentativa: modelo de NLI, separado do principal
+
+O modelo principal não deve mudar, e um segundo LLM do mesmo porte não cabe junto na GPU de 8 GB. Por isso a segunda tentativa usou um modelo pequeno de inferência textual (NLI), que roda no processador: o `MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7`, fixado no adendo dos critérios antes de rodar.
+
+- **Como funciona:** a frase recebe a maior probabilidade de "o Trecho garante a frase" (`entailment`) entre os Trechos citados. O limiar foi escolhido no `dev` (0,0717, o maior com remoção indevida de até 10%) e congelado. Depois o `test` rodou uma vez.
+- **Ressalva:** o `test` já tinha sido usado na rodada do `gemma4:e4b`.
+
+| Conjunto | Parciais achadas | Sustentadas removidas | Taxa projetada | Tempo mediano por frase |
+|---|---:|---:|---:|---:|
+| `dev` | 2/14 (14%) | 7/73 (10%) | 84,6% (antes: 83,9%) | 3,6 s |
+| **`test`** | **1/5 (20%)** | 2/28 (7%) | 86,7% (antes: 84,8%) | 3,1 s |
+
+**Não passou no critério** (≥ 50% de parciais achadas). O motivo aparece nas pontuações do `dev`: a mediana é 0,971 nas sustentadas e 0,966 nas parciais. O modelo vê as duas como igualmente garantidas pelo Trecho. Isso é esperado: a parcial repete as palavras do Trecho e só perde uma condição, e o NLI premia a sobreposição. Arquivos: [`exagero_nli_dev.json`](exagero_nli_dev.json), [`exagero_nli_test.json`](exagero_nli_test.json).
+
 ## O que fica para quem retomar
 
-- **Modelo:** o verificador pode ser repetido com outro modelo local, maior ou de outra família, pelo mesmo comando e com os mesmos critérios. O `test` já foi usado uma vez: uma nova rodada com ajuste deve registrar isso.
+- **Modelo:** um LLM maior como verificador não cabe ao lado do principal na GPU atual. Um NLI genérico não separa as parciais. O que resta é hardware maior ou um verificador treinado para esse tipo de exagero. O `test` já foi usado uma vez: uma nova rodada com ajuste deve registrar isso.
 - **Tempo:** o raciocínio ligado (`think`) é lento demais para cada frase no `gemma4:e4b`.
 - **Amostra pequena:** o `test` tem só 5 parciais. Uma única parcial achada muda a taxa em 20 p.p. Mesmo assim, 0 de 5 e 36% no `dev` não chegam perto do critério.
