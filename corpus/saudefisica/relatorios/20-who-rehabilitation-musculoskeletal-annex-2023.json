@@ -1,0 +1,900 @@
+{
+  "source_id": "who-rehabilitation-musculoskeletal-annex-2023",
+  "source_sha256": "97569ce2547759a52c3bbc5d9a9ef10e13d3ff3591f5795025b2f29aa5d00157",
+  "pdf_pages": 110,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "99da34315c612f2c47c791d267a1433a35f6753607bec4c7ade32ab91e3ea954",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.5.4"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, sem imagens exportadas; consulta no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "summary": {
+    "pages_converted": 110
+  },
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "characters_native": 252,
+      "characters_markdown": 258,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 2,
+      "characters_native": 3807,
+      "characters_markdown": 3831,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 3,
+      "characters_native": 2229,
+      "characters_markdown": 2286,
+      "lexical_coverage": 0.994,
+      "notes": []
+    },
+    {
+      "pdf_page": 4,
+      "characters_native": 997,
+      "characters_markdown": 992,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 5,
+      "characters_native": 2297,
+      "characters_markdown": 2262,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 6,
+      "characters_native": 2266,
+      "characters_markdown": 2201,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 7,
+      "characters_native": 2616,
+      "characters_markdown": 2561,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 8,
+      "characters_native": 2472,
+      "characters_markdown": 2407,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 9,
+      "characters_native": 2434,
+      "characters_markdown": 2368,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 10,
+      "characters_native": 1317,
+      "characters_markdown": 1324,
+      "lexical_coverage": 0.9935,
+      "notes": []
+    },
+    {
+      "pdf_page": 11,
+      "characters_native": 2273,
+      "characters_markdown": 2554,
+      "lexical_coverage": 0.965,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 12,
+      "characters_native": 2671,
+      "characters_markdown": 2946,
+      "lexical_coverage": 0.9688,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 13,
+      "characters_native": 2135,
+      "characters_markdown": 2286,
+      "lexical_coverage": 0.9732,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 14,
+      "characters_native": 3965,
+      "characters_markdown": 4240,
+      "lexical_coverage": 0.9801,
+      "notes": []
+    },
+    {
+      "pdf_page": 15,
+      "characters_native": 3384,
+      "characters_markdown": 3650,
+      "lexical_coverage": 0.9749,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 16,
+      "characters_native": 3898,
+      "characters_markdown": 4084,
+      "lexical_coverage": 0.9706,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 17,
+      "characters_native": 4535,
+      "characters_markdown": 4645,
+      "lexical_coverage": 0.9819,
+      "notes": []
+    },
+    {
+      "pdf_page": 18,
+      "characters_native": 4363,
+      "characters_markdown": 4465,
+      "lexical_coverage": 0.9922,
+      "notes": []
+    },
+    {
+      "pdf_page": 19,
+      "characters_native": 5201,
+      "characters_markdown": 5297,
+      "lexical_coverage": 0.9666,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 20,
+      "characters_native": 2844,
+      "characters_markdown": 3297,
+      "lexical_coverage": 0.9481,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 21,
+      "characters_native": 1674,
+      "characters_markdown": 1781,
+      "lexical_coverage": 0.9719,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 22,
+      "characters_native": 4010,
+      "characters_markdown": 3976,
+      "lexical_coverage": 0.9953,
+      "notes": []
+    },
+    {
+      "pdf_page": 23,
+      "characters_native": 3509,
+      "characters_markdown": 3578,
+      "lexical_coverage": 0.991,
+      "notes": []
+    },
+    {
+      "pdf_page": 24,
+      "characters_native": 2095,
+      "characters_markdown": 2371,
+      "lexical_coverage": 0.99,
+      "notes": []
+    },
+    {
+      "pdf_page": 25,
+      "characters_native": 3006,
+      "characters_markdown": 3156,
+      "lexical_coverage": 0.9682,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 26,
+      "characters_native": 3041,
+      "characters_markdown": 3229,
+      "lexical_coverage": 0.9796,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 27,
+      "characters_native": 2940,
+      "characters_markdown": 3182,
+      "lexical_coverage": 0.9698,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 28,
+      "characters_native": 3013,
+      "characters_markdown": 3110,
+      "lexical_coverage": 0.9762,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 29,
+      "characters_native": 2610,
+      "characters_markdown": 2774,
+      "lexical_coverage": 0.9761,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 30,
+      "characters_native": 2754,
+      "characters_markdown": 2978,
+      "lexical_coverage": 0.9886,
+      "notes": []
+    },
+    {
+      "pdf_page": 31,
+      "characters_native": 2844,
+      "characters_markdown": 3028,
+      "lexical_coverage": 0.9823,
+      "notes": []
+    },
+    {
+      "pdf_page": 32,
+      "characters_native": 4282,
+      "characters_markdown": 4663,
+      "lexical_coverage": 0.9892,
+      "notes": []
+    },
+    {
+      "pdf_page": 33,
+      "characters_native": 4144,
+      "characters_markdown": 4359,
+      "lexical_coverage": 0.9768,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 34,
+      "characters_native": 3728,
+      "characters_markdown": 3815,
+      "lexical_coverage": 0.9706,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 35,
+      "characters_native": 4689,
+      "characters_markdown": 4794,
+      "lexical_coverage": 0.969,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 36,
+      "characters_native": 4063,
+      "characters_markdown": 4198,
+      "lexical_coverage": 0.9624,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 37,
+      "characters_native": 4475,
+      "characters_markdown": 4605,
+      "lexical_coverage": 0.9776,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 38,
+      "characters_native": 4239,
+      "characters_markdown": 4365,
+      "lexical_coverage": 0.9757,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 39,
+      "characters_native": 2973,
+      "characters_markdown": 3041,
+      "lexical_coverage": 0.9684,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 40,
+      "characters_native": 4475,
+      "characters_markdown": 4576,
+      "lexical_coverage": 0.9768,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 41,
+      "characters_native": 1785,
+      "characters_markdown": 1816,
+      "lexical_coverage": 0.9841,
+      "notes": []
+    },
+    {
+      "pdf_page": 42,
+      "characters_native": 3779,
+      "characters_markdown": 3759,
+      "lexical_coverage": 0.9965,
+      "notes": []
+    },
+    {
+      "pdf_page": 43,
+      "characters_native": 3891,
+      "characters_markdown": 3877,
+      "lexical_coverage": 0.9968,
+      "notes": []
+    },
+    {
+      "pdf_page": 44,
+      "characters_native": 1436,
+      "characters_markdown": 1427,
+      "lexical_coverage": 0.9956,
+      "notes": []
+    },
+    {
+      "pdf_page": 45,
+      "characters_native": 1960,
+      "characters_markdown": 2006,
+      "lexical_coverage": 0.9828,
+      "notes": []
+    },
+    {
+      "pdf_page": 46,
+      "characters_native": 2328,
+      "characters_markdown": 2611,
+      "lexical_coverage": 0.9711,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 47,
+      "characters_native": 2874,
+      "characters_markdown": 3172,
+      "lexical_coverage": 0.9569,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 48,
+      "characters_native": 1891,
+      "characters_markdown": 2015,
+      "lexical_coverage": 0.9787,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 49,
+      "characters_native": 4098,
+      "characters_markdown": 4390,
+      "lexical_coverage": 0.9867,
+      "notes": []
+    },
+    {
+      "pdf_page": 50,
+      "characters_native": 3954,
+      "characters_markdown": 4319,
+      "lexical_coverage": 0.9838,
+      "notes": []
+    },
+    {
+      "pdf_page": 51,
+      "characters_native": 3321,
+      "characters_markdown": 3611,
+      "lexical_coverage": 0.9834,
+      "notes": []
+    },
+    {
+      "pdf_page": 52,
+      "characters_native": 4217,
+      "characters_markdown": 4312,
+      "lexical_coverage": 0.9588,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 53,
+      "characters_native": 3761,
+      "characters_markdown": 3861,
+      "lexical_coverage": 0.9864,
+      "notes": []
+    },
+    {
+      "pdf_page": 54,
+      "characters_native": 4512,
+      "characters_markdown": 4639,
+      "lexical_coverage": 0.9781,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 55,
+      "characters_native": 4917,
+      "characters_markdown": 5010,
+      "lexical_coverage": 0.9776,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 56,
+      "characters_native": 4272,
+      "characters_markdown": 4354,
+      "lexical_coverage": 0.962,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 57,
+      "characters_native": 4924,
+      "characters_markdown": 5033,
+      "lexical_coverage": 0.9714,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 58,
+      "characters_native": 3064,
+      "characters_markdown": 3274,
+      "lexical_coverage": 0.9882,
+      "notes": []
+    },
+    {
+      "pdf_page": 59,
+      "characters_native": 761,
+      "characters_markdown": 854,
+      "lexical_coverage": 0.9528,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 60,
+      "characters_native": 3931,
+      "characters_markdown": 3912,
+      "lexical_coverage": 0.9932,
+      "notes": []
+    },
+    {
+      "pdf_page": 61,
+      "characters_native": 196,
+      "characters_markdown": 190,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 62,
+      "characters_native": 1806,
+      "characters_markdown": 1856,
+      "lexical_coverage": 0.9804,
+      "notes": []
+    },
+    {
+      "pdf_page": 63,
+      "characters_native": 2322,
+      "characters_markdown": 2654,
+      "lexical_coverage": 0.9863,
+      "notes": []
+    },
+    {
+      "pdf_page": 64,
+      "characters_native": 1290,
+      "characters_markdown": 1423,
+      "lexical_coverage": 0.9655,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 65,
+      "characters_native": 2519,
+      "characters_markdown": 2744,
+      "lexical_coverage": 0.989,
+      "notes": []
+    },
+    {
+      "pdf_page": 66,
+      "characters_native": 4196,
+      "characters_markdown": 4367,
+      "lexical_coverage": 0.9618,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 67,
+      "characters_native": 4781,
+      "characters_markdown": 4896,
+      "lexical_coverage": 0.9958,
+      "notes": []
+    },
+    {
+      "pdf_page": 68,
+      "characters_native": 1514,
+      "characters_markdown": 1578,
+      "lexical_coverage": 0.9954,
+      "notes": []
+    },
+    {
+      "pdf_page": 69,
+      "characters_native": 1399,
+      "characters_markdown": 1395,
+      "lexical_coverage": 0.9957,
+      "notes": []
+    },
+    {
+      "pdf_page": 70,
+      "characters_native": 3568,
+      "characters_markdown": 3711,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 71,
+      "characters_native": 3370,
+      "characters_markdown": 3339,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 72,
+      "characters_native": 1458,
+      "characters_markdown": 1565,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 73,
+      "characters_native": 2909,
+      "characters_markdown": 3078,
+      "lexical_coverage": 0.9746,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 74,
+      "characters_native": 2957,
+      "characters_markdown": 3277,
+      "lexical_coverage": 0.9721,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 75,
+      "characters_native": 1957,
+      "characters_markdown": 2115,
+      "lexical_coverage": 0.9714,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 76,
+      "characters_native": 3953,
+      "characters_markdown": 4166,
+      "lexical_coverage": 0.9912,
+      "notes": []
+    },
+    {
+      "pdf_page": 77,
+      "characters_native": 3170,
+      "characters_markdown": 3475,
+      "lexical_coverage": 0.9979,
+      "notes": []
+    },
+    {
+      "pdf_page": 78,
+      "characters_native": 3600,
+      "characters_markdown": 3797,
+      "lexical_coverage": 0.9795,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 79,
+      "characters_native": 4940,
+      "characters_markdown": 5036,
+      "lexical_coverage": 0.988,
+      "notes": []
+    },
+    {
+      "pdf_page": 80,
+      "characters_native": 4587,
+      "characters_markdown": 4691,
+      "lexical_coverage": 0.981,
+      "notes": []
+    },
+    {
+      "pdf_page": 81,
+      "characters_native": 4714,
+      "characters_markdown": 4828,
+      "lexical_coverage": 0.9944,
+      "notes": []
+    },
+    {
+      "pdf_page": 82,
+      "characters_native": 4568,
+      "characters_markdown": 4681,
+      "lexical_coverage": 0.9881,
+      "notes": []
+    },
+    {
+      "pdf_page": 83,
+      "characters_native": 3273,
+      "characters_markdown": 3521,
+      "lexical_coverage": 0.988,
+      "notes": []
+    },
+    {
+      "pdf_page": 84,
+      "characters_native": 2170,
+      "characters_markdown": 2373,
+      "lexical_coverage": 0.9952,
+      "notes": []
+    },
+    {
+      "pdf_page": 85,
+      "characters_native": 2656,
+      "characters_markdown": 2895,
+      "lexical_coverage": 0.9619,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 86,
+      "characters_native": 2631,
+      "characters_markdown": 2752,
+      "lexical_coverage": 0.9794,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 87,
+      "characters_native": 2101,
+      "characters_markdown": 2255,
+      "lexical_coverage": 0.9845,
+      "notes": []
+    },
+    {
+      "pdf_page": 88,
+      "characters_native": 2339,
+      "characters_markdown": 2487,
+      "lexical_coverage": 0.982,
+      "notes": []
+    },
+    {
+      "pdf_page": 89,
+      "characters_native": 735,
+      "characters_markdown": 830,
+      "lexical_coverage": 0.9924,
+      "notes": []
+    },
+    {
+      "pdf_page": 90,
+      "characters_native": 3574,
+      "characters_markdown": 3578,
+      "lexical_coverage": 0.9963,
+      "notes": []
+    },
+    {
+      "pdf_page": 91,
+      "characters_native": 1790,
+      "characters_markdown": 1768,
+      "lexical_coverage": 0.9965,
+      "notes": []
+    },
+    {
+      "pdf_page": 92,
+      "characters_native": 3226,
+      "characters_markdown": 3331,
+      "lexical_coverage": 0.9782,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 93,
+      "characters_native": 3228,
+      "characters_markdown": 3268,
+      "lexical_coverage": 0.9952,
+      "notes": []
+    },
+    {
+      "pdf_page": 94,
+      "characters_native": 2913,
+      "characters_markdown": 3249,
+      "lexical_coverage": 0.9818,
+      "notes": []
+    },
+    {
+      "pdf_page": 95,
+      "characters_native": 2569,
+      "characters_markdown": 2770,
+      "lexical_coverage": 0.9751,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 96,
+      "characters_native": 651,
+      "characters_markdown": 698,
+      "lexical_coverage": 0.9277,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 97,
+      "characters_native": 2858,
+      "characters_markdown": 3115,
+      "lexical_coverage": 0.9837,
+      "notes": []
+    },
+    {
+      "pdf_page": 98,
+      "characters_native": 2985,
+      "characters_markdown": 3294,
+      "lexical_coverage": 0.9953,
+      "notes": []
+    },
+    {
+      "pdf_page": 99,
+      "characters_native": 3609,
+      "characters_markdown": 3962,
+      "lexical_coverage": 0.9796,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 100,
+      "characters_native": 4108,
+      "characters_markdown": 4255,
+      "lexical_coverage": 0.9387,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 101,
+      "characters_native": 4123,
+      "characters_markdown": 4229,
+      "lexical_coverage": 0.9692,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 102,
+      "characters_native": 4500,
+      "characters_markdown": 4565,
+      "lexical_coverage": 0.9129,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 103,
+      "characters_native": 4374,
+      "characters_markdown": 4478,
+      "lexical_coverage": 0.9528,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 104,
+      "characters_native": 4420,
+      "characters_markdown": 4533,
+      "lexical_coverage": 0.9887,
+      "notes": []
+    },
+    {
+      "pdf_page": 105,
+      "characters_native": 4732,
+      "characters_markdown": 4873,
+      "lexical_coverage": 0.997,
+      "notes": []
+    },
+    {
+      "pdf_page": 106,
+      "characters_native": 3980,
+      "characters_markdown": 4051,
+      "lexical_coverage": 0.9533,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 107,
+      "characters_native": 4945,
+      "characters_markdown": 5040,
+      "lexical_coverage": 0.9697,
+      "notes": [
+        "Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas."
+      ]
+    },
+    {
+      "pdf_page": 108,
+      "characters_native": 761,
+      "characters_markdown": 778,
+      "lexical_coverage": 1.0,
+      "notes": []
+    },
+    {
+      "pdf_page": 109,
+      "characters_native": 2098,
+      "characters_markdown": 2100,
+      "lexical_coverage": 0.9965,
+      "notes": []
+    },
+    {
+      "pdf_page": 110,
+      "characters_native": 0,
+      "characters_markdown": 0,
+      "lexical_coverage": 1.0,
+      "notes": [
+        "Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original."
+      ]
+    }
+  ],
+  "markdown_sha256": "e64898c2a200906b8f15ad2afe0a24f37f408ede4573c29592842c004054bd8d"
+}
