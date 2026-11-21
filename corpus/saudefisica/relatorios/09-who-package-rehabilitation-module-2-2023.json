@@ -3,8 +3,8 @@
   "source_sha256": "e6248d68fe4ca7a800e0a5f24d6ea3837cd3df8697a858d5ea48d5b19605e394",
   "pdf_pages": 108,
   "conversion_status": "concluida_com_ressalvas",
-  "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
-  "config_sha256": null,
+  "script_sha256": "24bf426a3bd7927fc21ad34252418d0d1b024ec5bc46da082ab4a3960caca55c",
+  "config_sha256": "976f019fdced7576c1a14ca5e726fb7dcc10ac33a4210b4db49938246fb42fe0",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -15,10 +15,7 @@
   },
   "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
   "sparse_threshold_characters": 150,
-  "ocr_model": {
-    "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata",
-    "sha256": "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"
-  },
+  "ocr_model": null,
   "limitations": [
     "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
     "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
@@ -30,42 +27,25 @@
     {
       "pdf_page": 1,
       "native_characters": 85,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
-      "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.",
-        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
-      ],
+      "warnings": [],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": ".º o\n1)\n[1]\ne ... e\nº\n0ººº 090.\n\"o\n0 “0º qc...\nO\n.s\no\n1]\ne O oº Q0990%0.,\no\no\no\n000\nº\n00000\nº.\nos\no\n000\n2.\n0. o\n0\n0000065\nCc.\n“.\n+\n060\nDS\nad\n000006,\no Co\n0\nqo 00 0%6º\n“o ns q 0º\n209 00 º\no .ºo\nO)\n0\no ºo\n,ºe.:\n“o E\nhd\nDos o.\nPackage of interventions for\n1º .0\n000.\nEE\n=\nE\n..º\no\n.\n00\noec::\nRehabilitalion\n:-.e0\n[1]\nÕ\no\nDoS..:\nModule 2\n000\nDo\ne...\nMusculoskeletal conditions\n“00\noº o.\n* 00 o\ne.\nE\n- “0%\n[)\no. Cc:\n0\n(1)\n)\n) o:\no\n“2,0 20\no\"...\n1000\noº\n|) no\n. '.\n“000\n(1\nO e:\no\n',\n000000\ne\no\nO\noCo\nto O\n0:00\n000\nO\no\n00000\n070\nO\no.\nte\nCoco 0009 40 0 “0%\n[)\nCo\n* 0.\n00\nO\nº\ncc000\noº oº\nPo.\n\"coco 00.\no:\nCorr çe O:\nWorld Health\nVie:87) Organization\n"
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
-      "native_word_coverage": 0.88889,
-      "missing_native_tokens": {
-        "rehabilitation": 1
-      },
-      "markdown_characters": 637
+      "ocr": [],
+      "sparse_page_decision": "Capa: texto nativo com o título completo; o OCR só lia o padrão gráfico; OCR desligado.",
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 83
     },
     {
       "pdf_page": 2,
       "native_characters": 0,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
-      "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
-      ],
+      "warnings": [],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": ""
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "ocr": [],
+      "sparse_page_decision": "Página em branco; OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
       "markdown_characters": 0
@@ -73,22 +53,15 @@
     {
       "pdf_page": 3,
       "native_characters": 82,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
-      "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
-      ],
+      "warnings": [],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": "Package of interventions for\nrehabilitation\nModule 2\nMusculoskeletal conditions\n(ee) World Health\nVe) Organization\n"
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "ocr": [],
+      "sparse_page_decision": "Folha de rosto: texto nativo com o título completo (o OCR acrescentava só o logotipo da OMS); OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 115
+      "markdown_characters": 92
     },
     {
       "pdf_page": 4,
@@ -117,19 +90,12 @@
     {
       "pdf_page": 6,
       "native_characters": 0,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
-      "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
-      ],
+      "warnings": [],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": ""
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "ocr": [],
+      "sparse_page_decision": "Página sem texto nativo e sem texto no OCR; OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
       "markdown_characters": 0
@@ -319,19 +285,12 @@
     {
       "pdf_page": 18,
       "native_characters": 0,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
-      "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
-      ],
+      "warnings": [],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": ""
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "ocr": [],
+      "sparse_page_decision": "Página sem texto nativo e sem texto no OCR; OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
       "markdown_characters": 0
@@ -924,19 +883,12 @@
     {
       "pdf_page": 52,
       "native_characters": 0,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
-      "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
-      ],
+      "warnings": [],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": ""
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "ocr": [],
+      "sparse_page_decision": "Página sem texto nativo e sem texto no OCR; OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
       "markdown_characters": 0
@@ -1220,19 +1172,12 @@
     {
       "pdf_page": 68,
       "native_characters": 0,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
-      "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
-      ],
+      "warnings": [],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": ""
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "ocr": [],
+      "sparse_page_decision": "Página sem texto nativo e sem texto no OCR; OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
       "markdown_characters": 0
@@ -1722,19 +1667,12 @@
     {
       "pdf_page": 98,
       "native_characters": 0,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
-      "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
-      ],
+      "warnings": [],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": ""
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "ocr": [],
+      "sparse_page_decision": "Página sem texto nativo e sem texto no OCR; OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
       "markdown_characters": 0
@@ -1857,25 +1795,18 @@
     {
       "pdf_page": 108,
       "native_characters": 0,
-      "method": "ocr_full_page",
+      "method": "native",
       "tables_detected": 0,
-      "warnings": [
-        "OCR automático: conferir integralmente; pode haver fotografia ou página sem texto."
-      ],
+      "warnings": [],
       "adjustments": [],
-      "ocr": [
-        {
-          "label": "Página inteira",
-          "raw_text": "e\n0\na,\n.\nº\n0\nº0\noo\n(1,00\n1,000\n..000\n\"000\ne “O\n“cc,\n*0\no\nº 0 0\ne “e. .,0\no\nct\no O O\ne\ne\n0000\" 00 00 00\n000009020 00\n0004090200\n0090040\n000990\n0000\n5785240071100\nWI||\n"
-        }
-      ],
-      "sparse_page_decision": "OCR automático por pouco texto nativo",
+      "ocr": [],
+      "sparse_page_decision": "Contracapa: sem texto nativo; o OCR só lia o padrão gráfico; OCR desligado.",
       "native_word_coverage": 1.0,
       "missing_native_tokens": {},
-      "markdown_characters": 417
+      "markdown_characters": 0
     }
   ],
-  "markdown_sha256": "936bc99dcd3d75153ecc02a4d4ba2503e455238b9b0c8d59c7c8e007ab26b343",
+  "markdown_sha256": "a5876fd23ac4d9b24e4463df1ecc7736aef232f031b9eb46e88516b559d85fdd",
   "summary": {
     "pages_converted": 108,
     "sparse_pages": [
@@ -1889,17 +1820,7 @@
       98,
       108
     ],
-    "ocr_pages": [
-      1,
-      2,
-      3,
-      6,
-      18,
-      52,
-      68,
-      98,
-      108
-    ],
+    "ocr_pages": [],
     "pages_with_tables_detected": [
       5,
       11,
@@ -1960,15 +1881,10 @@
       107
     ],
     "pages_with_warnings": [
-      1,
-      2,
-      3,
-      6,
       9,
       10,
       11,
       12,
-      18,
       21,
       22,
       23,
@@ -1984,7 +1900,6 @@
       45,
       46,
       47,
-      52,
       55,
       56,
       57,
@@ -1994,7 +1909,6 @@
       61,
       62,
       63,
-      68,
       71,
       72,
       73,
@@ -2004,9 +1918,7 @@
       78,
       79,
       80,
-      81,
-      98,
-      108
+      81
     ],
     "pages_with_adjustments": []
   }

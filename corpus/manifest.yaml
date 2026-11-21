@@ -1039,6 +1039,7 @@ sources:
     original_path: corpus/saudefisica/originais/02-who-physical-activity-guidelines-2020.pdf
     markdown_path: corpus/saudefisica/markdown/02-who-physical-activity-guidelines-2020.md
     report_path: corpus/saudefisica/relatorios/02-who-physical-activity-guidelines-2020.json
+    conversion_config: corpus/scripts/config/who-diretrizes-atividade-fisica-sedentarismo-2020.yaml
     sha256: 50b66c44e7083cc3752849f301ae1d60d9360d511e34c0c948b39bdf6e13dc88
     pdf_pages: 104
     conversion_status: concluida_com_ressalvas
@@ -1209,6 +1210,7 @@ sources:
     original_path: corpus/saudefisica/originais/09-who-package-rehabilitation-module-2-2023.pdf
     markdown_path: corpus/saudefisica/markdown/09-who-package-rehabilitation-module-2-2023.md
     report_path: corpus/saudefisica/relatorios/09-who-package-rehabilitation-module-2-2023.json
+    conversion_config: corpus/scripts/config/who-package-rehabilitation-musculoskeletal-2023.yaml
     sha256: e6248d68fe4ca7a800e0a5f24d6ea3837cd3df8697a858d5ea48d5b19605e394
     pdf_pages: 108
     conversion_status: concluida_com_ressalvas

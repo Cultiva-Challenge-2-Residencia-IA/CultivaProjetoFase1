@@ -230,7 +230,7 @@ corpus/
 
 Em 19/11/2026, oito dos onze documentos prioritários registrados no manifesto têm original arquivado: seis PDFs e dois HTMLs (a ficha da OMS e o manuscrito JOSPT de dor lombar). Todos os oito originais obtidos foram convertidos em Markdown candidato à revisão. Os arquivos preservam SHA-256 e vínculo entre original e derivado.
 
-As onze fontes estão catalogadas em `manifest.yaml` como `kind: original_only`, inclusive as que têm Markdown candidato. Esse tipo preserva os arquivos e derivados sem gerar Trechos nem entrar no RAG. O `verify_corpus.py` confere formato e hash dos originais, Markdown e relatórios, e informa os originais pendentes; o `prepare_rag.py` não processa esse tipo. Todas seguem com `approval_status: pendente`; obtenção e conversão não são revisão de fidelidade, aprovação de conteúdo nem decisão de uso técnico.
+As onze fontes estão catalogadas em `manifest.yaml` como `kind: original_only`, inclusive as que têm Markdown candidato. Esse tipo preserva os arquivos e derivados sem gerar Trechos nem entrar no RAG. O `verify_corpus.py` confere formato e hash dos originais, Markdown e relatórios, e informa os originais pendentes; o `prepare_rag.py` não processa esse tipo. Quando o `convert_pdfs.py` muda, os candidatos em PDF são regenerados com `convert_pdfs.py --candidatos --overwrite` (ou `--source <id>`), e o verificador também acusa configuração alterada depois da conversão (issue #87). O WHO 2020 e o WHO 2023 têm configuração própria com `sparse_page_decisions` nas páginas de capa, figura e contracapa: o OCR automático só lia ilustrações, com caracteres espúrios que mudavam com a versão do Tesseract, e o texto nativo já tem título, cabeçalhos e ISBN. O Guia de Atividade Física ainda passa por OCR automático em três páginas (capa, verso e contracapa). Todas seguem com `approval_status: pendente`; obtenção e conversão não são revisão de fidelidade, aprovação de conteúdo nem decisão de uso técnico.
 
 | Prioridade | Estado | Observação de obtenção |
 |---|---|---|
@@ -265,6 +265,10 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download --download-ocr
 
 # Os derivados já estão entregues neste checkout. Para regenerá-los:
 corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download-ocr --overwrite
+
+# Candidatos de Saúde Física em PDF (kind: original_only): só Markdown e relatório, sem Trechos.
+# Rode depois de qualquer mudança no convert_pdfs.py (issue #87); --source <id> também aceita um candidato.
+corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --candidatos --overwrite
 
 # Verificação dos artefatos locais:
 corpus/.venv/bin/python corpus/scripts/verify_corpus.py

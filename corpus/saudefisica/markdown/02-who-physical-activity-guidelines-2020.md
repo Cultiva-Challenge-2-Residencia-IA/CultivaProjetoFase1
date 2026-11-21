@@ -22,9 +22,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/02-who-physical-activity-guidelines-2020.pdf#page=1)
 
-> **Nota de conversão — página 1:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-WHO GUIDELINES ON PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR N 3À] A Ko” +< voÉ Ss 2)ASp Pg =
+WHO GUIDELINES ON **PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR**
 
 ---
 
@@ -33,8 +31,6 @@ WHO GUIDELINES ON PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR N 3À] A Ko” +< vo
 ## Página PDF 2
 
 [Conferir no original](../originais/02-who-physical-activity-guidelines-2020.pdf#page=2)
-
-> **Nota de conversão — página 2:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 <!-- Página sem texto extraível; consultar PDF original. -->
 
@@ -46,9 +42,7 @@ WHO GUIDELINES ON PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR N 3À] A Ko” +< vo
 
 [Conferir no original](../originais/02-who-physical-activity-guidelines-2020.pdf#page=3)
 
-> **Nota de conversão — página 3:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
-# WHO GUIDELINES ON PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR
+## WHO GUIDELINES ON **PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR**
 
 ---
 
@@ -907,14 +901,9 @@ Executive summaryRecommendations **1** 53
 
 [Conferir no original](../originais/02-who-physical-activity-guidelines-2020.pdf#page=24)
 
-> **Nota de conversão — página 24:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 > **Nota de conversão — página 24:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
-<!-- Start of picture text -->
-DA a1<br>ed+ çoASP+<br>feG<br><!-- End of picture text -->
-
-|
+14
 
 ---
 
@@ -3072,21 +3061,9 @@ Adoption, dissemination, implementation and evaluation
 
 [Conferir no original](../originais/02-who-physical-activity-guidelines-2020.pdf#page=84)
 
-> **Nota de conversão — página 84:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 > **Nota de conversão — página 84:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
-É
-
-<!-- Start of picture text -->
-:<br>Ny B | |<br><!-- End of picture text -->
-
-YU
-
-<!-- Start of picture text -->
-+N<br><!-- End of picture text -->
-
-|
+74
 
 ---
 
@@ -3452,11 +3429,11 @@ References 81
 
 [Conferir no original](../originais/02-who-physical-activity-guidelines-2020.pdf#page=93)
 
-> **Nota de conversão — página 93:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 > **Nota de conversão — página 93:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
-a | CS ida
+References
+
+83
 
 ---
 
@@ -3466,21 +3443,9 @@ a | CS ida
 
 [Conferir no original](../originais/02-who-physical-activity-guidelines-2020.pdf#page=94)
 
-> **Nota de conversão — página 94:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 > **Nota de conversão — página 94:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
-É
-
-<!-- Start of picture text -->
-:<br>Ny B | |<br><!-- End of picture text -->
-
-YU
-
-<!-- Start of picture text -->
-+N<br><!-- End of picture text -->
-
-|
+84
 
 ---
 
@@ -3945,11 +3910,8 @@ Annex 3
 
 [Conferir no original](../originais/02-who-physical-activity-guidelines-2020.pdf#page=104)
 
-> **Nota de conversão — página 104:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
-
 > **Nota de conversão — página 104:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
-<!-- Start of picture text -->
-O<br>N | Á)<br>N )<br>“q ANG ) sv<br>LD Cm SM<br>Dez<br>(/ e<br>CiaFoo (iso gi!<br><!-- End of picture text -->
+**ISBN 978-92-4-00151** 23 **-** 85
 
 ---
