@@ -35,8 +35,8 @@
     },
     "crispim-sono-obesidade-abem-2007": {
       "jsonl_path": "corpus/nutricao/rag/crispim_et_al_sono_obesidade_abem_2007.jsonl",
-      "jsonl_sha256": "6d96fa2f313b0ebb913fdf619eb3ef473e3ddd7b3a3010f01211a1e42a27f784",
-      "markdown_sha256": "964d356af5ce2bfdaae30c79fa25d50dd4b452e6cd5d332c3a032c808ba11a14",
+      "jsonl_sha256": "5902b0471d57265f8ebb0b7758097dc8d6050a2616dee395dcb6ff914988307b",
+      "markdown_sha256": "59b1d9d8ffcef0ea5b0c213641ff33fd7d294cd198207d3c3f6d276b3180518a",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "48d5de1f74f860200cb3b43cb309479b374ab89a1a38df6eea82989fd4ea0667",
       "trechos": 32
@@ -59,8 +59,8 @@
     },
     "guia-alimentar-populacao-brasileira-2014": {
       "jsonl_path": "corpus/nutricao/rag/guia_alimentar_populacao_brasileira_2ed_2014.jsonl",
-      "jsonl_sha256": "72ffac56bcb866dd36528bacac71b50264dc01a2e9ba802c6db889ad6fd88256",
-      "markdown_sha256": "c98c11e7dbe8aba8b4131f582e76c9ea26adf5161055d2aa085173f3960222aa",
+      "jsonl_sha256": "b6e5c9b737efabfcf647a1ac82cee8276bcc93adda2a7560ba6d84414c434ace",
+      "markdown_sha256": "dabb529013a1c867e7cd7006c951db0932a4a5de9be68db6dddf67b3a45600c9",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "trechos": 339
