@@ -235,10 +235,10 @@
     },
     "sbme-modificacoes-dieteticas-suplementos-rbme-2009": {
       "jsonl_path": "corpus/nutricao/rag/sbme_modificacoes_dieteticas_suplementos_rbme_2009.jsonl",
-      "jsonl_sha256": "349b4a5bded6252d9fa0af21e2fdaace83c75ac59a78d81ef9a1ba16840b43f2",
-      "markdown_sha256": "0cbf63967cd4e47795191e3e24c632f216d9af449135968c75951ea877ce5e73",
+      "jsonl_sha256": "68cde06a5a0afff5ac88075044d05da6216054843d3214d4d528993cfcd22a2d",
+      "markdown_sha256": "39499201c4fcd35ec87980160aaaa7b5c016ea4e114fbb538376a670b1a41866",
       "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
-      "rag_config_sha256": "d5f86dc98ee851eb6c994c30bf818f6952e909e709c96193c2cf51f6ee9a2ba5",
+      "rag_config_sha256": "26e81c6cb9feb65b1894101cc4444b57daff65d307381330dc330918619c7544",
       "trechos": 103
     },
     "souza-backes-universitarios-csc-2020": {
