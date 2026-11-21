@@ -60,12 +60,6 @@ REGRA DE SEGURANÇA (RNF04):
 _CITACAO_E_FORMATO = """REGRA DE CITAÇÃO (RN04, RNF27):
 5. Os trechos vêm numerados como [T1], [T2] etc. Em "evidence_summary", "physiological_mechanism" e "protocol_findings", escreva uma LISTA de frases. Cada item tem: "frase"; "trechos", com os NÚMEROS dos trechos que a sustentam (ex.: [2] ou [1, 3]), ou "TACO" para a Tabela TACO e "GRAFO" para o Grafo Causal; e "citacao", um pedaço COPIADO SEM ALTERAR (pelo menos 5 palavras seguidas) de um desses trechos, que comprove a frase. Frase sem citação copiada do trecho é descartada.
 6. Só escreva o que está nos trechos, na TACO ou no grafo. Não use conhecimento próprio. Em "physiological_mechanism", só escreva se um trecho descrever o mecanismo; senão, use um único item com a frase exatamente """ + f'"{FRASE_SEM_BASE}"' + """ e "trechos": []. O mesmo vale para qualquer campo sem base no material.
-7. A frase não pode dizer mais do que a citação. Antes de escrever, confira:
-   a) CONDIÇÃO E PÚBLICO: se o trecho fala de um grupo, situação, dose, tipo de exercício ou exceção, a frase repete essa restrição. Não transforme o que vale para um grupo em regra geral.
-   b) FORÇA: mantenha o grau de certeza do trecho. "Pode", "sugere", "alguns estudos", "evite ou minimize" e "considere" NÃO viram "deve", "reduz", "comprova" ou "é recomendado".
-   c) ALCANCE: não estenda a conclusão a outro alimento, suplemento, população ou desfecho que o trecho não cita, e não transforme um benefício descrito em recomendação.
-   d) NÚMEROS: cada número fica ligado ao que ele mede no trecho.
-   Se não for possível escrever a frase com essas restrições, não a escreva.
 
 Responda ESTRITAMENTE em formato JSON válido com as seguintes chaves:
 {
