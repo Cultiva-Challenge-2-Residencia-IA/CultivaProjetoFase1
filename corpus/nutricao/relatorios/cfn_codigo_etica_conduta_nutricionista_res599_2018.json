@@ -4,7 +4,7 @@
   "pdf_pages": 19,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
-  "config_sha256": "32a085faff1eaa4b29a52d3456ff943d2e1c1f85734db45087b59fa311932257",
+  "config_sha256": "8c3ead03c3c76cc0edcefc908e4bcf703caba0ae789b202d71a296a4ba36655c",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -128,148 +128,404 @@
       "native_characters": 3401,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 7,
+          "old": "> **~~[~~ 10**",
+          "new": ""
+        },
+        {
+          "page": 7,
+          "old": "> **~~[~~ 11**",
+          "new": ""
+        },
+        {
+          "page": 7,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 3422
+      "native_word_coverage": 0.99582,
+      "missing_native_tokens": {
+        "10": 1,
+        "11": 1
+      },
+      "markdown_characters": 3378
     },
     {
       "pdf_page": 8,
       "native_characters": 3565,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 8,
+          "old": "> **~~[~~ 12**",
+          "new": ""
+        },
+        {
+          "page": 8,
+          "old": "> **~~[~~ 13**",
+          "new": ""
+        },
+        {
+          "page": 8,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 3576
+      "native_word_coverage": 0.99607,
+      "missing_native_tokens": {
+        "12": 1,
+        "13": 1
+      },
+      "markdown_characters": 3532
     },
     {
       "pdf_page": 9,
       "native_characters": 3154,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 9,
+          "old": "> **~~[~~ 14**",
+          "new": ""
+        },
+        {
+          "page": 9,
+          "old": "> **~~[~~ 15**",
+          "new": ""
+        },
+        {
+          "page": 9,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 3189
+      "native_word_coverage": 0.99533,
+      "missing_native_tokens": {
+        "14": 1,
+        "15": 1
+      },
+      "markdown_characters": 3145
     },
     {
       "pdf_page": 10,
       "native_characters": 3532,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 10,
+          "old": "> **~~[~~ 16**",
+          "new": ""
+        },
+        {
+          "page": 10,
+          "old": "> **~~[~~ 17**",
+          "new": ""
+        },
+        {
+          "page": 10,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 3554
+      "native_word_coverage": 0.99597,
+      "missing_native_tokens": {
+        "16": 1,
+        "17": 1
+      },
+      "markdown_characters": 3510
     },
     {
       "pdf_page": 11,
       "native_characters": 3370,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 11,
+          "old": "> **~~[~~ 18**",
+          "new": ""
+        },
+        {
+          "page": 11,
+          "old": "> **~~[~~ 19**",
+          "new": ""
+        },
+        {
+          "page": 11,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 3394
+      "native_word_coverage": 0.9958,
+      "missing_native_tokens": {
+        "18": 1,
+        "19": 1
+      },
+      "markdown_characters": 3350
     },
     {
       "pdf_page": 12,
       "native_characters": 3342,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 12,
+          "old": "> **~~[~~ 20**",
+          "new": ""
+        },
+        {
+          "page": 12,
+          "old": "> **~~[~~ 21**",
+          "new": ""
+        },
+        {
+          "page": 12,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 3339
+      "native_word_coverage": 0.99572,
+      "missing_native_tokens": {
+        "20": 1,
+        "21": 1
+      },
+      "markdown_characters": 3295
     },
     {
       "pdf_page": 13,
       "native_characters": 3276,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 13,
+          "old": "> **~~[~~ 22**",
+          "new": ""
+        },
+        {
+          "page": 13,
+          "old": "> **~~[~~ 23**",
+          "new": ""
+        },
+        {
+          "page": 13,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 0.99787,
+      "native_word_coverage": 0.9936,
       "missing_native_tokens": {
+        "22": 1,
+        "23": 1,
         "formação": 1
       },
-      "markdown_characters": 3307
+      "markdown_characters": 3263
     },
     {
       "pdf_page": 14,
       "native_characters": 3028,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 14,
+          "old": "> **~~[~~ 24**",
+          "new": ""
+        },
+        {
+          "page": 14,
+          "old": "> **~~[~~ 25**",
+          "new": ""
+        },
+        {
+          "page": 14,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 3057
+      "native_word_coverage": 0.99551,
+      "missing_native_tokens": {
+        "24": 1,
+        "25": 1
+      },
+      "markdown_characters": 3013
     },
     {
       "pdf_page": 15,
       "native_characters": 2949,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 15,
+          "old": "> **~~[~~ 26**",
+          "new": ""
+        },
+        {
+          "page": 15,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 1
+        },
+        {
+          "page": 15,
+          "old": "**~~[~~**",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 2985
+      "native_word_coverage": 0.99763,
+      "missing_native_tokens": {
+        "26": 1
+      },
+      "markdown_characters": 2941
     },
     {
       "pdf_page": 16,
       "native_characters": 2621,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 16,
+          "old": "> **~~[~~ 28**",
+          "new": ""
+        },
+        {
+          "page": 16,
+          "old": "> **~~[~~ 29**",
+          "new": ""
+        },
+        {
+          "page": 16,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 0.99742,
+      "native_word_coverage": 0.99227,
       "missing_native_tokens": {
+        "28": 1,
+        "29": 1,
         "nutricionistas": 1
       },
-      "markdown_characters": 2658
+      "markdown_characters": 2614
     },
     {
       "pdf_page": 17,
       "native_characters": 2853,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 17,
+          "old": "> **~~[~~ 31**",
+          "new": ""
+        },
+        {
+          "page": 17,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 1
+        },
+        {
+          "page": 17,
+          "old": "**~~[~~**",
+          "new": "",
+          "count": 2
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 2967
+      "native_word_coverage": 0.99753,
+      "missing_native_tokens": {
+        "31": 1
+      },
+      "markdown_characters": 2923
     },
     {
       "pdf_page": 18,
       "native_characters": 1813,
       "method": "native",
       "tables_detected": 0,
-      "warnings": [],
-      "adjustments": [],
+      "warnings": [
+        "Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69)."
+      ],
+      "adjustments": [
+        {
+          "page": 18,
+          "old": "> **~~[~~ 32**",
+          "new": ""
+        },
+        {
+          "page": 18,
+          "old": "~~[~~ ",
+          "new": "",
+          "count": 1
+        }
+      ],
       "ocr": [],
-      "native_word_coverage": 1.0,
-      "missing_native_tokens": {},
-      "markdown_characters": 1861
+      "native_word_coverage": 0.99631,
+      "missing_native_tokens": {
+        "32": 1
+      },
+      "markdown_characters": 1839
     },
     {
       "pdf_page": 19,
@@ -301,7 +557,7 @@
       "markdown_characters": 70
     }
   ],
-  "markdown_sha256": "ca06621b813cc460983f2bcd976486a0a5ea09363da71f711950b286d079e62b",
+  "markdown_sha256": "6ff1d5590db89e2d801d7d80a1c785febee24dbb103f96452becd0edea8eb8c8",
   "summary": {
     "pages_converted": 19,
     "sparse_pages": [
@@ -316,9 +572,33 @@
     "pages_with_warnings": [
       1,
       2,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
       19
     ],
     "pages_with_adjustments": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
       19
     ]
   }

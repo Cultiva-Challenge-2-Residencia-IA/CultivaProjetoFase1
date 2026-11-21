@@ -159,7 +159,8 @@ page_notes:
   183: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
     o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
   184: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
-    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+    Tachado falso partia as palavras; texto refeito por replacement (''que a cafeína'', issue #69).'
   187: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
     o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
   189: 'Alerta lexical por tokenização: a camada nativa intercala outra palavra (cabeçalho ou quadro)
@@ -178,7 +179,9 @@ page_notes:
   212: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
     o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
   218: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
-    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
+    o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).
+    Tachado falso partia as palavras; texto refeito por replacement (''bastante heterogêneos'', issue
+    #69).'
   219: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
     o hífen; todos os números decimais do PDF estão no Markdown (conferência da issue #26, 19/11/2026).'
   220: 'Alerta lexical por tokenização: palavras hifenizadas ou partidas que aparecem no Markdown sem
@@ -214,3 +217,9 @@ replacements:
 - page: 251
   old: "### CAPÍTULO 11 \n\nTELENUTRIÇÃO E USO DE SITES E SMARTPHONES "
   new: 'CAPÍTULO 11 TELENUTRIÇÃO E USO DE SITES E SMARTPHONES '
+- page: 184
+  old: qu ~~e a~~ cafeína
+  new: que a cafeína
+- page: 218
+  old: bastant ~~e h~~ eterogêneos
+  new: bastante heterogêneos

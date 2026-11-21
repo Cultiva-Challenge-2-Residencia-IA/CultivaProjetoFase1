@@ -10,6 +10,42 @@ page_notes:
     o logotipo como caracteres espúrios; o nome do conselho, que só existe na imagem do logotipo, vem
     de OCR da região, conferido visualmente.'
   2: 'Folha de rosto: o OCR coincidia com o texto nativo; texto nativo usado.'
+  7: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  8: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  9: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  10: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  11: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  12: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  13: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  14: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  15: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  16: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  17: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
+  18: 'Colchete decorativo da camada nativa com tachado falso (''~~[~~'') no cabeçalho corrido e no rodapé
+    com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue
+    #69).'
   19: Contracapa com logotipo do CFN e cfn.org.br, conferida visualmente. Texto nativo usado em vez do
     OCR, que lia o desenho como caracteres espúrios; colchetes decorativos da camada nativa e tachado
     falso removidos.
@@ -33,3 +69,122 @@ replacements:
 - page: 19
   old: '**~~[~~ 34**'
   new: '**34**'
+- page: 7
+  old: '> **~~[~~ 10**'
+  new: ''
+- page: 7
+  old: '> **~~[~~ 11**'
+  new: ''
+- page: 7
+  old: '~~[~~ '
+  new: ''
+  count: 2
+- page: 8
+  old: '> **~~[~~ 12**'
+  new: ''
+- page: 8
+  old: '> **~~[~~ 13**'
+  new: ''
+- page: 8
+  old: '~~[~~ '
+  new: ''
+  count: 2
+- page: 9
+  old: '> **~~[~~ 14**'
+  new: ''
+- page: 9
+  old: '> **~~[~~ 15**'
+  new: ''
+- page: 9
+  old: '~~[~~ '
+  new: ''
+  count: 2
+- page: 10
+  old: '> **~~[~~ 16**'
+  new: ''
+- page: 10
+  old: '> **~~[~~ 17**'
+  new: ''
+- page: 10
+  old: '~~[~~ '
+  new: ''
+  count: 2
+- page: 11
+  old: '> **~~[~~ 18**'
+  new: ''
+- page: 11
+  old: '> **~~[~~ 19**'
+  new: ''
+- page: 11
+  old: '~~[~~ '
+  new: ''
+  count: 2
+- page: 12
+  old: '> **~~[~~ 20**'
+  new: ''
+- page: 12
+  old: '> **~~[~~ 21**'
+  new: ''
+- page: 12
+  old: '~~[~~ '
+  new: ''
+  count: 2
+- page: 13
+  old: '> **~~[~~ 22**'
+  new: ''
+- page: 13
+  old: '> **~~[~~ 23**'
+  new: ''
+- page: 13
+  old: '~~[~~ '
+  new: ''
+  count: 2
+- page: 14
+  old: '> **~~[~~ 24**'
+  new: ''
+- page: 14
+  old: '> **~~[~~ 25**'
+  new: ''
+- page: 14
+  old: '~~[~~ '
+  new: ''
+  count: 2
+- page: 15
+  old: '> **~~[~~ 26**'
+  new: ''
+- page: 15
+  old: '~~[~~ '
+  new: ''
+  count: 1
+- page: 15
+  old: '**~~[~~**'
+  new: ''
+  count: 2
+- page: 16
+  old: '> **~~[~~ 28**'
+  new: ''
+- page: 16
+  old: '> **~~[~~ 29**'
+  new: ''
+- page: 16
+  old: '~~[~~ '
+  new: ''
+  count: 2
+- page: 17
+  old: '> **~~[~~ 31**'
+  new: ''
+- page: 17
+  old: '~~[~~ '
+  new: ''
+  count: 1
+- page: 17
+  old: '**~~[~~**'
+  new: ''
+  count: 2
+- page: 18
+  old: '> **~~[~~ 32**'
+  new: ''
+- page: 18
+  old: '~~[~~ '
+  new: ''
+  count: 1

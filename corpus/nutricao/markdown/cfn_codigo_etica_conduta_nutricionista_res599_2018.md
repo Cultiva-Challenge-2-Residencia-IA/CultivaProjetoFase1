@@ -168,9 +168,11 @@ Brasília, 25 de fevereiro de 2018.
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=7)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 7:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
+
+**Código de Ética e de Conduta do Nutricionista**
 
 # **Princípios Fundamentais**
 
@@ -200,10 +202,6 @@ _No contexto do exercício profissional, o nutricionista pautará sua prática n
 
 **Art. 11** É direito do nutricionista pleitear remuneração adequada às suas atividades, com base no valor mínimo definido por legislações vigentes ou pela sua respectiva e competente entidade sindical.
 
-> **~~[~~ 10**
-
-> **~~[~~ 11**
-
 ---
 
 <a id="pagina-pdf-008"></a>
@@ -212,9 +210,11 @@ _No contexto do exercício profissional, o nutricionista pautará sua prática n
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=8)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 8:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
+
+**Código de Ética e de Conduta do Nutricionista**
 
 **Art. 12** É direito do nutricionista recusar propostas e situações incompatíveis com suas atribuições ou que se configurem como desvio de função em seu contrato profissional.
 
@@ -248,10 +248,6 @@ _Parágrafo único._ No caso de possuir outra(s) profissão(ões), o nutricionis
 
 **Art. 22** É dever do nutricionista, em caso de trabalho
 
-> **~~[~~ 12**
-
-> **~~[~~ 13**
-
 ---
 
 <a id="pagina-pdf-009"></a>
@@ -260,9 +256,11 @@ _Parágrafo único._ No caso de possuir outra(s) profissão(ões), o nutricionis
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=9)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 9:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
+
+**Código de Ética e de Conduta do Nutricionista**
 
 voluntário, executar as atribuições e assumir as responsabilidades profissionais inerentes à função executada conforme legislação vigente, em especial a lei que dispõe sobre o serviço voluntário.
 
@@ -298,10 +296,6 @@ _As atividades e ações desenvolvidas pelo nutricionista no exercício de suas 
 
 **Art. 34** É direito do nutricionista alterar a conduta
 
-> **~~[~~ 14**
-
-> **~~[~~ 15**
-
 ---
 
 <a id="pagina-pdf-010"></a>
@@ -310,9 +304,11 @@ _As atividades e ações desenvolvidas pelo nutricionista no exercício de suas 
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=10)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 10:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
+
+**Código de Ética e de Conduta do Nutricionista**
 
 profissional determinada por outro nutricionista caso tal medida seja necessária para benefício de indivíduos, coletividades ou serviços, registrando as alterações e justificativas de acordo com as normas da instituição, e sempre que possível informar ao responsável pela conduta.
 
@@ -346,10 +342,6 @@ _Parágrafo único._ Orientação nutricional e acompanhamento podem ser realiza
 
 **Art. 47** É vedado ao nutricionista utilizar-se de instituição ou bem público para executar serviços provenientes de demandas de instituição ou de interesse privado, sem autorização, como forma de obter vantagens pessoais ou para terceiros.
 
-> **~~[~~ 16**
-
-> **~~[~~ 17**
-
 ---
 
 <a id="pagina-pdf-011"></a>
@@ -358,9 +350,11 @@ _Parágrafo único._ Orientação nutricional e acompanhamento podem ser realiza
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=11)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 11:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
+
+**Código de Ética e de Conduta do Nutricionista**
 
 **Art. 48** É vedado ao nutricionista pleitear de forma desleal, para si ou para outrem, emprego, cargo ou função que esteja sendo exercida por nutricionista ou por profissional de outra formação.
 
@@ -392,10 +386,6 @@ _Parágrafo único._ Ao divulgar orientações e procedimentos específicos para
 
 **Art. 58** É vedado ao nutricionista, mesmo com autorização concedida por escrito, divulgar imagem corporal de si ou de terceiros, atribuindo resultados a produtos, equi-
 
-> **~~[~~ 18**
-
-> **~~[~~ 19**
-
 ---
 
 <a id="pagina-pdf-012"></a>
@@ -404,9 +394,11 @@ _Parágrafo único._ Ao divulgar orientações e procedimentos específicos para
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=12)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 12:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
+
+**Código de Ética e de Conduta do Nutricionista**
 
 pamentos, técnicas, protocolos, pois podem não apresentar o mesmo resultado para todos e oferecer risco à saúde.
 
@@ -436,10 +428,6 @@ _Parágrafo único._ O nutricionista pode exercer atividade de consulta nutricio
 
 **Art. 62** É vedado ao nutricionista condicionar, su-
 
-> **~~[~~ 20**
-
-> **~~[~~ 21**
-
 ---
 
 <a id="pagina-pdf-013"></a>
@@ -448,9 +436,11 @@ _Parágrafo único._ O nutricionista pode exercer atividade de consulta nutricio
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=13)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 13:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
+
+**Código de Ética e de Conduta do Nutricionista**
 
 bordinar ou sujeitar sua atividade profissional à venda casada de produtos alimentícios, suplementos nutricionais, fitoterápicos, utensílios ou equipamentos ligados à área de alimentação e nutrição.
 
@@ -486,10 +476,6 @@ _ção profissional do nutricionista, em todos os níveis, obedecerão ao que se
 
 **Art. 73** É dever do nutricionista, no desempenho da
 
-> **~~[~~ 22**
-
-> **~~[~~ 23**
-
 ---
 
 <a id="pagina-pdf-014"></a>
@@ -498,9 +484,11 @@ _ção profissional do nutricionista, em todos os níveis, obedecerão ao que se
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=14)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 14:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
+
+**Código de Ética e de Conduta do Nutricionista**
 
 atividade de supervisão ou preceptoria, estar comprometido com a formação do discente, em todos os níveis de formação profissional, ensejando a realização das atribuições do nutricionista desenvolvidas no local, sob sua responsabilidade.
 
@@ -532,10 +520,6 @@ _Parágrafo único._ A pesquisa ou estudo deve ser autorizado pela instituição
 
 **Art. 83** É vedado ao nutricionista declarar autoria à
 
-> **~~[~~ 24**
-
-> **~~[~~ 25**
-
 ---
 
 <a id="pagina-pdf-015"></a>
@@ -544,11 +528,11 @@ _Parágrafo único._ A pesquisa ou estudo deve ser autorizado pela instituição
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=15)
 
-**~~[~~**
+> **Nota de conversão — página 15:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
 **Código de Ética e de Conduta do Nutricionista**
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
 
 produção científica, método de trabalho ou produto do qual não tenha participado efetivamente da produção ou construção.
 
@@ -584,10 +568,6 @@ II – Pareceres de outras instâncias oficiais devem ser considerados na análi
 
 **Art. 93** Responde pela infração quem a cometer, participar ou for conivente.
 
-> **~~[~~ 26**
-
-**~~[~~**
-
 **27**
 
 ---
@@ -598,9 +578,11 @@ II – Pareceres de outras instâncias oficiais devem ser considerados na análi
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=16)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 16:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
+
+**Código de Ética e de Conduta do Nutricionista**
 
 **Art. 94** A ocorrência da infração, a sua autoria e responsabilidade e as circunstâncias a ela relacionadas serão apuradas em processo instaurado e conduzido em conformidade com as normas legais e regulamentares próprias e com aquelas editadas pelos Conselhos Federal e Regionais de Nutricionistas nos limites de suas respectivas competências.
 
@@ -634,10 +616,6 @@ _Parágrafo único._ As alterações que venham a ser propostas para este Códig
 
 **Art. 97** Caberá ao Conselho Federal de Nutricionis-
 
-> **~~[~~ 28**
-
-> **~~[~~ 29**
-
 ---
 
 <a id="pagina-pdf-017"></a>
@@ -646,11 +624,11 @@ _Parágrafo único._ As alterações que venham a ser propostas para este Códig
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=17)
 
-**~~[~~**
+> **Nota de conversão — página 17:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
 
 **Código de Ética e de Conduta do Nutricionista**
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+**Código de Ética e de Conduta do Nutricionista**
 
 # **Glossário**
 
@@ -702,11 +680,7 @@ _Fonte:_ Michaelis.
 
 _Fonte:_ Resolução CNRMS no 2, de 13 de abril de 2012.
 
-**~~[~~**
-
 **30**
-
-> **~~[~~ 31**
 
 ---
 
@@ -716,7 +690,9 @@ _Fonte:_ Resolução CNRMS no 2, de 13 de abril de 2012.
 
 [Conferir no original](../originais/cfn_codigo_etica_conduta_nutricionista_res599_2018.pdf#page=18)
 
-**~~[~~ Código de Ética e de Conduta do Nutricionista**
+> **Nota de conversão — página 18:** Colchete decorativo da camada nativa com tachado falso ('~~[~~') no cabeçalho corrido e no rodapé com o número da página removido por replacements; o rodapé com o número da página sai inteiro (issue #69).
+
+**Código de Ética e de Conduta do Nutricionista**
 
 **Prescrição dietética:** atividade privativa do nutricionista que compõe a assistência prestada ao cliente/paciente/ usuário em ambiente hospitalar, ambulatorial, consultório ou em domicílio, que envolve o plano alimentar, devendo ser elaborada com base nas diretrizes estabelecidas no diagnóstico de nutrição, devendo conter data, Valor Energético Total (VET), consistência, macro e micronutrientes, fracionamento, assinatura seguida de carimbo, número e região da inscrição no CRN do nutricionista responsável pela prescrição.
 
@@ -745,8 +721,6 @@ Conselheiros Suplentes
 **Sandra Regina Melchionna e Silva (CRN-2/1043) Rosana Maria Nogueira (CRN-3/2530) Ana Jeanette Ferreira Lopes de Haro (CRN-10/0761) Liane Quintanilha Simões (CRN-4/85100075) Anete Rissin (CRN-6/0544) Leida Reny Borges Bressane (CRN-7/0397) Raul Von Der Heyde (CRN-8/0555) Regina Rodrigues de Oliveira (CRN-9/0901)**
 
 **Conselho Federal de Nutricionistas SRTVS Quadra 701  Bloco II, Centro Empresarial Assis Chateaubriand, sala 301, Brasília/DF - CEP 70.340-906**
-
-> **~~[~~ 32**
 
 ---
 

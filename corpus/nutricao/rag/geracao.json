@@ -3,8 +3,8 @@
   "fontes": {
     "abeso-posicionamento-tratamento-nutricional-obesidade-2022": {
       "jsonl_path": "corpus/nutricao/rag/abeso_posicionamento_obesidade_2022.jsonl",
-      "jsonl_sha256": "3dcafb5518ab69c1efb20bbda9a44493873c25f95eb4924274f875dd98157613",
-      "markdown_sha256": "5101841dd44a2d346722631275885c194e9e5dcc231c504923b8eacb62b0944e",
+      "jsonl_sha256": "4d31bcc81192f7fe682eebd77fde7ea20a0d770aca2fdc7c7f1e65715c63dc12",
+      "markdown_sha256": "a6a10e62b0c1b4616b0afeb61ce3bdcb5821aa5fa5c4f92127cba7199f719616",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "df0f1b866749c94ea567f30d304f99a211a7e21aeac1f33b61a378a134b0c49b",
       "trechos": 497
@@ -43,8 +43,8 @@
     },
     "cfn-codigo-etica-conduta-nutricionista-2018": {
       "jsonl_path": "corpus/nutricao/rag/cfn_codigo_etica_conduta_nutricionista_res599_2018.jsonl",
-      "jsonl_sha256": "c69f3cb94fa6fce287730209ee67534e07dd5a7996121dab0d3b56d4984be822",
-      "markdown_sha256": "ca06621b813cc460983f2bcd976486a0a5ea09363da71f711950b286d079e62b",
+      "jsonl_sha256": "3cc9ead3c04111e4fba612b73faff01f8a30f1a8ecdc891560c7257cd9c9d7b2",
+      "markdown_sha256": "6ff1d5590db89e2d801d7d80a1c785febee24dbb103f96452becd0edea8eb8c8",
       "prepare_rag_sha256": "256b7267cd177f426a0b67bb7967175c62a3e9e7ac0d7d645a3ed92da662bb29",
       "rag_config_sha256": "74381bdfdbd8070f297fa861cc2a67e73a038d5a4991d730a090cbe092bfb73a",
       "trechos": 59
