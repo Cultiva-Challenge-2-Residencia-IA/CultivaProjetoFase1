@@ -1,0 +1,140 @@
+{
+  "descricao": "Perguntas compostas (Nutrição e Saúde Física) para a decomposição e o Sincronizador (issue #99).",
+  "casos": [
+    {
+      "id": "C01",
+      "split": "dev",
+      "mensagem": "O que comer e quanto exercício fazer para baixar a pressão arterial?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C02",
+      "split": "dev",
+      "mensagem": "Para emagrecer, o que é mais importante: alimentação ou atividade física?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C03",
+      "split": "dev",
+      "mensagem": "Como a alimentação e o treino de força ajudam a ganhar massa muscular?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C04",
+      "split": "dev",
+      "mensagem": "Quem tem diabetes tipo 2 deve fazer exercícios e mudar a dieta? O que as diretrizes dizem?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C05",
+      "split": "dev",
+      "mensagem": "O que comer depois da corrida e quanto tempo descansar antes do próximo treino?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C06",
+      "split": "dev",
+      "mensagem": "Idosos precisam de mais proteína e de exercícios de força?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C07",
+      "split": "dev",
+      "mensagem": "Colesterol alto: quais alimentos evitar e qual atividade física ajuda?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C08",
+      "split": "dev",
+      "mensagem": "Como evitar câimbras no treino: hidratação, alimentação ou alongamento?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C09",
+      "split": "dev",
+      "mensagem": "Ultraprocessados atrapalham o desempenho de quem corre?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C10",
+      "split": "dev",
+      "mensagem": "Gestante pode fazer musculação e precisa de suplemento de ferro?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C11",
+      "split": "test",
+      "mensagem": "Quanto de atividade física e quais alimentos ajudam a prevenir obesidade em adultos?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C12",
+      "split": "test",
+      "mensagem": "O que comer antes de nadar e quanto tempo esperar depois da refeição?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C13",
+      "split": "test",
+      "mensagem": "Dor nas costas pode ter relação com sobrepeso e alimentação?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C14",
+      "split": "test",
+      "mensagem": "Para quem trabalha sentado o dia todo, o que muda na alimentação e na atividade física?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "C15",
+      "split": "test",
+      "mensagem": "Café da manhã reforçado melhora o treino da manhã?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    }
+  ]
+}

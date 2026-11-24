@@ -76,7 +76,7 @@ def metricas_de_recuperacao(notas: Dict[str, int], recuperados: List[str], k: in
         return tid.rsplit("-", 1)[0]
 
     def fonte(tid: str) -> str:
-        return re.sub(r"-(p[0-9]{3}|resumo)-[0-9]{2}$", "", tid)
+        return re.sub(r"-(p[0-9]{3}|s[0-9]{3}|resumo)-[0-9]{2}$", "", tid)
 
     paginas = {pagina(t) for t in relevantes}
     fontes = {fonte(t) for t in relevantes}
