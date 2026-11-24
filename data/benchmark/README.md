@@ -12,7 +12,25 @@
 
 ## Como os ids esperados viram fontes
 
-As perguntas foram escritas para o antigo `data/raw`. `mapear_esperados` (`run_benchmark.py`) converte cada id em fontes do corpus: `GUIA_MS_*` vira o Guia Alimentar (2014) inteiro, `PUBMED_<grupo>` vira os resumos do grupo, e os `DOC_*` sem procedência verificável ficam fora da média. Por isso as 12 perguntas avaliadas esperam só o Guia.
+As perguntas foram escritas para o antigo `data/raw`. `mapear_esperados` (`run_benchmark.py`) converte cada id em fontes do corpus: `GUIA_MS_*` vira o Guia Alimentar (2014) inteiro, `PUBMED_<grupo>` vira os resumos do grupo, e os `DOC_*` sem procedência verificável ficam fora da média. Um id que já é fonte do corpus (`manifest.yaml`) fica como está.
+
+## Revisão das perguntas que esperavam o `seed_guidelines` (issue #59, 21/11/2026)
+
+Sete perguntas esperavam documentos `DOC_*` do `seed_guidelines`, que saiu do índice no PR #30. Elas foram revisadas **pelos documentos do corpus aprovado, sem olhar resultados da busca**, com a página conferida no PDF. Cada pergunta revisada tem o motivo em `expected_revision_note`.
+
+| Pergunta | Antes | Depois |
+|---|---|---|
+| Q08 | Guia + `DOC_HIPERTENSAO_DASH_05` | Guia (p. 12; potássio na doença renal sem fonte aprovada) |
+| Q09 | Guia + `DOC_GLICEMIA_CARBOIDRATOS_03` | Guia + ABESO (baixo índice glicêmico, p. 159) |
+| Q10 | dois `DOC_*` (fora do recall) | Guia de Dietas Vegetarianas (ferro com vitamina C, p. 5 e 27; ômega-3, p. 6) |
+| Q11 | dois `DOC_*` (fora do recall) | SBME (proteína para massa muscular, p. 3; suplementos proteicos e creatina, p. 6) |
+| Q13 | `DOC_*` + PubMed (fora do recall) | sem fonte: o corpus não trata de curcumina |
+| Q15 | Guia + `DOC_*` | sem fonte: o Guia não diz se a fervura tira benefícios do brócolis |
+| Q16 | `DOC_*` + PubMed (fora do recall) | sem fonte até as diretrizes de hipertensão, pendentes, serem aprovadas |
+
+Perguntas sem fonte esperada ficam fora da média de recall e de MRR, mas continuam valendo para palavras-chave e guardrail. As palavras-chave das sete perguntas não foram revistas: algumas ainda vêm do `seed_guidelines` (por exemplo, "HOMA-IR" e "mTORC1").
+
+**Efeito**, com o mesmo índice e sem mudança de código: as perguntas avaliadas no recall passaram de 12 para 13 (entraram Q10 e Q11, saiu Q15). O recall@4 médio foi de 91,7% para 88,5% e o MRR de 0,778 para 0,769, porque a Q09 agora também espera a ABESO e a busca não a traz entre os 4 primeiros. Palavras-chave e guardrail ficaram iguais. O baseline do gate (`eval/baselines/benchmark_offline.json`) foi regravado com esses valores.
 
 ## Decisão: o Fascículo 1 não é equivalente ao Guia no v1
 
