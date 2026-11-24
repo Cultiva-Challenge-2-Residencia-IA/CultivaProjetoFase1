@@ -1,6 +1,8 @@
 import sys
 import threading
 from typing import Optional
+from typing import List
+
 from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.concurrency import run_in_threadpool
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
@@ -19,6 +21,8 @@ from src.chat.autenticacao import (
     verificar_token,
 )
 from src.chat.servico import CHATS, ConversaDeOutroUsuario, RespostaDoChat, ServicoDeChat
+from src.multimodal.imagem import (MAX_BYTES_IMAGEM, MAX_FOTOS, ImagemInvalida, ler_rotulo, perguntar_fotos,
+                                   resumir_fotos)
 from src.multimodal.pdf import MAX_BYTES, PDFInvalido, perguntar_pdf, resumir_pdf
 
 app = FastAPI(
@@ -238,6 +242,56 @@ async def pergunta_sobre_pdf(arquivo: UploadFile = File(...), pergunta: str = Fo
     try:
         return (await run_in_threadpool(_perguntar_pdf, dados, pergunta)).como_dict()
     except PDFInvalido as erro:
+        raise HTTPException(status_code=422, detail=str(erro)) from erro
+
+
+async def _ler_imagem(arquivo: UploadFile) -> bytes:
+    """Lê a foto só em memória (RNF26)."""
+    if arquivo.content_type not in (None, "", "image/png", "image/jpeg", "application/octet-stream"):
+        raise HTTPException(status_code=415, detail="Envie uma foto em PNG ou JPEG.")
+    dados = await arquivo.read(MAX_BYTES_IMAGEM + 1)
+    if len(dados) > MAX_BYTES_IMAGEM:
+        raise HTTPException(status_code=413, detail="Imagem grande demais.")
+    return dados
+
+
+@app.post("/multimodal/imagem/rotulo")
+async def rotulo_por_foto(arquivo: UploadFile = File(...)) -> dict:
+    """Tabela nutricional lida da foto (issue #96): só valores em que o OCR e a visão do modelo
+    concordam, selo "ALTO EM" como está no rótulo e o que o corpus diz sobre o tema, com citação."""
+    dados = await _ler_imagem(arquivo)
+    try:
+        # OCR, preparo da imagem e chamada de visão são bloqueantes: no threadpool, para não parar a API.
+        return (await run_in_threadpool(ler_rotulo, dados, _buscar_por_area)).como_dict()
+    except ImagemInvalida as erro:
+        raise HTTPException(status_code=422, detail=str(erro)) from erro
+
+
+def _perguntar_fotos(fotos: List[bytes], pergunta: str):
+    return perguntar_fotos(fotos, pergunta, buscar=_buscar_por_area, risco_llm=get_consultant().risco_llm)
+
+
+async def _ler_fotos(arquivos: List[UploadFile]) -> List[bytes]:
+    if len(arquivos) > MAX_FOTOS:
+        raise HTTPException(status_code=422, detail=f"Envie no máximo {MAX_FOTOS} fotos.")
+    return [await _ler_imagem(a) for a in arquivos]
+
+
+@app.post("/multimodal/imagem/documento/resumo")
+async def resumo_de_fotos(arquivos: List[UploadFile] = File(...)) -> dict:
+    """Resumo de um documento impresso fotografado (uma foto por página), pelo fluxo do PDF."""
+    try:
+        return (await run_in_threadpool(resumir_fotos, await _ler_fotos(arquivos))).como_dict()
+    except ImagemInvalida as erro:
+        raise HTTPException(status_code=422, detail=str(erro)) from erro
+
+
+@app.post("/multimodal/imagem/documento/pergunta")
+async def pergunta_sobre_fotos(arquivos: List[UploadFile] = File(...), pergunta: str = Form(..., min_length=3)) -> dict:
+    dados = await _ler_fotos(arquivos)
+    try:
+        return (await run_in_threadpool(_perguntar_fotos, dados, pergunta)).como_dict()
+    except ImagemInvalida as erro:
         raise HTTPException(status_code=422, detail=str(erro)) from erro
 
 

@@ -54,6 +54,14 @@ jobs:
       # Os testes usam o modelo de embeddings de teste (hashing, tests/conftest.py): sem baixar o
       # e5-large nem calcular vetores. Os testes que dependem do modelo real (marca embeddings_reais)
       # rodam no job de avaliação, que tem o modelo e os vetores pré-calculados.
+      # Modelo OCR do Tesseract para os testes da imagem (issue #96); o mesmo do pipeline do corpus,
+      # conferido pelo SHA-256 de corpus/scripts/convert_pdfs.py; a URL fixa o commit do tessdata_fast.
+      - name: Modelo OCR (por.traineddata)
+        run: |
+          mkdir -p corpus/.cache/tessdata
+          curl -fsSL -o corpus/.cache/tessdata/por.traineddata \
+            https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/923915d4ced2a7235221788285785a29c4a42d4a/por.traineddata
+          echo "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb  corpus/.cache/tessdata/por.traineddata" | sha256sum -c -
       - run: uv run pytest -q
 
   corpus:
