@@ -156,3 +156,15 @@ def test_apagar_usuario_remove_todas_as_conversas(tmp_path, agentes):
     servico.apagar_usuario("u1")
     assert servico.historico.recentes("u1", "c1", limite=10) == []
     assert servico.historico.recentes("u1", "c2", limite=10) == []
+
+
+def test_pedido_restrito_pela_lei_da_area_traz_a_nota_legal(tmp_path, agentes):
+    class AgenteComGuardrail(AgenteFalso):
+        def responder(self, pergunta, top_k, consultas_extras, historico):
+            resposta = super().responder(pergunta, top_k, consultas_extras, historico)
+            return resposta.model_copy(update={"guardrail_triggered": True,
+                                               "legal_compliance_notice": "Nota da Lei 9.696/1998."})
+
+    agentes[AREA_SAUDE_FISICA] = AgenteComGuardrail(AREA_SAUDE_FISICA)
+    resposta = _servico(tmp_path, agentes).enviar(AREA_SAUDE_FISICA, "u1", "c1", "Monte um treino de musculação para mim")
+    assert resposta.texto.startswith("Nota da Lei 9.696/1998.")

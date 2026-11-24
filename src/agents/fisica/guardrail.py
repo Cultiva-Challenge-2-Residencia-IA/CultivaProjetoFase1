@@ -54,7 +54,7 @@ RUIDO_INDIVIDUAL = [
 ]
 
 IMPERATIVOS_PROIBIDOS: List[Tuple[str, str]] = [
-    (r"\bvoc[eê]\s+deve\s+(fazer|treinar|correr|levantar|praticar)\b", "as diretrizes descrevem"),
+    (r"\bvoc[eê]\s+deve\s+(fazer|treinar|correr|levantar|praticar|realizar)\b", "as diretrizes descrevem"),
     (r"\bfa[cç]a\s+(\d+)\s+s[eé]ries\b", r"os estudos avaliaram \1 séries"),
     (r"\bseu\s+treino\s+deve\b", "os programas estudados"),
     (r"\bprescrevo\b", "a literatura descreve"),

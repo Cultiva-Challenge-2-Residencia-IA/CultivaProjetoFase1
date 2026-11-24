@@ -37,11 +37,16 @@ RISCO_LLM_TIMEOUT = float(os.getenv("RISCO_LLM_TIMEOUT", "3.0"))
 # só com o desenvolvimento e as perguntas comuns (eval/risco/llm_criterios.md, adendo 2).
 RISCO_LLM_LIMIAR = int(os.getenv("RISCO_LLM_LIMIAR", "1"))
 CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
+# Trechos do Agente de Saúde Física (issue #99).
+CORPUS_RAG_DIR_SAUDE_FISICA = PROJECT_ROOT / "corpus" / "saudefisica" / "rag"
 TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / "traceability.sqlite3")))
 # Histórico das Conversas (issue #99): SQLite local, ignorado pelo Git, e quantas mensagens de cada
 # chat vão ao LLM (janela).
 HISTORICO_DB_PATH = Path(os.getenv("CULTIVA_HISTORICO_DB", str(DATA_DIR / "conversas.sqlite3")))
 JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "6"))
+# Reescrita de consulta e Sincronizador com o LLM local (issue #99). O padrão sai da medição no golden
+# v2 (eval/reescrita/): só fica ligado se não piorar a busca.
+REESCRITA_LLM = os.getenv("CULTIVA_REESCRITA_LLM", "true").strip().lower() in {"1", "true", "sim", "yes"}
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
 # "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".

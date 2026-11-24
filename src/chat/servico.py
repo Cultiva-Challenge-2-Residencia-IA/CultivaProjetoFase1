@@ -74,7 +74,11 @@ class RespostaDoChat(BaseModel):
 def texto_da_resposta(resposta: ConsultantResponse) -> str:
     """Texto do Agente de área, com os marcadores [T#], sem a frase fixa de campo sem base."""
     campos = (resposta.evidence_summary, resposta.physiological_mechanism, resposta.protocol_findings)
-    return "\n\n".join(c.strip() for c in campos if c and c.strip() and c.strip() != FRASE_SEM_BASE)
+    texto = "\n\n".join(c.strip() for c in campos if c and c.strip() and c.strip() != FRASE_SEM_BASE)
+    # Pedido restrito pela lei da área (Lei 8.234/1991 ou 9.696/1998): a nota legal vem antes.
+    if resposta.guardrail_triggered and resposta.legal_compliance_notice and not resposta.prompt_injection_detected:
+        return f"{resposta.legal_compliance_notice}\n\n{texto}"
+    return texto
 
 
 def _id_anonimo(usuario_id: str) -> str:
@@ -89,10 +93,13 @@ class ServicoDeChat:
         llm: Optional[LLMJson] = None,
         risco_llm=None,
         janela: int = JANELA_HISTORICO,
+        reescrita_com_llm: bool = True,
     ) -> None:
         self.agentes = dict(agentes)
         self.historico = historico
         self.llm = llm
+        # A reescrita só usa o LLM se a medição permitir (CULTIVA_REESCRITA_LLM); o Sincronizador usa sempre.
+        self.reescrita_com_llm = reescrita_com_llm
         self.risco_llm = risco_llm
         self.janela = janela
 
@@ -154,7 +161,7 @@ class ServicoDeChat:
         return dos_chats_de_area + proprio
 
     def _rotear(self, chat: str, mensagem: str, historico: Sequence[Mensagem]):
-        if self.llm is not None:
+        if self.llm is not None and self.reescrita_com_llm:
             mascarado = [Mensagem(m.papel, mascarar_dados_pessoais(m.texto), m.area) for m in historico]
             reescrita = reescrever(mascarar_dados_pessoais(mensagem), mascarado, self.llm)
         else:
