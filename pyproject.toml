@@ -20,6 +20,7 @@ dependencies = [
     "chromadb>=1.0.0",
     "fastembed>=0.4.0",
     "langgraph>=1.2.23,<2",
+    "python-multipart>=0.0.9",
 ]
 
 [dependency-groups]
