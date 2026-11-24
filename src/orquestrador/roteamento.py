@@ -26,7 +26,9 @@ TERMOS_DE_ROTA_NUTRICAO = re.compile(
     r"|hortalic\w*|feijao|arroz|carne\w*|leite|ovo\w*|cozinh\w*|receita\w*|cardapio\w*|lanche\w*|lanchar"
     r"|cafe|cha|refrigerante\w*|rotulo\w*|digest\w*|intestin\w*|glicemi\w*|diabet\w*|colesterol"
     r"|vegetarian\w*|vegan\w*|cetogenic\w*|low carb|gluten|lactose|probiotic\w*|oleo\w*|azeite|castanha\w*"
-    r"|cereal\w*|tempero\w*)\b"
+    r"|cereal\w*|tempero\w*"
+    # Hidratação (issue #105): água e bebidas para repor líquidos e sais são tema das fontes de Nutrição.
+    r"|hidrat\w*|isotonic\w*|eletrolit\w*|agua|beber|bebo|bebe)\b"
 )
 
 TERMOS_DE_ROTA_SAUDE_FISICA = re.compile(
@@ -36,7 +38,11 @@ TERMOS_DE_ROTA_SAUDE_FISICA = re.compile(
     r"|lombalgia|ciatic\w*|tendin\w*|entorse\w*|tornozelo\w*|joelho\w*|ombro\w*|manguito|coluna|postura"
     r"|reabilit\w*|fisioterap\w*|esporte\w*|atleta\w*|condicionamento|frequencia cardiaca|intensidade"
     r"|hiit|pilates|yoga|ioga|natacao|nadar|bicicleta|bike|pedal\w*|ciclismo|artrose|osteoartrit\w*"
-    r"|patelofemoral|hipertrofia|musculo\w*|muscular\w*|overtraining|carga de treino)\b"
+    r"|patelofemoral|hipertrofia|musculo\w*|muscular\w*|overtraining|carga de treino"
+    # Issue #105: partes do corpo que as fontes de dor e lesão tratam, gíria de academia e esportes.
+    r"|costas|pescoco|quadril|pernas?|coxas?|panturrilhas?|canelas?|gluteos?|bracos?|cotovelos?|punhos?"
+    r"|malhar|malho|malhando|malhacao|futebol|jogar bola|volei|basquete|danca|dancar|folego"
+    r"|torci|torceu)\b"
 )
 
 TERMOS_DE_ESTUDOS = re.compile(

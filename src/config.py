@@ -127,6 +127,28 @@ MODO_DENSO = os.getenv("MODO_DENSO", "chromadb_pure")
 RERANK_PESO_SOBREPOSICAO = float(os.getenv("RERANK_PESO_SOBREPOSICAO", "0.0"))
 RERANK_BONUS_EVIDENCIA = os.getenv("RERANK_BONUS_EVIDENCIA", "false").strip().lower() in {"1", "true", "sim"}
 
+
+def _ligado(nome: str, padrao: str) -> bool:
+    return os.getenv(nome, padrao).strip().lower() in {"1", "true", "sim", "yes"}
+
+
+# Relevância da busca (issue #105; critérios e medição em eval/relevancia/). Reranker cross-encoder
+# multilíngue, local pelo fastembed, sobre os RERANKER_CANDIDATOS primeiros da busca híbrida, ligado
+# por área. No dev: em Saúde Física, MRR da fonte de 0,367 para 0,625; em Nutrição, MRR de 0,731
+# para 0,931, mas recall@4 de 0,556 para 0,551, e a regra registrada não deixa ligar com piora.
+RERANKER_MODELO = os.getenv("RERANKER_MODELO", "jinaai/jina-reranker-v2-base-multilingual")
+RERANKER_CANDIDATOS = int(os.getenv("RERANKER_CANDIDATOS", "20"))
+RERANKER_NUTRICAO = _ligado("CULTIVA_RERANKER_NUTRICAO", "false")
+RERANKER_SAUDE_FISICA = _ligado("CULTIVA_RERANKER_SAUDE_FISICA", "true")
+# Filtro de relevância antes da síntese: Trecho com nota do cross-encoder abaixo do limiar não vai
+# para a síntese; sem nenhum, a busca é reformulada pelo LLM (CULTIVA_REFORMULACAO_LLM, com o Ollama)
+# e, se ainda não houver, a resposta é a lacuna explícita (src/rag/relevancia.py).
+FILTRO_RELEVANCIA = _ligado("CULTIVA_FILTRO_RELEVANCIA", "false")
+FILTRO_RELEVANCIA_LIMIAR = float(os.getenv("FILTRO_RELEVANCIA_LIMIAR", "0.0"))
+REFORMULACAO_LLM = _ligado("CULTIVA_REFORMULACAO_LLM", "false")
+# Trecho hipotético (HyDE) na busca só do Agente de Saúde Física (CULTIVA_HYDE_NA_BUSCA vale para as duas).
+HYDE_NA_BUSCA_SAUDE_FISICA = _ligado("CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA", "false")
+
 # Observabilidade (proposta técnica, ainda não documentada na Documentacao-Cultiva; ADR 0003).
 # Desligada por padrão: só envia traces ao Langfuse com CULTIVA_LANGFUSE=true e as chaves
 # LANGFUSE_PUBLIC_KEY e LANGFUSE_SECRET_KEY definidas. O destino padrão é um Langfuse local

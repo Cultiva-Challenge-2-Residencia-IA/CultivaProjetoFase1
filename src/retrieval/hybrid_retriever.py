@@ -1,6 +1,6 @@
 import re
 import unicodedata
-from typing import Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Dict, List, Optional, Tuple
 
 import numpy as np
 from rank_bm25 import BM25Okapi
@@ -21,6 +21,9 @@ from src.config import (
     WEIGHT_VECTOR,
 )
 from src.models.schemas import DocumentChunk, RetrievedChunk
+
+if TYPE_CHECKING:
+    from src.retrieval.reranker_cruzado import RerankerCruzado
 
 PORTUGUESE_STOPWORDS = {
     "a", "ao", "aos", "aquela", "aquelas", "aquele", "aqueles", "aquilo", "as",
@@ -126,6 +129,9 @@ class HybridRetriever:
     4. Reranker opcional por sobreposição de termos e grau de evidência GRADE. Desligado
        por padrão desde a issue #35: na escala original ele decidia o ranking sozinho,
        porque valia cerca de 10 vezes a fusão RRF.
+    5. Reranker cross-encoder opcional (`reranker`, issue #105): reordena os `candidatos_reranker`
+       primeiros da fusão pela nota do cross-encoder, antes do limite de Trechos por documento.
+       Com ele, BM25 e vetor devolvem ao menos esse número de candidatos cada um.
     """
 
     def __init__(
@@ -140,6 +146,8 @@ class HybridRetriever:
         vector_mode: str = MODO_DENSO,
         peso_sobreposicao: float = RERANK_PESO_SOBREPOSICAO,
         bonus_evidencia: bool = RERANK_BONUS_EVIDENCIA,
+        reranker: Optional["RerankerCruzado"] = None,
+        candidatos_reranker: int = 20,
     ) -> None:
         if not chunks:
             raise ValueError("A lista de chunks para o HybridRetriever não pode estar vazia.")
@@ -154,6 +162,11 @@ class HybridRetriever:
         self.vector_mode = vector_mode
         self.peso_sobreposicao = peso_sobreposicao
         self.bonus_evidencia = bonus_evidencia
+        self.reranker = reranker
+        self.candidatos_reranker = candidatos_reranker
+        if reranker is not None:
+            self.top_k_bm25 = max(self.top_k_bm25, candidatos_reranker)
+            self.top_k_vector = max(self.top_k_vector, candidatos_reranker)
 
         # 1. Construção do índice BM25
         self.tokenized_corpus = [
@@ -252,6 +265,21 @@ class HybridRetriever:
         grade_bonus = EVIDENCE_GRADE_BONUS.get(chunk.evidence_level, 0.0) if self.bonus_evidencia else 0.0
         return float(rrf_score + (self.peso_sobreposicao * overlap_ratio) + grade_bonus)
 
+    def _reordenar_por_cross_encoder(self, query: str, itens: List[RetrievedChunk]) -> List[RetrievedChunk]:
+        """Os `candidatos_reranker` primeiros da fusão, pela nota do cross-encoder (empate: a fusão)."""
+        candidatos = itens[: self.candidatos_reranker]
+        notas = self.reranker.pontuar(
+            query,
+            [item.chunk.contextualized_text for item in candidatos],
+            [item.chunk.chunk_id for item in candidatos],
+        )
+        julgados = [
+            item.model_copy(update={"relevancia": round(nota, 6), "rerank_score": round(nota, 6)})
+            for item, nota in zip(candidatos, notas)
+        ]
+        ordem = sorted(range(len(julgados)), key=lambda i: (-julgados[i].relevancia, i))
+        return [julgados[i] for i in ordem]
+
     def similaridade_maxima(self, query: str) -> float:
         """Cosseno do Trecho mais próximo na busca densa: o sinal absoluto do "não sei" (#6).
 
@@ -311,6 +339,8 @@ class HybridRetriever:
             )
 
         retrieved_items.sort(key=lambda item: item.rerank_score, reverse=True)
+        if self.reranker is not None:
+            retrieved_items = self._reordenar_por_cross_encoder(query, retrieved_items)
 
         # Diversificação por documento/capítulo: evita que um único capítulo longo monopolize o Top-K
         if max_chunks_per_doc > 0 and top_k >= 2:

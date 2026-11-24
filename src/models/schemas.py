@@ -61,6 +61,8 @@ class RetrievedChunk(BaseModel):
     vector_score: float = 0.0
     rrf_score: float = 0.0
     rerank_score: float = 0.0
+    # Nota do cross-encoder (0 a 1; issue #105), quando o reranker ou o filtro de relevância julgou.
+    relevancia: Optional[float] = None
 
 
 class UsedPassage(BaseModel):
@@ -141,8 +143,9 @@ class ConsultantResponse(BaseModel):
     trechos_citados: List[str] = Field(default_factory=list)
     # "llm_citacoes_validas", "extrativa", "extrativa_apos_citacao_invalida" (a resposta do LLM
     # falhou na checagem e foi bloqueada) ou "llm_sem_base" (o LLM disse que os Trechos não
-    # respondem, e a resposta virou o "não sei"); None nas demais respostas fixas (risco, injeção,
-    # "não sei" do cosseno).
+    # respondem, e a resposta virou o "não sei"), "lacuna_de_relevancia" (nenhum Trecho passou no
+    # filtro de relevância, issue #105, e a resposta é a lacuna explícita); None nas demais
+    # respostas fixas (risco, injeção, "não sei" do cosseno).
     fundamentacao_status: Optional[str] = None
     fundamentacao_problemas: List[str] = Field(default_factory=list)
     # Frases do LLM removidas por citação literal ausente na fonte (prompt v4, issue #67).
