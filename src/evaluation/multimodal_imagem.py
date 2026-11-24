@@ -253,10 +253,55 @@ def medir_documento(split: str, versao: str = "inclinada", sufixo: str = "") -> 
     return saida
 
 
+def planilha() -> Path:
+    """Frases novas para o juiz (RF-IA14): explicações do rótulo e frases da foto de documento que
+    ainda não estão julgadas na planilha do PDF. Frases do documento são julgadas contra o texto
+    ORIGINAL (não o do OCR), para que um erro de leitura apareça como erro."""
+    import csv
+
+    from src.multimodal.pdf import FRASE_NAO_CONSTA
+    julgadas = {(x["frase"], x["citacao"]) for x in csv.DictReader(
+        (DIR / "amostra_pdf_para_avaliar.csv").open(encoding="utf-8"))}
+    casos_pdf = {c["id"]: c for c in json.loads(CASOS_PDF.read_text(encoding="utf-8"))["casos"]}
+    linhas, vistas = [], set()
+
+    def corpus(r, rotulo):
+        t = r["trechos_corpus"][rotulo]
+        return f"{t['fonte']}, p. {t['pagina']}: {t['texto']}"
+    for split in ("dev", "test"):
+        for item in json.loads((DIR / f"resultados_rotulo_{split}.json").read_text(encoding="utf-8"))["itens"]:
+            r = item["resultado"]
+            for f in r["explicacao"]:
+                if f["frase"] in vistas:
+                    continue
+                vistas.add(f["frase"])
+                fontes = "\n\n".join(f"[{x}] {corpus(r, x)}" for x in f["fontes"])
+                linhas.append([item["id"], "rótulo: o que as fontes dizem", f["frase"], f["citacao"], fontes])
+        for item in json.loads((DIR / f"resultados_foto_documento_{split}.json").read_text(encoding="utf-8"))["itens"]:
+            paginas = casos_pdf[item["id"]]["paginas"]
+            for pedido, r in [("resumo", item["resumo"])] + [(p["pergunta"], p["resultado"]) for p in item["perguntas"]]:
+                for f in r["frases"]:
+                    chave = (f["frase"], f["citacao"])
+                    if f["frase"] == FRASE_NAO_CONSTA or chave in julgadas or chave in vistas:
+                        continue
+                    vistas.add(chave)
+                    fontes = "\n\n".join(f"[{x}] {paginas[int(x[1:]) - 1]}" if x.startswith("D") else f"[{x}] {corpus(r, x)}"
+                                          for x in f["fontes"])
+                    linhas.append([item["id"], f"foto do documento: {pedido}", f["frase"], f["citacao"], fontes])
+    saida = DIR / "amostra_imagem_para_avaliar.csv"
+    with saida.open("w", encoding="utf-8", newline="") as arq:
+        w = csv.writer(arq, lineterminator="\n")
+        w.writerow(["id", "caso", "pedido", "frase", "citacao", "fonte_citada", "julgamento", "comentario"])
+        w.writerows([[f"I{i:03d}", *linha, "", ""] for i, linha in enumerate(linhas, 1)])
+    print(f"{len(linhas)} frases -> {saida}")
+    return saida
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Medição da imagem enviada pelo usuário (issue #96).")
     sub = parser.add_subparsers(dest="comando", required=True)
     sub.add_parser("imagens")
+    sub.add_parser("planilha")
     for nome in ("rotulo", "documento"):
         p = sub.add_parser(nome)
         p.add_argument("--split", choices=["dev", "test", "todos"], default="dev")
@@ -264,6 +309,8 @@ def main() -> None:
     args = parser.parse_args()
     if args.comando == "imagens":
         salvar_exemplos()
+    elif args.comando == "planilha":
+        planilha()
     elif args.comando == "rotulo":
         medir_rotulo(args.split, args.sufixo)
     else:
