@@ -24,7 +24,7 @@ def verify() -> None:
             if original.suffix.lower() == ".pdf":
                 validate_pdf(original)
             elif original.suffix.lower() in {".html", ".htm"}:
-                content = original.read_bytes().lstrip().lower()
+                content = original.read_bytes().removeprefix(b"\xef\xbb\xbf").lstrip().lower()  # BOM UTF-8 é válido
                 if not (content.startswith(b"<!doctype html") or content.startswith(b"<html")):
                     raise ValueError(f"Original HTML inválido: {source['id']}")
             else:
@@ -68,6 +68,25 @@ def verify() -> None:
                 else:
                     raise ValueError(f"Formato com derivados candidato não suportado: {source['id']}")
             print(f"OK original {source['id']}: formato e SHA-256 conferidos; revisão pendente.")
+            continue
+        if source.get("kind") == "html":
+            # Fonte HTML indexada (kind: html): mesmas conferências do candidato HTML; Trechos por seção.
+            original = repo_path(source["original_path"])
+            markdown = repo_path(source["markdown_path"])
+            report = json.loads(repo_path(source["report_path"]).read_text(encoding="utf-8"))
+            content = original.read_bytes().removeprefix(b"\xef\xbb\xbf").lstrip().lower()  # BOM UTF-8 é válido
+            if not (content.startswith(b"<!doctype html") or content.startswith(b"<html")):
+                raise ValueError(f"Original HTML inválido: {source['id']}")
+            if sha256(original) != source["sha256"] or report["source_sha256"] != source["sha256"]:
+                raise ValueError(f"Original divergente: {source['id']}")
+            if sha256(markdown) != report["markdown_sha256"]:
+                raise ValueError(f"Markdown mudou após a conversão: {markdown}")
+            if report["script_sha256"] != sha256(Path(__file__).with_name("convert_html.py")):
+                raise ValueError("Script HTML mudou após a conversão; regenere com convert_html.py --overwrite.")
+            text = markdown.read_text(encoding="utf-8")
+            if report["content_selector"] != source.get("content_selector") or original.name not in text:
+                raise ValueError(f"Metadados ou link do original ausentes no Markdown: {source['id']}")
+            print(f"OK {source['id']}: HTML; SHA-256 do original e do Markdown e script conferidos.")
             continue
         if source.get("kind", "pdf") == "resumo_pubmed":
             raw = repo_path(source["raw_path"])

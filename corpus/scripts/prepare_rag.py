@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Markdown convertido -> Trechos limpos em JSONL, prontos para indexação no RAG.
 
-Não altera os .md convertidos, o manifesto nem os status de revisão. Cada Trecho
-pertence a uma única página física do PDF, para que a citação aponte a página exata.
+Não altera os .md convertidos, o manifesto nem os status de revisão. Cada Trecho de PDF
+pertence a uma única página física, para que a citação aponte a página exata; fontes HTML
+(`kind: html`) não têm página, e cada Trecho pertence a uma seção (título de nível 2). Os
+Trechos vão para a pasta `rag/` da área da fonte (`corpus/nutricao/rag`, `corpus/saudefisica/rag`).
 Os status de revisão e aprovação são copiados do manifesto: quem indexa decide se
 aceita fontes pendentes. Cada execução atualiza `rag/geracao.json` com os hashes de
 tudo de que o JSONL depende (Markdown ou JSON de origem, este script, a seção da fonte
@@ -23,6 +25,8 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = ROOT / "corpus/nutricao/rag"
+# Pastas de Trechos de todas as áreas; o registro de geração é um só, para todas.
+RAG_DIRS = (OUTPUT_DIR, ROOT / "corpus/saudefisica/rag")
 GENERATION_PATH = OUTPUT_DIR / "geracao.json"
 SCRIPT_PATH = Path(__file__).resolve()
 CONFIG_PATH = ROOT / "corpus/scripts/config/rag.yaml"
@@ -48,6 +52,10 @@ NOISE_LINE = re.compile(
     re.I,
 )
 PAGE_MARK = re.compile(r"<!-- PDF_PAGE: (\d+) -->")
+FRONT_MATTER = re.compile(r"\A---\n.*?\n---\n", re.S)
+# Linhas que o convert_html.py acrescenta antes do conteúdo da página.
+HTML_BOILERPLATE = re.compile(
+    r"^(Instituição\(ões\):|\[Original HTML preservado\]|> Conversão documental|> Confira no original)")
 
 
 def tipos_de_fonte() -> list[str]:
@@ -107,6 +115,30 @@ def split_pages(markdown: str) -> list[tuple[int, str]]:
     """Separa por marcador de página, descartando o cabeçalho de conversão."""
     parts = PAGE_MARK.split(markdown)
     return [(int(parts[i]), parts[i + 1]) for i in range(1, len(parts), 2)]
+
+
+def split_sections(markdown: str) -> list[tuple[int, str]]:
+    """Fonte HTML, sem página: cada título de nível 2 abre uma seção numerada a partir de 1.
+
+    O texto antes do primeiro título de nível 2 (título da página e introdução) é a seção 1.
+    O cabeçalho de conversão (front matter, instituições, links e avisos) fica de fora.
+    """
+    corpo = FRONT_MATTER.sub("", markdown, count=1)
+    secoes: list[list[str]] = [[]]
+    for linha in corpo.splitlines():
+        if HTML_BOILERPLATE.match(linha.strip()):
+            continue
+        if re.match(r"^##\s", linha) and any(
+                x.strip() and not x.lstrip().startswith("# ") for x in secoes[-1]):
+            secoes.append([])
+        secoes[-1].append(linha)
+    textos = ["\n".join(s) for s in secoes]
+    return [(numero, texto) for numero, texto in enumerate((t for t in textos if t.strip()), 1)]
+
+
+def rag_dir(source: dict) -> Path:
+    """Pasta `rag/` da área da fonte, irmã da pasta `markdown/` dela."""
+    return repo_path(source["markdown_path"]).parent.parent / "rag"
 
 
 def collapse_spaced_letters(title: str) -> str:
@@ -326,7 +358,8 @@ def prepare(source: dict) -> tuple[dict, dict]:
     skipping, section = False, ""
     discarded_short = 0
     cleaned = []
-    for page, raw in split_pages(markdown):
+    html = source.get("kind", "pdf") == "html"
+    for page, raw in (split_sections(markdown) if html else split_pages(markdown)):
         if page in skip_pages:
             cleaned.append((page, []))
             continue
@@ -347,7 +380,7 @@ def prepare(source: dict) -> tuple[dict, dict]:
                 discarded_short += 1
                 continue
             records.append({
-                "id": f"{source['id']}-p{page:03d}-{number:02d}",
+                "id": f"{source['id']}-{'s' if html else 'p'}{page:03d}-{number:02d}",
                 "fonte_id": source["id"],
                 "titulo_fonte": source["title"],
                 "instituicoes": list(source["institutions"]),
@@ -355,14 +388,14 @@ def prepare(source: dict) -> tuple[dict, dict]:
                 "tipo_fonte": source["source_type"],
                 "fonte_url": fonte_url,
                 "doi": source.get("doi"),
-                "pagina_pdf": page,
+                "pagina_pdf": None if html else page,
                 "secao": chunk_section,
                 "texto": text,
                 "licenca": source["license"],
                 "approval_status": source["approval_status"],
             })
 
-    output = OUTPUT_DIR / f"{markdown_path.stem}.jsonl"
+    output = rag_dir(source) / f"{markdown_path.stem}.jsonl"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(
         "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records), encoding="utf-8"
@@ -374,7 +407,7 @@ def prepare(source: dict) -> tuple[dict, dict]:
         "arquivo": output.relative_to(ROOT).as_posix(),
         "trechos": len(records),
         "descartados_curtos": discarded_short,
-        "paginas_com_trecho": len({r["pagina_pdf"] for r in records}),
+        "paginas_ou_secoes_com_trecho": len({r["id"].rsplit("-", 1)[0] for r in records}),
         "tamanho_min_mediana_max": [sizes[0], sizes[len(sizes) // 2], sizes[-1]] if sizes else [],
     }
 
@@ -451,7 +484,7 @@ def main() -> int:
         if not args.source:
             generation["fontes"] = {}
         for source in sources:
-            if source.get("kind", "pdf") == "pdf":
+            if source.get("kind", "pdf") in ("pdf", "html"):
                 entry, summary = prepare(source)
                 generation["fontes"][source["id"]] = entry
                 print(f"{source['id']}: {json.dumps(summary, ensure_ascii=False)}")

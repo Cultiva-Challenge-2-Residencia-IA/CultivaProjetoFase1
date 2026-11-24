@@ -2,13 +2,13 @@
 source_id: hhs-physical-activity-scientific-report-2018
 title: 2018 Physical Activity Guidelines Advisory Committee Scientific Report
 source: https://odphp.health.gov/our-work/nutrition-physical-activity/physical-activity-guidelines/current-guidelines/scientific-report
-license: Public Domain / U.S. Government Work
+license: Domínio público (obra do governo dos EUA)
 source_sha256: c13c25e34ab607ddc3e98bfc550e6c0f30e214581d1b9540b87e50d153703568
 ---
 
 # 2018 Physical Activity Guidelines Advisory Committee Scientific Report
 
-Instituição(ões): U.S. Department of Health and Human Services, Physical Activity Guidelines Advisory Committee. Edição: 2018-scientific-report-en.
+Instituição(ões): U.S. Department of Health and Human Services. Edição: 2018-scientific-report-en.
 
 [PDF original preservado](../originais/12-hhs-physical-activity-scientific-report-2018.pdf) · [Relatório por página](../relatorios/12-hhs-physical-activity-scientific-report-2018.json)
 
@@ -22,7 +22,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=1)
 
-> **Nota de conversão — página 1:** Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original.
+> **Nota de conversão — página 1:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 2018 Physical Activity Guidelines Advisory Committee Scientific Report
 
@@ -98,7 +98,7 @@ Kenneth E. Powell, MD, MPH Co-Chair, 2018 Physical Activity Guidelines Advisory 
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=5)
 
-> **Nota de conversão — página 5:** Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original.
+> **Nota de conversão — página 5:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 2018 Physical Activity Guidelines Advisory Committee Scientific Report
 
@@ -1084,7 +1084,7 @@ C-2
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=36)
 
-> **Nota de conversão — página 36:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 36:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part C. Background and Key Physical Activity Concepts
 
@@ -1613,7 +1613,7 @@ C-22
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=56)
 
-> **Nota de conversão — página 56:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 56:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part C. Background and Key Physical Activity Concepts
 
@@ -2469,7 +2469,7 @@ D-21
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=86)
 
-> **Nota de conversão — página 86:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 86:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part D. Integrating the Evidence
 
@@ -4007,7 +4007,7 @@ F1-10
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=129)
 
-> **Nota de conversão — página 129:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 129:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 1. Physical Activity Behaviors: Steps, Bouts, and High Intensity Training
 
@@ -4036,7 +4036,7 @@ F1-11
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=130)
 
-> **Nota de conversão — página 130:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 130:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ###### Part F. Chapter 1. Physical Activity Behaviors: Steps, Bouts, and High Intensity Training
 
@@ -4199,7 +4199,7 @@ F1-17
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=136)
 
-> **Nota de conversão — página 136:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 136:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 1. Physical Activity Behaviors: Steps, Bouts, and High Intensity Training
 
@@ -4219,7 +4219,7 @@ F1-18
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=137)
 
-> **Nota de conversão — página 137:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 137:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 1. Physical Activity Behaviors: Steps, Bouts, and High Intensity Training
 
@@ -5088,7 +5088,7 @@ F2-21
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=166)
 
-> **Nota de conversão — página 166:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 166:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 2. Sedentary Behavior
 
@@ -5140,7 +5140,7 @@ F2-23
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=168)
 
-> **Nota de conversão — página 168:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 168:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 2. Sedentary Behavior
 
@@ -5196,7 +5196,7 @@ F2-25
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=170)
 
-> **Nota de conversão — página 170:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 170:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 2. Sedentary Behavior
 
@@ -5250,7 +5250,7 @@ F2-27
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=172)
 
-> **Nota de conversão — página 172:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 172:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 2. Sedentary Behavior
 
@@ -5332,7 +5332,7 @@ F2-30
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=175)
 
-> **Nota de conversão — página 175:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 175:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 2. Sedentary Behavior
 
@@ -5975,7 +5975,7 @@ F3-6
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=194)
 
-> **Nota de conversão — página 194:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 194:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 3. Brain Health
 
@@ -6205,7 +6205,7 @@ F3-15
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=203)
 
-> **Nota de conversão — página 203:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 203:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 3. Brain Health
 
@@ -6303,7 +6303,7 @@ F3-18
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=206)
 
-> **Nota de conversão — página 206:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 206:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 3. Brain Health
 
@@ -6329,7 +6329,7 @@ F3-19
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=207)
 
-> **Nota de conversão — página 207:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 207:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 3. Brain Health
 
@@ -6411,7 +6411,7 @@ F3-22
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=210)
 
-> **Nota de conversão — página 210:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 210:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 3. Brain Health
 
@@ -6859,7 +6859,7 @@ F3-37
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=225)
 
-> **Nota de conversão — página 225:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 225:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 3. Brain Health
 
@@ -6896,7 +6896,7 @@ F3-38
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=226)
 
-> **Nota de conversão — página 226:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 226:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 3. Brain Health
 
@@ -6929,7 +6929,7 @@ F3-39
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=227)
 
-> **Nota de conversão — página 227:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 227:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 3. Brain Health
 
@@ -6959,7 +6959,7 @@ F3-40
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=228)
 
-> **Nota de conversão — página 228:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 228:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 3. Brain Health
 
@@ -7877,7 +7877,7 @@ F4-5
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=254)
 
-> **Nota de conversão — página 254:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 254:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -7975,7 +7975,7 @@ F4-8
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=257)
 
-> **Nota de conversão — página 257:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 257:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8047,7 +8047,7 @@ F4-11
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=260)
 
-> **Nota de conversão — página 260:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 260:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8073,7 +8073,7 @@ F4-12
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=261)
 
-> **Nota de conversão — página 261:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 261:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8175,7 +8175,7 @@ F4-16
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=265)
 
-> **Nota de conversão — página 265:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 265:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8239,7 +8239,7 @@ F4-18
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=267)
 
-> **Nota de conversão — página 267:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 267:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8267,7 +8267,7 @@ F4-19
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=268)
 
-> **Nota de conversão — página 268:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 268:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8287,7 +8287,7 @@ F4-20
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=269)
 
-> **Nota de conversão — página 269:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 269:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8613,7 +8613,7 @@ F4-30
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=279)
 
-> **Nota de conversão — página 279:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 279:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8635,7 +8635,7 @@ F4-31
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=280)
 
-> **Nota de conversão — página 280:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 280:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8725,7 +8725,7 @@ F4-34
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=283)
 
-> **Nota de conversão — página 283:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 283:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8759,7 +8759,7 @@ F4-35
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=284)
 
-> **Nota de conversão — página 284:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 284:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -8903,7 +8903,7 @@ F4-39
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=288)
 
-> **Nota de conversão — página 288:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 288:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -9061,7 +9061,7 @@ F4-44
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=293)
 
-> **Nota de conversão — página 293:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 293:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -9089,7 +9089,7 @@ F4-45
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=294)
 
-> **Nota de conversão — página 294:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 294:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -9333,7 +9333,7 @@ F4-52
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=301)
 
-> **Nota de conversão — página 301:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 301:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 4. Cancer Prevention
 
@@ -10238,7 +10238,7 @@ F5-13
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=329)
 
-> **Nota de conversão — página 329:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 329:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 5. Cardiometabolic Health and Prevention of Weight Gain
 
@@ -10460,7 +10460,7 @@ F5-22
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=338)
 
-> **Nota de conversão — página 338:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 338:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 5. Cardiometabolic Health and Prevention of Weight Gain
 
@@ -10484,7 +10484,7 @@ F5-23
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=339)
 
-> **Nota de conversão — página 339:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 339:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 5. Cardiometabolic Health and Prevention of Weight Gain
 
@@ -10508,7 +10508,7 @@ F5-24
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=340)
 
-> **Nota de conversão — página 340:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 340:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 5. Cardiometabolic Health and Prevention of Weight Gain
 
@@ -11075,7 +11075,7 @@ F6-5
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=357)
 
-> **Nota de conversão — página 357:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 357:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 6. All-cause Mortality, Cardiovascular Mortality, and Incident Cardiovascular Disease
 
@@ -11383,7 +11383,7 @@ F6-15
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=367)
 
-> **Nota de conversão — página 367:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 367:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 6. All-cause Mortality, Cardiovascular Mortality, and Incident Cardiovascular Disease
 
@@ -12058,7 +12058,7 @@ F7-9
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=388)
 
-> **Nota de conversão — página 388:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 388:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 7. Youth
 
@@ -12824,7 +12824,7 @@ F8-6
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=411)
 
-> **Nota de conversão — página 411:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 411:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 8. Women Who Are Pregnant or Postpartum
 
@@ -12854,7 +12854,7 @@ F8-7
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=412)
 
-> **Nota de conversão — página 412:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 412:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 8. Women Who Are Pregnant or Postpartum
 
@@ -12952,7 +12952,7 @@ F8-10
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=415)
 
-> **Nota de conversão — página 415:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 415:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 8. Women Who Are Pregnant or Postpartum
 
@@ -13016,7 +13016,7 @@ F8-12
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=417)
 
-> **Nota de conversão — página 417:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 417:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 8. Women Who Are Pregnant or Postpartum
 
@@ -13052,7 +13052,7 @@ F8-13
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=418)
 
-> **Nota de conversão — página 418:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 418:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 8. Women Who Are Pregnant or Postpartum
 
@@ -13110,7 +13110,7 @@ F8-15
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=420)
 
-> **Nota de conversão — página 420:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 420:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 8. Women Who Are Pregnant or Postpartum
 
@@ -14248,7 +14248,7 @@ F9-17
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=456)
 
-> **Nota de conversão — página 456:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 456:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 9. Older Adults
 
@@ -14646,7 +14646,7 @@ F9-31
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=470)
 
-> **Nota de conversão — página 470:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 470:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 9. Older Adults
 
@@ -15486,7 +15486,7 @@ F10-7
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=497)
 
-> **Nota de conversão — página 497:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 497:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -16161,7 +16161,7 @@ F10-28
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=518)
 
-> **Nota de conversão — página 518:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 518:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -16208,7 +16208,7 @@ F10-29
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=519)
 
-> **Nota de conversão — página 519:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 519:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -16250,7 +16250,7 @@ F10-30
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=520)
 
-> **Nota de conversão — página 520:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 520:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -16333,7 +16333,7 @@ F10-32
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=522)
 
-> **Nota de conversão — página 522:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 522:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -16626,7 +16626,7 @@ F10-41
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=531)
 
-> **Nota de conversão — página 531:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 531:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -17242,7 +17242,7 @@ F10-64
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=554)
 
-> **Nota de conversão — página 554:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 554:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -17268,7 +17268,7 @@ F10-65
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=555)
 
-> **Nota de conversão — página 555:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 555:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -17690,7 +17690,7 @@ F10-81
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=571)
 
-> **Nota de conversão — página 571:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 571:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -17732,7 +17732,7 @@ F10-82
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=572)
 
-> **Nota de conversão — página 572:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 572:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -17766,7 +17766,7 @@ F10-83
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=573)
 
-> **Nota de conversão — página 573:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 573:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -17940,7 +17940,7 @@ F10-89
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=579)
 
-> **Nota de conversão — página 579:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 579:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 10. Individuals with Chronic Conditions
 
@@ -18936,11 +18936,11 @@ F10-117
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=607)
 
-> **Nota de conversão — página 607:** Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original.
+> **Nota de conversão — página 607:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
 Promoting Physical Activity
 
-- Part F. Chapter 11. Promoting Regular Physical Activity
+e Part F. Chapter 11. Promoting Regular Physical Activity
 
 ---
 
@@ -19307,7 +19307,7 @@ F11-11
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=619)
 
-> **Nota de conversão — página 619:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 619:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 
@@ -19375,7 +19375,7 @@ F11-13
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=621)
 
-> **Nota de conversão — página 621:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 621:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 
@@ -19499,7 +19499,7 @@ F11-18
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=626)
 
-> **Nota de conversão — página 626:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 626:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 
@@ -19643,7 +19643,7 @@ F11-23
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=631)
 
-> **Nota de conversão — página 631:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 631:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 
@@ -19731,7 +19731,7 @@ F11-26
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=634)
 
-> **Nota de conversão — página 634:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 634:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 
@@ -20033,7 +20033,7 @@ F11-37
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=645)
 
-> **Nota de conversão — página 645:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 645:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 
@@ -20143,7 +20143,7 @@ F11-41
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=649)
 
-> **Nota de conversão — página 649:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 649:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 
@@ -20333,7 +20333,7 @@ F11-48
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=656)
 
-> **Nota de conversão — página 656:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 656:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 
@@ -20647,7 +20647,7 @@ F11-58
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=666)
 
-> **Nota de conversão — página 666:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 666:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 
@@ -20735,7 +20735,7 @@ F11-61
 
 [Conferir no original](../originais/12-hhs-physical-activity-scientific-report-2018.pdf#page=669)
 
-> **Nota de conversão — página 669:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 669:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 Part F. Chapter 11. Promoting Regular Physical Activity
 

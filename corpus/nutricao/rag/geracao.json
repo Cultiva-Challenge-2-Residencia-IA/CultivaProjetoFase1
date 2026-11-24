@@ -5,7 +5,7 @@
       "jsonl_path": "corpus/nutricao/rag/abeso_posicionamento_obesidade_2022.jsonl",
       "jsonl_sha256": "4d31bcc81192f7fe682eebd77fde7ea20a0d770aca2fdc7c7f1e65715c63dc12",
       "markdown_sha256": "a6a10e62b0c1b4616b0afeb61ce3bdcb5821aa5fa5c4f92127cba7199f719616",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "df0f1b866749c94ea567f30d304f99a211a7e21aeac1f33b61a378a134b0c49b",
       "trechos": 497
     },
@@ -13,7 +13,7 @@
       "jsonl_path": "corpus/nutricao/rag/anvisa_rotulagem_nutricional_perguntas_respostas_4ed_2024.jsonl",
       "jsonl_sha256": "0cb6d1788d8007938abb3cbf3d46d9a4d810342919901e9ff39f51ae083ef7a6",
       "markdown_sha256": "e6e0fbad581ea55129a0af94de1fa43152fb17c1303deadd72c65c7097ff4cb4",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "edceabdd572a75233799056f4679cf584eb21e0edd77f62e37dc49d3378d93c3",
       "trechos": 304
     },
@@ -21,7 +21,7 @@
       "jsonl_path": "corpus/nutricao/rag/anvisa_suplementos_alimentares_perguntas_respostas_9ed_2025.jsonl",
       "jsonl_sha256": "c22d7d875cf670e8a3f838cddca8f79ec9fa7335dc43a7783bcaeba93af8981c",
       "markdown_sha256": "f7a2f9b47da2b2d637b2c7fccbc01cd1bcbe36aa760773ce57cf99cf54cb4426",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "b943a062a6a5e57f0896cf6023d869773bb9080f2fda213555a86e1d51f86a4d",
       "trechos": 244
     },
@@ -29,7 +29,7 @@
       "jsonl_path": "corpus/nutricao/rag/azevedo_et_al_jejum_intermitente_ramb_2013.jsonl",
       "jsonl_sha256": "180549d7cfeec8d81f969e93be1bbeb2762d9a3b55e8bd5c9a2e159262fbf12d",
       "markdown_sha256": "3018e8f60525dd527b91879181a6b4d778b70a4e225d1ad83a680a08fcb6dd54",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "1ad313d6dc560e056d29b92c79456c00815f86245f9f70835521cc32421625e9",
       "trechos": 38
     },
@@ -37,7 +37,7 @@
       "jsonl_path": "corpus/nutricao/rag/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.jsonl",
       "jsonl_sha256": "e36aded5716f15aeb637861d1855fa60b0be8b367e8e2135d12226e17cb62461",
       "markdown_sha256": "83fe9d19e364a7827c31e2e0dd382095209cd0569c48a47b629a50edb8c67764",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "b793e2dbfe557dc070600da9e5320b17d283a07de1fd62e00cc95122843bc4ef",
       "trechos": 43
     },
@@ -45,15 +45,23 @@
       "jsonl_path": "corpus/nutricao/rag/cfn_codigo_etica_conduta_nutricionista_res599_2018.jsonl",
       "jsonl_sha256": "3cc9ead3c04111e4fba612b73faff01f8a30f1a8ecdc891560c7257cd9c9d7b2",
       "markdown_sha256": "6ff1d5590db89e2d801d7d80a1c785febee24dbb103f96452becd0edea8eb8c8",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "74381bdfdbd8070f297fa861cc2a67e73a038d5a4991d730a090cbe092bfb73a",
       "trechos": 59
+    },
+    "cochrane-exercise-chronic-low-back-pain-2021": {
+      "jsonl_path": "corpus/saudefisica/rag/16-cochrane-exercise-chronic-low-back-pain-2021.jsonl",
+      "jsonl_sha256": "cf809b3de31693e16ba72017d58de60866b39718bf42ea1b3f87991cf5b396e6",
+      "markdown_sha256": "598480ae2c4a12c401b0c8910ba3430b3c5eaec232967e9bbfc118be12971b0a",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 21
     },
     "crispim-sono-obesidade-abem-2007": {
       "jsonl_path": "corpus/nutricao/rag/crispim_et_al_sono_obesidade_abem_2007.jsonl",
       "jsonl_sha256": "5902b0471d57265f8ebb0b7758097dc8d6050a2616dee395dcb6ff914988307b",
       "markdown_sha256": "59b1d9d8ffcef0ea5b0c213641ff33fd7d294cd198207d3c3f6d276b3180518a",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "48d5de1f74f860200cb3b43cb309479b374ab89a1a38df6eea82989fd4ea0667",
       "trechos": 32
     },
@@ -61,7 +69,7 @@
       "jsonl_path": "corpus/nutricao/rag/fraiz_et_al_kombucha_revisao_sistematica_fermentation_2025.jsonl",
       "jsonl_sha256": "49d0271161a3f50c24648ce43aaab7aa09998d27c7388137ce5be3e02d1d4cc9",
       "markdown_sha256": "87a3737b3cc1317053581002e887818b1c158d3bfeec3b330675042f0167b371",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "780009974c7b1f45bcb98fe613203826b8809ef016222b5f2c0cc0bdfef9bcd9",
       "trechos": 106
     },
@@ -69,7 +77,7 @@
       "jsonl_path": "corpus/nutricao/rag/franca_et_al_psicologia_nutricao_comportamento_alimentar_epsic_2012.jsonl",
       "jsonl_sha256": "004f7d3798139be915193b6b54e09a9b5ffea4d090fc4b495e0e2d9af4772bac",
       "markdown_sha256": "cf43a43f2d363d94a401ed07a82d8f37feb12e56d26310d1c8fada6dd044fa38",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "44ab3f47d0678d4f79e2b2738dfc3c0959264c6cdffb884e5027a7507262e88b",
       "trechos": 39
     },
@@ -77,7 +85,7 @@
       "jsonl_path": "corpus/nutricao/rag/fusco_et_al_ansiedade_sono_compulsao_reeusp_2020.jsonl",
       "jsonl_sha256": "6a71101a8d8d89950ae9163308baaf0adf7c3448e1b1b865dd1d9e08791f7e93",
       "markdown_sha256": "ec016b08e5442a4da0a702ff97d0405a45ef933142e2a8078c5a5ab130561085",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "1f7f6949166d8012fc121a5044511668d5fb80fbb2ebdca996f1add329ac8c3e",
       "trechos": 43
     },
@@ -85,7 +93,7 @@
       "jsonl_path": "corpus/nutricao/rag/gabe_jaime_conhecimento_alimentar_guia_rsp_2026.jsonl",
       "jsonl_sha256": "1e1a74b7552c1e196a318f4f93579e33bb8bdd3525cad42e6e7e83d2c9a9beee",
       "markdown_sha256": "d91b0f3835a3975cf6b946a34cbe85c182c95da1b541d8d21a5a524b218f5899",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "fc7c8b40af6944b0aa1984bff0480617e6d3267f809ec0fce48a8ddcdbf35885",
       "trechos": 45
     },
@@ -93,31 +101,95 @@
       "jsonl_path": "corpus/nutricao/rag/guia_alimentar_populacao_brasileira_2ed_2014.jsonl",
       "jsonl_sha256": "b6e5c9b737efabfcf647a1ac82cee8276bcc93adda2a7560ba6d84414c434ace",
       "markdown_sha256": "dabb529013a1c867e7cd7006c951db0932a4a5de9be68db6dddf67b3a45600c9",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "trechos": 339
+    },
+    "guia-atividade-fisica-brasil-2021": {
+      "jsonl_path": "corpus/saudefisica/rag/01-guia-atividade-fisica-brasil-2021.jsonl",
+      "jsonl_sha256": "71b0c57cf785feacab9acb00932b4809a965b583a978b78609b5e8120e4f6c42",
+      "markdown_sha256": "4494df545fe81972e1efab83dd00bca032d2d9bf948c72d51cdeb64492cd92e4",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 124
     },
     "guia-dietas-vegetarianas-svb-2012": {
       "jsonl_path": "corpus/nutricao/rag/guia_alimentar_dietas_vegetarianas_adultos_svb_2012.jsonl",
       "jsonl_sha256": "e3ebe06846b96b2a16f907943d87a4e15524a455235bce77482a5e874857d528",
       "markdown_sha256": "54b28fa9b1ba323c3a3becf087f7ce5d04c8bbcecc88b596568ed3d5cf09ebfc",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "trechos": 165
+    },
+    "hhs-physical-activity-scientific-report-2018": {
+      "jsonl_path": "corpus/saudefisica/rag/12-hhs-physical-activity-scientific-report-2018.jsonl",
+      "jsonl_sha256": "c5ea3fcd00945011f7a8091550ca2d9abab9625912cf70cf9d544554b6f64b6e",
+      "markdown_sha256": "5a5af0b6d788dd0cdf8ccdb4ad1906b2f7fef65b1d57499c78816c1df9a4f8c6",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 2307
+    },
+    "ioc-load-sport-illness-2016": {
+      "jsonl_path": "corpus/saudefisica/rag/07-2-ioc-load-illness-2016.jsonl",
+      "jsonl_sha256": "38dec1e95fcf479d1011a095d0436b0f811b9cbe7a30494c230a0f1cb5df7f44",
+      "markdown_sha256": "da4f24099e8956a3070698fac5b80bf60255dc38c3cf413a0dc53968f5e95769",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 85
+    },
+    "ioc-load-sport-injury-2016": {
+      "jsonl_path": "corpus/saudefisica/rag/07-1-ioc-load-injury-2016.jsonl",
+      "jsonl_sha256": "1c393f94dbd502fb03d89239c3c1c7636d3a095dd23d19308af444519a14eb9b",
+      "markdown_sha256": "b0967ef6e9916b7fa5aa4dab259ce2098f20c5dbbbdf2f5b4b8768997597c96d",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 95
     },
     "jaime-frutas-hortalicas-brasil-rsp-2009": {
       "jsonl_path": "corpus/nutricao/rag/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.jsonl",
       "jsonl_sha256": "ee47e9ed1a57768594b840231c9ecf6746608476c0735dca0b30ed2d0bd05fca",
       "markdown_sha256": "88624e545fa81f664eb8b5c953c801cd848c65d21263d3242fdccd1f91afba2c",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "4c3d2cf02c7040dd715d82aa7216f8557c7639aa77397b5f62ab6520edb6edff",
       "trechos": 32
+    },
+    "jospt-ankle-ligament-sprains-cpg-2021": {
+      "jsonl_path": "corpus/saudefisica/rag/19-jospt-ankle-ligament-sprains-cpg-2021.jsonl",
+      "jsonl_sha256": "d8aaa849e694d6b2ac5ec1330d697ba62f68bae43bb9e2c140dfd26ae5d7a623",
+      "markdown_sha256": "5b98bdd414b12fb8f28c469040fa8d385ec702acbe2ada1793a7e476f6a62060",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 395
+    },
+    "jospt-low-back-pain-cpg-revision-2021": {
+      "jsonl_path": "corpus/saudefisica/rag/08-jospt-low-back-pain-cpg-2021.jsonl",
+      "jsonl_sha256": "05bb938fe26dd0dac891041ac5a02acde99c8938b185ee95d822b94558922613",
+      "markdown_sha256": "f3e7c5ad12c43eb7ba657d55d8bcabf6b6e0e784e461aed0f81c33328fc62cc7",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 301
+    },
+    "jospt-patellofemoral-pain-infographic-2019": {
+      "jsonl_path": "corpus/saudefisica/rag/18-jospt-patellofemoral-pain-infographic-2019.jsonl",
+      "jsonl_sha256": "8b2cde7d395f1add20a1b1a08c0eafbe339a9dc5813a84031ac9b873aa3b0724",
+      "markdown_sha256": "4cac7d8d260b0e724e4ac4aff33e9271b7ec9721549fe5d2379687244f9e9816",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 2
+    },
+    "jospt-rotator-cuff-tendinopathy-cpg-2025": {
+      "jsonl_path": "corpus/saudefisica/rag/10-jospt-rotator-cuff-2025.jsonl",
+      "jsonl_sha256": "e9afefb1fdbf7ad42ab5ed6c37f9c15ee0443098f05599b02e732cbd7d77e21b",
+      "markdown_sha256": "0b91e24b35173f2adbc42ea212e37c3120b7a69b6f1ea1b67ff3d5379185e9f2",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 313
     },
     "louzada-ultraprocessados-micronutrientes-rsp-2015": {
       "jsonl_path": "corpus/nutricao/rag/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.jsonl",
       "jsonl_sha256": "737018461c407879086e64c1bc61d8b0beca1d25b8efbbda8596d846f4dd3a50",
       "markdown_sha256": "2b1364e18fab477427420c705d4187a269480a1881267401ee55b6552bd9f038",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "c61039168707ef17db118eb5859570f41154124676a2176807e925bb0f88ed0e",
       "trechos": 37
     },
@@ -125,7 +197,7 @@
       "jsonl_path": "corpus/nutricao/rag/louzada_et_al_ultraprocessados_perfil_nutricional_rsp_2015.jsonl",
       "jsonl_sha256": "33b26947542aded3c12a83f38690c3048cb0333ceec4349d128aca533744ffa2",
       "markdown_sha256": "ce2e987d16d7bc39294a2c598a4d2558901d6b7f98caddcfabbbdaeea405a784",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "c61039168707ef17db118eb5859570f41154124676a2176807e925bb0f88ed0e",
       "trechos": 48
     },
@@ -133,7 +205,7 @@
       "jsonl_path": "corpus/nutricao/rag/martins_et_al_ultraprocessados_rsp_2013.jsonl",
       "jsonl_sha256": "2d586dd4e157c1997f356bedbf22aaaea5d32826d3b2f98fba4c4d924da8971a",
       "markdown_sha256": "31ef6be5117e691a1981354232331e90e18387f0d04b86fb3c66a771a76d5f83",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "df6fab649960aee25612a50dbf92fa49165945a912e9dbad692b22e5e453cc66",
       "trechos": 34
     },
@@ -141,7 +213,7 @@
       "jsonl_path": "corpus/nutricao/rag/monteiro_et_al_nova_classificacao_alimentos_csp_2010.jsonl",
       "jsonl_sha256": "ed158394a2e632d6673fdda450707fd6a65f23967388b621f4c4416206166226",
       "markdown_sha256": "990847cf3a06062ad8693fef5eb5e41f5a2bc7827062fe443d304224faf7e2a0",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "a500ee8370e9d491337a92a58e2ea2b040ceb3c31b1de4a66be6d3b54526482a",
       "trechos": 53
     },
@@ -149,7 +221,7 @@
       "jsonl_path": "corpus/nutricao/rag/moreira_rodrigues_2014_conhecimento_nutricional_suplementacao.jsonl",
       "jsonl_sha256": "4454d09a630724e5a7a6e43724690628e34931654fdc40b1f7b979c2af9a077e",
       "markdown_sha256": "7b982a4f3b6bec87d5219cb375036a51b97369d281466a7008c5177d8e5aa11c",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "20efa22c261bef7b20502910ca4a129173efde5addf3fa77ffbb0e45ca310ef2",
       "trechos": 29
     },
@@ -157,15 +229,47 @@
       "jsonl_path": "corpus/nutricao/rag/ms_ufmg_desmistificando_duvidas_alimentacao_nutricao_2016.jsonl",
       "jsonl_sha256": "42c1f002de77d1cc92f554cfe4982a28deef49cf360a4080f5cb03f0e5c54a44",
       "markdown_sha256": "2ed3aa44cfce79844b187190789cfce597afcf2bea4c8ad63aae8ebda3cb131d",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "865b29b4fce646a53818d757cef96b181228d548c12e420260693273dda06e9c",
       "trechos": 237
+    },
+    "nhs-physical-activity-adults-19-64": {
+      "jsonl_path": "corpus/saudefisica/rag/13-nhs-physical-activity-adults-19-64.jsonl",
+      "jsonl_sha256": "5928bb88558e1794be10130c4472cbdc358441a78c8c59692eb1e0a9bf3403a1",
+      "markdown_sha256": "807f8dd825315063e00ed20cdafdbf3344718f01e741664dc3009f76a1325eb5",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 8
+    },
+    "nhs-warm-up-before-exercise": {
+      "jsonl_path": "corpus/saudefisica/rag/14-nhs-warm-up-before-exercise.jsonl",
+      "jsonl_sha256": "35765a8eadf380dd310f285a4a10153a87aea6a5757d9c198e06ac2d45653c0a",
+      "markdown_sha256": "5769cc02599f0aa57325235433f8a713e4e34e5fd1540cacd748eef4131ba98d",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 8
+    },
+    "nice-low-back-pain-sciatica-ng59": {
+      "jsonl_path": "corpus/saudefisica/rag/15-nice-low-back-pain-sciatica-ng59.jsonl",
+      "jsonl_sha256": "0985e8b5802bd2c20c1e2c0efb7a9af7f36a1c88aa3beff09f19eb61e0344f5e",
+      "markdown_sha256": "b6d9fd7139611c3344cc787a6db991241d52c8e50e0bd35d392ace16fe187dda",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 43
+    },
+    "nice-osteoarthritis-ng226": {
+      "jsonl_path": "corpus/saudefisica/rag/17-nice-osteoarthritis-ng226.jsonl",
+      "jsonl_sha256": "ea3b207bde6daefeeb59f74aadb5a47263fbd3cfabee316c2c6f1eca5ef92a1c",
+      "markdown_sha256": "93848010f131b6c3742c6f9665bf4024f4ede810be5ea004d22f65e037b3735b",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 39
     },
     "protocolos-guia-alimentar-fasciculo1-2021": {
       "jsonl_path": "corpus/nutricao/rag/protocolos_guia_alimentar_fasciculo1_2021.jsonl",
       "jsonl_sha256": "c10149b5afde9466104b8bda0d42cc8cba595029bf4bd771bb15a69dce5a84ae",
       "markdown_sha256": "a83484d341288e150c00b347c03efa676a1891a300fb3b3f151dab034ecc21c8",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "trechos": 87
     },
@@ -173,7 +277,7 @@
       "jsonl_path": "corpus/nutricao/rag/protocolos_guia_alimentar_hipertensao_v3_2022.jsonl",
       "jsonl_sha256": "0dab83324cb9a9652651d89a3561bed92b7bb421d412d93a196904cc3d8885b8",
       "markdown_sha256": "81cba125a3f7d58b8ea9a74576bc1d8afc6ebc1041f5a9331ae6fb7609308207",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "87e30b4c7b1f93594e4539b170cc4cc4df8ac755fc8cd26b401123560b00d7eb",
       "trechos": 81
     },
@@ -181,7 +285,7 @@
       "jsonl_path": "corpus/nutricao/rag/rossetti_universitarios_consumo_alimentar_san_2015.jsonl",
       "jsonl_sha256": "a6fcfe3d28dcbc3d4e440c6349cc2cec6b3000ef3e5ff0679cd47cea1c8623fc",
       "markdown_sha256": "fbf88195dee2b64780fda05de0359790c80473a85f181b83157083d0025f9e8f",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "52ecd9245126d293bd9a20e26b784133aff27c1114e5fefab518cb6383781f99",
       "trechos": 33
     },
@@ -189,7 +293,7 @@
       "jsonl_path": "corpus/nutricao/rag/salvi_et_al_estudantes_enfermagem_sono_reben_2020.jsonl",
       "jsonl_sha256": "f7b88b4e2fe1e550618423b174ecd24f0bcfbbaca7bc04149980b62dcba430c8",
       "markdown_sha256": "d02b68df380c614899552adf1a27835365690084b211eb5e3d6fdfbaef1329eb",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "5b1e138cba40a1d2c2bb6eb2d9948113a0592018623eb799d990bb2a10e7b623",
       "trechos": 38
     },
@@ -197,7 +301,7 @@
       "jsonl_path": "corpus/nutricao/rag/santos_et_al_barreiras_frutas_verduras_csc_2019.jsonl",
       "jsonl_sha256": "af71b7683a49136b996e6e545fbcddb4feaa4a5219053a1ef287f90a5425ef76",
       "markdown_sha256": "6f43542cd87e6d654f0e6a7a35e0b302dc3c867928221a96aca9c0f8a4c6ba10",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "a861154bcd73e5df5555bbc6f3116988e05ee12a0bd2484e6af95aecf312fc3b",
       "trechos": 41
     },
@@ -205,7 +309,7 @@
       "jsonl_path": "corpus/nutricao/rag/sban_agua_hidratacao_saude.jsonl",
       "jsonl_sha256": "95a081302673db6788fd75234442bb8d457a110ae01605ce3be20c3e4a11e25f",
       "markdown_sha256": "654414de9e5a8e3da3b1de43e72a3b009c30d4703ae4b8bd1ff12d8adfad6a85",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "1ef8ec63d8ee793a6ff647a5a0b5837ea43e1acd8cb1bdb9695007e5f3d5d793",
       "trechos": 55
     },
@@ -213,7 +317,7 @@
       "jsonl_path": "corpus/nutricao/rag/sbc_diretriz_dislipidemias_aterosclerose_2025.jsonl",
       "jsonl_sha256": "7d62c620f8763dcf1641d72d366964db1767e3a24655bf665c1db743ae9cce53",
       "markdown_sha256": "3d02a7ebe3a706a85ec826d30a1339b64902396027bdaf7bb367e2ff6b197d1c",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "d168fee133961f2903d36928ec8d2cc2f7e92b554a18ba9baf550eeeecb91445",
       "trechos": 492
     },
@@ -221,7 +325,7 @@
       "jsonl_path": "corpus/nutricao/rag/sbc_sbh_sbn_diretriz_hipertensao_arterial_2025.jsonl",
       "jsonl_sha256": "0740d97cf0b1a1210f95533d22f24ad3d2348f192eefecdd179b50d7a5c47dd0",
       "markdown_sha256": "a6cb0041758eadef980fd4f7795ec5b205555cd44fcf17a4ca5906ef6e26b018",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "2c6dfe52d94feb352c5edc5e5a3a3f94085a928d2deabb3c28f3be71b51c9453",
       "trechos": 596
     },
@@ -229,7 +333,7 @@
       "jsonl_path": "corpus/nutricao/rag/sbd_terapia_nutricional_pre_diabetes_dm2_2023.jsonl",
       "jsonl_sha256": "1c8be0a79de9465e9987e1d4f37818bd75057f20b69d18158d195d75700a724a",
       "markdown_sha256": "0ebc3c15336e38c60c4537936243d5a5952cca911155cbf2f3c339c0b59ace10",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "c991b33ac0bb41367d9366a8511c94f5507373326d377c238d2520b6f175bdd7",
       "trechos": 68
     },
@@ -237,7 +341,7 @@
       "jsonl_path": "corpus/nutricao/rag/sbme_modificacoes_dieteticas_suplementos_rbme_2009.jsonl",
       "jsonl_sha256": "68cde06a5a0afff5ac88075044d05da6216054843d3214d4d528993cfcd22a2d",
       "markdown_sha256": "39499201c4fcd35ec87980160aaaa7b5c016ea4e114fbb538376a670b1a41866",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "26e81c6cb9feb65b1894101cc4444b57daff65d307381330dc330918619c7544",
       "trechos": 103
     },
@@ -245,9 +349,41 @@
       "jsonl_path": "corpus/nutricao/rag/souza_backes_universitarios_csc_2020.jsonl",
       "jsonl_sha256": "768b9c43f5994f700a913668207883fe766f0a268dab3225653302ae98851f33",
       "markdown_sha256": "c3db8c3c663f12f8446ff236b66e1c3761bcef9f4061d641ac6a01f688471a10",
-      "prepare_rag_sha256": "466c6e3d30ec7b666d027e5dd9ff4103197b0715c487725afec186d62b773832",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
       "rag_config_sha256": "f911b5e5dfab7ac6e5e0ab64344e65ce3845acb18d34f79df8b3c1e855111448",
       "trechos": 24
+    },
+    "who-diretrizes-atividade-fisica-sedentarismo-2020": {
+      "jsonl_path": "corpus/saudefisica/rag/02-who-physical-activity-guidelines-2020.jsonl",
+      "jsonl_sha256": "2bdb913e31fbcfc774f34eb1d9de2ffee898f91031fb1511eae918887d6fdf96",
+      "markdown_sha256": "1841dad55978b977276510a189b040e270dbde23cf8ba293dd420f950f5f792d",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 415
+    },
+    "who-package-rehabilitation-musculoskeletal-2023": {
+      "jsonl_path": "corpus/saudefisica/rag/09-who-package-rehabilitation-module-2-2023.jsonl",
+      "jsonl_sha256": "3e56242e61429dcbe79d13b7c2c0bbfe565075f448478a2dc80b30d3dd381b74",
+      "markdown_sha256": "a5876fd23ac4d9b24e4463df1ecc7736aef232f031b9eb46e88516b559d85fdd",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 253
+    },
+    "who-physical-activity-at-a-glance-2020": {
+      "jsonl_path": "corpus/saudefisica/rag/11-who-physical-activity-at-a-glance-2020.jsonl",
+      "jsonl_sha256": "59e45279b6e14ca3a94b1fc9af712bf82cc344a96cc706211404b1be7255a85a",
+      "markdown_sha256": "1c4999904f322cb8951d0d66bc6ec37c6445c400c5798330f72f707479a7f40f",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 60
+    },
+    "who-physical-activity-factsheet-2024": {
+      "jsonl_path": "corpus/saudefisica/rag/03-who-physical-activity-factsheet-2024.jsonl",
+      "jsonl_sha256": "54064d2b10b19cd044f1fcb6f96b48798f0b43e34493fcad6a5ac7ba40ecd2cf",
+      "markdown_sha256": "a23e00835b0b525c8aae665d3f351bbbc7fd320e123759932a17d9a5a6c09e30",
+      "prepare_rag_sha256": "6d8ed48b329ea9121a0bb84a2d423d526492807bac3a64d18a3a0ac3c3f86eff",
+      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "trechos": 15
     }
   }
 }

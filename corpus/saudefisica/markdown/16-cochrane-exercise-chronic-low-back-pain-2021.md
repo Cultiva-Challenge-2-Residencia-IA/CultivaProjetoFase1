@@ -2,33 +2,19 @@
 source_id: cochrane-exercise-chronic-low-back-pain-2021
 title: Exercícios para o tratamento da dor lombar crônica
 source: https://www.cochrane.org/pt/evidence/CD009790_exercise-treatment-chronic-low-back-pain
-license: Copyright © Cochrane; resumo público e evidência aberta
+license: Copyright Cochrane; resumo em linguagem simples de acesso público
 source_sha256: 86c9542539a1bb717c0a7975f803cb313befd5987f747ac25a9f547ec7664894
 ---
 
 # Exercícios para o tratamento da dor lombar crônica
 
-Instituição(ões): Cochrane Systematic Review. Edição: Cochrane Database of Systematic Reviews.
+Instituição(ões): Cochrane. Edição: CD009790-resumo-pt.
 
-[HTML original preservado](../originais/16-cochrane-exercise-chronic-low-back-pain-2021-pt.html) · [Relatório de conversão](../relatorios/16-cochrane-exercise-chronic-low-back-pain-2021.json)
+[Original HTML preservado](../originais/16-cochrane-exercise-chronic-low-back-pain-2021-pt.html) · [Relatório de conversão](../relatorios/16-cochrane-exercise-chronic-low-back-pain-2021.json)
 
-> Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
+> Conversão documental para revisão. O conteúdo pertence à publicação original e não é uma recomendação produzida pelo CULTIVA. A conversão e a aprovação da fonte permanecem pendentes.
 
-### Disponível também em
-
-- [English](/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [Español](/es/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [فارسی](/fa/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [Français](/fr/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [Deutsch](/de/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [Português](/pt/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [日本語](/ja/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [Bahasa Malaysia](/ms/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [ไทย](/th/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [繁體中文](/zh-hant/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [简体中文](/zh-hans/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [Polski](/pl/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
-- [Bahasa Indonesia](/id/evidence/CD009790_exercise-treatment-chronic-low-back-pain)
+> Confira no original as tabelas, figuras, links e a estrutura do documento; a conversão não garante fidelidade semântica.
 
 ### O exercício é uma terapia eficaz para tratar a dor lombar de longa duração?
 
