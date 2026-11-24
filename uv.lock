@@ -3389,7 +3389,7 @@ guardrails-frameworks = [
     { name = "nemoguardrails", specifier = ">=0.25.0" },
     { name = "torch", specifier = ">=2.4", index = "https://download.pytorch.org/whl/cpu" },
 ]
-interface = [{ name = "gradio", specifier = ">=5.0" }]
+interface = [{ name = "gradio", specifier = ">=6.0" }]
 modelo-local = [
     { name = "bert-score", specifier = ">=0.3.13" },
     { name = "torch", specifier = ">=2.4", index = "https://download.pytorch.org/whl/cpu" },

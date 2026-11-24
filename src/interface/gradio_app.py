@@ -42,7 +42,7 @@ def criar_interface():
         gr.Markdown("# CULTIVA\nInterface de teste do Chat geral e dos Chats de área. Use só dados sintéticos.")
         for chat, titulo in ABAS:
             with gr.Tab(titulo):
-                gr.ChatInterface(responder_em(chat), type="messages")
+                gr.ChatInterface(responder_em(chat))  # Gradio 6: mensagens já é o formato padrão
     return interface
 
 
