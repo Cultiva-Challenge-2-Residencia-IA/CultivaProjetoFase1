@@ -38,6 +38,10 @@ RISCO_LLM_TIMEOUT = float(os.getenv("RISCO_LLM_TIMEOUT", "3.0"))
 RISCO_LLM_LIMIAR = int(os.getenv("RISCO_LLM_LIMIAR", "1"))
 CORPUS_RAG_DIR = PROJECT_ROOT / "corpus" / "nutricao" / "rag"
 TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / "traceability.sqlite3")))
+# Histórico das Conversas (issue #99): SQLite local, ignorado pelo Git, e quantas mensagens de cada
+# chat vão ao LLM (janela).
+HISTORICO_DB_PATH = Path(os.getenv("CULTIVA_HISTORICO_DB", str(DATA_DIR / "conversas.sqlite3")))
+JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "6"))
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
 # "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".

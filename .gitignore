@@ -8,6 +8,7 @@ data/processed/*.pkl
 data/vector_store/
 # Registro de rastreabilidade das respostas (#11), gerado pela API
 data/traceability.sqlite3*
+data/conversas.sqlite3*
 
 # Saídas brutas da comparação de modelos locais (issue #55), regeneráveis
 data/modelo_local/

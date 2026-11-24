@@ -77,7 +77,12 @@ class GuardrailAssessment(BaseModel):
         "RESTRICTED_DIET_PRESCRIPTION",
         "RESTRICTED_CLINICAL_DIAGNOSIS",
         "RESTRICTED_SUPPLEMENT_POSOLOGY",
+        # Agente de Saúde Física (Lei 9.696/1998, issue #99).
+        "RESTRICTED_EXERCISE_PRESCRIPTION",
+        "RESTRICTED_INJURY_DIAGNOSIS",
     ]
+    # Pedido restrito pela lei profissional da área: Lei 8.234/1991 em Nutrição e Lei 9.696/1998
+    # em Saúde Física. O nome ficou do primeiro agente.
     is_restricted_by_law_8234: bool
     triggered_rules: List[str] = Field(default_factory=list)
     reframed_population_query: str = Field(
