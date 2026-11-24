@@ -39,6 +39,10 @@ modelo-local = [
     "bert-score>=0.3.13",
     "torch>=2.4",
 ]
+# Interface de teste dos chats (issue #99), fora do CI: uv sync --group interface
+interface = [
+    "gradio>=5.0",
+]
 # Comparação de frameworks de guardrail (issue #52). Fora do CI:
 # uv sync --group guardrails-frameworks
 guardrails-frameworks = [
