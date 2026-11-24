@@ -226,11 +226,21 @@ corpus/
     relatorios/     # relatórios por página das conversões
 ```
 
-## Saúde Física — originais prioritários
+## Saúde Física — fontes do RAG (issue #99)
 
-Em 19/11/2026, oito dos onze documentos prioritários registrados no manifesto têm original arquivado: seis PDFs e dois HTMLs (a ficha da OMS e o manuscrito JOSPT de dor lombar). Todos os oito originais obtidos foram convertidos em Markdown candidato à revisão. Os arquivos preservam SHA-256 e vínculo entre original e derivado.
+Desde 24/11/2026, **17 fontes de Saúde Física estão no RAG**, com `approval_status: aprovado` por decisão do mantenedor (feliperodri0, issue #99), sem a conferência por amostra de páginas do protocolo de Nutrição:
 
-As onze fontes estão catalogadas em `manifest.yaml` como `kind: original_only`, inclusive as que têm Markdown candidato. Esse tipo preserva os arquivos e derivados sem gerar Trechos nem entrar no RAG. O `verify_corpus.py` confere formato e hash dos originais, Markdown e relatórios, e informa os originais pendentes; o `prepare_rag.py` não processa esse tipo. Quando o `convert_pdfs.py` muda, os candidatos em PDF são regenerados com `convert_pdfs.py --candidatos --overwrite` (ou `--source <id>`), e o verificador também acusa configuração alterada depois da conversão (issue #87). O WHO 2020 e o WHO 2023 têm configuração própria com `sparse_page_decisions` nas páginas de capa, figura e contracapa: o OCR automático só lia ilustrações, com caracteres espúrios que mudavam com a versão do Tesseract, e o texto nativo já tem título, cabeçalhos e ISBN. O Guia de Atividade Física ainda passa por OCR automático em três páginas (capa, verso e contracapa). Todas seguem com `approval_status: pendente`; obtenção e conversão não são revisão de fidelidade, aprovação de conteúdo nem decisão de uso técnico.
+- as oito com original obtido entre as onze prioritárias (abaixo), antes `kind: original_only`;
+- as fontes 11 a 19 do commit de organização do corpus de Saúde Física (275f6eb), catalogadas a partir de `saudefisica/inventario_corpus_saude_fisica.md`: OMS *At a Glance* 2020, relatório científico do HHS 2018 (779 páginas, inteiro), NHS (atividade física para adultos e aquecimento), NICE NG59 e NG226, Cochrane de exercício na dor lombar crônica (HTML em português), infográfico da diretriz patelofemoral da JOSPT e diretriz de entorse de tornozelo da JOSPT. Os derivados desse commit tinham sido gerados fora do pipeline (hashes de script desconhecidos, metadados incompletos e, na NG59 e na NG226, original diferente do convertido) e foram **regenerados** pelos scripts do repositório.
+
+Ficaram de fora: a página pública da diretriz patelofemoral (`18-...-cpg-2019.html`, só links e autores, sem conteúdo; o infográfico entra no lugar), o HTML em inglês da Cochrane, o anexo de tabelas da OMS (20) e o guia do Ministério da Saúde para gestores (21), não catalogados, e as três fontes sem original (ACSM 2026, ACSM 2015, ACC 2026), que continuam `kind: original_only`.
+
+- **Área:** `area: saude_fisica` no manifesto. Os Trechos vão para `corpus/saudefisica/rag/` (a pasta `rag/` da área de cada fonte); o registro de geração continua único, em `corpus/nutricao/rag/geracao.json`.
+- **Fontes HTML (`kind: html`):** convertidas pelo `convert_html.py` (com `content_selector` no manifesto) e cortadas por **seção** (título de nível 2), sem página: `pagina_pdf` nulo e id `<fonte>-s###-NN`. O `verify_corpus.py` confere original, Markdown e script, e aceita o BOM UTF-8 dos originais.
+- **Idioma:** 15 das 17 fontes estão em inglês; o agente responde em português e cita o trecho no idioma original.
+- **Tamanho:** cerca de 4.500 Trechos; o relatório do HHS sozinho tem cerca de 2.300. O retriever limita 2 Trechos por documento por resposta.
+
+### Prioridades originais (19/11/2026)
 
 | Prioridade | Estado | Observação de obtenção |
 |---|---|---|
@@ -266,9 +276,12 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download --download-ocr
 # Os derivados já estão entregues neste checkout. Para regenerá-los:
 corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download-ocr --overwrite
 
-# Candidatos de Saúde Física em PDF (kind: original_only): só Markdown e relatório, sem Trechos.
+# Candidatos em PDF que ainda forem kind: original_only: só Markdown e relatório, sem Trechos.
 # Rode depois de qualquer mudança no convert_pdfs.py (issue #87); --source <id> também aceita um candidato.
 corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --candidatos --overwrite
+
+# Fontes HTML (kind: html), uma de cada vez (exige approval_status pendente na conversão):
+corpus/.venv/bin/python corpus/scripts/convert_html.py --source <id> --overwrite
 
 # Verificação dos artefatos locais:
 corpus/.venv/bin/python corpus/scripts/verify_corpus.py

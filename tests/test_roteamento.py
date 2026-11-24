@@ -47,3 +47,15 @@ def test_desmaio_e_sinal_de_alerta():
 def test_pergunta_comum_sobre_exercicio_nao_e_sinal_de_alerta():
     assert detectar_sinal_de_alerta("Quantas séries de agachamento são recomendadas para iniciantes?") == []
     assert detectar_sinal_de_alerta("Sentir falta de ar leve correndo é esperado no começo?") == []
+
+
+def test_regras_acertam_os_casos_claros_do_dev():
+    """Critério 1 de eval/multiagentes/criterios.md: só regras, casos `clara` do dev, acerto >= 0,85."""
+    import json
+    from pathlib import Path
+
+    casos = json.loads((Path(__file__).resolve().parents[1] / "eval/multiagentes/roteamento.json")
+                       .read_text(encoding="utf-8"))["casos"]
+    claros = [c for c in casos if c["split"] == "dev" and c["tipo"] == "clara"]
+    acertos = sum(sorted(rotear_por_regras(c["mensagem"]).areas) == sorted(c["areas_esperadas"]) for c in claros)
+    assert acertos / len(claros) >= 0.85

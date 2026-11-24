@@ -35,7 +35,7 @@ TERMOS_DE_ROTA_SAUDE_FISICA = re.compile(
     r"|flexo\w*|abdominai?s?|prancha|aerobic\w*|anaerobic\w*|sedentar\w*|lesao|lesoes|lesion\w*|lombar"
     r"|lombalgia|ciatic\w*|tendin\w*|entorse\w*|tornozelo\w*|joelho\w*|ombro\w*|manguito|coluna|postura"
     r"|reabilit\w*|fisioterap\w*|esporte\w*|atleta\w*|condicionamento|frequencia cardiaca|intensidade"
-    r"|hiit|pilates|yoga|ioga|natacao|nadar|bicicleta|pedalar|ciclismo|artrose|osteoartrit\w*"
+    r"|hiit|pilates|yoga|ioga|natacao|nadar|bicicleta|bike|pedal\w*|ciclismo|artrose|osteoartrit\w*"
     r"|patelofemoral|hipertrofia|musculo\w*|muscular\w*|overtraining|carga de treino)\b"
 )
 

@@ -7,9 +7,9 @@ Para cada mensagem:
 2. **Histórico:** a Conversa atual e, no Chat geral, também os Chats de área do mesmo Usuário.
 3. **Reescrita** (`src/orquestrador/reescrita.py`): com o LLM, pergunta completa, Subperguntas por
    área e trecho hipotético; sem LLM, a mensagem e as regras.
-4. **Roteamento:** as regras decidem quando só uma área tem termo; senão vale a decomposição do LLM;
-   sem LLM, as áreas das regras (as duas, se as duas tiverem termo) e, sem nenhuma, o Agente de
-   Nutrição, que dá o "não sei" fora do domínio, como antes.
+4. **Roteamento:** as regras decidem sempre que alguma área tem termo (uma ou as duas); sem termo,
+   decide o LLM (área, as duas ou fora das áreas); sem termo e sem LLM, o Agente de Nutrição, que dá
+   o "não sei" fora do domínio, como antes.
 5. **Agentes de área:** cada um recebe a sua Subpergunta, o trecho hipotético como consulta extra e
    só o Histórico da área dele (RF-IA09). Um Chat de área responde só a parte da sua área e indica o
    chat certo para o resto (RF-IA06).
@@ -168,9 +168,10 @@ class ServicoDeChat:
             reescrita = reescrever(mensagem, historico, None)
         regras = rotear_por_regras(reescrita.pergunta_completa)
         por_area = {s.area: s for s in reescrita.subperguntas}
-        if regras.decidida:
-            area = regras.areas[0]
-            subperguntas = [por_area.get(area) or Subpergunta(area, reescrita.pergunta_completa)]
+        if regras.areas:
+            # Termo de alguma área (de uma ou das duas): as regras decidem; o LLM só contribui com a
+            # Subpergunta e o trecho hipotético de cada área (medição do dev, eval/multiagentes/).
+            subperguntas = [por_area.get(a) or Subpergunta(a, reescrita.pergunta_completa) for a in regras.areas]
         elif reescrita.origem == "llm":
             subperguntas = list(reescrita.subperguntas)
         else:
