@@ -321,6 +321,28 @@ def convert(source: dict, args) -> dict:
         return report["summary"]
 
 
+def candidato_pdf(source: dict) -> bool:
+    """Fonte `original_only` com original em PDF e Markdown candidato declarado (issue #87)."""
+    return (source.get("kind") == "original_only" and source.get("markdown_path") is not None
+            and str(source.get("original_path", "")).lower().endswith(".pdf"))
+
+
+def selecionar_fontes(sources: list[dict], source_id: str | None = None, candidatos: bool = False) -> list[dict]:
+    """Sem opção, as fontes `pdf` do RAG; com `candidatos`, os candidatos em PDF; com `source_id`, uma das duas.
+
+    Os candidatos geram só Markdown e relatório: os Trechos vêm do prepare_rag.py, que os ignora.
+    """
+    if source_id:
+        escolhidas = [s for s in sources if s["id"] == source_id]
+        if escolhidas and not (escolhidas[0].get("kind", "pdf") == "pdf" or candidato_pdf(escolhidas[0])):
+            raise ValueError("Fonte sem PDF para converter: resumos do PubMed vão direto ao prepare_rag.py, "
+                             "e originais em HTML usam o convert_html.py.")
+        return escolhidas
+    if candidatos:
+        return [s for s in sources if candidato_pdf(s)]
+    return [s for s in sources if s.get("kind", "pdf") == "pdf"]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", default="corpus/manifest.yaml")
@@ -329,15 +351,14 @@ def main() -> int:
     parser.add_argument("--download-ocr", action="store_true", help="Baixa modelo OCR português ausente, validando SHA-256")
     parser.add_argument("--tessdata", default=str(ROOT / "corpus/.cache/tessdata"))
     parser.add_argument("--overwrite", action="store_true", help="Regenera Markdown e relatórios; preserva PDFs")
+    parser.add_argument("--candidatos", action="store_true",
+                        help="Converte só os candidatos kind: original_only em PDF (Saúde Física), sem Trechos")
     args = parser.parse_args()
     try:
         manifest = read_yaml(repo_path(args.manifest))
         if manifest.get("version") != 1 or not isinstance(manifest.get("sources"), list):
             raise ValueError("Manifesto precisa ter version: 1 e sources como lista.")
-        sources = [s for s in manifest["sources"] if not args.source or s["id"] == args.source]
-        if args.source and sources and sources[0].get("kind", "pdf") != "pdf":
-            raise ValueError("Fonte sem PDF: os Trechos dela são gerados pelo prepare_rag.py.")
-        sources = [s for s in sources if s.get("kind", "pdf") == "pdf"]
+        sources = selecionar_fontes(manifest["sources"], args.source, args.candidatos)
         if not sources:
             raise ValueError("Nenhuma fonte selecionada.")
         if len({s["id"] for s in sources}) != len(sources):

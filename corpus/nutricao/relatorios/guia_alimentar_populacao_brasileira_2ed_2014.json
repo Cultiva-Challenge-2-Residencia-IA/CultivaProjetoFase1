@@ -3,7 +3,7 @@
   "source_sha256": "c9abefded671cafe914193c04f808df25dfaa315e5e744e477163fe24407f139",
   "pdf_pages": 158,
   "conversion_status": "concluida_com_ressalvas",
-  "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
+  "script_sha256": "24bf426a3bd7927fc21ad34252418d0d1b024ec5bc46da082ab4a3960caca55c",
   "config_sha256": "73a94c33b238c8c3695cede69d6b57c026c88648998b569772dd94089b3fa25b",
   "versions": {
     "PyMuPDF": "2.1",
@@ -2530,7 +2530,7 @@
             567,
             738
           ],
-          "raw_text": ".\nOuvidoria Geraldo SUS\n,\nE\nE\nWwww.saude.govabr\nBibliotecaVirtual em SaúdejdomMinistério da Saúde\nwww .saude.JoVibr/byvs\n(3 Organização\n(8) Organização\ny\n(85) erâmenicana (8) mmiidasae\n[USP\n paaVá\nSAÚDE\nCeras da Saúde\nescamósioreconau raras AAMÉrICAS\nNAN\nMAIS PERTO DE vocÊ\nGO\nV\nE\nRNO\nFEDERAL\nSus 1\nMinistério da\nsm\nma\nSaúde\nPAÍS RICO\nÉ PAÍS SEM POBREZA\n",
+          "raw_text": ".\nOuvidoria Geraldo SUS\n,\nE\n,\nWwww.saude.govabr\nBibliotecaVirtual em SaúdejdomMinistério da Saúde\nwww .saude.JoVibr/byvs\n(3 Organização\n(8) Organização\ny\n(8) Penhmericana (Bbm dasade\n[USP\npao\nSAÚDE\nCeras da Saúde\nescamósioreconau raras AAMÉrICAS\nNAN\nMAIS PERTO DE Você\nGO\nV\nE\nRNO\nFEDERAL\nSus 1\nMinistério da\nsm\nma\nSaúde\nPAÍS RICO\nÉ PAÍS SEM POBREZA\n",
           "verified_text": null,
           "note": "OCR dos logotipos pequenos é impreciso; resultado bruto fica apenas no relatório. Consultar a imagem e o PDF para leitura fiel."
         }
