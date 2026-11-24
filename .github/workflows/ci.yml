@@ -22,11 +22,15 @@ env:
   GROQ_API_KEY: ""
   LLM_PROVIDER: ollama
   ALLOW_EXTERNAL_LLM: "false"
+  # Modelo de embeddings em pasta fixa, para o cache do job de avaliação (issue #15).
+  FASTEMBED_CACHE_PATH: ${{ github.workspace }}/.cache/fastembed
+  VETORES_CACHE: data/vector_store/vetores_cache.sqlite3
 
 jobs:
   lint:
     name: Lint (ruff)
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -39,6 +43,7 @@ jobs:
   testes:
     name: Testes (pytest)
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -46,11 +51,15 @@ jobs:
           version: ${{ env.UV_VERSION }}
           python-version: ${{ env.PYTHON_VERSION }}
       - run: uv sync --frozen
+      # Os testes usam o modelo de embeddings de teste (hashing, tests/conftest.py): sem baixar o
+      # e5-large nem calcular vetores. Os testes que dependem do modelo real (marca embeddings_reais)
+      # rodam no job de avaliação, que tem o modelo e os vetores pré-calculados.
       - run: uv run pytest -q
 
   corpus:
     name: Integridade do corpus
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -67,6 +76,9 @@ jobs:
   avaliacao:
     name: Gates de avaliação
     runs-on: ubuntu-latest
+    # Com os vetores pré-calculados, o job leva poucos minutos. O limite cobre a primeira execução
+    # sem cache; se ela estourar, os lotes já calculados são salvos e a próxima continua de onde parou.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
@@ -74,11 +86,48 @@ jobs:
           version: ${{ env.UV_VERSION }}
           python-version: ${{ env.PYTHON_VERSION }}
       - run: uv sync --frozen
+      # Vetores pré-calculados (issue #15, ADR 0006). O e5-large (2,2 GB) em CPU leva dezenas de
+      # minutos para indexar o corpus do zero, o que não cabe num CI de PR. O CI da main salva o cache
+      # dos vetores; os PRs restauram o cache mais recente (o próprio, ou o da main) e só calculam os
+      # Trechos novos ou alterados. A chave de cada vetor é o hash do modelo e do texto
+      # (CacheDeVetores), então um cache antigo nunca devolve vetor errado.
+      - name: Restaurar o modelo de embeddings
+        id: modelo
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.FASTEMBED_CACHE_PATH }}
+          # Sem o uv.lock na chave: o modelo não muda com as dependências, e cada cópia tem 2,2 GB.
+          # Troque o sufixo (v1) se mudar o modelo ou a versão do fastembed mudar o formato.
+          key: fastembed-multilingual-e5-large-v1
+          # Reserva: o cache do modelo gravado com a chave anterior (por uv.lock).
+          restore-keys: fastembed-
+      - name: Restaurar os vetores pré-calculados
+        id: vetores
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.VETORES_CACHE }}
+          key: vetores-e5-${{ github.run_id }}
+          # Reserva: o cache gravado com a chave anterior; a chave de cada vetor (modelo e texto) é a mesma.
+          restore-keys: |
+            vetores-e5-
+            vetores-avaliacao-
+      - name: Pré-calcular os vetores dos Trechos
+        run: |
+          if [ -z "${{ steps.vetores.outputs.cache-matched-key }}" ]; then
+            echo "::warning title=Sem vetores pré-calculados::nenhum cache da main ou deste PR; os vetores de todo o corpus serão calculados (dezenas de minutos em CPU)"
+          fi
+          echo "VETORES_SHA_ANTES=$(sha256sum "$VETORES_CACHE" 2>/dev/null | cut -c1-64)" >> "$GITHUB_ENV"
+          uv run python -m src.retrieval.precalcular_vetores | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Testes com o modelo de embeddings real (marca embeddings_reais)
+        env:
+          CULTIVA_TESTES_EMBEDDINGS_REAIS: "true"
+        run: uv run pytest -m embeddings_reais -q
 
       # A primeira execução só constrói o índice HNSW do ChromaDB e é descartada. As duas
       # seguintes usam o mesmo índice persistido, então o gate de determinismo compara o
       # pipeline (BM25, fusão, reranker e síntese), não a construção do índice aproximado.
-      # A qualidade do HNSW frente à busca exata é coberta pelo pytest.
+      # A qualidade do HNSW frente à busca exata é coberta pelos testes de embeddings_reais acima.
       - name: Construir o índice vetorial
         run: uv run python -m src.evaluation.run_benchmark --no-ollama > /dev/null
 
@@ -123,3 +172,25 @@ jobs:
         run: |
           uv run pytest tests/test_avaliacao_respostas.py -q
           uv run python -m src.evaluation.gate --verificar-respostas
+
+      # Salva no fim, mesmo se um passo falhar, o job for cancelado ou estourar o tempo: os lotes já
+      # calculados (pelo pré-cálculo, pelos testes e pelo benchmark) não se perdem. Só salva o que mudou.
+      - name: Conferir o que salvar nos caches
+        id: salvar
+        if: always()
+        run: |
+          depois=$(sha256sum "$VETORES_CACHE" 2>/dev/null | cut -c1-64)
+          echo "vetores=$([ -n "$depois" ] && [ "$depois" != "$VETORES_SHA_ANTES" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          echo "modelo=$([ -n "$(ls -A "$FASTEMBED_CACHE_PATH" 2>/dev/null)" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - name: Salvar os vetores pré-calculados
+        if: always() && steps.salvar.outputs.vetores == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.VETORES_CACHE }}
+          key: vetores-e5-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Salvar o modelo de embeddings
+        if: always() && steps.modelo.outputs.cache-hit != 'true' && steps.salvar.outputs.modelo == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.FASTEMBED_CACHE_PATH }}
+          key: fastembed-multilingual-e5-large-v1

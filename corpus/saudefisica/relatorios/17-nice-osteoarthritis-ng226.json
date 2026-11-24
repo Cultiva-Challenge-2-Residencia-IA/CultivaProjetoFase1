@@ -1,12 +1,18 @@
 {
   "source_id": "nice-osteoarthritis-ng226",
-  "source_sha256": "e34c6fecdddf3ba69f935c8fc966431c7c7e403dc99ce05bf52562655142bd80",
-  "original_path": "corpus/saudefisica/originais/17-nice-osteoarthritis-ng226.html",
-  "markdown_path": "corpus/saudefisica/markdown/17-nice-osteoarthritis-ng226.md",
-  "markdown_sha256": "351f3b5dd4ce271295c63dd5eeb3f4c532ce167e1c0c847ff143320effc2c840",
-  "script_sha256": "96850ec0c704eeecbc09172c358b30027a1d020462f212c5a5335a93982e2eb5",
-  "content_selector": "main",
-  "tables_found": 0,
-  "images_found": 0,
-  "status": "concluida_com_ressalvas"
+  "source_sha256": "b9509b882d63ce5829388544f41d7bd5156fb08925c8dc69f8eb5431526453a0",
+  "markdown_sha256": "93848010f131b6c3742c6f9665bf4024f4ede810be5ea004d22f65e037b3735b",
+  "script_sha256": "c08f94542cf59c75e82d6400f58680d2c0ad77eb6d96380a907dcb1daa5a61df",
+  "converter": "markdownify",
+  "converter_version": "1.2.0",
+  "beautifulsoup_version": "4.14.3",
+  "content_selector": ".chapter",
+  "html_tables": 0,
+  "html_images": 0,
+  "limitations": [
+    "Cabeçalhos, tabelas e links podem perder estrutura ou relações semânticas durante a conversão.",
+    "Figuras não são copiadas; o texto alternativo e a referência ao HTML original são mantidos quando disponíveis.",
+    "A conversão estrutural e a checagem de hashes não substituem conferência integral contra o original.",
+    "A fonte continua pendente de revisão e aprovação."
+  ]
 }

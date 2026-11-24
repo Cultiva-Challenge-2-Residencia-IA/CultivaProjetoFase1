@@ -2,7 +2,7 @@ import hashlib
 import inspect
 from contextvars import ContextVar
 from pathlib import Path
-from typing import List, Optional
+from typing import TYPE_CHECKING, List, Optional
 
 from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
@@ -28,6 +28,9 @@ from src.models.schemas import (
 from src.retrieval.graph_engine import CausalKnowledgeGraphEngine
 from src.retrieval.hybrid_retriever import HybridRetriever
 from src.retrieval.taco_tool import TacoDeterministicTool
+
+if TYPE_CHECKING:
+    from src.orquestrador.reescrita import Mensagem
 
 
 # Versão do prompt (RNF08): hash do prompt de sistema e do template da pergunta enviada ao LLM.
@@ -61,6 +64,7 @@ class NutritionConsultantBaseline:
         enable_graph_engine: bool = True,
         enable_rag: bool = True,
         risco_llm: Optional[ClassificadorRiscoLLM] = None,
+        com_portao_de_risco: bool = True,
     ) -> None:
         self.chunker = ContextualChunker()
         # Base padrão: Trechos do corpus curado (ADR 0002), com o gate de aprovação.
@@ -92,7 +96,8 @@ class NutritionConsultantBaseline:
             CausalKnowledgeGraphEngine() if enable_graph_engine else None
         )
         # Camada semântica do risco (issue #48): só com Ollama habilitado e modelo configurado.
-        if risco_llm is None and enable_ollama and RISCO_LLM_MODELO:
+        # Agente usado só pelo Chat (Saúde Física) não tem portão próprio: o Chat aplica os portões.
+        if risco_llm is None and enable_ollama and RISCO_LLM_MODELO and com_portao_de_risco:
             risco_llm = ClassificadorRiscoLLM(RISCO_LLM_MODELO, base_url=OLLAMA_BASE_URL,
                                               timeout=RISCO_LLM_TIMEOUT, limiar=RISCO_LLM_LIMIAR)
         self.risco_llm = risco_llm
@@ -112,7 +117,8 @@ class NutritionConsultantBaseline:
             "response_id": _RESPONSE_ID_ATUAL.get() or new_response_id(),
             "corpus_version": self.corpus_version,
             "prompt_version": (
-                PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False) else PROMPT_VERSION
+                PROMPT_VERSION_SEM_CONTEXTO if getattr(self, "modo_llm_puro", False)
+                else getattr(self, "prompt_version", PROMPT_VERSION)
             ),
             "model_version": model_used,
             "fontes_version": fontes_version,
@@ -149,6 +155,20 @@ class NutritionConsultantBaseline:
             )
             self._grafo_compilado = grafo
         return grafo
+
+    def responder(self, pergunta: str, top_k: int, consultas_extras: List[str],
+                  historico: List["Mensagem"]) -> ConsultantResponse:
+        """Responde como Agente de área do Chat (issue #99): só o subgrafo, sem os portões, que o
+        Chat já aplicou. `historico` é o da área deste agente (RF-IA09)."""
+        subgrafo = getattr(self, "_subgrafo_compilado", None)
+        if subgrafo is None:
+            from src.agents.nutricao.grafo import construir_subgrafo
+
+            subgrafo = self._subgrafo_compilado = construir_subgrafo(self)
+        texto = "\n".join(f"{'Usuário' if m.papel == 'usuario' else 'Assistente'}: {m.texto}" for m in historico)
+        estado = subgrafo.invoke({"pergunta": pergunta, "top_k": top_k,
+                                  "consultas_extras": list(consultas_extras), "historico": texto})
+        return estado["resposta"]
 
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:
         """Responde pela orquestração em LangGraph: portões de risco e de prompt injection no grafo

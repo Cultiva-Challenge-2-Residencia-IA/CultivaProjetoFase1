@@ -1,12 +1,18 @@
 {
   "source_id": "cochrane-exercise-chronic-low-back-pain-2021",
   "source_sha256": "86c9542539a1bb717c0a7975f803cb313befd5987f747ac25a9f547ec7664894",
-  "original_path": "corpus/saudefisica/originais/16-cochrane-exercise-chronic-low-back-pain-2021-pt.html",
-  "markdown_path": "corpus/saudefisica/markdown/16-cochrane-exercise-chronic-low-back-pain-2021.md",
-  "markdown_sha256": "130cdcdbd940c7a2b0c65c3c33663a4b45f1ba96f0c8a8a0020540b897daaf72",
-  "script_sha256": "96850ec0c704eeecbc09172c358b30027a1d020462f212c5a5335a93982e2eb5",
-  "content_selector": "main",
-  "tables_found": 0,
-  "images_found": 0,
-  "status": "concluida_com_ressalvas"
+  "markdown_sha256": "598480ae2c4a12c401b0c8910ba3430b3c5eaec232967e9bbfc118be12971b0a",
+  "script_sha256": "c08f94542cf59c75e82d6400f58680d2c0ad77eb6d96380a907dcb1daa5a61df",
+  "converter": "markdownify",
+  "converter_version": "1.2.0",
+  "beautifulsoup_version": "4.14.3",
+  "content_selector": "article",
+  "html_tables": 0,
+  "html_images": 0,
+  "limitations": [
+    "Cabeçalhos, tabelas e links podem perder estrutura ou relações semânticas durante a conversão.",
+    "Figuras não são copiadas; o texto alternativo e a referência ao HTML original são mantidos quando disponíveis.",
+    "A conversão estrutural e a checagem de hashes não substituem conferência integral contra o original.",
+    "A fonte continua pendente de revisão e aprovação."
+  ]
 }

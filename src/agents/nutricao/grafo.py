@@ -1,10 +1,15 @@
-"""Subgrafo do agente de Nutrição (issue #76).
+"""Subgrafo de um Agente de área (issue #76; Saúde Física desde a #99).
 
 Mesma sequência do consultor antes do LangGraph, sem os portões de risco e de prompt injection,
 que ficam no grafo principal (`src/orquestrador/grafo.py`):
 
 guardrail de entrada → busca híbrida → TACO → grafo causal → "não sei" → síntese → guardrail de
 saída e montagem da resposta.
+
+O mesmo subgrafo serve ao Agente de Saúde Física (`src/agents/fisica/`): ele lê do consultor o
+vocabulário do "não sei" (`termos_dominio`) e a mensagem fixa (`mensagem_nao_sei`). Quando o
+Orquestrador manda consultas extras (trecho hipotético e pergunta completa da reescrita, issue #99),
+a busca roda com cada uma e funde as listas por RRF; sem elas, a busca é a de sempre.
 
 Os nós leem os componentes do consultor (`retriever`, `taco_tool`, `graph_engine`,
 `llm_client`, `guardrail`) no momento da chamada, e não na construção do grafo. Cada nó abre a
@@ -26,7 +31,8 @@ from src.models.schemas import (
     RetrievedChunk,
     TacoFoodNutrientRecord,
 )
-from src.rag.abstencao import MENSAGEM_NAO_SEI, fora_do_dominio
+from src.rag.abstencao import MENSAGEM_NAO_SEI, TERMOS_NUTRICAO, fora_do_dominio
+from src.retrieval.fusao import fundir_rrf
 from src.rag.verificador.citacoes import MARCADOR, eh_trecho
 
 
@@ -35,6 +41,9 @@ class EstadoNutricao(TypedDict, total=False):
     pergunta: str
     top_k: int
     resposta: Optional[ConsultantResponse]
+    # Vindos do Chat (issue #99): consultas extras da reescrita e Histórico da área, em texto.
+    consultas_extras: List[str]
+    historico: str
     # Internos do agente.
     avaliacao: GuardrailAssessment
     pergunta_efetiva: str
@@ -78,8 +87,13 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
         if not getattr(consultor, "enable_rag", True):
             return {"recuperados": []}
         consulta, top_k = estado["consulta_busca"], estado["top_k"]
-        with observacao("retrieve", tipo="retriever", input={"query": consulta, "top_k": top_k}) as obs:
+        extras = [c for c in estado.get("consultas_extras") or [] if c and c.strip()]
+        with observacao("retrieve", tipo="retriever",
+                        input={"query": consulta, "top_k": top_k, "consultas_extras": extras}) as obs:
             recuperados = consultor.retriever.retrieve(consulta, top_k=top_k)
+            if extras:
+                listas = [recuperados] + [consultor.retriever.retrieve(c, top_k=top_k) for c in extras]
+                recuperados = fundir_rrf(listas, top_k=top_k)
             obs.update(output=resumo_trechos(recuperados))
         return {"recuperados": recuperados}
 
@@ -107,12 +121,13 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
             return {"similaridade": None}
         similaridade = round(consultor.retriever.similaridade_maxima(estado["consulta_busca"]), 4)
         atualizacao: Dict[str, Any] = {"similaridade": similaridade}
-        if fora_do_dominio(estado["pergunta"], similaridade, ABSTENCAO_LIMIAR_COSSENO):
+        termos = getattr(consultor, "termos_dominio", TERMOS_NUTRICAO)
+        if fora_do_dominio(estado["pergunta"], similaridade, ABSTENCAO_LIMIAR_COSSENO, termos):
             if not estado["registros_taco"] and not estado["caminhos_grafo"]:
                 avaliacao = estado["avaliacao"]
                 atualizacao["resposta"] = consultor._resposta_fixa(
                     estado["pergunta"],
-                    MENSAGEM_NAO_SEI,
+                    getattr(consultor, "mensagem_nao_sei", MENSAGEM_NAO_SEI),
                     guardrail_triggered=avaliacao.is_restricted_by_law_8234,
                     intent_category="NO_EVIDENCE",
                     legal_compliance_notice=avaliacao.legal_notice_required,
@@ -134,6 +149,8 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
                 graph_context_str=estado["contexto_grafo"],
                 # Só a configuração liga o "LLM puro"; resultado vazio da busca não liga.
                 sem_contexto=getattr(consultor, "modo_llm_puro", False),
+                # Histórico só quando vem do Chat: os clientes falsos dos testes não o recebem.
+                **({"historico": estado["historico"]} if estado.get("historico") else {}),
             )
             obs.update(output=resultado, metadata={"model_used": modelo})
             # Scores do trace para filtrar e montar painéis no Langfuse.
@@ -150,7 +167,7 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
             avaliacao = estado["avaliacao"]
             atualizacao["resposta"] = consultor._resposta_fixa(
                 estado["pergunta"],
-                MENSAGEM_NAO_SEI,
+                getattr(consultor, "mensagem_nao_sei", MENSAGEM_NAO_SEI),
                 guardrail_triggered=avaliacao.is_restricted_by_law_8234,
                 intent_category="NO_EVIDENCE",
                 legal_compliance_notice=avaliacao.legal_notice_required,

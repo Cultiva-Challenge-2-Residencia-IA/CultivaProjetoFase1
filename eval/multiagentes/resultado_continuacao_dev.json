@@ -1,0 +1,92 @@
+{
+  "resumo": {
+    "n": 6,
+    "acerto": 0.833
+  },
+  "casos": [
+    {
+      "id": "T01",
+      "split": "dev",
+      "anterior": "Tenho hipertensão. O que o Guia Alimentar recomenda sobre sal?",
+      "mensagem": "E para quem também é diabético?",
+      "termo_esperado": "hipertens",
+      "area_esperada": "nutricao",
+      "pergunta_completa": "Quais são as recomendações do Guia Alimentar sobre o consumo de sal para pessoas que também são diabéticas?",
+      "areas": [
+        "nutricao"
+      ],
+      "origem": "llm",
+      "acerto": false
+    },
+    {
+      "id": "T02",
+      "split": "dev",
+      "anterior": "Quantos minutos de atividade física adultos devem fazer por semana?",
+      "mensagem": "E para idosos?",
+      "termo_esperado": "atividade",
+      "area_esperada": "saude_fisica",
+      "pergunta_completa": "Qual a recomendação de atividade física semanal para idosos?",
+      "areas": [
+        "saude_fisica"
+      ],
+      "origem": "llm",
+      "acerto": true
+    },
+    {
+      "id": "T03",
+      "split": "dev",
+      "anterior": "Quais alimentos são fontes de ferro?",
+      "mensagem": "E de cálcio?",
+      "termo_esperado": "alimentos",
+      "area_esperada": "nutricao",
+      "pergunta_completa": "Quais alimentos são fontes de cálcio?",
+      "areas": [
+        "nutricao"
+      ],
+      "origem": "llm",
+      "acerto": true
+    },
+    {
+      "id": "T04",
+      "split": "dev",
+      "anterior": "Exercício ajuda na dor lombar crônica?",
+      "mensagem": "E na dor no joelho por artrose?",
+      "termo_esperado": "exerc",
+      "area_esperada": "saude_fisica",
+      "pergunta_completa": "Como o exercício pode ajudar a aliviar a dor no joelho causada por artrose?",
+      "areas": [
+        "saude_fisica"
+      ],
+      "origem": "llm",
+      "acerto": true
+    },
+    {
+      "id": "T05",
+      "split": "dev",
+      "anterior": "O que é um alimento ultraprocessado?",
+      "mensagem": "Dá exemplos disso?",
+      "termo_esperado": "ultraprocessad",
+      "area_esperada": "nutricao",
+      "pergunta_completa": "Quais são exemplos de alimentos ultraprocessados?",
+      "areas": [
+        "nutricao"
+      ],
+      "origem": "llm",
+      "acerto": true
+    },
+    {
+      "id": "T06",
+      "split": "dev",
+      "anterior": "Quais os benefícios da caminhada?",
+      "mensagem": "E da natação?",
+      "termo_esperado": "benef",
+      "area_esperada": "saude_fisica",
+      "pergunta_completa": "Quais os benefícios da natação?",
+      "areas": [
+        "saude_fisica"
+      ],
+      "origem": "llm",
+      "acerto": true
+    }
+  ]
+}

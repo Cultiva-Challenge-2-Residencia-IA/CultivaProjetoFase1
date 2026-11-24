@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Cultiva-Challenge-2-Residencia-IA/CultivaProjetoFase1/corpus/schemas/trecho.schema.json",
   "title": "Trecho do corpus (versão 1)",
-  "description": "Uma linha de corpus/nutricao/rag/*.jsonl. Contrato entre o corpus e o retriever (ADR 0002). Os campos vêm do manifesto, exceto pagina_pdf, secao e texto, que vêm da conversão (PDF) ou do resumo (PubMed).",
+  "description": "Uma linha de corpus/<área>/rag/*.jsonl (nutricao, saudefisica). Contrato entre o corpus e o retriever (ADR 0002). Os campos vêm do manifesto, exceto pagina_pdf, secao e texto, que vêm da conversão (PDF) ou do resumo (PubMed).",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -22,9 +22,9 @@
   ],
   "properties": {
     "id": {
-      "description": "Identificador estável do Trecho: <fonte_id>-p<página com 3 dígitos>-<n com 2 dígitos> (PDF) ou <fonte_id>-resumo-<n com 2 dígitos> (resumo sem página).",
+      "description": "Identificador estável do Trecho: <fonte_id>-p<página com 3 dígitos>-<n com 2 dígitos> (PDF), <fonte_id>-s<seção com 3 dígitos>-<n com 2 dígitos> (HTML, sem página) ou <fonte_id>-resumo-<n com 2 dígitos> (resumo sem página).",
       "type": "string",
-      "pattern": "^[a-z0-9-]+-(p[0-9]{3}|resumo)-[0-9]{2}$"
+      "pattern": "^[a-z0-9-]+-(p[0-9]{3}|s[0-9]{3}|resumo)-[0-9]{2}$"
     },
     "fonte_id": {
       "description": "id da fonte no manifest.yaml.",
@@ -78,7 +78,7 @@
       "minLength": 1
     },
     "pagina_pdf": {
-      "description": "Página física do PDF (base 1), a mesma dos marcadores do Markdown. Nula em fontes sem PDF (resumos do PubMed).",
+      "description": "Página física do PDF (base 1), a mesma dos marcadores do Markdown. Nula em fontes sem PDF (HTML e resumos do PubMed).",
       "type": [
         "integer",
         "null"
