@@ -1,7 +1,8 @@
 import sys
 import threading
 from typing import Optional
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import BaseModel, Field
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline
@@ -10,7 +11,13 @@ from src.config import TOP_K_FINAL
 from src.models.schemas import ConsultantResponse
 from src.agent.traceability import register_incorrect_feedback, save_response_trace
 from src.observabilidade import registrar_feedback_incorreto
-from src.chat.servico import CHATS, RespostaDoChat, ServicoDeChat
+from src.chat.autenticacao import (
+    AutenticacaoNaoConfigurada,
+    TokenInvalido,
+    configuracao_do_ambiente,
+    verificar_token,
+)
+from src.chat.servico import CHATS, ConversaDeOutroUsuario, RespostaDoChat, ServicoDeChat
 
 app = FastAPI(
     title="Consultor Científico de Nutrição Baseado em Evidências (Fase 1 - Baseline RAG Híbrido)",
@@ -46,8 +53,50 @@ def get_servico_de_chat() -> ServicoDeChat:
     return _servico_de_chat
 
 
+_portador = HTTPBearer(auto_error=False, description="Token do Usuário emitido pelo App (issue #108).")
+
+
+def usuario_autenticado(
+    credenciais: Optional[HTTPAuthorizationCredentials] = Depends(_portador),
+) -> Optional[str]:
+    """Id do Usuário tirado do token `Authorization: Bearer ...` (issue #108).
+
+    Devolve None só no modo de desenvolvimento explícito (`CULTIVA_AUTH_DESLIGADA=true` sem segredo),
+    em que o `usuario_id` vem do cliente. O token não vai para log nem para a mensagem de erro.
+    """
+    try:
+        configuracao = configuracao_do_ambiente()
+    except AutenticacaoNaoConfigurada as erro:
+        raise HTTPException(status_code=503, detail=str(erro)) from None
+    if configuracao.modo == "desligada":
+        return None
+    if configuracao.modo == "nao_configurada":
+        raise HTTPException(status_code=503, detail=(
+            "Autenticação não configurada: defina CULTIVA_AUTH_SEGREDO (ou, só para uso local com dados "
+            "sintéticos, CULTIVA_AUTH_DESLIGADA=true)."))
+    if credenciais is None or credenciais.scheme.lower() != "bearer":
+        raise HTTPException(status_code=401, detail="Token ausente.", headers={"WWW-Authenticate": "Bearer"})
+    try:
+        return verificar_token(credenciais.credentials, configuracao.segredo)
+    except TokenInvalido as erro:
+        raise HTTPException(status_code=401, detail=str(erro), headers={"WWW-Authenticate": "Bearer"}) from None
+
+
+def _usuario_do_pedido(autenticado: Optional[str], informado: Optional[str]) -> str:
+    """O Usuário vem do token; o id informado no corpo ou na URL, se houver, precisa ser o mesmo."""
+    if autenticado is None:  # modo de desenvolvimento
+        if not informado:
+            raise HTTPException(status_code=422, detail="Sem autenticação, informe o usuario_id.")
+        return informado
+    if informado is not None and informado != autenticado:
+        raise HTTPException(status_code=403, detail="O usuario_id não corresponde ao token.")
+    return autenticado
+
+
 class MensagemDoChat(BaseModel):
-    usuario_id: str = Field(..., min_length=1, max_length=200)
+    # Com autenticação, o Usuário vem do token; o campo fica por compatibilidade e, se vier, precisa
+    # ser igual ao do token (issue #108).
+    usuario_id: Optional[str] = Field(default=None, min_length=1, max_length=200)
     conversa_id: str = Field(..., min_length=1, max_length=200)
     mensagem: str = Field(..., min_length=1, max_length=4000)
     top_k: int = Field(default=TOP_K_FINAL, ge=1, le=10)
@@ -112,13 +161,18 @@ def incorrect_answer_feedback(request: IncorrectAnswerFeedback) -> dict:
 
 
 @app.post("/chat/{chat}", response_model=RespostaDoChat)
-def chat_endpoint(chat: str, pedido: MensagemDoChat) -> RespostaDoChat:
+def chat_endpoint(chat: str, pedido: MensagemDoChat,
+                  autenticado: Optional[str] = Depends(usuario_autenticado)) -> RespostaDoChat:
     """Chat geral (`geral`) ou Chat de área (`nutricao`, `saude-fisica`), com Histórico da Conversa."""
+    usuario_id = _usuario_do_pedido(autenticado, pedido.usuario_id)
     chat = chat.replace("-", "_")
     if chat not in CHATS:
         raise HTTPException(status_code=404, detail=f"Chat desconhecido. Use: {', '.join(CHATS)}.")
-    resposta = get_servico_de_chat().enviar(chat, pedido.usuario_id, pedido.conversa_id, pedido.mensagem,
-                                            top_k=pedido.top_k)
+    try:
+        resposta = get_servico_de_chat().enviar(chat, usuario_id, pedido.conversa_id, pedido.mensagem,
+                                                top_k=pedido.top_k)
+    except ConversaDeOutroUsuario:
+        raise HTTPException(status_code=403, detail="Esta conversa_id pertence a outro Usuário.") from None
     # RF-IA15: cada resposta de Agente de área entra no registro, como no /consult, para aceitar feedback.
     for resposta_da_area in resposta.respostas.values():
         save_response_trace(resposta_da_area)
@@ -126,14 +180,17 @@ def chat_endpoint(chat: str, pedido: MensagemDoChat) -> RespostaDoChat:
 
 
 @app.delete("/chat/usuarios/{usuario_id}/conversas/{conversa_id}")
-def apagar_conversa(usuario_id: str, conversa_id: str) -> dict:
-    """Apaga uma Conversa do Usuário (LGPD)."""
+def apagar_conversa(usuario_id: str, conversa_id: str,
+                    autenticado: Optional[str] = Depends(usuario_autenticado)) -> dict:
+    """Apaga uma Conversa do Usuário (LGPD). Conversa de outro Usuário não é apagada (0 mensagens)."""
+    usuario_id = _usuario_do_pedido(autenticado, usuario_id)
     return {"apagadas": get_servico_de_chat().apagar_conversa(usuario_id, conversa_id)}
 
 
 @app.delete("/chat/usuarios/{usuario_id}")
-def apagar_usuario(usuario_id: str) -> dict:
-    """Apaga todas as Conversas do Usuário (LGPD)."""
+def apagar_usuario(usuario_id: str, autenticado: Optional[str] = Depends(usuario_autenticado)) -> dict:
+    """Apaga todas as Conversas do Usuário (LGPD); o id da URL precisa ser o do token."""
+    usuario_id = _usuario_do_pedido(autenticado, usuario_id)
     return {"apagadas": get_servico_de_chat().apagar_usuario(usuario_id)}
 
 

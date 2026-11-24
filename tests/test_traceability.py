@@ -154,5 +154,11 @@ def test_resposta_do_chat_aceita_feedback_de_resposta_incorreta(tmp_path, monkey
 
     monkeypatch.setattr(api, "get_servico_de_chat", ServicoFalso)
     cliente = TestClient(api.app)
-    cliente.post("/chat/geral", json={"usuario_id": "u", "conversa_id": "c", "mensagem": "fibra?"})
+    from src.chat.autenticacao import emitir_token
+
+    segredo = "segredo-de-teste-com-pelo-menos-32-caracteres"
+    monkeypatch.setenv("CULTIVA_AUTH_SEGREDO", segredo)
+    cabecalho = {"Authorization": f"Bearer {emitir_token('u', segredo.encode())}"}
+    assert cliente.post("/chat/geral", json={"conversa_id": "c", "mensagem": "fibra?"},
+                        headers=cabecalho).status_code == 200
     assert cliente.post("/feedback/incorrect", json={"response_id": "r-chat"}).status_code == 200
