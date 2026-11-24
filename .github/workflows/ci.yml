@@ -48,7 +48,7 @@ jobs:
           version: ${{ env.UV_VERSION }}
           python-version: ${{ env.PYTHON_VERSION }}
       - run: uv sync --frozen
-      # Modelo de embeddings (e5-large, 2,2 GB) e vetores dos Trechos (issue #15, ADR 0005). Sem os
+      # Modelo de embeddings (e5-large, 2,2 GB) e vetores dos Trechos (issue #15, ADR 0006). Sem os
       # caches, cada execução baixaria o modelo e recalcularia os vetores de todo o corpus, o que leva
       # dezenas de minutos em CPU. Com corpus novo, o cache anterior é restaurado e só os Trechos
       # novos ou alterados são calculados.
@@ -91,7 +91,7 @@ jobs:
           version: ${{ env.UV_VERSION }}
           python-version: ${{ env.PYTHON_VERSION }}
       - run: uv sync --frozen
-      # Modelo de embeddings (e5-large, 2,2 GB) e vetores dos Trechos (issue #15, ADR 0005). Sem os
+      # Modelo de embeddings (e5-large, 2,2 GB) e vetores dos Trechos (issue #15, ADR 0006). Sem os
       # caches, cada execução baixaria o modelo e recalcularia os vetores de todo o corpus, o que leva
       # dezenas de minutos em CPU. Com corpus novo, o cache anterior é restaurado e só os Trechos
       # novos ou alterados são calculados.

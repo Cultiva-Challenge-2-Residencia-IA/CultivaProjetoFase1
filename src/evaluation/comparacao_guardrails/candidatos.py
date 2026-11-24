@@ -157,7 +157,7 @@ def _embed_fastembed() -> Callable[[Any], Any]:
     """Embeddings locais `paraphrase-multilingual-MiniLM-L12-v2`, normalizados.
 
     É o modelo da medição da #52 (o padrão do projeto na época). Fica fixo aqui para a comparação
-    continuar reproduzível depois que o padrão mudou para o e5-large (issue #15, ADR 0005).
+    continuar reproduzível depois que o padrão mudou para o e5-large (issue #15, ADR 0006).
     """
     import numpy as np
     from fastembed import TextEmbedding

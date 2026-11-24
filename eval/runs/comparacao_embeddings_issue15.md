@@ -107,7 +107,7 @@ Pela regra registrada antes da execução:
 
 **Variante exploratória** (E2 com acentos e caixa originais): MRR do `dev` 0,773 e acerto completo 0,889, abaixo do E2 normalizado. Não cumpre a regra frente a ele, e o pré-processamento não muda (`EMBEDDING_NORMALIZAR_TEXTO=true`). O Trecho que ela trouxe sem julgamento (REC-05, nota 1) foi julgado depois e não muda o resultado: o RR desse caso já era 1,0, e a nota 1 não conta no acerto completo.
 
-O provedor e o custo estão no [ADR 0005](../../docs/adrs/0005-provedor-embeddings.md). Para o custo da indexação, entrou um cache de vetores por modelo e texto (`EMBEDDING_CACHE_PATH`): só Trechos novos ou alterados são recalculados, e o CI guarda o cache e o modelo com `actions/cache`.
+O provedor e o custo estão no [ADR 0006](../../docs/adrs/0006-provedor-embeddings-e-banco-vetorial.md). Para o custo da indexação, entrou um cache de vetores por modelo e texto (`EMBEDDING_CACHE_PATH`): só Trechos novos ou alterados são recalculados, e o CI guarda o cache e o modelo com `actions/cache`.
 
 ## Resultados desfavoráveis e limitações
 

@@ -137,7 +137,7 @@ class CacheDeVetores:
 class DenseMultilingualEmbedder:
     """
     Embeddings densos multilíngues, normalizados em norma L2, gerados localmente pelo fastembed
-    (ONNX, CPU): nenhum texto sai da máquina (RNF05; ADR 0005). O modelo vem de
+    (ONNX, CPU): nenhum texto sai da máquina (RNF05; ADR 0006). O modelo vem de
     `EMBEDDING_MODEL_NAME`, e a dimensão e os prefixos de consulta e documento, do próprio modelo.
     """
 

@@ -55,7 +55,7 @@ A página e a seção nunca são misturadas entre Trechos. É isso que permite c
 
 ### 1.3 Estratégia de embeddings
 
-- **Modelo:** `intfloat/multilingual-e5-large`, multilíngue, **1024 dimensões**, com os prefixos `query: ` e `passage: `, vetores normalizados (L2) e similaridade por cosseno ([ADR 0005](adrs/0005-provedor-embeddings.md)). Até a issue #15 era o `paraphrase-multilingual-MiniLM-L12-v2` (384 dimensões), que cortava cada Trecho em 128 tokens.
+- **Modelo:** `intfloat/multilingual-e5-large`, multilíngue, **1024 dimensões**, com os prefixos `query: ` e `passage: `, vetores normalizados (L2) e similaridade por cosseno ([ADR 0006](adrs/0006-provedor-embeddings-e-banco-vetorial.md)). Até a issue #15 era o `paraphrase-multilingual-MiniLM-L12-v2` (384 dimensões), que cortava cada Trecho em 128 tokens.
 - **Execução local** (biblioteca `fastembed`, ONNX): nenhum texto sai da máquina, o que atende ao RNF05.
 - **Busca híbrida** (`src/retrieval/hybrid_retriever.py`): BM25 léxico com sinônimos clínicos e similaridade densa do ChromaDB, fundidos por **Reciprocal Rank Fusion**, seguidos de diversificação (no máximo 2 Trechos por documento). Desde a issue #35, o reranker por sobreposição de termos e nível de evidência e a mistura com TF-IDF/LSA ficam desligados por padrão (`MODO_DENSO`, `RERANK_*` em `src/config.py`); ver `eval/runs/ablacao_mrr_issue35.md`.
 - **Comparação de modelos (issue #15):** MiniLM-L12, mpnet e e5-large multilíngues no golden set v1 e v2 e no "não sei". O e5-large venceu (MRR por Trecho no v2 `dev` de 0,815 contra 0,732), com o limiar do "não sei" recalibrado para 0,845. Sem o cache de vetores (`EMBEDDING_CACHE_PATH`), indexar leva cerca de 19 minutos em CPU, contra 30 s antes. Ver `eval/runs/comparacao_embeddings_issue15.md`.
@@ -152,7 +152,7 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 |---|---|
 | #4 Integrar os JSONL do corpus | Feita: `src/rag/corpus_loader.py` carrega os Trechos pelo contrato do ADR 0002. |
 | #7 Filtrar por fonte aprovada | Feita: gate no momento de montar o índice. Demonstração e benchmark usam só fontes aprovadas; `CULTIVA_INCLUIR_PENDENTES=true` inclui as pendentes. |
-| #15 Embeddings e banco vetorial | Parcial: três modelos locais comparados e e5-large adotado (ADR 0005), com ChromaDB. Falta o pgvector com reindexação por `corpus_version`. |
+| #15 Embeddings e banco vetorial | Parcial: três modelos locais comparados e e5-large adotado ([relatório da comparação](../eval/runs/comparacao_embeddings_issue15.md), [critérios](../eval/runs/comparacao_embeddings_issue15_criterios.md)); ChromaDB mantido como padrão ([ADR 0006](adrs/0006-provedor-embeddings-e-banco-vetorial.md)). Falta o backend pgvector com reindexação por `corpus_version`. |
 | #11 Rastreabilidade | Resposta inclui `corpus_version` (SHA-256 do manifesto das fontes indexadas e dos JSONL correspondentes), `prompt_version`, `model_version`, `fontes_version` e `trechos_usados` (id, fonte, página, link e título). Um `response_id` associa o registro persistido de rastreabilidade ao endpoint `POST /feedback/incorrect`. |
 | #13 Benchmark v2 | Parcial: ids esperados mapeados para as fontes do corpus. O conjunto continua o mesmo. |
 | #28 PubMed e TACO no corpus | Decidido para esta entrega: PubMed fora. O suporte a resumos no pipeline está pronto. |

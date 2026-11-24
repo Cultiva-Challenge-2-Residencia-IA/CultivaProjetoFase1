@@ -55,7 +55,7 @@ VECTOR_STORE_DIR = DATA_DIR / "vector_store" / "chroma_db"
 VECTOR_COLLECTION_NAME = os.getenv(
     "VECTOR_COLLECTION_NAME", "cultiva_nutricao_evidencias"
 )
-# Modelo local do fastembed (ADR 0005, issue #15). Escolhido na comparação com o MiniLM-L12 e o
+# Modelo local do fastembed (ADR 0006, issue #15). Escolhido na comparação com o MiniLM-L12 e o
 # mpnet multilíngues: eval/runs/comparacao_embeddings_issue15.md. Trocar o modelo muda a escala do
 # cosseno: recalibre ABSTENCAO_LIMIAR_COSSENO junto.
 EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME", "intfloat/multilingual-e5-large")
@@ -102,9 +102,6 @@ OLLAMA_NUM_PREDICT = int(os.getenv("OLLAMA_NUM_PREDICT", "2048"))
 OLLAMA_THINK = os.getenv("OLLAMA_THINK", "false").strip().lower() in {"1", "true", "sim", "yes"}
 OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text")
 OLLAMA_TIMEOUT = float(os.getenv("OLLAMA_TIMEOUT", "45.0"))
-
-# Backend de vetorização local ("local_lsa" ou "ollama")
-VECTOR_BACKEND = os.getenv("VECTOR_BACKEND", "local_lsa")
 
 # Parâmetros do Motor RAG Híbrido (Fase 1 Baseline)
 TOP_K_BM25 = int(os.getenv("TOP_K_BM25", "8"))
