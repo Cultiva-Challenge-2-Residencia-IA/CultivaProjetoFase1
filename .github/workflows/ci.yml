@@ -22,6 +22,8 @@ env:
   GROQ_API_KEY: ""
   LLM_PROVIDER: ollama
   ALLOW_EXTERNAL_LLM: "false"
+  # Modelo de embeddings em pasta fixa, para o cache abaixo (issue #15).
+  FASTEMBED_CACHE_PATH: ${{ github.workspace }}/.cache/fastembed
 
 jobs:
   lint:
@@ -46,6 +48,21 @@ jobs:
           version: ${{ env.UV_VERSION }}
           python-version: ${{ env.PYTHON_VERSION }}
       - run: uv sync --frozen
+      # Modelo de embeddings (e5-large, 2,2 GB) e vetores dos Trechos (issue #15, ADR 0005). Sem os
+      # caches, cada execução baixaria o modelo e recalcularia os vetores de todo o corpus, o que leva
+      # dezenas de minutos em CPU. Com corpus novo, o cache anterior é restaurado e só os Trechos
+      # novos ou alterados são calculados.
+      - name: Cache do modelo de embeddings
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.FASTEMBED_CACHE_PATH }}
+          key: fastembed-${{ hashFiles('uv.lock') }}-multilingual-e5-large
+      - name: Cache dos vetores dos Trechos
+        uses: actions/cache@v4
+        with:
+          path: data/vector_store/vetores_cache.sqlite3
+          key: vetores-testes-${{ hashFiles('corpus/*/rag/*.jsonl', 'src/retrieval/vector_store.py', 'src/retrieval/hybrid_retriever.py') }}
+          restore-keys: vetores-testes-
       - run: uv run pytest -q
 
   corpus:
@@ -74,6 +91,21 @@ jobs:
           version: ${{ env.UV_VERSION }}
           python-version: ${{ env.PYTHON_VERSION }}
       - run: uv sync --frozen
+      # Modelo de embeddings (e5-large, 2,2 GB) e vetores dos Trechos (issue #15, ADR 0005). Sem os
+      # caches, cada execução baixaria o modelo e recalcularia os vetores de todo o corpus, o que leva
+      # dezenas de minutos em CPU. Com corpus novo, o cache anterior é restaurado e só os Trechos
+      # novos ou alterados são calculados.
+      - name: Cache do modelo de embeddings
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.FASTEMBED_CACHE_PATH }}
+          key: fastembed-${{ hashFiles('uv.lock') }}-multilingual-e5-large
+      - name: Cache dos vetores dos Trechos
+        uses: actions/cache@v4
+        with:
+          path: data/vector_store/vetores_cache.sqlite3
+          key: vetores-avaliacao-${{ hashFiles('corpus/*/rag/*.jsonl', 'src/retrieval/vector_store.py', 'src/retrieval/hybrid_retriever.py') }}
+          restore-keys: vetores-avaliacao-
 
       # A primeira execução só constrói o índice HNSW do ChromaDB e é descartada. As duas
       # seguintes usam o mesmo índice persistido, então o gate de determinismo compara o

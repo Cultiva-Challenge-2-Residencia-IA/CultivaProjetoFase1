@@ -459,12 +459,16 @@
           "protocolos-guia-alimentar-fasciculo1-2021-p019-02": {
             "nota": 1,
             "citacao": "- Estimule o consumo eventual de variedades de feijão (preto, carioca, branco, de corda, f"
+          },
+          "guia-alimentar-populacao-brasileira-2014-p064-01": {
+            "nota": 1,
+            "citacao": "Arroz, feijão, coxa de frango, repolho, moranga e laranja"
           }
         },
         "julgados_irrelevantes": [
           "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p089-01"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 24/11/2026 (issue #15) com 1 Trecho(s) do top-4 dos candidatos da comparação de embeddings, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [

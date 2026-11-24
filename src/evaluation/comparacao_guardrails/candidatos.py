@@ -150,14 +150,19 @@ prompts:
             return Veredito(None, time.perf_counter() - inicio, erro=f"{type(e).__name__}: {e}")
 
 
+MODELO_EMBEDDINGS_DA_MEDICAO = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+
+
 def _embed_fastembed() -> Callable[[Any], Any]:
-    """Embeddings do próprio projeto (`paraphrase-multilingual-MiniLM-L12-v2`, local), normalizados."""
+    """Embeddings locais `paraphrase-multilingual-MiniLM-L12-v2`, normalizados.
+
+    É o modelo da medição da #52 (o padrão do projeto na época). Fica fixo aqui para a comparação
+    continuar reproduzível depois que o padrão mudou para o e5-large (issue #15, ADR 0005).
+    """
     import numpy as np
     from fastembed import TextEmbedding
 
-    from src.config import EMBEDDING_MODEL_NAME
-
-    modelo = TextEmbedding(model_name=EMBEDDING_MODEL_NAME)
+    modelo = TextEmbedding(model_name=MODELO_EMBEDDINGS_DA_MEDICAO)
 
     def embed(textos: Any) -> Any:
         lista = [textos] if isinstance(textos, str) else list(textos)

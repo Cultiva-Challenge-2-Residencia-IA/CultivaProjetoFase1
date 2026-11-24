@@ -4,10 +4,10 @@ import json
 
 import numpy as np
 
-from src.config import BENCHMARK_QUESTIONS_PATH
+from src.config import BENCHMARK_QUESTIONS_PATH, EMBEDDING_MODEL_NAME
 from src.rag.corpus_loader import carregar_chunks_do_corpus, inventario_de_fontes
 from src.retrieval.hybrid_retriever import HybridRetriever
-from src.retrieval.vector_store import DenseMultilingualEmbedder, NutritionVectorStore
+from src.retrieval.vector_store import DenseMultilingualEmbedder, NutritionVectorStore, dimensao_do_modelo
 
 
 def test_base_curada_tem_ao_menos_20_documentos_fonte() -> None:
@@ -26,7 +26,7 @@ def test_gate_de_aprovacao_so_deixa_passar_fontes_aprovadas() -> None:
     assert len(todos) > len(aprovados)
 
 
-def test_embedder_multilingue_gera_vetores_normalizados_de_384d() -> None:
+def test_embedder_multilingue_gera_vetores_normalizados_na_dimensao_do_modelo() -> None:
     embedder = DenseMultilingualEmbedder()
     vecs = embedder.embed_documents(
         [
@@ -34,7 +34,7 @@ def test_embedder_multilingue_gera_vetores_normalizados_de_384d() -> None:
             "Oat beta-glucan soluble fiber reduces serum LDL cholesterol.",
         ]
     )
-    assert len(vecs) == 2 and len(vecs[0]) == 384
+    assert len(vecs) == 2 and len(vecs[0]) == embedder.dimension == dimensao_do_modelo(EMBEDDING_MODEL_NAME)
     v0, v1 = np.array(vecs[0]), np.array(vecs[1])
     assert np.isclose(np.linalg.norm(v0), 1.0, atol=1e-4)
     assert np.isclose(np.linalg.norm(v1), 1.0, atol=1e-4)
@@ -52,7 +52,7 @@ def test_chromadb_persiste_e_guarda_metadados_de_rastreabilidade(tmp_path) -> No
     )
     stats = vstore.get_stats()
     assert stats["total_vectors_indexed"] == 12
-    assert stats["embedding_dimension"] == 384
+    assert stats["embedding_dimension"] == dimensao_do_modelo(EMBEDDING_MODEL_NAME)
     assert "ChromaDB" in stats["vector_db_engine"]
     assert stats["collection_name"].startswith("test_nutricao_")
 
@@ -64,6 +64,22 @@ def test_chromadb_persiste_e_guarda_metadados_de_rastreabilidade(tmp_path) -> No
     assert len(hits) == 3
     idx, sim = hits[0]
     assert 0 <= idx < 12 and 0.0 <= sim <= 1.0
+
+
+def test_cache_de_vetores_so_calcula_trechos_novos(tmp_path) -> None:
+    """Uma segunda coleção com os mesmos Trechos reaproveita os vetores, com os mesmos valores."""
+    amostra = carregar_chunks_do_corpus(incluir_pendentes=True)[:8]
+    cache = tmp_path / "vetores.sqlite3"
+    primeira = NutritionVectorStore(chunks=amostra[:6], collection_name="cache_a", use_persistent=False,
+                                    cache_vetores=cache)
+    assert primeira.embedder.calculados == 6
+    segunda = NutritionVectorStore(chunks=amostra, collection_name="cache_b", use_persistent=False,
+                                   cache_vetores=cache)
+    assert segunda.embedder.calculados == 2
+    ids = [c.chunk_id for c in amostra[:6]]
+    a = primeira.collection.get(ids=ids, include=["embeddings"])["embeddings"]
+    b = segunda.collection.get(ids=ids, include=["embeddings"])["embeddings"]
+    assert np.allclose(np.asarray(a), np.asarray(b), atol=1e-6)
 
 
 def test_busca_hibrida_com_banco_vetorial_recupera_a_fonte_certa(tmp_path) -> None:
