@@ -155,7 +155,8 @@ class ServicoDeChat:
         self.llm = llm
         # A reescrita só usa o LLM se a medição permitir (CULTIVA_REESCRITA_LLM); o Sincronizador usa sempre.
         self.reescrita_com_llm = reescrita_com_llm
-        # Trecho hipotético como consulta extra na busca: desligado por padrão (medição do dev).
+        # Trecho hipotético como consulta extra na busca das duas áreas: desligado por padrão (medição do
+        # dev da #99, que piorou Nutrição).
         self.hyde_na_busca = hyde_na_busca
         # Só no Agente de Saúde Física (issue #105), cujas fontes estão quase todas em inglês.
         self.hyde_na_busca_saude_fisica = hyde_na_busca_saude_fisica

@@ -4,7 +4,7 @@
     "reranker_na_busca": [
       "saude_fisica"
     ],
-    "limiar": 0.146062,
+    "limiar": 0.146,
     "limiar_calibrado_neste_split": 0.146062,
     "lacuna_indevida_golden_saude_fisica": 0.05,
     "lacuna_indevida_golden_v2_nutricao": 0.056,

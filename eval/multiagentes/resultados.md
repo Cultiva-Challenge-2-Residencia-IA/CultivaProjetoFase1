@@ -27,7 +27,7 @@ uv run python -m src.evaluation.multiagentes busca|continuacao|compostas --split
 
 ## Erros que ficaram
 
-- **Compostas (`test`):** C13, "Dor nas costas pode ter relação com sobrepeso e alimentação?", foi só para Nutrição: "costas" não está no vocabulário de Saúde Física (só "lombar"), e as regras decidiram sem o LLM. O critério de 0,85 **não foi cumprido** no `test` (4 de 5). O vocabulário não foi ajustado a partir do `test`; a correção fica para um novo ciclo com casos novos.
+- **Compostas (`test`):** C13, "Dor nas costas pode ter relação com sobrepeso e alimentação?", foi só para Nutrição: "costas" não está no vocabulário de Saúde Física (só "lombar"), e as regras decidiram sem o LLM. O critério de 0,85 **não foi cumprido** no `test` (4 de 5). O vocabulário não foi ajustado a partir do `test`; a correção fica para um novo ciclo com casos novos (feita na #105, com casos novos: `eval/relevancia/resultados.md`).
 
 - **Roteamento (`test`):** R37, "Hidratação durante o treino longo: água ou isotônico?", foi só para Saúde Física; "hidratação" e "isotônico" não estão no vocabulário de Nutrição. Só regras, os casos ambíguos e fora das áreas caem no Agente de Nutrição (comportamento de antes, que dá o "não sei" pelo cosseno); com o LLM, são decididos.
 - **Roteamento (`dev`, com LLM):** R18 (sono e energia) foi às duas áreas, e R27 (tempo de tela) foi a Nutrição.

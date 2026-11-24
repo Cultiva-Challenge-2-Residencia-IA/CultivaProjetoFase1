@@ -9,8 +9,9 @@ from src.agent.llm_client import LocalLLMClient
 from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import (
-    FILTRO_RELEVANCIA,
     FILTRO_RELEVANCIA_LIMIAR,
+    FILTRO_RELEVANCIA_NUTRICAO,
+    FILTRO_RELEVANCIA_SAUDE_FISICA,
     INCLUDE_PENDING_SOURCES,
     OLLAMA_BASE_URL,
     REFORMULACAO_LLM,
@@ -96,7 +97,9 @@ class NutritionConsultantBaseline:
         if reranker_na_busca is None:
             reranker_na_busca = RERANKER_SAUDE_FISICA if self.area == "saude_fisica" else RERANKER_NUTRICAO
         if filtro_relevancia is None:
-            filtro_relevancia = FILTRO_RELEVANCIA
+            filtro_relevancia = (
+                FILTRO_RELEVANCIA_SAUDE_FISICA if self.area == "saude_fisica" else FILTRO_RELEVANCIA_NUTRICAO
+            )
         reranker = RerankerCruzado(RERANKER_MODELO) if reranker_na_busca or filtro_relevancia else None
         self.retriever = HybridRetriever(
             self.chunks,

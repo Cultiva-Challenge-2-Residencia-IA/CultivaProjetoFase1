@@ -280,3 +280,19 @@ def test_sinal_de_alerta_guarda_so_os_sinais_no_historico(tmp_path, agentes):
     guardadas = " ".join(m.texto for m in servico.historico.recentes("u1", "c1", limite=10))
     assert mensagem not in guardadas
     assert "[sinal de alerta: dor_no_peito]" in guardadas
+
+
+def test_trecho_hipotetico_vai_so_a_busca_de_saude_fisica(tmp_path, agentes):
+    """Issue #105: com o padrão, o HyDE entra na busca do Agente de Saúde Física e não na de Nutrição."""
+    def llm(sistema: str, usuario: str) -> Optional[dict]:
+        if "prepara buscas" not in sistema:
+            return None
+        return {"pergunta_completa": "O que comer antes do treino de perna?", "subperguntas": [
+            {"area": "nutricao", "pergunta": "O que comer antes do treino?", "trecho_hipotetico": "Carboidratos antes."},
+            {"area": "saude_fisica", "pergunta": "Treino de perna", "trecho_hipotetico": "Lower body training."}]}
+
+    servico = _servico(tmp_path, agentes, llm=llm)
+    servico.hyde_na_busca, servico.hyde_na_busca_saude_fisica = False, True
+    servico.enviar(CHAT_GERAL, "u1", "c1", "O que comer antes de treinar perna?")
+    assert "Lower body training." in agentes[AREA_SAUDE_FISICA].chamadas[-1]["extras"]
+    assert "Carboidratos antes." not in agentes[AREA_NUTRICAO].chamadas[-1]["extras"]

@@ -140,14 +140,21 @@ RERANKER_MODELO = os.getenv("RERANKER_MODELO", "jinaai/jina-reranker-v2-base-mul
 RERANKER_CANDIDATOS = int(os.getenv("RERANKER_CANDIDATOS", "20"))
 RERANKER_NUTRICAO = _ligado("CULTIVA_RERANKER_NUTRICAO", "false")
 RERANKER_SAUDE_FISICA = _ligado("CULTIVA_RERANKER_SAUDE_FISICA", "true")
-# Filtro de relevância antes da síntese: Trecho com nota do cross-encoder abaixo do limiar não vai
-# para a síntese; sem nenhum, a busca é reformulada pelo LLM (CULTIVA_REFORMULACAO_LLM, com o Ollama)
-# e, se ainda não houver, a resposta é a lacuna explícita (src/rag/relevancia.py).
-FILTRO_RELEVANCIA = _ligado("CULTIVA_FILTRO_RELEVANCIA", "false")
-FILTRO_RELEVANCIA_LIMIAR = float(os.getenv("FILTRO_RELEVANCIA_LIMIAR", "0.0"))
+# Filtro de relevância antes da síntese, por área: Trecho com nota do cross-encoder abaixo do limiar
+# não vai para a síntese; sem nenhum, a resposta é a lacuna explícita (src/rag/relevancia.py). Limiar
+# calibrado no dev das duas áreas juntas (lacuna indevida <= 5%). Só em Saúde Física por padrão
+# (decisão da equipe de 24/11/2026): em Nutrição, o filtro derrubava o gate v1 (recall de documento
+# -15 p.p.). Em Saúde Física: lacuna nos casos sem base de 0,75 no dev e 1,00 no test; lacuna indevida
+# de 0,05 no dev e 0,17 no test (2 de 12; critério 0,05). Detalhes em eval/relevancia/resultados.md.
+FILTRO_RELEVANCIA_NUTRICAO = _ligado("CULTIVA_FILTRO_RELEVANCIA_NUTRICAO", "false")
+FILTRO_RELEVANCIA_SAUDE_FISICA = _ligado("CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA", "true")
+FILTRO_RELEVANCIA_LIMIAR = float(os.getenv("FILTRO_RELEVANCIA_LIMIAR", "0.146"))
+# Reformulação pelo LLM quando nenhum Trecho passa: desligada, porque no dev tirou da lacuna também
+# casos sem base (lacuna de 0,714 para 0,643).
 REFORMULACAO_LLM = _ligado("CULTIVA_REFORMULACAO_LLM", "false")
-# Trecho hipotético (HyDE) na busca só do Agente de Saúde Física (CULTIVA_HYDE_NA_BUSCA vale para as duas).
-HYDE_NA_BUSCA_SAUDE_FISICA = _ligado("CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA", "false")
+# Trecho hipotético (HyDE) na busca só do Agente de Saúde Física (CULTIVA_HYDE_NA_BUSCA vale para as
+# duas). Ligado pela regra do dev (MRR da fonte +0,075 com o gemma4:e4b); no test, −0,042.
+HYDE_NA_BUSCA_SAUDE_FISICA = _ligado("CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA", "true")
 
 # Observabilidade (proposta técnica, ainda não documentada na Documentacao-Cultiva; ADR 0003).
 # Desligada por padrão: só envia traces ao Langfuse com CULTIVA_LANGFUSE=true e as chaves
