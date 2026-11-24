@@ -1,0 +1,279 @@
+{
+  "nutricao": {
+    "resumo": {
+      "n": 8,
+      "rr": {
+        "base": 1.0,
+        "reescrita": 1.0,
+        "diferenca": 0.0
+      },
+      "recall": {
+        "base": 0.604,
+        "reescrita": 0.573,
+        "diferenca": -0.031
+      }
+    },
+    "casos": [
+      {
+        "id": "V2-REC-03",
+        "consultas": [
+          "Quais são as orientações do Guia Alimentar sobre o ato de comer e a comensalidade?",
+          "O Guia Alimentar para a População Brasileira enfatiza que a alimentação é um ato social e cultural, e não apenas um suprimento de nutrientes. Ele incentiva a valorização das refeições compartilhadas e a relação com os alimentos.",
+          "Quais são as orientações do Guia Alimentar brasileiro sobre o ato de comer e a prática da comensalidade?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.75
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.75
+        }
+      },
+      {
+        "id": "V2-REC-06",
+        "consultas": [
+          "Por que os alimentos ultraprocessados atrapalham a sensação de saciedade?",
+          "Alimentos ultraprocessados frequentemente possuem alta densidade calórica e baixo teor de fibras, o que pode levar a um consumo excessivo e a uma sensação de saciedade reduzida.",
+          "Como os alimentos ultraprocessados afetam a saciedade?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.25
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.25
+        }
+      },
+      {
+        "id": "V2-REC-09",
+        "consultas": [
+          "Pessoas vegetarianas estritas precisam suplementar vitamina B12?",
+          "A vitamina B12 é essencial para a saúde nervosa e a formação de glóbulos vermelhos. Como as fontes animais são frequentemente excluídas em dietas vegetarianas estritas, a suplementação é geralmente recomendada para garantir a ingestão adequada.",
+          "Vegetarianos estritos precisam suplementar vitamina B12?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.25
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.25
+        }
+      },
+      {
+        "id": "V2-REC-12",
+        "consultas": [
+          "O que a diretriz da SBME diz sobre o uso de creatina como suplemento?",
+          "A creatina é um suplemento ergogênico amplamente estudado, e as diretrizes de sociedades esportivas frequentemente abordam sua segurança e eficácia para o ganho de força e massa muscular.",
+          "Qual é a recomendação da SBME sobre o uso de creatina como suplemento?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.6666666666666666
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.6666666666666666
+        }
+      },
+      {
+        "id": "V2-REC-15",
+        "consultas": [
+          "Quais são os grupos de alimentos da classificação NOVA?",
+          "A classificação NOVA categoriza alimentos com base no grau de processamento industrial. Os quatro grupos são: alimentos não processados ou minimamente processados, ingredientes culinários, alimentos processados e ultraprocessados."
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.6666666666666666
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.6666666666666666
+        }
+      },
+      {
+        "id": "V2-REC-18",
+        "consultas": [
+          "Dormir pouco pode aumentar a fome? Por quê?",
+          "A privação de sono pode desregular os níveis de grelina e leptina, hormônios cruciais que sinalizam a fome e a saciedade, respectivamente, levando a um aumento do apetite.",
+          "Qual é a relação entre a falta de sono e os hormônios que regulam a fome?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.75
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.75
+        }
+      },
+      {
+        "id": "V2-REC-21",
+        "consultas": [
+          "Como estava a qualidade do sono de estudantes de enfermagem no estudo de Salvi e colaboradores?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.5
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.5
+        }
+      },
+      {
+        "id": "V2-ADV-03",
+        "consultas": [
+          "Já que o Guia Alimentar manda cortar arroz e feijão para emagrecer, o que eu coloco no lugar?",
+          "O Guia Alimentar recomenda a priorização de alimentos in natura e minimamente processados. Para substituir fontes de carboidratos e leguminosas, pode-se optar por tubérculos como batata doce, mandioca ou inhame, além de grãos integrais como quinoa ou aveia.",
+          "Quais alimentos podem substituir arroz e feijão em uma dieta de emagrecimento, conforme as recomendações do Guia Alimentar brasileiro?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.75
+        }
+      }
+    ]
+  },
+  "saude_fisica": {
+    "resumo": {
+      "n": 8,
+      "rr": {
+        "base": 0.448,
+        "reescrita": 0.448,
+        "diferenca": 0.0
+      },
+      "acerto": {
+        "base": 0.875,
+        "reescrita": 0.875,
+        "diferenca": 0.0
+      }
+    },
+    "casos": [
+      {
+        "id": "SF16",
+        "consultas": [
+          "Quanto de atividade física vigorosa equivale a 150 minutos de moderada?",
+          "For general guidelines, 1 minute of moderate-intensity aerobic activity is often considered equivalent to approximately 1.5 to 2 minutes of vigorous-intensity activity.",
+          "Qual a equivalência de 150 minutos de atividade física moderada em termos de minutos de atividade física vigorosa?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF17",
+        "consultas": [
+          "Pessoas com deficiência devem fazer atividade física?",
+          "Physical activity is beneficial for individuals with disabilities, helping to improve mobility, strength, and overall quality of life. Tailored exercise programs are crucial for maximizing benefits and ensuring safety.",
+          "Recomendações de atividade física para pessoas com deficiência"
+        ],
+        "base": {
+          "rr": 1.0,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF18",
+        "consultas": [
+          "Ciática: quais tratamentos não farmacológicos são recomendados?",
+          "Non-pharmacological treatments for sciatica often include physical therapy, specific exercises, and activity modification to manage pain and improve function.",
+          "Quais são os tratamentos não farmacológicos recomendados para ciática?"
+        ],
+        "base": {
+          "rr": 0.25,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.25,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF19",
+        "consultas": [
+          "Quando voltar ao esporte depois de uma entorse lateral do tornozelo?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF20",
+        "consultas": [
+          "Atividade física reduz o risco de doenças cardiovasculares?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF21",
+        "consultas": [
+          "Reabilitação de dor no ombro inclui exercícios?"
+        ],
+        "base": {
+          "rr": 0.0,
+          "acerto": 0.0
+        },
+        "reescrita": {
+          "rr": 0.0,
+          "acerto": 0.0
+        }
+      },
+      {
+        "id": "SF22",
+        "consultas": [
+          "Quantas pessoas no mundo não atingem a atividade física recomendada?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF23",
+        "consultas": [
+          "Atletas devem monitorar a carga de treino para prevenir lesões?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        }
+      }
+    ]
+  }
+}
