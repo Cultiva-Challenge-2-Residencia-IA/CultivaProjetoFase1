@@ -2,6 +2,7 @@ import sys
 import threading
 from typing import Optional
 from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
+from fastapi.concurrency import run_in_threadpool
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import BaseModel, Field
 
@@ -205,12 +206,27 @@ async def _ler_pdf(arquivo: UploadFile) -> bytes:
     return dados
 
 
+def _buscar_por_area(pergunta: str) -> list:
+    """Trechos do corpus da área da pergunta (roteamento por regras do #100); sem termo de área, Nutrição."""
+    from src.orquestrador.roteamento import AREA_NUTRICAO, rotear_por_regras
+
+    agentes = get_servico_de_chat().agentes
+    areas = rotear_por_regras(pergunta).areas or [AREA_NUTRICAO]
+    return [t for area in areas if area in agentes for t in agentes[area].retriever.retrieve(pergunta, top_k=3)]
+
+
+def _perguntar_pdf(dados: bytes, pergunta: str):
+    return perguntar_pdf(dados, pergunta, buscar=_buscar_por_area, risco_llm=get_consultant().risco_llm)
+
+
 @app.post("/multimodal/pdf/resumo")
 async def resumo_de_pdf(arquivo: UploadFile = File(...)) -> dict:
     """Resumo do PDF enviado, com página e citação literal em cada frase (issue #95, RF-IA14).
     Nada é salvo: a resposta vai para confirmação (RF-A10)."""
+    dados = await _ler_pdf(arquivo)
     try:
-        return resumir_pdf(await _ler_pdf(arquivo)).como_dict()
+        # PyMuPDF e a chamada ao modelo são bloqueantes: no threadpool, para não parar a API inteira.
+        return (await run_in_threadpool(resumir_pdf, dados)).como_dict()
     except PDFInvalido as erro:
         raise HTTPException(status_code=422, detail=str(erro)) from erro
 
@@ -219,9 +235,8 @@ async def resumo_de_pdf(arquivo: UploadFile = File(...)) -> dict:
 async def pergunta_sobre_pdf(arquivo: UploadFile = File(...), pergunta: str = Form(..., min_length=3)) -> dict:
     """Pergunta sobre o PDF enviado; a resposta cita o documento e, quando útil, Trechos do corpus."""
     dados = await _ler_pdf(arquivo)
-    consultor = get_consultant()
     try:
-        return perguntar_pdf(dados, pergunta, buscar=lambda q: consultor.retriever.retrieve(q, top_k=3)).como_dict()
+        return (await run_in_threadpool(_perguntar_pdf, dados, pergunta)).como_dict()
     except PDFInvalido as erro:
         raise HTTPException(status_code=422, detail=str(erro)) from erro
 
