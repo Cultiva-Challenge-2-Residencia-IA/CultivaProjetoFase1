@@ -114,6 +114,7 @@ def test_continuacao_chega_ao_llm_com_o_historico(tmp_path, agentes):
              "trecho_hipotetico": "O padrão DASH reduz a pressão."}]}
 
     servico = _servico(tmp_path, agentes, llm=llm)
+    servico.hyde_na_busca = True  # o trecho hipotético só vai à busca com a flag (desligada por padrão)
     servico.enviar(CHAT_GERAL, "u1", "c1", "Tenho hipertensão, o que comer?")
     servico.enviar(CHAT_GERAL, "u1", "c1", "E quais evitar?")
     assert "Tenho hipertensão" in vistos[-1]
@@ -168,3 +169,17 @@ def test_pedido_restrito_pela_lei_da_area_traz_a_nota_legal(tmp_path, agentes):
     agentes[AREA_SAUDE_FISICA] = AgenteComGuardrail(AREA_SAUDE_FISICA)
     resposta = _servico(tmp_path, agentes).enviar(AREA_SAUDE_FISICA, "u1", "c1", "Monte um treino de musculação para mim")
     assert resposta.texto.startswith("Nota da Lei 9.696/1998.")
+
+
+def test_sem_a_flag_o_trecho_hipotetico_nao_vai_para_a_busca(tmp_path, agentes):
+    def llm(sistema, usuario):
+        if "prepara buscas" not in sistema:
+            return None
+        return {"pergunta_completa": "Quais alimentos têm fibra?", "subperguntas": [
+            {"area": "nutricao", "pergunta": "Quais alimentos têm fibra?", "trecho_hipotetico": "Fibras estão em grãos."}]}
+
+    servico = _servico(tmp_path, agentes, llm=llm)
+    servico.enviar(CHAT_GERAL, "u1", "c1", "Quais alimentos são ricos em fibra?")
+    chamada = agentes[AREA_NUTRICAO].chamadas[-1]
+    assert chamada["extras"] == []
+    assert chamada["pergunta"] == "Quais alimentos são ricos em fibra?"  # sem Histórico, a mensagem como veio

@@ -21,7 +21,7 @@ from typing import Dict, List, Mapping, Optional, Protocol, Sequence
 
 from pydantic import BaseModel, Field
 
-from src.config import JANELA_HISTORICO, TOP_K_FINAL
+from src.config import HYDE_NA_BUSCA, JANELA_HISTORICO, TOP_K_FINAL
 from src.guardrails.alerta import MENSAGEM_ALERTA, detectar_sinal_de_alerta
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.pii import mascarar_dados_pessoais
@@ -94,12 +94,15 @@ class ServicoDeChat:
         risco_llm=None,
         janela: int = JANELA_HISTORICO,
         reescrita_com_llm: bool = True,
+        hyde_na_busca: bool = HYDE_NA_BUSCA,
     ) -> None:
         self.agentes = dict(agentes)
         self.historico = historico
         self.llm = llm
         # A reescrita só usa o LLM se a medição permitir (CULTIVA_REESCRITA_LLM); o Sincronizador usa sempre.
         self.reescrita_com_llm = reescrita_com_llm
+        # Trecho hipotético como consulta extra na busca: desligado por padrão (medição do dev).
+        self.hyde_na_busca = hyde_na_busca
         self.risco_llm = risco_llm
         self.janela = janela
 
@@ -166,7 +169,9 @@ class ServicoDeChat:
             reescrita = reescrever(mascarar_dados_pessoais(mensagem), mascarado, self.llm)
         else:
             reescrita = reescrever(mensagem, historico, None)
-        regras = rotear_por_regras(reescrita.pergunta_completa)
+        # As regras olham a mensagem e a pergunta completa: a reescrita resolve a continuação, mas às
+        # vezes tira o termo de uma das áreas (medição do dev, eval/multiagentes/).
+        regras = rotear_por_regras(f"{mensagem}\n{reescrita.pergunta_completa}")
         por_area = {s.area: s for s in reescrita.subperguntas}
         if regras.areas:
             # Termo de alguma área (de uma ou das duas): as regras decidem; o LLM só contribui com a
@@ -208,11 +213,16 @@ class ServicoDeChat:
 
         respostas: Dict[str, ConsultantResponse] = {}
         for sub in subperguntas:
-            extras = [t for t in (sub.trecho_hipotetico,) if t]
-            if sub.texto.strip() != reescrita.pergunta_completa.strip():
-                extras.append(reescrita.pergunta_completa)
+            extras: List[str] = []
+            if self.hyde_na_busca:
+                extras = [t for t in (sub.trecho_hipotetico,) if t]
+                if sub.texto.strip() != reescrita.pergunta_completa.strip():
+                    extras.append(reescrita.pergunta_completa)
+            # Pergunta de uma área só, sem Histórico: vai como o usuário escreveu, a mesma busca medida
+            # como base no dev. Com Histórico (continuação) ou duas áreas, vai a Subpergunta.
+            pergunta = mensagem if len(subperguntas) == 1 and not historico else sub.texto
             historico_da_area = [m for m in historico if m.area == sub.area]
-            respostas[sub.area] = self.agentes[sub.area].responder(sub.texto, top_k, extras, historico_da_area)
+            respostas[sub.area] = self.agentes[sub.area].responder(pergunta, top_k, extras, historico_da_area)
 
         areas = list(respostas)
         self.historico.adicionar(usuario_id, conversa_id, chat, "usuario", mensagem, areas)

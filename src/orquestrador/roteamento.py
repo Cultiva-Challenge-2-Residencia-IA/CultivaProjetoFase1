@@ -31,7 +31,7 @@ TERMOS_DE_ROTA_NUTRICAO = re.compile(
 
 TERMOS_DE_ROTA_SAUDE_FISICA = re.compile(
     r"\b(exercic\w*|atividades? fisicas?|treino\w*|treinar|treinando|musculac\w*|academia|corrida\w*|correr"
-    r"|corro|caminhad\w*|caminhar|alongament\w*|alongar|aquecimento|aquecer|series?|repetic\w*|agachament\w*"
+    r"|corro|corre|caminhad\w*|caminhar|alongament\w*|alongar|aquecimento|aquecer|series?|repetic\w*|agachament\w*"
     r"|flexo\w*|abdominai?s?|prancha|aerobic\w*|anaerobic\w*|sedentar\w*|lesao|lesoes|lesion\w*|lombar"
     r"|lombalgia|ciatic\w*|tendin\w*|entorse\w*|tornozelo\w*|joelho\w*|ombro\w*|manguito|coluna|postura"
     r"|reabilit\w*|fisioterap\w*|esporte\w*|atleta\w*|condicionamento|frequencia cardiaca|intensidade"

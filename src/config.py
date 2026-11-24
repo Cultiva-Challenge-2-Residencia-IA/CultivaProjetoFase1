@@ -44,9 +44,13 @@ TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / 
 # chat vão ao LLM (janela).
 HISTORICO_DB_PATH = Path(os.getenv("CULTIVA_HISTORICO_DB", str(DATA_DIR / "conversas.sqlite3")))
 JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "6"))
-# Reescrita de consulta e Sincronizador com o LLM local (issue #99). O padrão sai da medição no golden
-# v2 (eval/reescrita/): só fica ligado se não piorar a busca.
+# Reescrita de consulta com o LLM local (issue #99): pergunta de continuação e área das mensagens sem
+# termo. Ligada por padrão.
 REESCRITA_LLM = os.getenv("CULTIVA_REESCRITA_LLM", "true").strip().lower() in {"1", "true", "sim", "yes"}
+# Trecho hipotético (HyDE) e pergunta completa como consultas extras na busca. Desligado por padrão
+# pela regra registrada antes da medição: no dev, melhorou o MRR de Saúde Física (+0,161) e piorou o
+# de Nutrição (-0,069) (eval/multiagentes/resultados.md).
+HYDE_NA_BUSCA = os.getenv("CULTIVA_HYDE_NA_BUSCA", "false").strip().lower() in {"1", "true", "sim", "yes"}
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
 # "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".
