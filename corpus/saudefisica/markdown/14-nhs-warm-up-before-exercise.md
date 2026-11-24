@@ -8,15 +8,13 @@ source_sha256: 78158db4b007d63a501d0e846411a12eb9d1ac8c727cd45a245790ecb3cefb3c
 
 # How to warm up before exercising
 
-Instituição(ões): National Health Service (NHS). Edição: NHS Live Well.
+Instituição(ões): NHS. Edição: 2022-html-en.
 
-[HTML original preservado](../originais/14-nhs-warm-up-before-exercise.html) · [Relatório de conversão](../relatorios/14-nhs-warm-up-before-exercise.json)
+[Original HTML preservado](../originais/14-nhs-warm-up-before-exercise.html) · [Relatório de conversão](../relatorios/14-nhs-warm-up-before-exercise.json)
 
-> Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
+> Conversão documental para revisão. O conteúdo pertence à publicação original e não é uma recomendação produzida pelo CULTIVA. A conversão e a aprovação da fonte permanecem pendentes.
 
-# How to warm up before exercising
-
-Warm up properly before exercising to prevent injury and make your workouts more effective.
+> Confira no original as tabelas, figuras, links e a estrutura do documento; a conversão não garante fidelidade semântica.
 
 This warm-up routine should take at least 6 minutes. Warm up for longer if you feel the need.
 
@@ -71,9 +69,3 @@ Get advice from a healthcare professional (such as a GP) before trying them if:
 - you are pregnant or have recently given birth
 
 Stop the exercise immediately if you feel any pain or become unwell. If you are concerned about any symptoms, or they do not go away, [get help from 111 online](https://111.nhs.uk/triage/check-your-symptoms) or call 111 for advice.
-
-## More in [Exercise](/live-well/exercise/)
-
-Page last reviewed: 24 June 2026
-
-Next review due: 24 June 2029

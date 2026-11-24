@@ -2,13 +2,13 @@
 source_id: jospt-patellofemoral-pain-infographic-2019
 title: 'Patellofemoral Pain: Clinical Practice Guideline Infographic (2019)'
 source: https://www.orthopt.org/content/s/patellofemoral-pain-2019
-license: Copyright © Academy of Orthopaedic Physical Therapy / JOSPT
+license: Copyright AOPT / JOSPT
 source_sha256: 5702bbe3f3a8e586b778e56b57899cb8724dea04372945b41250f3259258c59a
 ---
 
 # Patellofemoral Pain: Clinical Practice Guideline Infographic (2019)
 
-Instituição(ões): Academy of Orthopaedic Physical Therapy, JOSPT. Edição: 2019-infographic-en.
+Instituição(ões): Academy of Orthopaedic Physical Therapy, Journal of Orthopaedic & Sports Physical Therapy. Edição: 2019-infografico-en.
 
 [PDF original preservado](../originais/18-jospt-patellofemoral-pain-cpg-2019.pdf) · [Relatório por página](../relatorios/18-jospt-patellofemoral-pain-infographic-2019.json)
 

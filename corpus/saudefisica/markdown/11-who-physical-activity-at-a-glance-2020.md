@@ -8,7 +8,7 @@ source_sha256: 37c822c430ccf8c1b7729930ef03bb4b50534d285ac128824a6f322a3d2431c9
 
 # WHO Guidelines on Physical Activity and Sedentary Behaviour: At a Glance
 
-Instituição(ões): World Health Organization. Edição: 2020-glance-en.
+Instituição(ões): World Health Organization. Edição: 2020-at-a-glance-en.
 
 [PDF original preservado](../originais/11-who-physical-activity-at-a-glance-2020.pdf) · [Relatório por página](../relatorios/11-who-physical-activity-at-a-glance-2020.json)
 
@@ -22,9 +22,12 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=1)
 
-> **Nota de conversão — página 1:** Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original.
+> **Nota de conversão — página 1:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
-WHO GUIDELINES ON **AT A GLANCE PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR**
+> **Nota de conversão — página 1:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+
+<!-- Start of picture text -->
+WHO GUIDELINES ON<br>PHYSICAL ACTIVITY AND<br>SEDENTARY BEHAVIOUR<br>IN B<br>N º<br>“q [o =) p<br>(ko e<br><!-- End of picture text -->
 
 ---
 
@@ -34,9 +37,9 @@ WHO GUIDELINES ON **AT A GLANCE PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR**
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=2)
 
-> **Nota de conversão — página 2:** Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original.
+> **Nota de conversão — página 2:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
-
+<!-- Página sem texto extraível; consultar PDF original. -->
 
 ---
 
@@ -46,11 +49,11 @@ WHO GUIDELINES ON **AT A GLANCE PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR**
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=3)
 
-> **Nota de conversão — página 3:** Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original.
+> **Nota de conversão — página 3:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
-**AT A GLANCE**
+> **Nota de conversão — página 3:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
-#### WHO GUIDELINES ON **PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR**
+# WHO GUIDELINES ON PHYSICAL ACTIVITY AND SEDENTARY BEHAVIOUR
 
 ---
 
@@ -131,7 +134,7 @@ Contents iii
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=6)
 
-> **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ###### **ACKNOWLEDGEMENTS**
 
@@ -303,7 +306,7 @@ Recommendations 3
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=10)
 
-> **Nota de conversão — página 10:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 10:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **ADULTS**
 
@@ -388,7 +391,7 @@ Recommendations 5
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=12)
 
-> **Nota de conversão — página 12:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 12:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **OLDER ADULTS**
 
@@ -479,7 +482,7 @@ Recommendations 7
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=14)
 
-> **Nota de conversão — página 14:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 14:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **PREGNANT AND POSTPARTUM WOMEN**
 
@@ -578,7 +581,7 @@ Recommendations 9
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=16)
 
-> **Nota de conversão — página 16:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 16:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **ADULTS AND OLDER ADULTS WITH CHRONIC CONDITIONS (aged 18 years and older)**
 
@@ -671,7 +674,7 @@ Recommendations
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=18)
 
-> **Nota de conversão — página 18:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 18:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **CHILDREN AND ADOLESCENTS (aged 5–17 years) LIVING WITH DISABILITY**
 
@@ -747,7 +750,7 @@ Recommendations
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=20)
 
-> **Nota de conversão — página 20:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 20:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **ADULTS (aged 18 years and older) LIVING WITH DISABILITY**
 
@@ -838,7 +841,7 @@ Recommendations 15
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=22)
 
-> **Nota de conversão — página 22:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 22:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ###### **RESEARCH GAPS**
 
@@ -862,7 +865,7 @@ National physical activity guidelines are a core component of the governance str
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=23)
 
-> **Nota de conversão — página 23:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 23:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ###### **FROM GUIDELINES TO ACTION**
 
@@ -904,8 +907,11 @@ The WHO NCD Country Capacity Survey (CCS), conducted every two years, is the mai
 
 [Conferir no original](../originais/11-who-physical-activity-at-a-glance-2020.pdf#page=24)
 
-> **Nota de conversão — página 24:** Página com pouco texto nativo; verificar imagens ou conteúdo visual no PDF original.
+> **Nota de conversão — página 24:** OCR automático: conferir integralmente; pode haver fotografia ou página sem texto.
 
-**ISBN 978-92-4-00148** 87 **-** 69
+> **Nota de conversão — página 24:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+
+<!-- Start of picture text -->
+O<br>À | Á)<br>N Q<br>LE uid<br>“q “ss ab) »<br>94<br>LD mM<br>oz<br>/ Ç<br>CiaFogão |)nisi gm<br><!-- End of picture text -->
 
 ---

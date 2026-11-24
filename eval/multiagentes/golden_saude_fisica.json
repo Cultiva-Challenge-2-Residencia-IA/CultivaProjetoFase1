@@ -1,0 +1,214 @@
+{
+  "descricao": "Golden de busca do Agente de Saúde Física (issue #99): fontes esperadas, escolhidas pelo conteúdo das fontes do manifesto, sem olhar resultados da busca.",
+  "casos": [
+    {
+      "id": "SF01",
+      "split": "dev",
+      "pergunta": "Quantos minutos de atividade física moderada por semana a OMS recomenda para adultos?",
+      "fontes_esperadas": [
+        "who-diretrizes-atividade-fisica-sedentarismo-2020",
+        "who-physical-activity-at-a-glance-2020",
+        "guia-atividade-fisica-brasil-2021"
+      ]
+    },
+    {
+      "id": "SF02",
+      "split": "dev",
+      "pergunta": "Quanto tempo de atividade física por dia crianças e adolescentes devem fazer?",
+      "fontes_esperadas": [
+        "who-diretrizes-atividade-fisica-sedentarismo-2020",
+        "who-physical-activity-at-a-glance-2020",
+        "guia-atividade-fisica-brasil-2021"
+      ]
+    },
+    {
+      "id": "SF03",
+      "split": "dev",
+      "pergunta": "Gestantes podem fazer atividade física?",
+      "fontes_esperadas": [
+        "who-diretrizes-atividade-fisica-sedentarismo-2020",
+        "guia-atividade-fisica-brasil-2021",
+        "who-physical-activity-at-a-glance-2020"
+      ]
+    },
+    {
+      "id": "SF04",
+      "split": "dev",
+      "pergunta": "Como o aumento brusco da carga de treino se relaciona com lesões no esporte?",
+      "fontes_esperadas": [
+        "ioc-load-sport-injury-2016"
+      ]
+    },
+    {
+      "id": "SF05",
+      "split": "dev",
+      "pergunta": "Treinar demais aumenta o risco de ficar doente?",
+      "fontes_esperadas": [
+        "ioc-load-sport-illness-2016"
+      ]
+    },
+    {
+      "id": "SF06",
+      "split": "dev",
+      "pergunta": "Exercício é recomendado para dor lombar crônica?",
+      "fontes_esperadas": [
+        "jospt-low-back-pain-cpg-revision-2021",
+        "cochrane-exercise-chronic-low-back-pain-2021",
+        "nice-low-back-pain-sciatica-ng59",
+        "who-package-rehabilitation-musculoskeletal-2023"
+      ]
+    },
+    {
+      "id": "SF07",
+      "split": "dev",
+      "pergunta": "Como é feita a reabilitação da tendinopatia do manguito rotador?",
+      "fontes_esperadas": [
+        "jospt-rotator-cuff-tendinopathy-cpg-2025"
+      ]
+    },
+    {
+      "id": "SF08",
+      "split": "dev",
+      "pergunta": "O que as diretrizes recomendam depois de uma entorse de tornozelo?",
+      "fontes_esperadas": [
+        "jospt-ankle-ligament-sprains-cpg-2021"
+      ]
+    },
+    {
+      "id": "SF09",
+      "split": "dev",
+      "pergunta": "Exercício ajuda quem tem artrose no joelho?",
+      "fontes_esperadas": [
+        "nice-osteoarthritis-ng226",
+        "who-package-rehabilitation-musculoskeletal-2023"
+      ]
+    },
+    {
+      "id": "SF10",
+      "split": "dev",
+      "pergunta": "Como fazer um aquecimento antes do exercício?",
+      "fontes_esperadas": [
+        "nhs-warm-up-before-exercise"
+      ]
+    },
+    {
+      "id": "SF11",
+      "split": "dev",
+      "pergunta": "Ficar muito tempo sentado faz mal mesmo para quem se exercita?",
+      "fontes_esperadas": [
+        "who-diretrizes-atividade-fisica-sedentarismo-2020",
+        "hhs-physical-activity-scientific-report-2018",
+        "guia-atividade-fisica-brasil-2021"
+      ]
+    },
+    {
+      "id": "SF12",
+      "split": "dev",
+      "pergunta": "Quais exercícios de força são recomendados para idosos e quantas vezes por semana?",
+      "fontes_esperadas": [
+        "who-diretrizes-atividade-fisica-sedentarismo-2020",
+        "guia-atividade-fisica-brasil-2021",
+        "who-physical-activity-at-a-glance-2020"
+      ]
+    },
+    {
+      "id": "SF13",
+      "split": "dev",
+      "pergunta": "Atividade física ajuda a reduzir sintomas de depressão e ansiedade?",
+      "fontes_esperadas": [
+        "hhs-physical-activity-scientific-report-2018",
+        "who-diretrizes-atividade-fisica-sedentarismo-2020"
+      ]
+    },
+    {
+      "id": "SF14",
+      "split": "dev",
+      "pergunta": "O que é dor patelofemoral e como ela é tratada?",
+      "fontes_esperadas": [
+        "jospt-patellofemoral-pain-infographic-2019"
+      ]
+    },
+    {
+      "id": "SF15",
+      "split": "dev",
+      "pergunta": "Quantos fatos importantes a OMS lista sobre inatividade física no mundo?",
+      "fontes_esperadas": [
+        "who-physical-activity-factsheet-2024"
+      ]
+    },
+    {
+      "id": "SF16",
+      "split": "test",
+      "pergunta": "Quanto de atividade física vigorosa equivale a 150 minutos de moderada?",
+      "fontes_esperadas": [
+        "who-diretrizes-atividade-fisica-sedentarismo-2020",
+        "who-physical-activity-at-a-glance-2020",
+        "guia-atividade-fisica-brasil-2021",
+        "nhs-physical-activity-adults-19-64"
+      ]
+    },
+    {
+      "id": "SF17",
+      "split": "test",
+      "pergunta": "Pessoas com deficiência devem fazer atividade física?",
+      "fontes_esperadas": [
+        "who-diretrizes-atividade-fisica-sedentarismo-2020",
+        "guia-atividade-fisica-brasil-2021",
+        "who-physical-activity-at-a-glance-2020"
+      ]
+    },
+    {
+      "id": "SF18",
+      "split": "test",
+      "pergunta": "Ciática: quais tratamentos não farmacológicos são recomendados?",
+      "fontes_esperadas": [
+        "nice-low-back-pain-sciatica-ng59",
+        "jospt-low-back-pain-cpg-revision-2021"
+      ]
+    },
+    {
+      "id": "SF19",
+      "split": "test",
+      "pergunta": "Quando voltar ao esporte depois de uma entorse lateral do tornozelo?",
+      "fontes_esperadas": [
+        "jospt-ankle-ligament-sprains-cpg-2021"
+      ]
+    },
+    {
+      "id": "SF20",
+      "split": "test",
+      "pergunta": "Atividade física reduz o risco de doenças cardiovasculares?",
+      "fontes_esperadas": [
+        "hhs-physical-activity-scientific-report-2018",
+        "who-diretrizes-atividade-fisica-sedentarismo-2020",
+        "who-physical-activity-factsheet-2024"
+      ]
+    },
+    {
+      "id": "SF21",
+      "split": "test",
+      "pergunta": "Reabilitação de dor no ombro inclui exercícios?",
+      "fontes_esperadas": [
+        "jospt-rotator-cuff-tendinopathy-cpg-2025",
+        "who-package-rehabilitation-musculoskeletal-2023"
+      ]
+    },
+    {
+      "id": "SF22",
+      "split": "test",
+      "pergunta": "Quantas pessoas no mundo não atingem a atividade física recomendada?",
+      "fontes_esperadas": [
+        "who-physical-activity-factsheet-2024"
+      ]
+    },
+    {
+      "id": "SF23",
+      "split": "test",
+      "pergunta": "Atletas devem monitorar a carga de treino para prevenir lesões?",
+      "fontes_esperadas": [
+        "ioc-load-sport-injury-2016",
+        "ioc-load-sport-illness-2016"
+      ]
+    }
+  ]
+}

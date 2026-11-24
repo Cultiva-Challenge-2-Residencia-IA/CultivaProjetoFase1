@@ -1,7 +1,9 @@
 """Mensagem fixa de acolhimento do fluxo de risco (RF-IA03).
 
 Texto fixo, nunca gerado por IA, sem aconselhamento clínico.
-Revisada pela equipe em 10/11/2026, sem profissional de saúde (não houve acesso a um).
+Revisada pela equipe em 10/11/2026, sem profissional de saúde (não houve acesso a um). Em 24/11/2026
+(issue #99), "assistente de nutrição" passou a "assistente de nutrição e atividade física", porque o
+portão vale também para o Agente de Saúde Física.
 """
 
 MENSAGEM_ACOLHIMENTO = (
@@ -12,6 +14,6 @@ MENSAGEM_ACOLHIMENTO = (
     "ou converse pelo chat em cvv.org.br.\n"
     "- Em emergência ou risco imediato: ligue 192 (SAMU) ou vá à UPA ou ao pronto-socorro "
     "mais próximo.\n\n"
-    "Sou um assistente de nutrição e não consigo oferecer o cuidado de que você precisa agora, "
+    "Sou um assistente de nutrição e atividade física e não consigo oferecer o cuidado de que você precisa agora, "
     "mas essas pessoas podem te ouvir neste momento."
 )

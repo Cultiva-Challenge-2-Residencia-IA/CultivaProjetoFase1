@@ -1,0 +1,356 @@
+{
+  "descricao": "Roteamento do Chat geral (issue #99). areas_esperadas vazio = fora das áreas (ou Estudos, em tipo estudos). Escritos antes da medição, sem olhar resultados.",
+  "casos": [
+    {
+      "id": "R01",
+      "split": "dev",
+      "mensagem": "Quais alimentos são fontes de ferro?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R02",
+      "split": "dev",
+      "mensagem": "O que o Guia Alimentar diz sobre ultraprocessados?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R03",
+      "split": "dev",
+      "mensagem": "Whey protein é necessário para ganhar massa muscular?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R04",
+      "split": "dev",
+      "mensagem": "Quantos minutos de atividade física por semana adultos devem fazer?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R05",
+      "split": "dev",
+      "mensagem": "Alongamento antes da corrida previne lesão?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R06",
+      "split": "dev",
+      "mensagem": "O que comer antes do treino de musculação?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R07",
+      "split": "dev",
+      "mensagem": "Exercício ajuda na dor lombar crônica?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R08",
+      "split": "dev",
+      "mensagem": "Quanto de sal por dia é recomendado?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R09",
+      "split": "dev",
+      "mensagem": "Como aquecer antes de jogar futebol?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "ambigua"
+    },
+    {
+      "id": "R10",
+      "split": "dev",
+      "mensagem": "Ficar muito tempo sentado faz mal à saúde?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "ambigua"
+    },
+    {
+      "id": "R11",
+      "split": "dev",
+      "mensagem": "Como melhorar meu condicionamento para subir escadas sem cansar?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R12",
+      "split": "dev",
+      "mensagem": "Quem ganhou a Copa do Mundo de 2002?",
+      "areas_esperadas": [],
+      "tipo": "fora"
+    },
+    {
+      "id": "R13",
+      "split": "dev",
+      "mensagem": "Qual a capital da Austrália?",
+      "areas_esperadas": [],
+      "tipo": "fora"
+    },
+    {
+      "id": "R14",
+      "split": "dev",
+      "mensagem": "Como montar um cronograma de estudos para o ENEM?",
+      "areas_esperadas": [],
+      "tipo": "estudos"
+    },
+    {
+      "id": "R15",
+      "split": "dev",
+      "mensagem": "Comer à noite engorda?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R16",
+      "split": "dev",
+      "mensagem": "Qual a diferença entre gordura saturada e insaturada?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R17",
+      "split": "dev",
+      "mensagem": "Treinar em jejum queima mais gordura?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R18",
+      "split": "dev",
+      "mensagem": "O que fazer para dormir melhor e ter mais energia durante o dia?",
+      "areas_esperadas": [],
+      "tipo": "ambigua"
+    },
+    {
+      "id": "R19",
+      "split": "dev",
+      "mensagem": "Tenho tendinite no ombro, posso continuar nadando?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R20",
+      "split": "dev",
+      "mensagem": "Caminhar depois do almoço ajuda a controlar a glicemia?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R21",
+      "split": "dev",
+      "mensagem": "Quantas vezes por semana idosos devem fazer exercícios de equilíbrio?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R22",
+      "split": "dev",
+      "mensagem": "Beber café antes de correr melhora o desempenho?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R23",
+      "split": "dev",
+      "mensagem": "Quais são os benefícios de subir de bike para o trabalho?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R24",
+      "split": "dev",
+      "mensagem": "Como funciona a declaração de imposto de renda?",
+      "areas_esperadas": [],
+      "tipo": "fora"
+    },
+    {
+      "id": "R25",
+      "split": "dev",
+      "mensagem": "Torci o tornozelo jogando vôlei semana passada, quando posso voltar?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R26",
+      "split": "dev",
+      "mensagem": "Arroz com feijão é uma combinação saudável?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R27",
+      "split": "dev",
+      "mensagem": "Quanto tempo de tela por dia é saudável para crianças?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "ambigua"
+    },
+    {
+      "id": "R28",
+      "split": "dev",
+      "mensagem": "Como estudar melhor para a prova de cálculo?",
+      "areas_esperadas": [],
+      "tipo": "estudos"
+    },
+    {
+      "id": "R29",
+      "split": "test",
+      "mensagem": "Leite desnatado é melhor que integral?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R30",
+      "split": "test",
+      "mensagem": "Corrida faz mal para o joelho?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R31",
+      "split": "test",
+      "mensagem": "Preciso tomar creatina se faço musculação?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R32",
+      "split": "test",
+      "mensagem": "Quantos passos por dia são recomendados?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "ambigua"
+    },
+    {
+      "id": "R33",
+      "split": "test",
+      "mensagem": "Frutas têm muito açúcar?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R34",
+      "split": "test",
+      "mensagem": "Qual o melhor filme de 2025?",
+      "areas_esperadas": [],
+      "tipo": "fora"
+    },
+    {
+      "id": "R35",
+      "split": "test",
+      "mensagem": "Como revisar a matéria de anatomia para a faculdade?",
+      "areas_esperadas": [],
+      "tipo": "estudos"
+    },
+    {
+      "id": "R36",
+      "split": "test",
+      "mensagem": "Gestantes podem fazer exercícios físicos?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R37",
+      "split": "test",
+      "mensagem": "Hidratação durante o treino longo: água ou isotônico?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R38",
+      "split": "test",
+      "mensagem": "Pilates ajuda na postura?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R39",
+      "split": "test",
+      "mensagem": "O que é dieta mediterrânea?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara"
+    },
+    {
+      "id": "R40",
+      "split": "test",
+      "mensagem": "Como recuperar o fôlego mais rápido depois de subir uma ladeira?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "ambigua"
+    }
+  ]
+}

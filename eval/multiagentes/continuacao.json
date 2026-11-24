@@ -1,0 +1,85 @@
+{
+  "descricao": "Pergunta de continuação (issue #99): a pergunta completa precisa trazer o termo do histórico.",
+  "casos": [
+    {
+      "id": "T01",
+      "split": "dev",
+      "anterior": "Tenho hipertensão. O que o Guia Alimentar recomenda sobre sal?",
+      "mensagem": "E para quem também é diabético?",
+      "termo_esperado": "hipertens",
+      "area_esperada": "nutricao"
+    },
+    {
+      "id": "T02",
+      "split": "dev",
+      "anterior": "Quantos minutos de atividade física adultos devem fazer por semana?",
+      "mensagem": "E para idosos?",
+      "termo_esperado": "atividade",
+      "area_esperada": "saude_fisica"
+    },
+    {
+      "id": "T03",
+      "split": "dev",
+      "anterior": "Quais alimentos são fontes de ferro?",
+      "mensagem": "E de cálcio?",
+      "termo_esperado": "alimentos",
+      "area_esperada": "nutricao"
+    },
+    {
+      "id": "T04",
+      "split": "dev",
+      "anterior": "Exercício ajuda na dor lombar crônica?",
+      "mensagem": "E na dor no joelho por artrose?",
+      "termo_esperado": "exerc",
+      "area_esperada": "saude_fisica"
+    },
+    {
+      "id": "T05",
+      "split": "dev",
+      "anterior": "O que é um alimento ultraprocessado?",
+      "mensagem": "Dá exemplos disso?",
+      "termo_esperado": "ultraprocessad",
+      "area_esperada": "nutricao"
+    },
+    {
+      "id": "T06",
+      "split": "dev",
+      "anterior": "Quais os benefícios da caminhada?",
+      "mensagem": "E da natação?",
+      "termo_esperado": "benef",
+      "area_esperada": "saude_fisica"
+    },
+    {
+      "id": "T07",
+      "split": "test",
+      "anterior": "Crianças devem fazer quanto tempo de atividade física por dia?",
+      "mensagem": "E adolescentes?",
+      "termo_esperado": "atividade",
+      "area_esperada": "saude_fisica"
+    },
+    {
+      "id": "T08",
+      "split": "test",
+      "anterior": "Frutas são boas no café da manhã?",
+      "mensagem": "E à noite?",
+      "termo_esperado": "fruta",
+      "area_esperada": "nutricao"
+    },
+    {
+      "id": "T09",
+      "split": "test",
+      "anterior": "Alongamento antes do treino previne lesão?",
+      "mensagem": "E depois do treino?",
+      "termo_esperado": "alongament",
+      "area_esperada": "saude_fisica"
+    },
+    {
+      "id": "T10",
+      "split": "test",
+      "anterior": "Vegetarianos precisam suplementar vitamina B12?",
+      "mensagem": "E ferro?",
+      "termo_esperado": "vegetarian",
+      "area_esperada": "nutricao"
+    }
+  ]
+}

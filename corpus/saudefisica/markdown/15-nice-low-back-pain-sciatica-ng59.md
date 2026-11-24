@@ -1,29 +1,21 @@
 ---
 source_id: nice-low-back-pain-sciatica-ng59
-title: Low back pain and sciatica in over 16s: assessment and management (NICE guideline NG59)
+title: 'Low back pain and sciatica in over 16s: assessment and management (NICE guideline
+  NG59)'
 source: https://www.nice.org.uk/guidance/ng59/chapter/recommendations
-license: Open Government Licence / Crown Copyright (Re-use permitted)
-source_sha256: 193f3e60e845dde57c487fbad8969e1220549599040278bc8f2c51e4d7c1e98f
+license: Open Government Licence / Crown Copyright
+source_sha256: 977555a89c9e548c20e43516d76ff49009e58f835401967b2723251b49a52dad
 ---
 
 # Low back pain and sciatica in over 16s: assessment and management (NICE guideline NG59)
 
-Instituição(ões): National Institute for Health and Care Excellence (NICE). Edição: NG59.
+Instituição(ões): National Institute for Health and Care Excellence. Edição: ng59-recommendations-html-en.
 
-[HTML original preservado](../originais/15-nice-low-back-pain-sciatica-ng59.html) · [Relatório de conversão](../relatorios/15-nice-low-back-pain-sciatica-ng59.json)
+[Original HTML preservado](../originais/15-nice-low-back-pain-sciatica-ng59.html) · [Relatório de conversão](../relatorios/15-nice-low-back-pain-sciatica-ng59.json)
 
-> Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
+> Conversão documental para revisão. O conteúdo pertence à publicação original e não é uma recomendação produzida pelo CULTIVA. A conversão e a aprovação da fonte permanecem pendentes.
 
-# Low back pain and sciatica in over 16s: assessment and management
-
-- NICE guideline
-- Reference number: NG59
-- Published:
-  30 November 2016
-- Last updated:
-  29 July 2026
-
-[Download guidance (PDF)](/guidance/ng59/resources/low-back-pain-and-sciatica-in-over-16s-assessment-and-management-pdf-1837521693637)
+> Confira no original as tabelas, figuras, links e a estrutura do documento; a conversão não garante fidelidade semântica.
 
 ## Recommendations
 
@@ -315,5 +307,3 @@ A 3-month duration or longer. The intensity of pain may fluctuate over time.
 #### Weak opioids
 
 See the [information on weak opioids in the analgesics section of the BNF](https://bnf.nice.org.uk/treatment-summary/analgesics.html).
-
----
