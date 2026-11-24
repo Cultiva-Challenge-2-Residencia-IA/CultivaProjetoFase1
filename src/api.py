@@ -1,5 +1,7 @@
 import sys
 from typing import Optional
+from typing import List
+
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel, Field
 
@@ -9,6 +11,8 @@ from src.config import TOP_K_FINAL
 from src.models.schemas import ConsultantResponse
 from src.agent.traceability import register_incorrect_feedback, save_response_trace
 from src.observabilidade import registrar_feedback_incorreto
+from src.multimodal.imagem import (MAX_BYTES_IMAGEM, MAX_FOTOS, ImagemInvalida, ler_rotulo, perguntar_fotos,
+                                   resumir_fotos)
 from src.multimodal.pdf import MAX_BYTES, PDFInvalido, perguntar_pdf, resumir_pdf
 
 app = FastAPI(
@@ -116,6 +120,53 @@ async def pergunta_sobre_pdf(arquivo: UploadFile = File(...), pergunta: str = Fo
     try:
         return perguntar_pdf(dados, pergunta, buscar=lambda q: consultor.retriever.retrieve(q, top_k=3)).como_dict()
     except PDFInvalido as erro:
+        raise HTTPException(status_code=422, detail=str(erro)) from erro
+
+
+async def _ler_imagem(arquivo: UploadFile) -> bytes:
+    """Lê a foto só em memória (RNF26)."""
+    if arquivo.content_type not in (None, "", "image/png", "image/jpeg", "application/octet-stream"):
+        raise HTTPException(status_code=415, detail="Envie uma foto em PNG ou JPEG.")
+    dados = await arquivo.read(MAX_BYTES_IMAGEM + 1)
+    if len(dados) > MAX_BYTES_IMAGEM:
+        raise HTTPException(status_code=413, detail="Imagem grande demais.")
+    return dados
+
+
+@app.post("/multimodal/imagem/rotulo")
+async def rotulo_por_foto(arquivo: UploadFile = File(...)) -> dict:
+    """Tabela nutricional lida da foto (issue #96): só valores em que o OCR e a visão do modelo
+    concordam, selo "ALTO EM" como está no rótulo e o que o corpus diz sobre o tema, com citação."""
+    dados = await _ler_imagem(arquivo)
+    consultor = get_consultant()
+    try:
+        return ler_rotulo(dados, buscar=lambda q: consultor.retriever.retrieve(q, top_k=3)).como_dict()
+    except ImagemInvalida as erro:
+        raise HTTPException(status_code=422, detail=str(erro)) from erro
+
+
+async def _ler_fotos(arquivos: List[UploadFile]) -> List[bytes]:
+    if len(arquivos) > MAX_FOTOS:
+        raise HTTPException(status_code=422, detail=f"Envie no máximo {MAX_FOTOS} fotos.")
+    return [await _ler_imagem(a) for a in arquivos]
+
+
+@app.post("/multimodal/imagem/documento/resumo")
+async def resumo_de_fotos(arquivos: List[UploadFile] = File(...)) -> dict:
+    """Resumo de um documento impresso fotografado (uma foto por página), pelo fluxo do PDF."""
+    try:
+        return resumir_fotos(await _ler_fotos(arquivos)).como_dict()
+    except ImagemInvalida as erro:
+        raise HTTPException(status_code=422, detail=str(erro)) from erro
+
+
+@app.post("/multimodal/imagem/documento/pergunta")
+async def pergunta_sobre_fotos(arquivos: List[UploadFile] = File(...), pergunta: str = Form(..., min_length=3)) -> dict:
+    dados = await _ler_fotos(arquivos)
+    consultor = get_consultant()
+    try:
+        return perguntar_fotos(dados, pergunta, buscar=lambda q: consultor.retriever.retrieve(q, top_k=3)).como_dict()
+    except ImagemInvalida as erro:
         raise HTTPException(status_code=422, detail=str(erro)) from erro
 
 

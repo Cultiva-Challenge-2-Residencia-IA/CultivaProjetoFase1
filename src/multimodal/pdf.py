@@ -39,7 +39,7 @@ SEM_RESPOSTA_SEGURA = (
     "conferida contra o texto do PDF. Leia o documento original ou consulte o profissional que o emitiu."
 )
 AVISO_INJECAO = (
-    "O PDF contém texto que parece instrução para a IA (por exemplo, \"ignore as instruções\"). "
+    "O documento contém texto que parece instrução para a IA (por exemplo, \"ignore as instruções\"). "
     "Por segurança, ele não foi resumido nem usado para responder. Confira o documento original ou "
     "peça ao profissional uma versão sem esse conteúdo."
 )
@@ -226,10 +226,10 @@ def _bloco_fontes(paginas: List[Pagina], trechos: List[RetrievedChunk]) -> str:
     return delimitar_como_dado("\n\n".join(partes))
 
 
-def _chamar_llm(usuario: str, modelo: str, base_url: str) -> Optional[Dict[str, Any]]:
+def _chamar_llm(usuario: str, modelo: str, base_url: str, sistema: str = SISTEMA) -> Optional[Dict[str, Any]]:
     payload = {
         "model": modelo, "stream": False, "format": "json", "think": OLLAMA_THINK,
-        "messages": [{"role": "system", "content": SISTEMA}, {"role": "user", "content": usuario}],
+        "messages": [{"role": "system", "content": sistema}, {"role": "user", "content": usuario}],
         "options": {"temperature": 0, "num_predict": OLLAMA_NUM_PREDICT},
     }
     try:
@@ -254,7 +254,8 @@ def _processar(
         resultado.avisos.append(
             f"Páginas sem texto (provavelmente escaneadas), não lidas: {resultado.paginas_escaneadas}.")
     if all(p.escaneada for p in paginas):
-        resultado.resposta_fixa = "O PDF não tem texto legível. Envie um PDF com texto ou digite as informações."
+        resultado.resposta_fixa = ("O documento não tem texto legível. Envie um arquivo com texto impresso "
+                                   "ou digite as informações.")
         return resultado
     if tem_instrucao_escondida(paginas):
         resultado.instrucao_escondida = True
@@ -276,22 +277,22 @@ def _processar(
     return resultado
 
 
-def resumir_pdf(
-    dados: bytes, modelo: str = OLLAMA_MODEL, base_url: str = OLLAMA_BASE_URL,
+def resumir_paginas(
+    paginas: List[Pagina], modelo: str = OLLAMA_MODEL, base_url: str = OLLAMA_BASE_URL,
     chamar: Callable[[str, str, str], Optional[Dict[str, Any]]] = _chamar_llm,
 ) -> ResultadoPDF:
+    """Resumo de um documento já em páginas de texto: do PDF ou do OCR de fotos (#96)."""
     pedido = ("TAREFA: resuma o documento em até 8 frases, cobrindo as orientações principais, "
               "com os números exatamente como estão.")
-    return _processar("resumo", extrair_paginas(dados), pedido, [], modelo, base_url, chamar)
+    return _processar("resumo", paginas, pedido, [], modelo, base_url, chamar)
 
 
-def perguntar_pdf(
-    dados: bytes, pergunta: str, buscar: Optional[Callable[[str], List[RetrievedChunk]]] = None,
+def perguntar_paginas(
+    paginas: List[Pagina], pergunta: str, buscar: Optional[Callable[[str], List[RetrievedChunk]]] = None,
     modelo: str = OLLAMA_MODEL, base_url: str = OLLAMA_BASE_URL,
     chamar: Callable[[str, str, str], Optional[Dict[str, Any]]] = _chamar_llm,
 ) -> ResultadoPDF:
     """Responde com base no documento e, se `buscar` for dado, em Trechos do corpus aprovado."""
-    paginas = extrair_paginas(dados)
     if detectar_risco(pergunta).risco:
         return ResultadoPDF("pergunta", len(paginas), [], resposta_fixa=MENSAGEM_ACOLHIMENTO, modelo="mensagem_fixa")
     if has_prompt_injection(pergunta):
@@ -300,3 +301,18 @@ def perguntar_pdf(
     pedido = (f"PERGUNTA DO USUÁRIO: {pergunta}\n\nTAREFA: responda em até 5 frases, usando primeiro o "
               "documento e, se ajudar, os trechos de referência. Não faça recomendação nova.")
     return _processar("pergunta", paginas, pedido, trechos, modelo, base_url, chamar)
+
+
+def resumir_pdf(
+    dados: bytes, modelo: str = OLLAMA_MODEL, base_url: str = OLLAMA_BASE_URL,
+    chamar: Callable[[str, str, str], Optional[Dict[str, Any]]] = _chamar_llm,
+) -> ResultadoPDF:
+    return resumir_paginas(extrair_paginas(dados), modelo, base_url, chamar)
+
+
+def perguntar_pdf(
+    dados: bytes, pergunta: str, buscar: Optional[Callable[[str], List[RetrievedChunk]]] = None,
+    modelo: str = OLLAMA_MODEL, base_url: str = OLLAMA_BASE_URL,
+    chamar: Callable[[str, str, str], Optional[Dict[str, Any]]] = _chamar_llm,
+) -> ResultadoPDF:
+    return perguntar_paginas(extrair_paginas(dados), pergunta, buscar, modelo, base_url, chamar)

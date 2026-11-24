@@ -46,6 +46,14 @@ jobs:
           version: ${{ env.UV_VERSION }}
           python-version: ${{ env.PYTHON_VERSION }}
       - run: uv sync --frozen
+      # Modelo OCR do Tesseract para os testes da imagem (issue #96); o mesmo do pipeline do corpus,
+      # conferido pelo SHA-256 de corpus/scripts/convert_pdfs.py.
+      - name: Modelo OCR (por.traineddata)
+        run: |
+          mkdir -p corpus/.cache/tessdata
+          curl -fsSL -o corpus/.cache/tessdata/por.traineddata \
+            https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/por.traineddata
+          echo "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb  corpus/.cache/tessdata/por.traineddata" | sha256sum -c -
       - run: uv run pytest -q
 
   corpus:
