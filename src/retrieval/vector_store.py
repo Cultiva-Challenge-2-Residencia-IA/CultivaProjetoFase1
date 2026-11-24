@@ -29,12 +29,38 @@ PREFIXOS_EMBEDDING: Dict[str, Tuple[str, str]] = {
 }
 
 
+# Modelo de embeddings dos testes (pytest): hashing de termos, determinístico, sem download e em
+# milissegundos. Testa a lógica de indexação, busca, fusão e HNSW, não a qualidade semântica; os
+# testes que dependem do modelo real levam a marca `embeddings_reais` (tests/conftest.py).
+MODELO_DE_TESTE = "cultiva/hash-teste"
+DIMENSAO_DE_TESTE = 512
+
+
+class EmbeddingsDeTeste:
+    """Hashing de palavras e de pares de palavras vizinhas num vetor de `DIMENSAO_DE_TESTE`."""
+
+    def embed(self, textos: List[str]):
+        from src.retrieval.hybrid_retriever import normalize_text
+
+        for texto in textos:
+            vetor = np.zeros(DIMENSAO_DE_TESTE, dtype=np.float32)
+            palavras = normalize_text(texto).split()
+            for termo in palavras + [f"{a} {b}" for a, b in zip(palavras, palavras[1:])]:
+                h = int.from_bytes(hashlib.blake2b(termo.encode(), digest_size=8).digest(), "little")
+                vetor[h % DIMENSAO_DE_TESTE] += 1.0 if (h >> 32) & 1 else -1.0
+            if not vetor.any():
+                vetor[0] = 1.0
+            yield vetor
+
+
 def prefixos_do_modelo(modelo: str) -> Tuple[str, str]:
     return PREFIXOS_EMBEDDING.get(modelo, ("", ""))
 
 
 def dimensao_do_modelo(modelo: str) -> int:
     """Dimensão dos vetores do modelo, segundo o catálogo do fastembed."""
+    if modelo == MODELO_DE_TESTE:
+        return DIMENSAO_DE_TESTE
     from fastembed import TextEmbedding
 
     for descricao in TextEmbedding.list_supported_models():
@@ -83,6 +109,8 @@ def impressao_digital(chunks: List[DocumentChunk], modelo: str,
 
 def _get_fastembed_model(model_name: str) -> Any:
     """Carrega e mantém em cache de processo o modelo ONNX de embeddings densos."""
+    if model_name == MODELO_DE_TESTE:
+        return EmbeddingsDeTeste()
     if model_name not in _FASTEMBED_MODEL_CACHE:
         from fastembed import TextEmbedding
 
@@ -164,6 +192,10 @@ class DenseMultilingualEmbedder:
     def preparar_consulta(self, consulta: str) -> str:
         return self.prefixo_consulta + expandir_sinonimos(consulta, self.normalizar_texto)
 
+    # Lote de cálculo: cada lote é gravado no cache assim que termina, para que uma execução
+    # interrompida (job cancelado, tempo limite) não perca os vetores já calculados.
+    LOTE_DO_CACHE = 256
+
     def embed_documents(self, texts: List[str], cache: Optional[CacheDeVetores] = None) -> List[List[float]]:
         """Vetores de textos já preparados (`preparar_documento`). Com `cache`, só calcula os ausentes."""
         if not texts:
@@ -175,8 +207,9 @@ class DenseMultilingualEmbedder:
         encontrados = cache.buscar(list(dict.fromkeys(chaves)))
         faltam = list(dict.fromkeys(t for t, k in zip(texts, chaves) if k not in encontrados))
         self.calculados = len(faltam)
-        if faltam:
-            novos = {CacheDeVetores.chave(self.model_name, t): v for t, v in zip(faltam, self._vetores(faltam))}
+        for inicio in range(0, len(faltam), self.LOTE_DO_CACHE):
+            lote = faltam[inicio:inicio + self.LOTE_DO_CACHE]
+            novos = {CacheDeVetores.chave(self.model_name, t): v for t, v in zip(lote, self._vetores(lote))}
             cache.gravar(novos)
             encontrados.update(novos)
         return [encontrados[k].tolist() for k in chaves]

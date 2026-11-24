@@ -3,6 +3,7 @@
 import json
 
 import numpy as np
+import pytest
 
 from src.config import BENCHMARK_QUESTIONS_PATH, EMBEDDING_MODEL_NAME
 from src.rag.corpus_loader import carregar_chunks_do_corpus, inventario_de_fontes
@@ -38,7 +39,15 @@ def test_embedder_multilingue_gera_vetores_normalizados_na_dimensao_do_modelo() 
     v0, v1 = np.array(vecs[0]), np.array(vecs[1])
     assert np.isclose(np.linalg.norm(v0), 1.0, atol=1e-4)
     assert np.isclose(np.linalg.norm(v1), 1.0, atol=1e-4)
-    # Alinhamento semântico entre português e inglês
+
+
+@pytest.mark.embeddings_reais
+def test_embedder_alinha_portugues_e_ingles() -> None:
+    embedder = DenseMultilingualEmbedder()
+    v0, v1 = (np.array(v) for v in embedder.embed_documents([
+        "A fibra solúvel beta-glucana da aveia reduz o colesterol LDL sérico.",
+        "Oat beta-glucan soluble fiber reduces serum LDL cholesterol.",
+    ]))
     assert float(np.dot(v0, v1)) > 0.65
 
 
@@ -64,6 +73,29 @@ def test_chromadb_persiste_e_guarda_metadados_de_rastreabilidade(tmp_path) -> No
     assert len(hits) == 3
     idx, sim = hits[0]
     assert 0 <= idx < 12 and 0.0 <= sim <= 1.0
+
+
+def test_cache_grava_por_lote_e_guarda_o_que_ja_foi_calculado(tmp_path, monkeypatch) -> None:
+    """Uma indexação interrompida no meio mantém no cache os lotes já calculados."""
+    from src.retrieval.vector_store import CacheDeVetores
+
+    embedder = DenseMultilingualEmbedder()
+    monkeypatch.setattr(embedder, "LOTE_DO_CACHE", 2)
+    original, chamadas = embedder._vetores, []
+
+    def vetores_que_falham_no_terceiro_lote(textos):
+        chamadas.append(len(textos))
+        if len(chamadas) == 3:
+            raise KeyboardInterrupt
+        return original(textos)
+
+    monkeypatch.setattr(embedder, "_vetores", vetores_que_falham_no_terceiro_lote)
+    cache = CacheDeVetores(tmp_path / "vetores.sqlite3")
+    textos = [f"texto {i} sobre fibra e aveia" for i in range(6)]
+    with pytest.raises(KeyboardInterrupt):
+        embedder.embed_documents(textos, cache=cache)
+    chaves = [CacheDeVetores.chave(embedder.model_name, t) for t in textos]
+    assert len(cache.buscar(chaves)) == 4
 
 
 def test_cache_de_vetores_so_calcula_trechos_novos(tmp_path) -> None:
@@ -97,6 +129,7 @@ def test_busca_hibrida_com_banco_vetorial_recupera_a_fonte_certa(tmp_path) -> No
 
 
 
+@pytest.mark.embeddings_reais
 def test_hnsw_recupera_os_mesmos_vizinhos_da_busca_exata_e_e_estavel(tmp_path) -> None:
     """O HNSW é aproximado: com `ef_search` adequado, o top-24 deve coincidir com a busca
     exata e não variar ao recarregar o índice persistido (requisito do gate de determinismo)."""
