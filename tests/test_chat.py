@@ -209,9 +209,9 @@ def test_citacoes_do_chat_geral_seguem_a_numeracao_do_texto_sincronizado(tmp_pat
     _com_trechos(agentes[AREA_NUTRICAO], "guia")
     _com_trechos(agentes[AREA_SAUDE_FISICA], "who")
     resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "O que comer antes do treino de musculação?")
-    assert "[T2]" in resposta.texto
-    assert [c.split("]")[0] + "]" for c in resposta.citacoes] == ["[T1]", "[T2]"]
-    assert "[who]" in resposta.citacoes[1]
+    assert "[T2]" in resposta.texto_com_marcadores
+    assert [c.split(" ")[0] for c in resposta.citacoes] == ["¹", "²"]
+    assert "Fonte who" in resposta.citacoes[1]
 
 
 def test_chat_de_area_manda_so_a_subpergunta_da_area_ao_agente(tmp_path, agentes):
@@ -234,3 +234,40 @@ def test_pergunta_das_duas_areas_fica_no_historico_dos_dois_agentes(tmp_path, ag
     for agente in agentes.values():
         textos = [m.texto for m in agente.chamadas[-1]["historico"]]
         assert "O que comer antes do treino de musculação?" in textos
+
+
+def test_campos_repetidos_da_sintese_nao_aparecem_duas_vezes(tmp_path, agentes):
+    class AgenteRepetido(AgenteFalso):
+        def responder(self, pergunta, top_k, extras, historico):
+            r = super().responder(pergunta, top_k, extras, historico)
+            frase = "Ovos no café da manhã aumentam a saciedade [T1]."
+            return r.model_copy(update={"evidence_summary": frase,
+                                        "physiological_mechanism": frase + " Outra frase sobre ovos [T1].",
+                                        "protocol_findings": frase})
+
+    agentes[AREA_NUTRICAO] = AgenteRepetido(AREA_NUTRICAO)
+    resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "Quais alimentos ajudam na saciedade?")
+    assert resposta.texto_com_marcadores.count("Ovos no café da manhã aumentam a saciedade") == 1
+    assert "Outra frase sobre ovos" in resposta.texto_com_marcadores
+
+
+def test_saudacao_recebe_apresentacao_e_nao_fora_das_areas(tmp_path, agentes):
+    resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "Olá tudo bem")
+    assert resposta.tipo == "conversa"
+    assert "Nutrição" in resposta.texto and "Saúde Física" in resposta.texto
+    assert not any(a.chamadas for a in agentes.values())
+
+
+def test_pedido_com_termo_de_area_nao_e_conversa_social(tmp_path, agentes):
+    resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "Olá, gostaria de treinar perna, pode me ajudar?")
+    assert resposta.tipo == "agente"
+    assert resposta.areas == [AREA_SAUDE_FISICA]
+
+
+def test_citacoes_viram_notas_no_fim_do_paragrafo(tmp_path, agentes):
+    _com_trechos(agentes[AREA_NUTRICAO], "guia")
+    resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "Quais alimentos têm fibra?")
+    assert "[T1]" not in resposta.texto
+    assert resposta.texto.rstrip().endswith("¹")
+    assert resposta.citacoes[0].startswith("¹ ")
+    assert "[T1]" in resposta.texto_com_marcadores

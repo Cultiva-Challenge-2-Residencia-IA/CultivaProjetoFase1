@@ -88,6 +88,24 @@ def verify() -> None:
                 raise ValueError(f"Metadados ou link do original ausentes no Markdown: {source['id']}")
             print(f"OK {source['id']}: HTML; SHA-256 do original e do Markdown e script conferidos.")
             continue
+        if source.get("kind") == "jats":
+            # Artigo em JATS XML (texto integral do Europe PMC): Trechos por seção, como o HTML.
+            original = repo_path(source["original_path"])
+            markdown = repo_path(source["markdown_path"])
+            report = json.loads(repo_path(source["report_path"]).read_text(encoding="utf-8"))
+            inicio = original.read_bytes().lstrip()[:200]
+            if not (inicio.startswith(b"<?xml") or inicio.startswith(b"<article")):
+                raise ValueError(f"Original JATS inválido: {source['id']}")
+            if sha256(original) != source["sha256"] or report["source_sha256"] != source["sha256"]:
+                raise ValueError(f"Original divergente: {source['id']}")
+            if sha256(markdown) != report["markdown_sha256"]:
+                raise ValueError(f"Markdown mudou após a conversão: {markdown}")
+            if report["script_sha256"] != sha256(Path(__file__).with_name("convert_jats.py")):
+                raise ValueError("Script JATS mudou após a conversão; regenere com convert_jats.py --overwrite.")
+            if original.name not in markdown.read_text(encoding="utf-8"):
+                raise ValueError(f"Link do original ausente no Markdown: {source['id']}")
+            print(f"OK {source['id']}: JATS XML; SHA-256 do original e do Markdown e script conferidos.")
+            continue
         if source.get("kind", "pdf") == "resumo_pubmed":
             raw = repo_path(source["raw_path"])
             if sha256(raw) != source["raw_sha256"]:

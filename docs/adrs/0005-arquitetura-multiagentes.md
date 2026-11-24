@@ -48,7 +48,7 @@ Critérios escritos antes da medição em `eval/multiagentes/criterios.md`; resu
 * A reescrita e o Sincronizador acrescentam chamadas ao LLM local: latência maior no Chat geral.
 * O Histórico em texto puro é tratamento de dado pessoal de saúde; precisa entrar no RIPD, com retenção e exclusão.
 * O corpus de Saúde Física está quase todo em inglês; as respostas saem em português, e as citações literais ficam no idioma da fonte.
-* As 17 fontes de Saúde Física foram aprovadas por decisão do mantenedor (feliperodri0) em 24/11/2026, sem a revisão por amostra de páginas do protocolo de Nutrição.
+* As 18 fontes de Saúde Física (17 do corpus e o ACSM 2026) foram aprovadas por decisão do mantenedor (feliperodri0) em 24/11/2026, sem a revisão por amostra de páginas do protocolo de Nutrição.
 * Os casos de avaliação têm o mesmo autor do código.
 
 ## Revisão

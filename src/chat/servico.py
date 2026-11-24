@@ -17,6 +17,7 @@ Para cada mensagem:
 """
 
 import hashlib
+import re
 from typing import Dict, List, Mapping, Optional, Protocol, Sequence
 
 from pydantic import BaseModel, Field
@@ -28,10 +29,11 @@ from src.guardrails.pii import mascarar_dados_pessoais
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.models.schemas import ConsultantResponse
 from src.observabilidade import atributos_do_trace, observacao
+from src.orquestrador.conversa import APRESENTACOES, e_conversa_social
 from src.orquestrador.reescrita import LLMJson, Mensagem, Subpergunta, reescrever
 from src.orquestrador.roteamento import AREA_NUTRICAO, AREAS, rotear_por_regras
 from src.orquestrador.sincronizador import MARCADOR_T, NOMES_DAS_AREAS, RespostaDeArea, sincronizar
-from src.rag.verificador.citacoes import FRASE_SEM_BASE
+from src.rag.verificador.citacoes import FRASE_SEM_BASE, MARCADOR, dividir_frases
 
 CHAT_GERAL = "geral"
 CHATS = (CHAT_GERAL,) + AREAS
@@ -62,7 +64,8 @@ class RespostaDoChat(BaseModel):
     conversa_id: str
     # "risco", "alerta", "prompt_injection", "fora_das_areas", "outra_area", "agente" ou "sincronizada"
     tipo: str
-    texto: str
+    texto: str  # para exibir: citações como notas (¹ ²) no fim de cada parágrafo
+    texto_com_marcadores: str = ""  # o mesmo texto com os [T#] em cada frase, para auditoria (RN04)
     areas: List[str] = Field(default_factory=list)
     respostas: Dict[str, ConsultantResponse] = Field(default_factory=dict)
     modo_sincronizacao: Optional[str] = None
@@ -71,14 +74,51 @@ class RespostaDoChat(BaseModel):
     reescrita: Optional[str] = None  # origem da reescrita: "llm" ou "regras"
 
 
+def _chave_da_frase(frase: str) -> str:
+    return " ".join(MARCADOR.sub("", frase).split()).casefold()
+
+
 def texto_da_resposta(resposta: ConsultantResponse) -> str:
-    """Texto do Agente de área, com os marcadores [T#], sem a frase fixa de campo sem base."""
-    campos = (resposta.evidence_summary, resposta.physiological_mechanism, resposta.protocol_findings)
-    texto = "\n\n".join(c.strip() for c in campos if c and c.strip() and c.strip() != FRASE_SEM_BASE)
+    """Texto do Agente de área, com os marcadores [T#], sem a frase fixa de campo sem base.
+
+    Os três campos da síntese podem repetir frases (a síntese extrativa usa os mesmos Trechos no
+    resumo, no mecanismo e nos protocolos): cada frase aparece uma vez só.
+    """
+    vistas: set = set()
+    paragrafos = []
+    for campo in (resposta.evidence_summary, resposta.physiological_mechanism, resposta.protocol_findings):
+        if not campo or not campo.strip() or campo.strip() == FRASE_SEM_BASE:
+            continue
+        for bloco in campo.strip().split("\n\n"):
+            novas = [f for f in dividir_frases(bloco) if _chave_da_frase(f) not in vistas]
+            vistas.update(_chave_da_frase(f) for f in novas)
+            if novas:
+                paragrafos.append(" ".join(novas))
+    texto = "\n\n".join(paragrafos)
     # Pedido restrito pela lei da área (Lei 8.234/1991 ou 9.696/1998): a nota legal vem antes.
     if resposta.guardrail_triggered and resposta.legal_compliance_notice and not resposta.prompt_injection_detected:
         return f"{resposta.legal_compliance_notice}\n\n{texto}"
     return texto
+
+
+_SOBRESCRITOS = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
+
+
+def nota(numero: int) -> str:
+    return str(numero).translate(_SOBRESCRITOS)
+
+
+def em_notas(texto: str) -> str:
+    """Tira os [T#] de dentro das frases e põe as notas no fim de cada parágrafo (¹ ²)."""
+    paragrafos = []
+    for paragrafo in texto.split("\n\n"):
+        numeros: List[int] = []
+        for n in MARCADOR_T.findall(paragrafo):
+            if int(n) not in numeros:
+                numeros.append(int(n))
+        limpo = re.sub(r"\s*\[T\d+\]", "", paragrafo).rstrip()
+        paragrafos.append(f"{limpo} {' '.join(nota(n) for n in numeros)}" if numeros else limpo)
+    return "\n\n".join(paragrafos)
 
 
 def citacoes_do_texto(texto: str, trechos: Sequence) -> List[str]:
@@ -89,7 +129,7 @@ def citacoes_do_texto(texto: str, trechos: Sequence) -> List[str]:
         c = trechos[n - 1].chunk
         onde = f"p. {c.pagina_pdf}" if c.pagina_pdf else f"seção '{c.section_path}'"
         link = c.fonte_url or (f"https://doi.org/{c.doi}" if c.doi else "")
-        citacoes.append(f"[T{n}] [{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), {onde}"
+        citacoes.append(f"{nota(n)} {c.title} — {c.source_organization} ({c.publication_year}), {onde}"
                         + (f" | Link: {link}" if link else ""))
     return citacoes
 
@@ -146,7 +186,7 @@ class ServicoDeChat:
               texto: str) -> RespostaDoChat:
         self.historico.adicionar(usuario_id, conversa_id, chat, "usuario", guardada)
         self.historico.adicionar(usuario_id, conversa_id, chat, "assistente", texto)
-        return RespostaDoChat(chat=chat, conversa_id=conversa_id, tipo=tipo, texto=texto)
+        return RespostaDoChat(chat=chat, conversa_id=conversa_id, tipo=tipo, texto=texto, texto_com_marcadores=texto)
 
     def _portoes(self, chat: str, usuario_id: str, conversa_id: str, mensagem: str) -> Optional[RespostaDoChat]:
         risco = detectar_risco(mensagem)
@@ -198,6 +238,8 @@ class ServicoDeChat:
 
     def _responder(self, chat: str, usuario_id: str, conversa_id: str, mensagem: str,
                    top_k: int) -> RespostaDoChat:
+        if e_conversa_social(mensagem) and not rotear_por_regras(mensagem).areas:
+            return self._fixa(chat, usuario_id, conversa_id, "conversa", mensagem, APRESENTACOES[chat])
         historico = self._historico(chat, usuario_id, conversa_id)
         historico_proprio = self.historico.recentes(usuario_id, conversa_id, self.janela)
         reescrita, regras, subperguntas = self._rotear(chat, mensagem, historico)
@@ -257,11 +299,17 @@ class ServicoDeChat:
         else:
             unica = next(iter(respostas.values()))
             texto, tipo, modo = texto_da_resposta(unica), "agente", None
-            citacoes = list(unica.citations)
+            citacoes = citacoes_do_texto(texto, unica.retrieved_chunks)
+            # TACO e grafo causal não são Trechos: entram como vieram do agente.
+            citacoes += [c for c in unica.citations if c.startswith(("[KG_", "[TACO_"))]
+        com_marcadores = texto
+        texto = em_notas(texto)
         if redirecionamento:
             texto = f"{texto}\n\n{redirecionamento}"
+            com_marcadores = f"{com_marcadores}\n\n{redirecionamento}"
         return RespostaDoChat(
-            chat=chat, conversa_id=conversa_id, tipo=tipo, texto=texto, areas=areas, respostas=respostas,
+            chat=chat, conversa_id=conversa_id, tipo=tipo, texto=texto, texto_com_marcadores=com_marcadores,
+            areas=areas, respostas=respostas,
             modo_sincronizacao=modo, citacoes=citacoes, redirecionamento=redirecionamento,
             reescrita=reescrita.origem,
         )

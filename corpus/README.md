@@ -228,7 +228,7 @@ corpus/
 
 ## Saúde Física — fontes do RAG (issue #99)
 
-Desde 24/11/2026, **17 fontes de Saúde Física estão no RAG**, com `approval_status: aprovado` por decisão do mantenedor (feliperodri0, issue #99), sem a conferência por amostra de páginas do protocolo de Nutrição:
+Desde 24/11/2026, **18 fontes de Saúde Física estão no RAG**, com `approval_status: aprovado` por decisão do mantenedor (feliperodri0, issue #99), sem a conferência por amostra de páginas do protocolo de Nutrição:
 
 - as oito com original obtido entre as onze prioritárias (abaixo), antes `kind: original_only`;
 - as fontes 11 a 19 do commit de organização do corpus de Saúde Física (275f6eb), catalogadas a partir de `saudefisica/inventario_corpus_saude_fisica.md`: OMS *At a Glance* 2020, relatório científico do HHS 2018 (779 páginas, inteiro), NHS (atividade física para adultos e aquecimento), NICE NG59 e NG226, Cochrane de exercício na dor lombar crônica (HTML em português), infográfico da diretriz patelofemoral da JOSPT e diretriz de entorse de tornozelo da JOSPT. Os derivados desse commit tinham sido gerados fora do pipeline (hashes de script desconhecidos, metadados incompletos e, na NG59 e na NG226, original diferente do convertido) e foram **regenerados** pelos scripts do repositório.
@@ -236,6 +236,7 @@ Desde 24/11/2026, **17 fontes de Saúde Física estão no RAG**, com `approval_s
 Ficaram de fora: a página pública da diretriz patelofemoral (`18-...-cpg-2019.html`, só links e autores, sem conteúdo; o infográfico entra no lugar), o HTML em inglês da Cochrane, o anexo de tabelas da OMS (20) e o guia do Ministério da Saúde para gestores (21), não catalogados, e as três fontes sem original (ACSM 2026, ACSM 2015, ACC 2026), que continuam `kind: original_only`.
 
 - **Área:** `area: saude_fisica` no manifesto. Os Trechos vão para `corpus/saudefisica/rag/` (a pasta `rag/` da área de cada fonte); o registro de geração continua único, em `corpus/nutricao/rag/geracao.json`.
+- **ACSM 2026 (`kind: jats`):** o PDF e a página do PubMed Central respondem com desafio reCAPTCHA e o PDF do Europe PMC com 403; o texto integral de acesso aberto (CC BY-NC-ND 4.0) veio em JATS XML pela API REST oficial do Europe PMC e é convertido pelo `convert_jats.py` (uma seção por `<sec>`, tabelas em linhas, figuras pela legenda; Trechos por seção, como o HTML). Aprovado pelo mantenedor junto com as outras.
 - **Fontes HTML (`kind: html`):** `skip_pages` do `rag.yaml` vale como número de **seção** nessas fontes e muda se a página ganhar um título de nível 2; prefira `drop_paragraphs`.
 - **Fontes HTML (`kind: html`):** convertidas pelo `convert_html.py` (com `content_selector` no manifesto) e cortadas por **seção** (título de nível 2), sem página: `pagina_pdf` nulo e id `<fonte>-s###-NN`. O `verify_corpus.py` confere original, Markdown e script, e aceita o BOM UTF-8 dos originais.
 - **Idioma:** 15 das 17 fontes estão em inglês; o agente responde em português e cita o trecho no idioma original.
@@ -281,8 +282,9 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download-ocr --overwrit
 # Rode depois de qualquer mudança no convert_pdfs.py (issue #87); --source <id> também aceita um candidato.
 corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --candidatos --overwrite
 
-# Fontes HTML (kind: html), uma de cada vez (exige approval_status pendente na conversão):
+# Fontes HTML (kind: html) e JATS XML (kind: jats), uma de cada vez (exige approval_status pendente):
 corpus/.venv/bin/python corpus/scripts/convert_html.py --source <id> --overwrite
+corpus/.venv/bin/python corpus/scripts/convert_jats.py --source <id> --overwrite
 
 # Verificação dos artefatos locais:
 corpus/.venv/bin/python corpus/scripts/verify_corpus.py

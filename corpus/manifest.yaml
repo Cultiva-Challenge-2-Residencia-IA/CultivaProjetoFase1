@@ -1071,24 +1071,31 @@ sources:
     approval_status: aprovado
     intended_use_license_review: pendente
   - id: acsm-resistance-training-position-stand-2026
-    kind: original_only
+    kind: jats
+    area: saude_fisica
     title: 'American College of Sports Medicine Position Stand. Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews'
     institutions:
     - American College of Sports Medicine
     year: 2026
     version: 2026-article-en
-    source_type: artigo_cientifico
+    source_type: diretriz
     source: https://pubmed.ncbi.nlm.nih.gov/41843416/
-    download_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12965823/pdf/msse-58-851.pdf
+    download_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12965823/fullTextXML
     doi: 10.1249/MSS.0000000000003897
     pmcid: PMC12965823
     license: CC-BY-NC-ND-4.0
     license_evidence:
-      description: A página do PubMed Central identifica CC BY-NC-ND 4.0; o texto integral está disponível em HTML, mas o endpoint PDF retornou desafio anti-bot.
-    acquisition_status: original_indisponivel
-    acquisition_note: O texto integral está disponível no PubMed Central, mas as rotas de PDF retornaram desafio anti-bot ou 404. Não foi salvo conteúdo de erro como PDF; a versão antiga de 2009 foi substituída conforme solicitado.
-    approval_status: pendente
-    intended_use_license_review: pendente
+      description: A página do PubMed Central e o registro do Europe PMC identificam CC BY-NC-ND 4.0.
+    original_path: corpus/saudefisica/originais/04-acsm-resistance-training-position-stand-2026.xml
+    markdown_path: corpus/saudefisica/markdown/04-acsm-resistance-training-position-stand-2026.md
+    report_path: corpus/saudefisica/relatorios/04-acsm-resistance-training-position-stand-2026.json
+    sha256: 0f92699661a50164bbd97e7db21587f920da3055914327436b0947081ed2c082
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-24'
+    acquisition_status: original_obtido
+    acquisition_note: O PDF e a página do PubMed Central responderam com desafio reCAPTCHA, e o PDF do Europe PMC com 403. O texto integral de acesso aberto veio em JATS XML pela API REST oficial do Europe PMC (issue #99).
+    approval_status: aprovado
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
   - id: acsm-exercise-preparticipation-screening-2015
     kind: original_only
     title: Updating ACSM's Recommendations for Exercise Preparticipation Health Screening
@@ -1440,6 +1447,6 @@ sources:
 #   revisao: revisão da literatura ou artigo conceitual.
 #   estudo: estudo primário (transversal, populacional, quase-experimental).
 
-# kind: pdf (pipeline de conversão), html (página HTML convertida; Trechos por seção), resumo_pubmed (texto de origem sem PDF) ou original_only
+# kind: pdf (pipeline de conversão), html (página HTML convertida; Trechos por seção), jats (artigo em JATS XML do Europe PMC; Trechos por seção), resumo_pubmed (texto de origem sem PDF) ou original_only
 #   (original arquivado/cadastrado, sem Trechos/RAG; pode ter Markdown candidato à revisão).
 #   A integridade dos originais e derivados declarados é verificada por verify_corpus.py.

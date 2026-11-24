@@ -55,7 +55,7 @@ PAGE_MARK = re.compile(r"<!-- PDF_PAGE: (\d+) -->")
 FRONT_MATTER = re.compile(r"\A---\n.*?\n---\n", re.S)
 # Linhas que o convert_html.py acrescenta antes do conteúdo da página.
 HTML_BOILERPLATE = re.compile(
-    r"^(Instituição\(ões\):|\[Original HTML preservado\]|> Conversão documental|> Confira no original)")
+    r"^(Instituição\(ões\):|\[Original (HTML|JATS XML) preservado\]|> Conversão documental|> Confira no original)")
 
 
 def tipos_de_fonte() -> list[str]:
@@ -358,7 +358,7 @@ def prepare(source: dict) -> tuple[dict, dict]:
     skipping, section = False, ""
     discarded_short = 0
     cleaned = []
-    html = source.get("kind", "pdf") == "html"
+    html = source.get("kind", "pdf") in ("html", "jats")  # sem página: Trechos por seção
     for page, raw in (split_sections(markdown) if html else split_pages(markdown)):
         if page in skip_pages:
             cleaned.append((page, []))
@@ -484,7 +484,7 @@ def main() -> int:
         if not args.source:
             generation["fontes"] = {}
         for source in sources:
-            if source.get("kind", "pdf") in ("pdf", "html"):
+            if source.get("kind", "pdf") in ("pdf", "html", "jats"):
                 entry, summary = prepare(source)
                 generation["fontes"][source["id"]] = entry
                 print(f"{source['id']}: {json.dumps(summary, ensure_ascii=False)}")

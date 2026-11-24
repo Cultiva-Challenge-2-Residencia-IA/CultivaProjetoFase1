@@ -78,9 +78,9 @@ def _conferir_trechos(source: dict, trechos: list[dict], esperado: int) -> list[
                 problemas.append(f"{tid}: pagina_pdf {pagina!r} fora de 1..{source['pdf_pages']}")
             elif not tid.startswith(f"{source['id']}-p{pagina:03d}-"):
                 problemas.append(f"{tid}: id não corresponde à fonte e à página {pagina}")
-        elif tipo == "html":
+        elif tipo in ("html", "jats"):
             if pagina is not None:
-                problemas.append(f"{tid}: fonte HTML com pagina_pdf {pagina!r}")
+                problemas.append(f"{tid}: fonte sem página ({tipo}) com pagina_pdf {pagina!r}")
             if not tid.startswith(f"{source['id']}-s"):
                 problemas.append(f"{tid}: id não corresponde à fonte")
         else:
@@ -131,7 +131,7 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
             script_desatualizado.append(sid)
         elif sha256_file(jsonl) != entrada["jsonl_sha256"]:
             problemas[sid].append("JSONL diferente do registrado em geracao.json (editado à mão ou gerado sem registrar)")
-        if source.get("kind", "pdf") in ("pdf", "html"):
+        if source.get("kind", "pdf") in ("pdf", "html", "jats"):
             atual = sha256_file(root / source["markdown_path"])
             if entrada.get("markdown_sha256") != atual:
                 problemas[sid].append("Markdown mudou depois da geração dos Trechos")

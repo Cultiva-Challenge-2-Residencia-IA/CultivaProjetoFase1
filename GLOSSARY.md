@@ -50,6 +50,10 @@ _Evitar_: risco (reservado para sofrimento psíquico e comportamento alimentar d
 Parte de uma mensagem que cabe numa única área; uma mensagem que envolve as duas áreas vira uma Subpergunta para cada Agente de área.
 _Evitar_: consulta, query
 
+**Conversa social**:
+Mensagem sem conteúdo de área (saudação, agradecimento, "o que você faz?"); recebe a apresentação fixa do chat.
+_Evitar_: fora das áreas (quando é só um cumprimento)
+
 **Fora das áreas**:
 Mensagem que não pertence a nenhuma área com agente; recebe o "não sei" fixo.
 _Evitar_: fora do escopo, fora do domínio (quando se refere ao Chat geral)
