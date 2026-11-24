@@ -39,8 +39,9 @@ SEM_RESPOSTA_SEGURA = (
     "conferida contra o texto do PDF. Leia o documento original ou consulte o profissional que o emitiu."
 )
 AVISO_INJECAO = (
-    "O PDF contém texto que parece instrução para a IA. Ele foi tratado só como conteúdo do "
-    "documento, e nenhuma instrução dele foi seguida."
+    "O PDF contém texto que parece instrução para a IA (por exemplo, \"ignore as instruções\"). "
+    "Por segurança, ele não foi resumido nem usado para responder. Confira o documento original ou "
+    "peça ao profissional uma versão sem esse conteúdo."
 )
 AVISO_ATRIBUICAO = (
     "Resumo feito pela IA a partir do seu documento, sem acrescentar recomendações. As orientações "
@@ -77,6 +78,7 @@ class ResultadoPDF:
     modelo: str = ""
     segundos: float = 0.0
     resposta_fixa: Optional[str] = None
+    instrucao_escondida: bool = False  # o PDF parecia trazer instrução para a IA e não foi ao modelo
     requer_confirmacao: bool = True
 
     def como_dict(self) -> Dict[str, Any]:
@@ -127,9 +129,13 @@ def numeros(texto: str) -> set[str]:
     return saida
 
 
+_ROTULO = re.compile(r"\[\s*[DT]\d+\s*\]", re.I)
+
+
 def numeros_preservados(frase: str, citacao: str) -> bool:
-    """Todo número da frase aparece na citação: dose, porção e horário não podem mudar."""
-    return numeros(frase) <= numeros(citacao)
+    """Todo número da frase aparece na citação: dose, porção e horário não podem mudar. Rótulos de
+    fonte escritos na frase ("[D1]", "[T2]") não são números do conteúdo."""
+    return numeros(_ROTULO.sub(" ", frase)) <= numeros(citacao)
 
 
 def _rotulos(refs: Any) -> List[str]:
@@ -196,6 +202,20 @@ Regras:
 Responda só com JSON: {{"frases": [{{"frase": "...", "fontes": ["D1"], "citacao": "..."}}]}}"""
 
 
+def tem_instrucao_escondida(paginas: List[Pagina]) -> bool:
+    """Detector de prompt injection sobre o texto do PDF, com as quebras de linha desfeitas.
+
+    Mitigação de uma falha do test da #95: com a instrução no texto, o modelo não a seguia, mas a
+    repetia como conteúdo do documento ("o documento instrui jejum de 72 horas"). Retirar só a
+    linha marcada não basta, porque o PDF quebra a frase em várias linhas e a continuação escapa.
+    Por isso o documento inteiro deixa de ir ao modelo (falha fechada). O detector é lexical:
+    variações que ele não reconhece continuam passando (limitação registrada).
+    """
+    texto = " ".join(" ".join(p.texto.split()) for p in paginas)
+    frases = re.split(r"(?<=[.!?])\s+", texto)
+    return has_prompt_injection(texto) or any(has_prompt_injection(f) for f in frases)
+
+
 def _bloco_fontes(paginas: List[Pagina], trechos: List[RetrievedChunk]) -> str:
     partes = [f"--- [{p.rotulo}] (página {p.numero} do documento) ---\n{p.texto.strip()}"
               for p in paginas if not p.escaneada]
@@ -236,9 +256,10 @@ def _processar(
     if all(p.escaneada for p in paginas):
         resultado.resposta_fixa = "O PDF não tem texto legível. Envie um PDF com texto ou digite as informações."
         return resultado
-    texto_total = "\n".join(p.texto for p in paginas)
-    if has_prompt_injection(texto_total):
-        resultado.avisos.append(AVISO_INJECAO)
+    if tem_instrucao_escondida(paginas):
+        resultado.instrucao_escondida = True
+        resultado.resposta_fixa = AVISO_INJECAO
+        return resultado
     fontes = {p.rotulo: p.texto for p in paginas if not p.escaneada}
     fontes.update({f"T{i}": item.chunk.raw_text for i, item in enumerate(trechos, 1)})
     usuario = f"{pedido}\n\nFONTES:\n{_bloco_fontes(paginas, trechos)}"
