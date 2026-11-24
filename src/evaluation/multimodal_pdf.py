@@ -135,7 +135,7 @@ def planilha(splits: List[str]) -> Path:
                     linhas.append([f"P{len(linhas) + 1:03d}", item["id"], pedido, f["frase"], f["citacao"], fontes, "", ""])
     saida = DIR / "amostra_pdf_para_avaliar.csv"
     with saida.open("w", encoding="utf-8", newline="") as arq:
-        w = csv.writer(arq)
+        w = csv.writer(arq, lineterminator="\n")  # sem "\r", que o git diff --check acusa
         w.writerow(["id", "caso", "pedido", "frase", "citacao", "fonte_citada", "julgamento", "comentario"])
         w.writerows(linhas)
     print(f"{len(linhas)} frases -> {saida}")
