@@ -78,6 +78,10 @@
           "guia-alimentar-populacao-brasileira-2014-p036-02": {
             "nota": 1,
             "citacao": "Entretanto, dado que o sal, óleos, gorduras e açúcar são produtos usados para temperar e c"
+          },
+          "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p007-07": {
+            "nota": 1,
+            "citacao": "No guia alimentar recomenda-se o consumo máximo diário de sal de 5g/dia"
           }
         },
         "julgados_irrelevantes": [
@@ -86,7 +90,7 @@
           "guia-alimentar-populacao-brasileira-2014-p036-03",
           "protocolos-guia-alimentar-fasciculo1-2021-p007-03"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 24/11/2026 (issue #15) com 1 Trecho(s) do top-4 dos candidatos da comparação de embeddings, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -134,9 +138,10 @@
           "guia-alimentar-populacao-brasileira-2014-p142-03",
           "protocolos-guia-alimentar-fasciculo1-2021-p022-05",
           "souza-backes-universitarios-csc-2020-p002-03",
-          "protocolos-guia-alimentar-fasciculo1-2021-p019-06"
+          "protocolos-guia-alimentar-fasciculo1-2021-p019-06",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p059-02"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 1 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 1 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente; ampliado em 24/11/2026 (issue #15) com 1 Trecho(s) do top-4 dos candidatos da comparação de embeddings, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -183,6 +188,10 @@
           "guia-alimentar-populacao-brasileira-2014-p052-01": {
             "nota": 1,
             "citacao": "Os três grupos visuais foram representados como tabelas, sem alterar seus rótulos. A image"
+          },
+          "martins-ultraprocessados-rsp-2013-p002-02": {
+            "nota": 1,
+            "citacao": "os produtos processados são alimentos integrais preservados em"
           }
         },
         "julgados_irrelevantes": [
@@ -193,9 +202,10 @@
           "guia-alimentar-populacao-brasileira-2014-p069-02",
           "guia-alimentar-populacao-brasileira-2014-p085-02",
           "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p007-07",
-          "monteiro-nova-classificacao-alimentos-csp-2010-p003-05"
+          "monteiro-nova-classificacao-alimentos-csp-2010-p003-05",
+          "monteiro-nova-classificacao-alimentos-csp-2010-p002-04"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 2 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 2 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente; ampliado em 24/11/2026 (issue #15) com 2 Trecho(s) do top-4 dos candidatos da comparação de embeddings (1 da variante exploratória), julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -450,9 +460,10 @@
           "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p148-02",
           "guia-dietas-vegetarianas-svb-2012-p011-04",
           "guia-dietas-vegetarianas-svb-2012-p013-04",
-          "guia-dietas-vegetarianas-svb-2012-p019-01"
+          "guia-dietas-vegetarianas-svb-2012-p019-01",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-04"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 1 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 1 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente; ampliado em 24/11/2026 (issue #15) com 1 Trecho(s) do top-4 dos candidatos da comparação de embeddings, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -611,9 +622,11 @@
           "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p004-03",
           "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-02",
           "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p004-06",
-          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06"
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06",
+          "guia-alimentar-populacao-brasileira-2014-p042-01",
+          "guia-alimentar-populacao-brasileira-2014-p107-02"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 3 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 3 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente; ampliado em 24/11/2026 (issue #15) com 2 Trecho(s) do top-4 dos candidatos da comparação de embeddings, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -657,6 +670,10 @@
           "jaime-frutas-hortalicas-brasil-rsp-2009-p005-03": {
             "nota": 2,
             "citacao": "Total | 17,8 | 29,1 | 23,9 | 5,0 | 9,4 | 7,3"
+          },
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p092-01": {
+            "nota": 2,
+            "citacao": "a ingestão recomendada, considerando ao menos 5 porções de frutas e hortaliças consumidas diariamente, foi observada em apenas 22,9% dos indivíduos"
           }
         },
         "julgados_irrelevantes": [
@@ -666,7 +683,7 @@
           "jaime-frutas-hortalicas-brasil-rsp-2009-p004-06",
           "jaime-frutas-hortalicas-brasil-rsp-2009-p005-01"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026)"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 24/11/2026 (issue #15) com 1 Trecho(s) do top-4 dos candidatos da comparação de embeddings, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
@@ -845,9 +862,10 @@
           "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-04",
           "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-04",
           "guia-dietas-vegetarianas-svb-2012-p022-02",
-          "guia-dietas-vegetarianas-svb-2012-p023-02"
+          "guia-dietas-vegetarianas-svb-2012-p023-02",
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p003-04"
         ],
-        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 2 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente"
+        "pool": "busca textual + top-8 do sistema (10/11/2026); ampliado em 10/11/2026 (issue #35) com 2 Trecho(s) do top-4 das variantes da ablação do ranking, julgados por rascunho-claude, revisão humana pendente; ampliado em 24/11/2026 (issue #15) com 1 Trecho(s) do top-4 dos candidatos da comparação de embeddings, julgados por rascunho-claude, revisão humana pendente"
       },
       "geracao": {
         "termos_obrigatorios": [
