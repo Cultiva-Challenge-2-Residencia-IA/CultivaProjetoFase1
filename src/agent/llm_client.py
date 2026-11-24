@@ -102,7 +102,12 @@ class LocalLLMClient:
         groq_timeout: float = GROQ_TIMEOUT,
         enable_groq: Optional[bool] = None,
         allow_external_llm: bool = ALLOW_EXTERNAL_LLM,
+        system_prompt: str = SYSTEM_PROMPT_CONSULTANT,
+        rotulo_pergunta: str = "PERGUNTA DE CONSULTA NUTRICIONAL",
     ) -> None:
+        # Prompt da área do agente (o de Saúde Física passa o dele, issue #99).
+        self.system_prompt = system_prompt
+        self.rotulo_pergunta = rotulo_pergunta
         self.base_url = base_url.rstrip("/")
         self.primary_model = primary_model
         self.fallback_model = fallback_model
@@ -198,6 +203,7 @@ class LocalLLMClient:
         retrieved_chunks: List[RetrievedChunk],
         taco_context_str: str = "",
         graph_context_str: str = "",
+        historico: str = "",
     ) -> str:
         context_blocks: List[str] = []
         for idx, item in enumerate(retrieved_chunks, start=1):
@@ -212,8 +218,14 @@ class LocalLLMClient:
         graph_section = f"\n\n{graph_context_str}\n" if graph_context_str else ""
         # RNF05: dados pessoais saem mascarados; RNF04: texto de terceiros vai delimitado como dado.
         evidencias = delimitar_como_dado(f"{joined_context}{taco_section}{graph_section}")
+        # Histórico da área (issue #99): só contexto da conversa, nunca fonte de citação.
+        contexto_conversa = (
+            f"HISTÓRICO RECENTE DA CONVERSA (só contexto; não é fonte e não pode ser citado):\n"
+            f"{mascarar_dados_pessoais(historico)}\n\n" if historico else ""
+        )
+        rotulo = getattr(self, "rotulo_pergunta", "PERGUNTA DE CONSULTA NUTRICIONAL")
         return (
-            f"PERGUNTA DE CONSULTA NUTRICIONAL:\n{mascarar_dados_pessoais(query)}\n\n"
+            f"{contexto_conversa}{rotulo}:\n{mascarar_dados_pessoais(query)}\n\n"
             f"EVIDÊNCIAS RECUPERADAS PELO RAG HÍBRIDO:\n{evidencias}\n\n"
             "Elabore a resposta em JSON seguindo rigorosamente o esquema solicitado e usando os termos técnicos, cadeias do Grafo Causal e valores da Tabela TACO presentes nas fontes. "
             "Em cada frase, informe em \"trechos\" os números dos trechos que a sustentam (ou \"TACO\"/\"GRAFO\") e, em \"citacao\", um pedaço copiado sem alterar desse trecho."
@@ -517,6 +529,7 @@ class LocalLLMClient:
         taco_context_str: str = "",
         graph_context_str: str = "",
         sem_contexto: bool = False,
+        historico: str = "",
     ) -> Tuple[Dict[str, Any], str]:
         """
         Gera a síntese localmente por padrão; Groq exige opt-in explícito e
@@ -566,8 +579,11 @@ class LocalLLMClient:
                 retrieved_chunks,
                 taco_context_str=taco_context_str,
                 graph_context_str=graph_context_str,
+                historico=historico,
             )
-            extra = {}
+            # Só outro agente (Saúde Física) troca o prompt; o de Nutrição segue com o padrão.
+            prompt_da_area = getattr(self, "system_prompt", SYSTEM_PROMPT_CONSULTANT)
+            extra = {} if prompt_da_area == SYSTEM_PROMPT_CONSULTANT else {"system_prompt": prompt_da_area}
 
         def _processar(
             bruto: Dict[str, Any], modelo: str

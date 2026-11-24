@@ -1,4 +1,5 @@
 import sys
+import threading
 from typing import Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
@@ -9,6 +10,7 @@ from src.config import TOP_K_FINAL
 from src.models.schemas import ConsultantResponse
 from src.agent.traceability import register_incorrect_feedback, save_response_trace
 from src.observabilidade import registrar_feedback_incorreto
+from src.chat.servico import CHATS, RespostaDoChat, ServicoDeChat
 
 app = FastAPI(
     title="Consultor Científico de Nutrição Baseado em Evidências (Fase 1 - Baseline RAG Híbrido)",
@@ -27,6 +29,28 @@ def get_consultant() -> NutritionConsultantBaseline:
     if _consultant_instance is None:
         _consultant_instance = NutritionConsultantBaseline(enable_ollama=True)
     return _consultant_instance
+
+
+_servico_de_chat: Optional[ServicoDeChat] = None
+_trava_do_servico = threading.Lock()
+
+
+def get_servico_de_chat() -> ServicoDeChat:
+    """Serviço do Chat geral e dos Chats de área (issue #99), montado na primeira chamada."""
+    global _servico_de_chat
+    with _trava_do_servico:  # endpoints síncronos rodam em threads: monta uma vez só
+        if _servico_de_chat is None:
+            from src.chat.fabrica import criar_servico
+
+            _servico_de_chat = criar_servico(enable_ollama=True)
+    return _servico_de_chat
+
+
+class MensagemDoChat(BaseModel):
+    usuario_id: str = Field(..., min_length=1, max_length=200)
+    conversa_id: str = Field(..., min_length=1, max_length=200)
+    mensagem: str = Field(..., min_length=1, max_length=4000)
+    top_k: int = Field(default=TOP_K_FINAL, ge=1, le=10)
 
 
 class ConsultRequest(BaseModel):
@@ -85,6 +109,32 @@ def incorrect_answer_feedback(request: IncorrectAnswerFeedback) -> dict:
     # RF-IA15: com o Langfuse ligado, o feedback vira o score "resposta_incorreta" no trace da resposta.
     registrar_feedback_incorreto(request.response_id, request.detail)
     return {"status": "registrado", "response_id": request.response_id}
+
+
+@app.post("/chat/{chat}", response_model=RespostaDoChat)
+def chat_endpoint(chat: str, pedido: MensagemDoChat) -> RespostaDoChat:
+    """Chat geral (`geral`) ou Chat de área (`nutricao`, `saude-fisica`), com Histórico da Conversa."""
+    chat = chat.replace("-", "_")
+    if chat not in CHATS:
+        raise HTTPException(status_code=404, detail=f"Chat desconhecido. Use: {', '.join(CHATS)}.")
+    resposta = get_servico_de_chat().enviar(chat, pedido.usuario_id, pedido.conversa_id, pedido.mensagem,
+                                            top_k=pedido.top_k)
+    # RF-IA15: cada resposta de Agente de área entra no registro, como no /consult, para aceitar feedback.
+    for resposta_da_area in resposta.respostas.values():
+        save_response_trace(resposta_da_area)
+    return resposta
+
+
+@app.delete("/chat/usuarios/{usuario_id}/conversas/{conversa_id}")
+def apagar_conversa(usuario_id: str, conversa_id: str) -> dict:
+    """Apaga uma Conversa do Usuário (LGPD)."""
+    return {"apagadas": get_servico_de_chat().apagar_conversa(usuario_id, conversa_id)}
+
+
+@app.delete("/chat/usuarios/{usuario_id}")
+def apagar_usuario(usuario_id: str) -> dict:
+    """Apaga todas as Conversas do Usuário (LGPD)."""
+    return {"apagadas": get_servico_de_chat().apagar_usuario(usuario_id)}
 
 
 def cli_main() -> None:

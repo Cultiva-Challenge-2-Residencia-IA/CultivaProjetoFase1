@@ -1,0 +1,15 @@
+{
+  "source_id": "acsm-resistance-training-position-stand-2026",
+  "source_sha256": "0f92699661a50164bbd97e7db21587f920da3055914327436b0947081ed2c082",
+  "markdown_sha256": "da4495c4b8ef9641b7a28c87acb51adf47cb5c4a1624fbaae397488b5c5cf0a4",
+  "script_sha256": "92e49d4b03c27d313412979d8dfc1bee53973e2ba27496bfce37636c051265b3",
+  "converter": "xml.etree (JATS)",
+  "jats_secoes": 49,
+  "jats_tabelas": 6,
+  "jats_figuras": 2,
+  "limitations": [
+    "Tabelas viram linhas de texto; células mescladas e notas de rodapé de tabela podem perder estrutura.",
+    "Figuras não são copiadas; só a legenda é mantida.",
+    "Referências bibliográficas do <back> não são convertidas."
+  ]
+}

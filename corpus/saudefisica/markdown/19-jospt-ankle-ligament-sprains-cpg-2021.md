@@ -3,13 +3,13 @@ source_id: jospt-ankle-ligament-sprains-cpg-2021
 title: 'Ankle Stability and Movement Coordination Impairments: Lateral Ankle Ligament
   Sprains Revision 2021'
 source: https://doi.org/10.2519/jospt.2021.0302
-license: Copyright © JOSPT / AOPT (Disponibilizado em acesso público pela AOPT)
+license: Copyright JOSPT / AOPT
 source_sha256: 7aaf19cd4ca5a2fbd2bf194156a2653a7fe2dabc488e8bf56ed86b45d93dde36
 ---
 
 # Ankle Stability and Movement Coordination Impairments: Lateral Ankle Ligament Sprains Revision 2021
 
-Instituição(ões): Academy of Orthopaedic Physical Therapy, JOSPT. Edição: 2021-cpg-en.
+Instituição(ões): Academy of Orthopaedic Physical Therapy, Journal of Orthopaedic & Sports Physical Therapy. Edição: 2021-revision-en.
 
 [PDF original preservado](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf) · [Relatório por página](../relatorios/19-jospt-ankle-ligament-sprains-cpg-2021.json)
 
@@ -23,7 +23,7 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=1)
 
-> **Nota de conversão — página 1:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 1:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ## Clinical Practice Guidelines
 
@@ -60,7 +60,7 @@ Commander John J. Fraser is a military service member and this work was prepared
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=2)
 
-> **Nota de conversão — página 2:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 2:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -124,7 +124,7 @@ cpg2 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ spo
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=3)
 
-> **Nota de conversão — página 3:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 3:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -200,7 +200,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=4)
 
-> **Nota de conversão — página 4:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 4:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -255,7 +255,7 @@ cpg4 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ spo
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=5)
 
-> **Nota de conversão — página 5:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 5:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -299,7 +299,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=6)
 
-> **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 6:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -340,7 +340,7 @@ cpg6 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ spo
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=7)
 
-> **Nota de conversão — página 7:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 7:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -392,7 +392,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=8)
 
-> **Nota de conversão — página 8:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 8:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -420,7 +420,7 @@ cpg8 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ spo
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=9)
 
-> **Nota de conversão — página 9:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 9:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -456,7 +456,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=10)
 
-> **Nota de conversão — página 10:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 10:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -484,7 +484,7 @@ cpg10 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=11)
 
-> **Nota de conversão — página 11:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 11:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -554,7 +554,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=12)
 
-> **Nota de conversão — página 12:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 12:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -602,7 +602,7 @@ cpg12 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=13)
 
-> **Nota de conversão — página 13:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 13:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -658,7 +658,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=14)
 
-> **Nota de conversão — página 14:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 14:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -704,7 +704,7 @@ cpg14 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=15)
 
-> **Nota de conversão — página 15:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 15:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -746,7 +746,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=16)
 
-> **Nota de conversão — página 16:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 16:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -792,7 +792,7 @@ cpg16 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=17)
 
-> **Nota de conversão — página 17:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 17:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -836,7 +836,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=18)
 
-> **Nota de conversão — página 18:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 18:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -884,7 +884,7 @@ cpg18 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=19)
 
-> **Nota de conversão — página 19:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 19:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -970,7 +970,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=20)
 
-> **Nota de conversão — página 20:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 20:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -992,7 +992,7 @@ cpg20 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=21)
 
-> **Nota de conversão — página 21:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 21:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1032,7 +1032,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=22)
 
-> **Nota de conversão — página 22:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 22:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1084,7 +1084,7 @@ cpg22 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=23)
 
-> **Nota de conversão — página 23:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 23:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1128,7 +1128,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=24)
 
-> **Nota de conversão — página 24:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 24:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1184,7 +1184,7 @@ cpg24 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=25)
 
-> **Nota de conversão — página 25:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 25:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1210,7 +1210,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=26)
 
-> **Nota de conversão — página 26:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 26:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1254,7 +1254,7 @@ cpg26 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=27)
 
-> **Nota de conversão — página 27:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 27:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1287,7 +1287,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=28)
 
-> **Nota de conversão — página 28:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 28:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1345,7 +1345,7 @@ cpg28 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=29)
 
-> **Nota de conversão — página 29:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 29:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1399,7 +1399,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=30)
 
-> **Nota de conversão — página 30:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 30:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1442,7 +1442,7 @@ cpg30 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=31)
 
-> **Nota de conversão — página 31:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 31:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1508,7 +1508,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=32)
 
-> **Nota de conversão — página 32:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 32:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1592,7 +1592,7 @@ cpg32 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=33)
 
-> **Nota de conversão — página 33:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 33:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1664,7 +1664,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=34)
 
-> **Nota de conversão — página 34:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 34:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1726,7 +1726,7 @@ cpg34 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=35)
 
-> **Nota de conversão — página 35:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 35:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1794,7 +1794,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=36)
 
-> **Nota de conversão — página 36:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 36:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1836,7 +1836,7 @@ cpg36 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=37)
 
-> **Nota de conversão — página 37:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 37:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 <!-- Start of picture text -->
 Lateral Ankle Ligament Sprains: Clinical Practice Guidelines<br>Component 1: Medical Screening<br>Component 2: Classify Condition<br>Patient examination: acute lateral ankle sprain (LAS) Patient examination: chronic ankle instability (CAI)<br>• Sudden onset with an ankle inversion–related injury • History of at least 1 significant ankle sprain<br>• Negative Ottawa ankle rules • Reports of “giving way”<br>• Positive reverse anterolateral drawer ligamentous test • Episode of a subsequent sprain and/or perceptions of ankle<br>• Positive anterolateral talar palpation test instability<br>• Positive anterior drawer test • Decreased performance on functional performance tests<br>• Discriminative instrument scores: Identification of Functional<br>Ankle Instability (IdFAI) score of 11 or greater; Cumberland Ankle<br>Instability Tool (CAIT) score of 25 or less; 4 or more answers of<br>“yes” on the Ankle Instability Instrument (AII)<br>Component 3: Irritability<br>Acute LAS: identify level of tissue irritability<br>Component 4: Outcome Measures<br>LAS and CAI<br>• Patient-Reported Outcomes Measurement Information System (PROMIS) physical function computer adaptive test (CAT), Foot<br>and Ankle Ability Measure (FAAM), and/or Lower Extremity Functional Scale (LEFS) as a measure of self-reported activity<br>limitation and participation restriction (A)<br>• 11-item Tampa Scale of Kinesiophobia (TSK-11) and Fear-Avoidance Beliefs Questionnaire (FABQ) as measures of fear of<br>movement and reinjury and fear-avoidance beliefs (C)<br>• Pain visual analog scale (VAS) (F)<br>• Dorsiflexion range of motion (ROM) with the weight-bearing lunge test (A)<br>• Total ankle ROM (A)<br>• Talar translation (A)<br>• Static balance with the single-leg balance test on a firm surface with eyes closed (A)<br>• Dynamic balance with the Star Excursion Balance Test (SEBT) anterior, anteromedial, posteromedial, and posterolateral reach<br>directions (A)<br>• Clinical performance assessment with measures of single-limb hopping under timed conditions (A)<br>Acute LAS<br>• Ankle swelling (A)<br>CAI<br>• Hip strength (C)<br>Figure continues on page CPG38 .<br><!-- End of picture text -->
@@ -1853,7 +1853,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=38)
 
-> **Nota de conversão — página 38:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 38:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1889,7 +1889,7 @@ cpg38 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=39)
 
-> **Nota de conversão — página 39:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 39:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -1931,7 +1931,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=40)
 
-> **Nota de conversão — página 40:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 40:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2019,7 +2019,7 @@ cpg40 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=41)
 
-> **Nota de conversão — página 41:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 41:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2105,7 +2105,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=42)
 
-> **Nota de conversão — página 42:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 42:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2185,7 +2185,7 @@ cpg42 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=43)
 
-> **Nota de conversão — página 43:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 43:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2267,7 +2267,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=44)
 
-> **Nota de conversão — página 44:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 44:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2355,7 +2355,7 @@ cpg44 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=45)
 
-> **Nota de conversão — página 45:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 45:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2445,7 +2445,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=46)
 
-> **Nota de conversão — página 46:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 46:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2531,7 +2531,7 @@ cpg46 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=47)
 
-> **Nota de conversão — página 47:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 47:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2615,7 +2615,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=48)
 
-> **Nota de conversão — página 48:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 48:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2703,7 +2703,7 @@ cpg48 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=49)
 
-> **Nota de conversão — página 49:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 49:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2793,7 +2793,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=50)
 
-> **Nota de conversão — página 50:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 50:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2881,7 +2881,7 @@ cpg50 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=51)
 
-> **Nota de conversão — página 51:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 51:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -2969,7 +2969,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=52)
 
-> **Nota de conversão — página 52:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 52:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3059,7 +3059,7 @@ cpg52 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=53)
 
-> **Nota de conversão — página 53:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 53:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3147,7 +3147,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=54)
 
-> **Nota de conversão — página 54:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 54:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3186,7 +3186,7 @@ cpg54 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=55)
 
-> **Nota de conversão — página 55:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 55:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3210,7 +3210,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=56)
 
-> **Nota de conversão — página 56:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 56:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3245,7 +3245,7 @@ cpg56 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=57)
 
-> **Nota de conversão — página 57:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 57:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3269,7 +3269,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=58)
 
-> **Nota de conversão — página 58:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 58:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3291,7 +3291,7 @@ cpg58 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=59)
 
-> **Nota de conversão — página 59:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 59:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3327,7 +3327,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=60)
 
-> **Nota de conversão — página 60:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 60:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3350,7 +3350,7 @@ cpg60 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=61)
 
-> **Nota de conversão — página 61:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 61:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3388,7 +3388,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=62)
 
-> **Nota de conversão — página 62:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 62:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3412,7 +3412,7 @@ cpg62 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=63)
 
-> **Nota de conversão — página 63:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 63:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3449,7 +3449,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=64)
 
-> **Nota de conversão — página 64:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 64:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3486,7 +3486,7 @@ cpg64 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=65)
 
-> **Nota de conversão — página 65:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 65:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3509,7 +3509,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=66)
 
-> **Nota de conversão — página 66:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 66:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3533,7 +3533,7 @@ cpg66 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=67)
 
-> **Nota de conversão — página 67:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 67:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3563,7 +3563,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=68)
 
-> **Nota de conversão — página 68:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 68:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3585,7 +3585,7 @@ cpg68 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=69)
 
-> **Nota de conversão — página 69:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 69:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3608,7 +3608,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=70)
 
-> **Nota de conversão — página 70:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 70:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3642,7 +3642,7 @@ cpg70 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=71)
 
-> **Nota de conversão — página 71:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 71:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3664,7 +3664,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=72)
 
-> **Nota de conversão — página 72:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 72:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3700,7 +3700,7 @@ cpg72 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=73)
 
-> **Nota de conversão — página 73:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 73:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3724,7 +3724,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=74)
 
-> **Nota de conversão — página 74:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 74:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3761,7 +3761,7 @@ cpg74 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=75)
 
-> **Nota de conversão — página 75:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 75:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 ##### **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3785,7 +3785,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=76)
 
-> **Nota de conversão — página 76:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 76:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3815,7 +3815,7 @@ cpg76 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=77)
 
-> **Nota de conversão — página 77:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 77:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3893,7 +3893,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=78)
 
-> **Nota de conversão — página 78:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 78:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3910,7 +3910,7 @@ cpg78 |  april 2021  |  volume 51  |  number 4  |  journal of orthopaedic _&_ sp
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=79)
 
-> **Nota de conversão — página 79:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 79:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 
@@ -3952,7 +3952,7 @@ journal of orthopaedic _&_ sports physical therapy  |  volume 51  |  number 4  |
 
 [Conferir no original](../originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf#page=80)
 
-> **Nota de conversão — página 80:** Cobertura lexical inferior a 98%: conferir formatação e possíveis perdas.
+> **Nota de conversão — página 80:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
 
 **Lateral Ankle Ligament Sprains: Clinical Practice Guidelines**
 

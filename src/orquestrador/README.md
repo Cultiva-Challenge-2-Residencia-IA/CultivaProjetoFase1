@@ -1,6 +1,14 @@
 # Orquestrador (LangGraph)
 
-Grafo que recebe a pergunta, passa pelos portões de segurança e entrega ao agente (issue #76). Hoje há um só agente, o de Nutrição. O roteamento entre agentes e o Agente de Saúde Física ficam para issues próprias.
+Grafo que recebe a pergunta, passa pelos portões de segurança e entrega ao agente (issue #76). Ele serve o `consult()` (endpoint `/consult`, benchmarks e demonstração da semana 2), só com o Agente de Nutrição.
+
+**Chats (issue #99, ADR 0005):** o Chat geral e os Chats de área ficam em `src/chat/servico.py`, que orquestra em Python e chama os subgrafos LangGraph dos Agentes de área (`NutritionConsultantBaseline.responder` e `ConsultorSaudeFisica`):
+
+- Portões, iguais nos três chats: risco, sinal de alerta (`src/guardrails/alerta`) e prompt injection.
+- `roteamento.py`: vocabulário de cada área; as regras decidem sempre que alguma área tem termo, e o LLM decide só quando nenhuma tem.
+- `reescrita.py`: uma chamada ao LLM com pergunta completa (continuação), Subperguntas por área e trecho hipotético (HyDE); sem LLM, a mensagem e as regras.
+- `sincronizador.py`: cruza as respostas citadas das duas áreas, conferido pela checagem de citação por frase, ou as deixa lado a lado.
+- Histórico em `src/chat/historico.py` (SQLite local); o Chat geral lê os Chats de área do mesmo Usuário, e cada agente recebe só o Histórico da área dele.
 
 - `grafo.py`: grafo principal. Os portões de risco (RF-IA03) e de prompt injection (RNF04) são os primeiros nós e ficam **fora** dos agentes, para valerem para todos. Uma pergunta barrada termina com resposta fixa, sem chegar a agente nenhum.
 - `src/agents/nutricao/grafo.py`: subgrafo de Nutrição, com a mesma sequência de antes. As saídas antecipadas ("não sei" por falta de domínio ou por `llm_sem_base`) são arestas condicionais para o fim.
@@ -10,7 +18,7 @@ Grafo que recebe a pergunta, passa pelos portões de segurança e entrega ao age
 
 **Contrato de um agente:** subgrafo compilado cujo estado tem `pergunta`, `top_k` e `resposta`. Ele lê os dois primeiros e escreve o terceiro. O que mais ele usar fica no estado interno dele e não vaza para o grafo principal nem para outros agentes (RF-IA09).
 
-**Para acrescentar um agente:** crie `src/agents/<agente>/grafo.py` com `construir_subgrafo(...)` e passe-o em `agentes` de `construir_grafo`. O nó de roteamento que escolhe entre eles ainda não existe: enquanto houver um só agente, a pergunta vai para o `agente_padrao`.
+**Para acrescentar um agente:** crie o consultor da área (como `src/agents/fisica/consultor.py`, que reaproveita o subgrafo de Nutrição com corpus, guardrail, prompt e vocabulário próprios), registre o vocabulário em `roteamento.py` e passe o agente em `agentes` de `src/chat/fabrica.py`.
 
 ## Diagrama
 

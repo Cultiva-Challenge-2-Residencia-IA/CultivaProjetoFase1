@@ -18,7 +18,7 @@ import yaml
 
 from prepare_rag import (
     GENERATION_PATH,
-    OUTPUT_DIR,
+    RAG_DIRS,
     ROOT,
     SCRIPT_PATH,
     load_rag_config,
@@ -57,7 +57,7 @@ def _ler_jsonl(path: Path) -> list[dict]:
 def _conferir_trechos(source: dict, trechos: list[dict], esperado: int) -> list[str]:
     problemas: list[str] = []
     campos = _campos_do_manifesto(source)
-    e_pdf = source.get("kind", "pdf") == "pdf"
+    tipo = source.get("kind", "pdf")
     if not trechos:
         problemas.append("nenhum Trecho no JSONL")
     if len(trechos) != esperado:
@@ -73,11 +73,16 @@ def _conferir_trechos(source: dict, trechos: list[dict], esperado: int) -> list[
             problemas.append(f"id repetido: {tid}")
         ids.add(tid)
         pagina = trecho.get("pagina_pdf")
-        if e_pdf:
+        if tipo == "pdf":
             if not isinstance(pagina, int) or not 1 <= pagina <= source["pdf_pages"]:
                 problemas.append(f"{tid}: pagina_pdf {pagina!r} fora de 1..{source['pdf_pages']}")
             elif not tid.startswith(f"{source['id']}-p{pagina:03d}-"):
                 problemas.append(f"{tid}: id não corresponde à fonte e à página {pagina}")
+        elif tipo in ("html", "jats"):
+            if pagina is not None:
+                problemas.append(f"{tid}: fonte sem página ({tipo}) com pagina_pdf {pagina!r}")
+            if not tid.startswith(f"{source['id']}-s"):
+                problemas.append(f"{tid}: id não corresponde à fonte")
         else:
             if pagina is not None:
                 problemas.append(f"{tid}: resumo sem PDF com pagina_pdf {pagina!r}")
@@ -90,11 +95,11 @@ def _conferir_trechos(source: dict, trechos: list[dict], esperado: int) -> list[
 
 def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
                           generation_path: Path | None = None,
-                          rag_dir: Path | None = None) -> dict[str, list[str]]:
+                          rag_dirs: tuple[Path, ...] | None = None) -> dict[str, list[str]]:
     """Problemas encontrados, agrupados por id de fonte, pelo caminho de um JSONL órfão ou,
     quando o próprio prepare_rag.py mudou, numa entrada única `prepare_rag.py`."""
     generation_path = generation_path or GENERATION_PATH
-    rag_dir = rag_dir or OUTPUT_DIR
+    rag_dirs = rag_dirs or RAG_DIRS
     if not generation_path.exists():
         return {"geracao.json": [f"{generation_path.relative_to(root)} ausente; rode prepare_rag.py sem --source"]}
     geracao = json.loads(generation_path.read_text(encoding="utf-8"))["fontes"]
@@ -126,7 +131,7 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
             script_desatualizado.append(sid)
         elif sha256_file(jsonl) != entrada["jsonl_sha256"]:
             problemas[sid].append("JSONL diferente do registrado em geracao.json (editado à mão ou gerado sem registrar)")
-        if source.get("kind", "pdf") == "pdf":
+        if source.get("kind", "pdf") in ("pdf", "html", "jats"):
             atual = sha256_file(root / source["markdown_path"])
             if entrada.get("markdown_sha256") != atual:
                 problemas[sid].append("Markdown mudou depois da geração dos Trechos")
@@ -148,7 +153,7 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
     # fazer o JSONL parecer órfão também.
     referenciados = {(root / e["jsonl_path"].replace("\\", "/")).resolve()
                      for sid, e in geracao.items() if sid in ids_manifesto}
-    for jsonl in sorted(rag_dir.glob("*.jsonl")):
+    for jsonl in sorted(p for pasta in rag_dirs for p in pasta.glob("*.jsonl")):
         if jsonl.resolve() not in referenciados:
             problemas[str(jsonl.relative_to(root))].append("JSONL sem fonte correspondente no manifesto")
         else:
@@ -174,7 +179,7 @@ def verify(manifest: dict | None = None) -> None:
             elif chave in ids:
                 linhas.append(f"    regenerar: {COMANDO.format(id=chave)}")
         raise ValueError("\n".join(linhas))
-    total = sum(len(_ler_jsonl(p)) for p in OUTPUT_DIR.glob("*.jsonl"))
+    total = sum(len(_ler_jsonl(p)) for pasta in RAG_DIRS for p in pasta.glob("*.jsonl"))
     print(f"OK Trechos: {len(fontes_indexaveis)} fontes indexáveis, {total} Trechos; campos do manifesto, "
           "páginas e hashes de origem, script e configuração conferidos.")
 

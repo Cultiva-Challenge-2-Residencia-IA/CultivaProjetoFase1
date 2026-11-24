@@ -1,0 +1,64 @@
+{
+  "resumo": {
+    "n": 4,
+    "acerto": 1.0
+  },
+  "casos": [
+    {
+      "id": "T07",
+      "split": "test",
+      "anterior": "Crianças devem fazer quanto tempo de atividade física por dia?",
+      "mensagem": "E adolescentes?",
+      "termo_esperado": "atividade",
+      "area_esperada": "saude_fisica",
+      "pergunta_completa": "Qual a recomendação de tempo de atividade física diária para adolescentes?",
+      "areas": [
+        "saude_fisica"
+      ],
+      "origem": "llm",
+      "acerto": true
+    },
+    {
+      "id": "T08",
+      "split": "test",
+      "anterior": "Frutas são boas no café da manhã?",
+      "mensagem": "E à noite?",
+      "termo_esperado": "fruta",
+      "area_esperada": "nutricao",
+      "pergunta_completa": "As frutas são boas para consumir no jantar?",
+      "areas": [
+        "nutricao"
+      ],
+      "origem": "llm",
+      "acerto": true
+    },
+    {
+      "id": "T09",
+      "split": "test",
+      "anterior": "Alongamento antes do treino previne lesão?",
+      "mensagem": "E depois do treino?",
+      "termo_esperado": "alongament",
+      "area_esperada": "saude_fisica",
+      "pergunta_completa": "Qual a recomendação de alongamento a ser feita após o treino?",
+      "areas": [
+        "saude_fisica"
+      ],
+      "origem": "llm",
+      "acerto": true
+    },
+    {
+      "id": "T10",
+      "split": "test",
+      "anterior": "Vegetarianos precisam suplementar vitamina B12?",
+      "mensagem": "E ferro?",
+      "termo_esperado": "vegetarian",
+      "area_esperada": "nutricao",
+      "pergunta_completa": "Vegetarianos precisam suplementar ferro?",
+      "areas": [
+        "nutricao"
+      ],
+      "origem": "llm",
+      "acerto": true
+    }
+  ]
+}

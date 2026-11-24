@@ -8,13 +8,13 @@ source_sha256: 49b93f8d374b7d1c9978811bc05760d706f759b29edb394cf995299879ce220e
 
 # Physical activity guidelines for adults aged 19 to 64
 
-Instituição(ões): National Health Service (NHS). Edição: NHS Live Well.
+Instituição(ões): NHS. Edição: 2021-html-en.
 
-[HTML original preservado](../originais/13-nhs-physical-activity-adults-19-64.html) · [Relatório de conversão](../relatorios/13-nhs-physical-activity-adults-19-64.json)
+[Original HTML preservado](../originais/13-nhs-physical-activity-adults-19-64.html) · [Relatório de conversão](../relatorios/13-nhs-physical-activity-adults-19-64.json)
 
-> Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
+> Conversão documental para revisão. O conteúdo pertence à publicação original e não é uma recomendação produzida pelo CULTIVA. A conversão e a aprovação da fonte permanecem pendentes.
 
-# Physical activity guidelines for adults aged 19 to 64
+> Confira no original as tabelas, figuras, links e a estrutura do documento; a conversão não garante fidelidade semântica.
 
 **Adults should do some type of physical activity every day. Exercise just once or twice a week can reduce the risk of heart disease or stroke.**
 
@@ -137,9 +137,3 @@ If you want to improve your health and wellbeing but are not sure where to start
 - [Physical activity guidelines for older adults](/live-well/exercise/physical-activity-guidelines-older-adults/)
 
 [GOV.UK also has a number of physical activity guidelines as infographics](https://www.gov.uk/government/collections/physical-activity-guidelines).
-
-## More in [Exercise](/live-well/exercise/)
-
-Page last reviewed: 22 May 2024
-
-Next review due: 22 May 2027
