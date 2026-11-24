@@ -4,7 +4,7 @@
   "pdf_pages": 10,
   "conversion_status": "concluida_com_ressalvas",
   "script_sha256": "703ccbfee5846d1408531c272b469389d0398819e8273cf15a975e6ea71723c5",
-  "config_sha256": "90afd0513380964dd8d82730b62d30a587e7d33b93d4b308da172f1f002268b5",
+  "config_sha256": "38f7f3a43c3656f97fe1c35f864ae66ddc64c6a0707858ce939119a0407febe1",
   "versions": {
     "PyMuPDF": "2.1",
     "pymupdf4llm": "2.1",
@@ -30,7 +30,26 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "page": 1,
+          "old": "MODIfIcaÇões DIeTéTIcas",
+          "new": "Modificações dietéticas"
+        },
+        {
+          "page": 1,
+          "old": "avalIaÇÃO NUTRIcIONal",
+          "new": "Avaliação nutricional"
+        },
+        {
+          "page": 1,
+          "old": "clíNIca MéDIca NO exeRcícIO e NO esPORTe",
+          "new": "Clínica Médica no Exercício e no Esporte"
+        },
+        {
+          "case_restored_from_native": 8
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99864,
       "missing_native_tokens": {
@@ -44,7 +63,11 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "case_restored_from_native": 3
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99682,
       "missing_native_tokens": {
@@ -60,7 +83,11 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "case_restored_from_native": 3
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99894,
       "missing_native_tokens": {
@@ -74,7 +101,11 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "case_restored_from_native": 5
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99574,
       "missing_native_tokens": {
@@ -91,7 +122,16 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "page": 5,
+          "old": "cRIaNÇas e aDOlesceNTes",
+          "new": "CRIANÇAS E ADOLESCENTES"
+        },
+        {
+          "case_restored_from_native": 2
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99808,
       "missing_native_tokens": {
@@ -106,7 +146,11 @@
       "method": "native",
       "tables_detected": 1,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "case_restored_from_native": 5
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99646,
       "missing_native_tokens": {
@@ -122,7 +166,16 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "page": 7,
+          "old": "Iv. sUBsTÂNcIas",
+          "new": "IV. sUBsTÂNcIas"
+        },
+        {
+          "case_restored_from_native": 19
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99882,
       "missing_native_tokens": {
@@ -136,7 +189,11 @@
       "method": "native",
       "tables_detected": 2,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "case_restored_from_native": 24
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99846,
       "missing_native_tokens": {
@@ -150,7 +207,16 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "page": 9,
+          "old": "Iv.  Drogas",
+          "new": "IV.  Drogas"
+        },
+        {
+          "case_restored_from_native": 4
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99854,
       "missing_native_tokens": {
@@ -167,7 +233,21 @@
       "method": "native",
       "tables_detected": 0,
       "warnings": [],
-      "adjustments": [],
+      "adjustments": [
+        {
+          "page": 10,
+          "old": "Iv.  Drogas",
+          "new": "IV.  Drogas"
+        },
+        {
+          "page": 10,
+          "old": "leITURa RecOMeNDaDa PRIMeIRa RevIsÃO",
+          "new": "LEITURA RECOMENDADA PRIMEIRA REVISÃO"
+        },
+        {
+          "case_restored_from_native": 2
+        }
+      ],
       "ocr": [],
       "native_word_coverage": 0.99882,
       "missing_native_tokens": {
@@ -177,7 +257,7 @@
       "markdown_characters": 10825
     }
   ],
-  "markdown_sha256": "0cbf63967cd4e47795191e3e24c632f216d9af449135968c75951ea877ce5e73",
+  "markdown_sha256": "39499201c4fcd35ec87980160aaaa7b5c016ea4e114fbb538376a670b1a41866",
   "summary": {
     "pages_converted": 10,
     "sparse_pages": [],
@@ -188,6 +268,17 @@
       8
     ],
     "pages_with_warnings": [],
-    "pages_with_adjustments": []
+    "pages_with_adjustments": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
   }
 }
