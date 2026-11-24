@@ -159,8 +159,10 @@
       "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p175-05",
       "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p072-02"
     ],
-    "fundamentacao_status": "extrativa",
-    "fundamentacao_problemas": [],
+    "fundamentacao_status": "extrativa_apos_citacao_invalida",
+    "fundamentacao_problemas": [
+      "ollama:qwen2.5:7b: nenhum_trecho_citado"
+    ],
     "fundamentacao_frases_removidas": 0,
     "retrieved_chunks": [
       {
@@ -273,7 +275,7 @@
     "abstencao": false,
     "similaridade_maxima": 0.8971,
     "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
-    "corpus_version": "091720667d3bb51f6d06afb1eee723c9b695e15a1e5e63464d8d05b66fa50898",
+    "corpus_version": "935de2467e02701abb96971a606253e2ee722f9313c671a2a7b4670afd5c5f5c",
     "prompt_version": "0409b83d016bb5cb5a72618e0bfb10fb15055220aa10b382ad128bbe3b37b208",
     "model_version": "local_extractive_synthesis",
     "fontes_version": "53228114ee6fa5a32501c670b0ad069cc64f85bc5c1348b9dd04f9b6c83733bd",
@@ -314,11 +316,15 @@
     "guardrail_triggered": false,
     "intent_category": "SAFE_EVIDENCE_QUERY",
     "legal_compliance_notice": null,
-    "evidence_summary": "Limitar o consumo de alimentos processados 3\n\nOs ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compota de frutas, pães e queijos – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam [T1]. Em pequenas quantidades, podem ser consumidos como ingredientes de preparações culinárias ou parte de refeições baseadas em alimentos in natura ou minimamente processados.\n\nEvitar o consumo de alimentos ultraprocessados\n\nDevido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados [T1]. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados [T1]. Suas formas de produção, distribuição, comercialização e consumo afetam de modo desfavorável a cultura, a vida social e o meio ambiente.\n\nComer Com regularidade e atenção, [T1].",
-    "physiological_mechanism": "Limitar o consumo de alimentos processados 3\n\nOs ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compota de frutas, pães e queijos – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam [T1]. Em pequenas quantidades, podem ser consumidos como ingredientes de preparações culinárias ou parte de refeições baseadas em alimentos in natura ou minimamente processados [T1]. Evitar o consumo de alimentos ultraprocessados\n\nDevido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados [T1]. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados [T1]. Suas formas de produção, distribuição, comercialização e consumo afetam de modo desfavorável a cultura, a vida social e o meio ambiente [T1]. Comer Com regularidade e atenção, [T1]\n\nCAMINHOS DO GRAFO CAUSAL DE 4 CAMADAS (NetworkX: Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho GRADE):\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal)] ➔ [2. Composto: Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia) (Azeite de oliva: ~73g MUFA/100g e 0 mg de potássio (TACO))] ➔ [3. Mecanismo: Melhora da fluidez de membrana e sinalização do receptor de insulina (reduzindo HOMA-IR) + redução da resistência vascular periférica pela restrição de sódio e inflamação endotelial, SEM aportar carga de potássio sérico] ➔ [4. Desfecho (DECREASES): Pressão Arterial e Resistência à Insulina (HOMA-IR) com Segurança na Doença Renal Crônica] | Protocolo: Estratégia segura para trade-off de hipertensão + resistência à insulina + restrição de potássio (DRC): redução de sódio/ultraprocessados + uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Peixes Marinhos (Sardinha, Cavalinha e Salmão)] ➔ [2. Composto: Ácidos Graxos Ômega-3 de Cadeia Longa (EPA e DHA) (Sardinha e salmão: 1,2g a 2,5g de EPA+DHA por 100g (TACO / FooDB))] ➔ [3. Mecanismo: Ativação dos receptores nucleares hepáticos PPAR-alfa, estimulando a beta-oxidação peroxissomal/mitocondrial de ácidos graxos e inibindo a lipogênese e secreção hepática de VLDL] ➔ [4. Desfecho (DECREASES): Triglicerídeos Séricos e VLDL-c] | Protocolo: Consumo regular de pescados marinhos ricos em EPA/DHA associado à redução de açúcares livres e frutose industrial\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Combinação Arroz com Feijão, Ovos, Carnes Magras, Peixes e Laticínios] ➔ [2. Composto: Leucina e Perfil Completo de Aminoácidos Essenciais (Lisina + Metionina) (Complementação proteica: Feijão fornece Lisina e Arroz fornece Metionina (TACO / Guia Alimentar MS))] ➔ [3. Mecanismo: Atingimento do limiar intracelular de leucina que se liga ao sensor Sestrin2 e ativa a quinase mTORC1, disparando a tradução ribossomal e a síntese proteica miofibrilar (MPS)] ➔ [4. Desfecho (INCREASES): Síntese Proteica Muscular, Hipertrofia e Prevenção de Sarcopenia] | Protocolo: Fracionamento proteico em 3 a 4 refeições diárias (protocolos clínicos avaliam 1,2 a 2,0 g/kg/dia em treinamento resistido ou idosos com função renal preservada) | Contraindicações/Cautelas: Doença renal crônica não dialítica avançada exige controle proteico individualizado por nutricionista\n- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Frutas, Hortaliças, Feijões e Sementes em Alta Quantidade (Padrão DASH Padrão)] ➔ [2. Composto: Potássio Dietético em Alta Carga (3500 a 4700 mg/dia) (Semente de abóbora: 809 mg K/100g; Feijão preto cozido: 255 mg K/100g (TACO))] ➔ [3. Mecanismo: Estímulo da natriurese renal (excreção de sódio) e hiperpolarização da célula muscular lisa vascular dependente do endotélio] ➔ [4. Desfecho (DECREASES): Pressão Arterial Sistólica e Diastólica (e Potássio Sérico)] | Protocolo: Padrão alimentar DASH reduz PA sistólica em 6 a 11 mmHg em indivíduos com função renal normal | Contraindicações/Cautelas: Doença Renal Crônica (DRC) moderada a avançada (risco de hipercalemia / elevação perigosa do potássio sérico); Uso concomitante de diuréticos poupadores de potássio (espironolactona/amilorida) sem monitoramento médico",
-    "protocol_findings": "Limitar o consumo de alimentos processados 3\n\nOs ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compota de frutas, pães e queijos – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam [T1]. Em pequenas quantidades, podem ser consumidos como ingredientes de preparações culinárias ou parte de refeições baseadas em alimentos in natura ou minimamente processados [T1]. Evitar o consumo de alimentos ultraprocessados\n\nDevido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados [T1]. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados [T1]. Suas formas de produção, distribuição, comercialização e consumo afetam de modo desfavorável a cultura, a vida social e o meio ambiente [T1]. Comer Com regularidade e atenção, [T1] Como se verá no próximo capítulo deste guia, alimentos in natura ou minimamente processados e preparações culinárias feitas com base nesses alimentos e no uso de óleos, gorduras, sal e açúcar propiciam aos brasileiros uma alimentação de qualidade nutricional bastante superior à que seria propiciada por alimentos processados ou ultraprocessados, aos quais se referem as duas próximas recomendações [T2].",
+    "evidence_summary": "Os alimentos ultraprocessados são nutricionalmente desbalanceados e tendem a ser consumidos em excesso, substituindo alimentos in natura ou minimamente processados [T1]. A contribuição dos alimentos ultraprocessados para o consumo total de energia aumenta significativamente conforme a frequência de consumo desses alimentos [T3][T4].",
+    "physiological_mechanism": "Não consta nos trechos recuperados.",
+    "protocol_findings": "Os alimentos ultraprocessados são evitados em favor de alimentos in natura ou minimamente processados, pois os primeiros têm uma composição nutricional desfavorável e podem substituir alimentos saudáveis [T1].",
     "food_sources_or_compounds": [
-      "Peixes marinhos (EPA e DHA - Ômega-3)",
+      "alimentos in natura ou minimamente processados",
+      "óleos, gorduras, sal e açúcar",
+      "peixes marinhos (sardinha, cavalinha e salmão)",
+      "arroz com feijão, ovos, carnes magras, peixes e laticínios",
+      "frutas, hortaliças, feijões e sementes",
       "Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal) (Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia))",
       "Peixes Marinhos (Sardinha, Cavalinha e Salmão) (Ácidos Graxos Ômega-3 de Cadeia Longa (EPA e DHA))",
       "Combinação Arroz com Feijão, Ovos, Carnes Magras, Peixes e Laticínios (Leucina e Perfil Completo de Aminoácidos Essenciais (Lisina + Metionina))",
@@ -392,17 +398,19 @@
         "source_reference": "Diretrizes Brasileiras de Hipertensão Arterial (SBC) / AHA"
       }
     ],
-    "evidence_grade": "GUIDELINE_CONSENSUS",
+    "evidence_grade": "GRADE_C",
     "citations": [
       "[guia-alimentar-populacao-brasileira-2014] Guia alimentar para a população brasileira — Ministério da Saúde (2014), Seção: 'Limitar o ConsUmo (pág. 127)' [T1 p. 127] (Evidência: GUIDELINE_CONSENSUS | Link: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0 | Aprovação: aprovado)",
-      "[guia-alimentar-populacao-brasileira-2014] Guia alimentar para a população brasileira — Ministério da Saúde (2014), Seção: 'Óleos, gorduras, sal e açúcar (pág. 36)' [T2 p. 36] (Evidência: GUIDELINE_CONSENSUS | Link: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0 | Aprovação: aprovado)",
+      "[louzada-ultraprocessados-perfil-nutricional-rsp-2015] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil — Universidade de São Paulo (2015), Seção: 'ANExO (pág. 11)' [T3 p. 11] (Evidência: GRADE_C | Link: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt | DOI: 10.1590/S0034-8910.2015049006132 | Licença: CC-BY-NC-3.0 | Aprovação: aprovado)",
+      "[louzada-ultraprocessados-perfil-nutricional-rsp-2015] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil — Universidade de São Paulo (2015), Seção: 'RESULTADOS (pág. 4)' [T4 p. 4] (Evidência: GRADE_C | Link: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt | DOI: 10.1590/S0034-8910.2015049006132 | Licença: CC-BY-NC-3.0 | Aprovação: aprovado)",
       "[KG_4LAYER_PICO_GRADE] Grafo de Conhecimento de 4 Camadas (NetworkX: 4 cadeias causais Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho)"
     ],
     "trechos_citados": [
       "guia-alimentar-populacao-brasileira-2014-p127-01",
-      "guia-alimentar-populacao-brasileira-2014-p036-03"
+      "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-02",
+      "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p004-07"
     ],
-    "fundamentacao_status": "extrativa",
+    "fundamentacao_status": "llm_citacoes_validas",
     "fundamentacao_problemas": [],
     "fundamentacao_frases_removidas": 0,
     "retrieved_chunks": [
@@ -507,7 +515,7 @@
         "rerank_score": 0.008594
       }
     ],
-    "model_used": "local_extractive_synthesis",
+    "model_used": "ollama:qwen2.5:7b",
     "risk_triggered": false,
     "risk_categories": [],
     "risk_layer": null,
@@ -516,9 +524,9 @@
     "abstencao": false,
     "similaridade_maxima": 0.9249,
     "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
-    "corpus_version": "091720667d3bb51f6d06afb1eee723c9b695e15a1e5e63464d8d05b66fa50898",
+    "corpus_version": "935de2467e02701abb96971a606253e2ee722f9313c671a2a7b4670afd5c5f5c",
     "prompt_version": "0409b83d016bb5cb5a72618e0bfb10fb15055220aa10b382ad128bbe3b37b208",
-    "model_version": "local_extractive_synthesis",
+    "model_version": "ollama:qwen2.5:7b",
     "fontes_version": "08e018a5be709294dd26ab2335e96638107f20f2361157fc73e6ecff968f5dc5",
     "trechos_usados": [
       {
@@ -759,7 +767,7 @@
     "abstencao": false,
     "similaridade_maxima": 0.9056,
     "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
-    "corpus_version": "091720667d3bb51f6d06afb1eee723c9b695e15a1e5e63464d8d05b66fa50898",
+    "corpus_version": "935de2467e02701abb96971a606253e2ee722f9313c671a2a7b4670afd5c5f5c",
     "prompt_version": "0409b83d016bb5cb5a72618e0bfb10fb15055220aa10b382ad128bbe3b37b208",
     "model_version": "local_extractive_synthesis",
     "fontes_version": "77ca2ac5f56f9a9b5e909c75ad2c10516a5a7f6360d2290ba0e29802d0dc0b61",

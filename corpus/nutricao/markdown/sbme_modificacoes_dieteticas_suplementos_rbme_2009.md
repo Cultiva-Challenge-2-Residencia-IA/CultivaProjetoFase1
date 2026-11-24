@@ -23,27 +23,27 @@ Marcadores usam a posição física no PDF, começando em 1; a numeração impre
 
 [Conferir no original](../originais/sbme_modificacoes_dieteticas_suplementos_rbme_2009.pdf#page=1)
 
-**clíNIca MéDIca NO exeRcícIO e NO esPORTe**
+**Clínica Médica No Exercício e no Esporte**
 
 **Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde Dietary changes, water replacement, food supplements and drugs: evidence of ergogenic action and potential health risks**
 
-**Artigo originAl**
+**Artigo Original**
 
-### **editores: arnaldo José Hernandez e Ricardo Munir Nahas**
+### **Editores: Arnaldo José Hernandez e Ricardo Munir Nahas**
 
-**coeditores:** Tânia Rodrigues, Flávia Meyer, Paulo Zogaib, José Kawazoe Lazzoli, João Ricardo Turra Magni, João Carlos Bouzas Marins, Tales de Carvalho, Félix Albuquerque Drummond, Samir Salim Daher.
+**Coeditores:** Tânia Rodrigues, Flávia Meyer, Paulo Zogaib, José Kawazoe Lazzoli, João Ricardo Turra Magni, João Carlos Bouzas Marins, Tales de Carvalho, Félix Albuquerque Drummond, Samir Salim Daher.
 
 **Participantes:** Antonio Cláudio Lucas da Nóbrega, Carlos Alberto Werutski, Cláudio Baptista, Clayton Macedo, Cibele Crispin, Daniel Kopiler, Héldio Fortunato Gaspar de Freitas, Heloísa Vidigal Guarita Padilha, Jomar Souza, Marcos Aurélio de Oliveira Brazão, Marcos Girão, Marcelo Leitão, Marcelo Regazzine, Pablius Staduto Braga Silva, Paula Baptista, Serafim Borges, Suzana Bonumá
 
 **Realização:** Sociedade Brasileira de Medicina do Exercício e do Esporte
 
-**apoio:** Gatorade Sports Science Institute (GSSI)
+**Apoio:** Gatorade Sports Science Institute (GSSI)
 
 ### **Primeira Publicação**
 
-**editor:** Tales de Carvalho
+**Editor:** Tales de Carvalho
 
-**coeditores:** Tânia Rodrigues, Flávia Meyer, Antonio Herbert Lancha Jr. e Eduardo Henrique De Rose
+**Coeditores:** Tânia Rodrigues, Flávia Meyer, Antonio Herbert Lancha Jr. e Eduardo Henrique De Rose
 
 **Participantes:** Antonio Claudio Lucas da Nóbrega, Arthur Haddad Herdy, Carlos Alberto Werutski,  Eney de Oliveira Fernandes, Félix Albuquerque Drummond, Glaycon Michels, Ileana Kazapi, Kharla Medeiros, José Kawazoe Lazzolli, Luis Fernando Funchal, Luiz Aragon, Magnus Benetti, Marcelo Bichels Leitão,  Marcelo Salazar, Marcos Aurélio de Oliveira Brazão, Michel Dacar, Rafael de Souza Trindade, Ricardo Munir Nahas e Turíbio Leite de Barros Neto
 
@@ -59,7 +59,7 @@ Infelizmente, pudemos também testemunhar o aparecimento de novas drogas e méto
 
 Arnaldo José Hernandez e Ricardo Munir Nahas
 
-# **I. MODIfIcaÇões DIeTéTIcas**
+# **I. Modificações dietéticas**
 
 Não restam dúvidas quanto às mudanças favoráveis da composição corporal e a influencia positiva sobre o desempenho esportivo de atletas após o manejo dietético, através do uso da suplementação alimentar para casos específicos.
 
@@ -67,7 +67,7 @@ A alimentação saudável e adequada à quantidade de trabalho deve ser entendid
 
 As orientações que constam nesta seção destinam-se a atletas saudáveis, adultos e adolescentes em fase de maturação sexual final. Para os indivíduos que praticam exercícios físicos sem maiores preocupações com o desempenho, uma dieta balanceada, que atenda às recomendações dadas à população em geral, é suficiente para a manutenção da saúde e possibilitar bom desempenho físico.
 
-# **avalIaÇÃO NUTRIcIONal**
+# **Avaliação nutricional**
 
 Ponto de partida para se conhecerem os hábitos alimentares e detectar imperfeições, a avaliação nutricional tem na anamnese criteriosa a oportunidade de estabelecer vínculo entre o atleta e o profissional de saúde, que permitirá mudanças favoráveis com objetivo de otimizar  seu desempenho esportivo, sem prejuízo à saúde, respeitando suas preferências e regras atuais, e permitindo que as transforme em rotina.
 
@@ -93,9 +93,9 @@ Em relação aos micronutrientes, ou seja, vitaminas, minerais e oligoelementos,
 
 O ajuste das dietas, em termos de macronutrientes, às maiores necessidades calóricas decorrentes das atividades desportivas, deve proporcionar um concomitante ajuste no consumo dos micronutrientes. Recomenda-se que sejam consideradas as orientações nutricionais destinadas à população em geral, calculadas proporcionalmente à cada 1.000 quilocalorias ingeridas. Desse modo, o incremento na oferta de micronutrientes é proporcional ao aumento calórico da dieta, mantendo-se o equilíbrio ou balanço nutricional em níveis adequados.
 
-# **RecOMeNDaÇões**
+# **Recomendações**
 
-## **a) valor da taxa calórica total da alimentação**
+## **a) Valor da taxa calórica total da alimentação**
 
 O equilíbrio de energia pode ser definido como a resultante zero entre a ingestão de alimentos, bebidas e suplementos, e seu consumo, pelo metabolismo basal, efeito térmico do alimento e a atividade física voluntária. Ingestão insuficiente de macro e micronutrientes, resultando em balanço calórico negativo, pode ocasionar perda de massa muscular e maior incidência de lesão, disfunções hormonais, osteopenia/osteoporose e maior frequência de doenças infecciosas, ou seja, algumas das principais características da síndrome do _overtraining_ , comprometendo o treinamento pela queda do desempenho e rendimento esportivo.
 
@@ -107,7 +107,7 @@ O ritmo de perda de peso em programas de redução de massa corporal deve ser de
 
 Em atletas, a redução de 10 a 20% na ingestão calórica total promove alteração na composição corporal, com redução de massa corporal de gordura, não induzindo fome e fadiga, como ocorre com dietas de muito baixo valor calórico. A redução drástica da gordura dietética pode não garantir a redução de gordura corporal e ocasionar perdas musculares importantes por falta de nutrientes ativos na recuperação após o exercício físico, como as vitaminas lipossolúveis e proteínas.
 
-## **b) carboidratos**
+## **b) Carboidratos**
 
 O exercício prolongado reduz acentuadamente os níveis de glicogênio muscular, obrigando a constante preocupação com sua correta reposição, fundamental para manter seu efeito ergogênico, necessário em todas as atividades esportivas, em todos os seus níveis, mas principalmente nos de alta intensidade e longa duração. No entanto, observa-se baixa adesão dos atletas, de diferentes modalidades, ao seu consumo na quantidade correta.
 
@@ -141,7 +141,7 @@ Os exercícios de força exigem maior consumo de proteínas quando comparadas co
 
 Os atletas devem ser conscientizados de que o aumento do consumo proteico na dieta além dos níveis recomendados não leva aumento adicional da massa magra. Há um limite para o acúmulo de proteínas nos diversos tecidos.
 
-## **d) lipídios**
+## **d) Lipídios**
 
 Um adulto necessita diariamente cerca de 1g de gordura por kg/peso corporal, o que equivale a 30% do valor calórico total (VCT) da dieta. A parcela de ácidos graxos essenciais deve ser de 8 a 10g/dia. Para os atletas, tem prevalecido a mesma reco-
 
@@ -151,7 +151,7 @@ Alguns estudos sugerem um efeito positivo de dietas relativamente altas em gordu
 
 Por outro lado, os praticantes devem seguir essas recomendações gerais e assegurar que a ingestão de lipídios não seja excessivamente baixa. Estudos sugerem que níveis abaixo de 15% do VET já produzem efeitos negativos. Quando dietas com restrição de lipídios forem necessárias, as cotas em relação ao aporte calórico total devem conter menos do que 8% para as gorduras saturadas, mais do que 8% para as monoinsaturadas e de 7 a 10% para as polinsaturadas.
 
-## **e) vitaminas**
+## **e) Vitaminas**
 
 Para atletas em regime de treinamento intenso, tem sido sugerido, o que tem gerado controvérsia, o consumo de vitamina C entre 500 e 1.500mg/dia (proporcionaria melhor resposta imunológica e antioxidante) e de vitamina E (aprimoraria a ação antioxidante). A documentação científica permite que os profissionais qualificados, nutricionistas e médicos, prescrevam de forma sistemática vitamina C e E para atletas, com a ressalva de que esta atitude se baseia em baixo grau de evidência científica.
 
@@ -163,7 +163,7 @@ Atletas do sexo feminino, em dietas de restrição calórica, podem sofrer defic
 
 A baixa ingestão de ferro, que ocorre em cerca de 15% da população mundial, causa fadiga e anemia, afetando o desempenho atlético e o sistema imunológico. Recomenda-se atenção especial ao consumo de alimentos com ferro de elevada biodisponibilidade, com oferta recomendada de 15mg/dia para a população feminina e 10mg/dia para a masculina. Para as gestantes, a recomendação diária (RDI) se eleva para 30mg. Tais necessidades podem ser contempladas pela manipulação dietética, não sendo necessária a suplementação.
 
-## **g) antioxidantes**
+## **g) Antioxidantes**
 
 Os estudos demonstram que os mecanismos regulatórios promovidos pela ingestão combinada ou isolada de vitaminas C, A, E, de cobre e zinco e da coenzima Q10 produzem efeitos antioxidantes.
 
@@ -181,7 +181,7 @@ Suplemento – Rev Bras Med Esporte – Vol. 15, ~~N~~<sup><u>o</u></sup> 3 – 
 
 No entanto, sua suplementação está reservada para atletas de alto desempenho, em que a oferta desses nutrientes através da dieta balanceada, suficiente na maioria dos casos, mostrar-se insuficiente. Altas doses podem não apresentar os efeitos esperados e ainda trazer prejuízos a saúde.
 
-# **II. RePOsIÇÃO HíDRIca**
+# **II. Reposição hídrica**
 
 Uma hidratação apropriada durante a atividade física de caráter recreativo ou competitivo pode garantir que o desempenho esperado seja atingido e que problemas de saúde sejam evitados. Os procedimentos para assegurá-la requerem conhecimento de fatores que influenciam quando e o quanto beber de água. As recomendações dependem do tipo de atividade e de fatores individuais, como condicionamento físico, idade, modalidade praticada, estresse ambiental, entre outros.
 
@@ -197,7 +197,7 @@ A seguir (tabela 1), um resumo das principais alterações da desidratação ind
 
 **Tabela 1.** Alterações provocadas pela desidratação
 
-|**aUMeNTO**|**ReDUÇÀO**|
+|**AUMENTO**|**REDUÇÀO**|
 |---|---|
 |Frequência cardíaca submáxima|Volume plasmático|
 |Concentração de lactato<br>e osmolaridade sanguínea|Volume sistólico, débito cardíaco e<br>VO2max|
@@ -213,7 +213,7 @@ Foi demonstrado ainda que a ingestão de líquidos, independente da presença de
 
 A água é uma boa opção de reidratação para o exercício por ser facilmente disponível, barata e ocasionar esvaziamento gástrico relativamente rápido. Entretanto, para as intermitentes, de mais de uma hora de duração, ou para as atividades de menor duração e de elevada intensidade como o futebol,  basquetebol, tênis e handebol, poderá apresentar as desvantagens de não conter sódio e carboidratos e de ser insípida, favorecendo a desidratação voluntária e dificultando o processo de equilíbrio hidroeletrolítico. A desidratação voluntária é verificada quando se compara a hidratação com água com a hidratação com bebidas contendo sabor.
 
-## **sódio**
+## **Sódio**
 
 As reservas de eletrólitos, como a concentração de sódio no sangue, por exemplo, são muito bem reguladas pelos rins através de respostas hormonais da aldosterona e vasopressina. Porém, em muitas situações de exercício intenso e prolongado e hábitos alimentares restritivos, justifica-se a adição de alguns eletrólitos às bebidas esportivas, principalmente o sódio, e também cloro e potássio, a qualquer tempo.
 
@@ -237,13 +237,13 @@ Em exercícios prolongados, que ultrapassam uma hora de duração, recomenda-se 
 
 as acompanham. Alguns afirmam que ao chegar ao estômago, a temperatura do líquido ingerido já será próxima da temperatura corporal.
 
-# **cRIaNÇas e aDOlesceNTes**
+# **CRIANÇAS E ADOLESCENTES**
 
 Crianças apresentam  menor taxa de sudorese quando comparadas com os adultos para esforços que se assemelham em intensidade e duração e em condições térmicas idênticas, em ambiente laboratorial. No entanto, elas se  desidratam à semelhança do adulto. A influência da desidratação no desempenho físico ainda não está bem esclarecida.
 
 Nessa população, a palatabilidade é fator importante no estímulo à reposição de água, visto que pesquisas mostram que sua ingestão voluntária aumenta quando são adicionados sabor: sódio (20 a 25mEq/L) e carboidrato (6%), evitando a desidratação.
 
-## **carboidrato**
+## **Carboidrato**
 
 A ingestão de carboidratos durante atividades prolongadas, acima de uma hora, melhora o desempenho e pode retardar a fadiga nas modalidades esportivas que envolvem exercícios intermitentes e de alta intensidade. A ingestão de carboidratos previne a queda da glicemia após duas horas de exercício. Existem estudos indicando que uma bebida com 8% de carboidrato ocasiona maior lentidão na absorção e no esvaziamento gástrico, em comparação com a água e as bebidas que contêm até 6% de carboidrato. Preferencialmente, deve ser utilizada uma mistura de glicose, frutose e sacarose. O uso isolado de frutose pode causar distúrbios gastrintestinais e retardar sua absorção.
 
@@ -261,7 +261,7 @@ O esvaziamento gástrico é facilitado com a ingestão de líquidos com baixo te
 
 A ingestão de bebidas geladas influi apenas na palatabilidade, facilitando sua ingestão. Não existem evidências atuais de que bebidas geladas facilitem a absorção da água ou nutrientes que
 
-# **IDOsOs**
+# **IDOSOS**
 
 Há  diminuição de fluxo sanguíneo cutâneo e da taxa de sudorese com o envelhecimento, atenuada naqueles com estilo de vida ativo.
 
@@ -306,7 +306,7 @@ do esforço seguido de aumento da massa muscular. Do consumo de aminoácidos iso
 |**> 29**|Cancelar qualquer atividade atlética.|
 |_American Acad_|_emy of Pediatrics_, 2000.|
 
-# **III. sUPleMeNTOs alIMeNTaRes**
+# **III. Suplementos alimentares**
 
 ## **Proteínas**
 
@@ -320,13 +320,13 @@ Estudos recomendam que o uso dos suplementos proteicos, como a proteína do soro
 
 Ingestão proteica, após o exercício físico de hipertrofia, favorece o aumento de massa muscular, quando combinado com a ingestão de carboidratos, reduzindo a degradação proteica. A dose recomendada é de 10g de proteínas e 20g de carboidratos. Esse consumo deve estar de acordo com a ingestão proteica e calórica total. O aumento da massa muscular ocorre como consequência do treinamento, assim como a demanda proteica, não sendo o inverso verdadeiro.
 
-## **aminoácidos**
+## **Aminoácidos**
 
 O consumo de aminoácidos, sob a forma de suplementação, tem sido sugerido como estratégia que visa atender a uma solicitação metabólica específica para as necessidades do exercício. A ingestão de aminoácidos essenciais após o treino intenso, adicionados a soluções de carboidratos, determinaria maior recuperação
 
 Os efeitos da suplementação com BCAA no desempenho esportivo são discordantes e a maioria dos estudos realizados parece não mostrar benefícios _,_ não sendo justificável seu consumo com finalidade ergogênica. Outro ponto que carece de confirmação científica é seu uso com objetivo de melhora do sistema imunológico após atividade física prolongada.
 
-## **considerações especiais**
+## **Considerações especiais**
 
 Os aminoácidos de cadeia ramificada (leucina, isoleucina e valina), por serem potentes moduladores da captação de triptofano pelo sistema nervoso central, aumentariam a tolerância ao esforço físico prolongado. Entretanto, esses dados, relatados em alguns estudos, são pouco reprodutivos, não sendo justificável seu consumo com finalidade ergogênica. Outro ponto que carece de comprovação é  seu consumo visando aprimoramento da atividade do sistema imunológico após atividade física intensa. Desse modo, recomenda-se que não seja utilizada a suplementação de aminoácidos de cadeia ramificada com finalidade ergogênica.
 
@@ -336,7 +336,7 @@ Atualmente, não existe evidência científica suficiente demonstrando que a glu
 
 A ornitina e a arginina são aminoácidos que produzem maior secreção de hormônio de crescimento quando oferecidos através de infusão intravenosa, sendo, entretanto, seu consumo por via oral ineficaz. Não é recomendada a suplementação destes aminoácidos.
 
-## **creatina**
+## **Creatina**
 
 A creatina tem sido apontada como o suplemento nutricional de maior eficiência na melhora do desempenho em exercícios de alta intensidade e no aumento de massa muscular. Já seu uso como recurso ergogênico em atividades físicas prolongadas não encontra nenhum suporte na literatura científica. A melhora, ou não, do desempenho em exercícios com predominância aeróbia é pouco documentada.
 
@@ -366,11 +366,11 @@ O uso de b-hidroxi-b-metilbutirato (HMB) tem sido cogitado como um potencial age
 
 Para a população em geral, mesmo quando se trata de atletas de competição, não existe recomendação para  seu uso, devendo prevalecer a orientação de que não se deve usar.
 
-# **Iv. sUBsTÂNcIas lícITas e IlícITas**
+# **IV. SUBSTÂNCIAS lícitas e ilícitas**
 
 Substâncias ilícitas são aquelas cuja utilização, de acordo com a Agência Mundial Antidoping (WADA) e o Comitê Olímpico Internacional (COI), caracteriza uma infração de códigos éticos e disciplinares, podendo ocasionar sanções aos atletas, bem como aos seus técnicos, médicos e dirigentes. A lista atualizada de substâncias e métodos proibidos pode ser obtida no início de janeiro de cada ano, no site da Agencia Mundial Antidoping (www.wada. awa.org) e esclarecimentos adicionais pelo e-mail antidoping@ cob.org.br .
 
-# **I. autorização para uso de substâncias restritas e proibidas**
+# **I. Autorização para uso de substâncias restritas e proibidas**
 
 Existem exceções a serem consideradas, visando às eventuais solicitações de autorizações para uso terapêutico de fármacos que constam na listas de substâncias restritas e proibidas. São exemplos disso o uso de beta2-agonistas e corticosteroides por asmáticos; o uso de diuréticos por portadores de hipertensão arterial sistêmica; e o uso de insulina por diabéticos. Nesses casos, deve ser encaminhada solicitação formal de permissão especial à confederação ou federação do esporte do atleta solicitante.
 
@@ -378,27 +378,27 @@ Uma vez feita, a solicitação poderá ser deferida após análise do diagnósti
 
 O documento solicitando permissão especial deve ser encaminhado à autoridade médica competente 21 dias <u>antes da competição,</u> para que seja devidamente avaliado pela Agência Brasileira Antidoping, que poderá aprová-la, ou não, para eventos nacionais e orientar nos casos de eventos no Exterior.
 
-## **algumas considerações adicionais:**
+## **Algumas considerações adicionais:**
 
-**a) s3:** Beta-2-agonistas, que são drogas proibidas com exceção do formoterol, salbutamol, salmeterol e terbutalina. As demais drogas beta-2- agonistas exigem a solicitação de permissão especial por meio do formulário abreviado (aTUE). Convém ressaltar que concentrações de salbutamol superiores a 1.000ng/ml resulta-
+**a) S3:** Beta-2-agonistas, que são drogas proibidas com exceção do formoterol, salbutamol, salmeterol e terbutalina. As demais drogas beta-2- agonistas exigem a solicitação de permissão especial por meio do formulário abreviado (aTUE). Convém ressaltar que concentrações de salbutamol superiores a 1.000ng/ml resulta-
 
 rão sempre em resultado analítico adverso, ou seja, positivo para doping.
 
-**b) s5:** Diuréticos, que são considerados agentes mascarantes e sua utilização exige permissão especial autorizada, obtida por meio do TUE.
+**b) S5:** Diuréticos, que são considerados agentes mascarantes e sua utilização exige permissão especial autorizada, obtida por meio do TUE.
 
-**c) s8:** Substâncias antes permitidas, que foram incluídas no programa de monitoramento de 2008, portanto atualmente proibidas: bupropiona, cafeína, fenilefrina, fenilpropranolamina, pipradol, pseudoefedrina, sinefrina. São permitidas: adrenalina associada com agentes anestésicos para uso local (ex.: nasal, oftálmico); catina apenas quando a concentração na urina for inferior a 5microgramas/L; efedrina e metilefedrina apenas quando a concentração for inferior a 10 micro gramas/L.
+**c) S8:** Substâncias antes permitidas, que foram incluídas no programa de monitoramento de 2008, portanto atualmente proibidas: bupropiona, cafeína, fenilefrina, fenilpropranolamina, pipradol, pseudoefedrina, sinefrina. São permitidas: adrenalina associada com agentes anestésicos para uso local (ex.: nasal, oftálmico); catina apenas quando a concentração na urina for inferior a 5microgramas/L; efedrina e metilefedrina apenas quando a concentração for inferior a 10 micro gramas/L.
 
-**d) s9:** Glicocorticoides (via oral, retal ou endovenosa), cujo uso exige permissão especial concedida, via TUE. O uso em todas as outras rotas (intra-articular, periarticular, peritendinosa, epidural, intradermal e inalatória) exige permissão obtida por meio do formulário abreviado (aTUE). O uso dermatológico, inclusive iontoforese e fonoforese, é permitido. O mesmo acontece com o uso nasal, oftalmológico, gengival e perianal.
+**d) S9:** Glicocorticoides (via oral, retal ou endovenosa), cujo uso exige permissão especial concedida, via TUE. O uso em todas as outras rotas (intra-articular, periarticular, peritendinosa, epidural, intradermal e inalatória) exige permissão obtida por meio do formulário abreviado (aTUE). O uso dermatológico, inclusive iontoforese e fonoforese, é permitido. O mesmo acontece com o uso nasal, oftalmológico, gengival e perianal.
 
 **e) Álcool e betabloqueadores** são substâncias permitidas em todos os esportes, exceto em alguns que fazem parte de listas especiais. A lista referente ao álcool consta na página 38 e a referente aos betabloqueadores na página 39 da cartilha do COB.
 
 **f) Relação de alguns fármacos permitidos:** para tratamento de asma brônquica, a lista de fármacos permitidos está na página 45; a lista de contraceptivos permitidos na página 47; cremes dermatológicos permitidos, na página 47 da cartilha COB.
 
-**g) aminoácidos, sais minerais, vitaminas:** são permitidos, mas cabe a ressalva de que o uso exige cautela, tendo em vista a possibilidade de que conste intencionalmente na composição substancia proibida não referida no rótulo. Existe ainda a possibilidade de que a substância proibida conste no produto por contaminação.
+**g) Aminoácidos, sais minerais, vitaminas:** são permitidos, mas cabe a ressalva de que o uso exige cautela, tendo em vista a possibilidade de que conste intencionalmente na composição substancia proibida não referida no rótulo. Existe ainda a possibilidade de que a substância proibida conste no produto por contaminação.
 
-# **II. substâncias proibidas (ilícitas)**
+# **II. Substâncias proibidas (ilícitas)**
 
-## **s1. agentes anabólicos.**
+## **S1. Agentes Anabólicos.**
 
 **1.** Esteroides androgênicos anabólicos (EAA):
 
@@ -408,7 +408,7 @@ rão sempre em resultado analítico adverso, ou seja, positivo para doping.
 
 **2.** Outros agentes anabólicos, dentre outros, clembuterol, moduladores seletivos de receptores, androgênicos (MSRAs, “SARMs”), tibolona, zeranol, zilpaterol.
 
-## **s2. Hormônios, substâncias afins e seus fatores de liberação:**
+## **S2. Hormônios, Substâncias Afins e seus Fatores de Liberação:**
 
 **1.** Eritropoietina (EPO);
 
@@ -436,9 +436,9 @@ Suplemento – Rev Bras Med Esporte – Vol. 15, ~~N~~<sup><u>o</u></sup> 3 – 
 
 [Conferir no original](../originais/sbme_modificacoes_dieteticas_suplementos_rbme_2009.pdf#page=8)
 
-**s3. Beta-2- agonistas:** Todos os beta-2-agonistas, tanto isômeros D- como L-, são proibidos.
+**S3. Beta-2- Agonistas:** Todos os beta-2-agonistas, tanto isômeros D- como L-, são proibidos.
 
-## **s4. agentes com atividade anti-estrogênica.**
+## **S4. Agentes com Atividade Anti-Estrogênica.**
 
 **1.** Inibidores da aromatase, dentre outros, anastrozola, letrozola, aminoglutetimida, exemestano, formestano, testolactona.
 
@@ -448,17 +448,17 @@ Suplemento – Rev Bras Med Esporte – Vol. 15, ~~N~~<sup><u>o</u></sup> 3 – 
 
 **4.** Agentes modificadores da função(ões) da miostatina, dentre outros, inibidores da miostatina.
 
-**s5. Diuréticos e Outros agentes Mascarantes:** Diuréticos, epitestosterona, probenecida, inibidores da alfa redutase, (como a finasterida, dutasterida), expansores de plasma (como a albumina, o dextran e o hidroxietilamido) e outras substâncias com efeito(s) biológico(s) similar(es).
+**S5. Diuréticos e Outros Agentes Mascarantes:** Diuréticos, epitestosterona, probenecida, inibidores da alfa redutase, (como a finasterida, dutasterida), expansores de plasma (como a albumina, o dextran e o hidroxietilamido) e outras substâncias com efeito(s) biológico(s) similar(es).
 
 # **III. Métodos proibidos**
 
-## **M1. aumento do carreamento de Oxigênio:**
+## **M1. Aumento do Carreamento de Oxigênio:**
 
 **a.** Doping sanguíneo, incluindo o uso de sangue autólogo, homólogo ou heterólogo, ou de produtos contendo glóbulos vermelhos de qualquer origem.
 
 **b.** Aumento artificial da captação, transporte ou aporte de oxigênio, dentre outros, perfluoroquímicos, efaproxiral (RSR 13) e produtos à base de hemoglobina modificada (como substitutos de sangue com base em hemoglobina e produtos com hemoglobina microencapsulada).
 
-## **M2. Manipulação Química e física:**
+## **M2. Manipulação Química e Física:**
 
 **1.** Manipular ou tentar manipular, visando alterar a integridade e validade das amostras coletadas no controle de dopagem, como, dentre outras possibilidades, a substituição e/ou alteração da urina.
 
@@ -466,21 +466,21 @@ Suplemento – Rev Bras Med Esporte – Vol. 15, ~~N~~<sup><u>o</u></sup> 3 – 
 
 **M3. Doping Genético:** O uso não terapêutico de células, genes, elementos genéticos, ou a modulação da expressão genética, que tenham a capacidade de aumentar o desempenho do atleta, é proibido.
 
-# **Iv. substâncias e métodos proibidos em competição.**
+# **Iv. Substâncias e métodos proibidos em competição.**
 
 Além das categorias S1 a S5 e M1 a M3, definidas anteriormente, que são proibidas em competição, devem ser consideradas:
 
-## **substâncias Proibidas em Geral:**
+## **Substâncias Proibidas em Geral:**
 
-**s6. estimulantes:** Todos os estimulantes são proibidos, incluindo seus isômeros óticos (D- e L-) quando relevantes, exceto derivados de imidazol para uso tópico e aqueles estimulantes incluídos no programa de monitoramento de 2008.
+**S6. Estimulantes:** Todos os estimulantes são proibidos, incluindo seus isômeros óticos (D- e L-) quando relevantes, exceto derivados de imidazol para uso tópico e aqueles estimulantes incluídos no programa de monitoramento de 2008.
 
-**s7. Narcóticos:** Buprenorfina, dextromoramida, diamorfina (heroína), fentanil e seus derivados, hidromorfona, metadona, morfina, oxicodona, oximorfona, pentazocina e petidina.
+**S7. Narcóticos:** Buprenorfina, dextromoramida, diamorfina (heroína), fentanil e seus derivados, hidromorfona, metadona, morfina, oxicodona, oximorfona, pentazocina e petidina.
 
-**s8. canabinoides:** Canabinoides (Exemplos: haxixe e maconha).
+**S8. Canabinoides:** Canabinoides (Exemplos: haxixe e maconha).
 
-**s9. Glicocorticosteroides:** Todos os glicocorticosteroides são proibidos quando administrados por via oral, retal, intramuscular ou endovenosa. Seu uso terapêutico requer a aprovação de uma Isenção de Uso Terapêutico (TUE).
+**S9. Glicocorticosteroides:** Todos os glicocorticosteroides são proibidos quando administrados por via oral, retal, intramuscular ou endovenosa. Seu uso terapêutico requer a aprovação de uma Isenção de Uso Terapêutico (TUE).
 
-## **substâncias Proibidas em Determinados esportes:**
+## **Substâncias Proibidas em Determinados Esportes:**
 
 **P1. Álcool:** Álcool (etanol) é proibido somente em competição, nos esportes abaixo relacionados. A detecção será feita por análise respiratória e/ou pelo sangue. O limite permitido (em valores hematológicos) por cada Federação ou Confederação está indicado entre parênteses.
 
@@ -515,7 +515,7 @@ Além das categorias S1 a S5 e M1 a M3, definidas anteriormente, que são proibi
 |Tiro (proibido também fora de competição)|ISSF, IPC|
 |Vela (somente para os timoneiros em match race)|ISAF|
 
-**substâncias especificadas:** Beta-2-agonistas, quando usados por inalação, exceto o salbutamol superior a 1000ng/ml e clembuterol; Inibidores de alfa-redutase e probenecida; Catina, cropropamida, crotetamida, efedrina, etamivan, famprofazona, fenprometamina, heptaminol, isometepteno, levmetanfetamina, meclofenoxato, p-metilanfetamina, metilefedrina, niquetamida, norfenefrina, octopamina, ortetamina, oxilofrina, propilexedrina, selegilina, sibutramina, tuaminoheptano, e qualquer estimulante não mencionado especificamente na seção S6, quando o atleta preencher as condições lá descritas; Canabinoides; Glicocorticoesteroides; Álcool; Betabloqueadores.
+**Substâncias Especificadas:** Beta-2-agonistas, quando usados por inalação, exceto o salbutamol superior a 1000ng/ml e clembuterol; Inibidores de alfa-redutase e probenecida; Catina, cropropamida, crotetamida, efedrina, etamivan, famprofazona, fenprometamina, heptaminol, isometepteno, levmetanfetamina, meclofenoxato, p-metilanfetamina, metilefedrina, niquetamida, norfenefrina, octopamina, ortetamina, oxilofrina, propilexedrina, selegilina, sibutramina, tuaminoheptano, e qualquer estimulante não mencionado especificamente na seção S6, quando o atleta preencher as condições lá descritas; Canabinoides; Glicocorticoesteroides; Álcool; Betabloqueadores.
 
 **10**
 
@@ -529,7 +529,7 @@ Suplemento – Rev Bras Med Esporte – Vol. 15, ~~N~~<sup><u>o</u></sup> 3 – 
 
 [Conferir no original](../originais/sbme_modificacoes_dieteticas_suplementos_rbme_2009.pdf#page=9)
 
-# **leITURa RecOMeNDaDa PRIMeIRa PUBlIcaÇÃO**
+# **LEITURA RECOMENDADA Primeira Publicação**
 
 - **I. Modificações dietéticas**
 
@@ -619,7 +619,7 @@ Suplemento – Rev Bras Med Esporte – Vol. 15, ~~N~~<sup><u>o</u></sup> 3 – 
 
    16. Wagenmakers AJM. Amino acid supplements to improve athletic performance. Curr Opin Clin Nutr Metab Care 1999;2:539-44.
 
-   **Iv.  Drogas lícitas e ilícitas** 1. American College of Sports Medicine Position Stand on the Use of Blood Doping as an Ergogenic Aid. Med Sci Sports Exerc 1996;28.
+   **IV.  Drogas lícitas e ilícitas** 1. American College of Sports Medicine Position Stand on the Use of Blood Doping as an Ergogenic Aid. Med Sci Sports Exerc 1996;28.
 
    2. American College of Sports Medicine. Use of anabolic androgenic steroids in sport. Med Science Sport Exer 1987;19:534-9.
 
@@ -681,7 +681,7 @@ Suplemento – Rev Bras Med Esporte – Vol. 15, ~~N~~<sup><u>o</u></sup> 3 – 
 
 [Conferir no original](../originais/sbme_modificacoes_dieteticas_suplementos_rbme_2009.pdf#page=10)
 
-# **leITURa RecOMeNDaDa PRIMeIRa RevIsÃO**
+# **LEITURA RECOMENDADA PRIMEIRA REVISÃO**
 
 - **I. Modificações dietéticas**
 
@@ -783,7 +783,7 @@ Marino FE, Kay D, Cannon J. Glycerol hyperhydration fails to improve endurance p
 
 American Academy of Pediatrics. Climatic Heat Stress and the Exercise Child and Adolescent. Pediatrics. 2000;106:158-9.
 
-#### **III.  suplementos alimentares**
+#### **III.  Suplementos alimentares**
 
 Bill Campbell B, Kreider RB, Ziegenfuss T, Bounty PB, Roberts M, Burke D,  et al. International Society of Sports Nutrition Position Stand: Protein and Exercise. J Int Soc of Sports Nutr. 2007; 4:8.
 
@@ -803,7 +803,7 @@ Joyner MJ, Glutamine and Arginine: Immunonutrients and Metabolic Modulators? Exe
 
 Kristensen, Julio Boza and Bente Klarlund Pedersen Karen Krzywkowski, Emil Wolsk Petersen, Kenneth Ostrowski, Jens Halkjær. Effect of glutamine supplementation on exercise-induced changes in lymphocyte function. _Am J Physiol Cell Physiol_ 281:1259-1265, 2001)
 
-#### **Iv.  Drogas lícitas e Ilícitas**
+#### **IV.  Drogas Lícitas e Ilícitas**
 
 Informações Sobre o Uso de Medicamentos no Esporte, 7ª edição, RJ-Brasil, 2008 (www.cob.org.br). N. A. Mark Estes III et al. Task Force 9: Drugs and Performance-Enhancing Substances, in BETHESDA CONFERENCE REPORT. JACC 2005; 45 (8): 1368-9.
 

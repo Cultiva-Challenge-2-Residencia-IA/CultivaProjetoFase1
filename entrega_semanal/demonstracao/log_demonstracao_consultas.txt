@@ -11,7 +11,7 @@ PARTE 1 — AUDITORIA DOS ARTEFATOS DA ENTREGA (BASE CURADA, CHUNKING, EMBEDDING
 4. Estratégia de Embeddings    : intfloat/multilingual-e5-large (1024 dimensões, cosine (L2-normalized vectors))
 5. Banco Vetorial Implementado : ChromaDB (HNSW Cosine Index + SQLite Metadata Store)
    • Persistência em Disco     : data/vector_store/chroma_db
-   • Coleção / Vetores Ativos  : cultiva_nutricao_evidencias_c2abe933927e (1814 vetores persistidos)
+   • Coleção / Vetores Ativos  : cultiva_nutricao_evidencias_c8ab0bbe18ad (1814 vetores persistidos)
 --------------------------------------------------------------------------------------------
 CATÁLOGO DOS DOCUMENTOS-FONTE INDEXADOS (21):
   01. [abeso-posicionamento-tratamento-nutricional-obesidade-2022] (pdf | diretriz | 2022) Posicionamento sobre o tratamento nutricional do sobrepeso... | 497 Trechos | Licença: pendente | Aprovação: aprovado
@@ -119,40 +119,19 @@ DEMONSTRAÇÃO #2 — FLUXO COMPLETO DE RECUPERAÇÃO, FUNDAMENTAÇÃO E RASTREA
     └─ Conteúdo Recuperado : "A contribuição média dos alimentos ultraprocessados para o total de energia consumida variou de menos de 2,0% no primeiro quintil para quase 50,0% no último quintil. A contribuição de todas as categorias de alimentos ultraprocessados aumenta significativamente..."
 
 [ETAPA C — RESPOSTA FUNDAMENTADA NO CONTEÚDO RECUPERADO]
-  • Motor de Síntese : local_extractive_synthesis | Modo: HYBRID_RAG_PLUS_GRAPH_TOOL | Evidência: GUIDELINE_CONSENSUS
+  • Motor de Síntese : ollama:qwen2.5:7b | Modo: HYBRID_RAG_PLUS_GRAPH_TOOL | Evidência: GRADE_C
   • Síntese Direta   :
-    Limitar o consumo de alimentos processados 3
-
-Os ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compota de frutas, pães e queijos – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam [T1]. Em pequenas quantidades, podem ser consumidos como ingredientes de preparações culinárias ou parte de refeições baseadas em alimentos in natura ou minimamente processados.
-
-Evitar o consumo de alimentos ultraprocessados
-
-Devido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados [T1]. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados [T1]. Suas formas de produção, distribuição, comercialização e consumo afetam de modo desfavorável a cultura, a vida social e o meio ambiente.
-
-Comer Com regularidade e atenção, [T1].
+    Os alimentos ultraprocessados são nutricionalmente desbalanceados e tendem a ser consumidos em excesso, substituindo alimentos in natura ou minimamente processados [T1]. A contribuição dos alimentos ultraprocessados para o consumo total de energia aumenta significativamente conforme a frequência de consumo desses alimentos [T3][T4].
   • Mecanismo        :
-    Limitar o consumo de alimentos processados 3
-
-Os ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compota de frutas, pães e queijos – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam [T1]. Em pequenas quantidades, podem ser consumidos como ingredientes de preparações culinárias ou parte de refeições baseadas em alimentos in natura ou minimamente processados [T1]. Evitar o consumo de alimentos ultraprocessados
-
-Devido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados [T1]. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados [T1]. Suas formas de produção, distribuição, comercialização e consumo afetam de modo desfavorável a cultura, a vida social e o meio ambiente [T1]. Comer Com regularidade e atenção, [T1]
-
-CAMINHOS DO GRAFO CAUSAL DE 4 CAMADAS (NetworkX: Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho GRADE):
-- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Azeite de Oliva Extravirgem, Aveia, Arroz/Amido Resfriado e Temperos Naturais (Sem Sal)] ➔ [2. Composto: Ácidos Graxos Monoinsaturados (Ácido Oleico), Fibras Viscosas e Redução de Sódio (< 2g/dia) (Azeite de oliva: ~73g MUFA/100g e 0 mg de potássio (TACO))] ➔ [3. Mecanismo: Melhora da fluidez de membrana e sinalização do receptor de insulina (reduzindo HOMA-IR) + redução da resistência vascular periférica pela restrição de sódio e inflamação endotelial, SEM aportar carga de potássio sérico] ➔ [4. Desfecho (DECREASES): Pressão Arterial e Resistência à Insulina (HOMA-IR) com Segurança na Doença Renal Crônica] | Protocolo: Estratégia segura para trade-off de hipertensão + resistência à insulina + restrição de potássio (DRC): redução de sódio/ultraprocessados + uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente
-- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Peixes Marinhos (Sardinha, Cavalinha e Salmão)] ➔ [2. Composto: Ácidos Graxos Ômega-3 de Cadeia Longa (EPA e DHA) (Sardinha e salmão: 1,2g a 2,5g de EPA+DHA por 100g (TACO / FooDB))] ➔ [3. Mecanismo: Ativação dos receptores nucleares hepáticos PPAR-alfa, estimulando a beta-oxidação peroxissomal/mitocondrial de ácidos graxos e inibindo a lipogênese e secreção hepática de VLDL] ➔ [4. Desfecho (DECREASES): Triglicerídeos Séricos e VLDL-c] | Protocolo: Consumo regular de pescados marinhos ricos em EPA/DHA associado à redução de açúcares livres e frutose industrial
-- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Combinação Arroz com Feijão, Ovos, Carnes Magras, Peixes e Laticínios] ➔ [2. Composto: Leucina e Perfil Completo de Aminoácidos Essenciais (Lisina + Metionina) (Complementação proteica: Feijão fornece Lisina e Arroz fornece Metionina (TACO / Guia Alimentar MS))] ➔ [3. Mecanismo: Atingimento do limiar intracelular de leucina que se liga ao sensor Sestrin2 e ativa a quinase mTORC1, disparando a tradução ribossomal e a síntese proteica miofibrilar (MPS)] ➔ [4. Desfecho (INCREASES): Síntese Proteica Muscular, Hipertrofia e Prevenção de Sarcopenia] | Protocolo: Fracionamento proteico em 3 a 4 refeições diárias (protocolos clínicos avaliam 1,2 a 2,0 g/kg/dia em treinamento resistido ou idosos com função renal preservada) | Contraindicações/Cautelas: Doença renal crônica não dialítica avançada exige controle proteico individualizado por nutricionista
-- ✅ [GRADE_A | CAUSAL_ECR_META_ANALYSIS] [1. Alimento: Frutas, Hortaliças, Feijões e Sementes em Alta Quantidade (Padrão DASH Padrão)] ➔ [2. Composto: Potássio Dietético em Alta Carga (3500 a 4700 mg/dia) (Semente de abóbora: 809 mg K/100g; Feijão preto cozido: 255 mg K/100g (TACO))] ➔ [3. Mecanismo: Estímulo da natriurese renal (excreção de sódio) e hiperpolarização da célula muscular lisa vascular dependente do endotélio] ➔ [4. Desfecho (DECREASES): Pressão Arterial Sistólica e Diastólica (e Potássio Sérico)] | Protocolo: Padrão alimentar DASH reduz PA sistólica em 6 a 11 mmHg em indivíduos com função renal normal | Contraindicações/Cautelas: Doença Renal Crônica (DRC) moderada a avançada (risco de hipercalemia / elevação perigosa do potássio sérico); Uso concomitante de diuréticos poupadores de potássio (espironolactona/amilorida) sem monitoramento médico
+    Não consta nos trechos recuperados.
   • Achados Clínicos :
-    Limitar o consumo de alimentos processados 3
-
-Os ingredientes e métodos usados na fabricação de alimentos processados – como conservas de legumes, compota de frutas, pães e queijos – alteram de modo desfavorável a composição nutricional dos alimentos dos quais derivam [T1]. Em pequenas quantidades, podem ser consumidos como ingredientes de preparações culinárias ou parte de refeições baseadas em alimentos in natura ou minimamente processados [T1]. Evitar o consumo de alimentos ultraprocessados
-
-Devido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados [T1]. Por conta de sua formulação e apresentação, tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados [T1]. Suas formas de produção, distribuição, comercialização e consumo afetam de modo desfavorável a cultura, a vida social e o meio ambiente [T1]. Comer Com regularidade e atenção, [T1] Como se verá no próximo capítulo deste guia, alimentos in natura ou minimamente processados e preparações culinárias feitas com base nesses alimentos e no uso de óleos, gorduras, sal e açúcar propiciam aos brasileiros uma alimentação de qualidade nutricional bastante superior à que seria propiciada por alimentos processados ou ultraprocessados, aos quais se referem as duas próximas recomendações [T2].
+    Os alimentos ultraprocessados são evitados em favor de alimentos in natura ou minimamente processados, pois os primeiros têm uma composição nutricional desfavorável e podem substituir alimentos saudáveis [T1].
 
 [ETAPA D — EVIDÊNCIA RASTREÁVEL DAS FONTES UTILIZADAS NA RESPOSTA]
   [1] [guia-alimentar-populacao-brasileira-2014] Guia alimentar para a população brasileira — Ministério da Saúde (2014), Seção: 'Limitar o ConsUmo (pág. 127)' [T1 p. 127] (Evidência: GUIDELINE_CONSENSUS | Link: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0 | Aprovação: aprovado)
-  [2] [guia-alimentar-populacao-brasileira-2014] Guia alimentar para a população brasileira — Ministério da Saúde (2014), Seção: 'Óleos, gorduras, sal e açúcar (pág. 36)' [T2 p. 36] (Evidência: GUIDELINE_CONSENSUS | Link: https://www.gov.br/saude/pt-br/assuntos/saude-brasil/eu-quero-ter-peso-saudavel/documentos/pdf/guia_alimentar_populacao_brasileira_2ed.pdf | Licença: CC-BY-NC-SA-4.0 | Aprovação: aprovado)
-  [3] [KG_4LAYER_PICO_GRADE] Grafo de Conhecimento de 4 Camadas (NetworkX: 4 cadeias causais Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho)
+  [2] [louzada-ultraprocessados-perfil-nutricional-rsp-2015] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil — Universidade de São Paulo (2015), Seção: 'ANExO (pág. 11)' [T3 p. 11] (Evidência: GRADE_C | Link: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt | DOI: 10.1590/S0034-8910.2015049006132 | Licença: CC-BY-NC-3.0 | Aprovação: aprovado)
+  [3] [louzada-ultraprocessados-perfil-nutricional-rsp-2015] Alimentos ultraprocessados e perfil nutricional da dieta no Brasil — Universidade de São Paulo (2015), Seção: 'RESULTADOS (pág. 4)' [T4 p. 4] (Evidência: GRADE_C | Link: https://www.scielo.br/j/rsp/a/dm9XvfGy88W3WwQGBKrRnXh/?lang=pt | DOI: 10.1590/S0034-8910.2015049006132 | Licença: CC-BY-NC-3.0 | Aprovação: aprovado)
+  [4] [KG_4LAYER_PICO_GRADE] Grafo de Conhecimento de 4 Camadas (NetworkX: 4 cadeias causais Alimento ➔ Composto ➔ Mecanismo ➔ Desfecho)
 --------------------------------------------------------------------------------------------
 
 ############################################################################################

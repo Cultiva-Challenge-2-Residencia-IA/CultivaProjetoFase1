@@ -1,6 +1,6 @@
 # Comparação de modelos de embeddings (issue #15): resultados e decisão
 
-Executada em 24/11/2026. Os critérios foram registrados antes, em [`comparacao_embeddings_issue15_criterios.md`](comparacao_embeddings_issue15_criterios.md) (commit `c762bcf`). Os números completos, inclusive o RR por caso e o cosseno de cada pergunta, estão em [`comparacao_embeddings_issue15.json`](comparacao_embeddings_issue15.json).
+Executada em 24/11/2026 e repetida no mesmo dia depois de juntar a `main`, que trouxe sete perguntas do v1 revisadas (#59) e os Trechos da SBME regenerados (#72). Na repetição, o v2, o "não sei" e os limiares calibrados deram exatamente os mesmos números; só o v1 mudou, e as tabelas abaixo são da repetição. Os critérios foram registrados antes, em [`comparacao_embeddings_issue15_criterios.md`](comparacao_embeddings_issue15_criterios.md) (commit `c762bcf`). Os números completos, inclusive o RR por caso e o cosseno de cada pergunta, estão em [`comparacao_embeddings_issue15.json`](comparacao_embeddings_issue15.json).
 
 Reproduzir:
 
@@ -56,11 +56,24 @@ O E2 melhora 5 casos do `dev` e não piora nenhum frente ao E0, nem no `test`. O
 
 | Id | Recall@4 | MRR | Termos | Guardrail |
 |---|---:|---:|---:|---:|
-| E0 | 0,917 | 0,778 | 0,925 | 1,0 |
-| E1 | 0,917 | 0,833 | 0,909 | 1,0 |
-| **E2** | **1,000** | **0,840** | **0,925** | **1,0** |
+Com as perguntas revisadas na #59 (13 entram na média de recall):
 
-No E2, Q08 sobe de 0 para 0,25 (entra no top-4) e Q14 de 0,5 para 1,0.
+| Id | Recall@4 | MRR | Termos | Guardrail |
+|---|---:|---:|---:|---:|
+| E0 | 0,885 | 0,769 | 0,925 | 1,0 |
+| E1 | 0,885 | 0,808 | 0,909 | 1,0 |
+| **E2** | **0,962** | **0,853** | **0,925** | **1,0** |
+
+RR por pergunta, só onde algum modelo difere:
+
+| Pergunta | E0 | E1 | E2 |
+|---|---:|---:|---:|
+| Q08 | 0,00 | 0,00 | 0,25 |
+| Q10 | 0,50 | 1,00 | **0,33** |
+| Q11 | 0,50 | 0,50 | 1,00 |
+| Q14 | 0,50 | 0,50 | 1,00 |
+
+No E2, Q08 entra no top-4, Q11 e Q14 sobem para 1º lugar e **Q10 piora** (o guia vegetariano da SVB cai de 2º para 3º). Nenhum modelo traz a ABESO esperada na Q09, que fica com recall 0,5 nos três. Antes da #59, com as perguntas antigas, eram 0,917, 0,917 e 1,000 de recall e 0,778, 0,833 e 0,840 de MRR.
 
 ### "Não sei", com o limiar recalibrado por modelo no `dev`
 
@@ -90,8 +103,10 @@ O e5-large é o único em que o cosseno sozinho separa os dois grupos neste conj
 | Id | Dimensões | Modelo em disco | Indexar 1.814 Trechos | Busca densa por pergunta (mediana / p95) |
 |---|---:|---:|---:|---:|
 | E0 | 384 | 0,22 GB | 30 s | 5 / 12 ms |
-| E1 | 768 | 1,0 GB | 3,5 min | 9 / 16 ms |
-| E2 | 1024 | 2,24 GB | **19 min** | 28 / 47 ms |
+| E1 | 768 | 1,0 GB | 3,5 a 5,3 min | 9 / 16 ms |
+| E2 | 1024 | 2,24 GB | **18 a 19 min** | 23 a 28 / 43 a 47 ms |
+
+Os intervalos são das duas execuções, na mesma máquina; o JSON guarda a segunda.
 
 ## Decisão
 
@@ -99,7 +114,7 @@ Pela regra registrada antes da execução:
 
 1. **v2 `dev`:** o E2 tem o maior MRR (0,815) e não cai em nada frente ao E0: o acerto de Trecho vai de 0,944 a 1,000, o completo de 0,722 a 0,944 e a cobertura de termos sobe 2,9 p.p. O E1 também cumpre essa etapa (0,792).
 2. **Conferência no `test`:** o E2 mantém o MRR em 1,000. O **E1 cai 6,25 p.p.** (1,000 para 0,938), acima do limite de 5 p.p., e sai. Sem essa regra, E1 e E2 seriam equivalentes no `dev` (diferença de 0,023, menos de uma pergunta) e a regra 5 escolheria o E1, mais leve.
-3. **Gate do v1:** o E2 melhora recall e MRR, com termos e guardrail iguais.
+3. **Gate do v1:** o E2 melhora recall e MRR, com termos e guardrail iguais. Com as perguntas da #59, ele piora a Q10 (0,50 para 0,33), mas o MRR médio sobe de 0,769 para 0,853.
 4. **"Não sei":** recusa indevida 0 e 96% fora de Nutrição, acima dos mínimos do gate (5% e 85%).
 5. O E2 está a mais de uma pergunta do E0 (0,083 contra 0,056).
 

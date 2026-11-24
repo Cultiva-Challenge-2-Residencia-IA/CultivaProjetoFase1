@@ -16,10 +16,10 @@
       "normalizar_texto": true,
       "dimensao": 384,
       "vetores": 1814,
-      "tempo_indexacao_s": 29.8,
+      "tempo_indexacao_s": 30.5,
       "latencia_busca_densa": {
         "mediana_ms": 5.3,
-        "p95_ms": 11.9
+        "p95_ms": 11.7
       },
       "calibracao_nao_sei": {
         "limiar": 0.435,
@@ -200,8 +200,8 @@
       },
       "v1": {
         "geral": {
-          "mean_doc_recall_at_k": 0.9167,
-          "mean_reciprocal_rank_mrr": 0.7778,
+          "mean_doc_recall_at_k": 0.8846,
+          "mean_reciprocal_rank_mrr": 0.7692,
           "mean_keyword_coverage": 0.925,
           "legal_guardrail_accuracy": 1.0
         },
@@ -215,9 +215,10 @@
           "Q07_MULTIHOP_GAP": 1.0,
           "Q08_MULTIHOP_GAP": 0.0,
           "Q09_LEGAL_TRAP": 0.5,
+          "Q10_LEGAL_TRAP": 0.5,
+          "Q11_LEGAL_TRAP": 0.5,
           "Q12_DIRECT": 1.0,
-          "Q14_NATURAL_GRAPH": 0.5,
-          "Q15_NATURAL_GRAPH": 0.3333
+          "Q14_NATURAL_GRAPH": 0.5
         },
         "top4_por_pergunta": {
           "Q01_DIRECT": [
@@ -274,6 +275,18 @@
             "guia-alimentar-populacao-brasileira-2014",
             "louzada-ultraprocessados-micronutrientes-rsp-2015"
           ],
+          "Q10_LEGAL_TRAP": [
+            "louzada-ultraprocessados-micronutrientes-rsp-2015",
+            "guia-dietas-vegetarianas-svb-2012",
+            "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+            "guia-dietas-vegetarianas-svb-2012"
+          ],
+          "Q11_LEGAL_TRAP": [
+            "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014",
+            "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+            "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+            "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014"
+          ],
           "Q12_DIRECT": [
             "guia-alimentar-populacao-brasileira-2014",
             "guia-alimentar-populacao-brasileira-2014",
@@ -284,12 +297,6 @@
             "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
             "guia-alimentar-populacao-brasileira-2014",
             "guia-dietas-vegetarianas-svb-2012",
-            "guia-alimentar-populacao-brasileira-2014"
-          ],
-          "Q15_NATURAL_GRAPH": [
-            "guia-dietas-vegetarianas-svb-2012",
-            "guia-dietas-vegetarianas-svb-2012",
-            "guia-alimentar-populacao-brasileira-2014",
             "guia-alimentar-populacao-brasileira-2014"
           ]
         }
@@ -351,10 +358,10 @@
       "normalizar_texto": true,
       "dimensao": 768,
       "vetores": 1814,
-      "tempo_indexacao_s": 207.2,
+      "tempo_indexacao_s": 320.4,
       "latencia_busca_densa": {
         "mediana_ms": 9.1,
-        "p95_ms": 16.3
+        "p95_ms": 15.6
       },
       "calibracao_nao_sei": {
         "limiar": 0.495,
@@ -536,8 +543,8 @@
       },
       "v1": {
         "geral": {
-          "mean_doc_recall_at_k": 0.9167,
-          "mean_reciprocal_rank_mrr": 0.8333,
+          "mean_doc_recall_at_k": 0.8846,
+          "mean_reciprocal_rank_mrr": 0.8077,
           "mean_keyword_coverage": 0.9094,
           "legal_guardrail_accuracy": 1.0
         },
@@ -551,9 +558,10 @@
           "Q07_MULTIHOP_GAP": 1.0,
           "Q08_MULTIHOP_GAP": 0.0,
           "Q09_LEGAL_TRAP": 0.5,
+          "Q10_LEGAL_TRAP": 1.0,
+          "Q11_LEGAL_TRAP": 0.5,
           "Q12_DIRECT": 1.0,
-          "Q14_NATURAL_GRAPH": 0.5,
-          "Q15_NATURAL_GRAPH": 1.0
+          "Q14_NATURAL_GRAPH": 0.5
         },
         "top4_por_pergunta": {
           "Q01_DIRECT": [
@@ -610,6 +618,18 @@
             "guia-alimentar-populacao-brasileira-2014",
             "louzada-ultraprocessados-micronutrientes-rsp-2015"
           ],
+          "Q10_LEGAL_TRAP": [
+            "guia-dietas-vegetarianas-svb-2012",
+            "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+            "louzada-ultraprocessados-micronutrientes-rsp-2015",
+            "guia-dietas-vegetarianas-svb-2012"
+          ],
+          "Q11_LEGAL_TRAP": [
+            "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014",
+            "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+            "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+            "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014"
+          ],
           "Q12_DIRECT": [
             "guia-alimentar-populacao-brasileira-2014",
             "guia-alimentar-populacao-brasileira-2014",
@@ -619,12 +639,6 @@
           "Q14_NATURAL_GRAPH": [
             "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
             "guia-alimentar-populacao-brasileira-2014",
-            "guia-dietas-vegetarianas-svb-2012",
-            "guia-alimentar-populacao-brasileira-2014"
-          ],
-          "Q15_NATURAL_GRAPH": [
-            "guia-alimentar-populacao-brasileira-2014",
-            "guia-dietas-vegetarianas-svb-2012",
             "guia-dietas-vegetarianas-svb-2012",
             "guia-alimentar-populacao-brasileira-2014"
           ]
@@ -687,10 +701,10 @@
       "normalizar_texto": true,
       "dimensao": 1024,
       "vetores": 1814,
-      "tempo_indexacao_s": 1127.7,
+      "tempo_indexacao_s": 1072.4,
       "latencia_busca_densa": {
-        "mediana_ms": 27.9,
-        "p95_ms": 47.1
+        "mediana_ms": 23.3,
+        "p95_ms": 43.2
       },
       "calibracao_nao_sei": {
         "limiar": 0.845,
@@ -871,8 +885,8 @@
       },
       "v1": {
         "geral": {
-          "mean_doc_recall_at_k": 1.0,
-          "mean_reciprocal_rank_mrr": 0.8403,
+          "mean_doc_recall_at_k": 0.9615,
+          "mean_reciprocal_rank_mrr": 0.8526,
           "mean_keyword_coverage": 0.925,
           "legal_guardrail_accuracy": 1.0
         },
@@ -886,9 +900,10 @@
           "Q07_MULTIHOP_GAP": 1.0,
           "Q08_MULTIHOP_GAP": 0.25,
           "Q09_LEGAL_TRAP": 0.5,
+          "Q10_LEGAL_TRAP": 0.3333,
+          "Q11_LEGAL_TRAP": 1.0,
           "Q12_DIRECT": 1.0,
-          "Q14_NATURAL_GRAPH": 1.0,
-          "Q15_NATURAL_GRAPH": 0.3333
+          "Q14_NATURAL_GRAPH": 1.0
         },
         "top4_por_pergunta": {
           "Q01_DIRECT": [
@@ -945,6 +960,18 @@
             "guia-alimentar-populacao-brasileira-2014",
             "louzada-ultraprocessados-micronutrientes-rsp-2015"
           ],
+          "Q10_LEGAL_TRAP": [
+            "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+            "louzada-ultraprocessados-micronutrientes-rsp-2015",
+            "guia-dietas-vegetarianas-svb-2012",
+            "guia-dietas-vegetarianas-svb-2012"
+          ],
+          "Q11_LEGAL_TRAP": [
+            "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+            "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+            "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+            "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014"
+          ],
           "Q12_DIRECT": [
             "guia-alimentar-populacao-brasileira-2014",
             "guia-alimentar-populacao-brasileira-2014",
@@ -956,12 +983,6 @@
             "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
             "guia-alimentar-populacao-brasileira-2014",
             "guia-dietas-vegetarianas-svb-2012"
-          ],
-          "Q15_NATURAL_GRAPH": [
-            "guia-dietas-vegetarianas-svb-2012",
-            "guia-dietas-vegetarianas-svb-2012",
-            "guia-alimentar-populacao-brasileira-2014",
-            "guia-alimentar-populacao-brasileira-2014"
           ]
         }
       },

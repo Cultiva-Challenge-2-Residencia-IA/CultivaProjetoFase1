@@ -1,0 +1,14 @@
+# Configuração de conversão do candidato who-package-rehabilitation-musculoskeletal-2023 (issue #87, 21/11/2026).
+# Vinculada ao SHA-256 do PDF. O OCR automático dessas páginas gerava caracteres espúrios de figuras,
+# que variam com a versão do Tesseract e tornavam a regeneração diferente entre máquinas.
+sha256: e6248d68fe4ca7a800e0a5f24d6ea3837cd3df8697a858d5ea48d5b19605e394
+sparse_page_decisions:
+  1: 'Capa: texto nativo com o título completo; o OCR só lia o padrão gráfico; OCR desligado.'
+  2: 'Página em branco; OCR desligado.'
+  3: 'Folha de rosto: texto nativo com o título completo (o OCR acrescentava só o logotipo da OMS); OCR desligado.'
+  6: 'Página sem texto nativo e sem texto no OCR; OCR desligado.'
+  18: 'Página sem texto nativo e sem texto no OCR; OCR desligado.'
+  52: 'Página sem texto nativo e sem texto no OCR; OCR desligado.'
+  68: 'Página sem texto nativo e sem texto no OCR; OCR desligado.'
+  98: 'Página sem texto nativo e sem texto no OCR; OCR desligado.'
+  108: 'Contracapa: sem texto nativo; o OCR só lia o padrão gráfico; OCR desligado.'

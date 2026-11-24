@@ -1,0 +1,13 @@
+# Configuração de conversão do candidato who-diretrizes-atividade-fisica-sedentarismo-2020 (issue #87, 21/11/2026).
+# Vinculada ao SHA-256 do PDF. O OCR automático dessas páginas gerava caracteres espúrios de figuras,
+# que variam com a versão do Tesseract e tornavam a regeneração diferente entre máquinas.
+sha256: 50b66c44e7083cc3752849f301ae1d60d9360d511e34c0c948b39bdf6e13dc88
+sparse_page_decisions:
+  1: 'Capa: texto nativo com o título completo; OCR desligado.'
+  2: 'Página em branco; OCR desligado.'
+  3: 'Folha de rosto: texto nativo com o título completo; OCR desligado.'
+  24: 'Figura de abertura de seção: texto nativo com número da página e cabeçalho; o OCR só lia a ilustração; OCR desligado.'
+  84: 'Figura de abertura de seção: texto nativo com número da página e cabeçalho; o OCR só lia a ilustração; OCR desligado.'
+  93: 'Figura de abertura das referências: texto nativo com o crédito da imagem e o título; OCR desligado.'
+  94: 'Figura de abertura de seção: texto nativo com número da página e cabeçalho; o OCR só lia a ilustração; OCR desligado.'
+  104: 'Contracapa: texto nativo com os ISBN; o OCR só lia a ilustração; OCR desligado.'

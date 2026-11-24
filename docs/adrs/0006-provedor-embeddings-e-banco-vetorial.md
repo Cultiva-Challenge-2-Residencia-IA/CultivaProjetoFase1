@@ -25,13 +25,13 @@ A arquitetura provisória deixa o provedor de embeddings em aberto e pede que el
 
 ## Evidência
 
-Três modelos locais, com ranking, corpus e pré-processamento iguais, no golden v2 (escolha no `dev` e conferência no `test`), no v1 e no conjunto do "não sei":
+Três modelos locais, com ranking, corpus e pré-processamento iguais, no golden v2 (escolha no `dev` e conferência no `test`), no v1 (com as perguntas revisadas na #59) e no conjunto do "não sei":
 
 | Modelo | v2 dev MRR | v2 dev acerto completo | v2 test MRR | v1 MRR | "Não sei" fora de Nutrição | Indexação |
 |---|---:|---:|---:|---:|---:|---:|
-| `paraphrase-multilingual-MiniLM-L12-v2` (anterior) | 0,732 | 0,722 | 1,000 | 0,778 | 96% (0,435) | 30 s |
-| `paraphrase-multilingual-mpnet-base-v2` | 0,792 | 0,778 | 0,938 | 0,833 | 92% (0,495) | 3,5 min |
-| **`multilingual-e5-large`** | **0,815** | **0,944** | **1,000** | **0,840** | **96% (0,845)** | **19 min** |
+| `paraphrase-multilingual-MiniLM-L12-v2` (anterior) | 0,732 | 0,722 | 1,000 | 0,769 | 96% (0,435) | 30 s |
+| `paraphrase-multilingual-mpnet-base-v2` | 0,792 | 0,778 | 0,938 | 0,808 | 92% (0,495) | 3,5 min |
+| **`multilingual-e5-large`** | **0,815** | **0,944** | **1,000** | **0,853** | **96% (0,845)** | **19 min** |
 
 * O e5-large melhora 5 dos 18 casos do `dev` e não piora nenhum, nem no `test`.
 * O mpnet ficou de fora pela conferência no `test` (queda de 6,25 p.p. no MRR, acima do limite de 5 p.p.).

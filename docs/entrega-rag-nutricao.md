@@ -123,20 +123,20 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 
 ### 3.1 Avaliação (benchmark offline)
 
-`run_benchmark.py` sobre as 16 perguntas de `data/benchmark/eval_questions.json`, sem LLM e só com as fontes aprovadas (medido de novo em 24/11/2026, depois da troca do modelo de embeddings da #15; entre parênteses, o valor de 10/11/2026, com o MiniLM e o ranking da #35):
+`run_benchmark.py` sobre as 16 perguntas de `data/benchmark/eval_questions.json`, sem LLM e só com as fontes aprovadas (medido de novo em 24/11/2026, depois da revisão de sete perguntas na #59 e da troca do modelo de embeddings da #15; entre parênteses, o valor com o MiniLM nas mesmas perguntas):
 
 | Métrica | Valor |
 |---|---|
-| Recall@4 por fonte | 100% (91.7%), em 12 das 16 perguntas |
-| MRR | 0.840 (0.778) |
+| Recall@4 por fonte | 96.2% (88.5%), em 13 das 16 perguntas |
+| MRR | 0.853 (0.769) |
 | Cobertura de termos esperados | 92.5% (92.5%) |
 | Acurácia do guardrail legal | 100% |
 
-- As perguntas foram escritas para o `data/raw`. Os ids esperados foram mapeados para as fontes do corpus (Guia por capítulo vira o Guia inteiro). As 4 perguntas que dependiam só do `seed_guidelines` ou do PubMed ficaram fora da média de recall, e o relatório as lista.
+- As perguntas foram escritas para o `data/raw`. Os ids esperados foram mapeados para as fontes do corpus (Guia por capítulo vira o Guia inteiro). As perguntas sem fonte esperada no corpus ficam fora da média de recall (3 desde a revisão da #59, em `data/benchmark/README.md`), e o relatório as lista.
 - O recall agora é por fonte e não por capítulo, então os números **não são comparáveis** aos da versão anterior (93,8% com 47 fontes).
-- A ablação da #5 (`eval/runs/ablacao_seed_issue5.md`) mediu, com a mesma régua, o efeito de devolver o `seed_guidelines` ao índice: recall@4 e cobertura não mudam, e o MRR **cai** de 0,778 para 0,708 (no v2, o MRR por Trecho cai no dev e no test). A saída do `seed` não custou qualidade de busca, e a queda desde a versão anterior vem da troca de base e do mapeamento dos ids. As 7 perguntas do v1 que esperam documentos do `seed` ainda precisam ser revistas.
+- A ablação da #5 (`eval/runs/ablacao_seed_issue5.md`) mediu, com a mesma régua, o efeito de devolver o `seed_guidelines` ao índice: recall@4 e cobertura não mudam, e o MRR **cai** de 0,778 para 0,708 (no v2, o MRR por Trecho cai no dev e no test). A saída do `seed` não custou qualidade de busca, e a queda desde a versão anterior vem da troca de base e do mapeamento dos ids. As 7 perguntas do v1 que esperavam documentos do `seed` foram revistas na #59.
 - Tirar a SBAN do índice não mudou as métricas: ela aparecia em três perguntas (Q08, Q13 e Q16), mas em nenhuma era a fonte esperada, e as fontes que entraram no lugar também não eram.
-- O MRR de 0,840 é o baseline do CI (`eval/baselines/benchmark_offline.json`) desde a troca do modelo de embeddings (#15): o e5-large põe a fonte esperada no top-4 de Q08 e em 1º lugar em Q14. A ablação da #35 mostrou que o reranker por sobreposição de termos pesava cerca de 10 vezes a fusão RRF e decidia o ranking sozinho; com RRF puro sobre BM25 + ChromaDB, o MRR subiu de 0,750 para 0,778 (2 perguntas melhoram, 1 piora). No benchmark v2, o MRR por Trecho foi de 0,740 para 0,814. Os ganhos foram medidos em conjuntos pequenos e são hipótese a confirmar.
+- O MRR de 0,853 é o baseline do CI (`eval/baselines/benchmark_offline.json`) desde a troca do modelo de embeddings (#15): frente ao MiniLM, o e5-large põe a fonte esperada no top-4 de Q08 e em 1º lugar em Q11 e Q14, e piora a Q10 (de 0,50 para 0,33). A ablação da #35 mostrou que o reranker por sobreposição de termos pesava cerca de 10 vezes a fusão RRF e decidia o ranking sozinho; com RRF puro sobre BM25 + ChromaDB, o MRR subiu de 0,750 para 0,778 (2 perguntas melhoram, 1 piora). No benchmark v2, o MRR por Trecho foi de 0,740 para 0,814. Os ganhos foram medidos em conjuntos pequenos e são hipótese a confirmar.
 - O conjunto é pequeno e tem só 3 armadilhas de prescrição. O benchmark v2 é a issue #13.
 
 ## 4. Limitações conhecidas

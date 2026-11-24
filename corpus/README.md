@@ -140,7 +140,7 @@ PDFs reunidos pelo autor da inclusão para cobrir temas perguntados e ausentes d
   - sem OCR, exceto 7 páginas quase vazias (capas e separadores do material do Ministério da Saúde e do protocolo);
   - a maior parte dos alertas de cobertura lexical vem de tabelas (`<br>` dentro das células) e de números de citação colados às palavras. A perda real fica em tabelas e quadros com texto girado, como o formulário de marcadores do protocolo (página 10) e quadros de remédios da diretriz de hipertensão;
   - capas, equipes, declarações de conflito de interesse, sumários, siglas, índices e referências ficam fora dos Trechos (`scripts/config/rag.yaml`).
-- **Windows:** com `core.autocrlf=true`, o Git grava os Markdown com CRLF e o `verify_corpus.py` acusa edição. Os scripts também gravam CRLF no Windows. Nesta inclusão, os derivados foram gerados com LF, como no restante do repositório. O `prepare_rag.py` grava o `jsonl_path` do `geracao.json` com a barra do sistema (`str(Path)`): no Windows sai `corpus\nutricao\rag\…`, que o verificador acha no Windows, mas não no Linux do CI. Os nove caminhos foram corrigidos para `/`; corrigir o script (`as_posix()`) muda o hash dele e exige regenerar os Trechos de todas as fontes, por isso fica para a #88.
+- **Windows:** com `core.autocrlf=true`, o Git grava os Markdown com CRLF e o `verify_corpus.py` acusa edição. Os scripts também gravam CRLF no Windows. Nesta inclusão, os derivados foram gerados com LF, como no restante do repositório. Até a #88, o `prepare_rag.py` gravava o `jsonl_path` do `geracao.json` com a barra do sistema, e no Windows saía `corpus\nutricao\rag\…`, que o Linux do CI não acha. Agora ele grava sempre com `/`, e o `verify_trechos.py` acusa caminho com `\` também no Windows.
 
 
 ## Decisão sobre licenças e uso das fontes
@@ -194,6 +194,7 @@ Decisões de 06/11/2026.
   - **Resultado no Guia:** os Trechos com frase em minúscula depois de ponto caíram de 195 para 6, e os com palavra em caixa irregular, de 63 para 25 (sobram nomes compostos e siglas, mais seis palavras em que o próprio nativo é irregular).
   - **Crispim:** a capitular e a primeira linha da página 1, extraídas fora de ordem, foram refeitas por `replacements`.
   - **Reaprovação:** as 21 fontes aprovadas passaram por `pendente` para a regeneração, porque o script mudou. Só os Markdown do Guia e do Crispim mudaram.
+  - **SBME (issue #72, 21/11/2026):** a opção também foi ligada na SBME, onde saía "sUPleMeNTOs alIMeNTaRes" e "aUMeNTO". Os títulos que ela não alcança (vêm em outra posição no texto nativo e o alinhamento não os acha) foram refeitos por `replacements` com a caixa do nativo, inclusive "IV." nas páginas 7, 9 e 10 (na 8 o próprio PDF tem "Iv."). Os descartes da fonte em `rag.yaml` (créditos e cabeçalho corrido) passaram para a caixa nova. Os Trechos com palavra em caixa irregular no texto ou na seção, fora siglas e nomes (NaCl, mEq, hGH, McArdle, "aTUE" como no PDF), caíram de 35 para 0; os 103 Trechos mantêm id e conteúdo, só com a caixa mudada, e v1, v2 e o gate ficaram iguais.
   - **Saúde Física:** os seis candidatos em PDF (`kind: original_only`, ainda `pendente`) também foram reconvertidos com o script novo, depois da mesclagem da `main`. A opção não vale para eles; só mudaram o hash do script nos relatórios e o texto de OCR das figuras sem decisão de página no WHO 2020 e no WHO 2023 (caracteres espúrios que variam com a versão do Tesseract).
 - **Configuração da ABESO (issue #26, 19/11/2026).**
   - **Notas:** `page_notes` nas 71 páginas com aviso: alertas de tokenização (palavras coladas a citações, palavras de cabeçalho intercaladas em palavras hifenizadas), com todos os números decimais do PDF presentes no Markdown.
@@ -229,7 +230,7 @@ corpus/
 
 Em 19/11/2026, oito dos onze documentos prioritários registrados no manifesto têm original arquivado: seis PDFs e dois HTMLs (a ficha da OMS e o manuscrito JOSPT de dor lombar). Todos os oito originais obtidos foram convertidos em Markdown candidato à revisão. Os arquivos preservam SHA-256 e vínculo entre original e derivado.
 
-As onze fontes estão catalogadas em `manifest.yaml` como `kind: original_only`, inclusive as que têm Markdown candidato. Esse tipo preserva os arquivos e derivados sem gerar Trechos nem entrar no RAG. O `verify_corpus.py` confere formato e hash dos originais, Markdown e relatórios, e informa os originais pendentes; o `prepare_rag.py` não processa esse tipo. Todas seguem com `approval_status: pendente`; obtenção e conversão não são revisão de fidelidade, aprovação de conteúdo nem decisão de uso técnico.
+As onze fontes estão catalogadas em `manifest.yaml` como `kind: original_only`, inclusive as que têm Markdown candidato. Esse tipo preserva os arquivos e derivados sem gerar Trechos nem entrar no RAG. O `verify_corpus.py` confere formato e hash dos originais, Markdown e relatórios, e informa os originais pendentes; o `prepare_rag.py` não processa esse tipo. Quando o `convert_pdfs.py` muda, os candidatos em PDF são regenerados com `convert_pdfs.py --candidatos --overwrite` (ou `--source <id>`), e o verificador também acusa configuração alterada depois da conversão (issue #87). O WHO 2020 e o WHO 2023 têm configuração própria com `sparse_page_decisions` nas páginas de capa, figura e contracapa: o OCR automático só lia ilustrações, com caracteres espúrios que mudavam com a versão do Tesseract, e o texto nativo já tem título, cabeçalhos e ISBN. O Guia de Atividade Física ainda passa por OCR automático em três páginas (capa, verso e contracapa). Todas seguem com `approval_status: pendente`; obtenção e conversão não são revisão de fidelidade, aprovação de conteúdo nem decisão de uso técnico.
 
 | Prioridade | Estado | Observação de obtenção |
 |---|---|---|
@@ -264,6 +265,10 @@ corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download --download-ocr
 
 # Os derivados já estão entregues neste checkout. Para regenerá-los:
 corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --download-ocr --overwrite
+
+# Candidatos de Saúde Física em PDF (kind: original_only): só Markdown e relatório, sem Trechos.
+# Rode depois de qualquer mudança no convert_pdfs.py (issue #87); --source <id> também aceita um candidato.
+corpus/.venv/bin/python corpus/scripts/convert_pdfs.py --candidatos --overwrite
 
 # Verificação dos artefatos locais:
 corpus/.venv/bin/python corpus/scripts/verify_corpus.py

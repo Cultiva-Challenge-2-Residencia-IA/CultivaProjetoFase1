@@ -1,3 +1,33 @@
 # Configuração de conversão de sbme-modificacoes-dieteticas-suplementos-rbme-2009 (issue #26, 19/11/2026).
 # Vinculada ao SHA-256 do PDF; notas por página registram o que foi conferido.
 sha256: 62c7e8d81f47c013e2d5a2ccbd7585a809d83e3fc41a6ad537f36e609dff40c9
+# Caixa do texto nativo no lugar da que o to_markdown perde em versaletes (issue #72).
+restore_case_from_native: true
+# Títulos que o restore_case_from_native não alcança: no texto nativo eles vêm em outra posição da
+# página, e o alinhamento por palavras não os encontra. A caixa nova é a do texto nativo; nas páginas
+# 7, 9 e 10 o nativo tem "IV.", e na 8 o próprio PDF tem "Iv.", que fica (issue #72).
+replacements:
+- page: 1
+  old: MODIfIcaÇões DIeTéTIcas
+  new: Modificações dietéticas
+- page: 1
+  old: avalIaÇÃO NUTRIcIONal
+  new: Avaliação nutricional
+- page: 5
+  old: cRIaNÇas e aDOlesceNTes
+  new: CRIANÇAS E ADOLESCENTES
+- page: 7
+  old: Iv. sUBsTÂNcIas
+  new: IV. sUBsTÂNcIas
+- page: 9
+  old: Iv.  Drogas
+  new: IV.  Drogas
+- page: 10
+  old: Iv.  Drogas
+  new: IV.  Drogas
+- page: 1
+  old: clíNIca MéDIca NO exeRcícIO e NO esPORTe
+  new: Clínica Médica no Exercício e no Esporte
+- page: 10
+  old: leITURa RecOMeNDaDa PRIMeIRa RevIsÃO
+  new: LEITURA RECOMENDADA PRIMEIRA REVISÃO
