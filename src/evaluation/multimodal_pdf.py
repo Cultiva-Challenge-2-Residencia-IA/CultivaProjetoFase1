@@ -64,7 +64,10 @@ def medir(split: str, sufixo: str = "") -> Dict[str, Any]:
         resumo = resumir_pdf(dados).como_dict()
         perguntas = []
         for p in caso["perguntas"]:
-            r = perguntar_pdf(dados, p["pergunta"], buscar=lambda q: retriever.retrieve(q, top_k=3)).como_dict()
+            trechos = retriever.retrieve(p["pergunta"], top_k=3)
+            r = perguntar_pdf(dados, p["pergunta"], buscar=lambda _q, t=trechos: t).como_dict()
+            r["trechos_corpus"] = {f"T{i}": {"fonte": t.chunk.title, "pagina": t.chunk.pagina_pdf,
+                                             "texto": t.chunk.raw_text} for i, t in enumerate(trechos, 1)}
             perguntas.append({**p, "resultado": r, "acertou": _acertou(p["esperado"], r)})
         saidas = [resumo] + [p["resultado"] for p in perguntas]
         proibidos = [t for t in caso.get("nao_pode_conter", []) if any(t in _texto(s) for s in saidas)]
@@ -103,6 +106,19 @@ def planilha(splits: List[str]) -> Path:
     """Todas as frases aceitas, com o texto da fonte citada, para julgar a fidelidade (RF-IA14)."""
     casos = {c["id"]: c for c in json.loads(CASOS.read_text(encoding="utf-8"))["casos"]}
     linhas = []
+    retriever = None
+
+    def trecho(pergunta: str, rotulo: str, resultado: Dict[str, Any]) -> str:
+        """Texto do Trecho do corpus citado; nas rodadas antigas, refaz a mesma busca (determinística)."""
+        nonlocal retriever
+        salvo = resultado.get("trechos_corpus", {}).get(rotulo)
+        if salvo:
+            return f"{salvo['fonte']}, p. {salvo['pagina']}: {salvo['texto']}"
+        if retriever is None:
+            from src.agent.consultant_baseline import NutritionConsultantBaseline
+            retriever = NutritionConsultantBaseline(enable_ollama=False).retriever
+        t = retriever.retrieve(pergunta, top_k=3)[int(rotulo[1:]) - 1].chunk
+        return f"{t.title}, p. {t.pagina_pdf}: {t.raw_text}"
     for split in splits:
         caminho = DIR / f"resultados_pdf_{split}.json"
         if not caminho.exists():
@@ -115,7 +131,7 @@ def planilha(splits: List[str]) -> Path:
                     if f["frase"] == FRASE_NAO_CONSTA:
                         continue
                     fontes = "\n\n".join(f"[{r}] {paginas[int(r[1:]) - 1]}" if r.startswith("D")
-                                         else f"[{r}] trecho do corpus (ver citação)" for r in f["fontes"])
+                                         else f"[{r}] {trecho(pedido, r, s)}" for r in f["fontes"])
                     linhas.append([f"P{len(linhas) + 1:03d}", item["id"], pedido, f["frase"], f["citacao"], fontes, "", ""])
     saida = DIR / "amostra_pdf_para_avaliar.csv"
     with saida.open("w", encoding="utf-8", newline="") as arq:
