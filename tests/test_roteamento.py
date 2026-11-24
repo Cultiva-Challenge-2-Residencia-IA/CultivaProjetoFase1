@@ -59,3 +59,18 @@ def test_regras_acertam_os_casos_claros_do_dev():
     claros = [c for c in casos if c["split"] == "dev" and c["tipo"] == "clara"]
     acertos = sum(sorted(rotear_por_regras(c["mensagem"]).areas) == sorted(c["areas_esperadas"]) for c in claros)
     assert acertos / len(claros) >= 0.85
+
+
+def test_quebrei_e_apaguei_sem_contexto_de_corpo_nao_sao_sinal_de_alerta():
+    # Casos da revisão do PR #100: "quebrei" e "apaguei" em sentido figurado.
+    assert detectar_sinal_de_alerta("Quebrei a dieta no fim de semana, o que faço agora?") == []
+    assert detectar_sinal_de_alerta("Apaguei o app sem querer e perdi meu cardápio") == []
+    assert detectar_sinal_de_alerta("Quebrei meu recorde na corrida!") == []
+    assert detectar_sinal_de_alerta("Apaguei a planilha de treino, como refaço?") == []
+
+
+def test_quebrei_parte_do_corpo_e_apaguei_com_queda_sao_sinal_de_alerta():
+    assert detectar_sinal_de_alerta("Acho que quebrei o pé no treino") == ["lesao_aguda"]
+    assert detectar_sinal_de_alerta("Caí e quebrei o braço jogando bola") == ["lesao_aguda"]
+    assert detectar_sinal_de_alerta("Apaguei durante o treino e caí") == ["desmaio"]
+    assert detectar_sinal_de_alerta("Fraturei o tornozelo correndo") == ["lesao_aguda"]

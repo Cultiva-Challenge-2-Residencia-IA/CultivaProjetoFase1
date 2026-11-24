@@ -203,7 +203,9 @@ class ServicoDeChat:
                               f"[mensagem de risco: {', '.join(categorias)}]", MENSAGEM_ACOLHIMENTO)
         sinais = detectar_sinal_de_alerta(mensagem)
         if sinais:
-            return self._fixa(chat, usuario_id, conversa_id, "alerta", mensagem, MENSAGEM_ALERTA)
+            # Sintoma é dado de saúde: como no risco, ficam só os nomes dos sinais.
+            return self._fixa(chat, usuario_id, conversa_id, "alerta",
+                              f"[sinal de alerta: {', '.join(sinais)}]", MENSAGEM_ALERTA)
         if has_prompt_injection(mensagem):
             return self._fixa(chat, usuario_id, conversa_id, "prompt_injection",
                               "[tentativa de prompt injection]", MENSAGEM_INJECAO)

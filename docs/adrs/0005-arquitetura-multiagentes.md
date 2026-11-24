@@ -25,9 +25,10 @@ A entrega pede um sistema multiagentes. Até a issue #99, o grafo do LangGraph (
   * o Chat geral lê o Histórico dos Chats de área do mesmo Usuário; os Chats de área não leem o geral;
   * cada Agente de área recebe só o Histórico da área dele (RF-IA09), como contexto no prompt, nunca como fonte;
   * até 6 mensagens por chat (`CULTIVA_JANELA_HISTORICO`);
-  * texto sem máscara no SQLite (é a conversa do Usuário); máscara de dados pessoais no que vai ao LLM e ao Langfuse; mensagem de risco guardada só com as categorias;
+  * texto sem máscara no SQLite (é a conversa do Usuário); máscara de dados pessoais no que vai ao LLM e ao Langfuse; mensagem de risco guardada só com as categorias, e mensagem de sinal de alerta só com os nomes dos sinais;
   * guardado até o Usuário apagar (`DELETE /chat/usuarios/{id}` e `.../conversas/{id}`).
 * **Langfuse:** cada Conversa é uma sessão; o id do Usuário vai com hash.
+* **Feedback (RF-IA15):** cada resposta de Agente de área do `/chat/*` entra no registro de rastreabilidade com o seu `response_id`, como no `/consult`.
 
 ## Evidência
 
@@ -48,7 +49,7 @@ Critérios escritos antes da medição em `eval/multiagentes/criterios.md`; resu
 * A reescrita e o Sincronizador acrescentam chamadas ao LLM local: latência maior no Chat geral.
 * O Histórico em texto puro é tratamento de dado pessoal de saúde; precisa entrar no RIPD, com retenção e exclusão.
 * O corpus de Saúde Física está quase todo em inglês; as respostas saem em português, e as citações literais ficam no idioma da fonte.
-* As 18 fontes de Saúde Física (17 do corpus e o ACSM 2026) foram aprovadas por decisão do mantenedor (feliperodri0) em 24/11/2026, sem a revisão por amostra de páginas do protocolo de Nutrição.
+* As 18 fontes de Saúde Física (17 do corpus e o ACSM 2026) foram aprovadas pelo mantenedor (feliperodri0) em 24/11/2026, depois da conferência dos derivados contra os originais. Licença restritiva ou `pendente` não bloqueia o uso, pelo aceite de risco de 06/11/2026.
 * Os casos de avaliação têm o mesmo autor do código.
 
 ## Revisão

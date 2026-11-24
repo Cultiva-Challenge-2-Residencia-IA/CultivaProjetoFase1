@@ -271,3 +271,12 @@ def test_citacoes_viram_notas_no_fim_do_paragrafo(tmp_path, agentes):
     assert resposta.texto.rstrip().endswith("¹")
     assert resposta.citacoes[0].startswith("¹ ")
     assert "[T1]" in resposta.texto_com_marcadores
+
+
+def test_sinal_de_alerta_guarda_so_os_sinais_no_historico(tmp_path, agentes):
+    servico = _servico(tmp_path, agentes)
+    mensagem = "Senti dor no peito forte correndo"
+    servico.enviar(CHAT_GERAL, "u1", "c1", mensagem)
+    guardadas = " ".join(m.texto for m in servico.historico.recentes("u1", "c1", limite=10))
+    assert mensagem not in guardadas
+    assert "[sinal de alerta: dor_no_peito]" in guardadas

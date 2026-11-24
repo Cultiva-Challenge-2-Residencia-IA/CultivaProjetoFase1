@@ -20,18 +20,25 @@ MENSAGEM_ALERTA = (
     "antes de você voltar a treinar."
 )
 
+# "Quebrei" e "apaguei" só contam com contexto de corpo ou de queda: "quebrei a dieta",
+# "quebrei meu recorde" e "apaguei o app" não são sinal de alerta.
+_PARTE_DO_CORPO = (r"(o |a |os |as |meu |minha |um |uma )?(braco|perna|pe|mao|dedo|punho|tornozelo|joelho|"
+                   r"cotovelo|ombro|clavicula|costela|nariz|quadril|osso|tibia|femur|canela)s?")
+_APAGUEI_COM_CONTEXTO = (r"apaguei (e |e ca\w*|na |no |durante|depois|correndo|treinando|pedalando|nadando|"
+                         r"de repente|por alguns)|ca\w* e apaguei")
+
 _INTENSO = r"(forte|fortes|muit[oa]|intens[oa]|anormal|desproporcional|nao consigo respirar|sufoc\w*)"
 
 SINAIS_DE_ALERTA = [
     ("dor_no_peito", re.compile(r"\b(dor|aperto|pressao|queimacao)\w* (forte |intensa )?no peito\b")),
-    ("desmaio", re.compile(r"\b(desmai\w*|perdi (os )?sentidos|apaguei)\b")),
+    ("desmaio", re.compile(rf"\b(desmai\w*|perdi (os )?sentidos|{_APAGUEI_COM_CONTEXTO})\b")),
     ("falta_de_ar", re.compile(rf"\bfalta de ar\b.*\b{_INTENSO}\b|\b{_INTENSO}\b.*\bfalta de ar\b")),
     ("palpitacao_com_tontura", re.compile(
         r"\b(palpita\w*|coracao disparad\w*|coracao acelerad\w*)\b.*\b(tontura|tont[oa]|vista escur\w*)\b"
         r"|\b(tontura|tont[oa]|vista escur\w*)\b.*\b(palpita\w*|coracao disparad\w*|coracao acelerad\w*)\b")),
     ("lesao_aguda", re.compile(
         r"\b(torci|tor[cç]\w* o|estal\w*|rompi\w*|ouvi um estalo)\b.*\b(inch\w*|roxo|nao consigo (apoiar|pisar|mexer|andar|dobrar))\b"
-        r"|\b(fratur\w*|quebrei)\b")),
+        rf"|\b(fratur\w*|quebrei {_PARTE_DO_CORPO})\b")),
 ]
 
 

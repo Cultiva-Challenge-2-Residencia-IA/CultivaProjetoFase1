@@ -117,8 +117,12 @@ def chat_endpoint(chat: str, pedido: MensagemDoChat) -> RespostaDoChat:
     chat = chat.replace("-", "_")
     if chat not in CHATS:
         raise HTTPException(status_code=404, detail=f"Chat desconhecido. Use: {', '.join(CHATS)}.")
-    return get_servico_de_chat().enviar(chat, pedido.usuario_id, pedido.conversa_id, pedido.mensagem,
-                                        top_k=pedido.top_k)
+    resposta = get_servico_de_chat().enviar(chat, pedido.usuario_id, pedido.conversa_id, pedido.mensagem,
+                                            top_k=pedido.top_k)
+    # RF-IA15: cada resposta de Agente de área entra no registro, como no /consult, para aceitar feedback.
+    for resposta_da_area in resposta.respostas.values():
+        save_response_trace(resposta_da_area)
+    return resposta
 
 
 @app.delete("/chat/usuarios/{usuario_id}/conversas/{conversa_id}")
