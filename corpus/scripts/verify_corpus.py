@@ -39,7 +39,11 @@ def verify() -> None:
                 text = markdown.read_text(encoding="utf-8")
                 if original.suffix.lower() == ".pdf":
                     if report["script_sha256"] != sha256(Path(__file__).with_name("convert_pdfs.py")):
-                        raise ValueError("Script mudou após a conversão; regenerar ou registrar revisão separadamente.")
+                        raise ValueError("Script mudou após a conversão; regenere os candidatos com "
+                                         "convert_pdfs.py --candidatos --overwrite.")
+                    if (source.get("conversion_config")
+                            and report["config_sha256"] != sha256(repo_path(source["conversion_config"]))):
+                        raise ValueError(f"Configuração mudou após a conversão: {source['id']}")
                     with pymupdf.open(original) as doc:
                         count = len(doc)
                     pages = [int(n) for n in re.findall(r"<!-- PDF_PAGE: (\d+) -->", text)]

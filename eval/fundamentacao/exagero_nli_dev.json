@@ -1,0 +1,803 @@
+{
+  "modelo": "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7",
+  "split": "dev",
+  "resumo": {
+    "limiar": 0.0717,
+    "frases": 87,
+    "sustentadas": 73,
+    "parciais": 14,
+    "parciais_achadas": 2,
+    "taxa_parciais_achadas": 0.143,
+    "remocao_indevida": 7,
+    "taxa_remocao_indevida": 0.096,
+    "taxa_sustentadas_antes": 0.839,
+    "taxa_projetada": 0.846,
+    "falhas": 0,
+    "segundos_mediana": 3.55
+  },
+  "frases": [
+    {
+      "id": "v4-F001",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Alimentos processados são definidos como produtos relativamente simples e antigos fabricados essencialmente com a adição de sal ou açúcar (ou outra substância de uso culinário como óleo ou vinagre) a um alimento in natura ou minimamente processado [T3].",
+      "pontuacao": 0.1073,
+      "segundos": 3.13,
+      "veredito": true
+    },
+    {
+      "id": "v4-F002",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A abordagem do fluxograma visa direcionar as orientações alimentares com base nas respostas obtidas ao aplicar o formulário de marcadores de consumo alimentar do SISVAN durante a consulta individual [T2].",
+      "pontuacao": 0.9985,
+      "segundos": 3.65,
+      "veredito": true
+    },
+    {
+      "id": "v4-F003",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Foi observada uma relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA [T2].",
+      "pontuacao": 0.1841,
+      "segundos": 4.48,
+      "veredito": true
+    },
+    {
+      "id": "v4-F004",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A comparação entre alimentos ultraprocessados e alimentos processados mostra contrastes menos evidentes com relação ao teor de micronutrientes, tendendo a desfavorecer [T4].",
+      "pontuacao": 0.9756,
+      "segundos": 1.13,
+      "veredito": true
+    },
+    {
+      "id": "v4-F005",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A combinação de arroz e feijão é considerada o prato típico do brasileiro, sendo acessível e possuindo um excelente perfil de nutrientes [T3].",
+      "pontuacao": 0.9858,
+      "segundos": 3.15,
+      "veredito": true
+    },
+    {
+      "id": "v4-F006",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "Foram citadas 16 barreiras para o consumo de frutas e 17 barreiras para o consumo de verduras ou legumes, de acordo com os entrevistados [T1].",
+      "pontuacao": 0.9976,
+      "segundos": 1.23,
+      "veredito": true
+    },
+    {
+      "id": "v4-F008",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Quando da prescrição dietética, orientação para consumo ou compra institucional, havendo necessidade de mencionar aos indivíduos e coletividades as marcas de produtos, empresas ou indústrias, o nutricionista deverá apresentar mais de uma opção, quando disponível [T3].",
+      "pontuacao": 0.9517,
+      "segundos": 3.55,
+      "veredito": true
+    },
+    {
+      "id": "v4-F010",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Ácidos orgânicos como cítrico, málico e tartárico são fatores que estimulam a absorção de ferro não-heme [T2].",
+      "pontuacao": 0.9932,
+      "segundos": 5.04,
+      "veredito": true
+    },
+    {
+      "id": "v4-F015",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Mulheres com Índice de Massa Corporal (IMC) entre 27 e 34,9 kg/m foram submetidas a uma dieta de 1.200 kcal/d, podendo ou não utilizar Substitutos de Refeição (SR) [T3].",
+      "pontuacao": 0.0077,
+      "segundos": 3.04,
+      "veredito": false
+    },
+    {
+      "id": "v4-F018",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Na dieta cetogênica, a restrição de carboidratos em quantidades inferiores a 50 gramas por dia induz a produção hepática de corpos cetônicos, como acetoacetato e beta-hidroxibutirato a partir de ácidos graxos, que servem como fonte alternativa de energia [T3].",
+      "pontuacao": 0.9829,
+      "segundos": 4.66,
+      "veredito": true
+    },
+    {
+      "id": "v4-F019",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Quando utilizados com moderação em preparações culinárias baseadas em alimentos in natura ou minimamente processados, óleos, gorduras, sal e açúcar ajudam a diversificar e tornar a alimentação mais saborosa sem causar desequilíbrio nutricional [T1].",
+      "pontuacao": 0.9727,
+      "segundos": 2.95,
+      "veredito": true
+    },
+    {
+      "id": "v4-F020",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "Não há evidências clínicas de que suplementos contendo Camellia sinensis possam ser indicados para redução de peso [T4].",
+      "pontuacao": 0.9917,
+      "segundos": 2.42,
+      "veredito": true
+    },
+    {
+      "id": "v4-F021",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Praticantes de musculação frequentemente apresentam uma alimentação rica em proteína, podendo exceder as recomendações, o que é atribuído a modismos, falta de informação e/ou orientação inadequada [T1].",
+      "pontuacao": 0.9712,
+      "segundos": 2.29,
+      "veredito": true
+    },
+    {
+      "id": "v4-F022",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "É recomendado optar por água, leite e frutas no lugar de refrigerantes, bebidas lácteas e biscoitos recheados [T1][T2].",
+      "pontuacao": 0.9976,
+      "segundos": 9.53,
+      "veredito": true
+    },
+    {
+      "id": "v4-F023",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "Uma bebida com 8% de carboidrato ocasiona maior lentidão na absorção e no esvaziamento gástrico, em comparação com a água e as bebidas que contêm até 6% de carboidrato [T1].",
+      "pontuacao": 0.066,
+      "segundos": 5.0,
+      "veredito": false
+    },
+    {
+      "id": "v4-F025",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A presença de legumes e verduras foi priorizada na seleção de exemplos de almoços e jantares para atender ao desejável consumo regular desses alimentos [T1].",
+      "pontuacao": 0.3215,
+      "segundos": 3.69,
+      "veredito": true
+    },
+    {
+      "id": "v4-F026",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Observam-se efeitos metabólicos favoráveis da suplementação com proteína do soro do leite, como aumento da liberação de hormônios, incluindo peptídeo semelhante ao glucagon 1 (GLP-1), leptina e colecistoquinina e a redução da grelina, alterações relacionadas à saciedade, o que pode resultar na redução de peso [T2].",
+      "pontuacao": 0.2173,
+      "segundos": 5.74,
+      "veredito": true
+    },
+    {
+      "id": "v4-F027",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A tabela detalha o percentual de consumo adequado por sexo e região, indicando que para o total, o consumo adequado foi de 7,3% (Masculino: 5,0%; Feminino: 9,4%) [T2][T3][T4].",
+      "pontuacao": 0.0345,
+      "segundos": 17.02,
+      "veredito": false
+    },
+    {
+      "id": "v4-F029",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O cálcio é um fator que inibe a absorção de ferro heme e não-heme [T2][T3].",
+      "pontuacao": 0.9893,
+      "segundos": 8.93,
+      "veredito": true
+    },
+    {
+      "id": "v4-F030",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "O consumo de leguminosas, como feijão, deve ser alternado com outros tipos de feijão e leguminosas para ampliar o aporte de nutrientes [T3].",
+      "pontuacao": 0.9883,
+      "segundos": 4.57,
+      "veredito": true
+    },
+    {
+      "id": "v4-F031",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "É preciso cautela ao se fazer generalizações, pois não se pode afirmar que a amostra pesquisada em 2015 é representativa da população atual de Cambé, PR [T2].",
+      "pontuacao": 0.9668,
+      "segundos": 3.13,
+      "veredito": true
+    },
+    {
+      "id": "v4-F033",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A mistura de feijão com arroz aparece em quase todos os almoços selecionados, refletindo a realidade alimentar da maioria da população brasileira que prioriza alimentos in natura ou minimamente processados [T2].",
+      "pontuacao": 0.9888,
+      "segundos": 3.55,
+      "veredito": true
+    },
+    {
+      "id": "v4-F034",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Dietas de Muito Baixas Calorias (VLCDs) são consideradas eficazes para perda de peso no curto prazo, mas sua eficácia em longo prazo (1 ano ou mais) não foi observada [T1].",
+      "pontuacao": 0.9932,
+      "segundos": 3.96,
+      "veredito": true
+    },
+    {
+      "id": "v4-F035",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Os alimentos nos países de alta renda e que, naqueles de renda média, como o Brasil, a velocidade de crescimento de suas vendas é muito alta e compatível com um cenário de hegemonia em futuro não muito distante [T3].",
+      "pontuacao": 0.6821,
+      "segundos": 2.14,
+      "veredito": true
+    },
+    {
+      "id": "v4-F036",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "A ingestão de carboidratos durante atividades prolongadas, acima de uma hora, melhora o desempenho e pode retardar a fadiga [T1].",
+      "pontuacao": 0.2159,
+      "segundos": 4.49,
+      "veredito": true
+    },
+    {
+      "id": "v4-F037",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Os sintomas emocionais de ansiedade, depressão e estresse podem influenciar a alimentação emocional, embora a relação encontrada em um estudo específico tenha sido baixa, mas significativa [T1].",
+      "pontuacao": 0.9844,
+      "segundos": 2.76,
+      "veredito": true
+    },
+    {
+      "id": "v4-F038",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Diversos Ensaios Clínicos Randomizados (RCTs) mostram que a dieta low carb pode ser mais efetiva em relação à dieta pobre em gordura na perda de peso [T1].",
+      "pontuacao": 0.9844,
+      "segundos": 3.71,
+      "veredito": true
+    },
+    {
+      "id": "v4-F040",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A recomendação de ingestão de vitamina B12 para seres humanos após os 14 anos de idade (fora do período de gestação ou lactação) é de 2,4 mcg/dia [T4].",
+      "pontuacao": 0.1458,
+      "segundos": 4.37,
+      "veredito": true
+    },
+    {
+      "id": "v4-F041",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O consumo de dietas low carb pode estar associado a um aumento nas concentrações plasmáticas de LDL-colesterol [T2].",
+      "pontuacao": 0.9971,
+      "segundos": 3.17,
+      "veredito": true
+    },
+    {
+      "id": "v4-F042",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "A suplementação de ferro deve ser feita separadamente do cálcio e de alimentos ricos em fitatos e polifenóis [T4].",
+      "pontuacao": 0.7827,
+      "segundos": 4.8,
+      "veredito": true
+    },
+    {
+      "id": "v4-F043",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Ações que ampliem o conhecimento da população sobre a importância do consumo desses alimentos para a saúde poderiam aumentar seu consumo [T4].",
+      "pontuacao": 0.9883,
+      "segundos": 1.63,
+      "veredito": true
+    },
+    {
+      "id": "v4-F044",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Os indicadores de consumo foram avaliados em 54.369 indivíduos com idade ≥18 anos, residentes nas capitais brasileiras e no Distrito Federal [T1].",
+      "pontuacao": 0.9126,
+      "segundos": 3.22,
+      "veredito": true
+    },
+    {
+      "id": "v4-F045",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "Um estudo com pacientes com Diabetes Mellitus tipo 2 (DM2) com IMC ≥ 27,0 kg/m e HbA1c ≥ 7,0%, que recebeu orientações nutricionais mais detalhadas e redução de 500 kcal/dia, não apresentou diferença significativa em relação ao grupo controle após 3 meses quanto a glicose em jejum ou A1c [T1].",
+      "pontuacao": 0.9961,
+      "segundos": 3.93,
+      "veredito": true
+    },
+    {
+      "id": "v4-F046",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A análise detalhada por região e cidade mostra os percentuais de consumo adequado por sexo, como em João Pessoa, onde o total foi de 4,1% (Masculino: 3,1%; Feminino: 5,1%) [T2].",
+      "pontuacao": 0.0157,
+      "segundos": 5.53,
+      "veredito": false
+    },
+    {
+      "id": "v4-F048",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A substituição de refeições tradicionais baseadas em alimentos in natura ou minimamente processados por alimentos ultraprocessados está associada a prejuízos à saúde [T2].",
+      "pontuacao": 0.998,
+      "segundos": 1.36,
+      "veredito": true
+    },
+    {
+      "id": "v4-F050",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O último capítulo do Guia Alimentar refere-se aos possíveis obstáculos para cumprir as recomendações, como informação, oferta, custo, habilidades culinárias, tempo e publicidade, e sugere formas de superação no âmbito individual e coletivo [T3].",
+      "pontuacao": 0.9932,
+      "segundos": 3.77,
+      "veredito": true
+    },
+    {
+      "id": "v4-F051",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Para algumas pessoas, levar comida feita em casa (“marmita”) para o local de trabalho ou estudo pode ser outra boa opção [T4].",
+      "pontuacao": 0.9238,
+      "segundos": 2.97,
+      "veredito": true
+    },
+    {
+      "id": "v4-F052",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A análise descritiva de uma amostra de entrevistados que utilizavam suplementação alimentar mostrou que a dieta apresentou-se hiperprotéica (100%) [T2].",
+      "pontuacao": 0.9873,
+      "segundos": 4.11,
+      "veredito": true
+    },
+    {
+      "id": "v4-F053",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Alimentos ultraprocessados tendem a ser consumidos em excesso e a substituir alimentos in natura ou minimamente processados por conta de sua formulação e apresentação [T3].",
+      "pontuacao": 0.9932,
+      "segundos": 2.05,
+      "veredito": true
+    },
+    {
+      "id": "v4-F054",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Um estudo avaliou o teor de metais em extratos de plantas prescritas como suplementos para emagrecer, entre elas Camellia sinensis, Cordia ecalyculata e outros [T4].",
+      "pontuacao": 0.0229,
+      "segundos": 2.58,
+      "veredito": false
+    },
+    {
+      "id": "v4-F055",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O fluxograma é um formato de apoio à prática clínica, destinado a profissionais de nível superior no âmbito do atendimento clínico individual [T2].",
+      "pontuacao": 0.9951,
+      "segundos": 3.49,
+      "veredito": true
+    },
+    {
+      "id": "v4-F056",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Para manter o indivíduo sem deficiência de vitamina B12, o nível sérico deve ficar acima de 490 pg/mL [T1].",
+      "pontuacao": 0.1484,
+      "segundos": 5.08,
+      "veredito": true
+    },
+    {
+      "id": "v4-F058",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Uma das etapas do fluxograma avalia o consumo de feijão, que é um marcador de uma das preparações culinárias brasileiras e também um marcador do consumo de uma refeição [T4].",
+      "pontuacao": 0.9985,
+      "segundos": 4.11,
+      "veredito": true
+    },
+    {
+      "id": "v4-F059",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Para atividades que duram mais de uma hora, é recomendado repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l [T2].",
+      "pontuacao": 0.8477,
+      "segundos": 4.84,
+      "veredito": true
+    },
+    {
+      "id": "v4-F060",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Muitos RCTs, tanto de curto quanto de longo prazo, indicam que a perda de peso com os dois tipos de dieta (low carb e pobre em gordura) é semelhante [T1].",
+      "pontuacao": 0.9814,
+      "segundos": 3.72,
+      "veredito": true
+    },
+    {
+      "id": "v5-F002",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Sugere-se que a relação entre sintomas emocionais e alimentação emocional possa ser melhor compreendida com novos estudos que considerem variáveis mediadoras como a regulação emocional [T2][T3].",
+      "pontuacao": 0.9985,
+      "segundos": 7.98,
+      "veredito": true
+    },
+    {
+      "id": "v5-F003",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "Para indivíduos com IMC entre 27 e 34,9 kg/m, foi estudada uma dieta de 1.200 kcal/d, onde um grupo foi orientado a seguir dieta contendo 50% a 55% do valor energético total da dieta (VET) de carboidratos, 15% a 20% do VET de proteínas e 30% do VET de gorduras [T3].",
+      "pontuacao": 0.9292,
+      "segundos": 3.53,
+      "veredito": true
+    },
+    {
+      "id": "v5-F004",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A abordagem do protocolo é organizada em formato de fluxograma para direcionar as orientações alimentares ao usuário [T2].",
+      "pontuacao": 0.998,
+      "segundos": 2.89,
+      "veredito": true
+    },
+    {
+      "id": "v5-F005",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Quando da prescrição dietética, orientação para consumo ou compra institucional, havendo necessidade de mencionar aos indivíduos e coletividades as marcas de produtos, empresas ou indústrias, o nutricionista deverá apresentar mais de uma opção, quando disponível [T3].",
+      "pontuacao": 0.9517,
+      "segundos": 3.37,
+      "veredito": true
+    },
+    {
+      "id": "v5-F006",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Os indicadores mostraram consumo insuficiente de frutas e hortaliças por ambos os sexos [T1].",
+      "pontuacao": 0.8657,
+      "segundos": 3.04,
+      "veredito": true
+    },
+    {
+      "id": "v5-F009",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O Guia Alimentar para a População Brasileira possui dez passos para uma alimentação adequada e saudável, incluindo fazer de alimentos in natura ou minimamente processados a base da alimentação e evitar o consumo de alimentos ultraprocessados [T4].",
+      "pontuacao": 0.0851,
+      "segundos": 5.76,
+      "veredito": true
+    },
+    {
+      "id": "v5-F010",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Não há toxicidade por uso excessivo de vitamina, seja proveniente de suplementos, seja de alimentos enriquecidos [T4].",
+      "pontuacao": 0.1656,
+      "segundos": 3.61,
+      "veredito": true
+    },
+    {
+      "id": "v5-F011",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Em um estudo, foi observada uma relação estatística significativa entre o uso de suplementos alimentares e o consumo de proteínas acima do percentual recomendado pela RDA [T2].",
+      "pontuacao": 0.9995,
+      "segundos": 4.27,
+      "veredito": true
+    },
+    {
+      "id": "v5-F012",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "Em uma dieta cetogênica, os carboidratos fornecem de 5% a 10% do VCT ou menos que 50 gramas ao dia [T3].",
+      "pontuacao": 0.9634,
+      "segundos": 3.71,
+      "veredito": true
+    },
+    {
+      "id": "v5-F013",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O consumo excessivo de sódio e de gorduras saturadas aumenta o risco de doenças do coração, enquanto o consumo excessivo de açúcar aumenta o risco de cárie dental, de obesidade e de várias outras doenças crônicas [T2].",
+      "pontuacao": 0.0015,
+      "segundos": 5.21,
+      "veredito": false
+    },
+    {
+      "id": "v5-F014",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Em uma análise descritiva de entrevistados que utilizavam suplementação alimentar, a dieta foi classificada como hiperprotéica [T2].",
+      "pontuacao": 0.9253,
+      "segundos": 3.61,
+      "veredito": true
+    },
+    {
+      "id": "v5-F017",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "O uso de óleos, gorduras, sal e açúcar em preparações culinárias deve ser feito com moderação e apropriadamente combinado com alimentos in natura ou minimamente processados para permitir a criação de preparações culinárias variadas, saborosas e ainda nutricionalmente balanceadas [T4].",
+      "pontuacao": 0.9678,
+      "segundos": 2.95,
+      "veredito": true
+    },
+    {
+      "id": "v5-F018",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Todo vegetariano, consuma ou não derivados animais, deve ser avaliado quanto ao nível de B12, e todo indivíduo que come carne também deve ter o nível sanguíneo avaliado devido à elevada prevalência de deficiência nos onívoros [T2].",
+      "pontuacao": 0.9961,
+      "segundos": 2.98,
+      "veredito": true
+    },
+    {
+      "id": "v5-F019",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Dietas de Muito Baixas Calorias (VLCD) são consideradas eficazes para perda de peso em curto prazo, mas sua eficácia em longo prazo (1 ano ou mais) não é observada [T1].",
+      "pontuacao": 0.9932,
+      "segundos": 3.66,
+      "veredito": true
+    },
+    {
+      "id": "v5-F022",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Para atletas do sexo masculino, praticantes de modalidades de longa duração, os consumos podem variar de 3.000 a 5.000kcal por dia [T3].",
+      "pontuacao": 0.9956,
+      "segundos": 3.72,
+      "veredito": true
+    },
+    {
+      "id": "v5-F023",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A mistura de feijão com arroz aparece em quase todos os almoços selecionados, refletindo a realidade alimentar da maioria dos brasileiros que priorizam alimentos in natura ou minimamente processados [T2].",
+      "pontuacao": 0.9746,
+      "segundos": 3.27,
+      "veredito": true
+    },
+    {
+      "id": "v5-F024",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "Foram citadas 16 barreiras para o consumo de frutas e 17 barreiras para o consumo de verduras ou legumes, conforme observações dos entrevistados [T1].",
+      "pontuacao": 0.9946,
+      "segundos": 1.14,
+      "veredito": true
+    },
+    {
+      "id": "v5-F025",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "É vedado ao nutricionista prescrever, indicar, manifestar preferência ou associar sua imagem intencionalmente para divulgar marcas de produtos alimentícios, suplementos nutricionais, fitoterápicos, utensílios, equipamentos, serviços, laboratórios, farmácias, empresas ou indústrias ligadas às atividades de alimentação e nutrição de modo a não direcionar escolhas [T4].",
+      "pontuacao": 0.3958,
+      "segundos": 4.09,
+      "veredito": true
+    },
+    {
+      "id": "v5-F026",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O consumo adequado de frutas e hortaliças, definido como em cinco ou mais vezes por dia, foi referido por 7,3% dos entrevistados no total [T1].",
+      "pontuacao": 0.0717,
+      "segundos": 3.1,
+      "veredito": true
+    },
+    {
+      "id": "v5-F027",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Os sintomas de depressão podem explicar 9,2% da variação na alimentação emocional [T2][T4].",
+      "pontuacao": 0.9985,
+      "segundos": 4.72,
+      "veredito": true
+    },
+    {
+      "id": "v5-F031",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A comparação entre alimentos ultraprocessados e alimentos processados mostra contrastes menos evidentes com relação ao teor de micronutrientes [T4].",
+      "pontuacao": 0.6455,
+      "segundos": 1.06,
+      "veredito": true
+    },
+    {
+      "id": "v5-F032",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O último capítulo do Guia Alimentar refere-se aos possíveis obstáculos para cumprir as recomendações, sugerindo formas de superação no âmbito individual e coletivo para cada um deles [T3].",
+      "pontuacao": 0.9946,
+      "segundos": 1.73,
+      "veredito": true
+    },
+    {
+      "id": "v5-F033",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Alimentos ultraprocessados afetam de modo desfavorável a cultura, a vida social e o meio ambiente por suas formas de produção, distribuição, comercialização e consumo [T3].",
+      "pontuacao": 0.9658,
+      "segundos": 2.11,
+      "veredito": true
+    },
+    {
+      "id": "v5-F034",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O protocolo destina-se a profissionais de nível superior no âmbito do atendimento clínico individual [T2].",
+      "pontuacao": 0.9976,
+      "segundos": 2.96,
+      "veredito": true
+    },
+    {
+      "id": "v5-F035",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Os obstáculos potenciais para a adoção das recomendações do Guia Alimentar incluem informação, oferta, custo, habilidades culinárias, tempo e publicidade [T1][T2][T3].",
+      "pontuacao": 0.9849,
+      "segundos": 6.9,
+      "veredito": true
+    },
+    {
+      "id": "v5-F037",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Os sintomas emocionais de depressão, ansiedade e estresse podem explicar, individualmente, variações únicas na alimentação emocional [T3][T4].",
+      "pontuacao": 0.9478,
+      "segundos": 6.18,
+      "veredito": true
+    },
+    {
+      "id": "v5-F038",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Dietas pobres em gorduras são mais efetivas na melhora da função endotelial e conferem melhores avaliações de saciedade ao longo do dia [T1].",
+      "pontuacao": 0.1091,
+      "segundos": 3.51,
+      "veredito": true
+    },
+    {
+      "id": "v5-F039",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O cálculo das necessidades calóricas nutricionais é influenciado por hereditariedade, sexo, idade, peso e composição corporal, condicionamento físico e fase de treinamento [T3].",
+      "pontuacao": 0.114,
+      "segundos": 4.12,
+      "veredito": true
+    },
+    {
+      "id": "v5-F042",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "A vitamina C aumenta a absorção de ferro não-heme em 3 a 4 vezes [T2].",
+      "pontuacao": 0.9771,
+      "segundos": 4.61,
+      "veredito": true
+    },
+    {
+      "id": "v5-F043",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Alimentos processados são definidos como produtos relativamente simples e antigos fabricados essencialmente com a adição de sal ou açúcar (ou outra substância de uso culinário como óleo ou vinagre) a um alimento in natura ou minimamente processado [T3].",
+      "pontuacao": 0.1073,
+      "segundos": 2.95,
+      "veredito": true
+    },
+    {
+      "id": "v5-F044",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Houve uma participação crescente de produtos ultraprocessados na dieta brasileira no período de 1987 a 2009 [T1].",
+      "pontuacao": 0.9927,
+      "segundos": 0.71,
+      "veredito": true
+    },
+    {
+      "id": "v5-F045",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Um estudo avaliou o teor de metais em extratos de plantas prescritas como suplementos para emagrecer, entre elas Camellia sinensis, Cordia ecalyculata e outros [T4].",
+      "pontuacao": 0.0229,
+      "segundos": 2.47,
+      "veredito": false
+    },
+    {
+      "id": "v5-F046",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A combinação de arroz e feijão é considerada o prato típico do brasileiro e é associada a padrões alimentares com menor ocorrência de obesidade e doenças crônicas não-transmissíveis [T3].",
+      "pontuacao": 0.9487,
+      "segundos": 3.22,
+      "veredito": true
+    },
+    {
+      "id": "v5-F049",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "O capítulo 5 do guia examina fatores que podem ser obstáculos para a adesão das pessoas às recomendações deste guia [T1].",
+      "pontuacao": 0.9819,
+      "segundos": 2.28,
+      "veredito": true
+    },
+    {
+      "id": "v5-F050",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Muitos estudos mostram superioridade da dieta pobre em carboidratos – low carb - em relação à dieta pobre em gorduras na perda de peso, porém esses estudos avaliam a perda de peso em curto prazo, em geral, menos de um ano [T2].",
+      "pontuacao": 0.3928,
+      "segundos": 3.39,
+      "veredito": true
+    },
+    {
+      "id": "v5-F051",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A reposição necessária de carboidratos para manter a glicemia e retardar a fadiga é de 30 a 60g por hora, com concentração de 4 a 8g/decilitro [T1].",
+      "pontuacao": 0.0172,
+      "segundos": 4.24,
+      "veredito": false
+    },
+    {
+      "id": "v5-F052",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Um RCT avaliou o impacto do MB-EAT adaptado para o manejo do diabetes tipos 2 em pacientes com DM2 há pelo menos um ano, IMC ≥ 27,0 kg/m , HbA1c ≥ 7,0%, sem uso de insulina para o controle glicêmico (n= 27) [T1].",
+      "pontuacao": 0.8848,
+      "segundos": 3.46,
+      "veredito": true
+    },
+    {
+      "id": "v5-F053",
+      "split": "dev",
+      "julgamento": "parcial",
+      "frase": "Mulheres com Índice de Massa Corporal (IMC) entre 27 e 34,9 kg/m foram submetidas a uma dieta de 1.200 kcal/d, podendo seguir dieta com 50% a 55% do VET de carboidratos, 15% a 20% do VET de proteínas e 30% do VET de gorduras [T3].",
+      "pontuacao": 0.0121,
+      "segundos": 2.95,
+      "veredito": false
+    },
+    {
+      "id": "v5-F054",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A tendência de substituir refeições tradicionais baseadas em alimentos in natura ou minimamente processados por alimentos ultraprocessados indica prejuízos à saúde [T2].",
+      "pontuacao": 0.9985,
+      "segundos": 1.25,
+      "veredito": true
+    },
+    {
+      "id": "v5-F055",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Para atividades que duram mais de uma hora, deve-se repor carboidrato na quantidade de 30 a 60g·h e sódio na quantidade de 0,5 a 0,7g·l [T2].",
+      "pontuacao": 0.8364,
+      "segundos": 3.6,
+      "veredito": true
+    },
+    {
+      "id": "v5-F057",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "A recomendação de ingestão de vitamina B12 para seres humanos após os 14 anos de idade (fora do período de gestação ou lactação) é de 2,4 mcg/dia [T4].",
+      "pontuacao": 0.1458,
+      "segundos": 3.9,
+      "veredito": true
+    },
+    {
+      "id": "v5-F059",
+      "split": "dev",
+      "julgamento": "sustentada",
+      "frase": "Para atender ao consumo regular de legumes e verduras, foram selecionados exemplos de almoços e jantares que continham pelo menos um desses alimentos [T1].",
+      "pontuacao": 0.9946,
+      "segundos": 3.32,
+      "veredito": true
+    }
+  ]
+}
