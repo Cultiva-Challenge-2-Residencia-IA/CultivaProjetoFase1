@@ -1,27 +1,20 @@
 ---
 source_id: nice-osteoarthritis-ng226
-title: Osteoarthritis in over 16s: diagnosis and management (NICE guideline NG226)
+title: 'Osteoarthritis in over 16s: diagnosis and management (NICE guideline NG226)'
 source: https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
-license: Open Government Licence / Crown Copyright (Re-use permitted)
-source_sha256: e34c6fecdddf3ba69f935c8fc966431c7c7e403dc99ce05bf52562655142bd80
+license: Open Government Licence / Crown Copyright
+source_sha256: b9509b882d63ce5829388544f41d7bd5156fb08925c8dc69f8eb5431526453a0
 ---
 
 # Osteoarthritis in over 16s: diagnosis and management (NICE guideline NG226)
 
-Instituição(ões): National Institute for Health and Care Excellence (NICE). Edição: NG226.
+Instituição(ões): National Institute for Health and Care Excellence. Edição: ng226-recommendations-html-en.
 
-[HTML original preservado](../originais/17-nice-osteoarthritis-ng226.html) · [Relatório de conversão](../relatorios/17-nice-osteoarthritis-ng226.json)
+[Original HTML preservado](../originais/17-nice-osteoarthritis-ng226.html) · [Relatório de conversão](../relatorios/17-nice-osteoarthritis-ng226.json)
 
-> Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
+> Conversão documental para revisão. O conteúdo pertence à publicação original e não é uma recomendação produzida pelo CULTIVA. A conversão e a aprovação da fonte permanecem pendentes.
 
-# Osteoarthritis in over 16s: diagnosis and management
-
-- NICE guideline
-- Reference number: NG226
-- Published:
-  19 October 2022
-
-[Download guidance (PDF)](/guidance/ng226/resources/osteoarthritis-in-over-16s-diagnosis-and-management-pdf-66143839026373)
+> Confira no original as tabelas, figuras, links e a estrutura do documento; a conversão não garante fidelidade semântica.
 
 ## Recommendations
 
@@ -366,5 +359,3 @@ A treatment package is defined as any treatment for osteoarthritis (this could i
 #### Walking aids
 
 Walking aids include walking sticks, crutches, walking frames and rollators. They support the person with osteoarthritis to move around independently and safely by improving their walking pattern and balance or reducing weight bearing on the affected joint.
-
----

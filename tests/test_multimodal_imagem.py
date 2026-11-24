@@ -124,3 +124,45 @@ def test_endpoint_do_rotulo(monkeypatch):
     assert ok.status_code == 200 and ok.json()["tem_tabela"] and ok.json()["requer_confirmacao"]
     assert cliente.post("/multimodal/imagem/rotulo", files={"arquivo": ("r.png", b"xx", "image/png")}).status_code == 422
     assert cliente.post("/multimodal/imagem/rotulo", files={"arquivo": ("r.pdf", b"xx", "application/pdf")}).status_code == 415
+
+
+def test_imagem_com_dimensoes_enormes_e_recusada_antes_de_descomprimir():
+    """Um PNG pequeno em bytes pode declarar dimensões enormes: recusado pelo cabeçalho."""
+    pix = pymupdf.Pixmap(pymupdf.csGRAY, pymupdf.IRect(0, 0, 9000, 9000), False)
+    pix.clear_with(255)
+    dados = pix.tobytes("png")
+    assert len(dados) < m.MAX_BYTES_IMAGEM
+    with pytest.raises(m.ImagemInvalida, match="pixels"):
+        m.abrir_imagem(dados)
+
+
+def test_pergunta_sobre_fotos_passa_pelo_portao_de_alerta():
+    from src.guardrails.alerta import MENSAGEM_ALERTA
+
+    def falha(*_):
+        raise AssertionError("não deveria chamar o modelo")
+
+    r = m.perguntar_fotos([_png()], "Senti dor no peito forte agora, posso seguir?", chamar=falha)
+    assert r.resposta_fixa == MENSAGEM_ALERTA
+
+
+def test_endpoint_do_rotulo_roda_fora_do_event_loop(monkeypatch):
+    import asyncio
+
+    from fastapi.testclient import TestClient
+
+    import src.api as api
+    no_event_loop = []
+
+    def rotulo(dados, buscar=None):
+        try:
+            asyncio.get_running_loop()
+            no_event_loop.append(True)
+        except RuntimeError:
+            no_event_loop.append(False)
+        return m.ler_rotulo(dados, visao=_visao(CERTO))
+
+    monkeypatch.setattr(api, "ler_rotulo", rotulo)
+    cliente = TestClient(api.app)
+    assert cliente.post("/multimodal/imagem/rotulo", files={"arquivo": ("r.png", _png(), "image/png")}).status_code == 200
+    assert no_event_loop == [False]

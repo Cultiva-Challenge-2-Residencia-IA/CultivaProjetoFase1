@@ -1,0 +1,209 @@
+{
+  "resumo": {
+    "configuracao": "regras",
+    "n": 12,
+    "acerto": 0.667,
+    "por_tipo": {
+      "ambigua": {
+        "n": 2,
+        "acerto": 0.0
+      },
+      "clara": {
+        "n": 8,
+        "acerto": 0.875
+      },
+      "estudos": {
+        "n": 1,
+        "acerto": 1.0
+      },
+      "fora": {
+        "n": 1,
+        "acerto": 0.0
+      }
+    }
+  },
+  "casos": [
+    {
+      "id": "R29",
+      "split": "test",
+      "mensagem": "Leite desnatado é melhor que integral?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara",
+      "previstas": [
+        "nutricao"
+      ],
+      "acerto": true,
+      "regras": [
+        "nutricao"
+      ]
+    },
+    {
+      "id": "R30",
+      "split": "test",
+      "mensagem": "Corrida faz mal para o joelho?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara",
+      "previstas": [
+        "saude_fisica"
+      ],
+      "acerto": true,
+      "regras": [
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "R31",
+      "split": "test",
+      "mensagem": "Preciso tomar creatina se faço musculação?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "tipo": "clara",
+      "previstas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "acerto": true,
+      "regras": [
+        "nutricao",
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "R32",
+      "split": "test",
+      "mensagem": "Quantos passos por dia são recomendados?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "ambigua",
+      "previstas": [
+        "nutricao"
+      ],
+      "acerto": false,
+      "regras": []
+    },
+    {
+      "id": "R33",
+      "split": "test",
+      "mensagem": "Frutas têm muito açúcar?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara",
+      "previstas": [
+        "nutricao"
+      ],
+      "acerto": true,
+      "regras": [
+        "nutricao"
+      ]
+    },
+    {
+      "id": "R34",
+      "split": "test",
+      "mensagem": "Qual o melhor filme de 2025?",
+      "areas_esperadas": [],
+      "tipo": "fora",
+      "previstas": [
+        "nutricao"
+      ],
+      "acerto": false,
+      "regras": []
+    },
+    {
+      "id": "R35",
+      "split": "test",
+      "mensagem": "Como revisar a matéria de anatomia para a faculdade?",
+      "areas_esperadas": [],
+      "tipo": "estudos",
+      "previstas": [],
+      "acerto": true,
+      "regras": []
+    },
+    {
+      "id": "R36",
+      "split": "test",
+      "mensagem": "Gestantes podem fazer exercícios físicos?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara",
+      "previstas": [
+        "saude_fisica"
+      ],
+      "acerto": true,
+      "regras": [
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "R37",
+      "split": "test",
+      "mensagem": "Hidratação durante o treino longo: água ou isotônico?",
+      "areas_esperadas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "tipo": "clara",
+      "previstas": [
+        "saude_fisica"
+      ],
+      "acerto": false,
+      "regras": [
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "R38",
+      "split": "test",
+      "mensagem": "Pilates ajuda na postura?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "clara",
+      "previstas": [
+        "saude_fisica"
+      ],
+      "acerto": true,
+      "regras": [
+        "saude_fisica"
+      ]
+    },
+    {
+      "id": "R39",
+      "split": "test",
+      "mensagem": "O que é dieta mediterrânea?",
+      "areas_esperadas": [
+        "nutricao"
+      ],
+      "tipo": "clara",
+      "previstas": [
+        "nutricao"
+      ],
+      "acerto": true,
+      "regras": [
+        "nutricao"
+      ]
+    },
+    {
+      "id": "R40",
+      "split": "test",
+      "mensagem": "Como recuperar o fôlego mais rápido depois de subir uma ladeira?",
+      "areas_esperadas": [
+        "saude_fisica"
+      ],
+      "tipo": "ambigua",
+      "previstas": [
+        "nutricao"
+      ],
+      "acerto": false,
+      "regras": []
+    }
+  ]
+}

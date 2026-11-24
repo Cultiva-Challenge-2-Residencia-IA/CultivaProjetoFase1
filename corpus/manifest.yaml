@@ -1000,7 +1000,7 @@ sources:
     data_quality_note: "O PDF não é publicação oficial: é a impressão da página web pelo navegador, com data e URL em cada página. A página informa duas datas de revisão (12/08/2026 e 13/10/2022). Uma segunda impressão do mesmo dia (SHA-256 723e5fd0…) foi descartada como duplicata."
 
   - id: guia-atividade-fisica-brasil-2021
-    kind: original_only
+    area: saude_fisica
     title: Guia de Atividade Física para a População Brasileira
     institutions:
     - Ministério da Saúde
@@ -1020,10 +1020,10 @@ sources:
     conversion_status: concluida_com_ressalvas
     retrieved_on: '2026-11-19'
     acquisition_status: original_obtido
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: pendente
   - id: who-diretrizes-atividade-fisica-sedentarismo-2020
-    kind: original_only
+    area: saude_fisica
     title: WHO Guidelines on Physical Activity and Sedentary Behaviour
     institutions:
     - World Health Organization
@@ -1045,16 +1045,17 @@ sources:
     conversion_status: concluida_com_ressalvas
     retrieved_on: '2026-11-19'
     acquisition_status: original_obtido
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: pendente
   - id: who-physical-activity-factsheet-2024
-    kind: original_only
+    kind: html
+    area: saude_fisica
     title: Physical activity
     institutions:
     - World Health Organization
     year: 2024
     version: 2024-06-26-html-en
-    source_type: documento_institucional
+    source_type: diretriz
     source: https://www.who.int/news-room/fact-sheets/detail/physical-activity
     download_url: https://www.who.int/news-room/fact-sheets/detail/physical-activity
     license: pendente
@@ -1067,27 +1068,34 @@ sources:
     retrieved_on: '2026-11-19'
     acquisition_status: original_obtido
     acquisition_note: Cópia HTML da página oficial consultada nesta data; a página pode ser atualizada no mesmo endereço.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: pendente
   - id: acsm-resistance-training-position-stand-2026
-    kind: original_only
+    kind: jats
+    area: saude_fisica
     title: 'American College of Sports Medicine Position Stand. Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews'
     institutions:
     - American College of Sports Medicine
     year: 2026
     version: 2026-article-en
-    source_type: artigo_cientifico
+    source_type: diretriz
     source: https://pubmed.ncbi.nlm.nih.gov/41843416/
-    download_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12965823/pdf/msse-58-851.pdf
+    download_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12965823/fullTextXML
     doi: 10.1249/MSS.0000000000003897
     pmcid: PMC12965823
     license: CC-BY-NC-ND-4.0
     license_evidence:
-      description: A página do PubMed Central identifica CC BY-NC-ND 4.0; o texto integral está disponível em HTML, mas o endpoint PDF retornou desafio anti-bot.
-    acquisition_status: original_indisponivel
-    acquisition_note: O texto integral está disponível no PubMed Central, mas as rotas de PDF retornaram desafio anti-bot ou 404. Não foi salvo conteúdo de erro como PDF; a versão antiga de 2009 foi substituída conforme solicitado.
-    approval_status: pendente
-    intended_use_license_review: pendente
+      description: A página do PubMed Central e o registro do Europe PMC identificam CC BY-NC-ND 4.0.
+    original_path: corpus/saudefisica/originais/04-acsm-resistance-training-position-stand-2026.xml
+    markdown_path: corpus/saudefisica/markdown/04-acsm-resistance-training-position-stand-2026.md
+    report_path: corpus/saudefisica/relatorios/04-acsm-resistance-training-position-stand-2026.json
+    sha256: 0f92699661a50164bbd97e7db21587f920da3055914327436b0947081ed2c082
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-24'
+    acquisition_status: original_obtido
+    acquisition_note: O PDF e a página do PubMed Central responderam com desafio reCAPTCHA, e o PDF do Europe PMC com 403. O texto integral de acesso aberto veio em JATS XML pela API REST oficial do Europe PMC (issue #99).
+    approval_status: aprovado
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
   - id: acsm-exercise-preparticipation-screening-2015
     kind: original_only
     title: Updating ACSM's Recommendations for Exercise Preparticipation Health Screening
@@ -1121,13 +1129,13 @@ sources:
     approval_status: pendente
     intended_use_license_review: pendente
   - id: ioc-load-sport-injury-2016
-    kind: original_only
+    area: saude_fisica
     title: How much is too much? (Part 1) International Olympic Committee consensus statement on load in sport and risk of injury
     institutions:
     - International Olympic Committee
     year: 2016
     version: 2016-article-en
-    source_type: artigo_cientifico
+    source_type: diretriz
     source: https://doi.org/10.1136/bjsports-2016-096581
     download_url: https://ostrc.no/globalassets/publications/soligard_2016_bjsm_how-much-is-too-much.-ioc-consensus-statement-on-load-in-sport-and-risk-of-injury.pdf
     doi: 10.1136/bjsports-2016-096581
@@ -1141,16 +1149,16 @@ sources:
     retrieved_on: '2026-11-19'
     acquisition_status: original_obtido
     acquisition_note: PDF integral do artigo, cópia hospedada pelo Oslo Sports Trauma Research Center; metadados, DOI e título conferidos. Não é o endpoint do editor.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
   - id: ioc-load-sport-illness-2016
-    kind: original_only
+    area: saude_fisica
     title: How much is too much? (Part 2) International Olympic Committee consensus statement on load in sport and risk of illness
     institutions:
     - International Olympic Committee
     year: 2016
     version: 2016-article-en
-    source_type: artigo_cientifico
+    source_type: diretriz
     source: https://pubmed.ncbi.nlm.nih.gov/27535991/
     download_url: https://repository.up.ac.za/server/api/core/bitstreams/3831edb8-3e7d-42c4-bfcd-cb9c2658036b/content
     doi: 10.1136/bjsports-2016-096572
@@ -1161,7 +1169,7 @@ sources:
       description: Créditos do PDF declaram Creative Commons Attribution Non-Commercial 4.0 (CC BY-NC 4.0).
     acquisition_status: original_obtido
     acquisition_note: PDF integral localizado no repositório institucional da University of Pretoria; DOI, título e paginação conferidos. A página 2 apresenta extração de texto escassa por conter tabela; revisar visualmente no original.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
     original_path: corpus/saudefisica/originais/07-2-ioc-load-illness-2016.pdf
     markdown_path: corpus/saudefisica/markdown/07-2-ioc-load-illness-2016.md
@@ -1171,7 +1179,8 @@ sources:
     conversion_status: concluida_com_ressalvas
     retrieved_on: '2026-11-19'
   - id: jospt-low-back-pain-cpg-revision-2021
-    kind: original_only
+    kind: html
+    area: saude_fisica
     title: 'Interventions for the Management of Acute and Chronic Low Back Pain: Revision 2021'
     institutions:
     - Academy of Orthopaedic Physical Therapy
@@ -1192,10 +1201,10 @@ sources:
     retrieved_on: '2026-11-19'
     acquisition_status: original_obtido
     acquisition_note: Texto integral HTML público do PubMed Central, identificado como manuscrito do autor; não é a diagramação final do editor. O endpoint PDF acionou um desafio anti-bot, então esse arquivo não foi incorporado.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: pendente
   - id: who-package-rehabilitation-musculoskeletal-2023
-    kind: original_only
+    area: saude_fisica
     title: 'Package of Interventions for Rehabilitation: Module 2 — Musculoskeletal Conditions'
     institutions:
     - World Health Organization
@@ -1216,10 +1225,10 @@ sources:
     conversion_status: concluida_com_ressalvas
     retrieved_on: '2026-11-19'
     acquisition_status: original_obtido
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: pendente
   - id: jospt-rotator-cuff-tendinopathy-cpg-2025
-    kind: original_only
+    area: saude_fisica
     title: 'Rotator Cuff Tendinopathy Diagnosis, Nonsurgical Medical Care, and Rehabilitation: A Clinical Practice Guideline'
     institutions:
     - Academy of Orthopaedic Physical Therapy
@@ -1240,8 +1249,191 @@ sources:
     retrieved_on: '2026-11-19'
     acquisition_status: original_obtido
     acquisition_note: PDF integral hospedado pela International Federation of Sports Physical Therapy; DOI e título conferidos. A cópia exibe aviso de uso pessoal e reserva de demais usos; direitos não foram liberados pelo editor.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+  # Fontes de Saúde Física 11 a 19, catalogadas na issue #99 a partir de saudefisica/inventario_corpus_saude_fisica.md.
+  # Os derivados do commit de organização (275f6eb) foram gerados fora do pipeline e foram regenerados aqui.
+  - id: who-physical-activity-at-a-glance-2020
+    area: saude_fisica
+    title: 'WHO Guidelines on Physical Activity and Sedentary Behaviour: At a Glance'
+    institutions:
+    - World Health Organization
+    year: 2020
+    version: 2020-at-a-glance-en
+    source_type: diretriz
+    source: https://iris.who.int/handle/10665/337001
+    license: CC-BY-NC-SA-3.0-IGO
+    original_path: corpus/saudefisica/originais/11-who-physical-activity-at-a-glance-2020.pdf
+    markdown_path: corpus/saudefisica/markdown/11-who-physical-activity-at-a-glance-2020.md
+    report_path: corpus/saudefisica/relatorios/11-who-physical-activity-at-a-glance-2020.json
+    sha256: 37c822c430ccf8c1b7729930ef03bb4b50534d285ac128824a6f322a3d2431c9
+    pdf_pages: 24
+    conversion_status: concluida_com_ressalvas
+    acquisition_status: original_obtido
+    approval_status: aprovado
+    intended_use_license_review: pendente
+  - id: hhs-physical-activity-scientific-report-2018
+    area: saude_fisica
+    title: 2018 Physical Activity Guidelines Advisory Committee Scientific Report
+    institutions:
+    - U.S. Department of Health and Human Services
+    year: 2018
+    version: 2018-scientific-report-en
+    source_type: revisao
+    source: https://odphp.health.gov/our-work/nutrition-physical-activity/physical-activity-guidelines/current-guidelines/scientific-report
+    license: Domínio público (obra do governo dos EUA)
+    original_path: corpus/saudefisica/originais/12-hhs-physical-activity-scientific-report-2018.pdf
+    markdown_path: corpus/saudefisica/markdown/12-hhs-physical-activity-scientific-report-2018.md
+    report_path: corpus/saudefisica/relatorios/12-hhs-physical-activity-scientific-report-2018.json
+    sha256: c13c25e34ab607ddc3e98bfc550e6c0f30e214581d1b9540b87e50d153703568
+    pdf_pages: 779
+    conversion_status: concluida_com_ressalvas
+    acquisition_status: original_obtido
+    approval_status: aprovado
+    intended_use_license_review: pendente
+  - id: nhs-physical-activity-adults-19-64
+    kind: html
+    area: saude_fisica
+    title: Physical activity guidelines for adults aged 19 to 64
+    institutions:
+    - NHS
+    year: 2021
+    version: 2021-html-en
+    source_type: diretriz
+    source: https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-for-adults-aged-19-to-64/
+    license: Open Government Licence v3.0
+    original_path: corpus/saudefisica/originais/13-nhs-physical-activity-adults-19-64.html
+    markdown_path: corpus/saudefisica/markdown/13-nhs-physical-activity-adults-19-64.md
+    report_path: corpus/saudefisica/relatorios/13-nhs-physical-activity-adults-19-64.json
+    content_selector: article
+    sha256: 49b93f8d374b7d1c9978811bc05760d706f759b29edb394cf995299879ce220e
+    conversion_status: concluida_com_ressalvas
+    acquisition_status: original_obtido
+    approval_status: aprovado
+    intended_use_license_review: pendente
+  - id: nhs-warm-up-before-exercise
+    kind: html
+    area: saude_fisica
+    title: How to warm up before exercising
+    institutions:
+    - NHS
+    year: 2022
+    version: 2022-html-en
+    source_type: diretriz
+    source: https://www.nhs.uk/live-well/exercise/how-to-warm-up-before-exercising/
+    license: Open Government Licence v3.0
+    original_path: corpus/saudefisica/originais/14-nhs-warm-up-before-exercise.html
+    markdown_path: corpus/saudefisica/markdown/14-nhs-warm-up-before-exercise.md
+    report_path: corpus/saudefisica/relatorios/14-nhs-warm-up-before-exercise.json
+    content_selector: article
+    sha256: 78158db4b007d63a501d0e846411a12eb9d1ac8c727cd45a245790ecb3cefb3c
+    conversion_status: concluida_com_ressalvas
+    acquisition_status: original_obtido
+    approval_status: aprovado
+    intended_use_license_review: pendente
+  - id: nice-low-back-pain-sciatica-ng59
+    kind: html
+    area: saude_fisica
+    title: 'Low back pain and sciatica in over 16s: assessment and management (NICE guideline NG59)'
+    institutions:
+    - National Institute for Health and Care Excellence
+    year: 2016
+    version: ng59-recommendations-html-en
+    source_type: diretriz
+    source: https://www.nice.org.uk/guidance/ng59/chapter/recommendations
+    license: Open Government Licence / Crown Copyright
+    original_path: corpus/saudefisica/originais/15-nice-low-back-pain-sciatica-ng59.html
+    markdown_path: corpus/saudefisica/markdown/15-nice-low-back-pain-sciatica-ng59.md
+    report_path: corpus/saudefisica/relatorios/15-nice-low-back-pain-sciatica-ng59.json
+    content_selector: .chapter
+    sha256: 977555a89c9e548c20e43516d76ff49009e58f835401967b2723251b49a52dad
+    conversion_status: concluida_com_ressalvas
+    acquisition_status: original_obtido
+    approval_status: aprovado
+    intended_use_license_review: pendente
+  - id: cochrane-exercise-chronic-low-back-pain-2021
+    kind: html
+    area: saude_fisica
+    title: Exercícios para o tratamento da dor lombar crônica
+    institutions:
+    - Cochrane
+    year: 2021
+    version: CD009790-resumo-pt
+    source_type: metanalise
+    source: https://www.cochrane.org/pt/evidence/CD009790_exercise-treatment-chronic-low-back-pain
+    license: Copyright Cochrane; resumo em linguagem simples de acesso público
+    original_path: corpus/saudefisica/originais/16-cochrane-exercise-chronic-low-back-pain-2021-pt.html
+    markdown_path: corpus/saudefisica/markdown/16-cochrane-exercise-chronic-low-back-pain-2021.md
+    report_path: corpus/saudefisica/relatorios/16-cochrane-exercise-chronic-low-back-pain-2021.json
+    content_selector: article
+    sha256: 86c9542539a1bb717c0a7975f803cb313befd5987f747ac25a9f547ec7664894
+    conversion_status: concluida_com_ressalvas
+    acquisition_status: original_obtido
+    approval_status: aprovado
+    intended_use_license_review: pendente
+  - id: nice-osteoarthritis-ng226
+    kind: html
+    area: saude_fisica
+    title: 'Osteoarthritis in over 16s: diagnosis and management (NICE guideline NG226)'
+    institutions:
+    - National Institute for Health and Care Excellence
+    year: 2022
+    version: ng226-recommendations-html-en
+    source_type: diretriz
+    source: https://www.nice.org.uk/guidance/ng226/chapter/Recommendations
+    license: Open Government Licence / Crown Copyright
+    original_path: corpus/saudefisica/originais/17-nice-osteoarthritis-ng226.html
+    markdown_path: corpus/saudefisica/markdown/17-nice-osteoarthritis-ng226.md
+    report_path: corpus/saudefisica/relatorios/17-nice-osteoarthritis-ng226.json
+    content_selector: .chapter
+    sha256: b9509b882d63ce5829388544f41d7bd5156fb08925c8dc69f8eb5431526453a0
+    conversion_status: concluida_com_ressalvas
+    acquisition_status: original_obtido
+    approval_status: aprovado
+    intended_use_license_review: pendente
+  - id: jospt-patellofemoral-pain-infographic-2019
+    area: saude_fisica
+    title: 'Patellofemoral Pain: Clinical Practice Guideline Infographic (2019)'
+    institutions:
+    - Academy of Orthopaedic Physical Therapy
+    - Journal of Orthopaedic & Sports Physical Therapy
+    year: 2019
+    version: 2019-infografico-en
+    source_type: diretriz
+    source: https://www.orthopt.org/content/s/patellofemoral-pain-2019
+    doi: 10.2519/jospt.2019.0302
+    license: Copyright AOPT / JOSPT
+    original_path: corpus/saudefisica/originais/18-jospt-patellofemoral-pain-cpg-2019.pdf
+    markdown_path: corpus/saudefisica/markdown/18-jospt-patellofemoral-pain-infographic-2019.md
+    report_path: corpus/saudefisica/relatorios/18-jospt-patellofemoral-pain-infographic-2019.json
+    sha256: 5702bbe3f3a8e586b778e56b57899cb8724dea04372945b41250f3259258c59a
+    pdf_pages: 1
+    conversion_status: concluida_com_ressalvas
+    acquisition_status: original_obtido
+    acquisition_note: A página pública da diretriz (18-jospt-patellofemoral-pain-cpg-2019.html) só tem links e autores, sem conteúdo; ficou fora do RAG e o infográfico entra no lugar.
+    approval_status: aprovado
+    intended_use_license_review: pendente
+  - id: jospt-ankle-ligament-sprains-cpg-2021
+    area: saude_fisica
+    title: 'Ankle Stability and Movement Coordination Impairments: Lateral Ankle Ligament Sprains Revision 2021'
+    institutions:
+    - Academy of Orthopaedic Physical Therapy
+    - Journal of Orthopaedic & Sports Physical Therapy
+    year: 2021
+    version: 2021-revision-en
+    source_type: diretriz
+    source: https://doi.org/10.2519/jospt.2021.0302
+    doi: 10.2519/jospt.2021.0302
+    license: Copyright JOSPT / AOPT
+    original_path: corpus/saudefisica/originais/19-jospt-ankle-ligament-sprains-cpg-2021.pdf
+    markdown_path: corpus/saudefisica/markdown/19-jospt-ankle-ligament-sprains-cpg-2021.md
+    report_path: corpus/saudefisica/relatorios/19-jospt-ankle-ligament-sprains-cpg-2021.json
+    sha256: 7aaf19cd4ca5a2fbd2bf194156a2653a7fe2dabc488e8bf56ed86b45d93dde36
+    pdf_pages: 80
+    conversion_status: concluida_com_ressalvas
+    acquisition_status: original_obtido
+    approval_status: aprovado
+    intended_use_license_review: pendente
 
 # intended_use_license_review (decisão de 06/11/2026, ver corpus/README.md, seção "Decisão sobre licenças e uso das fontes"):
 #   compativel_cc_by: licença CC BY, que permite o uso com atribuição.
@@ -1255,6 +1447,6 @@ sources:
 #   revisao: revisão da literatura ou artigo conceitual.
 #   estudo: estudo primário (transversal, populacional, quase-experimental).
 
-# kind: pdf (pipeline de conversão), resumo_pubmed (texto de origem sem PDF) ou original_only
+# kind: pdf (pipeline de conversão), html (página HTML convertida; Trechos por seção), jats (artigo em JATS XML do Europe PMC; Trechos por seção), resumo_pubmed (texto de origem sem PDF) ou original_only
 #   (original arquivado/cadastrado, sem Trechos/RAG; pode ter Markdown candidato à revisão).
 #   A integridade dos originais e derivados declarados é verificada por verify_corpus.py.

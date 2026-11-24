@@ -44,6 +44,10 @@ def tem_termo_de_nutricao(pergunta: str) -> bool:
     return bool(TERMOS_NUTRICAO.search(normalize_text(pergunta)))
 
 
-def fora_do_dominio(pergunta: str, similaridade_maxima: float, limiar: float) -> bool:
-    """True só quando o cosseno fica abaixo do limiar e a pergunta não tem termo de Nutrição."""
-    return similaridade_maxima < limiar and not tem_termo_de_nutricao(pergunta)
+def fora_do_dominio(pergunta: str, similaridade_maxima: float, limiar: float,
+                    termos: "re.Pattern[str]" = TERMOS_NUTRICAO) -> bool:
+    """True só quando o cosseno fica abaixo do limiar e a pergunta não tem termo da área.
+
+    `termos` é o vocabulário da área do agente (padrão: Nutrição; o Agente de Saúde Física passa o dele).
+    """
+    return similaridade_maxima < limiar and not termos.search(normalize_text(pergunta))

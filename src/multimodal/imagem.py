@@ -42,6 +42,10 @@ from src.multimodal.pdf import Pagina, numeros
 
 MAX_BYTES_IMAGEM = 10 * 1024 * 1024
 MAX_FOTOS = 5
+# Uma foto de celular tem de 12 a 50 megapixels. Acima disso, um arquivo pequeno (PNG ou JPEG muito
+# comprimido) pode virar gigabytes de memória ao ser descomprimido: as dimensões são conferidas pelo
+# cabeçalho, antes de descomprimir.
+MAX_PIXELS = 60_000_000
 TIMEOUT_VISAO = 180.0
 TESSDATA = Path(os.getenv("CULTIVA_TESSDATA", "corpus/.cache/tessdata"))
 OCR_SHA256 = "c4932b937207a9514b7514d518b931a99938c02a28a5a5a553f8599ed58b7deb"  # o mesmo do corpus
@@ -114,6 +118,13 @@ def abrir_imagem(dados: bytes) -> pymupdf.Pixmap:
         raise ImagemInvalida("Arquivo vazio.")
     if len(dados) > MAX_BYTES_IMAGEM:
         raise ImagemInvalida(f"Imagem maior que {MAX_BYTES_IMAGEM // (1024 * 1024)} MB.")
+    try:
+        with Image.open(io.BytesIO(dados)) as cabecalho:  # lê só o cabeçalho, sem descomprimir
+            largura, altura = cabecalho.size
+    except Exception as erro:
+        raise ImagemInvalida("Não foi possível abrir o arquivo como imagem.") from erro
+    if largura * altura > MAX_PIXELS:
+        raise ImagemInvalida(f"Imagem com mais de {MAX_PIXELS // 1_000_000} milhões de pixels.")
     try:
         pix = pymupdf.Pixmap(dados)
     except Exception as erro:
@@ -487,5 +498,6 @@ def resumir_fotos(fotos: List[bytes], modelo: str = OLLAMA_MODEL, base_url: str 
 def perguntar_fotos(fotos: List[bytes], pergunta: str,
                     buscar: Optional[Callable[[str], List[RetrievedChunk]]] = None,
                     modelo: str = OLLAMA_MODEL, base_url: str = OLLAMA_BASE_URL,
-                    chamar: Callable[[str, str, str], Optional[Dict[str, Any]]] = pdf._chamar_llm) -> pdf.ResultadoPDF:
-    return pdf.perguntar_paginas(paginas_de_fotos(fotos), pergunta, buscar, modelo, base_url, chamar)
+                    chamar: Callable[[str, str, str], Optional[Dict[str, Any]]] = pdf._chamar_llm,
+                    risco_llm: Any = None) -> pdf.ResultadoPDF:
+    return pdf.perguntar_paginas(paginas_de_fotos(fotos), pergunta, buscar, modelo, base_url, chamar, risco_llm)

@@ -30,18 +30,22 @@ def test_sem_opcao_seleciona_so_as_fontes_pdf_do_rag(convert_pdfs):
     assert all(s.get("kind", "pdf") == "pdf" for s in escolhidas)
 
 
+CANDIDATO_PDF = {"id": "candidato-pdf", "kind": "original_only", "acquisition_status": "original_obtido",
+                 "original_path": "corpus/saudefisica/originais/x.pdf",
+                 "markdown_path": "corpus/saudefisica/markdown/x.md"}
+
+
 def test_candidatos_seleciona_os_original_only_em_pdf_com_markdown(convert_pdfs):
-    escolhidas = convert_pdfs.selecionar_fontes(FONTES, candidatos=True)
-    esperadas = {s["id"] for s in FONTES if s.get("kind") == "original_only" and s.get("markdown_path")
-                 and s.get("original_path", "").endswith(".pdf")}
-    assert _ids(escolhidas) == esperadas
-    assert "who-diretrizes-atividade-fisica-sedentarismo-2020" in esperadas
-    assert not _ids(escolhidas) & _ids(convert_pdfs.selecionar_fontes(FONTES))
+    # Desde a issue #99 as fontes de Saúde Física com Markdown entraram no RAG; o caso vem sintético.
+    fontes = FONTES + [CANDIDATO_PDF]
+    escolhidas = convert_pdfs.selecionar_fontes(fontes, candidatos=True)
+    assert _ids(escolhidas) == {"candidato-pdf"}
+    assert not _ids(escolhidas) & _ids(convert_pdfs.selecionar_fontes(fontes))
 
 
 def test_source_aceita_um_candidato_em_pdf(convert_pdfs):
-    escolhidas = convert_pdfs.selecionar_fontes(FONTES, "who-diretrizes-atividade-fisica-sedentarismo-2020")
-    assert _ids(escolhidas) == {"who-diretrizes-atividade-fisica-sedentarismo-2020"}
+    escolhidas = convert_pdfs.selecionar_fontes(FONTES + [CANDIDATO_PDF], "candidato-pdf")
+    assert _ids(escolhidas) == {"candidato-pdf"}
 
 
 def test_source_recusa_candidato_em_html(convert_pdfs):

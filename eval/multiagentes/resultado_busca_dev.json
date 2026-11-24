@@ -1,0 +1,559 @@
+{
+  "nutricao": {
+    "resumo": {
+      "n": 18,
+      "rr": {
+        "base": 0.731,
+        "reescrita": 0.662,
+        "diferenca": -0.069
+      },
+      "recall": {
+        "base": 0.556,
+        "reescrita": 0.472,
+        "diferenca": -0.083
+      }
+    },
+    "casos": [
+      {
+        "id": "V2-REC-01",
+        "consultas": [
+          "Qual é a regra de ouro do Guia Alimentar para a População Brasileira?",
+          "O Guia Alimentar para a População Brasileira orienta que a base da alimentação deve ser composta por alimentos in natura ou minimamente processados, priorizando a diversidade e a sazonalidade."
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 1.0
+        }
+      },
+      {
+        "id": "V2-REC-02",
+        "consultas": [
+          "Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?",
+          "O Guia Alimentar recomenda priorizar gorduras insaturadas, como as encontradas em azeite de oliva, e limitar o consumo de sal e açúcares adicionados, incentivando o preparo caseiro com temperos naturais.",
+          "Quais são as diretrizes do Guia Alimentar brasileiro sobre o consumo e uso de óleos, gorduras, sal e açúcar na culinária?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.75
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.25
+        }
+      },
+      {
+        "id": "V2-REC-04",
+        "consultas": [
+          "Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?",
+          "O Guia Alimentar para a População Brasileira destaca barreiras socioeconômicas e culturais que dificultam a adesão a padrões alimentares saudáveis, como o custo elevado de alimentos in natura e a forte influência da publicidade de ultraprocessados.",
+          "Quais são os obstáculos apontados pelo Guia Alimentar para a adoção de uma alimentação saudável?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.75
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.75
+        }
+      },
+      {
+        "id": "V2-REC-05",
+        "consultas": [
+          "Que tipos de alimento o Guia Alimentar classifica como processados?",
+          "O Guia Alimentar classifica os alimentos em categorias, incluindo alimentos in natura, minimamente processados, processados e ultraprocessados, fornecendo diretrizes sobre o consumo de cada grupo.",
+          "Quais são as classificações de alimentos como processados no Guia Alimentar brasileiro?"
+        ],
+        "base": {
+          "rr": 0.5,
+          "recall": 0.5
+        },
+        "reescrita": {
+          "rr": 0.25,
+          "recall": 0.25
+        }
+      },
+      {
+        "id": "V2-REC-07",
+        "consultas": [
+          "Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?",
+          "O Guia Alimentar recomenda priorizar alimentos in natura ou minimamente processados, como vegetais, leguminosas e cereais integrais, em suas refeições principais.",
+          "Quais combinações de alimentos são mais frequentes em refeições principais (almoço e jantar) segundo o Guia Alimentar?"
+        ],
+        "base": {
+          "rr": 0.5,
+          "recall": 0.6666666666666666
+        },
+        "reescrita": {
+          "rr": 0.25,
+          "recall": 0.3333333333333333
+        }
+      },
+      {
+        "id": "V2-REC-08",
+        "consultas": [
+          "No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?",
+          "O Guia Alimentar para a População Brasileira orienta que a primeira etapa da avaliação dietética deve focar na qualidade geral dos alimentos consumidos, incentivando o consumo de alimentos in natura ou minimamente processados.",
+          "Qual é a primeira pergunta do fluxograma do Guia Alimentar para adultos e qual é a recomendação associada a ela?"
+        ],
+        "base": {
+          "rr": 0.25,
+          "recall": 0.5
+        },
+        "reescrita": {
+          "rr": 0.0,
+          "recall": 0.0
+        }
+      },
+      {
+        "id": "V2-REC-10",
+        "consultas": [
+          "Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?",
+          "O consumo de alimentos ricos em vitamina C, como frutas cítricas, junto com fontes de ferro não heme, pode significativamente aumentar a absorção desse mineral pelo organismo.",
+          "Quais alimentos ou práticas podem aumentar a biodisponibilidade do ferro em dietas baseadas em vegetais?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.5
+        },
+        "reescrita": {
+          "rr": 0.5,
+          "recall": 0.5
+        }
+      },
+      {
+        "id": "V2-REC-11",
+        "consultas": [
+          "Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.5
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.5
+        }
+      },
+      {
+        "id": "V2-REC-13",
+        "consultas": [
+          "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+          "Dietas com baixo teor de carboidratos (low carb) podem levar à perda de peso mais rápida devido à restrição de glicose e à indução de cetose, enquanto dietas com baixo teor de gordura focam na redução da ingestão de lipídios, exigindo atenção à qualidade das fontes de proteína e carboidratos restantes.",
+          "Comparação de eficácia entre dietas low carb e dietas com baixo teor de gordura para emagrecimento."
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.5
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.5
+        }
+      },
+      {
+        "id": "V2-REC-14",
+        "consultas": [
+          "O que se sabe sobre a adesão de pessoas com obesidade ao jejum intermitente?",
+          "O jejum intermitente pode ser uma estratégia eficaz para auxiliar na perda de peso em indivíduos com obesidade, mas a adesão a longo prazo varia muito dependendo do protocolo adotado e do suporte nutricional recebido.",
+          "Quais são os achados sobre a adesão de pessoas com obesidade ao jejum intermitente?"
+        ],
+        "base": {
+          "rr": 0.25,
+          "recall": 1.0
+        },
+        "reescrita": {
+          "rr": 0.3333333333333333,
+          "recall": 1.0
+        }
+      },
+      {
+        "id": "V2-REC-16",
+        "consultas": [
+          "Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?",
+          "Estudos epidemiológicos e pesquisas de consumo alimentar no Brasil indicam um aumento significativo na ingestão de alimentos ultraprocessados no período de 1987 a 2009, refletindo mudanças no padrão alimentar da população.",
+          "Como a participação de produtos ultraprocessados na dieta brasileira mudou entre 1987 e 2009?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.25
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.25
+        }
+      },
+      {
+        "id": "V2-REC-17",
+        "consultas": [
+          "Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?",
+          "Alimentos in natura são ricos em vitaminas, minerais e fibras, enquanto ultraprocessados frequentemente contêm altos níveis de açúcares adicionados, gorduras saturadas e sódio, e são pobres em nutrientes essenciais.",
+          "Qual é a comparação do perfil nutricional entre ultraprocessados e alimentos in natura?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "recall": 0.25
+        },
+        "reescrita": {
+          "rr": 0.25,
+          "recall": 0.25
+        }
+      },
+      {
+        "id": "V2-REC-19",
+        "consultas": [
+          "Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?",
+          "O VIGITEL (Vigilância de Inquéritos e Monitoramento) é uma pesquisa que coleta dados sobre hábitos alimentares da população brasileira. Os resultados específicos sobre o consumo de frutas e hortaliças em capitais podem ser encontrados nos relatórios mais recentes do Ministério da Saúde.",
+          "Qual a prevalência de consumo adequado de frutas e hortaliças em adultos das capitais brasileiras segundo o VIGITEL?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.75
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.5
+        }
+      },
+      {
+        "id": "V2-REC-20",
+        "consultas": [
+          "Quais barreiras dificultam o consumo de frutas, verduras e legumes?",
+          "Fatores socioeconômicos, culturais e de acesso a alimentos frescos são barreiras comuns para o aumento do consumo de frutas, verduras e legumes em diversas populações.",
+          "Quais são as barreiras que dificultam o consumo adequado de frutas, verduras e legumes?"
+        ],
+        "base": {
+          "rr": 0.0,
+          "recall": 0.0
+        },
+        "reescrita": {
+          "rr": 0.0,
+          "recall": 0.0
+        }
+      },
+      {
+        "id": "V2-REC-22",
+        "consultas": [
+          "Estresse, ansiedade e depressão influenciam a alimentação emocional?",
+          "O estresse e a ansiedade podem levar a padrões de alimentação emocional, onde a comida é usada como mecanismo de enfrentamento para lidar com emoções difíceis. Isso pode resultar em consumo excessivo de alimentos ricos em açúcar ou gordura.",
+          "Qual a relação entre estresse, ansiedade e depressão e os padrões de alimentação emocional?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.75
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.75
+        }
+      },
+      {
+        "id": "V2-REC-23",
+        "consultas": [
+          "Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?",
+          "Estudos indicam que atletas e praticantes de exercícios frequentemente aumentam a ingestão proteica, e o uso de suplementos pode contribuir para atingir esses níveis mais elevados.",
+          "O uso de suplementos alimentares leva a um aumento na ingestão de proteína além das recomendações diárias?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.5
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.5
+        }
+      },
+      {
+        "id": "V2-ADV-04",
+        "consultas": [
+          "Qual marca de whey protein um nutricionista pode me indicar publicamente?",
+          "A escolha de um suplemento proteico, como o whey protein, deve ser baseada nas necessidades individuais e na qualidade dos ingredientes, e não apenas na marca. Nutricionistas avaliam fatores como o tipo de whey (concentrado, isolado, hidrolisado), o teor de proteína e a presença de aditivos.",
+          "Quais marcas de whey protein são recomendadas por nutricionistas?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "recall": 0.5
+        },
+        "reescrita": {
+          "rr": 0.3333333333333333,
+          "recall": 0.5
+        }
+      },
+      {
+        "id": "V2-GRA-01",
+        "consultas": [
+          "Comer feijão com laranja na mesma refeição ajuda a absorver o ferro?",
+          "O consumo de alimentos ricos em vitamina C, como a laranja, junto com fontes de ferro não-heme, como o feijão, pode aumentar significativamente a biodisponibilidade e a absorção desse mineral no trato gastrointestinal.",
+          "A combinação de feijão e laranja na mesma refeição melhora a absorção de ferro?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "recall": 0.3333333333333333
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "recall": 0.6666666666666666
+        }
+      }
+    ]
+  },
+  "saude_fisica": {
+    "resumo": {
+      "n": 15,
+      "rr": {
+        "base": 0.567,
+        "reescrita": 0.728,
+        "diferenca": 0.161
+      },
+      "acerto": {
+        "base": 0.933,
+        "reescrita": 0.933,
+        "diferenca": 0.0
+      }
+    },
+    "casos": [
+      {
+        "id": "SF01",
+        "consultas": [
+          "Quantos minutos de atividade física moderada por semana a OMS recomenda para adultos?",
+          "The WHO recommends that adults engage in at least 150 to 300 minutes of moderate-intensity aerobic physical activity per week.",
+          "Qual é a recomendação da OMS sobre a quantidade de minutos de atividade física moderada por semana para adultos?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF02",
+        "consultas": [
+          "Quanto tempo de atividade física por dia crianças e adolescentes devem fazer?",
+          "Children and adolescents should aim for at least 60 minutes of moderate-to-vigorous physical activity daily.",
+          "Qual a recomendação de tempo de atividade física diária para crianças e adolescentes?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF03",
+        "consultas": [
+          "Gestantes podem fazer atividade física?",
+          "Pregnant women should consult their healthcare provider before starting any exercise program. Low-impact activities such as walking, swimming, and prenatal yoga are generally recommended.",
+          "Quais tipos de exercícios são seguros e recomendados para mulheres grávidas?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF04",
+        "consultas": [
+          "Como o aumento brusco da carga de treino se relaciona com lesões no esporte?",
+          "Rapid increases in training load are a well-known risk factor for overuse injuries. This phenomenon is often linked to inadequate adaptation of musculoskeletal tissues to the sudden stress."
+        ],
+        "base": {
+          "rr": 0.25,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.5,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF05",
+        "consultas": [
+          "Treinar demais aumenta o risco de ficar doente?",
+          "Overtraining syndrome can lead to immune suppression, making individuals more susceptible to infections and illness.",
+          "O excesso de treinamento pode comprometer o sistema imunológico e aumentar a suscetibilidade a doenças?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF06",
+        "consultas": [
+          "Exercício é recomendado para dor lombar crônica?",
+          "Regular physical activity is often recommended for chronic low back pain, as it can strengthen core muscles and improve flexibility, thereby reducing pain severity and improving function.",
+          "Qual o papel do exercício na gestão da dor lombar crônica?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF07",
+        "consultas": [
+          "Como é feita a reabilitação da tendinopatia do manguito rotador?",
+          "Rotator cuff tendinopathy rehabilitation typically involves a phased approach, starting with pain management and gentle range-of-motion exercises, progressing to strengthening exercises targeting the rotator cuff muscles, and finally incorporating functional activities.",
+          "What is the rehabilitation protocol for rotator cuff tendinopathy?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF08",
+        "consultas": [
+          "O que as diretrizes recomendam depois de uma entorse de tornozelo?",
+          "Initial management de ankle sprains often follows the RICE protocol (Rest, Ice, Compression, Elevation). Subsequent rehabilitation focuses on restoring range of motion, strength, and proprioception.",
+          "Quais são as diretrizes de reabilitação e tratamento para entorses de tornozelo?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF09",
+        "consultas": [
+          "Exercício ajuda quem tem artrose no joelho?",
+          "Regular physical activity is often recommended for individuals with knee osteoarthritis to improve joint function and reduce pain.",
+          "Como o exercício físico pode ajudar pacientes com osteoartrite no joelho?"
+        ],
+        "base": {
+          "rr": 0.0,
+          "acerto": 0.0
+        },
+        "reescrita": {
+          "rr": 0.0,
+          "acerto": 0.0
+        }
+      },
+      {
+        "id": "SF10",
+        "consultas": [
+          "Como fazer um aquecimento antes do exercício?",
+          "A proper warm-up should gradually increase heart rate and blood flow to the muscles being used. This typically involves light aerobic activity followed by dynamic stretching.",
+          "Quais são os protocolos de aquecimento adequados antes do exercício?"
+        ],
+        "base": {
+          "rr": 0.25,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF11",
+        "consultas": [
+          "Ficar muito tempo sentado faz mal mesmo para quem se exercita?",
+          "Prolonged sedentary behavior, even in physically active individuals, can negatively affect metabolic health and increase the risk of musculoskeletal issues. Breaking up long sitting periods with short bouts of movement is often recommended.",
+          "Qual é o impacto de longos períodos de sedentarismo em indivíduos ativos?"
+        ],
+        "base": {
+          "rr": 1.0,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.5,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF12",
+        "consultas": [
+          "Quais exercícios de força são recomendados para idosos e quantas vezes por semana?",
+          "Strength training is crucial for older adults to maintain muscle mass and bone density. Recommendations often suggest 2-3 sessions per week, focusing on compound movements.",
+          "Quais exercícios de força são recomendados para idosos e qual a frequência semanal ideal para a prática?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.25,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF13",
+        "consultas": [
+          "Atividade física ajuda a reduzir sintomas de depressão e ansiedade?",
+          "Regular physical activity has been shown to have antidepressant and anxiolytic effects, potentially by influencing neurotransmitter levels and reducing stress hormones.",
+          "Qual é o impacto da atividade física na redução dos sintomas de depressão e ansiedade?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF14",
+        "consultas": [
+          "O que é dor patelofemoral e como ela é tratada?",
+          "Patellofemoral pain syndrome (PFPS) is a common condition characterized by pain around or under the kneecap. Treatment often involves a combination of physical therapy, strengthening exercises, and activity modification."
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      },
+      {
+        "id": "SF15",
+        "consultas": [
+          "Quantos fatos importantes a OMS lista sobre inatividade física no mundo?",
+          "The WHO provides several key facts regarding physical inactivity globally, emphasizing its link to non-communicable diseases and public health challenges.",
+          "Quais são os fatos importantes listados pela OMS sobre inatividade física no mundo?"
+        ],
+        "base": {
+          "rr": 0.3333333333333333,
+          "acerto": 1.0
+        },
+        "reescrita": {
+          "rr": 1.0,
+          "acerto": 1.0
+        }
+      }
+    ]
+  }
+}

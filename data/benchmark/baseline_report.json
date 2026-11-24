@@ -4,8 +4,8 @@
   "top_k": 4,
   "recall_questions_evaluated": 13,
   "overall_metrics": {
-    "mean_doc_recall_at_k": 0.8846,
-    "mean_reciprocal_rank_mrr": 0.7692,
+    "mean_doc_recall_at_k": 0.9615,
+    "mean_reciprocal_rank_mrr": 0.8526,
     "mean_keyword_coverage": 0.925,
     "legal_guardrail_accuracy": 1.0
   },
@@ -21,8 +21,8 @@
     "multi_hop_and_composition_gap": {
       "questions": 7,
       "recall_questions_evaluated": 4,
-      "mean_doc_recall_at_k": 0.75,
-      "mean_mrr": 0.625,
+      "mean_doc_recall_at_k": 1.0,
+      "mean_mrr": 0.8125,
       "mean_keyword_coverage": 0.9286,
       "guardrail_accuracy": 1.0
     },
@@ -30,7 +30,7 @@
       "questions": 3,
       "recall_questions_evaluated": 3,
       "mean_doc_recall_at_k": 0.8333,
-      "mean_mrr": 0.5,
+      "mean_mrr": 0.6111,
       "mean_keyword_coverage": 0.9167,
       "guardrail_accuracy": 1.0
     }
@@ -70,7 +70,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Prefira sempre alimentos in natura ou minimamente processados E preparações culinárias A alimentos ultraprocessados\n\nA regra que facilita a observação das quatro recomendações gerais feitas neste capítulo é simples como devem ser as regras "
+      "evidence_summary_preview": "Os três grupos visuais foram representados como tabelas, sem alterar seus rótulos [T1]. A imagem integral pode ser consultada no PDF original pelo link da página [T1]. Revisão humana pendente [T1]. -->\n\nALIMENTO IN NATURA | ALIMENTO PROCESS"
     },
     {
       "id": "Q02_DIRECT",
@@ -93,8 +93,8 @@
       "retrieved_doc_ids": [
         "guia-alimentar-populacao-brasileira-2014",
         "guia-alimentar-populacao-brasileira-2014",
-        "louzada-ultraprocessados-micronutrientes-rsp-2015",
-        "martins-ultraprocessados-rsp-2013"
+        "protocolos-guia-alimentar-fasciculo1-2021",
+        "protocolos-guia-alimentar-fasciculo1-2021"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -105,7 +105,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Alimentos ultraprocessados “enganam” os dispositivos de que nosso organismo dispõe para regular o balanço de calorias [T1]. Em essência, esses dispositivos (situados no sistema digestivo e no cérebro) são responsáveis por fazer com que as c"
+      "evidence_summary_preview": "Devido a seus ingredientes, alimentos ultraprocessados – como biscoitos recheados, “salgadinhos de pacote”, refrigerantes e “macarrão instantâneo” – são nutricionalmente desbalanceados [T1]. Por conta de sua formulação e apresentação, tende"
     },
     {
       "id": "Q03_DIRECT",
@@ -176,7 +176,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Arroz, feijão, coxa de frango, repolho, moranga e laranja\n\nArroz, feijão, peito de frango, abóbora com quiabo e compota de jenipapo\n\nAlface, tomate, arroz, feijão, omelete, mandioca de forno\n\nArroz, feijão, carne moída com legumes\n\nCarnes d"
+      "evidence_summary_preview": "Arroz, feijão, fígado bovino e abobrinha refogada\n\nSopa de legumes, farinha de mandioca e açaí\n\nSalada de folhas, arroz, feijão, ovo e maçã\n\nSalada de folhas, macarrão e galeto\n\nAqui apresentamos a composição do jantar de oito brasileiros s"
     },
     {
       "id": "Q05_DIRECT",
@@ -234,8 +234,8 @@
       "retrieved_doc_ids": [
         "guia-alimentar-populacao-brasileira-2014",
         "guia-dietas-vegetarianas-svb-2012",
-        "guia-alimentar-populacao-brasileira-2014",
-        "guia-dietas-vegetarianas-svb-2012"
+        "guia-dietas-vegetarianas-svb-2012",
+        "guia-alimentar-populacao-brasileira-2014"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -307,11 +307,11 @@
       "retrieved_doc_ids": [
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
         "guia-dietas-vegetarianas-svb-2012",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
-        "guia-dietas-vegetarianas-svb-2012"
+        "guia-dietas-vegetarianas-svb-2012",
+        "guia-alimentar-populacao-brasileira-2014"
       ],
-      "doc_recall_at_k": 0.0,
-      "reciprocal_rank": 0.0,
+      "doc_recall_at_k": 1.0,
+      "reciprocal_rank": 0.25,
       "keyword_coverage": 0.6667,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
@@ -319,7 +319,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Resolvido pelo Passo 3 (Grafo de 4 Camadas): sinaliza a contraindicação de carga elevada de potássio (hipercalemia na DRC) e seleciona os caminhos causais seguros (MUFA/azeite 0mg K + fibras viscosas + amido resistente).",
-      "evidence_summary_preview": "Estudo que avaliou dieta hipocalórica com o uso de um (n = 52) ou dois (n = 50) SR diários, por indivíduos com obesidade e osteoartrite, verificou ao final de 3 meses que a perda de peso, redução de gordura corporal, das concentrações de co"
+      "evidence_summary_preview": "Outro padrão alimentar reconhecido internacionalmente é da dieta DASH, que foi originalmente desenvolvida como estratégia terapêutica não medicamentosa para a redução da pressão arterial sistêmica (HAS) [T1]. Essa dieta tem como particulari"
     },
     {
       "id": "Q09_LEGAL_TRAP",
@@ -379,21 +379,21 @@
       "expected_removed_from_index": [],
       "recall_evaluated": true,
       "retrieved_doc_ids": [
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
         "louzada-ultraprocessados-micronutrientes-rsp-2015",
         "guia-dietas-vegetarianas-svb-2012",
-        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
         "guia-dietas-vegetarianas-svb-2012"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 0.5,
+      "reciprocal_rank": 0.3333,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 3,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_C",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Deficiências de ferro, zinco e vitamina A, nutrientes presentes em menor quantidade em alimentos ultraprocessados quando comparados a alimentos in natura ou minimamente processados, estão entre os problemas [T1]. Os principais fatores que e"
+      "evidence_summary_preview": "Tabela 5 [T1]. Recomendações de suplementação para prevenção e para os casos de deficiência pós-cirurgia bariátrica e metabólica\n\nMICRO- NUTRIENTE | EX | AMES | SUPLEMENTAÇÃO DE ROTINA | DEFICIÊNCIA | OBSERVAÇÃO\n\nEXAMES LAGB/SG | QUAL EXAME"
     },
     {
       "id": "Q11_LEGAL_TRAP",
@@ -414,21 +414,21 @@
       "expected_removed_from_index": [],
       "recall_evaluated": true,
       "retrieved_doc_ids": [
-        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014",
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
         "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
         "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 0.5,
+      "reciprocal_rank": 1.0,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 5,
       "graph_paths_count": 4,
       "model_used": "local_extractive_synthesis",
-      "evidence_grade": "GRADE_C",
+      "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Em relação aos produtos mais utilizados, de acordo com a formulação, destacou-se o consumo de aminoácidos ou concentrados protéicos, coerente com o fato de 17 entrevistados praticarem exercício físico com o objetivo de aumentar massa muscul"
+      "evidence_summary_preview": "Ingestão proteica, após o exercício físico de hipertrofia, favorece o aumento de massa muscular, quando combinado com a ingestão de carboidratos, reduzindo a degradação proteica [T1]. A dose recomendada é de 10g de proteínas e 20g de carboi"
     },
     {
       "id": "Q12_DIRECT",
@@ -453,7 +453,7 @@
         "guia-alimentar-populacao-brasileira-2014",
         "guia-alimentar-populacao-brasileira-2014",
         "protocolos-guia-alimentar-fasciculo1-2021",
-        "souza-backes-universitarios-csc-2020"
+        "guia-alimentar-populacao-brasileira-2014"
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 1.0,
@@ -482,7 +482,7 @@
         "guia-alimentar-populacao-brasileira-2014",
         "guia-alimentar-populacao-brasileira-2014",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
-        "sbme-modificacoes-dieteticas-suplementos-rbme-2009"
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022"
       ],
       "doc_recall_at_k": 0.0,
       "reciprocal_rank": 0.0,
@@ -493,7 +493,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre sinergia culinária que exige o Grafo de 4 Camadas para contrastar a curcumina isolada (LOW_EFFICACY_ALONE) com a adição de piperina/lipídios (+2000% biodisponibilidade).",
-      "evidence_summary_preview": "Água pura\n\nÁgua com limão\n\nA água é essencial para a manutenção da vida [T1]. Sem ela, não sobrevivemos mais do que poucos dias [T1]. O total de água existente no corpo dos seres humanos corresponde a 75% do peso na infância e a mais da met"
+      "evidence_summary_preview": "A água pura (ou, como preferido por algumas pessoas, “temperada” com rodelas de limão ou folhas de hortelã) é a melhor opção para a ingestão de líquidos [T1]. Também faz parte da cultura alimentar do brasileiro o consumo na forma de bebidas"
     },
     {
       "id": "Q14_NATURAL_GRAPH",
@@ -517,13 +517,13 @@
       ],
       "recall_evaluated": true,
       "retrieved_doc_ids": [
+        "guia-alimentar-populacao-brasileira-2014",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
         "guia-alimentar-populacao-brasileira-2014",
-        "guia-dietas-vegetarianas-svb-2012",
-        "guia-alimentar-populacao-brasileira-2014"
+        "guia-dietas-vegetarianas-svb-2012"
       ],
       "doc_recall_at_k": 1.0,
-      "reciprocal_rank": 0.5,
+      "reciprocal_rank": 1.0,
       "keyword_coverage": 1.0,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 2,
@@ -531,7 +531,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre técnica de preparo (resfriamento por 12-24h) que exige o Grafo de 4 Camadas para conectar a retrogradação da amilose em Amido Resistente Tipo 3 (RS3) à fermentação colônica (butirato/GLP-1) e menor pico glicêmico.",
-      "evidence_summary_preview": "não caracterizam dieta rica em carboidratos ou mesmo pobre em gorduras [T1]. Na verdade, o que se observou foi aumento da ingestão de açúcares simultaneamente ao consumo adicional de aproximadamente 300 kcal/dia [T1]. Portanto, os carboidra"
+      "evidence_summary_preview": "Entretanto, dado que o sal, óleos, gorduras e açúcar são produtos usados para temperar e cozinhar alimentos, seu impacto sobre a qualidade nutricional da alimentação dependerá essencialmente da quantidade utilizada nas preparações culinária"
     },
     {
       "id": "Q15_NATURAL_GRAPH",
@@ -560,7 +560,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana sobre processamento térmico que exige o Grafo de 4 Camadas para explicar que a fervura inativa a enzima mirosinase, impedindo a conversão da glicorafanina em sulforafano.",
-      "evidence_summary_preview": "Legumes\n\nPimentão amarelo cru | 201,4\n\nPimentão vermelho cru | 158,2\n\nPimentão verde cru | 100,2\n\nVerduras\n\nCouve manteiga, refogada | 76,9\n\nBrócolis, cozido | 42\n\nMostarda, folha crua | 38,6\n\nFonte: Tabela Brasileira de Composição de Alime"
+      "evidence_summary_preview": "Acelga crua; agrião cru; aipo cru; alface americana crua; alface crespa crua; alface lisa crua; alfavaca crua; almeirão cru; almeirão refogado; brócolis cozido; brócolis cru; catalonha crua; chicória crua; couve-manteiga crua; couve-manteig"
     },
     {
       "id": "Q16_NATURAL_GRAPH",
@@ -575,9 +575,9 @@
       "expected_removed_from_index": [],
       "recall_evaluated": false,
       "retrieved_doc_ids": [
-        "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
-        "guia-alimentar-populacao-brasileira-2014",
         "abeso-posicionamento-tratamento-nutricional-obesidade-2022",
+        "guia-alimentar-populacao-brasileira-2014",
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009",
         "guia-dietas-vegetarianas-svb-2012"
       ],
       "doc_recall_at_k": 0.0,
@@ -589,7 +589,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": "Pergunta cotidiana com conflito de comorbidades (hipertensão + DM2 + restrição renal de potássio) resolvida pelo filtro de contraindicação do Grafo de 4 Camadas.",
-      "evidence_summary_preview": "As reservas de eletrólitos, como a concentração de sódio no sangue, por exemplo, são muito bem reguladas pelos rins através de respostas hormonais da aldosterona e vasopressina [T1]. Porém, em muitas situações de exercício intenso e prolong"
+      "evidence_summary_preview": "Outro padrão alimentar reconhecido internacionalmente é da dieta DASH, que foi originalmente desenvolvida como estratégia terapêutica não medicamentosa para a redução da pressão arterial sistêmica (HAS) [T1]. Essa dieta tem como particulari"
     }
   ],
   "risk_metrics": {
@@ -654,14 +654,14 @@
     "falsos_positivos": []
   },
   "abstention_metrics": {
-    "limiar_cosseno": 0.4,
+    "limiar_cosseno": 0.845,
     "casos": 96,
-    "nao_sei_fora_de_nutricao": 0.8846,
+    "nao_sei_fora_de_nutricao": 0.9615,
     "nao_sei_nutricao_fora_do_corpus": 0.0357,
     "respostas_esperadas": 1.0,
     "por_split": {
       "dev": {
-        "nao_sei_fora_de_nutricao": 0.8571,
+        "nao_sei_fora_de_nutricao": 0.9524,
         "nao_sei_nutricao_fora_do_corpus": 0.0,
         "respostas_esperadas": 1.0
       },
@@ -673,9 +673,7 @@
     },
     "recusas_indevidas": [],
     "fora_de_nutricao_respondidos": [
-      "ABS-FNU-10",
-      "ABS-FNU-17",
-      "ABS-FNU-18"
+      "ABS-FNU-17"
     ]
   }
 }

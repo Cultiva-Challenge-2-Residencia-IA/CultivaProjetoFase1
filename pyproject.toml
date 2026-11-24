@@ -40,6 +40,10 @@ modelo-local = [
     "bert-score>=0.3.13",
     "torch>=2.4",
 ]
+# Interface de teste dos chats (issue #99), fora do CI: uv sync --group interface
+interface = [
+    "gradio>=6.0",
+]
 # Comparação de frameworks de guardrail (issue #52). Fora do CI:
 # uv sync --group guardrails-frameworks
 guardrails-frameworks = [
@@ -52,6 +56,9 @@ guardrails-frameworks = [
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+markers = [
+    "embeddings_reais: depende da semântica do modelo de embeddings real (e5-large); só roda com CULTIVA_TESTES_EMBEDDINGS_REAIS=true",
+]
 
 [tool.ruff]
 target-version = "py311"

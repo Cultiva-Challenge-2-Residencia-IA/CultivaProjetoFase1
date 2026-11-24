@@ -130,3 +130,35 @@ def test_feedback_grava_comentario_com_dados_pessoais_mascarados(tmp_path):
 def test_corpus_version_no_modo_legado_nao_quebra():
     """Chunks sem JSONL no corpus (modo legado data/raw) recebem uma versão pelo hash dos ids."""
     assert corpus_version_do_indice([_chunk()]).startswith("legado:")
+
+
+def test_resposta_do_chat_aceita_feedback_de_resposta_incorreta(tmp_path, monkeypatch):
+    """RF-IA15: o response_id de cada Agente de área do chat entra no registro, como no /consult."""
+    import src.api as api
+    import src.agent.traceability as rastreio
+    from src.chat.servico import RespostaDoChat
+
+    db_path = tmp_path / "trace.sqlite3"
+    salvar, registrar = rastreio.save_response_trace, rastreio.register_incorrect_feedback
+    monkeypatch.setattr(api, "save_response_trace", lambda resposta: salvar(resposta, db_path))
+    monkeypatch.setattr(api, "register_incorrect_feedback", lambda rid, det: registrar(rid, det, db_path))
+    monkeypatch.setattr(api, "registrar_feedback_incorreto", lambda rid, det: None)
+    resposta_agente = SimpleNamespace(response_id="r-chat", corpus_version="c", prompt_version="p",
+                                      model_version="m", fontes_version="f", trechos_usados=[])
+
+    class ServicoFalso:
+        def enviar(self, chat, usuario_id, conversa_id, mensagem, top_k=None):
+            return RespostaDoChat.model_construct(chat=chat, conversa_id=conversa_id, tipo="agente", texto="ok",
+                                                  texto_com_marcadores="ok", areas=["nutricao"], citacoes=[],
+                                                  respostas={"nutricao": resposta_agente}, modo_sincronizacao=None)
+
+    monkeypatch.setattr(api, "get_servico_de_chat", ServicoFalso)
+    cliente = TestClient(api.app)
+    from src.chat.autenticacao import emitir_token
+
+    segredo = "segredo-de-teste-com-pelo-menos-32-caracteres"
+    monkeypatch.setenv("CULTIVA_AUTH_SEGREDO", segredo)
+    cabecalho = {"Authorization": f"Bearer {emitir_token('u', segredo.encode())}"}
+    assert cliente.post("/chat/geral", json={"conversa_id": "c", "mensagem": "fibra?"},
+                        headers=cabecalho).status_code == 200
+    assert cliente.post("/feedback/incorrect", json={"response_id": "r-chat"}).status_code == 200

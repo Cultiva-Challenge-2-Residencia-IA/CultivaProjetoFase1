@@ -6,7 +6,8 @@ traz a página (`D<n>`) ou o Trecho do corpus (`T<n>`) e uma citação literal, 
 LLM decidem o que chega ao usuário:
 
 1. a citação existe na fonte citada (a mesma regra da #67, `citacao_literal_valida`);
-2. todo número da frase aparece na citação ("2,5" = "2.5"; "1.200" = "1200").
+2. todo número da frase aparece na citação ("2,5" = "2.5"; "1.200" = "1200"), e com a mesma unidade
+   quando a frase traz unidade ("40 g" não passa contra "40 mg").
 
 Frase que falha é removida. O texto do PDF vai ao modelo como dado (RNF04), o PDF não é guardado
 (RNF26) e a resposta é marcada para confirmação (RF-A10).
@@ -24,6 +25,7 @@ import httpx
 import pymupdf
 
 from src.config import OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_NUM_PREDICT, OLLAMA_THINK
+from src.guardrails.alerta import MENSAGEM_ALERTA, detectar_sinal_de_alerta
 from src.guardrails.injection import MENSAGEM_INJECAO, delimitar_como_dado, has_prompt_injection
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.models.schemas import RetrievedChunk
@@ -132,10 +134,49 @@ def numeros(texto: str) -> set[str]:
 _ROTULO = re.compile(r"\[\s*[DT]\d+\s*\]", re.I)
 
 
+# Unidades de dose, porção e tempo, na forma canônica. A unidade faz parte da dose: trocar "mg" por "g"
+# multiplica a quantidade por mil.
+_UNIDADES = {
+    "mg": "mg", "miligrama": "mg", "miligramas": "mg",
+    "mcg": "mcg", "µg": "mcg", "ug": "mcg", "micrograma": "mcg", "microgramas": "mcg",
+    "g": "g", "grama": "g", "gramas": "g", "gr": "g",
+    "kg": "kg", "quilo": "kg", "quilos": "kg", "quilograma": "kg", "quilogramas": "kg",
+    "ml": "ml", "mililitro": "ml", "mililitros": "ml",
+    "l": "l", "litro": "l", "litros": "l",
+    "kcal": "kcal", "cal": "cal", "calorias": "kcal", "caloria": "kcal", "kj": "kj",
+    "ui": "ui", "%": "%",
+    "h": "h", "hora": "h", "horas": "h", "min": "min", "minuto": "min", "minutos": "min",
+    "dia": "dia", "dias": "dia", "semana": "semana", "semanas": "semana", "mes": "mes", "meses": "mes",
+    "comprimido": "comprimido", "comprimidos": "comprimido", "capsula": "capsula", "capsulas": "capsula",
+    "gota": "gota", "gotas": "gota", "colher": "colher", "colheres": "colher",
+    "xicara": "xicara", "xicaras": "xicara", "copo": "copo", "copos": "copo",
+    "fatia": "fatia", "fatias": "fatia", "concha": "concha", "conchas": "concha",
+    "unidade": "unidade", "unidades": "unidade", "porcao": "porcao", "porcoes": "porcao",
+}
+_QUANTIDADE = re.compile(r"(\d+(?:[.,]\d+)*)\s*(%|µg|[a-zà-ú]+)?", re.I)
+
+
+def _sem_acento(texto: str) -> str:
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFD", texto) if unicodedata.category(c) != "Mn")
+
+
+def quantidades(texto: str) -> set[tuple[str, str]]:
+    """Pares (número, unidade canônica) do texto; número sem unidade conhecida não entra."""
+    saida = set()
+    for bruto, unidade in _QUANTIDADE.findall(_sem_acento(texto or "").replace("µg", "mcg")):
+        canonica = _UNIDADES.get((unidade or "").lower())
+        if canonica:
+            saida.update((n, canonica) for n in numeros(bruto))
+    return saida
+
+
 def numeros_preservados(frase: str, citacao: str) -> bool:
-    """Todo número da frase aparece na citação: dose, porção e horário não podem mudar. Rótulos de
-    fonte escritos na frase ("[D1]", "[T2]") não são números do conteúdo."""
-    return numeros(_ROTULO.sub(" ", frase)) <= numeros(citacao)
+    """Todo número da frase aparece na citação, e toda quantidade com unidade aparece com a mesma
+    unidade: dose, porção e horário não podem mudar. Rótulos de fonte escritos na frase ("[D1]",
+    "[T2]") não são números do conteúdo."""
+    frase = _ROTULO.sub(" ", frase)
+    return numeros(frase) <= numeros(citacao) and quantidades(frase) <= quantidades(citacao)
 
 
 def _rotulos(refs: Any) -> List[str]:
@@ -287,16 +328,32 @@ def resumir_paginas(
     return _processar("resumo", paginas, pedido, [], modelo, base_url, chamar)
 
 
+def portao_da_pergunta(pergunta: str, risco_llm: Any = None) -> Optional[str]:
+    """Os mesmos portões dos chats (#100), na mesma ordem: risco pelo léxico e, se ele não acionar, pela
+    camada LLM local (#48); sinal de alerta; prompt injection. Devolve a mensagem fixa, ou None."""
+    risco = detectar_risco(pergunta).risco
+    if not risco and risco_llm is not None:
+        resultado = risco_llm.classificar(pergunta)
+        risco = resultado is not None and resultado.risco
+    if risco:
+        return MENSAGEM_ACOLHIMENTO
+    if detectar_sinal_de_alerta(pergunta):
+        return MENSAGEM_ALERTA
+    if has_prompt_injection(pergunta):
+        return MENSAGEM_INJECAO
+    return None
+
+
 def perguntar_paginas(
     paginas: List[Pagina], pergunta: str, buscar: Optional[Callable[[str], List[RetrievedChunk]]] = None,
     modelo: str = OLLAMA_MODEL, base_url: str = OLLAMA_BASE_URL,
     chamar: Callable[[str, str, str], Optional[Dict[str, Any]]] = _chamar_llm,
+    risco_llm: Any = None,
 ) -> ResultadoPDF:
     """Responde com base no documento e, se `buscar` for dado, em Trechos do corpus aprovado."""
-    if detectar_risco(pergunta).risco:
-        return ResultadoPDF("pergunta", len(paginas), [], resposta_fixa=MENSAGEM_ACOLHIMENTO, modelo="mensagem_fixa")
-    if has_prompt_injection(pergunta):
-        return ResultadoPDF("pergunta", len(paginas), [], resposta_fixa=MENSAGEM_INJECAO, modelo="mensagem_fixa")
+    fixa = portao_da_pergunta(pergunta, risco_llm)
+    if fixa is not None:
+        return ResultadoPDF("pergunta", len(paginas), [], resposta_fixa=fixa, modelo="mensagem_fixa")
     trechos = buscar(pergunta) if buscar else []
     pedido = (f"PERGUNTA DO USUÁRIO: {pergunta}\n\nTAREFA: responda em até 5 frases, usando primeiro o "
               "documento e, se ajudar, os trechos de referência. Não faça recomendação nova.")
@@ -314,5 +371,6 @@ def perguntar_pdf(
     dados: bytes, pergunta: str, buscar: Optional[Callable[[str], List[RetrievedChunk]]] = None,
     modelo: str = OLLAMA_MODEL, base_url: str = OLLAMA_BASE_URL,
     chamar: Callable[[str, str, str], Optional[Dict[str, Any]]] = _chamar_llm,
+    risco_llm: Any = None,
 ) -> ResultadoPDF:
-    return perguntar_paginas(extrair_paginas(dados), pergunta, buscar, modelo, base_url, chamar)
+    return perguntar_paginas(extrair_paginas(dados), pergunta, buscar, modelo, base_url, chamar, risco_llm)
