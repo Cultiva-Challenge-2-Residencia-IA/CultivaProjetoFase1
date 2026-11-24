@@ -1,4 +1,5 @@
 import sys
+import threading
 from typing import Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
@@ -31,15 +32,17 @@ def get_consultant() -> NutritionConsultantBaseline:
 
 
 _servico_de_chat: Optional[ServicoDeChat] = None
+_trava_do_servico = threading.Lock()
 
 
 def get_servico_de_chat() -> ServicoDeChat:
     """Serviço do Chat geral e dos Chats de área (issue #99), montado na primeira chamada."""
     global _servico_de_chat
-    if _servico_de_chat is None:
-        from src.chat.fabrica import criar_servico
+    with _trava_do_servico:  # endpoints síncronos rodam em threads: monta uma vez só
+        if _servico_de_chat is None:
+            from src.chat.fabrica import criar_servico
 
-        _servico_de_chat = criar_servico(enable_ollama=True)
+            _servico_de_chat = criar_servico(enable_ollama=True)
     return _servico_de_chat
 
 

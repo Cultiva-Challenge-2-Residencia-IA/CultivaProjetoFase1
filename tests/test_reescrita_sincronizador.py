@@ -127,3 +127,11 @@ def test_uma_resposta_so_passa_sem_sincronizar():
     sinc = sincronizar("Como baixar a pressão?", [NUTRI], llm=lambda _s, _u: None)
     assert sinc.modo == "area_unica"
     assert sinc.texto == NUTRI.texto
+
+
+def test_fusao_mantem_o_limite_de_trechos_por_documento():
+    mesmo_doc = [_chunk(f"who-p00{i}-01") for i in range(1, 5)]
+    outro = _chunk("ioc-p001-01")
+    fundidos = fundir_rrf([mesmo_doc[:2], mesmo_doc[2:], [outro]], top_k=4, max_por_documento=2)
+    docs = [r.chunk.doc_id for r in fundidos]
+    assert docs.count("who") == 2 and "ioc" in docs

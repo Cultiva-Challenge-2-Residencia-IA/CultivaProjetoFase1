@@ -39,7 +39,7 @@ PRESCRICAO_DE_TREINO: List[Tuple[str, str]] = [
 DIAGNOSTICO_DE_LESAO: List[Tuple[str, str]] = [
     (r"\b(o que e|o que sera|o que pode ser|e normal|e grave)\b.*\b(essa|esta|minha|meu)\b.*\b(dor|lesao|inchaco"
      r"|estalo)\b", "diagnóstico de dor ou lesão individual"),
-    (r"\b(essa|esta|minha)\b \b(dor|lesao)\b.*\b(e|sera|pode ser)\b.*\b(tendinite|lesao|ruptura|hernia|grave)\b",
+    (r"\b(essa|esta|minha)\b \b(dor|lesao)\b.*\b(e|sera|pode ser) (uma? )?(tendinite|lesao|ruptura|hernia|grave)\b",
      "diagnóstico de dor ou lesão individual"),
     (r"\b(tenho|estou com)\b.*\b(tendinite|hernia|lesao|ruptura)\b.*\b(o que (eu )?faco|como (eu )?trato|qual"
      r" tratamento)\b", "tratamento de lesão individual"),

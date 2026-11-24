@@ -42,6 +42,11 @@ class Mensagem:
     papel: str  # "usuario" ou "assistente"
     texto: str
     area: Optional[str] = None
+    # Todas as áreas da mensagem (a do usuário pode ter ido às duas); `area` só quando é uma.
+    areas: List[str] = field(default_factory=list)
+
+    def e_da_area(self, area: str) -> bool:
+        return self.area == area or area in self.areas
 
 
 @dataclass

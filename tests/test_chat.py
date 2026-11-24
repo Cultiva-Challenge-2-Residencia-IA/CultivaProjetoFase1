@@ -183,3 +183,54 @@ def test_sem_a_flag_o_trecho_hipotetico_nao_vai_para_a_busca(tmp_path, agentes):
     chamada = agentes[AREA_NUTRICAO].chamadas[-1]
     assert chamada["extras"] == []
     assert chamada["pergunta"] == "Quais alimentos são ricos em fibra?"  # sem Histórico, a mensagem como veio
+
+
+def _com_trechos(agente: AgenteFalso, prefixo: str) -> AgenteFalso:
+    """Agente falso que cita [T1] e devolve um Trecho recuperado."""
+    from src.models.schemas import DocumentChunk, RetrievedChunk
+
+    original = agente.responder
+
+    def responder(pergunta, top_k, extras, historico):
+        resposta = original(pergunta, top_k, extras, historico)
+        chunk = DocumentChunk(chunk_id=f"{prefixo}-p001-01", doc_id=prefixo, title=f"Fonte {prefixo}",
+                              source_organization="Org", publication_year=2020, clinical_domain="x",
+                              evidence_level="GUIDELINE_CONSENSUS", section_path="S", raw_text="t",
+                              contextualized_text="t", pagina_pdf=1)
+        return resposta.model_copy(update={"evidence_summary": f"Frase de {prefixo} [T1].",
+                                           "retrieved_chunks": [RetrievedChunk(chunk=chunk)],
+                                           "citations": [f"[{prefixo}] citação própria [T1]"]})
+
+    agente.responder = responder
+    return agente
+
+
+def test_citacoes_do_chat_geral_seguem_a_numeracao_do_texto_sincronizado(tmp_path, agentes):
+    _com_trechos(agentes[AREA_NUTRICAO], "guia")
+    _com_trechos(agentes[AREA_SAUDE_FISICA], "who")
+    resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "O que comer antes do treino de musculação?")
+    assert "[T2]" in resposta.texto
+    assert [c.split("]")[0] + "]" for c in resposta.citacoes] == ["[T1]", "[T2]"]
+    assert "[who]" in resposta.citacoes[1]
+
+
+def test_chat_de_area_manda_so_a_subpergunta_da_area_ao_agente(tmp_path, agentes):
+    def llm(sistema, usuario):
+        if "prepara buscas" not in sistema:
+            return None
+        return {"pergunta_completa": "O que comer antes do treino e quantas séries fazer?", "subperguntas": [
+            {"area": "nutricao", "pergunta": "O que comer antes do treino?", "trecho_hipotetico": ""},
+            {"area": "saude_fisica", "pergunta": "Quantas séries fazer?", "trecho_hipotetico": ""}]}
+
+    _servico(tmp_path, agentes, llm=llm).enviar(
+        AREA_NUTRICAO, "u1", "c1", "O que comer antes do treino e quantas séries devo fazer?")
+    assert agentes[AREA_NUTRICAO].chamadas[-1]["pergunta"] == "O que comer antes do treino?"
+
+
+def test_pergunta_das_duas_areas_fica_no_historico_dos_dois_agentes(tmp_path, agentes):
+    servico = _servico(tmp_path, agentes)
+    servico.enviar(CHAT_GERAL, "u1", "c1", "O que comer antes do treino de musculação?")
+    servico.enviar(CHAT_GERAL, "u1", "c1", "E depois do treino de musculação, o que comer?")
+    for agente in agentes.values():
+        textos = [m.texto for m in agente.chamadas[-1]["historico"]]
+        assert "O que comer antes do treino de musculação?" in textos

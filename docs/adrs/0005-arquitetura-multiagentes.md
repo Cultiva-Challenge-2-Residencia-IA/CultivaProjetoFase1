@@ -43,6 +43,7 @@ Critérios escritos antes da medição em `eval/multiagentes/criterios.md`; resu
 
 ## Consequências e limitações
 
+* **A API dos chats não tem autenticação:** o `usuario_id` vem do cliente, então qualquer um que alcance a API pode ler o contexto ou apagar as conversas de outro usuário. Só para uso local e dados sintéticos até o App ter identidade autenticada.
 * As regras de roteamento são por vocabulário: paráfrases sem termo de área dependem do LLM.
 * A reescrita e o Sincronizador acrescentam chamadas ao LLM local: latência maior no Chat geral.
 * O Histórico em texto puro é tratamento de dado pessoal de saúde; precisa entrar no RIPD, com retenção e exclusão.

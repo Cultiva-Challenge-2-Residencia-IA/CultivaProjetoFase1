@@ -236,6 +236,7 @@ Desde 24/11/2026, **17 fontes de Saúde Física estão no RAG**, com `approval_s
 Ficaram de fora: a página pública da diretriz patelofemoral (`18-...-cpg-2019.html`, só links e autores, sem conteúdo; o infográfico entra no lugar), o HTML em inglês da Cochrane, o anexo de tabelas da OMS (20) e o guia do Ministério da Saúde para gestores (21), não catalogados, e as três fontes sem original (ACSM 2026, ACSM 2015, ACC 2026), que continuam `kind: original_only`.
 
 - **Área:** `area: saude_fisica` no manifesto. Os Trechos vão para `corpus/saudefisica/rag/` (a pasta `rag/` da área de cada fonte); o registro de geração continua único, em `corpus/nutricao/rag/geracao.json`.
+- **Fontes HTML (`kind: html`):** `skip_pages` do `rag.yaml` vale como número de **seção** nessas fontes e muda se a página ganhar um título de nível 2; prefira `drop_paragraphs`.
 - **Fontes HTML (`kind: html`):** convertidas pelo `convert_html.py` (com `content_selector` no manifesto) e cortadas por **seção** (título de nível 2), sem página: `pagina_pdf` nulo e id `<fonte>-s###-NN`. O `verify_corpus.py` confere original, Markdown e script, e aceita o BOM UTF-8 dos originais.
 - **Idioma:** 15 das 17 fontes estão em inglês; o agente responde em português e cita o trecho no idioma original.
 - **Tamanho:** cerca de 4.500 Trechos; o relatório do HHS sozinho tem cerca de 2.300. O retriever limita 2 Trechos por documento por resposta.

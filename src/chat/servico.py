@@ -30,7 +30,7 @@ from src.models.schemas import ConsultantResponse
 from src.observabilidade import atributos_do_trace, observacao
 from src.orquestrador.reescrita import LLMJson, Mensagem, Subpergunta, reescrever
 from src.orquestrador.roteamento import AREA_NUTRICAO, AREAS, rotear_por_regras
-from src.orquestrador.sincronizador import NOMES_DAS_AREAS, RespostaDeArea, sincronizar
+from src.orquestrador.sincronizador import MARCADOR_T, NOMES_DAS_AREAS, RespostaDeArea, sincronizar
 from src.rag.verificador.citacoes import FRASE_SEM_BASE
 
 CHAT_GERAL = "geral"
@@ -79,6 +79,19 @@ def texto_da_resposta(resposta: ConsultantResponse) -> str:
     if resposta.guardrail_triggered and resposta.legal_compliance_notice and not resposta.prompt_injection_detected:
         return f"{resposta.legal_compliance_notice}\n\n{texto}"
     return texto
+
+
+def citacoes_do_texto(texto: str, trechos: Sequence) -> List[str]:
+    """Uma citação por Trecho marcado [T#] no texto, com fonte, seção e página (ou seção, no HTML)."""
+    numeros = sorted({int(n) for n in MARCADOR_T.findall(texto) if 1 <= int(n) <= len(trechos)})
+    citacoes = []
+    for n in numeros:
+        c = trechos[n - 1].chunk
+        onde = f"p. {c.pagina_pdf}" if c.pagina_pdf else f"seção '{c.section_path}'"
+        link = c.fonte_url or (f"https://doi.org/{c.doi}" if c.doi else "")
+        citacoes.append(f"[T{n}] [{c.doc_id}] {c.title} — {c.source_organization} ({c.publication_year}), {onde}"
+                        + (f" | Link: {link}" if link else ""))
+    return citacoes
 
 
 def _id_anonimo(usuario_id: str) -> str:
@@ -186,6 +199,7 @@ class ServicoDeChat:
     def _responder(self, chat: str, usuario_id: str, conversa_id: str, mensagem: str,
                    top_k: int) -> RespostaDoChat:
         historico = self._historico(chat, usuario_id, conversa_id)
+        historico_proprio = self.historico.recentes(usuario_id, conversa_id, self.janela)
         reescrita, regras, subperguntas = self._rotear(chat, mensagem, historico)
         redirecionamento = None
 
@@ -201,6 +215,7 @@ class ServicoDeChat:
             area = chat if chat != CHAT_GERAL else AREA_NUTRICAO
             subperguntas = [Subpergunta(area, reescrita.pergunta_completa)]
 
+        varias_areas = len(subperguntas) > 1
         if chat != CHAT_GERAL:
             proprias = [s for s in subperguntas if s.area == chat]
             outras = [s.area for s in subperguntas if s.area != chat]
@@ -218,10 +233,10 @@ class ServicoDeChat:
                 extras = [t for t in (sub.trecho_hipotetico,) if t]
                 if sub.texto.strip() != reescrita.pergunta_completa.strip():
                     extras.append(reescrita.pergunta_completa)
-            # Pergunta de uma área só, sem Histórico: vai como o usuário escreveu, a mesma busca medida
-            # como base no dev. Com Histórico (continuação) ou duas áreas, vai a Subpergunta.
-            pergunta = mensagem if len(subperguntas) == 1 and not historico else sub.texto
-            historico_da_area = [m for m in historico if m.area == sub.area]
+            # Pergunta de uma área só, sem Histórico desta Conversa: vai como o usuário escreveu, a mesma
+            # busca medida como base no dev. Com continuação ou com mais de uma área, vai a Subpergunta.
+            pergunta = mensagem if not varias_areas and not historico_proprio else sub.texto
+            historico_da_area = [m for m in historico if m.e_da_area(sub.area)]
             respostas[sub.area] = self.agentes[sub.area].responder(pergunta, top_k, extras, historico_da_area)
 
         areas = list(respostas)
@@ -236,12 +251,15 @@ class ServicoDeChat:
                 self.llm,
             )
             texto, tipo, modo = sinc.texto, "sincronizada", sinc.modo
+            # Os marcadores do texto sincronizado contam os Trechos das duas áreas num só intervalo:
+            # as citações saem da mesma lista (RN04).
+            citacoes = citacoes_do_texto(texto, sinc.trechos)
         else:
             unica = next(iter(respostas.values()))
             texto, tipo, modo = texto_da_resposta(unica), "agente", None
+            citacoes = list(unica.citations)
         if redirecionamento:
             texto = f"{texto}\n\n{redirecionamento}"
-        citacoes = [c for r in respostas.values() for c in r.citations]
         return RespostaDoChat(
             chat=chat, conversa_id=conversa_id, tipo=tipo, texto=texto, areas=areas, respostas=respostas,
             modo_sincronizacao=modo, citacoes=citacoes, redirecionamento=redirecionamento,

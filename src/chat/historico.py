@@ -6,6 +6,7 @@ Mensagem que o portão de risco detecta é guardada só com as categorias. A Con
 até o Usuário apagar (`apagar_conversa`, `apagar_usuario`).
 """
 
+from contextlib import closing, contextmanager
 from pathlib import Path
 import sqlite3
 from typing import List, Optional, Sequence
@@ -31,8 +32,11 @@ class HistoricoSQLite:
         with self._conectar() as conexao:
             conexao.execute(_ESQUEMA)
 
-    def _conectar(self) -> sqlite3.Connection:
-        return sqlite3.connect(self.caminho)
+    @contextmanager
+    def _conectar(self):
+        """Uma conexão por operação, fechada no fim, com commit (ou rollback em erro)."""
+        with closing(sqlite3.connect(self.caminho)) as conexao, conexao:
+            yield conexao
 
     def adicionar(self, usuario_id: str, conversa_id: str, chat: str, papel: str, texto: str,
                   areas: Sequence[str] = ()) -> None:
@@ -47,7 +51,8 @@ class HistoricoSQLite:
         mensagens = []
         for papel, areas, texto in linhas:
             lista = [a for a in areas.split(",") if a]
-            mensagens.append(Mensagem(papel=papel, texto=texto, area=lista[0] if len(lista) == 1 else None))
+            mensagens.append(Mensagem(papel=papel, texto=texto, area=lista[0] if len(lista) == 1 else None,
+                                      areas=lista))
         return mensagens
 
     def recentes(self, usuario_id: str, conversa_id: str, limite: int) -> List[Mensagem]:
