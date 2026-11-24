@@ -1,6 +1,6 @@
 import sys
 from typing import Optional
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel, Field
 
 from src.agent.consultant_baseline import NutritionConsultantBaseline
@@ -9,6 +9,7 @@ from src.config import TOP_K_FINAL
 from src.models.schemas import ConsultantResponse
 from src.agent.traceability import register_incorrect_feedback, save_response_trace
 from src.observabilidade import registrar_feedback_incorreto
+from src.multimodal.pdf import MAX_BYTES, PDFInvalido, perguntar_pdf, resumir_pdf
 
 app = FastAPI(
     title="Consultor Científico de Nutrição Baseado em Evidências (Fase 1 - Baseline RAG Híbrido)",
@@ -85,6 +86,37 @@ def incorrect_answer_feedback(request: IncorrectAnswerFeedback) -> dict:
     # RF-IA15: com o Langfuse ligado, o feedback vira o score "resposta_incorreta" no trace da resposta.
     registrar_feedback_incorreto(request.response_id, request.detail)
     return {"status": "registrado", "response_id": request.response_id}
+
+
+async def _ler_pdf(arquivo: UploadFile) -> bytes:
+    """Lê o PDF só em memória (RNF26: o original não é gravado)."""
+    if arquivo.content_type not in (None, "", "application/pdf", "application/octet-stream"):
+        raise HTTPException(status_code=415, detail="Envie um arquivo PDF.")
+    dados = await arquivo.read(MAX_BYTES + 1)
+    if len(dados) > MAX_BYTES:
+        raise HTTPException(status_code=413, detail="PDF grande demais.")
+    return dados
+
+
+@app.post("/multimodal/pdf/resumo")
+async def resumo_de_pdf(arquivo: UploadFile = File(...)) -> dict:
+    """Resumo do PDF enviado, com página e citação literal em cada frase (issue #95, RF-IA14).
+    Nada é salvo: a resposta vai para confirmação (RF-A10)."""
+    try:
+        return resumir_pdf(await _ler_pdf(arquivo)).como_dict()
+    except PDFInvalido as erro:
+        raise HTTPException(status_code=422, detail=str(erro)) from erro
+
+
+@app.post("/multimodal/pdf/pergunta")
+async def pergunta_sobre_pdf(arquivo: UploadFile = File(...), pergunta: str = Form(..., min_length=3)) -> dict:
+    """Pergunta sobre o PDF enviado; a resposta cita o documento e, quando útil, Trechos do corpus."""
+    dados = await _ler_pdf(arquivo)
+    consultor = get_consultant()
+    try:
+        return perguntar_pdf(dados, pergunta, buscar=lambda q: consultor.retriever.retrieve(q, top_k=3)).como_dict()
+    except PDFInvalido as erro:
+        raise HTTPException(status_code=422, detail=str(erro)) from erro
 
 
 def cli_main() -> None:
