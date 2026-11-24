@@ -112,6 +112,11 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
         if entrada is None:
             problemas[sid].append("fonte sem registro em geracao.json (JSONL nunca gerado)")
             continue
+        if "\\" in entrada["jsonl_path"]:
+            # No Windows o caminho com "\" é achado, mas no Linux do CI não (issue #88).
+            problemas[sid].append(
+                f"jsonl_path com barra invertida: {entrada['jsonl_path']} (use \"/\"; regenere com prepare_rag.py)")
+            continue
         jsonl = root / entrada["jsonl_path"]
         if not jsonl.exists():
             problemas[sid].append(f"JSONL ausente: {entrada['jsonl_path']}")
@@ -139,7 +144,10 @@ def problemas_dos_trechos(manifest: dict, root: Path = ROOT,
             f"prepare_rag.py mudou depois da geração dos Trechos de {len(script_desatualizado)} fonte(s)")
     for sid in sorted(set(geracao) - ids_manifesto):
         problemas[sid].append("registro em geracao.json de fonte que não está no manifesto")
-    referenciados = {(root / e["jsonl_path"]).resolve() for sid, e in geracao.items() if sid in ids_manifesto}
+    # Barra invertida normalizada: o caminho com "\" já é problema da fonte e não deve, só no Linux,
+    # fazer o JSONL parecer órfão também.
+    referenciados = {(root / e["jsonl_path"].replace("\\", "/")).resolve()
+                     for sid, e in geracao.items() if sid in ids_manifesto}
     for jsonl in sorted(rag_dir.glob("*.jsonl")):
         if jsonl.resolve() not in referenciados:
             problemas[str(jsonl.relative_to(root))].append("JSONL sem fonte correspondente no manifesto")

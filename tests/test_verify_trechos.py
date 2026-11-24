@@ -76,6 +76,14 @@ def test_jsonl_editado_a_mao(manifesto, tmp_path):
     assert problemas[GUIA] == ["JSONL diferente do registrado em geracao.json (editado à mão ou gerado sem registrar)"]
 
 
+def test_jsonl_path_com_barra_invertida_e_apontado(manifesto, tmp_path):
+    caminho = "corpus\\nutricao\\rag\\guia_alimentar_populacao_brasileira_2ed_2014.jsonl"
+    geracao = _geracao_alterada(tmp_path, GUIA, jsonl_path=caminho)
+    problemas = verify_trechos.problemas_dos_trechos(manifesto, generation_path=geracao)
+    assert list(problemas) == [GUIA]
+    assert problemas[GUIA][0].startswith("jsonl_path com barra invertida")
+
+
 def test_script_ou_config_alterados_depois_da_geracao(manifesto, tmp_path):
     geracao = _geracao_alterada(tmp_path, GUIA, prepare_rag_sha256="0" * 64, rag_config_sha256="0" * 64,
                                 jsonl_sha256="0" * 64)
