@@ -44,6 +44,10 @@ TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / 
 # chat vão ao LLM (janela).
 HISTORICO_DB_PATH = Path(os.getenv("CULTIVA_HISTORICO_DB", str(DATA_DIR / "conversas.sqlite3")))
 JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "6"))
+# Autenticação dos endpoints de chat e de exclusão (issue #108, src/chat/autenticacao.py). O segredo
+# (CULTIVA_AUTH_SEGREDO) e a flag de desenvolvimento (CULTIVA_AUTH_DESLIGADA) são lidos a cada pedido,
+# não aqui; esta é só a validade dos tokens de teste emitidos pela linha de comando.
+AUTH_VALIDADE_PADRAO_S = int(os.getenv("CULTIVA_AUTH_VALIDADE_S", "3600"))
 # Reescrita de consulta com o LLM local (issue #99): pergunta de continuação e área das mensagens sem
 # termo. Ligada por padrão.
 REESCRITA_LLM = os.getenv("CULTIVA_REESCRITA_LLM", "true").strip().lower() in {"1", "true", "sim", "yes"}
