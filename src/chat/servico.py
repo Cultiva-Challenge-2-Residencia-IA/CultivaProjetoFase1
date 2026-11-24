@@ -134,6 +134,10 @@ def citacoes_do_texto(texto: str, trechos: Sequence) -> List[str]:
     return citacoes
 
 
+class ConversaDeOutroUsuario(PermissionError):
+    """O `conversa_id` já pertence a outro Usuário (issue #108; a API responde 403)."""
+
+
 def _id_anonimo(usuario_id: str) -> str:
     return hashlib.sha256(usuario_id.encode("utf-8")).hexdigest()[:16]
 
@@ -170,6 +174,9 @@ class ServicoDeChat:
                top_k: int = TOP_K_FINAL) -> RespostaDoChat:
         if chat not in CHATS:
             raise ValueError(f"Chat desconhecido: {chat!r} (aceitos: {', '.join(CHATS)})")
+        # Posse antes de tudo, inclusive dos portões, que também gravam no Histórico (issue #108).
+        if not self.historico.reservar_conversa(usuario_id, conversa_id):
+            raise ConversaDeOutroUsuario("Esta Conversa pertence a outro Usuário.")
         with atributos_do_trace(trace_name=f"chat_{chat}", tags=["chat", chat], session_id=conversa_id,
                                 user_id=_id_anonimo(usuario_id)):
             fixa = self._portoes(chat, usuario_id, conversa_id, mensagem)

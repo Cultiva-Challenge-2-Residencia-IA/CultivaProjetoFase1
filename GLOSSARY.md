@@ -13,11 +13,11 @@ Conversa presa a um único Agente de área, como o chat de Nutrição ou o de Sa
 _Evitar_: chat específico, chat do agente
 
 **Conversa**:
-Sequência de mensagens de um Usuário num mesmo chat, identificada por um id e com contexto entre as mensagens.
+Sequência de mensagens de um Usuário num mesmo chat, identificada por um id e com contexto entre as mensagens. O id pertence ao Usuário que o usou primeiro; outro Usuário não pode usá-lo.
 _Evitar_: sessão, thread (fora do código)
 
 **Usuário**:
-Pessoa que conversa com o CULTIVA, identificada por um id; liga as Conversas dela nos diferentes chats.
+Pessoa que conversa com o CULTIVA, identificada por um id que vem do token emitido pelo App; liga as Conversas dela nos diferentes chats.
 _Evitar_: cliente, conta, paciente
 
 **Histórico**:
