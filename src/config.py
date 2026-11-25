@@ -85,6 +85,10 @@ EMBEDDING_NORMALIZAR_TEXTO = os.getenv("EMBEDDING_NORMALIZAR_TEXTO", "true").str
 # recalculados ao refazer uma coleção. Vazio desliga o cache.
 _cache_vetores = os.getenv("EMBEDDING_CACHE_PATH", str(DATA_DIR / "vector_store" / "vetores_cache.sqlite3")).strip()
 EMBEDDING_CACHE_PATH = Path(_cache_vetores) if _cache_vetores else None
+# Textos por chamada ao modelo de embeddings. O padrão do fastembed (256) faz o e5-large passar de
+# 12 GB de memória num lote de Trechos longos (512 tokens): o runner do CI, com 16 GB, para de
+# responder e é derrubado. Com 16, o pico fica perto de 2 GB, sem perda de velocidade em CPU.
+EMBEDDING_LOTE_MODELO = int(os.getenv("EMBEDDING_LOTE_MODELO", "16"))
 # Parâmetros do índice HNSW do ChromaDB. Com os padrões, a busca aproximada perdia vizinhos
 # e variava a cada carga do índice; com 200, o top-24 coincide com a busca exata no corpus atual.
 HNSW_EF_CONSTRUCTION = int(os.getenv("HNSW_EF_CONSTRUCTION", "200"))
