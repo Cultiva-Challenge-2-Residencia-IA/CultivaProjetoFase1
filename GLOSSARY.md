@@ -31,12 +31,20 @@ Peça que recebe toda mensagem do Chat geral, aplica os portões e decide para q
 _Evitar_: roteador (como nome da peça), chat geral
 
 **Agente de área**:
-Agente que responde só na sua área (Nutrição ou Saúde Física), a partir das fontes aprovadas dela, e redireciona perguntas de outra área.
+Agente que responde só na sua área (Nutrição ou Saúde Física), a partir das fontes aprovadas dela, e redireciona perguntas de outra área. Pode receber Fatos do Usuário, pelo Projetor de contexto, para relacionar a resposta à vida da pessoa.
 _Evitar_: especialista, consultor
 
 **Sincronizador**:
 Peça que cruza as respostas de mais de um Agente de área numa resposta única, sem acrescentar fato que os agentes não trouxeram.
 _Evitar_: integrador, agregador, orquestrador
+
+**Projetor de contexto**:
+Peça do Orquestrador que, antes de cada Agente de área, escolhe os Fatos do Usuário relacionados à Subpergunta, de qualquer área, e entrega só esses ao agente, nos três chats. Não responde conteúdo nem junta respostas.
+_Evitar_: sincronizador (quando se refere à escolha do contexto), memória
+
+**Fato do Usuário**:
+Afirmação curta sobre a vida do Usuário numa área (a área vem do assunto, não do chat em que foi dita), com a área e a data de origem (ex.: "pratica musculação 4 vezes por semana"). Serve para personalizar e relacionar a resposta, nunca como fonte; o que acionou um Portão nunca vira Fato do Usuário. Só existe com o consentimento do Usuário; condição de saúde declarada (como diabetes) exige um consentimento à parte e só orienta a escolha da evidência e o encaminhamento a profissional.
+_Evitar_: perfil, memória, contexto (quando se refere a um fato isolado)
 
 **Portão**:
 Verificação feita antes de qualquer Agente de área que pode encerrar a mensagem com uma resposta fixa (risco, prompt injection).
