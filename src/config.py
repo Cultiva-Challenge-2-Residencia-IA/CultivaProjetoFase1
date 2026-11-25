@@ -57,6 +57,10 @@ REESCRITA_LLM = os.getenv("CULTIVA_REESCRITA_LLM", "true").strip().lower() in {"
 # pela regra registrada antes da medição: no dev, melhorou o MRR de Saúde Física (+0,161) e piorou o
 # de Nutrição (-0,069) (eval/multiagentes/resultados.md).
 HYDE_NA_BUSCA = os.getenv("CULTIVA_HYDE_NA_BUSCA", "false").strip().lower() in {"1", "true", "sim", "yes"}
+# Agentes de área em paralelo no Chat geral com duas áreas (issue #107). Desligado até a medição
+# (eval/multiagentes/latencia_criterios.md): com um só modelo local, o ganho depende de o Ollama
+# atender duas requisições ao mesmo tempo (OLLAMA_NUM_PARALLEL).
+AGENTES_EM_PARALELO = os.getenv("CULTIVA_AGENTES_EM_PARALELO", "false").strip().lower() in {"1", "true", "sim", "yes"}
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
 # "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".
