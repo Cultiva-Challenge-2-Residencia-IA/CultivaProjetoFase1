@@ -167,3 +167,19 @@ Consequências práticas do RAG:
 - propõe `originais/<id>/<versao>/documento.<ext>`, mas o layout implementado é plano (`originais/<nome>.pdf`), com a versão registrada no manifesto e no nome do arquivo.
 
 Use `corpus/README.md` e `manifest.yaml` como referência do estado atual. Não altere o contexto sem pedido.
+
+## Agent skills
+
+Configuração lida pelas skills de engenharia (mattpocock/skills) de quem as usa. Não muda o fluxo de quem não usa.
+
+### Issue tracker
+
+Issues e specs no GitHub Issues deste repositório, com os modelos de `.github/ISSUE_TEMPLATE/`. Ver `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Sem rótulos de triagem: use os rótulos que o repositório já tem. Ver `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Contexto único: `GLOSSARY.md` na raiz e ADRs em `docs/adrs/`. Ver `docs/agents/domain.md`.
