@@ -55,3 +55,19 @@
 - Abra issues e PRs com os modelos de `.github/` e siga o fluxo do `CONTRIBUTING.md` (Conventional Commits em português, `Closes #N` ou `Refs #N`, revisão por outra pessoa).
 - Ao concluir, confira se `AGENTS.md` e `CLAUDE.md` continuam corretos e atualize-os no mesmo PR quando a mudança os afetar.
 - Ao concluir, informe arquivos alterados, verificações realizadas e pendências; mantenha decisões em aberto identificadas como tal.
+
+## Agent skills
+
+Configuração lida pelas skills de engenharia (mattpocock/skills) de quem as usa. Não muda o fluxo de quem não usa.
+
+### Issue tracker
+
+Issues e specs no GitHub Issues deste repositório, com os modelos de `.github/ISSUE_TEMPLATE/`. Ver `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Sem rótulos de triagem: use os rótulos que o repositório já tem. Ver `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Contexto único: `GLOSSARY.md` na raiz e ADRs em `docs/adrs/`. Ver `docs/agents/domain.md`.
