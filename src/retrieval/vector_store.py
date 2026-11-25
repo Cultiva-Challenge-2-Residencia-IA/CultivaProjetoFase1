@@ -10,6 +10,7 @@ from sklearn.preprocessing import normalize
 from src.config import (
     PROJECT_ROOT,
     EMBEDDING_CACHE_PATH,
+    EMBEDDING_LOTE_MODELO,
     EMBEDDING_MODEL_NAME,
     EMBEDDING_NORMALIZAR_TEXTO,
     HNSW_EF_CONSTRUCTION,
@@ -39,7 +40,7 @@ DIMENSAO_DE_TESTE = 512
 class EmbeddingsDeTeste:
     """Hashing de palavras e de pares de palavras vizinhas num vetor de `DIMENSAO_DE_TESTE`."""
 
-    def embed(self, textos: List[str]):
+    def embed(self, textos: List[str], batch_size: Optional[int] = None):
         from src.retrieval.hybrid_retriever import normalize_text
 
         for texto in textos:
@@ -183,7 +184,7 @@ class DenseMultilingualEmbedder:
         self.calculados = 0
 
     def _vetores(self, textos: List[str]) -> np.ndarray:
-        brutos = np.array(list(self._model.embed(textos)), dtype=np.float32)
+        brutos = np.array(list(self._model.embed(textos, batch_size=EMBEDDING_LOTE_MODELO)), dtype=np.float32)
         return normalize(brutos, norm="l2")
 
     def preparar_documento(self, texto: str) -> str:
