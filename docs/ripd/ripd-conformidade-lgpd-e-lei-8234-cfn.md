@@ -30,3 +30,20 @@ Para garantir conformidade estrita:
   * sem segredo configurado, os endpoints recusam; o modo sem autenticação (`CULTIVA_AUTH_DESLIGADA=true`) é só para uso local com dados sintéticos;
   * quem tem acesso à máquina ou ao arquivo SQLite lê tudo: o controle é da API, não do banco.
 * **Riscos remanescentes:** ainda não há App nem provedor de identidade; o segredo é compartilhado entre App e API, sem rotação nem revogação antes da expiração do token; o `POST /feedback/incorrect` não exige token; não há registro de auditoria de quem acessou ou apagou o quê.
+
+## 4. Fatos do Usuário e Projetor de contexto (issue #112, a implementar)
+
+> Situação: decisão de desenho registrada no ADR 0005 (revisão de 25/11/2026), ainda **não implementada**, sem aprovação formal da equipe nem revisão de pessoa encarregada de proteção de dados. Esta seção descreve o tratamento previsto, para ser conferido antes da implementação e de qualquer uso com pessoas reais.
+
+* **Finalidade:** relacionar a resposta de um Agente de área à vida do Usuário nas outras áreas (RN06, RF-IA09), sem usar o dado como fonte e sem prescrever.
+* **Dados tratados:** Fatos do Usuário, frases curtas extraídas pelo LLM local das mensagens do próprio Usuário, em categorias fixas: Saúde Física (atividade praticada, frequência ou volume, objetivo de treino, limitação física declarada), Nutrição (padrão alimentar, jejum e horários, restrição ou alergia, objetivo alimentar) e **condição de saúde declarada**, que é dado pessoal sensível (LGPD, Art. 5º, II, e Art. 11).
+* **Base legal:** consentimento específico e destacado (Art. 11, I). A memória fica desligada até o aceite, com um aceite à parte para condição de saúde; a revogação interrompe a extração e o uso.
+* **Minimização:**
+  * esquema fixo de categorias, sem texto livre fora delas (Art. 6º, III);
+  * nada que acionou o portão de risco ou o de sinal de alerta vira fato;
+  * cada Agente de área recebe só os fatos escolhidos para a pergunta, e cada entrega fica registrada (critério do RF-IA09); sem LLM, nenhum fato é entregue;
+  * condição de saúde só orienta a escolha da evidência e o encaminhamento a profissional, nunca quantidade, meta, dose ou plano;
+  * no Langfuse, os fatos não vão em texto, só a categoria e a contagem.
+* **Retenção:** um fato novo da mesma categoria encerra a validade do anterior, que fica guardado com data de fim, para rastreabilidade (RNF08); fato sem atualização expira em 90 dias (proposta).
+* **Transparência e exclusão (Art. 9º e Art. 18):** a resposta informa os fatos usados; a API lista os fatos e apaga um fato; apagar uma Conversa ou o Usuário apaga os fatos derivados.
+* **Riscos remanescentes:** a extração pelo LLM pode errar ou atribuir um fato à categoria errada; a mitigação é o uso só para personalizar, a transparência na resposta e a exclusão pela pessoa. Ainda não há tela de consentimento nem de gestão (o App não existe).
