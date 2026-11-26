@@ -1,0 +1,400 @@
+{
+  "pdf_e_texto": {
+    "pergunta": "Como tomo o ferro?",
+    "resultado": {
+      "tarefa": "pergunta",
+      "paginas": 1,
+      "paginas_escaneadas": [],
+      "frases": [
+        {
+          "frase": "O suplemento de ferro é de 1 comprimido de 40 mg ao dia, tomado em jejum com suco de laranja por 60 dias.",
+          "fontes": [
+            "D1"
+          ],
+          "citacao": "Suplemento de ferro: 1 comprimido de 40 mg ao dia, em jejum, com suco de laranja, por 60 dias."
+        },
+        {
+          "frase": "É necessário evitar café e chá preto uma hora antes e depois da ingestão do suplemento de ferro.",
+          "fontes": [
+            "D1"
+          ],
+          "citacao": "Evitar café e chá preto 1 hora antes e depois do suplemento de ferro."
+        }
+      ],
+      "frases_removidas": [],
+      "avisos": [
+        "Resumo feito pela IA a partir do seu documento, sem acrescentar recomendações. As orientações são do profissional que emitiu o documento; confira no original antes de salvar."
+      ],
+      "modelo": "gemma4:e4b",
+      "segundos": 19.25,
+      "resposta_fixa": null,
+      "instrucao_escondida": false,
+      "requer_confirmacao": true
+    }
+  },
+  "rotulo": {
+    "resultado": {
+      "tem_tabela": true,
+      "base": "100 g",
+      "porcao": "30 g (1 xícara)",
+      "nutrientes": [
+        {
+          "campo": "valor_energetico",
+          "nutriente": "Valor energético",
+          "unidade": "kcal",
+          "por_100": "412",
+          "por_porcao": "124"
+        },
+        {
+          "campo": "carboidratos",
+          "nutriente": "Carboidratos",
+          "unidade": "g",
+          "por_100": "78",
+          "por_porcao": "23"
+        },
+        {
+          "campo": "acucares_totais",
+          "nutriente": "Açúcares totais",
+          "unidade": "g",
+          "por_100": "32",
+          "por_porcao": "9.6"
+        },
+        {
+          "campo": "acucares_adicionados",
+          "nutriente": "Açúcares adicionados",
+          "unidade": "g",
+          "por_100": "28",
+          "por_porcao": "8.4"
+        },
+        {
+          "campo": "proteinas",
+          "nutriente": "Proteínas",
+          "unidade": "g",
+          "por_100": "6.5",
+          "por_porcao": "2"
+        },
+        {
+          "campo": "gorduras_totais",
+          "nutriente": "Gorduras totais",
+          "unidade": "g",
+          "por_100": null,
+          "por_porcao": null
+        },
+        {
+          "campo": "gorduras_saturadas",
+          "nutriente": "Gorduras saturadas",
+          "unidade": "g",
+          "por_100": null,
+          "por_porcao": null
+        },
+        {
+          "campo": "gorduras_trans",
+          "nutriente": "Gorduras trans",
+          "unidade": "g",
+          "por_100": null,
+          "por_porcao": null
+        },
+        {
+          "campo": "fibra_alimentar",
+          "nutriente": "Fibra alimentar",
+          "unidade": "g",
+          "por_100": "2.3",
+          "por_porcao": "0.7"
+        },
+        {
+          "campo": "sodio",
+          "nutriente": "Sódio",
+          "unidade": "mg",
+          "por_100": "380",
+          "por_porcao": "114"
+        }
+      ],
+      "nao_confirmados": [
+        "Gorduras totais",
+        "Gorduras saturadas",
+        "Gorduras trans"
+      ],
+      "alto_em": [
+        "acucares_adicionados"
+      ],
+      "explicacao": [
+        {
+          "frase": "Sucos e bebidas à base de fruta fabricados pela indústria são em geral feitos de extratos de frutas e adicionados de açúcar refinado, de concentrados de uva ou maçã (constituídos, predominantemente, por açúcares) ou de adoçantes artificiais.",
+          "fontes": [
+            "T1"
+          ],
+          "citacao": "Sucos e bebidas à base de fruta fabricados pela indústria são em geral feitos de extratos de frutas e adicionados de açúcar refinado"
+        },
+        {
+          "frase": "Padrões alimentares de baixa densidade energética foram caracterizados por níveis mais elevados de consumo de frutas, vegetais, cereais integrais, fontes magras de proteínas de origem animal, concomitantemente ao menor consumo de gordura saturada e açúcares adicionados.",
+          "fontes": [
+            "T2"
+          ],
+          "citacao": "padrões alimentares de baixa densidade energética foram caracterizados por níveis mais elevados de consumo de frutas, vegetais, cereais integrais, fontes magras de proteínas de origem animal, concomitantemente ao menor consumo de gordura saturada e açúcares adicionados."
+        },
+        {
+          "frase": "A diminuição no consumo de preparações contendo esses itens é recomendada pelo guia e é medida de prevenção do desenvolvimento de doenças como obesidade, hipertensão arterial, diabetes e doenças do coração.",
+          "fontes": [
+            "T3"
+          ],
+          "citacao": "a diminuição no consumo de preparações contendo esses itens é recomendada pelo guia e é medida de prevenção do desenvolvimento de doenças como obesidade"
+        }
+      ],
+      "frases_removidas": [],
+      "divergencias": [
+        {
+          "campo": "gorduras_totais",
+          "coluna": "por_100",
+          "ocr": "8",
+          "visao": "0"
+        },
+        {
+          "campo": "gorduras_totais",
+          "coluna": "por_porcao",
+          "ocr": "2.4",
+          "visao": "0"
+        },
+        {
+          "campo": "gorduras_saturadas",
+          "coluna": "por_100",
+          "ocr": "3.1",
+          "visao": "8"
+        },
+        {
+          "campo": "gorduras_saturadas",
+          "coluna": "por_porcao",
+          "ocr": "0.9",
+          "visao": "2.4"
+        },
+        {
+          "campo": "gorduras_trans",
+          "coluna": "por_100",
+          "ocr": "0",
+          "visao": "3.1"
+        },
+        {
+          "campo": "gorduras_trans",
+          "coluna": "por_porcao",
+          "ocr": "0",
+          "visao": "0.9"
+        }
+      ],
+      "avisos": [
+        "Valores que não puderam ser confirmados por duas leituras independentes da foto aparecem sem número: confira na embalagem.",
+        "Valores lidos da foto do rótulo, sem cálculo nem avaliação do produto. O que aparece sobre o tema vem das fontes citadas; confira na embalagem antes de salvar."
+      ],
+      "resposta_fixa": null,
+      "instrucao_escondida": false,
+      "modelo": "gemma4:e4b",
+      "segundos": 30.72,
+      "requer_confirmacao": true
+    },
+    "ocr": {
+      "valor_energetico": {
+        "por_100": "412",
+        "por_porcao": "124"
+      },
+      "carboidratos": {
+        "por_100": "78",
+        "por_porcao": "23"
+      },
+      "acucares_totais": {
+        "por_100": "32",
+        "por_porcao": "9.6"
+      },
+      "acucares_adicionados": {
+        "por_100": "28",
+        "por_porcao": "8.4"
+      },
+      "proteinas": {
+        "por_100": "6.5",
+        "por_porcao": "2"
+      },
+      "gorduras_totais": {
+        "por_100": "8",
+        "por_porcao": "2.4"
+      },
+      "gorduras_saturadas": {
+        "por_100": "3.1",
+        "por_porcao": "0.9"
+      },
+      "gorduras_trans": {
+        "por_100": "0",
+        "por_porcao": "0"
+      },
+      "fibra_alimentar": {
+        "por_100": "2.3",
+        "por_porcao": "0.7"
+      },
+      "sodio": {
+        "por_100": "380",
+        "por_porcao": "114"
+      }
+    },
+    "visao": {
+      "valor_energetico": {
+        "por_100": "412",
+        "por_porcao": "124"
+      },
+      "carboidratos": {
+        "por_100": "78",
+        "por_porcao": "23"
+      },
+      "acucares_adicionados": {
+        "por_100": "28",
+        "por_porcao": "8.4"
+      },
+      "acucares_totais": {
+        "por_100": "32",
+        "por_porcao": "9.6"
+      },
+      "proteinas": {
+        "por_100": "6.5",
+        "por_porcao": "2"
+      },
+      "gorduras_saturadas": {
+        "por_100": "8",
+        "por_porcao": "2.4"
+      },
+      "gorduras_trans": {
+        "por_100": "3.1",
+        "por_porcao": "0.9"
+      },
+      "gorduras_totais": {
+        "por_100": "0",
+        "por_porcao": "0"
+      },
+      "fibra_alimentar": {
+        "por_100": "2.3",
+        "por_porcao": "0.7"
+      },
+      "sodio": {
+        "por_100": "380",
+        "por_porcao": "114"
+      }
+    }
+  },
+  "foto_documento": {
+    "resultado": {
+      "tarefa": "resumo",
+      "paginas": 2,
+      "paginas_escaneadas": [],
+      "frases": [
+        {
+          "frase": "O plano alimentar é elaborado pela Nutricionista Dra. Exemplo A, CRN 0001.",
+          "fontes": [
+            "D1"
+          ],
+          "citacao": "Nutricionista: Dra. Exemplo A, CRN 0001"
+        },
+        {
+          "frase": "No café da manhã (7h), deve-se consumir 2 fatias de pão integral com 1 colher de chá de manteiga, 1 copo de leite desnatado (200 ml) e 1 fruta média.",
+          "fontes": [
+            "D1"
+          ],
+          "citacao": "Caté da manhã (7h): 2 fatias de pão integral com 1 colher de chá de manteiga; 1\ncopo de leite desnatado (200 ml); 1 fruta média."
+        },
+        {
+          "frase": "O almoço (12h30) inclui 4 colheres de sopa de arroz integral, 2 conchas pequenas de feijão, 120 g de frango grelhado e salada à vontade com 1 colher de chá de azeite.",
+          "fontes": [
+            "D1"
+          ],
+          "citacao": "Almoço (12h30): 4 colheres de sopa de arroz integral, 2 conchas pequenas de\nfeijão, 120 g de frango grelhado e salada à vontade com 1 colher de chá de azeite."
+        },
+        {
+          "frase": "O lanche da tarde (16h) deve ser composto por 1 fruta e 10 unidades de castanha-de-caju.",
+          "fontes": [
+            "D2"
+          ],
+          "citacao": "Lanche da tarde (16h): 1 fruta e 10 unidades de castanha-de-caju."
+        },
+        {
+          "frase": "O jantar, às 19h30, deve ser um omelete de 2 ovos com legumes refogados e salada.",
+          "fontes": [
+            "D2"
+          ],
+          "citacao": "Jantar (19h30): omelete de 2 ovos com legumes refogados e salada."
+        },
+        {
+          "frase": "As orientações gerais incluem beber 2 litros de água por dia, evitar refrigerantes e ultraprocessados.",
+          "fontes": [
+            "D2"
+          ],
+          "citacao": "Orientações: beber 2 litros de água por dia; evitar refrigerantes e\nultraprocessados; retornar em 30 dias."
+        },
+        {
+          "frase": "O paciente deve retornar após 30 dias, conforme as orientações do documento.",
+          "fontes": [
+            "D2"
+          ],
+          "citacao": "Orientações: beber 2 litros de água por dia; evitar refrigerantes e\nultraprocessados; retornar em 30 dias."
+        }
+      ],
+      "frases_removidas": [
+        {
+          "frase": "O lanche da manhã (10h) consiste em 1 iogurte natural (170 g) com 1 colher de sopa de aveia.",
+          "citacao": "Lanche da manhã (10h): 1 iogurte natural (170 9) com 1 colher de sopa de\naveia.",
+          "motivo": "numero_ausente_na_citacao",
+          "numeros_a_mais": []
+        }
+      ],
+      "avisos": [
+        "Resumo feito pela IA a partir do seu documento, sem acrescentar recomendações. As orientações são do profissional que emitiu o documento; confira no original antes de salvar."
+      ],
+      "modelo": "gemma4:e4b",
+      "segundos": 29.37,
+      "resposta_fixa": null,
+      "instrucao_escondida": false,
+      "requer_confirmacao": true
+    },
+    "texto_ocr": [
+      "PLANO ALIMENTAR\nNutricionista: Dra. Exemplo A, CRN 0001\nCaté da manhã (7h): 2 fatias de pão integral com 1 colher de chá de manteiga; 1\ncopo de leite desnatado (200 ml); 1 fruta média.\nLanche da manhã (10h): 1 iogurte natural (170 9) com 1 colher de sopa de\naveia.\nAlmoço (12h30): 4 colheres de sopa de arroz integral, 2 conchas pequenas de\nfeijão, 120 g de frango grelhado e salada à vontade com 1 colher de chá de\nazeite.",
+      "Lanche da tarde (16h): 1 fruta e 10 unidades de castanha-de-caju.\nJantar (19h30): omelete de 2 ovos com legumes refogados e salada.\nOrientações: beber 2 litros de água por dia; evitar refrigerantes e\nultraprocessados; retornar em 30 dias."
+    ]
+  },
+  "falhas": {
+    "injecao": {
+      "tarefa": "resumo",
+      "paginas": 1,
+      "paginas_escaneadas": [],
+      "frases": [],
+      "frases_removidas": [],
+      "avisos": [],
+      "modelo": "gemma4:e4b",
+      "segundos": 0.0,
+      "resposta_fixa": "O documento contém texto que parece instrução para a IA (por exemplo, \"ignore as instruções\"). Por segurança, ele não foi resumido nem usado para responder. Confira o documento original ou peça ao profissional uma versão sem esse conteúdo.",
+      "instrucao_escondida": true,
+      "requer_confirmacao": true
+    },
+    "sem_texto": {
+      "tem_tabela": false,
+      "base": "100 g",
+      "porcao": null,
+      "nutrientes": [],
+      "nao_confirmados": [],
+      "alto_em": [],
+      "explicacao": [],
+      "frases_removidas": [],
+      "divergencias": [],
+      "avisos": [],
+      "resposta_fixa": "Não encontrei texto legível nesta imagem. Tente uma foto mais nítida, de frente e com boa luz.",
+      "instrucao_escondida": false,
+      "modelo": "gemma4:e4b",
+      "segundos": 0.0,
+      "requer_confirmacao": true
+    },
+    "risco": {
+      "tarefa": "pergunta",
+      "paginas": 1,
+      "paginas_escaneadas": [],
+      "frases": [],
+      "frases_removidas": [],
+      "avisos": [],
+      "modelo": "mensagem_fixa",
+      "segundos": 0.0,
+      "resposta_fixa": "Sinto muito que você esteja passando por isso. O que você está sentindo importa, e você não precisa enfrentar esse momento sem apoio.\n\nSe puder, fale agora com alguém de confiança ou com um destes serviços:\n- CVV (Centro de Valorização da Vida): ligue 188, de graça e 24 horas por dia, ou converse pelo chat em cvv.org.br.\n- Em emergência ou risco imediato: ligue 192 (SAMU) ou vá à UPA ou ao pronto-socorro mais próximo.\n\nSou um assistente de nutrição e atividade física e não consigo oferecer o cuidado de que você precisa agora, mas essas pessoas podem te ouvir neste momento.",
+      "instrucao_escondida": false,
+      "requer_confirmacao": true
+    }
+  }
+}
