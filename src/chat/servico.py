@@ -28,7 +28,7 @@ from typing import Dict, List, Mapping, Optional, Protocol, Sequence
 
 from pydantic import BaseModel, Field
 
-from src.config import AGENTES_EM_PARALELO, HYDE_NA_BUSCA, JANELA_HISTORICO, TOP_K_FINAL
+from src.config import AGENTES_EM_PARALELO, HYDE_NA_BUSCA, HYDE_NA_BUSCA_SAUDE_FISICA, JANELA_HISTORICO, TOP_K_FINAL
 from src.guardrails.alerta import MENSAGEM_ALERTA, detectar_sinal_de_alerta
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.pii import mascarar_dados_pessoais
@@ -37,7 +37,7 @@ from src.models.schemas import ConsultantResponse
 from src.observabilidade import atributos_do_trace, observacao
 from src.orquestrador.conversa import APRESENTACOES, e_conversa_social
 from src.orquestrador.reescrita import LLMJson, Mensagem, Subpergunta, reescrever
-from src.orquestrador.roteamento import AREA_NUTRICAO, AREAS, rotear_por_regras
+from src.orquestrador.roteamento import AREA_NUTRICAO, AREA_SAUDE_FISICA, AREAS, rotear_por_regras
 from src.orquestrador.sincronizador import MARCADOR_T, NOMES_DAS_AREAS, RespostaDeArea, sincronizar
 from src.rag.verificador.citacoes import FRASE_SEM_BASE, MARCADOR, dividir_frases
 
@@ -164,6 +164,7 @@ class ServicoDeChat:
         janela: int = JANELA_HISTORICO,
         reescrita_com_llm: bool = True,
         hyde_na_busca: bool = HYDE_NA_BUSCA,
+        hyde_na_busca_saude_fisica: bool = HYDE_NA_BUSCA_SAUDE_FISICA,
         agentes_em_paralelo: bool = AGENTES_EM_PARALELO,
     ) -> None:
         self.agentes = dict(agentes)
@@ -171,8 +172,12 @@ class ServicoDeChat:
         self.llm = llm
         # A reescrita só usa o LLM se a medição permitir (CULTIVA_REESCRITA_LLM); o Sincronizador usa sempre.
         self.reescrita_com_llm = reescrita_com_llm
-        # Trecho hipotético como consulta extra na busca: desligado por padrão (medição do dev).
+        # Trecho hipotético como consulta extra na busca das duas áreas: desligado por padrão (medição do
+        # dev da #99, que piorou Nutrição).
         self.hyde_na_busca = hyde_na_busca
+        # Só no Agente de Saúde Física (issue #105), cujas fontes estão quase todas em inglês; desligado
+        # por padrão (CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA).
+        self.hyde_na_busca_saude_fisica = hyde_na_busca_saude_fisica
         self.risco_llm = risco_llm
         self.janela = janela
         self.agentes_em_paralelo = agentes_em_paralelo
@@ -303,7 +308,7 @@ class ServicoDeChat:
 
         def responder_area(sub: Subpergunta):
             extras: List[str] = []
-            if self.hyde_na_busca:
+            if self.hyde_na_busca or (self.hyde_na_busca_saude_fisica and sub.area == AREA_SAUDE_FISICA):
                 extras = [t for t in (sub.trecho_hipotetico,) if t]
                 if sub.texto.strip() != reescrita.pergunta_completa.strip():
                     extras.append(reescrita.pergunta_completa)

@@ -1,0 +1,117 @@
+{
+  "modelo_llm": "gemma4:e4b",
+  "limiar": 0.146,
+  "grupos": {
+    "controles": {
+      "em_lacuna_antes": 3,
+      "n_total": 27,
+      "sairam_da_lacuna": 0,
+      "casos": [
+        {
+          "id": "SFN23",
+          "area": "saude_fisica",
+          "pergunta": "Minha lombar trava às vezes: é melhor repouso ou movimento?",
+          "consultas": [
+            "low back pain activity vs rest guidelines",
+            "dor lombar atividade física recomendação"
+          ],
+          "segundos": 6.1,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SFN26",
+          "area": "saude_fisica",
+          "pergunta": "Artrose no quadril: caminhar piora?",
+          "consultas": [
+            "hip osteoarthritis walking progression",
+            "artrose de quadril impacto da marcha"
+          ],
+          "segundos": 6.36,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "ABS-DEN-12",
+          "area": "nutricao",
+          "pergunta": "Como se hidratar em treinos longos?",
+          "consultas": [
+            "hidratação durante exercícios de longa duração",
+            "estratégias de hidratação para endurance training"
+          ],
+          "segundos": 3.63,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        }
+      ]
+    },
+    "sem_base": {
+      "em_lacuna_antes": 5,
+      "n_total": 6,
+      "sairam_da_lacuna": 0,
+      "casos": [
+        {
+          "id": "SB19",
+          "area": "nutricao",
+          "pergunta": "Óleo de MCT no café dá mais energia?",
+          "consultas": [
+            "MCT oil coffee energy boost",
+            "benefícios do óleo de MCT na dieta"
+          ],
+          "segundos": 3.37,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB09",
+          "area": "saude_fisica",
+          "pergunta": "Banho de gelo depois da corrida acelera a recuperação?",
+          "consultas": [
+            "cold water immersion post-exercise recovery",
+            "cryotherapy effect on muscle soreness"
+          ],
+          "segundos": 7.12,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB10",
+          "area": "saude_fisica",
+          "pergunta": "Óculos que bloqueiam luz azul melhoram o desempenho no treino?",
+          "consultas": [
+            "blue light blocking glasses exercise performance",
+            "efeito óculos filtro luz azul treinamento"
+          ],
+          "segundos": 6.9,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB11",
+          "area": "saude_fisica",
+          "pergunta": "Treinar com roupa de plástico faz suar e emagrecer mais rápido?",
+          "consultas": [
+            "exercise in thermal clothing fat loss",
+            "efeito do vestuário térmico na queima calórica"
+          ],
+          "segundos": 8.11,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB12",
+          "area": "saude_fisica",
+          "pergunta": "Posso fazer musculação no dia em que tomei vacina?",
+          "consultas": [
+            "post-vaccination exercise guidelines",
+            "recomendações de treinamento após vacinação"
+          ],
+          "segundos": 5.82,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        }
+      ]
+    }
+  },
+  "lacuna_sem_base_depois": 0.833
+}

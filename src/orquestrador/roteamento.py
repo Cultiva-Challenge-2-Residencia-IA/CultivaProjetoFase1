@@ -26,7 +26,12 @@ TERMOS_DE_ROTA_NUTRICAO = re.compile(
     r"|hortalic\w*|feijao|arroz|carne\w*|leite|ovo\w*|cozinh\w*|receita\w*|cardapio\w*|lanche\w*|lanchar"
     r"|cafe|cha|refrigerante\w*|rotulo\w*|digest\w*|intestin\w*|glicemi\w*|diabet\w*|colesterol"
     r"|vegetarian\w*|vegan\w*|cetogenic\w*|low carb|gluten|lactose|probiotic\w*|oleo\w*|azeite|castanha\w*"
-    r"|cereal\w*|tempero\w*)\b"
+    r"|cereal\w*|tempero\w*"
+    # Hidratação (issue #105): água e bebidas para repor líquidos e sais são tema das fontes de Nutrição.
+    # "bebe" fica de fora: depois da normalização, é também "bebê".
+    r"|hidrat\w*|isotonic\w*|eletrolit\w*|agua|beber|bebo|bebi"
+    # Refeições e alimentos comuns (revisão do PR da #105: "Coxa de frango assada é saudável?").
+    r"|frango|peixe\w*|almoc\w*|jantar|jantei|janta|cafe da manha)\b"
 )
 
 TERMOS_DE_ROTA_SAUDE_FISICA = re.compile(
@@ -36,7 +41,14 @@ TERMOS_DE_ROTA_SAUDE_FISICA = re.compile(
     r"|lombalgia|ciatic\w*|tendin\w*|entorse\w*|tornozelo\w*|joelho\w*|ombro\w*|manguito|coluna|postura"
     r"|reabilit\w*|fisioterap\w*|esporte\w*|atleta\w*|condicionamento|frequencia cardiaca|intensidade"
     r"|hiit|pilates|yoga|ioga|natacao|nadar|bicicleta|bike|pedal\w*|ciclismo|artrose|osteoartrit\w*"
-    r"|patelofemoral|hipertrofia|musculo\w*|muscular\w*|overtraining|carga de treino)\b"
+    r"|patelofemoral|hipertrofia|musculo\w*|muscular\w*|overtraining|carga de treino"
+    # Issue #105: partes do corpo que as fontes de dor e lesão tratam, gíria de academia e esportes.
+    r"|costas|pescoco|quadril|pernas?|panturrilhas?|gluteos?|bracos?|cotovelos?|punhos?"
+    r"|malhar|malho|malhando|malhacao|futebol|jogar bola|volei|basquete|danca|dancar|folego"
+    # Termos ambíguos só com contexto (revisão do PR da #105): "canela" é também tempero, "coxa" é
+    # também corte de frango, e "torci" é também torcer por um time.
+    r"|canelite|dor\w* (?:na|nas|no|nos|da|das|de) (?:canela|coxa)s?|(?:canela|coxa)s? (?:doi|doem|doendo|dolorid\w*)"
+    r"|torcao|torc(?:i|eu|er) (?:o|a|os|meu|minha|meus) (?:pe|pes|dedo\w*|mao|maos))\b"
 )
 
 TERMOS_DE_ESTUDOS = re.compile(

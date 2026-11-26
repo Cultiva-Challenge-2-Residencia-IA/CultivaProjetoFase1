@@ -1,0 +1,199 @@
+{
+  "resumo": {
+    "modelo_llm": "gemma4:e4b",
+    "reranker_na_busca": true,
+    "n": 12,
+    "rr": {
+      "base": 0.819,
+      "hyde": 0.778,
+      "diferenca": -0.042
+    },
+    "acerto": {
+      "base": 0.917,
+      "hyde": 0.917,
+      "diferenca": 0.0
+    }
+  },
+  "casos": [
+    {
+      "id": "SFN21",
+      "extras": [
+        "For optimal muscle hypertrophy and strength gains in the lower body, training frequency should be tailored to individual recovery capacity, but 2-3 sessions per week is often recommended for beginners to intermediate lifters.",
+        "É suficiente treinar glúteos e coxas duas vezes por semana?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 0.5
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.5
+      }
+    },
+    {
+      "id": "SFN22",
+      "extras": [
+        "Strength training is known to improve lower body muscle mass and strength, which directly impacts functional capacity in older adults. Improved leg strength can lead to better endurance and reduced perceived exertion during activities like climbing stairs.",
+        "A prática de musculação pode ajudar a reduzir o esforço ao subir escadas durante a velhice?"
+      ],
+      "base": {
+        "acerto": 0.0,
+        "rr": 0.0
+      },
+      "hyde": {
+        "acerto": 0.0,
+        "rr": 0.0
+      }
+    },
+    {
+      "id": "SFN23",
+      "extras": [
+        "For acute low back pain, prolonged bed rest is generally discouraged. Gentle movement and maintaining activity levels are often recommended to prevent stiffness and promote recovery.",
+        "O que é mais recomendado, repouso ou movimento, quando a lombar apresenta travamentos?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN24",
+      "extras": [
+        "For tendonitis in the shoulder, physical therapy often involves progressive loading exercises and strengthening protocols to manage inflammation and restore function.",
+        "Qual é a abordagem mais adequada, anti-inflamatória ou através de exercícios, para tratar uma tendinite no ombro?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 0.3333333333333333
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.5
+      }
+    },
+    {
+      "id": "SFN25",
+      "extras": [
+        "For acute ankle sprains, the initial management often follows the PRICE protocol: Protection, Rest, Ice, Compression, and Elevation. This helps reduce swelling and pain in the early stages of injury.",
+        "Quais são as recomendações iniciais para um tornozelo inchado após uma torção?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN26",
+      "extras": [
+        "Low-impact aerobic exercises, such as walking, are generally recommended for osteoarthritis patients to maintain mobility and joint function, but intensity must be carefully managed to avoid exacerbating pain.",
+        "Em casos de artrose no quadril, o ato de caminhar pode piorar os sintomas?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.3333333333333333
+      }
+    },
+    {
+      "id": "SFN27",
+      "extras": [
+        "Dynamic warm-ups before brisk walking should focus on increasing blood flow and preparing major muscle groups. Light movements like leg swings, arm circles, and high knees are recommended to elevate the heart rate gradually.",
+        "Quais são os exercícios adequados para realizar como aquecimento antes de iniciar uma caminhada rápida?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN28",
+      "extras": [
+        "Strength training should be performed on most days of the week, with at least 2-3 nonconsecutive days per week.",
+        "Qual é a recomendação de frequência semanal para exercícios de fortalecimento muscular em adultos?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN29",
+      "extras": [
+        "Adolescents should aim to limit sedentary time, and guidelines often recommend specific daily limits or active breaks.",
+        "Qual é o tempo máximo recomendado de sedentarismo diário para adolescentes?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN30",
+      "extras": [
+        "Overtraining syndrome can lead to chronic immune suppression, making athletes more susceptible to infections and illness.",
+        "O treinamento excessivo pode afetar negativamente o sistema imunológico de um atleta?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN31",
+      "extras": [
+        "Regular physical activity can significantly improve sleep quality by regulating circadian rhythms and reducing stress hormones.",
+        "Como o exercício físico pode ajudar na qualidade do sono?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN32",
+      "extras": [
+        "Regular physical activity is associated with a reduced risk of several types of cancer, including colorectal and breast cancer. This effect is thought to be related to changes in hormone levels and immune function.",
+        "Qual é o impacto do exercício físico na redução do risco de desenvolver câncer?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    }
+  ]
+}

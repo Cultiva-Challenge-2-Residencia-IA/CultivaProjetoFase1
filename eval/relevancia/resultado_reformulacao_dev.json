@@ -1,0 +1,182 @@
+{
+  "modelo_llm": "gemma4:e4b",
+  "limiar": 0.146062,
+  "grupos": {
+    "controles": {
+      "em_lacuna_antes": 3,
+      "n_total": 72,
+      "sairam_da_lacuna": 1,
+      "casos": [
+        {
+          "id": "SFN09",
+          "area": "saude_fisica",
+          "pergunta": "Quem tem desgaste no joelho deve perder peso e se exercitar?",
+          "consultas": [
+            "knee osteoarthritis weight loss exercise recommendations",
+            "diretrizes para perda de peso em osteoartrite do joelho"
+          ],
+          "segundos": 14.82,
+          "saiu_da_lacuna": true,
+          "mantidos": [
+            "nice-osteoarthritis-ng226-s001-11",
+            "hhs-physical-activity-scientific-report-2018-p514-02"
+          ]
+        },
+        {
+          "id": "V2-GRA-01",
+          "area": "nutricao",
+          "pergunta": "Comer feijão com laranja na mesma refeição ajuda a absorver o ferro?",
+          "consultas": [
+            "absorção de ferro leguminosas vitamina C",
+            "interação nutricional feijão e cítricos"
+          ],
+          "segundos": 3.65,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "ABS-DEN-38",
+          "area": "nutricao",
+          "pergunta": "Refrigerante zero é melhor que o normal?",
+          "consultas": [
+            "refrigerantes dietéticos vs normais nutrição",
+            "comparação nutricional refrigerante zero"
+          ],
+          "segundos": 3.47,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        }
+      ]
+    },
+    "sem_base": {
+      "em_lacuna_antes": 10,
+      "n_total": 14,
+      "sairam_da_lacuna": 1,
+      "casos": [
+        {
+          "id": "SB13",
+          "area": "nutricao",
+          "pergunta": "Berberina ajuda a controlar a glicemia?",
+          "consultas": [
+            "berberina controle glicemia",
+            "efeito da berberina na glicemia"
+          ],
+          "segundos": 3.18,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB15",
+          "area": "nutricao",
+          "pergunta": "Colostro bovino em cápsula fortalece a imunidade?",
+          "consultas": [
+            "colostro bovino suplementação imunidade",
+            "whey protein colostrum immune support"
+          ],
+          "segundos": 3.6,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB16",
+          "area": "nutricao",
+          "pergunta": "Carne cultivada em laboratório é segura para comer?",
+          "consultas": [
+            "segurança carne cultivada alimentação",
+            "carne in vitro segurança alimentar"
+          ],
+          "segundos": 3.2,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB17",
+          "area": "nutricao",
+          "pergunta": "Ômega-7 em cápsula ajuda a emagrecer?",
+          "consultas": [
+            "ômega-7 suplementação perda de peso",
+            "ácidos graxos ômega-3 e 6 efeito metabólico"
+          ],
+          "segundos": 4.48,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB01",
+          "area": "saude_fisica",
+          "pergunta": "Quanto tempo depois de doar sangue posso voltar a treinar?",
+          "consultas": [
+            "post-blood donation exercise guidelines",
+            "retorno ao exercício após doação de sangue"
+          ],
+          "segundos": 7.77,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB02",
+          "area": "saude_fisica",
+          "pergunta": "Treinar com tatuagem recém-feita atrapalha a cicatrização?",
+          "consultas": [
+            "tattoo healing exercise guidelines",
+            "cicatrização de tatuagem e atividade física"
+          ],
+          "segundos": 6.52,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB04",
+          "area": "saude_fisica",
+          "pergunta": "Sauna depois do treino ajuda a eliminar toxinas?",
+          "consultas": [
+            "post-exercise sauna benefits detoxification",
+            "efeito da sauna após exercício na eliminação de toxinas"
+          ],
+          "segundos": 7.43,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB06",
+          "area": "saude_fisica",
+          "pergunta": "Dá para treinar de ressaca sem problema?",
+          "consultas": [
+            "exercise after hangover guidelines",
+            "treino físico após consumo excessivo de álcool"
+          ],
+          "segundos": 7.04,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB07",
+          "area": "saude_fisica",
+          "pergunta": "Tênis com placa de carbono previne lesão na corrida?",
+          "consultas": [
+            "carbon plate running shoe injury prevention",
+            "biomechanics of carbon plated shoes"
+          ],
+          "segundos": 7.76,
+          "saiu_da_lacuna": false,
+          "mantidos": []
+        },
+        {
+          "id": "SB08",
+          "area": "saude_fisica",
+          "pergunta": "Máscara de restrição de ar no treino melhora o fôlego?",
+          "consultas": [
+            "air restriction mask training effect on VO2 max",
+            "treinamento com máscara de resistência respiratória e capacidade cardiorrespiratória"
+          ],
+          "segundos": 9.52,
+          "saiu_da_lacuna": true,
+          "mantidos": [
+            "acsm-resistance-training-position-stand-2026-s003-17"
+          ]
+        }
+      ]
+    }
+  },
+  "lacuna_sem_base_depois": 0.643
+}

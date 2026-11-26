@@ -1,0 +1,968 @@
+{
+  "embeddings": "intfloat/multilingual-e5-large",
+  "configuracao": "regras",
+  "novos": {
+    "resumo": {
+      "n": 18,
+      "acerto": 0.944,
+      "por_tipo": {
+        "ambigua": {
+          "n": 2,
+          "acerto": 1.0
+        },
+        "clara": {
+          "n": 14,
+          "acerto": 1.0
+        },
+        "estudos": {
+          "n": 1,
+          "acerto": 1.0
+        },
+        "fora": {
+          "n": 1,
+          "acerto": 0.0
+        }
+      }
+    },
+    "casos": [
+      {
+        "id": "RN01",
+        "tipo": "clara",
+        "mensagem": "Dor nas costas depois de carregar peso, o que as fontes dizem?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN02",
+        "tipo": "clara",
+        "mensagem": "Isotônico repõe os sais minerais melhor que a água?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN03",
+        "tipo": "clara",
+        "mensagem": "Quanta água beber durante uma corrida de 10 km?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN04",
+        "tipo": "clara",
+        "mensagem": "Treino de perna: quantas vezes por semana?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN05",
+        "tipo": "clara",
+        "mensagem": "Meu joelho estala no agachamento, é normal?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN06",
+        "tipo": "clara",
+        "mensagem": "Pão integral tem mais fibra que o pão francês?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN07",
+        "tipo": "clara",
+        "mensagem": "Dói o pescoço de ficar no computador; algum exercício ajuda?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN08",
+        "tipo": "clara",
+        "mensagem": "Me hidratar bem melhora o rendimento na academia?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN09",
+        "tipo": "clara",
+        "mensagem": "Quero começar a malhar, por onde começo?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN10",
+        "tipo": "clara",
+        "mensagem": "Como fortalecer glúteo e panturrilha?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN11",
+        "tipo": "ambigua",
+        "mensagem": "Banana antes de dormir dá azia?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN12",
+        "tipo": "fora",
+        "mensagem": "Como trocar o óleo do carro?",
+        "esperadas": [],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": false
+      },
+      {
+        "id": "RN13",
+        "tipo": "estudos",
+        "mensagem": "Quantas horas por dia devo estudar para concurso?",
+        "esperadas": [],
+        "previstas": [],
+        "acerto": true
+      },
+      {
+        "id": "RN14",
+        "tipo": "clara",
+        "mensagem": "Sobrepeso piora a dor no joelho? A alimentação ajuda?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN15",
+        "tipo": "clara",
+        "mensagem": "Como evitar dor na canela quando começo a correr?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN16",
+        "tipo": "clara",
+        "mensagem": "Bebida isotônica tem muito açúcar?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN17",
+        "tipo": "clara",
+        "mensagem": "Quero fortalecer o braço sem ir à academia.",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "RN18",
+        "tipo": "ambigua",
+        "mensagem": "Ando cansado para subir ladeira; como melhorar o fôlego?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      }
+    ]
+  },
+  "issue_99_roteamento_ja_visto": {
+    "resumo": {
+      "n": 40,
+      "acerto": 0.8,
+      "por_tipo": {
+        "ambigua": {
+          "n": 6,
+          "acerto": 0.333
+        },
+        "clara": {
+          "n": 27,
+          "acerto": 1.0
+        },
+        "estudos": {
+          "n": 3,
+          "acerto": 1.0
+        },
+        "fora": {
+          "n": 4,
+          "acerto": 0.0
+        }
+      }
+    },
+    "casos": [
+      {
+        "id": "R01",
+        "tipo": "clara",
+        "mensagem": "Quais alimentos são fontes de ferro?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R02",
+        "tipo": "clara",
+        "mensagem": "O que o Guia Alimentar diz sobre ultraprocessados?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R03",
+        "tipo": "clara",
+        "mensagem": "Whey protein é necessário para ganhar massa muscular?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R04",
+        "tipo": "clara",
+        "mensagem": "Quantos minutos de atividade física por semana adultos devem fazer?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R05",
+        "tipo": "clara",
+        "mensagem": "Alongamento antes da corrida previne lesão?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R06",
+        "tipo": "clara",
+        "mensagem": "O que comer antes do treino de musculação?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R07",
+        "tipo": "clara",
+        "mensagem": "Exercício ajuda na dor lombar crônica?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R08",
+        "tipo": "clara",
+        "mensagem": "Quanto de sal por dia é recomendado?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R09",
+        "tipo": "ambigua",
+        "mensagem": "Como aquecer antes de jogar futebol?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R10",
+        "tipo": "ambigua",
+        "mensagem": "Ficar muito tempo sentado faz mal à saúde?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": false
+      },
+      {
+        "id": "R11",
+        "tipo": "clara",
+        "mensagem": "Como melhorar meu condicionamento para subir escadas sem cansar?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R12",
+        "tipo": "fora",
+        "mensagem": "Quem ganhou a Copa do Mundo de 2002?",
+        "esperadas": [],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": false
+      },
+      {
+        "id": "R13",
+        "tipo": "fora",
+        "mensagem": "Qual a capital da Austrália?",
+        "esperadas": [],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": false
+      },
+      {
+        "id": "R14",
+        "tipo": "estudos",
+        "mensagem": "Como montar um cronograma de estudos para o ENEM?",
+        "esperadas": [],
+        "previstas": [],
+        "acerto": true
+      },
+      {
+        "id": "R15",
+        "tipo": "clara",
+        "mensagem": "Comer à noite engorda?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R16",
+        "tipo": "clara",
+        "mensagem": "Qual a diferença entre gordura saturada e insaturada?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R17",
+        "tipo": "clara",
+        "mensagem": "Treinar em jejum queima mais gordura?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R18",
+        "tipo": "ambigua",
+        "mensagem": "O que fazer para dormir melhor e ter mais energia durante o dia?",
+        "esperadas": [],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": false
+      },
+      {
+        "id": "R19",
+        "tipo": "clara",
+        "mensagem": "Tenho tendinite no ombro, posso continuar nadando?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R20",
+        "tipo": "clara",
+        "mensagem": "Caminhar depois do almoço ajuda a controlar a glicemia?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R21",
+        "tipo": "clara",
+        "mensagem": "Quantas vezes por semana idosos devem fazer exercícios de equilíbrio?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R22",
+        "tipo": "clara",
+        "mensagem": "Beber café antes de correr melhora o desempenho?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R23",
+        "tipo": "clara",
+        "mensagem": "Quais são os benefícios de subir de bike para o trabalho?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R24",
+        "tipo": "fora",
+        "mensagem": "Como funciona a declaração de imposto de renda?",
+        "esperadas": [],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": false
+      },
+      {
+        "id": "R25",
+        "tipo": "clara",
+        "mensagem": "Torci o tornozelo jogando vôlei semana passada, quando posso voltar?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R26",
+        "tipo": "clara",
+        "mensagem": "Arroz com feijão é uma combinação saudável?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R27",
+        "tipo": "ambigua",
+        "mensagem": "Quanto tempo de tela por dia é saudável para crianças?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": false
+      },
+      {
+        "id": "R28",
+        "tipo": "estudos",
+        "mensagem": "Como estudar melhor para a prova de cálculo?",
+        "esperadas": [],
+        "previstas": [],
+        "acerto": true
+      },
+      {
+        "id": "R29",
+        "tipo": "clara",
+        "mensagem": "Leite desnatado é melhor que integral?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R30",
+        "tipo": "clara",
+        "mensagem": "Corrida faz mal para o joelho?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R31",
+        "tipo": "clara",
+        "mensagem": "Preciso tomar creatina se faço musculação?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R32",
+        "tipo": "ambigua",
+        "mensagem": "Quantos passos por dia são recomendados?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": false
+      },
+      {
+        "id": "R33",
+        "tipo": "clara",
+        "mensagem": "Frutas têm muito açúcar?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R34",
+        "tipo": "fora",
+        "mensagem": "Qual o melhor filme de 2025?",
+        "esperadas": [],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": false
+      },
+      {
+        "id": "R35",
+        "tipo": "estudos",
+        "mensagem": "Como revisar a matéria de anatomia para a faculdade?",
+        "esperadas": [],
+        "previstas": [],
+        "acerto": true
+      },
+      {
+        "id": "R36",
+        "tipo": "clara",
+        "mensagem": "Gestantes podem fazer exercícios físicos?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R37",
+        "tipo": "clara",
+        "mensagem": "Hidratação durante o treino longo: água ou isotônico?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R38",
+        "tipo": "clara",
+        "mensagem": "Pilates ajuda na postura?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R39",
+        "tipo": "clara",
+        "mensagem": "O que é dieta mediterrânea?",
+        "esperadas": [
+          "nutricao"
+        ],
+        "previstas": [
+          "nutricao"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "R40",
+        "tipo": "ambigua",
+        "mensagem": "Como recuperar o fôlego mais rápido depois de subir uma ladeira?",
+        "esperadas": [
+          "saude_fisica"
+        ],
+        "previstas": [
+          "saude_fisica"
+        ],
+        "acerto": true
+      }
+    ]
+  },
+  "issue_99_compostas_ja_visto": {
+    "resumo": {
+      "n": 15,
+      "acerto": 1.0,
+      "por_tipo": {
+        "composta": {
+          "n": 15,
+          "acerto": 1.0
+        }
+      }
+    },
+    "casos": [
+      {
+        "id": "C01",
+        "tipo": "composta",
+        "mensagem": "O que comer e quanto exercício fazer para baixar a pressão arterial?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C02",
+        "tipo": "composta",
+        "mensagem": "Para emagrecer, o que é mais importante: alimentação ou atividade física?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C03",
+        "tipo": "composta",
+        "mensagem": "Como a alimentação e o treino de força ajudam a ganhar massa muscular?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C04",
+        "tipo": "composta",
+        "mensagem": "Quem tem diabetes tipo 2 deve fazer exercícios e mudar a dieta? O que as diretrizes dizem?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C05",
+        "tipo": "composta",
+        "mensagem": "O que comer depois da corrida e quanto tempo descansar antes do próximo treino?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C06",
+        "tipo": "composta",
+        "mensagem": "Idosos precisam de mais proteína e de exercícios de força?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C07",
+        "tipo": "composta",
+        "mensagem": "Colesterol alto: quais alimentos evitar e qual atividade física ajuda?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C08",
+        "tipo": "composta",
+        "mensagem": "Como evitar câimbras no treino: hidratação, alimentação ou alongamento?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C09",
+        "tipo": "composta",
+        "mensagem": "Ultraprocessados atrapalham o desempenho de quem corre?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C10",
+        "tipo": "composta",
+        "mensagem": "Gestante pode fazer musculação e precisa de suplemento de ferro?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C11",
+        "tipo": "composta",
+        "mensagem": "Quanto de atividade física e quais alimentos ajudam a prevenir obesidade em adultos?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C12",
+        "tipo": "composta",
+        "mensagem": "O que comer antes de nadar e quanto tempo esperar depois da refeição?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C13",
+        "tipo": "composta",
+        "mensagem": "Dor nas costas pode ter relação com sobrepeso e alimentação?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C14",
+        "tipo": "composta",
+        "mensagem": "Para quem trabalha sentado o dia todo, o que muda na alimentação e na atividade física?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      },
+      {
+        "id": "C15",
+        "tipo": "composta",
+        "mensagem": "Café da manhã reforçado melhora o treino da manhã?",
+        "esperadas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "previstas": [
+          "nutricao",
+          "saude_fisica"
+        ],
+        "acerto": true
+      }
+    ]
+  }
+}

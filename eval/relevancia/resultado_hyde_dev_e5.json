@@ -1,0 +1,317 @@
+{
+  "embeddings": "intfloat/multilingual-e5-large",
+  "resumo": {
+    "modelo_llm": "gemma4:e4b",
+    "reranker_na_busca": true,
+    "n": 20,
+    "rr": {
+      "base": 0.667,
+      "hyde": 0.704,
+      "diferenca": 0.037
+    },
+    "acerto": {
+      "base": 0.7,
+      "hyde": 0.95,
+      "diferenca": 0.25
+    }
+  },
+  "casos": [
+    {
+      "id": "SFN01",
+      "extras": [
+        "For strength gains, a common recommendation is to perform 3-5 sets per exercise, focusing on heavier loads and lower repetitions.",
+        "Qual é o número de séries recomendado por exercício para otimizar o ganho de força?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN02",
+      "extras": [
+        "Resistance training is crucial for combating sarcopenia in older adults, promoting muscle hypertrophy and improving functional strength.",
+        "A musculação é eficaz para o ganho de massa muscular em pessoas com mais de 60 anos?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.5
+      }
+    },
+    {
+      "id": "SFN03",
+      "extras": [
+        "Strength training is a highly effective intervention for improving balance, gait stability, and reducing the risk of falls in geriatric populations. Regular resistance exercises enhance muscle strength and neuromuscular control.",
+        "Como o treinamento de força pode melhorar o equilíbrio e prevenir quedas em pessoas idosas?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN04",
+      "extras": [
+        "Regular physical activity, such as low-impact aerobic exercise and core strengthening, is often recommended for chronic back pain management to improve mobility and reduce inflammation.",
+        "Como a atividade física pode ajudar no tratamento de dor nas costas que persiste há meses?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN05",
+      "extras": [
+        "Guidelines often recommend low-impact aerobic activities, core strengthening exercises, and specific stretching routines to manage sciatica or radiating lower back pain.",
+        "Quais são as diretrizes sobre exercícios para dor nas costas que irradia para a perna?"
+      ],
+      "base": {
+        "acerto": 0.0,
+        "rr": 0.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.5
+      }
+    },
+    {
+      "id": "SFN06",
+      "extras": [
+        "Shoulder pain when lifting the arm can be related to rotator cuff issues or impingement. Physical therapy often involves specific strengthening and mobility exercises.",
+        "O que pode ser feito para aliviar a dor no ombro ao levantar o braço, e se exercícios de fisioterapia são eficazes?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.3333333333333333
+      }
+    },
+    {
+      "id": "SFN07",
+      "extras": [
+        "Ankle bracing can provide external support and proprioceptive feedback, which may help stabilize the joint and reduce the risk of recurrent sprains.",
+        "Após torcer o pé, o uso de uma tornozeleira é eficaz para prevenir novas torções?"
+      ],
+      "base": {
+        "acerto": 0.0,
+        "rr": 0.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.5
+      }
+    },
+    {
+      "id": "SFN08",
+      "extras": [
+        "Common strategies for managing anterior knee pain during stair climbing often include strengthening quadriceps and hip abductors, alongside modifying activity levels.",
+        "Quais são as abordagens comuns para aliviar a dor na parte frontal do joelho ao subir escadas?"
+      ],
+      "base": {
+        "acerto": 0.0,
+        "rr": 0.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.3333333333333333
+      }
+    },
+    {
+      "id": "SFN09",
+      "extras": [
+        "Low-impact exercises, such as swimming or cycling, are often recommended for individuals with knee osteoarthritis to improve mobility without excessive joint stress.",
+        "Quais são as recomendações de perda de peso e exercícios para pessoas com desgaste no joelho?"
+      ],
+      "base": {
+        "acerto": 0.0,
+        "rr": 0.0
+      },
+      "hyde": {
+        "acerto": 0.0,
+        "rr": 0.0
+      }
+    },
+    {
+      "id": "SFN10",
+      "extras": [
+        "A proper warm-up before exercise should include light cardio and dynamic stretching to increase blood flow and prepare muscles for activity.",
+        "Quais são as melhores formas de aquecer o corpo antes de fazer exercícios em casa?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN11",
+      "extras": [
+        "Moderate-intensity activities are those that raise your heart rate and make you breathe harder, but you can still hold a conversation. Examples include brisk walking, gardening, or cycling at a moderate pace.",
+        "Quais atividades cotidianas podem ser consideradas exercícios de intensidade moderada?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN12",
+      "extras": [
+        "Prolonged sedentary behavior is strongly associated with increased risks of cardiovascular disease, metabolic syndrome, and premature mortality.",
+        "Qual é o impacto de passar longos períodos sentado, como ficar o dia todo no sofá, na saúde e no risco de mortalidade precoce?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN13",
+      "extras": [],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN14",
+      "extras": [
+        "The '10% rule' suggests that increasing weekly running mileage by more than 10% can significantly increase the risk of overuse injuries.",
+        "Aumentar drasticamente o volume de corrida, dobrando a quilometragem de uma semana para a seguinte, eleva o risco de lesões musculoesqueléticas?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN15",
+      "extras": [
+        "Regular aerobic exercise has been consistently linked to enhanced executive functions and improved cognitive reserve in older adults.",
+        "Como o exercício físico pode impactar positivamente a memória e as funções cognitivas, como o raciocínio?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 0.3333333333333333
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN16",
+      "extras": [
+        "Postpartum exercise guidelines often recommend starting with low-impact activities, such as walking, after clearance from a healthcare provider. Core strengthening and pelvic floor exercises are crucial early components of postpartum rehabilitation.",
+        "Qual é o tempo recomendado e quais são as orientações gerais para iniciar a atividade física após o parto?"
+      ],
+      "base": {
+        "acerto": 0.0,
+        "rr": 0.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.3333333333333333
+      }
+    },
+    {
+      "id": "SFN17",
+      "extras": [
+        "Power training is highly effective in improving lower body strength and explosive power in older adults, which directly correlates with functional mobility tasks like sit-to-stand transitions.",
+        "Como os treinos de potência podem auxiliar na melhora da capacidade funcional e facilitar o ato de levantar-se de uma cadeira em idosos?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.25
+      }
+    },
+    {
+      "id": "SFN18",
+      "extras": [
+        "Regular aerobic exercise, such as brisk walking or swimming, has been shown to help lower blood pressure in individuals with hypertension.",
+        "Qual é o efeito da atividade física no controle da pressão arterial?"
+      ],
+      "base": {
+        "acerto": 0.0,
+        "rr": 0.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 0.3333333333333333
+      }
+    },
+    {
+      "id": "SFN19",
+      "extras": [
+        "Children aged 3-5 years should engage in at least 180 minutes of moderate to vigorous physical activity daily.",
+        "Qual é a quantidade recomendada de atividade física para uma criança de 4 anos?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    },
+    {
+      "id": "SFN20",
+      "extras": [
+        "To gain strength in compound movements like squats and leg presses, progressive overload is key. Start with a weight that allows you to complete 3-5 sets of 5-8 repetitions while maintaining strict form, aiming for RPE 7-9.",
+        "Qual a carga ideal para treinar agachamento e leg press visando ganho de força?"
+      ],
+      "base": {
+        "acerto": 1.0,
+        "rr": 1.0
+      },
+      "hyde": {
+        "acerto": 1.0,
+        "rr": 1.0
+      }
+    }
+  ]
+}
