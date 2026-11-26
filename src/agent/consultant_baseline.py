@@ -95,7 +95,8 @@ class NutritionConsultantBaseline:
         # calculada uma vez aqui, e não a cada pergunta.
         self.corpus_version = corpus_version_do_indice(self.chunks)
         # Relevância da busca (issue #105): reranker cross-encoder ligado por área e filtro antes da
-        # síntese, com os padrões de src/config.py. O modelo só é carregado na primeira pergunta.
+        # síntese, com os padrões de src/config.py. O modelo é carregado na criação do serviço de chat
+        # (`pre_carregar_rerankers`, issue #121) ou, fora dele, na primeira pergunta.
         if reranker_na_busca is None:
             reranker_na_busca = RERANKER_SAUDE_FISICA if self.area == "saude_fisica" else RERANKER_NUTRICAO
         if filtro_relevancia is None:
@@ -109,6 +110,7 @@ class NutritionConsultantBaseline:
             candidatos_reranker=RERANKER_CANDIDATOS,
         )
         self.filtro_reranker = reranker if filtro_relevancia else None
+        self.reranker_cruzado = reranker
         self.filtro_limiar = FILTRO_RELEVANCIA_LIMIAR
         # Reformulação da busca sem Trecho relevante: só com o Ollama local (ADR 0004).
         self.reformulacao_llm = None
