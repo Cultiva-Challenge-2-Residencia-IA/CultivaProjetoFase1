@@ -1466,7 +1466,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: compativel_uso_nao_comercial
   - id: iusca-hypertrophy-position-stand-2021
     area: saude_fisica
@@ -1502,7 +1502,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: compativel_cc_by
   - id: kassiano-exercise-variation-2022
     area: saude_fisica
@@ -1535,7 +1535,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
   - id: moesgaard-periodization-2022
     area: saude_fisica
@@ -1568,7 +1568,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
   - id: refalo-proximity-to-failure-2023
     area: saude_fisica
@@ -1601,7 +1601,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: compativel_cc_by
   - id: bernardez-vazquez-training-variables-2022
     area: saude_fisica
@@ -1634,7 +1634,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: compativel_cc_by
   - id: robinson-proximity-to-failure-2024
     area: saude_fisica
@@ -1669,7 +1669,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
   - id: schoenfeld-grgic-range-of-motion-2020
     area: saude_fisica
@@ -1700,7 +1700,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: compativel_uso_nao_comercial
   - id: schumann-concurrent-training-2022
     area: saude_fisica
@@ -1735,7 +1735,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: compativel_cc_by
   - id: singer-rest-interval-2024
     area: saude_fisica
@@ -1774,7 +1774,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: compativel_cc_by
   - id: walsh-sleep-athlete-2021
     area: saude_fisica
@@ -1808,7 +1808,7 @@ sources:
     retrieved_on: '2026-11-26'
     acquisition_status: original_obtido
     acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
-    approval_status: pendente
+    approval_status: aprovado
     intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
 
 # intended_use_license_review (decisão de 06/11/2026, ver corpus/README.md, seção "Decisão sobre licenças e uso das fontes"):

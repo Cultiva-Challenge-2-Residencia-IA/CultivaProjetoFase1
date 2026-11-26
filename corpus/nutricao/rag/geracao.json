@@ -43,7 +43,7 @@
     },
     "bernardez-vazquez-training-variables-2022": {
       "jsonl_path": "corpus/saudefisica/rag/27-bernardez-vazquez-training-variables-frontiers-2022.jsonl",
-      "jsonl_sha256": "d52170e1169b82baab10df8a85bd9cae4d60d40a505ef68b0d2442cc841a598d",
+      "jsonl_sha256": "25bf4baeeb997567cb2fb9bf058bb708ec0e3cd2439976094e3bce664857a7f0",
       "markdown_sha256": "e69634e18e474196e63cb07253a6d0410e353a17144c036e573a5be4c855f9c5",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -83,7 +83,7 @@
     },
     "currier-resistance-training-prescription-2023": {
       "jsonl_path": "corpus/saudefisica/rag/22-currier-resistance-training-prescription-bjsm-2023.jsonl",
-      "jsonl_sha256": "f6a17f1cff89dc513a3e7b5820738a64607143fbc4098ea59a99a74d80e03074",
+      "jsonl_sha256": "3fa50ac31ef137e853e32e66de6d567dfe210b3fbb3f28bb6398077c060f77c6",
       "markdown_sha256": "d7296f5d1f61f97e1b1499ee2c44201730891fb9a5d13fc3f816e4342671b954",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -171,7 +171,7 @@
     },
     "iusca-hypertrophy-position-stand-2021": {
       "jsonl_path": "corpus/saudefisica/rag/23-iusca-hypertrophy-position-stand-2021.jsonl",
-      "jsonl_sha256": "b4fc2370d3402554fd82ddab7e6e4624bcb1b2ff489b84c4a39094d21db4ef6f",
+      "jsonl_sha256": "0597042295f05f56246136ad4a00fab5fe9b46cdeccb6c564ed3049bd92ef663",
       "markdown_sha256": "fb8e97ee5fa7b7aca78e1b998440fcad20007654b2b3e0ce872c405607888a06",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -219,7 +219,7 @@
     },
     "kassiano-exercise-variation-2022": {
       "jsonl_path": "corpus/saudefisica/rag/24-kassiano-exercise-variation-jscr-2022.jsonl",
-      "jsonl_sha256": "ffce46cc1c58a319cc8733b5104d74140d1b449efc79d0d0980a8fb349eb2448",
+      "jsonl_sha256": "30808ff28f2902d4e9bdef270dc7a7393a465c3a0ec8d720e594700ba302a1dc",
       "markdown_sha256": "65a094ecb192338a6057a7259c7f9595ee8ffbb10ea4189bab8cf1b22ebfb9ef",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -251,7 +251,7 @@
     },
     "moesgaard-periodization-2022": {
       "jsonl_path": "corpus/saudefisica/rag/25-moesgaard-periodization-sports-med-2022.jsonl",
-      "jsonl_sha256": "18fc4e0e4bd312e4060897998506432a08ea6342eb46863b1ca210f3b6e929c2",
+      "jsonl_sha256": "741e3fc1a0e4f634a49e0add443831e06909ebc40e642331dc6bfa1090e3f085",
       "markdown_sha256": "b24fb6313c212c073dbda136578b6cdb1a4517c6c53d4aa8c1529c3472cfed9c",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -331,7 +331,7 @@
     },
     "refalo-proximity-to-failure-2023": {
       "jsonl_path": "corpus/saudefisica/rag/26-refalo-proximity-to-failure-sports-med-2023.jsonl",
-      "jsonl_sha256": "19b7deefce6e112760e1f0b46454550ef9bd355293970521f77ed2303f56159d",
+      "jsonl_sha256": "df7deff3ab56016393c1e3fab2772628a4487ac8119d1cd237b06a30cdfcb558",
       "markdown_sha256": "8145aa959ce4db984e9836e3af823a5e60e66d94cd21f744ecddc3dac60e0924",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -339,7 +339,7 @@
     },
     "robinson-proximity-to-failure-2024": {
       "jsonl_path": "corpus/saudefisica/rag/28-robinson-proximity-to-failure-dose-response-2024.jsonl",
-      "jsonl_sha256": "7167d9268cc69ce564869d0c1bb260a9224b87c375357c6dcfbfb3d3735582fa",
+      "jsonl_sha256": "4b1fb5ee46fd31b861b48445b03e2e777b1cd55597ce0f199d7a45b6cbc92921",
       "markdown_sha256": "d85cd4fdce4113cc577b924276213aa84f3ba2086d2ca82ec17149eed73233b4",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -411,7 +411,7 @@
     },
     "schoenfeld-grgic-range-of-motion-2020": {
       "jsonl_path": "corpus/saudefisica/rag/29-schoenfeld-grgic-range-of-motion-2020.jsonl",
-      "jsonl_sha256": "bcb3ff68322949f3c771d9de2684d0d18ecd936f75a04b5d7ceacead12cfa7fe",
+      "jsonl_sha256": "0d7e0968791de777e3f1e4ad83307f1a349142a3948d70fdaf4b4b08a334f0c9",
       "markdown_sha256": "f5439bd11c327cb1d9187726ca391898ff4f42849636b0a2340f20f775a79fd4",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -419,7 +419,7 @@
     },
     "schumann-concurrent-training-2022": {
       "jsonl_path": "corpus/saudefisica/rag/30-schumann-concurrent-training-sports-med-2022.jsonl",
-      "jsonl_sha256": "adf27c7dae7e54c71a2e14f39b15cdcfcc89d81ea247b620b57ac93772c1b187",
+      "jsonl_sha256": "0cd2f8b518185cabd085d698375a76c6089f8d6c0c5d9f1f9fc48b9a78ae5b45",
       "markdown_sha256": "51d1f249e5fb09746eb1242f9c8f31ace3860c2120b54e5b20f70d97bff6a4da",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -427,7 +427,7 @@
     },
     "singer-rest-interval-2024": {
       "jsonl_path": "corpus/saudefisica/rag/31-singer-rest-interval-frontiers-2024.jsonl",
-      "jsonl_sha256": "6a129f0991f164327e689f0b0e1ffce562d785514fbb04f21e26c643c73644f5",
+      "jsonl_sha256": "e03d73f942b6b045d0239f82a44659f61db23046f9c36b19376e5c916c8be333",
       "markdown_sha256": "47e9c19f723c3f2876b517c5f5ab336b8c550fd179112d6386b7757c4f8e2a37",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
@@ -443,7 +443,7 @@
     },
     "walsh-sleep-athlete-2021": {
       "jsonl_path": "corpus/saudefisica/rag/32-walsh-sleep-athlete-consensus-bjsm-2021.jsonl",
-      "jsonl_sha256": "178cad0df4b9a4703109a8e12f395f496404b8f147bfb0c55e8d8257a9799f4b",
+      "jsonl_sha256": "05b4e583308f2941ba0b6643db1f693442dee12e6732be17237b36ece9173045",
       "markdown_sha256": "bcbf377d9e77ae5386ed4b632ac3423bc2f89a546f121bea1363e54d2e9bbc49",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
       "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
