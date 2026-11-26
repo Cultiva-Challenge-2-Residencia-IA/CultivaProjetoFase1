@@ -19,6 +19,8 @@ class ClienteJsonOllama:
                  timeout: float = 30.0, num_predict: int = 1024) -> None:
         self.nome, self.base_url, self.modelo = nome, base_url.rstrip("/"), modelo
         self.timeout, self.num_predict = timeout, num_predict
+        # Tipo do erro da última chamada que devolveu None (diagnóstico do Sincronizador, issue #107).
+        self.ultimo_erro: Optional[str] = None
 
     def disponivel(self) -> bool:
         try:
@@ -34,6 +36,7 @@ class ClienteJsonOllama:
             "format": "json", "stream": False, "think": OLLAMA_THINK,
             "options": {"temperature": 0.1, "num_ctx": OLLAMA_NUM_CTX, "num_predict": self.num_predict},
         }
+        self.ultimo_erro = None
         with observacao(self.nome, tipo="generation", model=self.modelo, input=payload["messages"]) as obs:
             try:
                 with httpx.Client(timeout=self.timeout) as cliente:
@@ -43,8 +46,11 @@ class ClienteJsonOllama:
                 conteudo = dados.get("message", {}).get("content", "")
                 obs.update(output=conteudo, usage_details={
                     "input": int(dados.get("prompt_eval_count") or 0), "output": int(dados.get("eval_count") or 0)})
+                if dados.get("done_reason") == "length":
+                    self.ultimo_erro = "limite_de_tokens"
                 bruto = json.loads(conteudo)
                 return bruto if isinstance(bruto, dict) else None
             except Exception as exc:
+                self.ultimo_erro = self.ultimo_erro or type(exc).__name__
                 obs.update(level="ERROR", status_message=f"{type(exc).__name__}: {exc}")
                 return None

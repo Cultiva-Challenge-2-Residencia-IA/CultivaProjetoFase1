@@ -1,0 +1,1031 @@
+{
+  "resumo": {
+    "rotulo": "final",
+    "split": "test",
+    "agentes_em_paralelo": true,
+    "uma_area": {
+      "n": 9,
+      "mediana_s": 16.6,
+      "p95_s": 17.2,
+      "mediana_por_etapa_s": {
+        "agente_nutricao": 10.3,
+        "agente_saude_fisica": 10.5,
+        "agentes": 10.4,
+        "portoes": 2.3,
+        "roteamento": 3.8,
+        "total": 16.6
+      },
+      "chamadas_llm_por_pergunta": 2.89,
+      "chamadas_com_carga_do_modelo": 0,
+      "chamadas_no_limite_de_tokens": 0,
+      "chamadas_com_erro": 0
+    },
+    "duas_areas": {
+      "n": 4,
+      "mediana_s": 25.8,
+      "p95_s": 31.8,
+      "mediana_por_etapa_s": {
+        "agente_nutricao": 12.6,
+        "agente_saude_fisica": 10.1,
+        "agentes": 12.6,
+        "portoes": 2.3,
+        "roteamento": 4.8,
+        "sincronizador": 6.4,
+        "total": 25.8
+      },
+      "chamadas_llm_por_pergunta": 5.0,
+      "chamadas_com_carga_do_modelo": 0,
+      "chamadas_no_limite_de_tokens": 0,
+      "chamadas_com_erro": 0
+    },
+    "integrada": "2/4",
+    "motivos_lado_a_lado": {
+      "uma_area_so": 2,
+      "integrada": 2
+    },
+    "fundamentacao_dos_agentes": {
+      "llm_citacoes_validas": 16,
+      "None": 1
+    },
+    "outros_tipos": {}
+  },
+  "casos": [
+    {
+      "id": "C11",
+      "mensagem": "Quanto de atividade física e quais alimentos ajudam a prevenir obesidade em adultos?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "lado_a_lado",
+      "motivo": "uma_area_so",
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.338,
+        "roteamento": 5.296,
+        "agentes": 10.858,
+        "agente_nutricao": 10.856,
+        "agente_saude_fisica": 10.391,
+        "sincronizador": 5.906,
+        "total": 24.411
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "C11",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.32,
+          "carga_s": 0.01,
+          "tokens_entrada": 689,
+          "tokens_saida": 12,
+          "entrada_s": 0.11,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C11",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.27,
+          "carga_s": 0.01,
+          "tokens_entrada": 340,
+          "tokens_saida": 233,
+          "entrada_s": 0.22,
+          "saida_s": 2.97,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C11",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.07,
+          "carga_s": 0.01,
+          "tokens_entrada": 1975,
+          "tokens_saida": 428,
+          "entrada_s": 0.92,
+          "saida_s": 5.06,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C11",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.55,
+          "carga_s": 0.01,
+          "tokens_entrada": 1772,
+          "tokens_saida": 449,
+          "entrada_s": 1.01,
+          "saida_s": 5.42,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C11",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.89,
+          "carga_s": 0.01,
+          "tokens_entrada": 1757,
+          "tokens_saida": 357,
+          "entrada_s": 0.61,
+          "saida_s": 3.19,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C12",
+      "mensagem": "O que comer antes de nadar e quanto tempo esperar depois da refeição?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "lado_a_lado",
+      "motivo": "uma_area_so",
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.352,
+        "roteamento": 4.259,
+        "agentes": 11.594,
+        "agente_nutricao": 11.593,
+        "agente_saude_fisica": 9.458,
+        "sincronizador": 4.861,
+        "total": 23.079
+      },
+      "detalhes_sincronizador": [
+        "citacao_literal_ausente_na_fonte: A nutrição, quando bem orientada, promove a manutenção da saúde do atleta e favorece o funcionamento das vias metabólicas associadas ao exercício físico, como o armazenamento de energia através da formação do glicogênio muscular | citação: promove a manutenção da saúde do atleta e favorece o funcionamento das vias metabólicas associadas ao exercício físico"
+      ],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "C12",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.33,
+          "carga_s": 0.01,
+          "tokens_entrada": 689,
+          "tokens_saida": 12,
+          "entrada_s": 0.12,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C12",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 4.24,
+          "carga_s": 0.01,
+          "tokens_entrada": 340,
+          "tokens_saida": 151,
+          "entrada_s": 0.22,
+          "saida_s": 1.92,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C12",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.14,
+          "carga_s": 0.01,
+          "tokens_entrada": 1886,
+          "tokens_saida": 258,
+          "entrada_s": 1.2,
+          "saida_s": 3.73,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C12",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 9.27,
+          "carga_s": 0.01,
+          "tokens_entrada": 3064,
+          "tokens_saida": 456,
+          "entrada_s": 1.13,
+          "saida_s": 5.98,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C12",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 4.84,
+          "carga_s": 0.01,
+          "tokens_entrada": 1821,
+          "tokens_saida": 201,
+          "entrada_s": 0.66,
+          "saida_s": 2.01,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C13",
+      "mensagem": "Dor nas costas pode ter relação com sobrepeso e alimentação?",
+      "esperado": "duas_areas",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.342,
+        "roteamento": 5.209,
+        "agentes": 9.416,
+        "agente_nutricao": 9.416,
+        "total": 16.979
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "C13",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.32,
+          "carga_s": 0.01,
+          "tokens_entrada": 685,
+          "tokens_saida": 12,
+          "entrada_s": 0.1,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C13",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.19,
+          "carga_s": 0.01,
+          "tokens_entrada": 336,
+          "tokens_saida": 212,
+          "entrada_s": 0.21,
+          "saida_s": 2.85,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C13",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.2,
+          "carga_s": 0.01,
+          "tokens_entrada": 1894,
+          "tokens_saida": 441,
+          "entrada_s": 0.64,
+          "saida_s": 4.46,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C14",
+      "mensagem": "Para quem trabalha sentado o dia todo, o que muda na alimentação e na atividade física?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "integrada",
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.338,
+        "roteamento": 5.558,
+        "agentes": 13.52,
+        "agente_nutricao": 13.519,
+        "agente_saude_fisica": 12.934,
+        "sincronizador": 11.208,
+        "total": 32.638
+      },
+      "detalhes_sincronizador": [
+        "citacao_literal_ausente_na_fonte: Para indivíduos classificados como 'sedentário', o nível de atividade inclui atividades do sedentário (≥ 1,4 < 1,6). | citação: sedentário: atividades do sedentário (≥ 1,4 < 1,6);",
+        "citacao_literal_ausente_na_fonte: É benéfico incorporar a atividade física no dia a dia, podendo incluir vários tipos de atividades físicas em casa. | citação: Incorpore a atividade física no seu dia a dia! Você pode inclusive fazer vários tipos de atividades físicas na sua própria casa."
+      ],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "C14",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.32,
+          "carga_s": 0.01,
+          "tokens_entrada": 691,
+          "tokens_saida": 12,
+          "entrada_s": 0.1,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C14",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.54,
+          "carga_s": 0.01,
+          "tokens_entrada": 342,
+          "tokens_saida": 227,
+          "entrada_s": 0.23,
+          "saida_s": 3.2,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C14",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 10.54,
+          "carga_s": 0.01,
+          "tokens_entrada": 1973,
+          "tokens_saida": 654,
+          "entrada_s": 0.96,
+          "saida_s": 7.46,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C14",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 11.14,
+          "carga_s": 0.01,
+          "tokens_entrada": 1889,
+          "tokens_saida": 671,
+          "entrada_s": 1.04,
+          "saida_s": 7.94,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C14",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 11.18,
+          "carga_s": 0.01,
+          "tokens_entrada": 2091,
+          "tokens_saida": 989,
+          "entrada_s": 0.67,
+          "saida_s": 8.37,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C15",
+      "mensagem": "Café da manhã reforçado melhora o treino da manhã?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "integrada",
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.344,
+        "roteamento": 3.884,
+        "agentes": 14.092,
+        "agente_nutricao": 14.09,
+        "agente_saude_fisica": 9.713,
+        "sincronizador": 6.93,
+        "total": 27.264
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "C15",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.32,
+          "carga_s": 0.01,
+          "tokens_entrada": 686,
+          "tokens_saida": 12,
+          "entrada_s": 0.1,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C15",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 3.86,
+          "carga_s": 0.01,
+          "tokens_entrada": 337,
+          "tokens_saida": 124,
+          "entrada_s": 0.2,
+          "saida_s": 1.55,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C15",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.42,
+          "carga_s": 0.01,
+          "tokens_entrada": 1871,
+          "tokens_saida": 349,
+          "entrada_s": 0.76,
+          "saida_s": 4.55,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C15",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 11.81,
+          "carga_s": 0.01,
+          "tokens_entrada": 2290,
+          "tokens_saida": 904,
+          "entrada_s": 1.14,
+          "saida_s": 8.52,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "C15",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 6.9,
+          "carga_s": 0.01,
+          "tokens_entrada": 2045,
+          "tokens_saida": 469,
+          "entrada_s": 0.65,
+          "saida_s": 4.1,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R29",
+      "mensagem": "Leite desnatado é melhor que integral?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.368,
+        "roteamento": 4.128,
+        "agentes": 10.208,
+        "agente_nutricao": 10.208,
+        "total": 16.713
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "R29",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.35,
+          "carga_s": 0.01,
+          "tokens_entrada": 683,
+          "tokens_saida": 12,
+          "entrada_s": 0.1,
+          "saida_s": 0.13,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R29",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 4.11,
+          "carga_s": 0.01,
+          "tokens_entrada": 334,
+          "tokens_saida": 134,
+          "entrada_s": 0.2,
+          "saida_s": 1.82,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R29",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.0,
+          "carga_s": 0.01,
+          "tokens_entrada": 1932,
+          "tokens_saida": 606,
+          "entrada_s": 0.65,
+          "saida_s": 5.29,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R30",
+      "mensagem": "Corrida faz mal para o joelho?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.331,
+        "roteamento": 3.837,
+        "agentes": 8.268,
+        "agente_saude_fisica": 8.268,
+        "total": 14.446
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "R30",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.31,
+          "carga_s": 0.01,
+          "tokens_entrada": 682,
+          "tokens_saida": 12,
+          "entrada_s": 0.1,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R30",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 3.82,
+          "carga_s": 0.01,
+          "tokens_entrada": 333,
+          "tokens_saida": 113,
+          "entrada_s": 0.2,
+          "saida_s": 1.52,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R30",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 6.07,
+          "carga_s": 0.01,
+          "tokens_entrada": 1741,
+          "tokens_saida": 414,
+          "entrada_s": 0.39,
+          "saida_s": 3.59,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R32",
+      "mensagem": "Quantos passos por dia são recomendados?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.325,
+        "roteamento": 3.65,
+        "agentes": 10.568,
+        "agente_saude_fisica": 10.568,
+        "total": 16.55
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "R32",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.31,
+          "carga_s": 0.01,
+          "tokens_entrada": 682,
+          "tokens_saida": 12,
+          "entrada_s": 0.09,
+          "saida_s": 0.11,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R32",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 3.64,
+          "carga_s": 0.01,
+          "tokens_entrada": 333,
+          "tokens_saida": 123,
+          "entrada_s": 0.19,
+          "saida_s": 1.34,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R32",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.42,
+          "carga_s": 0.01,
+          "tokens_entrada": 1736,
+          "tokens_saida": 640,
+          "entrada_s": 0.37,
+          "saida_s": 5.93,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R33",
+      "mensagem": "Frutas têm muito açúcar?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.284,
+        "roteamento": 3.708,
+        "agentes": 10.391,
+        "agente_nutricao": 10.391,
+        "total": 16.39
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "R33",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.27,
+          "carga_s": 0.01,
+          "tokens_entrada": 679,
+          "tokens_saida": 12,
+          "entrada_s": 0.08,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R33",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 3.69,
+          "carga_s": 0.01,
+          "tokens_entrada": 330,
+          "tokens_saida": 116,
+          "entrada_s": 0.17,
+          "saida_s": 1.42,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R33",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.19,
+          "carga_s": 0.01,
+          "tokens_entrada": 2877,
+          "tokens_saida": 643,
+          "entrada_s": 0.83,
+          "saida_s": 5.28,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R36",
+      "mensagem": "Gestantes podem fazer exercícios físicos?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.31,
+        "roteamento": 3.811,
+        "agentes": 10.932,
+        "agente_saude_fisica": 10.932,
+        "total": 17.061
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "R36",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.3,
+          "carga_s": 0.01,
+          "tokens_entrada": 680,
+          "tokens_saida": 12,
+          "entrada_s": 0.08,
+          "saida_s": 0.11,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R36",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 3.8,
+          "carga_s": 0.01,
+          "tokens_entrada": 331,
+          "tokens_saida": 128,
+          "entrada_s": 0.17,
+          "saida_s": 1.55,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R36",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.79,
+          "carga_s": 0.01,
+          "tokens_entrada": 1810,
+          "tokens_saida": 805,
+          "entrada_s": 0.39,
+          "saida_s": 6.32,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R38",
+      "mensagem": "Pilates ajuda na postura?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.351,
+        "roteamento": 3.568,
+        "agentes": 10.525,
+        "agente_saude_fisica": 10.525,
+        "total": 16.451
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "R38",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.34,
+          "carga_s": 0.01,
+          "tokens_entrada": 679,
+          "tokens_saida": 12,
+          "entrada_s": 0.1,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R38",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 3.55,
+          "carga_s": 0.01,
+          "tokens_entrada": 330,
+          "tokens_saida": 105,
+          "entrada_s": 0.19,
+          "saida_s": 1.28,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R38",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.37,
+          "carga_s": 0.01,
+          "tokens_entrada": 1756,
+          "tokens_saida": 655,
+          "entrada_s": 0.38,
+          "saida_s": 5.88,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R39",
+      "mensagem": "O que é dieta mediterrânea?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 2.337,
+        "roteamento": 4.142,
+        "agentes": 10.748,
+        "agente_nutricao": 10.748,
+        "total": 17.234
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "R39",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.32,
+          "carga_s": 0.01,
+          "tokens_entrada": 680,
+          "tokens_saida": 12,
+          "entrada_s": 0.09,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R39",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 4.13,
+          "carga_s": 0.01,
+          "tokens_entrada": 331,
+          "tokens_saida": 156,
+          "entrada_s": 0.18,
+          "saida_s": 1.87,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R39",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.58,
+          "carga_s": 0.01,
+          "tokens_entrada": 1890,
+          "tokens_saida": 721,
+          "entrada_s": 0.62,
+          "saida_s": 5.86,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R40",
+      "mensagem": "Como recuperar o fôlego mais rápido depois de subir uma ladeira?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": null
+      },
+      "tempos": {
+        "portoes": 2.339,
+        "roteamento": 4.103,
+        "agentes": 0.109,
+        "agente_saude_fisica": 0.109,
+        "total": 6.558
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "erro": null,
+          "caso": "R40",
+          "sistema": "Você é um classificador de segurança de um",
+          "num_ctx": 8192,
+          "num_predict": 40,
+          "segundos": 2.33,
+          "carga_s": 0.01,
+          "tokens_entrada": 688,
+          "tokens_saida": 12,
+          "entrada_s": 0.09,
+          "saida_s": 0.12,
+          "fim": "stop"
+        },
+        {
+          "erro": null,
+          "caso": "R40",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 4.09,
+          "carga_s": 0.01,
+          "tokens_entrada": 339,
+          "tokens_saida": 144,
+          "entrada_s": 0.18,
+          "saida_s": 1.82,
+          "fim": "stop"
+        }
+      ]
+    }
+  ]
+}

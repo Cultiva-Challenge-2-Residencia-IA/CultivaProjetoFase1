@@ -163,3 +163,14 @@ def test_risco_detectado_pelo_llm_nao_entra_no_trace(monkeypatch):
     assert resposta.risk_layer == "llm"
     entradas = [r["input"] for r in registrado if "input" in r]
     assert entradas[-1] == {"risco_categorias": ["autolesao"], "top_k": cb.TOP_K_FINAL}
+
+
+def test_classificador_usa_o_mesmo_num_ctx_das_outras_chamadas(monkeypatch):
+    # Issue #107: com outro num_ctx, o Ollama recarrega o modelo a cada mensagem; a carga estourava
+    # o tempo limite (só o léxico valia) e a reescrita ou a síntese pagava outra carga em seguida.
+    from src.config import OLLAMA_NUM_CTX
+
+    http = _Http('{"nivel": 0, "categoria": null}')
+    monkeypatch.setattr(httpx, "Client", http)
+    ClassificadorRiscoLLM("gemma4:e4b").classificar("Quais alimentos têm ferro?")
+    assert http.payload["options"]["num_ctx"] == OLLAMA_NUM_CTX
