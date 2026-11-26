@@ -18,13 +18,14 @@
     "secao",
     "texto",
     "licenca",
-    "approval_status"
+    "approval_status",
+    "area"
   ],
   "properties": {
     "id": {
-      "description": "Identificador estável do Trecho: <fonte_id>-p<página com 3 dígitos>-<n com 2 dígitos> (PDF), <fonte_id>-s<seção com 3 dígitos>-<n com 2 dígitos> (HTML, sem página) ou <fonte_id>-resumo-<n com 2 dígitos> (resumo sem página).",
+      "description": "Identificador estável do Trecho: <fonte_id>-p<página com 3 dígitos>-<n com 2 dígitos> (PDF), <fonte_id>-s<seção com 3 dígitos>-<n com 2 dígitos> (HTML, sem página) ou <fonte_id>-resumo-<n com 2 dígitos> (resumo sem página). Seção HTML com mais de 99 Trechos usa 3 dígitos no n.",
       "type": "string",
-      "pattern": "^[a-z0-9-]+-(p[0-9]{3}|s[0-9]{3}|resumo)-[0-9]{2}$"
+      "pattern": "^[a-z0-9-]+-(p[0-9]{3}|s[0-9]{3}|resumo)-[0-9]{2,3}$"
     },
     "fonte_id": {
       "description": "id da fonte no manifest.yaml.",
@@ -104,6 +105,13 @@
       "enum": [
         "pendente",
         "aprovado"
+      ]
+    },
+    "area": {
+      "description": "Área do assunto da fonte (campo area do manifesto; sem ele, nutricao). Vai para o cabeçalho contextual do Trecho (issue #120).",
+      "enum": [
+        "nutricao",
+        "saude_fisica"
       ]
     }
   }

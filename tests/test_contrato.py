@@ -12,13 +12,13 @@ from src.retrieval.hybrid_retriever import HybridRetriever
 
 RAIZ = Path(__file__).resolve().parents[1]
 SCHEMA = json.loads((RAIZ / "corpus/schemas/trecho.schema.json").read_text(encoding="utf-8"))
-ARQUIVOS = sorted((RAIZ / "corpus/nutricao/rag").glob("*.jsonl"))
+ARQUIVOS = sorted((RAIZ / "corpus/nutricao/rag").glob("*.jsonl")) + sorted((RAIZ / "corpus/saudefisica/rag").glob("*.jsonl"))
 
 
 def _trechos():
     for arquivo in ARQUIVOS:
         for linha in arquivo.read_text(encoding="utf-8").splitlines():
-            yield arquivo.name, json.loads(linha)
+            yield arquivo, json.loads(linha)
 
 
 def test_schema_e_valido():
@@ -66,6 +66,7 @@ def test_trecho_vira_chunk_preservando_pagina_link_e_status():
         "texto": "Prefira alimentos in natura.",
         "licenca": "CC-BY-4.0",
         "approval_status": "aprovado",
+        "area": "nutricao",
     }
     chunk = trecho_para_chunk(trecho)
     assert chunk.chunk_id == trecho["id"] and chunk.doc_id == "fonte-exemplo"
@@ -95,12 +96,31 @@ def test_resumo_sem_pagina_vira_chunk():
         "texto": "BACKGROUND: example.",
         "licenca": "pendente",
         "approval_status": "pendente",
+        "area": "saude_fisica",
     }
     Draft202012Validator(SCHEMA).validate(trecho)
     chunk = trecho_para_chunk(trecho)
     assert chunk.pagina_pdf is None
     assert chunk.section_path == trecho["secao"]
     assert chunk.evidence_level == NIVEL_DE_EVIDENCIA[trecho["tipo_fonte"]]
+
+
+def test_dominio_do_cabecalho_vem_da_area_do_trecho():
+    """Issue #120: o cabeçalho contextual dizia "Domínio: nutricao" também nos Trechos de Saúde Física."""
+    por_area = {}
+    for _, t in _trechos():
+        por_area.setdefault(t["area"], t)
+    assert set(por_area) == {"nutricao", "saude_fisica"}
+    for area, trecho in por_area.items():
+        chunk = trecho_para_chunk(trecho)
+        assert chunk.clinical_domain == area
+        assert f"Domínio: {area}" in chunk.contextualized_text
+
+
+def test_trechos_de_cada_pasta_tem_a_area_da_pasta():
+    for caminho, t in _trechos():
+        esperada = "saude_fisica" if "saudefisica" in str(caminho) else "nutricao"
+        assert t["area"] == esperada, caminho
 
 
 def test_secao_vazia_usa_so_a_pagina():
