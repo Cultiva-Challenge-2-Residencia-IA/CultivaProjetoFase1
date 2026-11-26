@@ -58,7 +58,13 @@ def responder(split: str, rotulo: str) -> int:
     from src.chat.fabrica import criar_servico
 
     casos = _ler("casos.json")[split]
-    registros = []
+    # Grava a cada resposta e retoma de onde parou: uma medição leva de 30 a 50 min.
+    saida = f"respostas_{split}_{rotulo}.json"
+    registros = _ler(saida) if (PASTA / saida).exists() else []
+    feitos = {r["id"] for r in registros}
+    casos = [c for c in casos if c["id"] not in feitos]
+    if feitos:
+        print(f"Retomando: {len(feitos)} já respondidos, faltam {len(casos)}.", file=sys.stderr)
     with tempfile.TemporaryDirectory() as pasta:
         servico = criar_servico(enable_ollama=True, historico=HistoricoSQLite(Path(pasta) / "h.sqlite3"))
         if servico.llm is None:
@@ -82,10 +88,11 @@ def responder(split: str, rotulo: str) -> int:
                 "consulta_da_busca": {a: x.effective_query for a, x in r.respostas.items()},
                 "trechos_citados": _trechos_citados(r),
             })
+            _gravar(saida, registros)
             decorrido = time.perf_counter() - inicio_total
             print(f"[{n}/{len(casos)}] {caso['id']} {r.tipo} {segundos}s; faltam cerca de "
                   f"{decorrido / n * (len(casos) - n) / 60:.0f} min", file=sys.stderr, flush=True)
-    _gravar(f"respostas_{split}_{rotulo}.json", registros)
+    _gravar(saida, registros)
     return 0
 
 
