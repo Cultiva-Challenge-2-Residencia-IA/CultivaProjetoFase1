@@ -45,7 +45,16 @@ TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / 
 # Histórico das Conversas (issue #99): SQLite local, ignorado pelo Git, e quantas mensagens de cada
 # chat vão ao LLM (janela).
 HISTORICO_DB_PATH = Path(os.getenv("CULTIVA_HISTORICO_DB", str(DATA_DIR / "conversas.sqlite3")))
-JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "6"))
+# Janela do Histórico (issue #112, ADR 0005): orçamento de tokens (proposta: 2.500) e, no máximo,
+# CULTIVA_JANELA_HISTORICO mensagens (20). As respostas do assistente entram encurtadas.
+JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "20"))
+ORCAMENTO_HISTORICO_TOKENS = int(os.getenv("CULTIVA_HISTORICO_TOKENS", "2500"))
+# Fatos do Usuário (issue #112): a memória fica desligada até o Usuário aceitar (opt-in). Sem App, o
+# aceite vem da API; CULTIVA_MEMORIA_PADRAO vale para quem ainda não respondeu, só em testes e uso
+# local com dados sintéticos: "desligada" (padrão), "ligada" ou "ligada_com_saude".
+MEMORIA_PADRAO = os.getenv("CULTIVA_MEMORIA_PADRAO", "desligada").strip().lower()
+# Fato sem atualização deixa de valer depois deste prazo (proposta).
+FATOS_PRAZO_DIAS = int(os.getenv("CULTIVA_FATOS_PRAZO_DIAS", "90"))
 # Autenticação dos endpoints de chat e de exclusão (issue #108, src/chat/autenticacao.py). O segredo
 # (CULTIVA_AUTH_SEGREDO) e a flag de desenvolvimento (CULTIVA_AUTH_DESLIGADA) são lidos a cada pedido,
 # não aqui; esta é só a validade dos tokens de teste emitidos pela linha de comando.

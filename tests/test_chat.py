@@ -23,7 +23,7 @@ class AgenteFalso:
         self.chamadas: List[dict] = []
 
     def responder(self, pergunta: str, top_k: int, consultas_extras: List[str],
-                  historico: List[Mensagem]) -> ConsultantResponse:
+                  historico: List[Mensagem], fatos=()) -> ConsultantResponse:
         self.chamadas.append({"pergunta": pergunta, "extras": consultas_extras, "historico": historico})
         return ConsultantResponse(
             response_id=f"r-{self.area}-{len(self.chamadas)}", original_query=pergunta, effective_query=pergunta,
@@ -161,7 +161,7 @@ def test_apagar_usuario_remove_todas_as_conversas(tmp_path, agentes):
 
 def test_pedido_restrito_pela_lei_da_area_traz_a_nota_legal(tmp_path, agentes):
     class AgenteComGuardrail(AgenteFalso):
-        def responder(self, pergunta, top_k, consultas_extras, historico):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
             resposta = super().responder(pergunta, top_k, consultas_extras, historico)
             return resposta.model_copy(update={"guardrail_triggered": True,
                                                "legal_compliance_notice": "Nota da Lei 9.696/1998."})
@@ -191,7 +191,7 @@ def _com_trechos(agente: AgenteFalso, prefixo: str) -> AgenteFalso:
 
     original = agente.responder
 
-    def responder(pergunta, top_k, extras, historico):
+    def responder(pergunta, top_k, extras, historico, fatos=()):
         resposta = original(pergunta, top_k, extras, historico)
         chunk = DocumentChunk(chunk_id=f"{prefixo}-p001-01", doc_id=prefixo, title=f"Fonte {prefixo}",
                               source_organization="Org", publication_year=2020, clinical_domain="x",
@@ -238,7 +238,7 @@ def test_pergunta_das_duas_areas_fica_no_historico_dos_dois_agentes(tmp_path, ag
 
 def test_campos_repetidos_da_sintese_nao_aparecem_duas_vezes(tmp_path, agentes):
     class AgenteRepetido(AgenteFalso):
-        def responder(self, pergunta, top_k, extras, historico):
+        def responder(self, pergunta, top_k, extras, historico, fatos=()):
             r = super().responder(pergunta, top_k, extras, historico)
             frase = "Ovos no café da manhã aumentam a saciedade [T1]."
             return r.model_copy(update={"evidence_summary": frase,

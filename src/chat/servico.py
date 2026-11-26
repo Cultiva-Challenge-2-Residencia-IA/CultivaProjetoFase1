@@ -16,20 +16,25 @@ Para cada mensagem:
 6. **Sincronizador** (Chat geral com duas áreas): resposta única cruzada, ou lado a lado.
 """
 
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 import hashlib
 import re
-from typing import Dict, List, Mapping, Optional, Protocol, Sequence
+from typing import Callable, Dict, List, Mapping, Optional, Protocol, Sequence
 
 from pydantic import BaseModel, Field
 
-from src.config import HYDE_NA_BUSCA, JANELA_HISTORICO, TOP_K_FINAL
+from src.chat.fatos import FatosSQLite
+from src.config import (FATOS_PRAZO_DIAS, HYDE_NA_BUSCA, JANELA_HISTORICO, MEMORIA_PADRAO,
+                        ORCAMENTO_HISTORICO_TOKENS, TOP_K_FINAL)
 from src.guardrails.alerta import MENSAGEM_ALERTA, detectar_sinal_de_alerta
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.pii import mascarar_dados_pessoais
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.models.schemas import ConsultantResponse
-from src.observabilidade import atributos_do_trace, observacao
+from src.observabilidade import atributos_do_trace, observacao, ocultar_fatos
 from src.orquestrador.conversa import APRESENTACOES, e_conversa_social
+from src.orquestrador.fatos import FatoDoUsuario, candidatos_em_texto, escolhidos, extrair_fatos
 from src.orquestrador.reescrita import LLMJson, Mensagem, Subpergunta, reescrever
 from src.orquestrador.roteamento import AREA_NUTRICAO, AREAS, rotear_por_regras
 from src.orquestrador.sincronizador import MARCADOR_T, NOMES_DAS_AREAS, RespostaDeArea, sincronizar
@@ -56,7 +61,7 @@ def mensagem_outra_area(area: str) -> str:
 
 class AgenteDeArea(Protocol):
     def responder(self, pergunta: str, top_k: int, consultas_extras: List[str],
-                  historico: List[Mensagem]) -> ConsultantResponse: ...
+                  historico: List[Mensagem], fatos: Sequence[FatoDoUsuario] = ()) -> ConsultantResponse: ...
 
 
 class RespostaDoChat(BaseModel):
@@ -72,6 +77,8 @@ class RespostaDoChat(BaseModel):
     citacoes: List[str] = Field(default_factory=list)
     redirecionamento: Optional[str] = None
     reescrita: Optional[str] = None  # origem da reescrita: "llm" ou "regras"
+    # Fatos do Usuário entregues aos agentes nesta resposta (transparência, issue #112).
+    fatos_usados: List[dict] = Field(default_factory=list)
 
 
 def _chave_da_frase(frase: str) -> str:
@@ -116,7 +123,7 @@ def em_notas(texto: str) -> str:
         for n in MARCADOR_T.findall(paragrafo):
             if int(n) not in numeros:
                 numeros.append(int(n))
-        limpo = re.sub(r"\s*\[T\d+\]", "", paragrafo).rstrip()
+        limpo = re.sub(r"\s*\[(?:T\d+|CONTEXTO)\]", "", paragrafo).rstrip()
         paragrafos.append(f"{limpo} {' '.join(nota(n) for n in numeros)}" if numeros else limpo)
     return "\n\n".join(paragrafos)
 
@@ -138,6 +145,37 @@ class ConversaDeOutroUsuario(PermissionError):
     """O `conversa_id` já pertence a outro Usuário (issue #108; a API responde 403)."""
 
 
+FRASES_DA_RESPOSTA_NO_HISTORICO = 2
+
+
+def tokens_estimados(texto: str) -> int:
+    """Estimativa de tokens (cerca de 4 caracteres por token em português), sem tokenizador do modelo."""
+    return (len(texto) + 3) // 4
+
+
+def encurtar_resposta(texto: str) -> str:
+    """Resposta do assistente no Histórico: as primeiras frases, sem marcadores de citação.
+
+    O que o modelo precisa para entender a continuação é o assunto, não a evidência inteira.
+    """
+    limpo = " ".join(MARCADOR.sub("", texto).split())
+    return " ".join(dividir_frases(limpo)[:FRASES_DA_RESPOSTA_NO_HISTORICO]) or limpo
+
+
+def no_orcamento(mensagens: Sequence[Mensagem], orcamento: int) -> List[Mensagem]:
+    """As mensagens mais recentes que cabem no orçamento de tokens, na ordem original."""
+    escolhidas: List[Mensagem] = []
+    usados = 0
+    for m in reversed(list(mensagens)):
+        texto = encurtar_resposta(m.texto) if m.papel == "assistente" else m.texto
+        custo = tokens_estimados(texto)
+        if usados + custo > orcamento:
+            break
+        usados += custo
+        escolhidas.append(Mensagem(m.papel, texto, m.area, list(m.areas)))
+    return list(reversed(escolhidas))
+
+
 def _id_anonimo(usuario_id: str) -> str:
     return hashlib.sha256(usuario_id.encode("utf-8")).hexdigest()[:16]
 
@@ -150,8 +188,14 @@ class ServicoDeChat:
         llm: Optional[LLMJson] = None,
         risco_llm=None,
         janela: int = JANELA_HISTORICO,
+        orcamento_historico: int = ORCAMENTO_HISTORICO_TOKENS,
         reescrita_com_llm: bool = True,
         hyde_na_busca: bool = HYDE_NA_BUSCA,
+        fatos: Optional[FatosSQLite] = None,
+        executar_em_segundo_plano: Optional[Callable[[Callable[[], None]], None]] = None,
+        relogio: Callable[[], datetime] = lambda: datetime.now(timezone.utc),
+        prazo_fatos_dias: int = FATOS_PRAZO_DIAS,
+        memoria_padrao: str = MEMORIA_PADRAO,
     ) -> None:
         self.agentes = dict(agentes)
         self.historico = historico
@@ -162,12 +206,77 @@ class ServicoDeChat:
         self.hyde_na_busca = hyde_na_busca
         self.risco_llm = risco_llm
         self.janela = janela
+        self.orcamento_historico = orcamento_historico
+        # Fatos do Usuário (issue #112): no mesmo arquivo do Histórico, em tabelas próprias.
+        if fatos is None and getattr(historico, "caminho", None) is not None:
+            fatos = FatosSQLite(historico.caminho)
+        self.fatos = fatos
+        self.relogio = relogio
+        self.prazo_fatos_dias = prazo_fatos_dias
+        self.memoria_padrao = memoria_padrao
+        # A extração roda depois da resposta, fora do caminho da latência; os testes passam um
+        # executor síncrono.
+        if executar_em_segundo_plano is None:
+            executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="fatos")
+            executar_em_segundo_plano = executor.submit
+        self.executar_em_segundo_plano = executar_em_segundo_plano
+
+    # Consentimento e Fatos do Usuário (issue #112, LGPD art. 11 e art. 18).
+    def definir_consentimento(self, usuario_id: str, memoria: bool, saude: bool = False) -> None:
+        if self.fatos is None:
+            raise RuntimeError("Fatos do Usuário indisponíveis neste Histórico.")
+        self.fatos.definir_consentimento(usuario_id, memoria, saude, self.relogio())
+
+    def consentimento(self, usuario_id: str) -> tuple:
+        """(memória, saúde): o registrado, ou o padrão de CULTIVA_MEMORIA_PADRAO para quem não respondeu."""
+        registrado = self.fatos.consentimento(usuario_id) if self.fatos is not None else None
+        if registrado is not None:
+            return registrado
+        if self.fatos is None:
+            return (False, False)
+        return (self.memoria_padrao in ("ligada", "ligada_com_saude"), self.memoria_padrao == "ligada_com_saude")
+
+    def listar_fatos(self, usuario_id: str) -> List[FatoDoUsuario]:
+        if self.fatos is None:
+            return []
+        _, saude = self.consentimento(usuario_id)
+        # Transparência (LGPD, art. 9º): a pessoa vê tudo o que está guardado, mesmo sem consentimento.
+        return self.fatos.validos(usuario_id, self.relogio(), self.prazo_fatos_dias, incluir_saude=True)
+
+    def _candidatos(self, usuario_id: str) -> List[FatoDoUsuario]:
+        """Fatos que podem ser entregues agora: só com consentimento, e saúde só com o aceite dela."""
+        memoria, saude = self.consentimento(usuario_id)
+        if not memoria or self.fatos is None:
+            return []
+        candidatos = self.fatos.validos(usuario_id, self.relogio(), self.prazo_fatos_dias, incluir_saude=saude)
+        ocultar_fatos((f.texto, f.categoria) for f in candidatos)
+        return candidatos
+
+    def apagar_fato(self, usuario_id: str, fato_id: int) -> int:
+        return self.fatos.apagar_fato(usuario_id, fato_id) if self.fatos is not None else 0
+
+    def _extrair(self, usuario_id: str, conversa_id: str, mensagem: str) -> None:
+        memoria, saude = self.consentimento(usuario_id)
+        if not memoria or self.fatos is None or self.llm is None:
+            return
+
+        def tarefa() -> None:
+            extraidos = extrair_fatos(mascarar_dados_pessoais(mensagem), self.llm, saude)
+            ocultar_fatos((texto, categoria) for categoria, texto in extraidos)
+            for categoria, texto in extraidos:
+                self.fatos.registrar(usuario_id, conversa_id, categoria, texto, self.relogio())
+
+        self.executar_em_segundo_plano(tarefa)
 
     # Exclusão (LGPD): o Usuário apaga uma Conversa ou todas as dele.
     def apagar_conversa(self, usuario_id: str, conversa_id: str) -> int:
+        if self.fatos is not None:
+            self.fatos.apagar_conversa(usuario_id, conversa_id)
         return self.historico.apagar_conversa(usuario_id, conversa_id)
 
     def apagar_usuario(self, usuario_id: str) -> int:
+        if self.fatos is not None:
+            self.fatos.apagar_usuario(usuario_id)
         return self.historico.apagar_usuario(usuario_id)
 
     def enviar(self, chat: str, usuario_id: str, conversa_id: str, mensagem: str,
@@ -184,9 +293,14 @@ class ServicoDeChat:
                 return fixa
             with observacao("chat", input={"chat": chat, "mensagem": mensagem}) as raiz:
                 resposta = self._responder(chat, usuario_id, conversa_id, mensagem, top_k)
+                # Só a mensagem que passou pelos Portões pode virar Fato do Usuário.
+                self._extrair(usuario_id, conversa_id, mensagem)
                 raiz.update(output={"tipo": resposta.tipo, "areas": resposta.areas, "texto": resposta.texto},
                             metadata={"modo_sincronizacao": resposta.modo_sincronizacao,
-                                      "reescrita": resposta.reescrita})
+                                      "reescrita": resposta.reescrita,
+                                      # Fatos do Usuário: só contagem e categorias, nunca o texto (#112).
+                                      "fatos_entregues": len(resposta.fatos_usados),
+                                      "categorias_dos_fatos": sorted({f["categoria"] for f in resposta.fatos_usados})})
                 return resposta
 
     def _fixa(self, chat: str, usuario_id: str, conversa_id: str, tipo: str, guardada: str,
@@ -219,16 +333,21 @@ class ServicoDeChat:
         return None
 
     def _historico(self, chat: str, usuario_id: str, conversa_id: str) -> List[Mensagem]:
-        proprio = self.historico.recentes(usuario_id, conversa_id, self.janela)
+        # A Conversa atual tem prioridade no orçamento; o que sobra vai aos Chats de área (Chat geral).
+        proprio = no_orcamento(self.historico.recentes(usuario_id, conversa_id, self.janela), self.orcamento_historico)
         if chat != CHAT_GERAL:
             return proprio
-        dos_chats_de_area = self.historico.recentes_de_chats(usuario_id, AREAS, self.janela, conversa_id)
+        restante = self.orcamento_historico - sum(tokens_estimados(m.texto) for m in proprio)
+        dos_chats_de_area = no_orcamento(
+            self.historico.recentes_de_chats(usuario_id, AREAS, self.janela, conversa_id), restante)
         return dos_chats_de_area + proprio
 
-    def _rotear(self, chat: str, mensagem: str, historico: Sequence[Mensagem]):
+    def _rotear(self, chat: str, mensagem: str, historico: Sequence[Mensagem],
+                candidatos: Sequence[FatoDoUsuario] = ()):
         if self.llm is not None and self.reescrita_com_llm:
             mascarado = [Mensagem(m.papel, mascarar_dados_pessoais(m.texto), m.area) for m in historico]
-            reescrita = reescrever(mascarar_dados_pessoais(mensagem), mascarado, self.llm)
+            reescrita = reescrever(mascarar_dados_pessoais(mensagem), mascarado, self.llm,
+                                   fatos_candidatos=candidatos_em_texto(candidatos))
         else:
             reescrita = reescrever(mensagem, historico, None)
         # As regras olham a mensagem e a pergunta completa: a reescrita resolve a continuação, mas às
@@ -251,7 +370,9 @@ class ServicoDeChat:
             return self._fixa(chat, usuario_id, conversa_id, "conversa", mensagem, APRESENTACOES[chat])
         historico = self._historico(chat, usuario_id, conversa_id)
         historico_proprio = self.historico.recentes(usuario_id, conversa_id, self.janela)
-        reescrita, regras, subperguntas = self._rotear(chat, mensagem, historico)
+        # Projetor de contexto (issue #112): os candidatos vão à reescrita, que escolhe por Subpergunta.
+        candidatos = self._candidatos(usuario_id) if (self.llm is not None and self.reescrita_com_llm) else []
+        reescrita, regras, subperguntas = self._rotear(chat, mensagem, historico, candidatos)
         redirecionamento = None
 
         if not subperguntas:
@@ -278,17 +399,25 @@ class ServicoDeChat:
             subperguntas = proprias
 
         respostas: Dict[str, ConsultantResponse] = {}
+        fatos_usados: List[FatoDoUsuario] = []
         for sub in subperguntas:
             extras: List[str] = []
             if self.hyde_na_busca:
                 extras = [t for t in (sub.trecho_hipotetico,) if t]
                 if sub.texto.strip() != reescrita.pergunta_completa.strip():
                     extras.append(reescrita.pergunta_completa)
+            fatos = escolhidos(sub.fatos_ids, candidatos)
+            # Condição de saúde só orienta a busca para a evidência da população certa.
+            extras += [f"{sub.texto} {f.texto}" for f in fatos if f.condicao_de_saude]
+            if fatos:
+                self.fatos.registrar_entregas(usuario_id, conversa_id, sub.area, fatos, self.relogio())
+                fatos_usados += [f for f in fatos if f not in fatos_usados]
             # Pergunta de uma área só, sem Histórico desta Conversa: vai como o usuário escreveu, a mesma
             # busca medida como base no dev. Com continuação ou com mais de uma área, vai a Subpergunta.
             pergunta = mensagem if not varias_areas and not historico_proprio else sub.texto
             historico_da_area = [m for m in historico if m.e_da_area(sub.area)]
-            respostas[sub.area] = self.agentes[sub.area].responder(pergunta, top_k, extras, historico_da_area)
+            respostas[sub.area] = self.agentes[sub.area].responder(pergunta, top_k, extras, historico_da_area,
+                                                                   fatos=fatos)
 
         areas = list(respostas)
         self.historico.adicionar(usuario_id, conversa_id, chat, "usuario", mensagem, areas)
@@ -320,5 +449,5 @@ class ServicoDeChat:
             chat=chat, conversa_id=conversa_id, tipo=tipo, texto=texto, texto_com_marcadores=com_marcadores,
             areas=areas, respostas=respostas,
             modo_sincronizacao=modo, citacoes=citacoes, redirecionamento=redirecionamento,
-            reescrita=reescrita.origem,
+            reescrita=reescrita.origem, fatos_usados=[f.como_dict() for f in fatos_usados],
         )

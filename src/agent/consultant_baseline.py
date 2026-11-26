@@ -2,7 +2,7 @@ import hashlib
 import inspect
 from contextvars import ContextVar
 from pathlib import Path
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, List, Optional, Sequence
 
 from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
@@ -157,7 +157,7 @@ class NutritionConsultantBaseline:
         return grafo
 
     def responder(self, pergunta: str, top_k: int, consultas_extras: List[str],
-                  historico: List["Mensagem"]) -> ConsultantResponse:
+                  historico: List["Mensagem"], fatos: Sequence = ()) -> ConsultantResponse:
         """Responde como Agente de área do Chat (issue #99): só o subgrafo, sem os portões, que o
         Chat já aplicou. `historico` é o da área deste agente (RF-IA09)."""
         subgrafo = getattr(self, "_subgrafo_compilado", None)
@@ -166,8 +166,11 @@ class NutritionConsultantBaseline:
 
             subgrafo = self._subgrafo_compilado = construir_subgrafo(self)
         texto = "\n".join(f"{'Usuário' if m.papel == 'usuario' else 'Assistente'}: {m.texto}" for m in historico)
+        # Fatos do Usuário (issue #112): só os que o Projetor de contexto escolheu para esta Subpergunta.
+        linhas_fatos = "\n".join(f"- {f.texto}" for f in fatos)
         estado = subgrafo.invoke({"pergunta": pergunta, "top_k": top_k,
-                                  "consultas_extras": list(consultas_extras), "historico": texto})
+                                  "consultas_extras": list(consultas_extras), "historico": texto,
+                                  "fatos": linhas_fatos})
         return estado["resposta"]
 
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:

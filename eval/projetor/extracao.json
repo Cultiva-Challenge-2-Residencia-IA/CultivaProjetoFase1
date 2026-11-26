@@ -1,0 +1,27 @@
+{
+  "descricao": "Extração de Fatos do Usuário (issue #112). Casos sintéticos escritos antes da medição; ver criterios.md.",
+  "dev": [
+    {"id": "E01", "mensagem": "Treino musculação 4 vezes por semana e quero ganhar massa muscular.", "permitir_saude": false, "esperadas": ["atividade_praticada", "frequencia_treino", "objetivo_treino"], "aceitas": []},
+    {"id": "E02", "mensagem": "Sou vegetariana há 3 anos.", "permitir_saude": false, "esperadas": ["padrao_alimentar"], "aceitas": []},
+    {"id": "E03", "mensagem": "Tenho intolerância à lactose, que queijo posso comer?", "permitir_saude": false, "esperadas": ["restricao_alergia"], "aceitas": []},
+    {"id": "E04", "mensagem": "Quanto tempo devo correr por semana?", "permitir_saude": false, "esperadas": [], "aceitas": []},
+    {"id": "E05", "mensagem": "Minha mãe tem diabetes, o que ela pode comer?", "permitir_saude": true, "esperadas": [], "aceitas": []},
+    {"id": "E06", "mensagem": "Faço jejum de 16 horas todos os dias.", "permitir_saude": false, "esperadas": ["jejum_horarios"], "aceitas": []},
+    {"id": "E07", "mensagem": "Sinto dor no joelho quando corro, que alongamento posso fazer?", "permitir_saude": false, "esperadas": ["limitacao_fisica"], "aceitas": ["atividade_praticada"]},
+    {"id": "E08", "mensagem": "Tenho hipertensão e caminho 30 minutos por dia.", "permitir_saude": true, "esperadas": ["condicao_saude", "atividade_praticada"], "aceitas": ["frequencia_treino"]},
+    {"id": "E09", "mensagem": "Será que eu deveria fazer dieta low carb?", "permitir_saude": false, "esperadas": [], "aceitas": []},
+    {"id": "E10", "mensagem": "Meu objetivo com a alimentação é comer menos ultraprocessados.", "permitir_saude": false, "esperadas": ["objetivo_alimentar"], "aceitas": []},
+    {"id": "E11", "mensagem": "Jogo futebol aos sábados com os amigos.", "permitir_saude": false, "esperadas": ["atividade_praticada"], "aceitas": ["frequencia_treino"]},
+    {"id": "E12", "mensagem": "Tenho diabetes tipo 2.", "permitir_saude": false, "esperadas": [], "aceitas": []}
+  ],
+  "test": [
+    {"id": "E13", "mensagem": "Corro 5 km três vezes por semana.", "permitir_saude": false, "esperadas": ["atividade_praticada", "frequencia_treino"], "aceitas": []},
+    {"id": "E14", "mensagem": "Sou vegano desde o ano passado.", "permitir_saude": false, "esperadas": ["padrao_alimentar"], "aceitas": []},
+    {"id": "E15", "mensagem": "Tenho alergia a camarão.", "permitir_saude": false, "esperadas": ["restricao_alergia"], "aceitas": []},
+    {"id": "E16", "mensagem": "Como devo me alimentar antes de nadar?", "permitir_saude": false, "esperadas": [], "aceitas": []},
+    {"id": "E17", "mensagem": "Meu marido faz crossfit todo dia.", "permitir_saude": false, "esperadas": [], "aceitas": []},
+    {"id": "E18", "mensagem": "Almoço sempre às 11h e janto às 19h.", "permitir_saude": false, "esperadas": ["jejum_horarios"], "aceitas": []},
+    {"id": "E19", "mensagem": "Tenho asma e quero começar a pedalar.", "permitir_saude": true, "esperadas": ["condicao_saude"], "aceitas": ["objetivo_treino", "atividade_praticada"]},
+    {"id": "E20", "mensagem": "Tenho asma.", "permitir_saude": false, "esperadas": [], "aceitas": []}
+  ]
+}

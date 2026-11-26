@@ -44,6 +44,7 @@ class EstadoNutricao(TypedDict, total=False):
     # Vindos do Chat (issue #99): consultas extras da reescrita e Histórico da área, em texto.
     consultas_extras: List[str]
     historico: str
+    fatos: str  # Fatos do Usuário entregues pelo Projetor de contexto (issue #112)
     # Internos do agente.
     avaliacao: GuardrailAssessment
     pergunta_efetiva: str
@@ -151,6 +152,7 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
                 sem_contexto=getattr(consultor, "modo_llm_puro", False),
                 # Histórico só quando vem do Chat: os clientes falsos dos testes não o recebem.
                 **({"historico": estado["historico"]} if estado.get("historico") else {}),
+                **({"fatos": estado["fatos"]} if estado.get("fatos") else {}),
             )
             obs.update(output=resultado, metadata={"model_used": modelo})
             # Scores do trace para filtrar e montar painéis no Langfuse.

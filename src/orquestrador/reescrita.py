@@ -9,6 +9,10 @@ A chamada devolve, em JSON:
 
 Sem LLM, ou com saída inválida, a reescrita usa a mensagem como veio e as áreas das regras
 (`rotear_por_regras`), sem trecho hipotético: o mesmo caminho de antes, determinístico.
+
+Projetor de contexto (issue #112): quando há Fatos do Usuário candidatos, a mesma chamada escolhe,
+por Subpergunta, os ids dos fatos relacionados (`fatos`). Sem LLM, nenhum fato é escolhido (falha
+fechada), e id que não está entre os candidatos é ignorado.
 """
 
 from dataclasses import dataclass, field
@@ -34,6 +38,13 @@ Receba o histórico recente e a mensagem nova. Responda SÓ com JSON:
 }
 Regras: uma subpergunta por área envolvida, no máximo uma por área. Se a mensagem não for de nenhuma das duas áreas, devolva "subperguntas": []. Não responda a pergunta e não dê conselho individual; o trecho hipotético só serve para a busca."""
 
+INSTRUCAO_FATOS = """
+
+Você também recebe "fatos_candidatos": fatos que a própria pessoa contou sobre a vida dela, cada um com "id".
+Em cada subpergunta, acrescente "fatos": a lista dos ids que se relacionam com aquela subpergunta e
+ajudariam a relacionar a resposta à situação da pessoa (ex.: os treinos dela numa pergunta sobre proteína).
+Escolha só o necessário; fato sem relação com a subpergunta fica de fora. Sem fato relacionado, "fatos": []."""
+
 
 @dataclass
 class Mensagem:
@@ -54,6 +65,8 @@ class Subpergunta:
     area: str
     texto: str
     trecho_hipotetico: Optional[str] = None
+    # Ids dos Fatos do Usuário que o LLM escolheu para esta Subpergunta (Projetor de contexto).
+    fatos_ids: List[int] = field(default_factory=list)
 
 
 @dataclass
@@ -93,7 +106,13 @@ def _validar(bruto: Any, mensagem: str, areas_permitidas: Sequence[str]) -> Opti
         if area not in areas_permitidas or not texto or any(s.area == area for s in subperguntas):
             continue
         hipotetico = str(item.get("trecho_hipotetico") or "").strip() or None
-        subperguntas.append(Subpergunta(area, texto, hipotetico))
+        ids = []
+        for valor in item.get("fatos") if isinstance(item.get("fatos"), list) else []:
+            try:
+                ids.append(int(valor))
+            except (TypeError, ValueError):
+                continue
+        subperguntas.append(Subpergunta(area, texto, hipotetico, ids))
     return Reescrita(pergunta_completa=completa, subperguntas=subperguntas, origem="llm")
 
 
@@ -102,14 +121,18 @@ def reescrever(
     historico: Sequence[Mensagem],
     llm: Optional[LLMJson],
     areas_permitidas: Sequence[str] = AREAS,
+    fatos_candidatos: Sequence[Dict[str, Any]] = (),
 ) -> Reescrita:
-    """Reescreve a mensagem; sem LLM ou com saída inválida, usa as regras."""
+    """Reescreve a mensagem; sem LLM ou com saída inválida, usa as regras (sem fatos escolhidos)."""
     if llm is not None:
-        usuario = json.dumps(
-            {"historico": _historico_em_texto(historico), "mensagem_nova": mensagem}, ensure_ascii=False
-        )
+        entrada: Dict[str, Any] = {"historico": _historico_em_texto(historico), "mensagem_nova": mensagem}
+        sistema = SISTEMA_REESCRITA
+        if fatos_candidatos:
+            entrada["fatos_candidatos"] = list(fatos_candidatos)
+            sistema += INSTRUCAO_FATOS
+        usuario = json.dumps(entrada, ensure_ascii=False)
         try:
-            reescrita = _validar(llm(SISTEMA_REESCRITA, usuario), mensagem, areas_permitidas)
+            reescrita = _validar(llm(sistema, usuario), mensagem, areas_permitidas)
         except Exception:  # LLM fora, tempo esgotado: vale o caminho determinístico
             reescrita = None
         if reescrita is not None:
