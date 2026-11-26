@@ -3,9 +3,10 @@
 O LLM recebe a pergunta, as respostas já citadas de cada agente e os Trechos que elas citam,
 renumerados num só intervalo ([T1]..[Tn]). Ele escreve a resposta única no mesmo formato da
 citação por frase (prompt v4), e a mesma checagem confere: cada frase precisa de uma citação
-copiada de um Trecho entregue. Se alguma frase vier sem citação literal (fato que os agentes não
-trouxeram), se a checagem reprovar ou se não houver LLM, as respostas ficam lado a lado, cada uma
-com as suas citações, renumeradas.
+copiada de um Trecho entregue. Como nos Agentes de área, a frase sem citação literal sai e o resto
+fica (issue #107). A integração só sai se mantiver pelo menos metade das frases e citar Trechos das
+duas áreas; senão, se a checagem reprovar ou se não houver LLM, as respostas ficam lado a lado, cada
+uma com as suas citações, renumeradas.
 """
 
 from dataclasses import dataclass, field
@@ -27,8 +28,10 @@ MARCADOR_T = re.compile(r"\[T(\d+)\]")
 
 SISTEMA_SINCRONIZADOR = """Você junta as respostas de dois especialistas (Nutrição e Saúde Física) numa resposta única para a mesma pergunta.
 Use SÓ o que as respostas e os trechos dizem. Não acrescente fato, número ou recomendação que não esteja nos trechos. Cruze as informações quando elas se completam (por exemplo, alimentação e exercício para o mesmo objetivo), sem prescrever nada a uma pessoa.
+Use informação das duas áreas.
 Responda SÓ com JSON: {"evidence_summary": [{"frase": "...", "trechos": [números dos trechos], "citacao": "pedaço COPIADO SEM ALTERAR (pelo menos 5 palavras seguidas) de um desses trechos"}]}
-Escreva em português; a citação fica no idioma do trecho."""
+A citação vem SEMPRE do campo "trechos" (o texto original da fonte), nunca do campo "respostas", que é uma paráfrase. Não cite [GRAFO] nem [TACO]: aqui só valem os trechos numerados.
+Escreva em português; a citação fica no idioma do trecho, mesmo quando ele está em inglês."""
 
 
 @dataclass
@@ -44,10 +47,15 @@ class Sincronizacao:
     modo: str  # "area_unica", "integrada" ou "lado_a_lado"
     trechos: List[RetrievedChunk] = field(default_factory=list)
     # Por que ficou lado a lado (issue #107): "sem_llm", "area_sem_trechos", "llm_falhou[:<erro>]",
-    # "formato_invalido", "frase_sem_citacao_literal", "citacao_invalida" ou "texto_vazio".
+    # "formato_invalido", "frase_sem_citacao_literal", "citacao_invalida", "texto_vazio" ou
+    # "uma_area_so". Na integrada, None; `detalhes` lista as frases removidas pela checagem.
     motivo: Optional[str] = None
     # Na falha de citação: o que a checagem apontou (frases removidas e problemas), para o diagnóstico.
     detalhes: List[str] = field(default_factory=list)
+
+
+# Fração mínima das frases do LLM que precisa sobreviver à checagem de citação literal (issue #107).
+FRACAO_MINIMA_DE_FRASES = 0.5
 
 
 def _renumerar(texto: str, deslocamento: int) -> str:
@@ -91,15 +99,23 @@ def sincronizar(pergunta: str, respostas: Sequence[RespostaDeArea], llm: Optiona
         return _lado_a_lado(respostas, "formato_invalido")
     filtrada, ajustes = filtrar_citacoes_literais(bruto, fontes)
     removidas = [a for a in ajustes if a["motivo"] != "rotulo_corrigido"]
-    if removidas:
-        # Frase sem citação literal: fato que os agentes não trouxeram.
-        return _lado_a_lado(respostas, "frase_sem_citacao_literal",
-                            [f"{a['motivo']}: {a.get('frase', '')}" for a in removidas])
+    detalhes = [f"{a['motivo']}: {a.get('frase', '')} | citação: {a.get('citacao', '')}" for a in removidas]
+    mantidas = len(filtrada.get("evidence_summary") or [])
+    if removidas and mantidas < FRACAO_MINIMA_DE_FRASES * (mantidas + len(removidas)):
+        # Sobrou menos da metade: a integração perderia boa parte do que os agentes trouxeram.
+        return _lado_a_lado(respostas, "frase_sem_citacao_literal", detalhes)
     resposta = normalizar_frases_citadas(filtrada)
     verificacao = verificar_citacoes(resposta, len(lado_a_lado.trechos))
     texto = str(resposta.get("evidence_summary") or "").strip()
     if not texto:
-        return _lado_a_lado(respostas, "texto_vazio")
+        return _lado_a_lado(respostas, "texto_vazio", detalhes)
     if not verificacao.valida:
-        return _lado_a_lado(respostas, "citacao_invalida", list(verificacao.problemas))
-    return Sincronizacao(texto=texto, modo="integrada", trechos=lado_a_lado.trechos)
+        return _lado_a_lado(respostas, "citacao_invalida", detalhes + list(verificacao.problemas))
+    # Cada área precisa de ao menos um Trecho citado: senão a "integração" seria só uma das áreas.
+    citados = {int(n) for n in MARCADOR_T.findall(texto)}
+    inicio = 1
+    for r in respostas:
+        if not citados & set(range(inicio, inicio + len(r.trechos))):
+            return _lado_a_lado(respostas, "uma_area_so", detalhes)
+        inicio += len(r.trechos)
+    return Sincronizacao(texto=texto, modo="integrada", trechos=lado_a_lado.trechos, detalhes=detalhes)
