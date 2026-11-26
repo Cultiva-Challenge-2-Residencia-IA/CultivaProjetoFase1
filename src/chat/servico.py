@@ -99,8 +99,14 @@ def texto_da_resposta(resposta: ConsultantResponse) -> str:
         if not campo or not campo.strip() or campo.strip() == FRASE_SEM_BASE:
             continue
         for bloco in campo.strip().split("\n\n"):
-            novas = [f for f in dividir_frases(bloco) if _chave_da_frase(f) not in vistas]
-            vistas.update(_chave_da_frase(f) for f in novas)
+            # Frase a frase: a repetição pode estar dentro do próprio bloco (o LLM repete uma frase
+            # no mesmo item), e não só entre campos.
+            novas = []
+            for frase in dividir_frases(bloco):
+                chave = _chave_da_frase(frase)
+                if chave and chave not in vistas:
+                    vistas.add(chave)
+                    novas.append(frase)
             if novas:
                 paragrafos.append(" ".join(novas))
     texto = "\n\n".join(paragrafos)

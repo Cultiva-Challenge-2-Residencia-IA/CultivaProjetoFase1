@@ -295,3 +295,16 @@ def test_frase_repetida_com_e_sem_marcador_aparece_uma_vez(tmp_path, agentes):
     resposta = _servico(tmp_path, agentes).enviar(AREA_NUTRICAO, "u1", "c1", "Quais alimentos têm fibra?")
     assert resposta.texto_com_marcadores.count("Fibra ajuda o intestino") == 1
     assert resposta.texto_com_marcadores.count("órgãos do") == 1
+
+
+def test_frase_repetida_dentro_do_mesmo_item_aparece_uma_vez(tmp_path, agentes):
+    class AgenteQueRepete(AgenteFalso):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
+            r = super().responder(pergunta, top_k, consultas_extras, historico, fatos)
+            frase = "Os mecanismos biológicos que regulam nosso apetite são complexos"
+            return r.model_copy(update={"evidence_summary": f"Comer devagar ajuda [T1]. ({frase}. {frase}.) [T1]",
+                                        "physiological_mechanism": "", "protocol_findings": ""})
+
+    agentes[AREA_NUTRICAO] = AgenteQueRepete(AREA_NUTRICAO)
+    resposta = _servico(tmp_path, agentes).enviar(AREA_NUTRICAO, "u1", "c1", "Posso comer chocolate?")
+    assert resposta.texto_com_marcadores.count("Os mecanismos biológicos") == 1
