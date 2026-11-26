@@ -51,7 +51,7 @@ def _executar_consultor_local(sem_llm: bool) -> Any:
             "resposta": texto_resp,
             "fontes_recuperadas": fontes,
             "trechos_recuperados": trechos,
-            "guardrail_acionado": resp.guardrail.is_restricted_by_law_8234,
+            "guardrail_acionado": resp.guardrail_triggered,
             "abstencao": resp.abstencao,
             "citacoes": resp.citations,
         }
