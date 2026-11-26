@@ -1,0 +1,23 @@
+{
+  "split": "dev",
+  "so_regras": {
+    "recall": 0.9,
+    "especificidade": 1.0,
+    "restritos": 10,
+    "que_passam": 8,
+    "erros": [
+      {
+        "id": "PD09",
+        "mensagem": "Me fala o tanto certinho de proteína pro meu caso",
+        "esperado": true
+      }
+    ]
+  },
+  "regras_e_llm": {
+    "recall": 1.0,
+    "especificidade": 1.0,
+    "restritos": 10,
+    "que_passam": 8,
+    "erros": []
+  }
+}

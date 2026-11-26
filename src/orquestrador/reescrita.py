@@ -9,6 +9,10 @@ A chamada devolve, em JSON:
 
 Sem LLM, ou com saída inválida, a reescrita usa a mensagem como veio e as áreas das regras
 (`rotear_por_regras`), sem trecho hipotético: o mesmo caminho de antes, determinístico.
+
+Projetor de contexto (issue #112): quando há Fatos do Usuário candidatos, a mesma chamada escolhe,
+por Subpergunta, os ids dos fatos relacionados (`fatos`). Sem LLM, nenhum fato é escolhido (falha
+fechada), e id que não está entre os candidatos é ignorado.
 """
 
 from dataclasses import dataclass, field
@@ -32,7 +36,20 @@ Receba o histórico recente e a mensagem nova. Responda SÓ com JSON:
      "trecho_hipotetico": "um parágrafo curto (2 a 3 frases) como o de uma diretriz que responderia a essa parte; em inglês para saude_fisica e em português para nutricao"}
   ]
 }
-Regras: uma subpergunta por área envolvida, no máximo uma por área. Se a mensagem não for de nenhuma das duas áreas, devolva "subperguntas": []. Não responda a pergunta e não dê conselho individual; o trecho hipotético só serve para a busca."""
+Regras: uma subpergunta por área envolvida, no máximo uma por área. Se a mensagem não for de nenhuma das duas áreas, devolva "subperguntas": []. Não responda a pergunta e não dê conselho individual; o trecho hipotético só serve para a busca.
+
+"esclarecimento": null na maioria das mensagens, inclusive em perguntas diretas e em pedidos individuais.
+Só quando a mensagem nova for vaga demais para buscar bem (ex.: "quero treinar perna", "me ajuda com a
+dieta"), escreva UMA pergunta curta, terminada em "?", sobre o TEMA que a pessoa quer saber (ex.: "Você quer
+saber sobre força, resistência ou como começar?"). Nunca pergunte dados pessoais (peso, idade, exames,
+rotina, nível de atividade) e não use números."""
+
+INSTRUCAO_FATOS = """
+
+Você também recebe "fatos_candidatos": fatos que a própria pessoa contou sobre a vida dela, cada um com "id".
+Em cada subpergunta, acrescente "fatos": a lista dos ids que se relacionam com aquela subpergunta e
+ajudariam a relacionar a resposta à situação da pessoa (ex.: os treinos dela numa pergunta sobre proteína).
+Escolha só o necessário; fato sem relação com a subpergunta fica de fora. Sem fato relacionado, "fatos": []."""
 
 
 @dataclass
@@ -54,6 +71,8 @@ class Subpergunta:
     area: str
     texto: str
     trecho_hipotetico: Optional[str] = None
+    # Ids dos Fatos do Usuário que o LLM escolheu para esta Subpergunta (Projetor de contexto).
+    fatos_ids: List[int] = field(default_factory=list)
 
 
 @dataclass
@@ -61,6 +80,8 @@ class Reescrita:
     pergunta_completa: str
     subperguntas: List[Subpergunta] = field(default_factory=list)
     origem: str = "regras"  # "llm" ou "regras"
+    # Pergunta de esclarecimento para pedido vago ou individual (issue #104); None quando não há.
+    esclarecimento: Optional[str] = None
 
     @property
     def areas(self) -> List[str]:
@@ -93,8 +114,16 @@ def _validar(bruto: Any, mensagem: str, areas_permitidas: Sequence[str]) -> Opti
         if area not in areas_permitidas or not texto or any(s.area == area for s in subperguntas):
             continue
         hipotetico = str(item.get("trecho_hipotetico") or "").strip() or None
-        subperguntas.append(Subpergunta(area, texto, hipotetico))
-    return Reescrita(pergunta_completa=completa, subperguntas=subperguntas, origem="llm")
+        ids = []
+        for valor in item.get("fatos") if isinstance(item.get("fatos"), list) else []:
+            try:
+                ids.append(int(valor))
+            except (TypeError, ValueError):
+                continue
+        subperguntas.append(Subpergunta(area, texto, hipotetico, ids))
+    esclarecimento = bruto.get("esclarecimento")
+    return Reescrita(pergunta_completa=completa, subperguntas=subperguntas, origem="llm",
+                     esclarecimento=str(esclarecimento) if esclarecimento else None)
 
 
 def reescrever(
@@ -102,14 +131,18 @@ def reescrever(
     historico: Sequence[Mensagem],
     llm: Optional[LLMJson],
     areas_permitidas: Sequence[str] = AREAS,
+    fatos_candidatos: Sequence[Dict[str, Any]] = (),
 ) -> Reescrita:
-    """Reescreve a mensagem; sem LLM ou com saída inválida, usa as regras."""
+    """Reescreve a mensagem; sem LLM ou com saída inválida, usa as regras (sem fatos escolhidos)."""
     if llm is not None:
-        usuario = json.dumps(
-            {"historico": _historico_em_texto(historico), "mensagem_nova": mensagem}, ensure_ascii=False
-        )
+        entrada: Dict[str, Any] = {"historico": _historico_em_texto(historico), "mensagem_nova": mensagem}
+        sistema = SISTEMA_REESCRITA
+        if fatos_candidatos:
+            entrada["fatos_candidatos"] = list(fatos_candidatos)
+            sistema += INSTRUCAO_FATOS
+        usuario = json.dumps(entrada, ensure_ascii=False)
         try:
-            reescrita = _validar(llm(SISTEMA_REESCRITA, usuario), mensagem, areas_permitidas)
+            reescrita = _validar(llm(sistema, usuario), mensagem, areas_permitidas)
         except Exception:  # LLM fora, tempo esgotado: vale o caminho determinístico
             reescrita = None
         if reescrita is not None:

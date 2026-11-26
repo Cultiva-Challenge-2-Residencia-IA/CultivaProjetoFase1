@@ -1,7 +1,9 @@
 """Checagem determinística das citações por frase (issue #12, RN04, RNF27).
 
 O LLM recebe os Trechos numerados como [T1]..[Tn] e marca cada frase com os Trechos que a
-sustentam; dados do grafo causal levam [GRAFO], e da TACO, [TACO]. Esta checagem confere só a
+sustentam; dados do grafo causal levam [GRAFO], e da TACO, [TACO]. A frase que relaciona a
+evidência a um Fato do Usuário entregue ao agente leva também [CONTEXTO] (issue #112), sempre junto
+de um Trecho: o fato personaliza, nunca sustenta afirmação de saúde. Esta checagem confere só a
 forma: toda frase citada, todo marcador apontando para algo que foi de fato entregue ao modelo.
 A partir do prompt v4 (issue #67), cada frase também traz uma citação literal da fonte;
 `filtrar_citacoes_literais` remove as frases cuja citação não existe na fonte citada. Se o Trecho
@@ -17,9 +19,10 @@ import re
 import unicodedata
 from typing import Any, Dict, List, Tuple
 
-MARCADOR = re.compile(r"\[(T\d+|GRAFO|TACO|\?[^\]]*)\]")
+MARCADOR = re.compile(r"\[(T\d+|GRAFO|TACO|CONTEXTO|\?[^\]]*)\]")
+CONTEXTO = "CONTEXTO"
 # Marcadores logo depois do ponto final ("frase. [T1]") voltam para antes dele ("frase [T1].").
-_MARCADORES_APOS_PONTO = re.compile(r"([.!?])((?:\s*\[(?:T\d+|GRAFO|TACO)\])+)")
+_MARCADORES_APOS_PONTO = re.compile(r"([.!?])((?:\s*\[(?:T\d+|GRAFO|TACO|CONTEXTO)\])+)")
 _FIM_DE_FRASE = re.compile(r"(?<=[.!?])\s+")
 FRASE_SEM_BASE = "Não consta nos trechos recuperados."
 CAMPOS_DO_LLM = ("evidence_summary", "physiological_mechanism", "protocol_findings")
@@ -36,6 +39,8 @@ class VerificacaoCitacoes:
     frases_sem_citacao: List[str] = field(default_factory=list)
     marcadores_invalidos: List[str] = field(default_factory=list)
     trechos_citados: List[int] = field(default_factory=list)  # números T#, em ordem crescente
+    # Frases que citam só um Fato do Usuário, sem Trecho, TACO ou grafo (issue #112).
+    frases_so_contexto: List[str] = field(default_factory=list)
     problemas: List[str] = field(default_factory=list)
 
 
@@ -55,7 +60,7 @@ def _marcador(ref: Any) -> str:
     texto = str(ref).strip().upper().strip("[]")
     if texto.isdigit():
         return f"[T{int(texto)}]"
-    if eh_trecho(texto) or texto in ("TACO", "GRAFO"):
+    if eh_trecho(texto) or texto in ("TACO", "GRAFO", CONTEXTO):
         return f"[{texto}]"
     return f"[?{texto}]"
 
@@ -169,14 +174,20 @@ def _conta(frase: str) -> bool:
 
 
 def verificar_citacoes(
-    campos: Dict[str, str], n_trechos: int, tem_grafo: bool = False, tem_taco: bool = False
+    campos: Dict[str, str], n_trechos: int, tem_grafo: bool = False, tem_taco: bool = False,
+    tem_contexto: bool = False,
 ) -> VerificacaoCitacoes:
-    """Confere as citações do texto escrito pelo LLM (os campos de `CAMPOS_DO_LLM`)."""
+    """Confere as citações do texto escrito pelo LLM (os campos de `CAMPOS_DO_LLM`).
+
+    `tem_contexto`: Fatos do Usuário foram entregues ao agente, e [CONTEXTO] pode aparecer, sempre
+    junto de um Trecho, da TACO ou do grafo."""
     permitidos = {f"T{i}" for i in range(1, n_trechos + 1)}
     if tem_grafo:
         permitidos.add("GRAFO")
     if tem_taco:
         permitidos.add("TACO")
+    if tem_contexto:
+        permitidos.add(CONTEXTO)
 
     resultado = VerificacaoCitacoes(valida=False)
     citados = set()
@@ -188,6 +199,8 @@ def verificar_citacoes(
             marcadores = MARCADOR.findall(frase)
             if not marcadores:
                 resultado.frases_sem_citacao.append(frase)
+            elif CONTEXTO in marcadores and not any(m != CONTEXTO and m in permitidos for m in marcadores):
+                resultado.frases_so_contexto.append(frase)
             for m in marcadores:
                 if m not in permitidos:
                     resultado.marcadores_invalidos.append(f"[{m}]")
@@ -197,6 +210,8 @@ def verificar_citacoes(
 
     if resultado.frases_sem_citacao:
         resultado.problemas.append(f"frase_sem_citacao:{len(resultado.frases_sem_citacao)}")
+    if resultado.frases_so_contexto:
+        resultado.problemas.append(f"frase_so_com_contexto:{len(resultado.frases_so_contexto)}")
     if resultado.marcadores_invalidos:
         resultado.problemas.append(f"marcador_invalido:{','.join(sorted(set(resultado.marcadores_invalidos)))}")
     if n_trechos and not citados:

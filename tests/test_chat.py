@@ -23,7 +23,7 @@ class AgenteFalso:
         self.chamadas: List[dict] = []
 
     def responder(self, pergunta: str, top_k: int, consultas_extras: List[str],
-                  historico: List[Mensagem]) -> ConsultantResponse:
+                  historico: List[Mensagem], fatos=()) -> ConsultantResponse:
         self.chamadas.append({"pergunta": pergunta, "extras": consultas_extras, "historico": historico})
         return ConsultantResponse(
             response_id=f"r-{self.area}-{len(self.chamadas)}", original_query=pergunta, effective_query=pergunta,
@@ -161,7 +161,7 @@ def test_apagar_usuario_remove_todas_as_conversas(tmp_path, agentes):
 
 def test_pedido_restrito_pela_lei_da_area_traz_a_nota_legal(tmp_path, agentes):
     class AgenteComGuardrail(AgenteFalso):
-        def responder(self, pergunta, top_k, consultas_extras, historico):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
             resposta = super().responder(pergunta, top_k, consultas_extras, historico)
             return resposta.model_copy(update={"guardrail_triggered": True,
                                                "legal_compliance_notice": "Nota da Lei 9.696/1998."})
@@ -191,7 +191,7 @@ def _com_trechos(agente: AgenteFalso, prefixo: str) -> AgenteFalso:
 
     original = agente.responder
 
-    def responder(pergunta, top_k, extras, historico):
+    def responder(pergunta, top_k, extras, historico, fatos=()):
         resposta = original(pergunta, top_k, extras, historico)
         chunk = DocumentChunk(chunk_id=f"{prefixo}-p001-01", doc_id=prefixo, title=f"Fonte {prefixo}",
                               source_organization="Org", publication_year=2020, clinical_domain="x",
@@ -238,7 +238,7 @@ def test_pergunta_das_duas_areas_fica_no_historico_dos_dois_agentes(tmp_path, ag
 
 def test_campos_repetidos_da_sintese_nao_aparecem_duas_vezes(tmp_path, agentes):
     class AgenteRepetido(AgenteFalso):
-        def responder(self, pergunta, top_k, extras, historico):
+        def responder(self, pergunta, top_k, extras, historico, fatos=()):
             r = super().responder(pergunta, top_k, extras, historico)
             frase = "Ovos no café da manhã aumentam a saciedade [T1]."
             return r.model_copy(update={"evidence_summary": frase,
@@ -280,6 +280,34 @@ def test_sinal_de_alerta_guarda_so_os_sinais_no_historico(tmp_path, agentes):
     guardadas = " ".join(m.texto for m in servico.historico.recentes("u1", "c1", limite=10))
     assert mensagem not in guardadas
     assert "[sinal de alerta: dor_no_peito]" in guardadas
+
+
+def test_frase_repetida_com_e_sem_marcador_aparece_uma_vez(tmp_path, agentes):
+    class AgenteExtrativo(AgenteFalso):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
+            r = super().responder(pergunta, top_k, consultas_extras, historico, fatos)
+            return r.model_copy(update={
+                "evidence_summary": "Fibra ajuda o intestino [T1]. É importante também saber que órgãos do [T1].",
+                "physiological_mechanism": "Fibra ajuda o intestino. É importante também saber que órgãos do [T1]",
+                "protocol_findings": ""})
+
+    agentes[AREA_NUTRICAO] = AgenteExtrativo(AREA_NUTRICAO)
+    resposta = _servico(tmp_path, agentes).enviar(AREA_NUTRICAO, "u1", "c1", "Quais alimentos têm fibra?")
+    assert resposta.texto_com_marcadores.count("Fibra ajuda o intestino") == 1
+    assert resposta.texto_com_marcadores.count("órgãos do") == 1
+
+
+def test_frase_repetida_dentro_do_mesmo_item_aparece_uma_vez(tmp_path, agentes):
+    class AgenteQueRepete(AgenteFalso):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
+            r = super().responder(pergunta, top_k, consultas_extras, historico, fatos)
+            frase = "Os mecanismos biológicos que regulam nosso apetite são complexos"
+            return r.model_copy(update={"evidence_summary": f"Comer devagar ajuda [T1]. ({frase}. {frase}.) [T1]",
+                                        "physiological_mechanism": "", "protocol_findings": ""})
+
+    agentes[AREA_NUTRICAO] = AgenteQueRepete(AREA_NUTRICAO)
+    resposta = _servico(tmp_path, agentes).enviar(AREA_NUTRICAO, "u1", "c1", "Posso comer chocolate?")
+    assert resposta.texto_com_marcadores.count("Os mecanismos biológicos") == 1
 
 
 def test_trecho_hipotetico_vai_so_a_busca_de_saude_fisica(tmp_path, agentes):

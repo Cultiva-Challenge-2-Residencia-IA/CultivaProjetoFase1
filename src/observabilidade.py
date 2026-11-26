@@ -11,6 +11,9 @@ Garantias com o Langfuse ligado:
 - todo `input`, `output` e `metadata` de toda observação passa por `mascarar_estrutura` (máscara
   do RNF05) dentro do próprio SDK, antes de ser gravado. Se a máscara falhar, o SDK grava um
   marcador no lugar do dado, e não o dado;
+- o texto dos Fatos do Usuário (issue #112) não é registrado: todo fato carregado ou extraído no
+  processo entra em `ocultar_fatos`, e a máscara troca o texto por "[fato do usuário: <categoria>]"
+  nos prompts da reescrita, da extração e da síntese;
 - mensagem que o portão de risco detecta não é registrada: o consultor grava só as categorias
   (veja `NutritionConsultantBaseline.consult`), inclusive quando quem detecta é a camada LLM local
   (#48). Sem essa camada, vale só o léxico, que deixa passar a maioria das frases de risco novas;
@@ -28,6 +31,7 @@ Uso:
 
 import subprocess
 import sys
+import threading
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Dict, Iterator, List, Optional, Tuple
@@ -44,12 +48,34 @@ from src.guardrails.pii import mascarar_dados_pessoais
 
 _cliente: Any = None
 _propagar: Any = None
+# Texto de Fato do Usuário -> categoria, para a máscara (issue #112). Só cresce com os fatos que o
+# processo carregou ou extraiu; a lista é lida pela máscara do SDK, possivelmente em outra thread.
+_fatos_ocultos: Dict[str, str] = {}
+_trava_fatos = threading.Lock()
+
+
+def ocultar_fatos(fatos: Any) -> None:
+    """Registra (texto, categoria) de Fatos do Usuário para nunca irem em texto ao Langfuse."""
+    with _trava_fatos:
+        for texto, categoria in fatos:
+            if texto and len(texto) >= 4:
+                _fatos_ocultos[texto] = categoria
+
+
+def _sem_fatos(texto: str) -> str:
+    with _trava_fatos:
+        conhecidos = sorted(_fatos_ocultos.items(), key=lambda item: -len(item[0]))
+    for fato, categoria in conhecidos:
+        if fato in texto:
+            texto = texto.replace(fato, f"[fato do usuário: {categoria}]")
+    return texto
 
 
 def mascarar_estrutura(dado: Any) -> Any:
-    """Aplica a máscara de dados pessoais a todo texto dentro de dicionários, listas e tuplas."""
+    """Aplica a máscara de dados pessoais (e dos Fatos do Usuário) a todo texto dentro de
+    dicionários, listas e tuplas."""
     if isinstance(dado, str):
-        return mascarar_dados_pessoais(dado)
+        return mascarar_dados_pessoais(_sem_fatos(dado))
     if isinstance(dado, dict):
         return {chave: mascarar_estrutura(valor) for chave, valor in dado.items()}
     if isinstance(dado, (list, tuple)):

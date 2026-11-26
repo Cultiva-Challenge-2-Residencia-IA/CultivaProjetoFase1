@@ -45,7 +45,23 @@ TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / 
 # Histórico das Conversas (issue #99): SQLite local, ignorado pelo Git, e quantas mensagens de cada
 # chat vão ao LLM (janela).
 HISTORICO_DB_PATH = Path(os.getenv("CULTIVA_HISTORICO_DB", str(DATA_DIR / "conversas.sqlite3")))
-JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "6"))
+# Janela do Histórico (issue #112, ADR 0005): orçamento de tokens (proposta: 2.500) e, no máximo,
+# CULTIVA_JANELA_HISTORICO mensagens (20). As respostas do assistente entram encurtadas.
+JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "20"))
+ORCAMENTO_HISTORICO_TOKENS = int(os.getenv("CULTIVA_HISTORICO_TOKENS", "2500"))
+# Fatos do Usuário (issue #112): a memória fica desligada até o Usuário aceitar (opt-in). Sem App, o
+# aceite vem da API; CULTIVA_MEMORIA_PADRAO vale para quem ainda não respondeu, só em testes e uso
+# local com dados sintéticos: "desligada" (padrão), "ligada" ou "ligada_com_saude".
+MEMORIA_PADRAO = os.getenv("CULTIVA_MEMORIA_PADRAO", "desligada").strip().lower()
+# Fato sem atualização deixa de valer depois deste prazo (proposta).
+FATOS_PRAZO_DIAS = int(os.getenv("CULTIVA_FATOS_PRAZO_DIAS", "90"))
+# Guardrail de prescrição (issue #39): camada LLM local consultada quando as regras não acionam.
+# Sem Ollama (CI, benchmark), só as regras. Qualquer falha ou tempo esgotado faz valer só as regras.
+# Respostas mais humanas (issue #104): redação final a partir das frases checadas, com o LLM local.
+# Ligada por padrão: no test, cumpriu utilidade e exagero (eval/redacao/resultados.md).
+REDACAO_LLM = os.getenv("CULTIVA_REDACAO", "true").strip().lower() in {"1", "true", "sim", "yes"}
+PRESCRICAO_LLM = os.getenv("CULTIVA_PRESCRICAO_LLM", "true").strip().lower() in {"1", "true", "sim", "yes"}
+PRESCRICAO_LLM_TIMEOUT = float(os.getenv("CULTIVA_PRESCRICAO_LLM_TIMEOUT", "8"))
 # Autenticação dos endpoints de chat e de exclusão (issue #108, src/chat/autenticacao.py). O segredo
 # (CULTIVA_AUTH_SEGREDO) e a flag de desenvolvimento (CULTIVA_AUTH_DESLIGADA) são lidos a cada pedido,
 # não aqui; esta é só a validade dos tokens de teste emitidos pela linha de comando.
@@ -94,6 +110,12 @@ EMBEDDING_CACHE_PATH = Path(_cache_vetores) if _cache_vetores else None
 # 12 GB de memória num lote de Trechos longos (512 tokens): o runner do CI, com 16 GB, para de
 # responder e é derrubado. Com 16, o pico fica perto de 2 GB, sem perda de velocidade em CPU.
 EMBEDDING_LOTE_MODELO = int(os.getenv("EMBEDDING_LOTE_MODELO", "16"))
+# Embeddings na GPU (opt-in, uso local): exige o onnxruntime-gpu no lugar do onnxruntime, com as
+# bibliotecas CUDA e cuDNN (pacotes nvidia-* do pip). O CI e o padrão seguem em CPU.
+EMBEDDINGS_GPU = os.getenv("CULTIVA_EMBEDDINGS_GPU", "false").strip().lower() in {"1", "true", "sim", "yes"}
+# Placa dos embeddings, na ordem do CUDA (a mais rápida primeiro). O e5-large ocupa cerca de 3 GB: numa
+# máquina com duas placas, deixe o gemma do Ollama sozinho na maior e os embeddings na outra.
+EMBEDDINGS_GPU_ID = int(os.getenv("CULTIVA_EMBEDDINGS_GPU_ID", "0"))
 # Parâmetros do índice HNSW do ChromaDB. Com os padrões, a busca aproximada perdia vizinhos
 # e variava a cada carga do índice; com 200, o top-24 coincide com a busca exata no corpus atual.
 HNSW_EF_CONSTRUCTION = int(os.getenv("HNSW_EF_CONSTRUCTION", "200"))

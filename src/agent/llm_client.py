@@ -204,6 +204,7 @@ class LocalLLMClient:
         taco_context_str: str = "",
         graph_context_str: str = "",
         historico: str = "",
+        fatos: str = "",
     ) -> str:
         context_blocks: List[str] = []
         for idx, item in enumerate(retrieved_chunks, start=1):
@@ -223,9 +224,20 @@ class LocalLLMClient:
             f"HISTÓRICO RECENTE DA CONVERSA (só contexto; não é fonte e não pode ser citado):\n"
             f"{mascarar_dados_pessoais(historico)}\n\n" if historico else ""
         )
+        # Fatos do Usuário (issue #112): só personalizam, nunca são fonte. Sem fatos, o prompt fica
+        # igual ao de antes (mesma versão de prompt e mesmo benchmark).
+        contexto_da_pessoa = (
+            "FATOS DO USUÁRIO (o que a própria pessoa contou; contexto da pessoa, nunca fonte):\n"
+            f"{mascarar_dados_pessoais(fatos)}\n"
+            "Use um fato só para relacionar a evidência à situação da pessoa, na mesma frase de um trecho: "
+            "em \"trechos\", ponha \"CONTEXTO\" junto com o número do trecho, e a \"citacao\" sempre do trecho. "
+            "Não use fato sem relação com a pergunta. Não prescreva quantidade, dose, meta ou plano a partir dos "
+            "fatos. Condição de saúde serve só para escolher a evidência e para recomendar procurar um profissional.\n\n"
+            if fatos else ""
+        )
         rotulo = getattr(self, "rotulo_pergunta", "PERGUNTA DE CONSULTA NUTRICIONAL")
         return (
-            f"{contexto_conversa}{rotulo}:\n{mascarar_dados_pessoais(query)}\n\n"
+            f"{contexto_conversa}{contexto_da_pessoa}{rotulo}:\n{mascarar_dados_pessoais(query)}\n\n"
             f"EVIDÊNCIAS RECUPERADAS PELO RAG HÍBRIDO:\n{evidencias}\n\n"
             "Elabore a resposta em JSON seguindo rigorosamente o esquema solicitado e usando os termos técnicos, cadeias do Grafo Causal e valores da Tabela TACO presentes nas fontes. "
             "Em cada frase, informe em \"trechos\" os números dos trechos que a sustentam (ou \"TACO\"/\"GRAFO\") e, em \"citacao\", um pedaço copiado sem alterar desse trecho."
@@ -486,7 +498,8 @@ class LocalLLMClient:
         """Marca cada frase de um Trecho copiado inteiro com o marcador da sua posição."""
         marcador = marcador_de_trecho(indice)
         frases = [f.strip() for f in re.split(r"(?<=[.!?])\s+", texto.strip()) if f.strip()]
-        return " ".join(f"{f[:-1].rstrip()} {marcador}{f[-1]}" if f[-1] in ".!?" else f"{f} {marcador}" for f in frases)
+        # Trecho cortado no meio da frase também fecha com ponto: senão ele gruda no Trecho seguinte.
+        return " ".join(f"{f[:-1].rstrip()} {marcador}{f[-1]}" if f[-1] in ".!?" else f"{f} {marcador}." for f in frases)
 
     @staticmethod
     def _mecanismo(llm_result: Dict[str, Any], extractive: Dict[str, Any]) -> str:
@@ -530,6 +543,7 @@ class LocalLLMClient:
         graph_context_str: str = "",
         sem_contexto: bool = False,
         historico: str = "",
+        fatos: str = "",
     ) -> Tuple[Dict[str, Any], str]:
         """
         Gera a síntese localmente por padrão; Groq exige opt-in explícito e
@@ -580,6 +594,7 @@ class LocalLLMClient:
                 taco_context_str=taco_context_str,
                 graph_context_str=graph_context_str,
                 historico=historico,
+                fatos=fatos,
             )
             # Só outro agente (Saúde Física) troca o prompt; o de Nutrição segue com o padrão.
             prompt_da_area = getattr(self, "system_prompt", SYSTEM_PROMPT_CONSULTANT)
@@ -607,6 +622,7 @@ class LocalLLMClient:
             verificacao = verificar_citacoes(
                 resposta, len(retrieved_chunks),
                 tem_grafo=bool(graph_context_str), tem_taco=bool(taco_context_str),
+                tem_contexto=bool(fatos),
             )
             # A medição (src/evaluation/fundamentacao.py) lê estas mesmas decisões, e não as recalcula.
             self.ultima_verificacao, self.ultima_resposta_aceita = verificacao, resposta

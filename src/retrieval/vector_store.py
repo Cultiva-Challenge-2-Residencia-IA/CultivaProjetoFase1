@@ -11,6 +11,8 @@ from src.config import (
     PROJECT_ROOT,
     EMBEDDING_CACHE_PATH,
     EMBEDDING_LOTE_MODELO,
+    EMBEDDINGS_GPU,
+    EMBEDDINGS_GPU_ID,
     EMBEDDING_MODEL_NAME,
     EMBEDDING_NORMALIZAR_TEXTO,
     HNSW_EF_CONSTRUCTION,
@@ -115,7 +117,15 @@ def _get_fastembed_model(model_name: str) -> Any:
     if model_name not in _FASTEMBED_MODEL_CACHE:
         from fastembed import TextEmbedding
 
-        _FASTEMBED_MODEL_CACHE[model_name] = TextEmbedding(model_name=model_name)
+        opcoes = {}
+        if EMBEDDINGS_GPU:
+            import onnxruntime
+
+            # Carrega as bibliotecas CUDA e cuDNN instaladas pelo pip (pacotes nvidia-*).
+            if hasattr(onnxruntime, "preload_dlls"):
+                onnxruntime.preload_dlls()
+            opcoes["providers"] = [("CUDAExecutionProvider", {"device_id": EMBEDDINGS_GPU_ID}), "CPUExecutionProvider"]
+        _FASTEMBED_MODEL_CACHE[model_name] = TextEmbedding(model_name=model_name, **opcoes)
     return _FASTEMBED_MODEL_CACHE[model_name]
 
 
