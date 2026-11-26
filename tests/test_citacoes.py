@@ -302,3 +302,12 @@ def test_mecanismo_sem_base_nao_recebe_texto_extrativo():
     com_base = LocalLLMClient._merge_llm_with_extractive(
         {"evidence_summary": "a [T1].", "physiological_mechanism": "Mecanismo do trecho [T2]."}, extrativa)
     assert com_base["physiological_mechanism"] == "Mecanismo do trecho [T2]. (Frase copiada do trecho [T1].)"
+
+
+def test_trecho_cortado_no_meio_da_frase_nao_gruda_no_proximo():
+    from src.agent.llm_client import LocalLLMClient
+
+    texto = LocalLLMClient._com_marcador("Primeira frase completa. É importante também saber que órgãos do", 0)
+    assert texto.endswith("órgãos do [T1].")
+    juntos = " ".join([texto, LocalLLMClient._com_marcador("Os participantes relataram temas.", 1)])
+    assert [f for f in dividir_frases(juntos) if "órgãos do" in f] == ["É importante também saber que órgãos do [T1]."]

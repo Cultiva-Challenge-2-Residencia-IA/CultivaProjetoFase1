@@ -200,6 +200,40 @@ def apagar_usuario(usuario_id: str, autenticado: Optional[str] = Depends(usuario
     return {"apagadas": get_servico_de_chat().apagar_usuario(usuario_id)}
 
 
+class ConsentimentoDaMemoria(BaseModel):
+    """Aceite dos Fatos do Usuário (issue #112): memória e, à parte, condição de saúde (LGPD, art. 11)."""
+
+    memoria: bool
+    saude: bool = False
+
+
+@app.put("/chat/usuarios/{usuario_id}/memoria")
+def definir_memoria(usuario_id: str, pedido: ConsentimentoDaMemoria,
+                    autenticado: Optional[str] = Depends(usuario_autenticado)) -> dict:
+    """Registra ou revoga o aceite; revogar para a extração e o uso dos Fatos do Usuário."""
+    usuario_id = _usuario_do_pedido(autenticado, usuario_id)
+    servico = get_servico_de_chat()
+    servico.definir_consentimento(usuario_id, pedido.memoria, pedido.saude)
+    memoria, saude = servico.consentimento(usuario_id)
+    return {"memoria": memoria, "saude": saude}
+
+
+@app.get("/chat/usuarios/{usuario_id}/fatos")
+def listar_fatos(usuario_id: str, autenticado: Optional[str] = Depends(usuario_autenticado)) -> dict:
+    """Fatos do Usuário guardados e em vigor (LGPD, art. 9º), com o consentimento atual."""
+    usuario_id = _usuario_do_pedido(autenticado, usuario_id)
+    servico = get_servico_de_chat()
+    memoria, saude = servico.consentimento(usuario_id)
+    return {"memoria": memoria, "saude": saude, "fatos": [f.como_dict() for f in servico.listar_fatos(usuario_id)]}
+
+
+@app.delete("/chat/usuarios/{usuario_id}/fatos/{fato_id}")
+def apagar_fato(usuario_id: str, fato_id: int, autenticado: Optional[str] = Depends(usuario_autenticado)) -> dict:
+    """Apaga um Fato do Usuário (LGPD, art. 18); fato de outro Usuário não é apagado."""
+    usuario_id = _usuario_do_pedido(autenticado, usuario_id)
+    return {"apagados": get_servico_de_chat().apagar_fato(usuario_id, fato_id)}
+
+
 async def _ler_pdf(arquivo: UploadFile) -> bytes:
     """Lê o PDF só em memória (RNF26: o original não é gravado)."""
     if arquivo.content_type not in (None, "", "application/pdf", "application/octet-stream"):

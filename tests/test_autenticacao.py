@@ -34,7 +34,7 @@ class AgenteFalso:
         self.historicos: List[List[Mensagem]] = []
 
     def responder(self, pergunta: str, top_k: int, consultas_extras: List[str],
-                  historico: List[Mensagem]) -> ConsultantResponse:
+                  historico: List[Mensagem], fatos=()) -> ConsultantResponse:
         self.historicos.append(list(historico))
         n = len(self.historicos)
         return ConsultantResponse(

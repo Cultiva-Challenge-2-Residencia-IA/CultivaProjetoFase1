@@ -21,6 +21,8 @@ from typing import List, Optional, Tuple
 
 import httpx
 
+from src.config import OLLAMA_NUM_CTX
+
 # Tempo que o Ollama mantém o modelo carregado depois de cada chamada.
 KEEP_ALIVE = "30m"
 
@@ -76,8 +78,12 @@ class ResultadoLLM:
 
 class ClassificadorRiscoLLM:
     def __init__(self, modelo: str, base_url: str = "http://localhost:11434", timeout: float = 3.0,
-                 modo: Optional[str] = None, limiar: int = 5) -> None:
+                 modo: Optional[str] = None, limiar: int = 5, num_ctx: int = OLLAMA_NUM_CTX) -> None:
         self.modelo = modelo
+        # O mesmo `num_ctx` das outras chamadas ao modelo (issue #107): o Ollama recarrega o modelo
+        # quando o contexto muda, e a carga estourava o tempo limite em toda mensagem, que ficava só
+        # com o léxico; a chamada seguinte (reescrita ou síntese) pagava outra carga.
+        self.num_ctx = num_ctx
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
         self.modo = modo or ("llama_guard" if "llama-guard" in modelo else "politica")
@@ -122,7 +128,7 @@ class ClassificadorRiscoLLM:
             "stream": False,
             # Sem raciocínio: com ele ligado, o gemma4:e4b gasta os 40 tokens pensando (ADR 0004).
             "think": False,
-            "options": {"temperature": 0, "num_predict": 40},
+            "options": {"temperature": 0, "num_predict": 40, "num_ctx": self.num_ctx},
             # Sem isso, o Ollama descarrega o modelo após 5 min sem uso e a chamada seguinte, com a
             # carga, estoura o tempo limite: o fluxo cairia só no léxico sem nenhum erro visível.
             "keep_alive": KEEP_ALIVE,

@@ -64,7 +64,9 @@ IMPERATIVOS_PROIBIDOS: List[Tuple[str, str]] = [
 class GuardrailSaudeFisica:
     """Mesma interface do `LegalGuardrail` de Nutrição: avaliação de entrada e saneamento da saída."""
 
-    def assess_and_reframe(self, user_query: str) -> GuardrailAssessment:
+    def assess_and_reframe(self, user_query: str, condicao_de_saude: bool = False) -> GuardrailAssessment:
+        """`condicao_de_saude` vem do Projetor de contexto; a Lei 9.696 não muda por ela (o guardrail
+        de prescrição da issue #39 é o da Lei 8.234, no Agente de Nutrição)."""
         norm = normalize_text(user_query)
         prescricao = [d for p, d in PRESCRICAO_DE_TREINO if re.search(p, norm)]
         diagnostico = [d for p, d in DIAGNOSTICO_DE_LESAO if re.search(p, norm)]

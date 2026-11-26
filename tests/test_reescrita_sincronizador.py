@@ -135,3 +135,57 @@ def test_fusao_mantem_o_limite_de_trechos_por_documento():
     fundidos = fundir_rrf([mesmo_doc[:2], mesmo_doc[2:], [outro]], top_k=4, max_por_documento=2)
     docs = [r.chunk.doc_id for r in fundidos]
     assert docs.count("who") == 2 and "ioc" in docs
+
+
+def test_lado_a_lado_registra_o_motivo():
+    # Issue #107: o motivo do lado a lado é o que a medição usa para entender a integração baixa.
+    def fato_novo(_s, _u):
+        return {"evidence_summary": [
+            {"frase": "Tomar remédio resolve.", "trechos": [1], "citacao": "remédio resolve a pressão sempre"},
+        ]}
+
+    assert sincronizar("p", [NUTRI, FISICA], llm=None).motivo == "sem_llm"
+    assert sincronizar("p", [NUTRI, FISICA], llm=lambda _s, _u: None).motivo == "llm_falhou"
+    assert sincronizar("p", [NUTRI, FISICA], llm=lambda _s, _u: {"outro": 1}).motivo == "formato_invalido"
+    sinc = sincronizar("p", [NUTRI, FISICA], llm=fato_novo)
+    assert sinc.motivo == "frase_sem_citacao_literal"
+    assert sinc.detalhes and "Tomar remédio resolve." in sinc.detalhes[0]
+    sem_trechos = RespostaDeArea(area=AREA_SAUDE_FISICA, texto="Sem base.")
+    assert sincronizar("p", [NUTRI, sem_trechos], llm=fato_novo).motivo == "area_sem_trechos"
+
+
+def test_falha_do_cliente_json_entra_no_motivo():
+    class ClienteQueEstoura:
+        ultimo_erro = "ReadTimeout"
+
+        def __call__(self, _s, _u):
+            return None
+
+    assert sincronizar("p", [NUTRI, FISICA], llm=ClienteQueEstoura()).motivo == "llm_falhou:ReadTimeout"
+
+
+FRASE_NUTRI = {"frase": "O padrão DASH reduz a pressão.", "trechos": [1],
+               "citacao": "O padrão alimentar DASH reduz a pressão arterial"}
+FRASE_FISICA = {"frase": "O exercício aeróbico também reduz a pressão.", "trechos": [2],
+                "citacao": "Aerobic exercise reduces blood pressure in adults"}
+FRASE_SEM_FONTE = {"frase": "Tomar remédio resolve.", "trechos": [1], "citacao": "remédio resolve a pressão sempre"}
+
+
+def test_frase_sem_citacao_literal_sai_e_o_resto_integra():
+    # Issue #107: como nos Agentes de área, a frase sem citação literal sai e o resto fica.
+    sinc = sincronizar("p", [NUTRI, FISICA],
+                       llm=lambda _s, _u: {"evidence_summary": [FRASE_NUTRI, FRASE_FISICA, FRASE_SEM_FONTE]})
+    assert sinc.modo == "integrada"
+    assert "Tomar remédio" not in sinc.texto
+    assert sinc.detalhes and "Tomar remédio resolve." in sinc.detalhes[0]
+
+
+def test_mais_da_metade_sem_citacao_fica_lado_a_lado():
+    sinc = sincronizar("p", [NUTRI, FISICA], llm=lambda _s, _u: {"evidence_summary": [
+        FRASE_NUTRI, FRASE_SEM_FONTE, dict(FRASE_SEM_FONTE, frase="Outra invenção.")]})
+    assert sinc.modo == "lado_a_lado" and sinc.motivo == "frase_sem_citacao_literal"
+
+
+def test_integracao_que_cita_uma_area_so_fica_lado_a_lado():
+    sinc = sincronizar("p", [NUTRI, FISICA], llm=lambda _s, _u: {"evidence_summary": [FRASE_NUTRI]})
+    assert sinc.modo == "lado_a_lado" and sinc.motivo == "uma_area_so"

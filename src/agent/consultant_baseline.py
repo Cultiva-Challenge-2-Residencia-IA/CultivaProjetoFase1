@@ -2,15 +2,25 @@ import hashlib
 import inspect
 from contextvars import ContextVar
 from pathlib import Path
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, List, Optional, Sequence
 
 from src.agent.guardrails import LegalGuardrail
 from src.agent.llm_client import LocalLLMClient
 from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import (
+    FILTRO_RELEVANCIA_LIMIAR,
+    FILTRO_RELEVANCIA_NUTRICAO,
+    FILTRO_RELEVANCIA_SAUDE_FISICA,
+    PRESCRICAO_LLM,
+    PRESCRICAO_LLM_TIMEOUT,
     INCLUDE_PENDING_SOURCES,
     OLLAMA_BASE_URL,
+    REFORMULACAO_LLM,
+    RERANKER_CANDIDATOS,
+    RERANKER_MODELO,
+    RERANKER_NUTRICAO,
+    RERANKER_SAUDE_FISICA,
     RISCO_LLM_LIMIAR,
     RISCO_LLM_MODELO,
     RISCO_LLM_TIMEOUT,
@@ -27,6 +37,7 @@ from src.models.schemas import (
 )
 from src.retrieval.graph_engine import CausalKnowledgeGraphEngine
 from src.retrieval.hybrid_retriever import HybridRetriever
+from src.retrieval.reranker_cruzado import RerankerCruzado
 from src.retrieval.taco_tool import TacoDeterministicTool
 
 if TYPE_CHECKING:
@@ -54,6 +65,8 @@ class NutritionConsultantBaseline:
     Guardrails da Lei Federal nº 8.234/91).
     """
 
+    area = "nutricao"
+
     def __init__(
         self,
         guidelines_path: Optional[Path] = None,
@@ -65,6 +78,8 @@ class NutritionConsultantBaseline:
         enable_rag: bool = True,
         risco_llm: Optional[ClassificadorRiscoLLM] = None,
         com_portao_de_risco: bool = True,
+        reranker_na_busca: Optional[bool] = None,
+        filtro_relevancia: Optional[bool] = None,
     ) -> None:
         self.chunker = ContextualChunker()
         # Base padrão: Trechos do corpus curado (ADR 0002), com o gate de aprovação.
@@ -79,7 +94,28 @@ class NutritionConsultantBaseline:
         # Rastreabilidade (#11): o corpus não muda enquanto o consultor existe, então a versão é
         # calculada uma vez aqui, e não a cada pergunta.
         self.corpus_version = corpus_version_do_indice(self.chunks)
-        self.retriever = HybridRetriever(self.chunks)
+        # Relevância da busca (issue #105): reranker cross-encoder ligado por área e filtro antes da
+        # síntese, com os padrões de src/config.py. O modelo só é carregado na primeira pergunta.
+        if reranker_na_busca is None:
+            reranker_na_busca = RERANKER_SAUDE_FISICA if self.area == "saude_fisica" else RERANKER_NUTRICAO
+        if filtro_relevancia is None:
+            filtro_relevancia = (
+                FILTRO_RELEVANCIA_SAUDE_FISICA if self.area == "saude_fisica" else FILTRO_RELEVANCIA_NUTRICAO
+            )
+        reranker = RerankerCruzado(RERANKER_MODELO) if reranker_na_busca or filtro_relevancia else None
+        self.retriever = HybridRetriever(
+            self.chunks,
+            reranker=reranker if reranker_na_busca else None,
+            candidatos_reranker=RERANKER_CANDIDATOS,
+        )
+        self.filtro_reranker = reranker if filtro_relevancia else None
+        self.filtro_limiar = FILTRO_RELEVANCIA_LIMIAR
+        # Reformulação da busca sem Trecho relevante: só com o Ollama local (ADR 0004).
+        self.reformulacao_llm = None
+        if filtro_relevancia and enable_ollama and REFORMULACAO_LLM:
+            from src.agent.llm_json import ClienteJsonOllama
+
+            self.reformulacao_llm = ClienteJsonOllama("reformulacao_busca", num_predict=256)
         self.guardrail = LegalGuardrail()
         self.llm_client = LocalLLMClient(enable_ollama=enable_ollama)
         self.enable_taco_tool = enable_taco_tool
@@ -101,6 +137,12 @@ class NutritionConsultantBaseline:
             risco_llm = ClassificadorRiscoLLM(RISCO_LLM_MODELO, base_url=OLLAMA_BASE_URL,
                                               timeout=RISCO_LLM_TIMEOUT, limiar=RISCO_LLM_LIMIAR)
         self.risco_llm = risco_llm
+        # Camada LLM do guardrail de prescrição (issue #39): só com Ollama, no guardrail da Lei 8.234.
+        if enable_ollama and PRESCRICAO_LLM and isinstance(self.guardrail, LegalGuardrail):
+            from src.agent.llm_json import ClienteJsonOllama
+
+            self.guardrail.classificador_llm = ClienteJsonOllama(
+                "guardrail_prescricao", timeout=PRESCRICAO_LLM_TIMEOUT, num_predict=64)
         if self.risco_llm is not None:
             # Carrega o modelo na memória já na inicialização, para a primeira pergunta caber no RNF29.
             ClassificadorRiscoLLM(self.risco_llm.modelo, base_url=self.risco_llm.base_url,
@@ -157,7 +199,7 @@ class NutritionConsultantBaseline:
         return grafo
 
     def responder(self, pergunta: str, top_k: int, consultas_extras: List[str],
-                  historico: List["Mensagem"]) -> ConsultantResponse:
+                  historico: List["Mensagem"], fatos: Sequence = ()) -> ConsultantResponse:
         """Responde como Agente de área do Chat (issue #99): só o subgrafo, sem os portões, que o
         Chat já aplicou. `historico` é o da área deste agente (RF-IA09)."""
         subgrafo = getattr(self, "_subgrafo_compilado", None)
@@ -166,8 +208,12 @@ class NutritionConsultantBaseline:
 
             subgrafo = self._subgrafo_compilado = construir_subgrafo(self)
         texto = "\n".join(f"{'Usuário' if m.papel == 'usuario' else 'Assistente'}: {m.texto}" for m in historico)
+        # Fatos do Usuário (issue #112): só os que o Projetor de contexto escolheu para esta Subpergunta.
+        linhas_fatos = "\n".join(f"- {f.texto}" for f in fatos)
         estado = subgrafo.invoke({"pergunta": pergunta, "top_k": top_k,
-                                  "consultas_extras": list(consultas_extras), "historico": texto})
+                                  "consultas_extras": list(consultas_extras), "historico": texto,
+                                  "fatos": linhas_fatos,
+                                  "condicao_de_saude": any(getattr(f, "condicao_de_saude", False) for f in fatos)})
         return estado["resposta"]
 
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:

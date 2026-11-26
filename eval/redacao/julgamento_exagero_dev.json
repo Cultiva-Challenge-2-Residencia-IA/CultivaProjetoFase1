@@ -1,0 +1,11 @@
+{
+  "R02": {"frases_reescritas": 3, "frases_alem_da_origem": 0, "exemplos": []},
+  "R06": {"frases_reescritas": 5, "frases_alem_da_origem": 2, "exemplos": [
+    "Comer em companhia, seja em casa ou fora, ajuda a criar um ambiente apropriado para as refeições [T1][T4].",
+    "Refeições compartilhadas em casa são boas oportunidades para desenvolver bons hábitos, especialmente em crianças e adolescentes [T4]."
+  ]},
+  "R07": {"frases_reescritas": 5, "frases_alem_da_origem": 1, "exemplos": [
+    "Passar muito tempo sentado pode estar ligado a um risco aumentado de certos cânceres, como cólon, endométrio e pulmão [T3]."
+  ]},
+  "R08": {"frases_reescritas": 3, "frases_alem_da_origem": 0, "exemplos": []}
+}

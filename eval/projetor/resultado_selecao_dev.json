@@ -1,0 +1,110 @@
+{
+  "resumo": {
+    "casos": 10,
+    "recall": 0.833,
+    "vazamento": 0.0,
+    "fatos_entregues": 11
+  },
+  "casos": [
+    {
+      "id": "S01",
+      "entregues": [
+        0
+      ],
+      "relacionados": [
+        0
+      ],
+      "vazados": []
+    },
+    {
+      "id": "S02",
+      "entregues": [
+        1,
+        2
+      ],
+      "relacionados": [
+        1
+      ],
+      "vazados": []
+    },
+    {
+      "id": "S03",
+      "entregues": [
+        0,
+        2
+      ],
+      "relacionados": [
+        0,
+        2
+      ],
+      "vazados": []
+    },
+    {
+      "id": "S04",
+      "entregues": [
+        1,
+        2
+      ],
+      "relacionados": [
+        1,
+        2
+      ],
+      "vazados": []
+    },
+    {
+      "id": "S05",
+      "entregues": [
+        0
+      ],
+      "relacionados": [
+        0
+      ],
+      "vazados": []
+    },
+    {
+      "id": "S06",
+      "entregues": [],
+      "relacionados": [
+        2
+      ],
+      "vazados": []
+    },
+    {
+      "id": "S07",
+      "entregues": [
+        1
+      ],
+      "relacionados": [
+        0,
+        1
+      ],
+      "vazados": []
+    },
+    {
+      "id": "S08",
+      "entregues": [
+        0
+      ],
+      "relacionados": [
+        0
+      ],
+      "vazados": []
+    },
+    {
+      "id": "S09",
+      "entregues": [],
+      "relacionados": [],
+      "vazados": []
+    },
+    {
+      "id": "S10",
+      "entregues": [
+        0
+      ],
+      "relacionados": [
+        0
+      ],
+      "vazados": []
+    }
+  ]
+}

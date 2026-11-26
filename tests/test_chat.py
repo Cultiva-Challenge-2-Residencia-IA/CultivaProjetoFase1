@@ -23,7 +23,7 @@ class AgenteFalso:
         self.chamadas: List[dict] = []
 
     def responder(self, pergunta: str, top_k: int, consultas_extras: List[str],
-                  historico: List[Mensagem]) -> ConsultantResponse:
+                  historico: List[Mensagem], fatos=()) -> ConsultantResponse:
         self.chamadas.append({"pergunta": pergunta, "extras": consultas_extras, "historico": historico})
         return ConsultantResponse(
             response_id=f"r-{self.area}-{len(self.chamadas)}", original_query=pergunta, effective_query=pergunta,
@@ -161,7 +161,7 @@ def test_apagar_usuario_remove_todas_as_conversas(tmp_path, agentes):
 
 def test_pedido_restrito_pela_lei_da_area_traz_a_nota_legal(tmp_path, agentes):
     class AgenteComGuardrail(AgenteFalso):
-        def responder(self, pergunta, top_k, consultas_extras, historico):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
             resposta = super().responder(pergunta, top_k, consultas_extras, historico)
             return resposta.model_copy(update={"guardrail_triggered": True,
                                                "legal_compliance_notice": "Nota da Lei 9.696/1998."})
@@ -191,7 +191,7 @@ def _com_trechos(agente: AgenteFalso, prefixo: str) -> AgenteFalso:
 
     original = agente.responder
 
-    def responder(pergunta, top_k, extras, historico):
+    def responder(pergunta, top_k, extras, historico, fatos=()):
         resposta = original(pergunta, top_k, extras, historico)
         chunk = DocumentChunk(chunk_id=f"{prefixo}-p001-01", doc_id=prefixo, title=f"Fonte {prefixo}",
                               source_organization="Org", publication_year=2020, clinical_domain="x",
@@ -238,7 +238,7 @@ def test_pergunta_das_duas_areas_fica_no_historico_dos_dois_agentes(tmp_path, ag
 
 def test_campos_repetidos_da_sintese_nao_aparecem_duas_vezes(tmp_path, agentes):
     class AgenteRepetido(AgenteFalso):
-        def responder(self, pergunta, top_k, extras, historico):
+        def responder(self, pergunta, top_k, extras, historico, fatos=()):
             r = super().responder(pergunta, top_k, extras, historico)
             frase = "Ovos no café da manhã aumentam a saciedade [T1]."
             return r.model_copy(update={"evidence_summary": frase,
@@ -280,3 +280,88 @@ def test_sinal_de_alerta_guarda_so_os_sinais_no_historico(tmp_path, agentes):
     guardadas = " ".join(m.texto for m in servico.historico.recentes("u1", "c1", limite=10))
     assert mensagem not in guardadas
     assert "[sinal de alerta: dor_no_peito]" in guardadas
+
+
+def test_frase_repetida_com_e_sem_marcador_aparece_uma_vez(tmp_path, agentes):
+    class AgenteExtrativo(AgenteFalso):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
+            r = super().responder(pergunta, top_k, consultas_extras, historico, fatos)
+            return r.model_copy(update={
+                "evidence_summary": "Fibra ajuda o intestino [T1]. É importante também saber que órgãos do [T1].",
+                "physiological_mechanism": "Fibra ajuda o intestino. É importante também saber que órgãos do [T1]",
+                "protocol_findings": ""})
+
+    agentes[AREA_NUTRICAO] = AgenteExtrativo(AREA_NUTRICAO)
+    resposta = _servico(tmp_path, agentes).enviar(AREA_NUTRICAO, "u1", "c1", "Quais alimentos têm fibra?")
+    assert resposta.texto_com_marcadores.count("Fibra ajuda o intestino") == 1
+    assert resposta.texto_com_marcadores.count("órgãos do") == 1
+
+
+def test_frase_repetida_dentro_do_mesmo_item_aparece_uma_vez(tmp_path, agentes):
+    class AgenteQueRepete(AgenteFalso):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
+            r = super().responder(pergunta, top_k, consultas_extras, historico, fatos)
+            frase = "Os mecanismos biológicos que regulam nosso apetite são complexos"
+            return r.model_copy(update={"evidence_summary": f"Comer devagar ajuda [T1]. ({frase}. {frase}.) [T1]",
+                                        "physiological_mechanism": "", "protocol_findings": ""})
+
+    agentes[AREA_NUTRICAO] = AgenteQueRepete(AREA_NUTRICAO)
+    resposta = _servico(tmp_path, agentes).enviar(AREA_NUTRICAO, "u1", "c1", "Posso comer chocolate?")
+    assert resposta.texto_com_marcadores.count("Os mecanismos biológicos") == 1
+
+
+def test_trecho_hipotetico_vai_so_a_busca_de_saude_fisica(tmp_path, agentes):
+    """Issue #105: com o HyDE de Saúde Física ligado (desligado por padrão), ele entra na busca do Agente de Saúde Física e não na de Nutrição."""
+    def llm(sistema: str, usuario: str) -> Optional[dict]:
+        if "prepara buscas" not in sistema:
+            return None
+        return {"pergunta_completa": "O que comer antes do treino de perna?", "subperguntas": [
+            {"area": "nutricao", "pergunta": "O que comer antes do treino?", "trecho_hipotetico": "Carboidratos antes."},
+            {"area": "saude_fisica", "pergunta": "Treino de perna", "trecho_hipotetico": "Lower body training."}]}
+
+    servico = _servico(tmp_path, agentes, llm=llm)
+    servico.hyde_na_busca, servico.hyde_na_busca_saude_fisica = False, True
+    servico.enviar(CHAT_GERAL, "u1", "c1", "O que comer antes de treinar perna?")
+    assert "Lower body training." in agentes[AREA_SAUDE_FISICA].chamadas[-1]["extras"]
+    assert "Carboidratos antes." not in agentes[AREA_NUTRICAO].chamadas[-1]["extras"]
+
+
+def test_resposta_traz_o_tempo_de_cada_etapa(tmp_path, agentes):
+    # Issue #107: a medição de latência lê estes tempos.
+    resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "O que comer antes do treino de musculação?")
+    assert {"portoes", "roteamento", "agentes", "agente_nutricao", "agente_saude_fisica",
+            "sincronizador", "total"} <= set(resposta.tempos)
+    assert resposta.tempos["total"] >= resposta.tempos["agentes"]
+    assert resposta.motivo_sincronizacao == "sem_llm"
+
+
+def test_resposta_de_portao_tambem_traz_o_tempo(tmp_path, agentes):
+    resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "Senti dor no peito forte correndo")
+    assert resposta.tipo == "alerta"
+    assert set(resposta.tempos) == {"portoes", "total"}
+
+
+class AgenteLento(AgenteFalso):
+    """Espera o outro agente começar: só termina se os dois rodarem ao mesmo tempo."""
+
+    def __init__(self, area: str, barreira):
+        super().__init__(area)
+        self.barreira = barreira
+
+    def responder(self, *args, **kwargs):
+        self.barreira.wait(timeout=5)
+        return super().responder(*args, **kwargs)
+
+
+def test_agentes_em_paralelo_rodam_ao_mesmo_tempo_e_mantem_a_ordem(tmp_path):
+    import threading
+
+    barreira = threading.Barrier(2)
+    agentes = {AREA_NUTRICAO: AgenteLento(AREA_NUTRICAO, barreira),
+               AREA_SAUDE_FISICA: AgenteLento(AREA_SAUDE_FISICA, barreira)}
+    servico = ServicoDeChat(agentes=agentes, historico=HistoricoSQLite(tmp_path / "c.sqlite3"),
+                            agentes_em_paralelo=True)
+    resposta = servico.enviar(CHAT_GERAL, "u1", "c1", "O que comer antes do treino de musculação?")
+    assert not barreira.broken  # com os agentes em sequência, a barreira esgotaria o tempo e quebraria
+    assert resposta.areas == [AREA_NUTRICAO, AREA_SAUDE_FISICA]
+    assert resposta.texto.index("Resposta de nutricao.") < resposta.texto.index("Resposta de saude_fisica.")
