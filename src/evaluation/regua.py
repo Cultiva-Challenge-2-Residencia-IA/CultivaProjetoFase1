@@ -11,6 +11,13 @@ grava `respostas_<split>_<rotulo>.json`. `exportar` grava `cego_<split>_<rotulo>
 a pergunta, o que seria uma boa resposta, a cobertura do corpus, o texto exibido e os Trechos citados,
 sem a configuração medida. Dois juízes gravam `julgamento_<split>_<rotulo>_j1.json` e `_j2.json`;
 `resultado` aponta as divergências e, com `_j3.json` (desempate), calcula as medidas.
+
+    uv run python -m src.evaluation.regua calibrar --split dev --rotulo guardrail
+
+`calibrar` escolhe, por área, o limiar do filtro de relevância da #105 (o "não sei" da Lacuna): usa a
+consulta de busca gravada em `respostas_<split>_<rotulo>.json`, pontua com o cross-encoder os Trechos
+que a busca da área devolve e procura o limiar que dá "não sei" no máximo em 10% dos casos cobertos e
+no maior número possível dos sem cobertura (critério: pelo menos 70%). Não usa o LLM.
 """
 
 import argparse
@@ -154,13 +161,52 @@ def resultado(split: str, rotulo: str) -> int:
     return 0
 
 
+def calibrar(split: str, rotulo: str) -> int:
+    from src.agent.consultant_baseline import NutritionConsultantBaseline
+    from src.agents.fisica.consultor import ConsultorSaudeFisica
+    from src.config import RERANKER_MODELO, TOP_K_FINAL
+    from src.retrieval.reranker_cruzado import RerankerCruzado
+
+    casos = {c["id"]: c for c in _ler("casos.json")[split]}
+    agentes = {"nutricao": NutritionConsultantBaseline(enable_ollama=False),
+               "saude_fisica": ConsultorSaudeFisica(enable_ollama=False)}
+    reranker = RerankerCruzado(RERANKER_MODELO)
+    notas: Dict[str, List[Dict[str, Any]]] = {"nutricao": [], "saude_fisica": []}
+    for reg in _ler(f"respostas_{split}_{rotulo}.json"):
+        cobertura = casos[reg["id"]]["cobertura"]
+        if cobertura not in ("coberto", "nao_coberto"):
+            continue
+        for area, consulta in reg["consulta_da_busca"].items():
+            recuperados = agentes[area].retriever.retrieve(consulta, top_k=TOP_K_FINAL)
+            pontos = reranker.pontuar(consulta, [r.chunk.contextualized_text for r in recuperados])
+            notas[area].append({"id": reg["id"], "cobertura": cobertura, "maior_nota": round(max(pontos, default=0.0), 4)})
+    resultado_por_area = {}
+    for area, itens in notas.items():
+        cobertos = [i["maior_nota"] for i in itens if i["cobertura"] == "coberto"]
+        sem = [i["maior_nota"] for i in itens if i["cobertura"] == "nao_coberto"]
+        melhor = None
+        for limiar in sorted({0.0} | {n + 1e-6 for n in cobertos + sem}):
+            indevido = sum(n < limiar for n in cobertos) / len(cobertos) if cobertos else 0.0
+            acerto = sum(n < limiar for n in sem) / len(sem) if sem else 0.0
+            if indevido <= 0.10 and (melhor is None or acerto > melhor["nao_sei_nos_nao_cobertos"]):
+                melhor = {"limiar": round(limiar, 4), "nao_sei_nos_nao_cobertos": round(acerto, 3),
+                          "nao_sei_indevido_nos_cobertos": round(indevido, 3)}
+        resultado_por_area[area] = {"casos_cobertos": len(cobertos), "casos_sem_cobertura": len(sem),
+                                    "melhor": melhor, "cumpre": bool(melhor and melhor["nao_sei_nos_nao_cobertos"] >= 0.70),
+                                    "notas": itens}
+    _gravar(f"calibracao_{split}_{rotulo}.json", resultado_por_area)
+    print(json.dumps({a: {k: v for k, v in r.items() if k != "notas"} for a, r in resultado_por_area.items()},
+                     ensure_ascii=False, indent=2))
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("comando", choices=["responder", "exportar", "resultado"])
+    parser.add_argument("comando", choices=["responder", "exportar", "resultado", "calibrar"])
     parser.add_argument("--split", choices=["dev", "test"], default="dev")
     parser.add_argument("--rotulo", required=True, help="nome da configuração medida (ex.: base, issue120)")
     args = parser.parse_args()
-    return {"responder": responder, "exportar": exportar, "resultado": resultado}[args.comando](args.split, args.rotulo)
+    return {"responder": responder, "exportar": exportar, "resultado": resultado, "calibrar": calibrar}[args.comando](args.split, args.rotulo)
 
 
 if __name__ == "__main__":
