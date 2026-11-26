@@ -87,6 +87,16 @@ ou cardápio para ela, ou liberar/proibir um alimento para alguém com uma condi
 ou pede liberação de um alimento para ela tendo uma condição de saúde ou dado pessoal.
 "pedido_individual": false para perguntas gerais (o que as diretrizes recomendam, o que um alimento contém,
 se algo faz bem em geral), mesmo em primeira pessoa quando não pedem quantidade nem liberação individual.
+"Posso comer X?" ou "tudo bem comer X?" SEM condição de saúde nem dado pessoal na mensagem é dúvida geral:
+false. Só vira pedido individual quando a pessoa cita uma condição de saúde (diabetes, pressão alta,
+gravidez, doença renal...) ou dados dela (peso, idade, exames).
+
+Exemplos:
+- "Posso comer ovo todo dia?" -> false
+- "Quero comer um chocolate amargo, tudo bem?" -> false
+- "Sou diabético, posso comer chocolate?" -> true
+- "Me passa o tanto certo de proteína pro meu caso" -> true
+- "Quanto de proteína tem um ovo?" -> false
 
 Responda só com JSON: {"pedido_individual": true ou false}"""
 
