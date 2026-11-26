@@ -14,18 +14,23 @@ Para cada mensagem:
    só o Histórico da área dele (RF-IA09). Um Chat de área responde só a parte da sua área e indica o
    chat certo para o resto (RF-IA06).
 6. **Sincronizador** (Chat geral com duas áreas): resposta única cruzada, ou lado a lado.
+
+Cada resposta leva o tempo de cada etapa em segundos (`tempos`; issue #107). Com duas áreas, os
+Agentes rodam em paralelo quando `CULTIVA_AGENTES_EM_PARALELO` está ligado.
 """
 
 from concurrent.futures import ThreadPoolExecutor
+import contextvars
 from datetime import datetime, timezone
 import hashlib
 import re
+import time
 from typing import Callable, Dict, List, Mapping, Optional, Protocol, Sequence
 
 from pydantic import BaseModel, Field
 
 from src.chat.fatos import FatosSQLite
-from src.config import (FATOS_PRAZO_DIAS, HYDE_NA_BUSCA, JANELA_HISTORICO, MEMORIA_PADRAO,
+from src.config import (AGENTES_EM_PARALELO, FATOS_PRAZO_DIAS, HYDE_NA_BUSCA, JANELA_HISTORICO, MEMORIA_PADRAO,
                         ORCAMENTO_HISTORICO_TOKENS, REDACAO_LLM, TOP_K_FINAL)
 from src.guardrails.alerta import MENSAGEM_ALERTA, detectar_sinal_de_alerta
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
@@ -84,6 +89,12 @@ class RespostaDoChat(BaseModel):
     redacao: Optional[str] = None
     # Texto checado antes da redação, com os marcadores (auditoria e medição da #104); None sem redação aceita.
     texto_antes_da_redacao: Optional[str] = None
+    # Por que o Sincronizador deixou lado a lado (issue #107); None quando integrou ou não houve duas áreas.
+    motivo_sincronizacao: Optional[str] = None
+    detalhes_sincronizacao: List[str] = Field(default_factory=list)  # o que a checagem apontou
+    # Segundos por etapa (issue #107): "portoes", "roteamento", "agentes", "agente_<área>",
+    # "sincronizador" e "total".
+    tempos: Dict[str, float] = Field(default_factory=dict)
 
 
 def _chave_da_frase(frase: str) -> str:
@@ -214,6 +225,7 @@ class ServicoDeChat:
         prazo_fatos_dias: int = FATOS_PRAZO_DIAS,
         memoria_padrao: str = MEMORIA_PADRAO,
         redacao: bool = REDACAO_LLM,
+        agentes_em_paralelo: bool = AGENTES_EM_PARALELO,
     ) -> None:
         self.agentes = dict(agentes)
         self.historico = historico
@@ -233,6 +245,7 @@ class ServicoDeChat:
         self.prazo_fatos_dias = prazo_fatos_dias
         self.memoria_padrao = memoria_padrao
         self.redacao = redacao
+        self.agentes_em_paralelo = agentes_em_paralelo
         # A extração roda depois da resposta, fora do caminho da latência; os testes passam um
         # executor síncrono.
         if executar_em_segundo_plano is None:
@@ -307,16 +320,23 @@ class ServicoDeChat:
             raise ConversaDeOutroUsuario("Esta Conversa pertence a outro Usuário.")
         with atributos_do_trace(trace_name=f"chat_{chat}", tags=["chat", chat], session_id=conversa_id,
                                 user_id=_id_anonimo(usuario_id)):
+            inicio = time.perf_counter()
             fixa = self._portoes(chat, usuario_id, conversa_id, mensagem)
+            portoes = time.perf_counter() - inicio
             if fixa is not None:
+                fixa.tempos = {"portoes": round(portoes, 3), "total": round(portoes, 3)}
                 return fixa
             with observacao("chat", input={"chat": chat, "mensagem": mensagem}) as raiz:
-                resposta = self._responder(chat, usuario_id, conversa_id, mensagem, top_k)
+                tempos: Dict[str, float] = {"portoes": portoes}
+                resposta = self._responder(chat, usuario_id, conversa_id, mensagem, top_k, tempos)
                 # Só a mensagem que passou pelos Portões pode virar Fato do Usuário.
                 self._extrair(usuario_id, conversa_id, mensagem)
+                tempos["total"] = time.perf_counter() - inicio
+                resposta.tempos = {etapa: round(segundos, 3) for etapa, segundos in tempos.items()}
                 raiz.update(output={"tipo": resposta.tipo, "areas": resposta.areas, "texto": resposta.texto},
                             metadata={"modo_sincronizacao": resposta.modo_sincronizacao,
-                                      "reescrita": resposta.reescrita,
+                                      "motivo_sincronizacao": resposta.motivo_sincronizacao,
+                                      "reescrita": resposta.reescrita, "tempos": resposta.tempos,
                                       # Fatos do Usuário: só contagem e categorias, nunca o texto (#112).
                                       "fatos_entregues": len(resposta.fatos_usados),
                                       "categorias_dos_fatos": sorted({f["categoria"] for f in resposta.fatos_usados})})
@@ -384,14 +404,17 @@ class ServicoDeChat:
         return reescrita, regras, subperguntas
 
     def _responder(self, chat: str, usuario_id: str, conversa_id: str, mensagem: str,
-                   top_k: int) -> RespostaDoChat:
+                   top_k: int, tempos: Optional[Dict[str, float]] = None) -> RespostaDoChat:
+        tempos = {} if tempos is None else tempos
         if e_conversa_social(mensagem) and not rotear_por_regras(mensagem).areas:
             return self._fixa(chat, usuario_id, conversa_id, "conversa", mensagem, APRESENTACOES[chat])
         historico = self._historico(chat, usuario_id, conversa_id)
         historico_proprio = self.historico.recentes(usuario_id, conversa_id, self.janela)
         # Projetor de contexto (issue #112): os candidatos vão à reescrita, que escolhe por Subpergunta.
         candidatos = self._candidatos(usuario_id) if (self.llm is not None and self.reescrita_com_llm) else []
+        inicio = time.perf_counter()
         reescrita, regras, subperguntas = self._rotear(chat, mensagem, historico, candidatos)
+        tempos["roteamento"] = time.perf_counter() - inicio
         redirecionamento = None
 
         # Pedido vago ou individual (issue #104): uma pergunta de esclarecimento antes dos agentes, uma
@@ -429,9 +452,7 @@ class ServicoDeChat:
                 redirecionamento = mensagem_outra_area(outras[0])
             subperguntas = proprias
 
-        respostas: Dict[str, ConsultantResponse] = {}
-        fatos_usados: List[FatoDoUsuario] = []
-        for sub in subperguntas:
+        def responder_area(sub: Subpergunta):
             extras: List[str] = []
             if self.hyde_na_busca:
                 extras = [t for t in (sub.trecho_hipotetico,) if t]
@@ -442,26 +463,46 @@ class ServicoDeChat:
             extras += [f"{sub.texto} {f.texto}" for f in fatos if f.condicao_de_saude]
             if fatos:
                 self.fatos.registrar_entregas(usuario_id, conversa_id, sub.area, fatos, self.relogio())
-                fatos_usados += [f for f in fatos if f not in fatos_usados]
             # Pergunta de uma área só, sem Histórico desta Conversa: vai como o usuário escreveu, a mesma
             # busca medida como base no dev. Com continuação ou com mais de uma área, vai a Subpergunta.
             pergunta = mensagem if not varias_areas and not historico_proprio else sub.texto
             historico_da_area = [m for m in historico if m.e_da_area(sub.area)]
-            respostas[sub.area] = self.agentes[sub.area].responder(pergunta, top_k, extras, historico_da_area,
-                                                                   fatos=fatos)
+            inicio_area = time.perf_counter()
+            resposta = self.agentes[sub.area].responder(pergunta, top_k, extras, historico_da_area, fatos=fatos)
+            return resposta, time.perf_counter() - inicio_area, fatos
+
+        inicio = time.perf_counter()
+        if self.agentes_em_paralelo and len(subperguntas) > 1:
+            # Cada tarefa leva uma cópia do contexto, para os spans do Langfuse ficarem no mesmo trace.
+            with ThreadPoolExecutor(max_workers=len(subperguntas)) as executor:
+                futuros = [executor.submit(contextvars.copy_context().run, responder_area, sub)
+                           for sub in subperguntas]
+                resultados = [f.result() for f in futuros]
+        else:
+            resultados = [responder_area(sub) for sub in subperguntas]
+        tempos["agentes"] = time.perf_counter() - inicio
+        respostas: Dict[str, ConsultantResponse] = {}
+        fatos_usados: List[FatoDoUsuario] = []
+        for sub, (resposta, segundos, fatos) in zip(subperguntas, resultados):
+            respostas[sub.area] = resposta
+            tempos[f"agente_{sub.area}"] = segundos
+            fatos_usados += [f for f in fatos if f not in fatos_usados]
 
         areas = list(respostas)
         self.historico.adicionar(usuario_id, conversa_id, chat, "usuario", mensagem, areas)
         for area, resposta in respostas.items():
             self.historico.adicionar(usuario_id, conversa_id, chat, "assistente", texto_da_resposta(resposta), [area])
 
+        motivo, detalhes = None, []
         if len(respostas) > 1:
+            inicio = time.perf_counter()
             sinc = sincronizar(
                 reescrita.pergunta_completa,
                 [RespostaDeArea(a, texto_da_resposta(r), list(r.retrieved_chunks)) for a, r in respostas.items()],
                 self.llm,
             )
-            texto, tipo, modo = sinc.texto, "sincronizada", sinc.modo
+            tempos["sincronizador"] = time.perf_counter() - inicio
+            texto, tipo, modo, motivo, detalhes = sinc.texto, "sincronizada", sinc.modo, sinc.motivo, sinc.detalhes
             redacao, antes = None, None
             # Com nota legal no texto sincronizado, a redação não entra (a nota não pode ser reescrita).
             if self._pode_redigir(respostas) and not any(r.guardrail_triggered for r in respostas.values()):
@@ -506,7 +547,7 @@ class ServicoDeChat:
             areas=areas, respostas=respostas,
             modo_sincronizacao=modo, citacoes=citacoes, redirecionamento=redirecionamento,
             reescrita=reescrita.origem, fatos_usados=[f.como_dict() for f in fatos_usados], redacao=redacao,
-            texto_antes_da_redacao=antes,
+            texto_antes_da_redacao=antes, motivo_sincronizacao=motivo, detalhes_sincronizacao=detalhes,
         )
 
     def _pode_redigir(self, respostas: Mapping[str, ConsultantResponse]) -> bool:

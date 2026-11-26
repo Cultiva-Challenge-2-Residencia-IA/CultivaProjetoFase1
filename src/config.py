@@ -73,6 +73,11 @@ REESCRITA_LLM = os.getenv("CULTIVA_REESCRITA_LLM", "true").strip().lower() in {"
 # pela regra registrada antes da medição: no dev, melhorou o MRR de Saúde Física (+0,161) e piorou o
 # de Nutrição (-0,069) (eval/multiagentes/resultados.md).
 HYDE_NA_BUSCA = os.getenv("CULTIVA_HYDE_NA_BUSCA", "false").strip().lower() in {"1", "true", "sim", "yes"}
+# Agentes de área em paralelo no Chat geral com duas áreas (issue #107). Ligado pela regra registrada
+# antes da medição (eval/multiagentes/latencia_criterios.md): no dev, o p95 de duas áreas caiu de 43,3
+# para 33,9 s. O ganho depende de o Ollama atender duas requisições ao mesmo tempo
+# (OLLAMA_NUM_PARALLEL=2 no servidor); sem isso, ele enfileira e o tempo fica como em sequência.
+AGENTES_EM_PARALELO = os.getenv("CULTIVA_AGENTES_EM_PARALELO", "true").strip().lower() in {"1", "true", "sim", "yes"}
 
 # Gate de aprovação (ADR 0002, issue #7): por padrão só fontes com approval_status
 # "aprovado" entram no índice. A flag de desenvolvimento inclui também as "pendente".

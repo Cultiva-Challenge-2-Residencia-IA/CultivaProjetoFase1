@@ -35,7 +35,7 @@ import httpx
 from PIL import Image, ImageOps
 import pymupdf
 
-from src.config import OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_THINK
+from src.config import OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_NUM_CTX, OLLAMA_THINK
 from src.models.schemas import RetrievedChunk
 from src.multimodal import pdf
 from src.multimodal.pdf import Pagina, numeros
@@ -324,7 +324,8 @@ def _ler_com_visao(dados: bytes, modelo: str, base_url: str) -> Optional[Dict[st
     payload = {
         "model": modelo, "stream": False, "format": "json", "think": OLLAMA_THINK,
         "messages": [{"role": "user", "content": PROMPT_VISAO, "images": [base64.b64encode(dados).decode()]}],
-        "options": {"temperature": 0, "num_predict": 1024},
+        # O mesmo num_ctx das outras chamadas: com outro, o Ollama recarrega o modelo (issue #107).
+        "options": {"temperature": 0, "num_predict": 1024, "num_ctx": OLLAMA_NUM_CTX},
     }
     try:
         with httpx.Client(timeout=TIMEOUT_VISAO) as cliente:

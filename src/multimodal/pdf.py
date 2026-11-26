@@ -24,7 +24,7 @@ from typing import Any, Callable, Dict, List, Optional
 import httpx
 import pymupdf
 
-from src.config import OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_NUM_PREDICT, OLLAMA_THINK
+from src.config import OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_NUM_CTX, OLLAMA_NUM_PREDICT, OLLAMA_THINK
 from src.guardrails.alerta import MENSAGEM_ALERTA, detectar_sinal_de_alerta
 from src.guardrails.injection import MENSAGEM_INJECAO, delimitar_como_dado, has_prompt_injection
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
@@ -271,7 +271,8 @@ def _chamar_llm(usuario: str, modelo: str, base_url: str, sistema: str = SISTEMA
     payload = {
         "model": modelo, "stream": False, "format": "json", "think": OLLAMA_THINK,
         "messages": [{"role": "system", "content": sistema}, {"role": "user", "content": usuario}],
-        "options": {"temperature": 0, "num_predict": OLLAMA_NUM_PREDICT},
+        # O mesmo num_ctx das outras chamadas: com outro, o Ollama recarrega o modelo (issue #107).
+        "options": {"temperature": 0, "num_predict": OLLAMA_NUM_PREDICT, "num_ctx": OLLAMA_NUM_CTX},
     }
     try:
         with httpx.Client(timeout=TIMEOUT_PDF) as cliente:

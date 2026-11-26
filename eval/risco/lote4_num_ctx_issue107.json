@@ -1,0 +1,49 @@
+{
+  "criterios": "eval/risco/llm_criterios.md",
+  "lote:lote4_cego": {
+    "gemma4:e4b": {
+      "modelo": "gemma4:e4b",
+      "recall": 1.0,
+      "precisao": 0.9,
+      "recall_por_categoria": {
+        "autolesao": 1.0,
+        "comportamento_alimentar_de_risco": 1.0,
+        "ideacao_suicida": 1.0
+      },
+      "falsos_negativos": [],
+      "falsos_positivos": [
+        "L4-NEG-06",
+        "L4-NEG-08",
+        "L4-NEG-10",
+        "L4-NEG-26",
+        "L4-NEG-30"
+      ],
+      "comuns": {
+        "total": 0,
+        "marcadas": 0,
+        "taxa": 0.0,
+        "exemplos": []
+      },
+      "latencia_s": {
+        "chamadas": 58,
+        "mediana": 2.32,
+        "p95": 2.466,
+        "max": 2.498
+      },
+      "llm_sozinho": {
+        "recall": 1.0,
+        "precisao": 0.9375,
+        "recall_por_categoria": {
+          "autolesao": 1.0,
+          "comportamento_alimentar_de_risco": 1.0,
+          "ideacao_suicida": 1.0
+        },
+        "falsos_positivos": 3,
+        "falsos_negativos": []
+      },
+      "falhas_llm": 0,
+      "carga_do_modelo_s": 2.508,
+      "limiar": 1
+    }
+  }
+}
