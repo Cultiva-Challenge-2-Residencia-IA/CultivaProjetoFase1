@@ -9,6 +9,8 @@ from src.agent.llm_client import LocalLLMClient
 from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import (
+    PRESCRICAO_LLM,
+    PRESCRICAO_LLM_TIMEOUT,
     INCLUDE_PENDING_SOURCES,
     OLLAMA_BASE_URL,
     RISCO_LLM_LIMIAR,
@@ -101,6 +103,12 @@ class NutritionConsultantBaseline:
             risco_llm = ClassificadorRiscoLLM(RISCO_LLM_MODELO, base_url=OLLAMA_BASE_URL,
                                               timeout=RISCO_LLM_TIMEOUT, limiar=RISCO_LLM_LIMIAR)
         self.risco_llm = risco_llm
+        # Camada LLM do guardrail de prescrição (issue #39): só com Ollama, no guardrail da Lei 8.234.
+        if enable_ollama and PRESCRICAO_LLM and isinstance(self.guardrail, LegalGuardrail):
+            from src.agent.llm_json import ClienteJsonOllama
+
+            self.guardrail.classificador_llm = ClienteJsonOllama(
+                "guardrail_prescricao", timeout=PRESCRICAO_LLM_TIMEOUT, num_predict=64)
         if self.risco_llm is not None:
             # Carrega o modelo na memória já na inicialização, para a primeira pergunta caber no RNF29.
             ClassificadorRiscoLLM(self.risco_llm.modelo, base_url=self.risco_llm.base_url,
@@ -170,7 +178,8 @@ class NutritionConsultantBaseline:
         linhas_fatos = "\n".join(f"- {f.texto}" for f in fatos)
         estado = subgrafo.invoke({"pergunta": pergunta, "top_k": top_k,
                                   "consultas_extras": list(consultas_extras), "historico": texto,
-                                  "fatos": linhas_fatos})
+                                  "fatos": linhas_fatos,
+                                  "condicao_de_saude": any(getattr(f, "condicao_de_saude", False) for f in fatos)})
         return estado["resposta"]
 
     def consult(self, user_query: str, top_k: int = TOP_K_FINAL) -> ConsultantResponse:

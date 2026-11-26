@@ -24,6 +24,7 @@ from langgraph.graph.state import CompiledStateGraph
 
 from src.config import ABSTENCAO_LIMIAR_COSSENO
 from src.observabilidade import observacao, resumo_trechos
+from src.agent.guardrails import sem_quantidades
 from src.models.schemas import (
     CausalGraphPath,
     ConsultantResponse,
@@ -45,6 +46,7 @@ class EstadoNutricao(TypedDict, total=False):
     consultas_extras: List[str]
     historico: str
     fatos: str  # Fatos do Usuário entregues pelo Projetor de contexto (issue #112)
+    condicao_de_saude: bool  # um dos fatos entregues é condição de saúde (guardrail de prescrição, #39)
     # Internos do agente.
     avaliacao: GuardrailAssessment
     pergunta_efetiva: str
@@ -71,7 +73,8 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
         # Conformidade com a Lei nº 8.234/91: pedidos individuais viram pergunta populacional.
         pergunta = estado["pergunta"]
         with observacao("guardrail_entrada", tipo="guardrail", input={"query": pergunta}) as obs:
-            avaliacao = consultor.guardrail.assess_and_reframe(pergunta)
+            avaliacao = consultor.guardrail.assess_and_reframe(
+                pergunta, **({"condicao_de_saude": True} if estado.get("condicao_de_saude") else {}))
             obs.update(
                 output={
                     "restrito_lei_8234": avaliacao.is_restricted_by_law_8234,
@@ -221,6 +224,10 @@ def _montar_resposta(consultor: Any, estado: EstadoNutricao) -> ConsultantRespon
             for campo in ("evidence_summary", "physiological_mechanism", "protocol_findings")
         }
         sanitizados = {campo: consultor.guardrail.sanitize_output_text(texto) for campo, texto in brutos.items()}
+        if avaliacao.is_restricted_by_law_8234:
+            # Pergunta pessoal (issue #39): a frase com número e unidade funcionaria como prescrição.
+            # O aviso legal entra por código (legal_compliance_notice), não pelo modelo.
+            sanitizados = {campo: sem_quantidades(texto) for campo, texto in sanitizados.items()}
         alterados = [campo for campo in brutos if brutos[campo] != sanitizados[campo]]
         obs.update(output={"campos_alterados": alterados})
         obs.score_trace(name="guardrail_saida_alterou", value=1.0 if alterados else 0.0, data_type="NUMERIC")

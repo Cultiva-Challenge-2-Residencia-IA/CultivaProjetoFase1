@@ -6,7 +6,7 @@
   "overall_metrics": {
     "mean_doc_recall_at_k": 0.9615,
     "mean_reciprocal_rank_mrr": 0.8526,
-    "mean_keyword_coverage": 0.925,
+    "mean_keyword_coverage": 0.8781,
     "legal_guardrail_accuracy": 1.0
   },
   "metrics_by_category": {
@@ -31,7 +31,7 @@
       "recall_questions_evaluated": 3,
       "mean_doc_recall_at_k": 0.8333,
       "mean_mrr": 0.6111,
-      "mean_keyword_coverage": 0.9167,
+      "mean_keyword_coverage": 0.6667,
       "guardrail_accuracy": 1.0
     }
   },
@@ -351,7 +351,7 @@
       ],
       "doc_recall_at_k": 0.5,
       "reciprocal_rank": 0.5,
-      "keyword_coverage": 0.75,
+      "keyword_coverage": 0.25,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_TOOL",
       "taco_records_count": 0,
       "graph_paths_count": 4,
@@ -386,7 +386,7 @@
       ],
       "doc_recall_at_k": 1.0,
       "reciprocal_rank": 0.3333,
-      "keyword_coverage": 1.0,
+      "keyword_coverage": 0.75,
       "retrieval_mode": "HYBRID_RAG_PLUS_GRAPH_AND_TACO",
       "taco_records_count": 3,
       "graph_paths_count": 4,
@@ -428,7 +428,7 @@
       "model_used": "local_extractive_synthesis",
       "evidence_grade": "GUIDELINE_CONSENSUS",
       "baseline_limitation_note": null,
-      "evidence_summary_preview": "Ingestão proteica, após o exercício físico de hipertrofia, favorece o aumento de massa muscular, quando combinado com a ingestão de carboidratos, reduzindo a degradação proteica [T1]. A dose recomendada é de 10g de proteínas e 20g de carboi"
+      "evidence_summary_preview": "Ingestão proteica, após o exercício físico de hipertrofia, favorece o aumento de massa muscular, quando combinado com a ingestão de carboidratos, reduzindo a degradação proteica [T1]. Esse consumo deve estar de acordo com a ingestão proteic"
     },
     {
       "id": "Q12_DIRECT",
