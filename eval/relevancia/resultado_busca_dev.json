@@ -1,0 +1,1861 @@
+{
+  "split": "dev",
+  "k": 4,
+  "candidatos": 20,
+  "configuracoes": {
+    "base": {
+      "nutricao": {
+        "resumo": {
+          "rr": 0.731,
+          "recall": 0.556,
+          "n": 18,
+          "segundos_mediana": 0.011,
+          "segundos_p95": 0.016
+        },
+        "casos": [
+          {
+            "id": "V2-REC-01",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p048-01",
+              "guia-alimentar-populacao-brasileira-2014-p051-02",
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p009-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p009-01"
+            ],
+            "rr": 1.0,
+            "recall": 1.0
+          },
+          {
+            "id": "V2-REC-02",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p034-02",
+              "guia-alimentar-populacao-brasileira-2014-p036-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p007-03",
+              "guia-alimentar-populacao-brasileira-2014-p036-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.75
+          },
+          {
+            "id": "V2-REC-04",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p014-01",
+              "guia-alimentar-populacao-brasileira-2014-p104-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p008-03",
+              "protocolos-guia-alimentar-fasciculo1-2021-p022-05"
+            ],
+            "rr": 1.0,
+            "recall": 0.75
+          },
+          {
+            "id": "V2-REC-05",
+            "recuperados": [
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p159-02",
+              "guia-alimentar-populacao-brasileira-2014-p052-01",
+              "guia-alimentar-populacao-brasileira-2014-p038-01",
+              "monteiro-nova-classificacao-alimentos-csp-2010-p003-05"
+            ],
+            "rr": 0.5,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-07",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p057-01",
+              "guia-alimentar-populacao-brasileira-2014-p060-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
+              "fusco-ansiedade-sono-compulsao-reeusp-2020-p005-09"
+            ],
+            "rr": 0.5,
+            "recall": 0.6666666666666666
+          },
+          {
+            "id": "V2-REC-08",
+            "recuperados": [
+              "protocolos-guia-alimentar-fasciculo1-2021-p018-03",
+              "protocolos-guia-alimentar-fasciculo1-2021-p014-01",
+              "cfn-codigo-etica-conduta-nutricionista-2018-p018-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p015-01"
+            ],
+            "rr": 0.25,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-10",
+            "recuperados": [
+              "guia-dietas-vegetarianas-svb-2012-p027-03",
+              "guia-dietas-vegetarianas-svb-2012-p029-02",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01",
+              "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-11",
+            "recuperados": [
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-03",
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-07",
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p002-04",
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-03"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-13",
+            "recuperados": [
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-03",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-02",
+              "guia-dietas-vegetarianas-svb-2012-p011-04",
+              "guia-dietas-vegetarianas-svb-2012-p019-01"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-14",
+            "recuperados": [
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p165-01",
+              "azevedo-jejum-intermitente-ramb-2013-p001-03",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p204-02",
+              "azevedo-jejum-intermitente-ramb-2013-p002-01"
+            ],
+            "rr": 0.25,
+            "recall": 1.0
+          },
+          {
+            "id": "V2-REC-16",
+            "recuperados": [
+              "martins-ultraprocessados-rsp-2013-p001-01",
+              "martins-ultraprocessados-rsp-2013-p001-05",
+              "guia-alimentar-populacao-brasileira-2014-p136-01",
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06"
+            ],
+            "rr": 1.0,
+            "recall": 0.25
+          },
+          {
+            "id": "V2-REC-17",
+            "recuperados": [
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06",
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p001-03",
+              "guia-alimentar-populacao-brasileira-2014-p051-01",
+              "louzada-ultraprocessados-micronutrientes-rsp-2015-p003-08"
+            ],
+            "rr": 0.3333333333333333,
+            "recall": 0.25
+          },
+          {
+            "id": "V2-REC-19",
+            "recuperados": [
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p003-05",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p005-01",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p004-01",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p005-03"
+            ],
+            "rr": 1.0,
+            "recall": 0.75
+          },
+          {
+            "id": "V2-REC-20",
+            "recuperados": [
+              "santos-barreiras-frutas-verduras-csc-2019-p004-05",
+              "santos-barreiras-frutas-verduras-csc-2019-p009-02",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p006-03",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p005-04"
+            ],
+            "rr": 0.0,
+            "recall": 0.0
+          },
+          {
+            "id": "V2-REC-22",
+            "recuperados": [
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-03",
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-02",
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p006-04",
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-08"
+            ],
+            "rr": 1.0,
+            "recall": 0.75
+          },
+          {
+            "id": "V2-REC-23",
+            "recuperados": [
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-03",
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-01",
+              "guia-dietas-vegetarianas-svb-2012-p022-02",
+              "guia-dietas-vegetarianas-svb-2012-p023-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-ADV-04",
+            "recuperados": [
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p188-01",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p187-02",
+              "cfn-codigo-etica-conduta-nutricionista-2018-p012-04",
+              "cfn-codigo-etica-conduta-nutricionista-2018-p012-03"
+            ],
+            "rr": 0.3333333333333333,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-GRA-01",
+            "recuperados": [
+              "guia-dietas-vegetarianas-svb-2012-p027-03",
+              "guia-dietas-vegetarianas-svb-2012-p028-03",
+              "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01"
+            ],
+            "rr": 1.0,
+            "recall": 0.3333333333333333
+          }
+        ]
+      },
+      "saude_fisica": {
+        "resumo": {
+          "acerto": 0.6,
+          "rr": 0.367,
+          "n": 20,
+          "segundos_mediana": 0.012,
+          "segundos_p95": 0.022
+        },
+        "casos": [
+          {
+            "id": "SFN01",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p010-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "guia-atividade-fisica-brasil-2021-p040-03"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN02",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p079-01",
+              "who-package-rehabilitation-musculoskeletal-2023-p046-01",
+              "who-package-rehabilitation-musculoskeletal-2023-p043-01",
+              "guia-atividade-fisica-brasil-2021-p017-03"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN03",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p045-01",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "hhs-physical-activity-scientific-report-2018-p080-02",
+              "hhs-physical-activity-scientific-report-2018-p466-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN04",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-03",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-07",
+              "guia-atividade-fisica-brasil-2021-p039-02",
+              "guia-atividade-fisica-brasil-2021-p010-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN05",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-06",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "jospt-low-back-pain-cpg-revision-2021-s006-16",
+              "jospt-low-back-pain-cpg-revision-2021-s006-51"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN06",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "guia-atividade-fisica-brasil-2021-p010-01",
+              "guia-atividade-fisica-brasil-2021-p006-01"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN07",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p042-01",
+              "guia-atividade-fisica-brasil-2021-p010-02",
+              "hhs-physical-activity-scientific-report-2018-p652-02",
+              "hhs-physical-activity-scientific-report-2018-p652-03"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN08",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "guia-atividade-fisica-brasil-2021-p027-02",
+              "guia-atividade-fisica-brasil-2021-p050-01"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN09",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p015-02",
+              "guia-atividade-fisica-brasil-2021-p017-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "hhs-physical-activity-scientific-report-2018-p525-03"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN10",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p008-01",
+              "guia-atividade-fisica-brasil-2021-p043-01",
+              "nhs-warm-up-before-exercise-s007-02",
+              "nhs-warm-up-before-exercise-s001-01"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN11",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p010-01",
+              "guia-atividade-fisica-brasil-2021-p046-01",
+              "hhs-physical-activity-scientific-report-2018-p363-03",
+              "hhs-physical-activity-scientific-report-2018-p040-04"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN12",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p032-02",
+              "guia-atividade-fisica-brasil-2021-p040-01",
+              "hhs-physical-activity-scientific-report-2018-p078-01",
+              "hhs-physical-activity-scientific-report-2018-p149-04"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN13",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-07",
+              "guia-atividade-fisica-brasil-2021-p032-01",
+              "guia-atividade-fisica-brasil-2021-p015-03",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-05"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN14",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p040-01",
+              "guia-atividade-fisica-brasil-2021-p039-02",
+              "ioc-load-sport-injury-2016-p006-10",
+              "ioc-load-sport-injury-2016-p012-05"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN15",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "guia-atividade-fisica-brasil-2021-p045-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-07",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-16"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN16",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p041-01",
+              "guia-atividade-fisica-brasil-2021-p040-03",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p016-02",
+              "who-physical-activity-at-a-glance-2020-p014-02"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN17",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p031-03",
+              "guia-atividade-fisica-brasil-2021-p029-01",
+              "hhs-physical-activity-scientific-report-2018-p080-02",
+              "hhs-physical-activity-scientific-report-2018-p466-02"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN18",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p039-02",
+              "guia-atividade-fisica-brasil-2021-p033-01",
+              "hhs-physical-activity-scientific-report-2018-p532-03",
+              "hhs-physical-activity-scientific-report-2018-p587-02"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN19",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p016-01",
+              "guia-atividade-fisica-brasil-2021-p038-02",
+              "hhs-physical-activity-scientific-report-2018-p464-03",
+              "hhs-physical-activity-scientific-report-2018-p653-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN20",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p027-02",
+              "guia-atividade-fisica-brasil-2021-p043-01",
+              "acsm-resistance-training-position-stand-2026-s002-07",
+              "acsm-resistance-training-position-stand-2026-s004-04"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          }
+        ]
+      },
+      "saude_fisica_99_ja_visto": {
+        "resumo": {
+          "acerto": 0.933,
+          "rr": 0.567,
+          "n": 15,
+          "segundos_mediana": 0.011,
+          "segundos_p95": 0.013
+        },
+        "casos": [
+          {
+            "id": "SF01",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p046-02",
+              "guia-atividade-fisica-brasil-2021-p025-01",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p037-06",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p012-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF02",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p012-02",
+              "guia-atividade-fisica-brasil-2021-p046-01",
+              "who-physical-activity-at-a-glance-2020-p009-02",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p011-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF03",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p042-03",
+              "guia-atividade-fisica-brasil-2021-p011-01",
+              "hhs-physical-activity-scientific-report-2018-p432-02",
+              "hhs-physical-activity-scientific-report-2018-p732-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF04",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p035-02",
+              "guia-atividade-fisica-brasil-2021-p035-03",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-08",
+              "ioc-load-sport-injury-2016-p005-02"
+            ],
+            "acerto": 1.0,
+            "rr": 0.25
+          },
+          {
+            "id": "SF05",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p040-01",
+              "guia-atividade-fisica-brasil-2021-p039-02",
+              "ioc-load-sport-illness-2016-p004-10",
+              "ioc-load-sport-illness-2016-p004-09"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SF06",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-16",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF07",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p008-02",
+              "guia-atividade-fisica-brasil-2021-p008-03",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p021-02",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p019-08"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SF08",
+            "recuperados": [
+              "jospt-ankle-ligament-sprains-cpg-2021-p080-02",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p021-02",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p020-05",
+              "jospt-ankle-ligament-sprains-cpg-2021-p031-04"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF09",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "guia-atividade-fisica-brasil-2021-p010-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "guia-atividade-fisica-brasil-2021-p039-02"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SF10",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p044-01",
+              "guia-atividade-fisica-brasil-2021-p010-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "nhs-warm-up-before-exercise-s001-01"
+            ],
+            "acerto": 1.0,
+            "rr": 0.25
+          },
+          {
+            "id": "SF11",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p027-02",
+              "guia-atividade-fisica-brasil-2021-p032-02",
+              "hhs-physical-activity-scientific-report-2018-p690-02",
+              "who-physical-activity-at-a-glance-2020-p007-05"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF12",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-08",
+              "guia-atividade-fisica-brasil-2021-p046-02",
+              "guia-atividade-fisica-brasil-2021-p030-02"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SF13",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p017-02",
+              "guia-atividade-fisica-brasil-2021-p024-02",
+              "hhs-physical-activity-scientific-report-2018-p217-01",
+              "hhs-physical-activity-scientific-report-2018-p218-03"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SF14",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-03",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "jospt-patellofemoral-pain-infographic-2019-p001-02",
+              "nice-low-back-pain-sciatica-ng59-s001-42"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SF15",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p023-01",
+              "guia-atividade-fisica-brasil-2021-p028-01",
+              "who-physical-activity-factsheet-2024-s005-01",
+              "who-physical-activity-factsheet-2024-s005-03"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          }
+        ]
+      }
+    },
+    "BAAI/bge-reranker-v2-m3": {
+      "nutricao": {
+        "resumo": {
+          "rr": 0.833,
+          "recall": 0.532,
+          "n": 18,
+          "segundos_mediana": 4.52,
+          "segundos_p95": 7.047
+        },
+        "casos": [
+          {
+            "id": "V2-REC-01",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p051-02",
+              "guia-alimentar-populacao-brasileira-2014-p052-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p015-01",
+              "souza-backes-universitarios-csc-2020-p005-03"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-02",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p034-02",
+              "guia-alimentar-populacao-brasileira-2014-p050-02",
+              "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p007-07",
+              "protocolos-guia-alimentar-fasciculo1-2021-p007-03"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-04",
+            "recuperados": [
+              "protocolos-guia-alimentar-fasciculo1-2021-p016-02",
+              "guia-alimentar-populacao-brasileira-2014-p014-01",
+              "guia-alimentar-populacao-brasileira-2014-p141-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p008-03"
+            ],
+            "rr": 0.5,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-05",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p038-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p007-03",
+              "guia-alimentar-populacao-brasileira-2014-p052-01",
+              "monteiro-nova-classificacao-alimentos-csp-2010-p010-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-07",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p057-01",
+              "guia-alimentar-populacao-brasileira-2014-p060-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p008-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p022-01"
+            ],
+            "rr": 0.5,
+            "recall": 0.3333333333333333
+          },
+          {
+            "id": "V2-REC-08",
+            "recuperados": [
+              "protocolos-guia-alimentar-fasciculo1-2021-p018-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p015-01",
+              "cfn-codigo-etica-conduta-nutricionista-2018-p018-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p015-04"
+            ],
+            "rr": 1.0,
+            "recall": 1.0
+          },
+          {
+            "id": "V2-REC-10",
+            "recuperados": [
+              "guia-dietas-vegetarianas-svb-2012-p005-03",
+              "guia-dietas-vegetarianas-svb-2012-p029-03",
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p003-09",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-11",
+            "recuperados": [
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-07",
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-01",
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p002-04",
+              "salvi-estudantes-enfermagem-sono-reben-2020-p004-07"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-13",
+            "recuperados": [
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-02",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-03",
+              "guia-dietas-vegetarianas-svb-2012-p013-04",
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p002-06"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-14",
+            "recuperados": [
+              "azevedo-jejum-intermitente-ramb-2013-p002-01",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p165-01",
+              "azevedo-jejum-intermitente-ramb-2013-p001-03",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p168-01"
+            ],
+            "rr": 1.0,
+            "recall": 1.0
+          },
+          {
+            "id": "V2-REC-16",
+            "recuperados": [
+              "martins-ultraprocessados-rsp-2013-p001-04",
+              "martins-ultraprocessados-rsp-2013-p003-02",
+              "guia-alimentar-populacao-brasileira-2014-p136-01",
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-17",
+            "recuperados": [
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p002-02",
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p001-02",
+              "guia-alimentar-populacao-brasileira-2014-p043-02",
+              "guia-alimentar-populacao-brasileira-2014-p040-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-19",
+            "recuperados": [
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p001-01",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p003-05",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p003-06",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p001-02"
+            ],
+            "rr": 0.5,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-20",
+            "recuperados": [
+              "santos-barreiras-frutas-verduras-csc-2019-p007-02",
+              "santos-barreiras-frutas-verduras-csc-2019-p001-04",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p006-03",
+              "santos-barreiras-frutas-verduras-csc-2019-p008-02"
+            ],
+            "rr": 0.5,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-22",
+            "recuperados": [
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-01",
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-08",
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-03",
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.75
+          },
+          {
+            "id": "V2-REC-23",
+            "recuperados": [
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-03",
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-01",
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p003-06",
+              "guia-dietas-vegetarianas-svb-2012-p023-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-ADV-04",
+            "recuperados": [
+              "cfn-codigo-etica-conduta-nutricionista-2018-p012-03",
+              "cfn-codigo-etica-conduta-nutricionista-2018-p012-04",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p188-01",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p187-01"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-GRA-01",
+            "recuperados": [
+              "guia-dietas-vegetarianas-svb-2012-p044-02",
+              "guia-alimentar-populacao-brasileira-2014-p068-03",
+              "guia-dietas-vegetarianas-svb-2012-p029-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p019-03"
+            ],
+            "rr": 0.0,
+            "recall": 0.0
+          }
+        ]
+      },
+      "saude_fisica": {
+        "resumo": {
+          "acerto": 0.75,
+          "rr": 0.613,
+          "n": 20,
+          "segundos_mediana": 3.952,
+          "segundos_p95": 5.195
+        },
+        "casos": [
+          {
+            "id": "SFN01",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p464-03",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-05",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-02",
+              "guia-atividade-fisica-brasil-2021-p010-01"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN02",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p079-01",
+              "guia-atividade-fisica-brasil-2021-p017-03",
+              "who-package-rehabilitation-musculoskeletal-2023-p043-01",
+              "hhs-physical-activity-scientific-report-2018-p080-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN03",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p046-02",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "hhs-physical-activity-scientific-report-2018-p080-02",
+              "hhs-physical-activity-scientific-report-2018-p079-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN04",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-07",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "nice-low-back-pain-sciatica-ng59-s001-14",
+              "guia-atividade-fisica-brasil-2021-p039-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN05",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-07",
+              "jospt-low-back-pain-cpg-revision-2021-s006-51",
+              "guia-atividade-fisica-brasil-2021-p029-01"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN06",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-17",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p037-01",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p037-05"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN07",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p103-04",
+              "guia-atividade-fisica-brasil-2021-p013-03",
+              "guia-atividade-fisica-brasil-2021-p023-02",
+              "hhs-physical-activity-scientific-report-2018-p319-02"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN08",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-17",
+              "guia-atividade-fisica-brasil-2021-p027-02",
+              "guia-atividade-fisica-brasil-2021-p050-01"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN09",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p006-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "guia-atividade-fisica-brasil-2021-p033-01",
+              "hhs-physical-activity-scientific-report-2018-p517-02"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN10",
+            "recuperados": [
+              "nhs-warm-up-before-exercise-s001-01",
+              "guia-atividade-fisica-brasil-2021-p043-01",
+              "nhs-warm-up-before-exercise-s007-02",
+              "guia-atividade-fisica-brasil-2021-p027-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN11",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p031-03",
+              "guia-atividade-fisica-brasil-2021-p025-01",
+              "hhs-physical-activity-scientific-report-2018-p363-03",
+              "hhs-physical-activity-scientific-report-2018-p509-05"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN12",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p078-01",
+              "hhs-physical-activity-scientific-report-2018-p150-01",
+              "guia-atividade-fisica-brasil-2021-p027-02",
+              "guia-atividade-fisica-brasil-2021-p043-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN13",
+            "recuperados": [
+              "ioc-load-sport-illness-2016-p005-08",
+              "ioc-load-sport-illness-2016-p010-08",
+              "guia-atividade-fisica-brasil-2021-p027-02",
+              "guia-atividade-fisica-brasil-2021-p042-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN14",
+            "recuperados": [
+              "ioc-load-sport-injury-2016-p012-05",
+              "ioc-load-sport-illness-2016-p005-05",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "guia-atividade-fisica-brasil-2021-p030-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN15",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p193-03",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "guia-atividade-fisica-brasil-2021-p045-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-15"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN16",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p041-01",
+              "nhs-physical-activity-adults-19-64-s001-02",
+              "guia-atividade-fisica-brasil-2021-p041-02",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p016-02"
+            ],
+            "acerto": 1.0,
+            "rr": 0.25
+          },
+          {
+            "id": "SFN17",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "guia-atividade-fisica-brasil-2021-p029-01",
+              "hhs-physical-activity-scientific-report-2018-p475-04",
+              "hhs-physical-activity-scientific-report-2018-p466-02"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN18",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p033-01",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "hhs-physical-activity-scientific-report-2018-p532-03",
+              "hhs-physical-activity-scientific-report-2018-p744-02"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN19",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p046-01",
+              "guia-atividade-fisica-brasil-2021-p013-03",
+              "hhs-physical-activity-scientific-report-2018-p464-03",
+              "hhs-physical-activity-scientific-report-2018-p653-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN20",
+            "recuperados": [
+              "acsm-resistance-training-position-stand-2026-s002-07",
+              "hhs-physical-activity-scientific-report-2018-p758-03",
+              "guia-atividade-fisica-brasil-2021-p017-03",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-05"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          }
+        ]
+      },
+      "saude_fisica_99_ja_visto": {
+        "resumo": {
+          "acerto": 0.933,
+          "rr": 0.9,
+          "n": 15,
+          "segundos_mediana": 3.678,
+          "segundos_p95": 5.423
+        },
+        "casos": [
+          {
+            "id": "SF01",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p046-02",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p012-02",
+              "guia-atividade-fisica-brasil-2021-p025-01",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p037-06"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF02",
+            "recuperados": [
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p035-03",
+              "guia-atividade-fisica-brasil-2021-p046-01",
+              "who-physical-activity-at-a-glance-2020-p009-02",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p011-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF03",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p039-01",
+              "guia-atividade-fisica-brasil-2021-p042-03",
+              "hhs-physical-activity-scientific-report-2018-p432-03",
+              "hhs-physical-activity-scientific-report-2018-p732-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF04",
+            "recuperados": [
+              "ioc-load-sport-injury-2016-p005-02",
+              "ioc-load-sport-injury-2016-p011-04",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-08",
+              "guia-atividade-fisica-brasil-2021-p029-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF05",
+            "recuperados": [
+              "ioc-load-sport-illness-2016-p004-10",
+              "ioc-load-sport-illness-2016-p005-03",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "guia-atividade-fisica-brasil-2021-p039-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF06",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-19",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-16"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF07",
+            "recuperados": [
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p029-06",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p019-08",
+              "guia-atividade-fisica-brasil-2021-p050-02",
+              "guia-atividade-fisica-brasil-2021-p008-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF08",
+            "recuperados": [
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p020-03",
+              "jospt-ankle-ligament-sprains-cpg-2021-p028-02",
+              "jospt-ankle-ligament-sprains-cpg-2021-p031-04",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p021-06"
+            ],
+            "acerto": 1.0,
+            "rr": 0.5
+          },
+          {
+            "id": "SF09",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "hhs-physical-activity-scientific-report-2018-p517-02",
+              "guia-atividade-fisica-brasil-2021-p029-02"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SF10",
+            "recuperados": [
+              "nhs-warm-up-before-exercise-s001-01",
+              "nhs-warm-up-before-exercise-s007-01",
+              "guia-atividade-fisica-brasil-2021-p033-01",
+              "guia-atividade-fisica-brasil-2021-p037-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF11",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p027-02",
+              "guia-atividade-fisica-brasil-2021-p032-02",
+              "who-physical-activity-at-a-glance-2020-p007-05",
+              "hhs-physical-activity-scientific-report-2018-p690-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF12",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p046-02",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p014-03",
+              "guia-atividade-fisica-brasil-2021-p025-01",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p018-03"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF13",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p217-03",
+              "guia-atividade-fisica-brasil-2021-p024-02",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "hhs-physical-activity-scientific-report-2018-p218-03"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF14",
+            "recuperados": [
+              "jospt-patellofemoral-pain-infographic-2019-p001-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-03",
+              "nice-low-back-pain-sciatica-ng59-s001-42"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF15",
+            "recuperados": [
+              "who-physical-activity-factsheet-2024-s005-01",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p025-03",
+              "who-physical-activity-factsheet-2024-s005-03",
+              "guia-atividade-fisica-brasil-2021-p007-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          }
+        ]
+      }
+    },
+    "jinaai/jina-reranker-v2-base-multilingual": {
+      "nutricao": {
+        "resumo": {
+          "rr": 0.931,
+          "recall": 0.551,
+          "n": 18,
+          "segundos_mediana": 1.542,
+          "segundos_p95": 2.503
+        },
+        "casos": [
+          {
+            "id": "V2-REC-01",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p048-01",
+              "guia-alimentar-populacao-brasileira-2014-p051-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p015-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p009-01"
+            ],
+            "rr": 1.0,
+            "recall": 1.0
+          },
+          {
+            "id": "V2-REC-02",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p034-02",
+              "guia-alimentar-populacao-brasileira-2014-p050-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p007-03",
+              "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p007-07"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-04",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p104-02",
+              "guia-alimentar-populacao-brasileira-2014-p122-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p016-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p008-03"
+            ],
+            "rr": 1.0,
+            "recall": 0.75
+          },
+          {
+            "id": "V2-REC-05",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p038-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p007-03",
+              "guia-alimentar-populacao-brasileira-2014-p038-01",
+              "monteiro-nova-classificacao-alimentos-csp-2010-p004-04"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-07",
+            "recuperados": [
+              "guia-alimentar-populacao-brasileira-2014-p057-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p022-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p008-02",
+              "guia-alimentar-populacao-brasileira-2014-p060-01"
+            ],
+            "rr": 0.25,
+            "recall": 0.3333333333333333
+          },
+          {
+            "id": "V2-REC-08",
+            "recuperados": [
+              "protocolos-guia-alimentar-fasciculo1-2021-p018-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p017-02",
+              "cfn-codigo-etica-conduta-nutricionista-2018-p018-01",
+              "protocolos-guia-alimentar-fasciculo1-2021-p018-03"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-10",
+            "recuperados": [
+              "guia-dietas-vegetarianas-svb-2012-p005-03",
+              "guia-dietas-vegetarianas-svb-2012-p029-02",
+              "guia-alimentar-populacao-brasileira-2014-p068-03",
+              "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-11",
+            "recuperados": [
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-01",
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-07",
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p002-04",
+              "salvi-estudantes-enfermagem-sono-reben-2020-p004-07"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-13",
+            "recuperados": [
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-03",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-02",
+              "guia-dietas-vegetarianas-svb-2012-p013-04",
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p002-06"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-14",
+            "recuperados": [
+              "azevedo-jejum-intermitente-ramb-2013-p002-01",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p165-01",
+              "azevedo-jejum-intermitente-ramb-2013-p001-03",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p204-02"
+            ],
+            "rr": 1.0,
+            "recall": 1.0
+          },
+          {
+            "id": "V2-REC-16",
+            "recuperados": [
+              "martins-ultraprocessados-rsp-2013-p001-04",
+              "martins-ultraprocessados-rsp-2013-p008-03",
+              "guia-alimentar-populacao-brasileira-2014-p136-01",
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06"
+            ],
+            "rr": 1.0,
+            "recall": 0.25
+          },
+          {
+            "id": "V2-REC-17",
+            "recuperados": [
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p001-02",
+              "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p002-02",
+              "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06",
+              "guia-alimentar-populacao-brasileira-2014-p043-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-19",
+            "recuperados": [
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p003-05",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p004-01",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p001-01",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p006-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-20",
+            "recuperados": [
+              "santos-barreiras-frutas-verduras-csc-2019-p007-01",
+              "santos-barreiras-frutas-verduras-csc-2019-p001-01",
+              "jaime-frutas-hortalicas-brasil-rsp-2009-p006-03",
+              "santos-barreiras-frutas-verduras-csc-2019-p008-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-REC-22",
+            "recuperados": [
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-01",
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-03",
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p006-04",
+              "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-08"
+            ],
+            "rr": 1.0,
+            "recall": 0.75
+          },
+          {
+            "id": "V2-REC-23",
+            "recuperados": [
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-03",
+              "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p001-02",
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p003-06",
+              "guia-dietas-vegetarianas-svb-2012-p023-02"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-ADV-04",
+            "recuperados": [
+              "cfn-codigo-etica-conduta-nutricionista-2018-p012-04",
+              "cfn-codigo-etica-conduta-nutricionista-2018-p012-03",
+              "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p188-01",
+              "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p010-12"
+            ],
+            "rr": 1.0,
+            "recall": 0.5
+          },
+          {
+            "id": "V2-GRA-01",
+            "recuperados": [
+              "guia-dietas-vegetarianas-svb-2012-p044-02",
+              "guia-dietas-vegetarianas-svb-2012-p029-02",
+              "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
+              "guia-alimentar-populacao-brasileira-2014-p068-03"
+            ],
+            "rr": 0.5,
+            "recall": 0.3333333333333333
+          }
+        ]
+      },
+      "saude_fisica": {
+        "resumo": {
+          "acerto": 0.8,
+          "rr": 0.625,
+          "n": 20,
+          "segundos_mediana": 1.314,
+          "segundos_p95": 1.702
+        },
+        "casos": [
+          {
+            "id": "SFN01",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p464-03",
+              "hhs-physical-activity-scientific-report-2018-p762-02",
+              "guia-atividade-fisica-brasil-2021-p045-01",
+              "guia-atividade-fisica-brasil-2021-p040-03"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN02",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p079-01",
+              "who-package-rehabilitation-musculoskeletal-2023-p043-01",
+              "acsm-resistance-training-position-stand-2026-s001-06",
+              "hhs-physical-activity-scientific-report-2018-p080-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN03",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p080-02",
+              "guia-atividade-fisica-brasil-2021-p046-02",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "hhs-physical-activity-scientific-report-2018-p079-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN04",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-03",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-07",
+              "nice-low-back-pain-sciatica-ng59-s001-14",
+              "nice-low-back-pain-sciatica-ng59-s001-10"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN05",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-07",
+              "jospt-low-back-pain-cpg-revision-2021-s006-36",
+              "jospt-low-back-pain-cpg-revision-2021-s006-16"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN06",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p574-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p009-04",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p002-04"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN07",
+            "recuperados": [
+              "jospt-ankle-ligament-sprains-cpg-2021-p028-07",
+              "jospt-ankle-ligament-sprains-cpg-2021-p031-09",
+              "guia-atividade-fisica-brasil-2021-p013-03",
+              "guia-atividade-fisica-brasil-2021-p042-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN08",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-10",
+              "hhs-physical-activity-scientific-report-2018-p523-02",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p031-07"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN09",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p517-01",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "hhs-physical-activity-scientific-report-2018-p525-03",
+              "guia-atividade-fisica-brasil-2021-p022-02"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN10",
+            "recuperados": [
+              "nhs-warm-up-before-exercise-s001-01",
+              "nhs-warm-up-before-exercise-s007-02",
+              "guia-atividade-fisica-brasil-2021-p027-02",
+              "guia-atividade-fisica-brasil-2021-p021-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN11",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p363-03",
+              "guia-atividade-fisica-brasil-2021-p013-01",
+              "hhs-physical-activity-scientific-report-2018-p509-05",
+              "guia-atividade-fisica-brasil-2021-p025-01"
+            ],
+            "acerto": 1.0,
+            "rr": 0.5
+          },
+          {
+            "id": "SFN12",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p078-01",
+              "hhs-physical-activity-scientific-report-2018-p149-04",
+              "guia-atividade-fisica-brasil-2021-p019-02",
+              "guia-atividade-fisica-brasil-2021-p031-03"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN13",
+            "recuperados": [
+              "ioc-load-sport-illness-2016-p005-08",
+              "ioc-load-sport-illness-2016-p010-08",
+              "guia-atividade-fisica-brasil-2021-p022-02",
+              "guia-atividade-fisica-brasil-2021-p009-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN14",
+            "recuperados": [
+              "ioc-load-sport-injury-2016-p012-05",
+              "ioc-load-sport-illness-2016-p005-05",
+              "ioc-load-sport-injury-2016-p006-10",
+              "guia-atividade-fisica-brasil-2021-p040-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN15",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p193-03",
+              "guia-atividade-fisica-brasil-2021-p045-02",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "hhs-physical-activity-scientific-report-2018-p475-04"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN16",
+            "recuperados": [
+              "nhs-physical-activity-adults-19-64-s001-02",
+              "guia-atividade-fisica-brasil-2021-p040-03",
+              "who-physical-activity-at-a-glance-2020-p014-02",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p016-02"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SFN17",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p080-02",
+              "hhs-physical-activity-scientific-report-2018-p466-02",
+              "guia-atividade-fisica-brasil-2021-p029-01",
+              "guia-atividade-fisica-brasil-2021-p029-02"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SFN18",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "hhs-physical-activity-scientific-report-2018-p532-03",
+              "guia-atividade-fisica-brasil-2021-p033-01",
+              "hhs-physical-activity-scientific-report-2018-p744-02"
+            ],
+            "acerto": 1.0,
+            "rr": 0.5
+          },
+          {
+            "id": "SFN19",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p046-01",
+              "guia-atividade-fisica-brasil-2021-p013-03",
+              "hhs-physical-activity-scientific-report-2018-p464-03",
+              "hhs-physical-activity-scientific-report-2018-p653-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SFN20",
+            "recuperados": [
+              "hhs-physical-activity-scientific-report-2018-p758-03",
+              "acsm-resistance-training-position-stand-2026-s002-07",
+              "hhs-physical-activity-scientific-report-2018-p080-02",
+              "acsm-resistance-training-position-stand-2026-s004-04"
+            ],
+            "acerto": 1.0,
+            "rr": 0.5
+          }
+        ]
+      },
+      "saude_fisica_99_ja_visto": {
+        "resumo": {
+          "acerto": 0.933,
+          "rr": 0.856,
+          "n": 15,
+          "segundos_mediana": 1.25,
+          "segundos_p95": 1.867
+        },
+        "casos": [
+          {
+            "id": "SF01",
+            "recuperados": [
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p012-02",
+              "guia-atividade-fisica-brasil-2021-p046-02",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p037-06",
+              "guia-atividade-fisica-brasil-2021-p025-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF02",
+            "recuperados": [
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p035-03",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p011-02",
+              "who-physical-activity-at-a-glance-2020-p009-02",
+              "guia-atividade-fisica-brasil-2021-p046-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF03",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p042-03",
+              "guia-atividade-fisica-brasil-2021-p039-01",
+              "hhs-physical-activity-scientific-report-2018-p432-03",
+              "hhs-physical-activity-scientific-report-2018-p732-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF04",
+            "recuperados": [
+              "ioc-load-sport-injury-2016-p005-02",
+              "ioc-load-sport-injury-2016-p011-04",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "guia-atividade-fisica-brasil-2021-p009-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF05",
+            "recuperados": [
+              "ioc-load-sport-illness-2016-p004-10",
+              "ioc-load-sport-illness-2016-p005-03",
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-15"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF06",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-03",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-19",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF07",
+            "recuperados": [
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p029-06",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p019-08",
+              "guia-atividade-fisica-brasil-2021-p008-02",
+              "guia-atividade-fisica-brasil-2021-p050-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF08",
+            "recuperados": [
+              "jospt-ankle-ligament-sprains-cpg-2021-p031-04",
+              "jospt-ankle-ligament-sprains-cpg-2021-p028-02",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p020-03",
+              "jospt-rotator-cuff-tendinopathy-cpg-2025-p021-06"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF09",
+            "recuperados": [
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+              "hhs-physical-activity-scientific-report-2018-p517-02",
+              "hhs-physical-activity-scientific-report-2018-p525-03",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-01"
+            ],
+            "acerto": 0.0,
+            "rr": 0.0
+          },
+          {
+            "id": "SF10",
+            "recuperados": [
+              "nhs-warm-up-before-exercise-s001-01",
+              "nhs-warm-up-before-exercise-s007-01",
+              "guia-atividade-fisica-brasil-2021-p037-01",
+              "guia-atividade-fisica-brasil-2021-p033-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF11",
+            "recuperados": [
+              "who-physical-activity-at-a-glance-2020-p007-05",
+              "guia-atividade-fisica-brasil-2021-p027-02",
+              "guia-atividade-fisica-brasil-2021-p049-03",
+              "hhs-physical-activity-scientific-report-2018-p690-02"
+            ],
+            "acerto": 1.0,
+            "rr": 0.5
+          },
+          {
+            "id": "SF12",
+            "recuperados": [
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p014-03",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p018-03",
+              "guia-atividade-fisica-brasil-2021-p046-02",
+              "guia-atividade-fisica-brasil-2021-p025-01"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF13",
+            "recuperados": [
+              "guia-atividade-fisica-brasil-2021-p029-02",
+              "guia-atividade-fisica-brasil-2021-p045-02",
+              "hhs-physical-activity-scientific-report-2018-p217-03",
+              "hhs-physical-activity-scientific-report-2018-p218-03"
+            ],
+            "acerto": 1.0,
+            "rr": 0.3333333333333333
+          },
+          {
+            "id": "SF14",
+            "recuperados": [
+              "jospt-patellofemoral-pain-infographic-2019-p001-02",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-13",
+              "cochrane-exercise-chronic-low-back-pain-2021-s001-10",
+              "nice-low-back-pain-sciatica-ng59-s001-42"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          },
+          {
+            "id": "SF15",
+            "recuperados": [
+              "who-physical-activity-factsheet-2024-s005-01",
+              "who-diretrizes-atividade-fisica-sedentarismo-2020-p025-03",
+              "who-physical-activity-factsheet-2024-s005-03",
+              "guia-atividade-fisica-brasil-2021-p011-02"
+            ],
+            "acerto": 1.0,
+            "rr": 1.0
+          }
+        ]
+      }
+    }
+  }
+}

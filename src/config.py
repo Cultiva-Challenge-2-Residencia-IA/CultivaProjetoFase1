@@ -169,6 +169,38 @@ MODO_DENSO = os.getenv("MODO_DENSO", "chromadb_pure")
 RERANK_PESO_SOBREPOSICAO = float(os.getenv("RERANK_PESO_SOBREPOSICAO", "0.0"))
 RERANK_BONUS_EVIDENCIA = os.getenv("RERANK_BONUS_EVIDENCIA", "false").strip().lower() in {"1", "true", "sim"}
 
+
+def _ligado(nome: str, padrao: str) -> bool:
+    return os.getenv(nome, padrao).strip().lower() in {"1", "true", "sim", "yes"}
+
+
+# Relevância da busca (issue #105; critérios e medição em eval/relevancia/). Reranker cross-encoder
+# multilíngue, local pelo fastembed, sobre os RERANKER_CANDIDATOS primeiros da busca híbrida, ligado
+# por área. No dev com o e5-large (#15): em Saúde Física, MRR da fonte de 0,300 para 0,667 (jina) e
+# 0,600 (bge); em Nutrição, recall@4 de 0,602 para 0,579, e a regra registrada não deixa ligar com piora.
+# Licença do jina: CC BY-NC 4.0 (pesquisa e avaliação; projeto acadêmico). O bge-reranker-v2-m3 é
+# Apache-2.0 e cerca de 2,7 vezes mais lento.
+RERANKER_MODELO = os.getenv("RERANKER_MODELO", "jinaai/jina-reranker-v2-base-multilingual")
+RERANKER_CANDIDATOS = int(os.getenv("RERANKER_CANDIDATOS", "20"))
+RERANKER_NUTRICAO = _ligado("CULTIVA_RERANKER_NUTRICAO", "false")
+RERANKER_SAUDE_FISICA = _ligado("CULTIVA_RERANKER_SAUDE_FISICA", "true")
+# Filtro de relevância antes da síntese, por área: Trecho com nota do cross-encoder abaixo do limiar
+# não vai para a síntese; sem nenhum, a resposta é a lacuna explícita (src/rag/relevancia.py). Limiar
+# calibrado no dev das duas áreas juntas (lacuna indevida <= 5%; 0,146 com o MiniLM, 0,145 com o
+# e5-large). Desligado por padrão nas duas áreas (revisão do PR da #105, 26/11/2026): em Saúde Física,
+# a lacuna indevida foi de 0,17 no test com o MiniLM e de 0,10 no dev com o e5-large (critério 0,05);
+# em Nutrição, derrubava o gate v1 com o MiniLM. Volta num novo ciclo, com casos novos.
+FILTRO_RELEVANCIA_NUTRICAO = _ligado("CULTIVA_FILTRO_RELEVANCIA_NUTRICAO", "false")
+FILTRO_RELEVANCIA_SAUDE_FISICA = _ligado("CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA", "false")
+FILTRO_RELEVANCIA_LIMIAR = float(os.getenv("FILTRO_RELEVANCIA_LIMIAR", "0.146"))
+# Reformulação pelo LLM quando nenhum Trecho passa: desligada, porque no dev tirou da lacuna também
+# casos sem base (lacuna de 0,714 para 0,643).
+REFORMULACAO_LLM = _ligado("CULTIVA_REFORMULACAO_LLM", "false")
+# Trecho hipotético (HyDE) na busca só do Agente de Saúde Física (CULTIVA_HYDE_NA_BUSCA vale para as
+# duas). Desligado pela regra do dev: com o e5-large, MRR da fonte +0,037 (a regra pede +0,05), e as
+# duas consultas extras levam o agente de cerca de 1,3 s para 4,2 s. Com o MiniLM: +0,075 no dev, −0,042 no test.
+HYDE_NA_BUSCA_SAUDE_FISICA = _ligado("CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA", "false")
+
 # Observabilidade (proposta técnica, ainda não documentada na Documentacao-Cultiva; ADR 0003).
 # Desligada por padrão: só envia traces ao Langfuse com CULTIVA_LANGFUSE=true e as chaves
 # LANGFUSE_PUBLIC_KEY e LANGFUSE_SECRET_KEY definidas. O destino padrão é um Langfuse local

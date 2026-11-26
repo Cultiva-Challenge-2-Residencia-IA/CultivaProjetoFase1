@@ -310,6 +310,22 @@ def test_frase_repetida_dentro_do_mesmo_item_aparece_uma_vez(tmp_path, agentes):
     assert resposta.texto_com_marcadores.count("Os mecanismos biológicos") == 1
 
 
+def test_trecho_hipotetico_vai_so_a_busca_de_saude_fisica(tmp_path, agentes):
+    """Issue #105: com o HyDE de Saúde Física ligado (desligado por padrão), ele entra na busca do Agente de Saúde Física e não na de Nutrição."""
+    def llm(sistema: str, usuario: str) -> Optional[dict]:
+        if "prepara buscas" not in sistema:
+            return None
+        return {"pergunta_completa": "O que comer antes do treino de perna?", "subperguntas": [
+            {"area": "nutricao", "pergunta": "O que comer antes do treino?", "trecho_hipotetico": "Carboidratos antes."},
+            {"area": "saude_fisica", "pergunta": "Treino de perna", "trecho_hipotetico": "Lower body training."}]}
+
+    servico = _servico(tmp_path, agentes, llm=llm)
+    servico.hyde_na_busca, servico.hyde_na_busca_saude_fisica = False, True
+    servico.enviar(CHAT_GERAL, "u1", "c1", "O que comer antes de treinar perna?")
+    assert "Lower body training." in agentes[AREA_SAUDE_FISICA].chamadas[-1]["extras"]
+    assert "Carboidratos antes." not in agentes[AREA_NUTRICAO].chamadas[-1]["extras"]
+
+
 def test_resposta_traz_o_tempo_de_cada_etapa(tmp_path, agentes):
     # Issue #107: a medição de latência lê estes tempos.
     resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "O que comer antes do treino de musculação?")

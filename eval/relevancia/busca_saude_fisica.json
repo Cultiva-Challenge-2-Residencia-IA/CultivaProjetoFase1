@@ -1,0 +1,299 @@
+{
+ "descricao": "Golden novo de busca do Agente de Saúde Física (issue #105). Perguntas em português do dia a dia, com as fontes esperadas escolhidas pelo conteúdo das fontes (busca de termos no texto dos Trechos), sem rodar a busca. Escrito pelo autor do código antes de qualquer medição.",
+ "casos": [
+  {
+   "id": "SFN01",
+   "split": "dev",
+   "pergunta": "Quantas séries por exercício são indicadas para ganhar força?",
+   "fontes_esperadas": [
+    "acsm-resistance-training-position-stand-2026"
+   ]
+  },
+  {
+   "id": "SFN02",
+   "split": "dev",
+   "pergunta": "Musculação ajuda a ganhar massa muscular depois dos 60 anos?",
+   "fontes_esperadas": [
+    "acsm-resistance-training-position-stand-2026",
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "hhs-physical-activity-scientific-report-2018"
+   ]
+  },
+  {
+   "id": "SFN03",
+   "split": "dev",
+   "pergunta": "Treino de força melhora o equilíbrio e evita quedas em idosos?",
+   "fontes_esperadas": [
+    "acsm-resistance-training-position-stand-2026",
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "hhs-physical-activity-scientific-report-2018",
+    "guia-atividade-fisica-brasil-2021"
+   ]
+  },
+  {
+   "id": "SFN04",
+   "split": "dev",
+   "pergunta": "Estou com dor nas costas faz meses, mexer o corpo ajuda?",
+   "fontes_esperadas": [
+    "jospt-low-back-pain-cpg-revision-2021",
+    "cochrane-exercise-chronic-low-back-pain-2021",
+    "nice-low-back-pain-sciatica-ng59",
+    "who-package-rehabilitation-musculoskeletal-2023"
+   ]
+  },
+  {
+   "id": "SFN05",
+   "split": "dev",
+   "pergunta": "Dor nas costas que desce pela perna: o que as diretrizes dizem sobre exercício?",
+   "fontes_esperadas": [
+    "jospt-low-back-pain-cpg-revision-2021",
+    "nice-low-back-pain-sciatica-ng59"
+   ]
+  },
+  {
+   "id": "SFN06",
+   "split": "dev",
+   "pergunta": "Meu ombro dói quando levanto o braço; exercício de fisioterapia resolve?",
+   "fontes_esperadas": [
+    "jospt-rotator-cuff-tendinopathy-cpg-2025"
+   ]
+  },
+  {
+   "id": "SFN07",
+   "split": "dev",
+   "pergunta": "Torci o pé; usar tornozeleira evita torcer de novo?",
+   "fontes_esperadas": [
+    "jospt-ankle-ligament-sprains-cpg-2021"
+   ]
+  },
+  {
+   "id": "SFN08",
+   "split": "dev",
+   "pergunta": "Dor na frente do joelho ao subir escada: o que costuma ajudar?",
+   "fontes_esperadas": [
+    "jospt-patellofemoral-pain-infographic-2019"
+   ]
+  },
+  {
+   "id": "SFN09",
+   "split": "dev",
+   "pergunta": "Quem tem desgaste no joelho deve perder peso e se exercitar?",
+   "fontes_esperadas": [
+    "nice-osteoarthritis-ng226",
+    "who-package-rehabilitation-musculoskeletal-2023"
+   ]
+  },
+  {
+   "id": "SFN10",
+   "split": "dev",
+   "pergunta": "Como esquentar o corpo antes de malhar em casa?",
+   "fontes_esperadas": [
+    "nhs-warm-up-before-exercise"
+   ]
+  },
+  {
+   "id": "SFN11",
+   "split": "dev",
+   "pergunta": "Que atividades do dia a dia contam como exercício moderado?",
+   "fontes_esperadas": [
+    "nhs-physical-activity-adults-19-64",
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "guia-atividade-fisica-brasil-2021",
+    "who-physical-activity-at-a-glance-2020"
+   ]
+  },
+  {
+   "id": "SFN12",
+   "split": "dev",
+   "pergunta": "Ficar o dia inteiro no sofá aumenta o risco de morrer mais cedo?",
+   "fontes_esperadas": [
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "hhs-physical-activity-scientific-report-2018",
+    "who-physical-activity-factsheet-2024"
+   ]
+  },
+  {
+   "id": "SFN13",
+   "split": "dev",
+   "pergunta": "Atleta que viaja muito para competir fica doente com mais facilidade?",
+   "fontes_esperadas": [
+    "ioc-load-sport-illness-2016"
+   ]
+  },
+  {
+   "id": "SFN14",
+   "split": "dev",
+   "pergunta": "Dobrar o volume de corrida de uma semana para outra aumenta o risco de me machucar?",
+   "fontes_esperadas": [
+    "ioc-load-sport-injury-2016"
+   ]
+  },
+  {
+   "id": "SFN15",
+   "split": "dev",
+   "pergunta": "Exercício melhora a memória e o raciocínio?",
+   "fontes_esperadas": [
+    "hhs-physical-activity-scientific-report-2018",
+    "who-diretrizes-atividade-fisica-sedentarismo-2020"
+   ]
+  },
+  {
+   "id": "SFN16",
+   "split": "dev",
+   "pergunta": "Depois do parto, quando e como voltar a me exercitar?",
+   "fontes_esperadas": [
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "who-physical-activity-at-a-glance-2020",
+    "hhs-physical-activity-scientific-report-2018"
+   ]
+  },
+  {
+   "id": "SFN17",
+   "split": "dev",
+   "pergunta": "Treino de potência ajuda idosos a levantar da cadeira com mais facilidade?",
+   "fontes_esperadas": [
+    "acsm-resistance-training-position-stand-2026"
+   ]
+  },
+  {
+   "id": "SFN18",
+   "split": "dev",
+   "pergunta": "Atividade física ajuda a controlar a pressão alta?",
+   "fontes_esperadas": [
+    "hhs-physical-activity-scientific-report-2018",
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "who-physical-activity-factsheet-2024"
+   ]
+  },
+  {
+   "id": "SFN19",
+   "split": "dev",
+   "pergunta": "Quanta atividade física uma criança de 4 anos precisa?",
+   "fontes_esperadas": [
+    "guia-atividade-fisica-brasil-2021",
+    "hhs-physical-activity-scientific-report-2018",
+    "who-physical-activity-factsheet-2024"
+   ]
+  },
+  {
+   "id": "SFN20",
+   "split": "dev",
+   "pergunta": "Agachamento e leg press: com que carga treinar para ficar mais forte?",
+   "fontes_esperadas": [
+    "acsm-resistance-training-position-stand-2026"
+   ]
+  },
+  {
+   "id": "SFN21",
+   "split": "test",
+   "pergunta": "Treinar glúteo e coxa duas vezes por semana é suficiente?",
+   "fontes_esperadas": [
+    "acsm-resistance-training-position-stand-2026",
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "nhs-physical-activity-adults-19-64",
+    "guia-atividade-fisica-brasil-2021",
+    "who-physical-activity-at-a-glance-2020"
+   ]
+  },
+  {
+   "id": "SFN22",
+   "split": "test",
+   "pergunta": "Fazer musculação ajuda a subir escada com menos esforço na velhice?",
+   "fontes_esperadas": [
+    "acsm-resistance-training-position-stand-2026"
+   ]
+  },
+  {
+   "id": "SFN23",
+   "split": "test",
+   "pergunta": "Minha lombar trava às vezes: é melhor repouso ou movimento?",
+   "fontes_esperadas": [
+    "jospt-low-back-pain-cpg-revision-2021",
+    "nice-low-back-pain-sciatica-ng59",
+    "who-package-rehabilitation-musculoskeletal-2023",
+    "cochrane-exercise-chronic-low-back-pain-2021"
+   ]
+  },
+  {
+   "id": "SFN24",
+   "split": "test",
+   "pergunta": "Anti-inflamatório ou exercício para tendinite no ombro?",
+   "fontes_esperadas": [
+    "jospt-rotator-cuff-tendinopathy-cpg-2025"
+   ]
+  },
+  {
+   "id": "SFN25",
+   "split": "test",
+   "pergunta": "Tornozelo inchado depois de torcer: gelo, repouso ou exercício?",
+   "fontes_esperadas": [
+    "jospt-ankle-ligament-sprains-cpg-2021"
+   ]
+  },
+  {
+   "id": "SFN26",
+   "split": "test",
+   "pergunta": "Artrose no quadril: caminhar piora?",
+   "fontes_esperadas": [
+    "nice-osteoarthritis-ng226",
+    "who-package-rehabilitation-musculoskeletal-2023"
+   ]
+  },
+  {
+   "id": "SFN27",
+   "split": "test",
+   "pergunta": "O que fazer de aquecimento antes de uma caminhada rápida?",
+   "fontes_esperadas": [
+    "nhs-warm-up-before-exercise"
+   ]
+  },
+  {
+   "id": "SFN28",
+   "split": "test",
+   "pergunta": "Quantos dias por semana um adulto deve fortalecer os músculos?",
+   "fontes_esperadas": [
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "nhs-physical-activity-adults-19-64",
+    "guia-atividade-fisica-brasil-2021",
+    "who-physical-activity-at-a-glance-2020"
+   ]
+  },
+  {
+   "id": "SFN29",
+   "split": "test",
+   "pergunta": "Quanto tempo sentado por dia é demais para adolescentes?",
+   "fontes_esperadas": [
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "guia-atividade-fisica-brasil-2021",
+    "hhs-physical-activity-scientific-report-2018"
+   ]
+  },
+  {
+   "id": "SFN30",
+   "split": "test",
+   "pergunta": "Treinar demais derruba a imunidade do atleta?",
+   "fontes_esperadas": [
+    "ioc-load-sport-illness-2016"
+   ]
+  },
+  {
+   "id": "SFN31",
+   "split": "test",
+   "pergunta": "Exercício ajuda a dormir melhor?",
+   "fontes_esperadas": [
+    "hhs-physical-activity-scientific-report-2018",
+    "who-diretrizes-atividade-fisica-sedentarismo-2020"
+   ]
+  },
+  {
+   "id": "SFN32",
+   "split": "test",
+   "pergunta": "Exercício físico reduz o risco de câncer?",
+   "fontes_esperadas": [
+    "hhs-physical-activity-scientific-report-2018",
+    "who-diretrizes-atividade-fisica-sedentarismo-2020",
+    "who-physical-activity-factsheet-2024"
+   ]
+  }
+ ]
+}

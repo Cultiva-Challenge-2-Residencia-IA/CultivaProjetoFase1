@@ -4,6 +4,11 @@ Reaproveita o consultor e o subgrafo de Nutrição (`src/agents/nutricao/grafo.p
 componentes da área: Trechos de `corpus/saudefisica/rag` (fontes aprovadas, gate do ADR 0002), o
 guardrail da Lei 9.696/1998, o prompt da área e o vocabulário do "não sei". Não tem TACO nem grafo
 causal, e não tem portão próprio: é usado pelo Chat, que aplica os portões antes de qualquer agente.
+
+Desde a issue #105, a busca da área usa por padrão o reranker cross-encoder
+(`CULTIVA_RERANKER_SAUDE_FISICA`). O filtro de relevância antes da síntese, com a lacuna explícita
+quando nenhum Trecho trata da pergunta, existe, mas fica desligado por padrão
+(`CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA`; eval/relevancia/resultados.md).
 """
 
 import hashlib
@@ -43,6 +48,8 @@ class ConsultorSaudeFisica(NutritionConsultantBaseline):
         chunks: Optional[List[DocumentChunk]] = None,
         incluir_pendentes: bool = INCLUDE_PENDING_SOURCES,
         enable_ollama: bool = True,
+        reranker_na_busca: Optional[bool] = None,
+        filtro_relevancia: Optional[bool] = None,
     ) -> None:
         if chunks is None:
             chunks = carregar_chunks_do_corpus(incluir_pendentes=incluir_pendentes,
@@ -54,6 +61,8 @@ class ConsultorSaudeFisica(NutritionConsultantBaseline):
             enable_taco_tool=False,
             enable_graph_engine=False,
             com_portao_de_risco=False,
+            reranker_na_busca=reranker_na_busca,
+            filtro_relevancia=filtro_relevancia,
         )
         self.guardrail = GuardrailSaudeFisica()
         self.llm_client = LocalLLMClient(

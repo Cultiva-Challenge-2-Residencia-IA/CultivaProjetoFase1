@@ -3,8 +3,12 @@
 Mesma sequência do consultor antes do LangGraph, sem os portões de risco e de prompt injection,
 que ficam no grafo principal (`src/orquestrador/grafo.py`):
 
-guardrail de entrada → busca híbrida → TACO → grafo causal → "não sei" → síntese → guardrail de
-saída e montagem da resposta.
+guardrail de entrada → busca híbrida → TACO → grafo causal → "não sei" → filtro de relevância →
+síntese → guardrail de saída e montagem da resposta.
+
+O filtro de relevância (issue #105, `src/rag/relevancia.py`) só roda quando o consultor tem
+`filtro_reranker`: tira da síntese os Trechos que não tratam da pergunta, reformula a busca uma vez
+com o LLM (`reformulacao_llm`) quando nenhum passa e, sem nenhum, responde com a lacuna explícita.
 
 O mesmo subgrafo serve ao Agente de Saúde Física (`src/agents/fisica/`): ele lê do consultor o
 vocabulário do "não sei" (`termos_dominio`) e a mensagem fixa (`mensagem_nao_sei`). Quando o
@@ -32,7 +36,9 @@ from src.models.schemas import (
     RetrievedChunk,
     TacoFoodNutrientRecord,
 )
+from src.guardrails.pii import mascarar_dados_pessoais
 from src.rag.abstencao import MENSAGEM_NAO_SEI, TERMOS_NUTRICAO, fora_do_dominio
+from src.rag.relevancia import julgar, mensagem_lacuna, reformular
 from src.retrieval.fusao import fundir_rrf
 from src.rag.verificador.citacoes import MARCADOR, eh_trecho
 
@@ -57,6 +63,7 @@ class EstadoNutricao(TypedDict, total=False):
     caminhos_grafo: List[CausalGraphPath]
     contexto_grafo: str
     similaridade: Optional[float]
+    consultas_reformuladas: List[str]
     sintese: Dict[str, Any]
     modelo: str
     fundamentacao: Dict[str, Any]
@@ -143,6 +150,49 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
                 atualizacao["recuperados"] = []
         return atualizacao
 
+    def filtro_relevancia(estado: EstadoNutricao) -> dict:
+        # Corrective RAG local (issue #105): só Trechos que tratam da pergunta vão para a síntese.
+        reranker = getattr(consultor, "filtro_reranker", None)
+        if reranker is None or not estado["recuperados"]:
+            return {}
+        consulta, top_k = estado["consulta_busca"], estado["top_k"]
+        limiar = consultor.filtro_limiar
+        with observacao("filtro_relevancia", tipo="evaluator", input={"query": consulta, "limiar": limiar}) as obs:
+            julgamento = julgar(consulta, estado["recuperados"], reranker, limiar)
+            reformuladas: List[str] = []
+            if julgamento.lacuna:
+                # O que vai ao LLM leva os dados pessoais mascarados (RNF05), como na síntese.
+                reformuladas = reformular(mascarar_dados_pessoais(estado["pergunta"]),
+                                          getattr(consultor, "area", "nutricao"),
+                                          getattr(consultor, "reformulacao_llm", None))
+                if reformuladas:
+                    listas = [consultor.retriever.retrieve(c, top_k=top_k) for c in reformuladas]
+                    novos = listas[0] if len(listas) == 1 else fundir_rrf(listas, top_k=top_k)
+                    # A nova busca é julgada contra a pergunta, e não contra a reformulação.
+                    julgamento = julgar(consulta, novos, reranker, limiar)
+            obs.update(output={
+                "mantidos": [r.chunk.chunk_id for r in julgamento.mantidos],
+                "descartados": [r.chunk.chunk_id for r in julgamento.descartados],
+                "notas": [r.relevancia for r in julgamento.mantidos + julgamento.descartados],
+                "consultas_reformuladas": reformuladas,
+            })
+            obs.score_trace(name="lacuna_relevancia", value=1.0 if julgamento.lacuna else 0.0, data_type="NUMERIC")
+        atualizacao: Dict[str, Any] = {"recuperados": julgamento.mantidos, "consultas_reformuladas": reformuladas}
+        if julgamento.lacuna and not estado["registros_taco"] and not estado["caminhos_grafo"]:
+            avaliacao = estado["avaliacao"]
+            atualizacao["resposta"] = consultor._resposta_fixa(
+                estado["pergunta"],
+                mensagem_lacuna(getattr(consultor, "area", "nutricao")),
+                guardrail_triggered=avaliacao.is_restricted_by_law_8234,
+                intent_category="NO_EVIDENCE",
+                legal_compliance_notice=avaliacao.legal_notice_required,
+                abstencao=True,
+                similaridade_maxima=estado["similaridade"],
+                retrieval_mode="ABSTENTION_FIXED_MESSAGE",
+                fundamentacao_status="lacuna_de_relevancia",
+            )
+        return atualizacao
+
     def sintese(estado: EstadoNutricao) -> dict:
         # Ollama local, Groq com liberação explícita ou síntese extrativa (ADR 0003).
         with observacao("sintese", input={"query": estado["pergunta_efetiva"]}) as obs:
@@ -193,6 +243,7 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
         ("tabela_taco", tabela_taco),
         ("grafo_causal", grafo_causal),
         ("abstencao", abstencao),
+        ("filtro_relevancia", filtro_relevancia),
         ("sintese", sintese),
         ("resposta", resposta),
     ):
@@ -202,7 +253,9 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
     grafo.add_edge("busca_hibrida", "tabela_taco")
     grafo.add_edge("tabela_taco", "grafo_causal")
     grafo.add_edge("grafo_causal", "abstencao")
-    grafo.add_conditional_edges("abstencao", lambda e: END if _respondido(e) else "sintese", ["sintese", END])
+    grafo.add_conditional_edges("abstencao", lambda e: END if _respondido(e) else "filtro_relevancia",
+                                ["filtro_relevancia", END])
+    grafo.add_conditional_edges("filtro_relevancia", lambda e: END if _respondido(e) else "sintese", ["sintese", END])
     grafo.add_conditional_edges("sintese", lambda e: END if _respondido(e) else "resposta", ["resposta", END])
     grafo.add_edge("resposta", END)
     return grafo.compile()
