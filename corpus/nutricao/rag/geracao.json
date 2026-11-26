@@ -43,11 +43,11 @@
     },
     "bernardez-vazquez-training-variables-2022": {
       "jsonl_path": "corpus/saudefisica/rag/27-bernardez-vazquez-training-variables-frontiers-2022.jsonl",
-      "jsonl_sha256": "25bf4baeeb997567cb2fb9bf058bb708ec0e3cd2439976094e3bce664857a7f0",
+      "jsonl_sha256": "0b93e6f653bf8442ece6cffdaae6ff2e4d988a832b0eb180c8595dc71155142e",
       "markdown_sha256": "e69634e18e474196e63cb07253a6d0410e353a17144c036e573a5be4c855f9c5",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "trechos": 88
+      "rag_config_sha256": "431ee5d6b3caa645253fc13b01e7b5d68c50b40c91e43cc85644a9a67805b9a6",
+      "trechos": 66
     },
     "brisotto-depressao-ansiedade-estresse-rbtc-2022": {
       "jsonl_path": "corpus/nutricao/rag/brisotto_et_al_depressao_ansiedade_estresse_alimentacao.jsonl",
@@ -83,11 +83,11 @@
     },
     "currier-resistance-training-prescription-2023": {
       "jsonl_path": "corpus/saudefisica/rag/22-currier-resistance-training-prescription-bjsm-2023.jsonl",
-      "jsonl_sha256": "3fa50ac31ef137e853e32e66de6d567dfe210b3fbb3f28bb6398077c060f77c6",
+      "jsonl_sha256": "c0657de68300c25a9470b450b8f2bf299cb042ba1a86e8e4558cdcff6087041b",
       "markdown_sha256": "d7296f5d1f61f97e1b1499ee2c44201730891fb9a5d13fc3f816e4342671b954",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "trechos": 78
+      "rag_config_sha256": "431ee5d6b3caa645253fc13b01e7b5d68c50b40c91e43cc85644a9a67805b9a6",
+      "trechos": 70
     },
     "fraiz-kombucha-revisao-sistematica-fermentation-2025": {
       "jsonl_path": "corpus/nutricao/rag/fraiz_et_al_kombucha_revisao_sistematica_fermentation_2025.jsonl",
@@ -171,11 +171,11 @@
     },
     "iusca-hypertrophy-position-stand-2021": {
       "jsonl_path": "corpus/saudefisica/rag/23-iusca-hypertrophy-position-stand-2021.jsonl",
-      "jsonl_sha256": "0597042295f05f56246136ad4a00fab5fe9b46cdeccb6c564ed3049bd92ef663",
+      "jsonl_sha256": "295483d0202263a250892ff6bb22596385e558304663861d8dcf9f1f97316c5a",
       "markdown_sha256": "fb8e97ee5fa7b7aca78e1b998440fcad20007654b2b3e0ce872c405607888a06",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "trechos": 152
+      "rag_config_sha256": "a02f870984184c22bfd798726ac4805b463a6549480beac91ca43c0e3013d8d2",
+      "trechos": 145
     },
     "jaime-frutas-hortalicas-brasil-rsp-2009": {
       "jsonl_path": "corpus/nutricao/rag/jaime_et_al_frutas_hortalicas_brasil_rsp_2009.jsonl",
@@ -219,11 +219,11 @@
     },
     "kassiano-exercise-variation-2022": {
       "jsonl_path": "corpus/saudefisica/rag/24-kassiano-exercise-variation-jscr-2022.jsonl",
-      "jsonl_sha256": "30808ff28f2902d4e9bdef270dc7a7393a465c3a0ec8d720e594700ba302a1dc",
+      "jsonl_sha256": "4fe903e9a7eb604c6de8a3455fd854fd8b22de6b9f8a6d7e35648ebfa7857c59",
       "markdown_sha256": "65a094ecb192338a6057a7259c7f9595ee8ffbb10ea4189bab8cf1b22ebfb9ef",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "trechos": 63
+      "rag_config_sha256": "15602dbce5423b49b17fdee55f9e82c1f3e891120da4747905bce9c942e81cbe",
+      "trechos": 60
     },
     "louzada-ultraprocessados-micronutrientes-rsp-2015": {
       "jsonl_path": "corpus/nutricao/rag/louzada_et_al_ultraprocessados_micronutrientes_rsp_2015.jsonl",
@@ -251,11 +251,11 @@
     },
     "moesgaard-periodization-2022": {
       "jsonl_path": "corpus/saudefisica/rag/25-moesgaard-periodization-sports-med-2022.jsonl",
-      "jsonl_sha256": "741e3fc1a0e4f634a49e0add443831e06909ebc40e642331dc6bfa1090e3f085",
+      "jsonl_sha256": "c7afb69e774852fea058d88ff71e87c05082cc567a4161553a987e2fdc12d5a2",
       "markdown_sha256": "b24fb6313c212c073dbda136578b6cdb1a4517c6c53d4aa8c1529c3472cfed9c",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "trechos": 86
+      "rag_config_sha256": "a081317008fdb24a647c530ac5e9f7ae2e9a8a8c9a2e85128ed7b5e9a82ffcae",
+      "trechos": 82
     },
     "monteiro-nova-classificacao-alimentos-csp-2010": {
       "jsonl_path": "corpus/nutricao/rag/monteiro_et_al_nova_classificacao_alimentos_csp_2010.jsonl",
@@ -331,19 +331,19 @@
     },
     "refalo-proximity-to-failure-2023": {
       "jsonl_path": "corpus/saudefisica/rag/26-refalo-proximity-to-failure-sports-med-2023.jsonl",
-      "jsonl_sha256": "df7deff3ab56016393c1e3fab2772628a4487ac8119d1cd237b06a30cdfcb558",
+      "jsonl_sha256": "cf20ce5c27581bddbdd56281abc1bb4847932a11917b2617e776aeb9cc4e0311",
       "markdown_sha256": "8145aa959ce4db984e9836e3af823a5e60e66d94cd21f744ecddc3dac60e0924",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "trechos": 81
+      "rag_config_sha256": "8b49e14c369805a80bd56925f8b09da76acedbdd5cd185da4c0460e8cb033941",
+      "trechos": 79
     },
     "robinson-proximity-to-failure-2024": {
       "jsonl_path": "corpus/saudefisica/rag/28-robinson-proximity-to-failure-dose-response-2024.jsonl",
-      "jsonl_sha256": "4b1fb5ee46fd31b861b48445b03e2e777b1cd55597ce0f199d7a45b6cbc92921",
+      "jsonl_sha256": "7a1da788b7e9e33153028e074631f48d85c9604832c407f97a289c0c7a651e94",
       "markdown_sha256": "d85cd4fdce4113cc577b924276213aa84f3ba2086d2ca82ec17149eed73233b4",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "trechos": 101
+      "rag_config_sha256": "2e087cd4c1d148690d68a43266918f8c3864148b4f38c56c10b8553893c7a081",
+      "trechos": 100
     },
     "rossetti-universitarios-consumo-alimentar-san-2015": {
       "jsonl_path": "corpus/nutricao/rag/rossetti_universitarios_consumo_alimentar_san_2015.jsonl",
@@ -411,26 +411,26 @@
     },
     "schoenfeld-grgic-range-of-motion-2020": {
       "jsonl_path": "corpus/saudefisica/rag/29-schoenfeld-grgic-range-of-motion-2020.jsonl",
-      "jsonl_sha256": "0d7e0968791de777e3f1e4ad83307f1a349142a3948d70fdaf4b4b08a334f0c9",
+      "jsonl_sha256": "bff4b7c86d974ed08196496e56a26b84ff676126dfe16339ef3c5a6fc75eff64",
       "markdown_sha256": "f5439bd11c327cb1d9187726ca391898ff4f42849636b0a2340f20f775a79fd4",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "rag_config_sha256": "832a99f06611d85d545cbce723fbcb12abbff0df5c7b5c8c870e7cd51a0e8b69",
       "trechos": 44
     },
     "schumann-concurrent-training-2022": {
       "jsonl_path": "corpus/saudefisica/rag/30-schumann-concurrent-training-sports-med-2022.jsonl",
-      "jsonl_sha256": "0cd2f8b518185cabd085d698375a76c6089f8d6c0c5d9f1f9fc48b9a78ae5b45",
+      "jsonl_sha256": "5fe607b4c83c683c91743bd013f538675efc85aace675e8cbbf70e883661e2a0",
       "markdown_sha256": "51d1f249e5fb09746eb1242f9c8f31ace3860c2120b54e5b20f70d97bff6a4da",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "trechos": 48
+      "rag_config_sha256": "431ee5d6b3caa645253fc13b01e7b5d68c50b40c91e43cc85644a9a67805b9a6",
+      "trechos": 44
     },
     "singer-rest-interval-2024": {
       "jsonl_path": "corpus/saudefisica/rag/31-singer-rest-interval-frontiers-2024.jsonl",
-      "jsonl_sha256": "e03d73f942b6b045d0239f82a44659f61db23046f9c36b19376e5c916c8be333",
+      "jsonl_sha256": "e1f8eb2fb7f1f8601e24e229eccddc32682b968cb5e9c73ee53d80eead197492",
       "markdown_sha256": "47e9c19f723c3f2876b517c5f5ab336b8c550fd179112d6386b7757c4f8e2a37",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "rag_config_sha256": "e3bfae83436d0e3d48ef587d3f8f370e53530066237945b0ee5da22c0876aae1",
       "trechos": 70
     },
     "souza-backes-universitarios-csc-2020": {
@@ -443,11 +443,11 @@
     },
     "walsh-sleep-athlete-2021": {
       "jsonl_path": "corpus/saudefisica/rag/32-walsh-sleep-athlete-consensus-bjsm-2021.jsonl",
-      "jsonl_sha256": "05b4e583308f2941ba0b6643db1f693442dee12e6732be17237b36ece9173045",
+      "jsonl_sha256": "4669e0af18f2820b5ff1015381e597a5b4a521d9769c99b452d7ba328dfece82",
       "markdown_sha256": "bcbf377d9e77ae5386ed4b632ac3423bc2f89a546f121bea1363e54d2e9bbc49",
       "prepare_rag_sha256": "0f255611bab1491ed491dc0b5b59586a2af0e97ab41b4ff7290c924883a3748a",
-      "rag_config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "trechos": 122
+      "rag_config_sha256": "4d5ff7d50ed7dacb349c8f8d07f3607964a7e8ab00a4bb35c95226a0a7238fc4",
+      "trechos": 89
     },
     "who-diretrizes-atividade-fisica-sedentarismo-2020": {
       "jsonl_path": "corpus/saudefisica/rag/02-who-physical-activity-guidelines-2020.jsonl",

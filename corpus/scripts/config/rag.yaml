@@ -210,3 +210,50 @@ sbd-terapia-nutricional-pre-diabetes-dm2-2023:
   drop_paragraphs:
     - '^Ultima revisao:'
     - '^\d{1,2}/20$'
+
+# Artigos de treino de força e recuperação (issue #115, revisão do PR #116). O título "References"
+# já para a seção, mas o próximo título (cabeçalho da revista, "Declarations", "AUTHOR
+# CONTRIBUTIONS") a reabre. As páginas depois da do título são só referências (skip_pages); na página
+# do título, os padrões abaixo tiram as entradas de referência e os metadados editoriais (financiamento,
+# conflitos, ORCID, afiliações, licença), sem tocar na conclusão.
+_padroes_artigos_saude_fisica: &referencias_e_editorial
+  - '^(-\s*)?\d{1,3}\.?\s+[A-Z][\w''’-]+(\s[\w''’-]+)?,? [A-Z]{1,3}\b'
+  - '^(-\s*)?[A-Z][\w''’-]+(\s[\w''’-]+)?, [A-Z]\.( ?[A-Z]\.)*,'
+  - '^(-\s*)?(Acknowledg|Funding|Competing interests|Conflicts? of [Ii]nterest|Provenance and peer review|Data availability|Availability of data|Code availability|Open [Aa]ccess|Supplemental material|Patient consent|Contributors|Author [Cc]ontributions|AUTHOR CONTRIBUTIONS|Ethics approval|Consent (to participate|for publication)|Copyright ©|Publisher.s [Nn]ote|Twitter|Declarations|Correspondence)'
+  - 'orcid\.org|orcid\. org'
+  - '[\w.]+@[\w.]+\.\w+'
+  - '^(-\s*)?\d{1,2}\s?(Research|Department|Faculty|School|Institute|Laboratory|Centre|Center|University|Division)\b'
+  - '^(-\s*)?(Dr|Professor|Prof\.?) [A-Z][\w''’-]+( [A-Z]\.?)* [A-Z][\w''’-]+, (Department|School|Faculty|Institute)'
+currier-resistance-training-prescription-2023:
+  skip_pages: [11, 12]
+  drop_paragraphs: *referencias_e_editorial
+iusca-hypertrophy-position-stand-2021:
+  skip_pages: [24, 25, 26, 27, 28, 29, 30]
+  drop_paragraphs: *referencias_e_editorial
+kassiano-exercise-variation-2022:
+  skip_pages: [10]
+  drop_paragraphs: *referencias_e_editorial
+moesgaard-periodization-2022:
+  skip_pages: [19, 20]
+  drop_paragraphs: *referencias_e_editorial
+refalo-proximity-to-failure-2023:
+  skip_pages: [17]
+  drop_paragraphs: *referencias_e_editorial
+bernardez-vazquez-training-variables-2022:
+  skip_pages: [11, 12]
+  drop_paragraphs: *referencias_e_editorial
+robinson-proximity-to-failure-2024:
+  skip_pages: [19, 20, 21, 22, 23]
+  drop_paragraphs: *referencias_e_editorial
+schoenfeld-grgic-range-of-motion-2020:
+  skip_pages: [8]
+  drop_paragraphs: *referencias_e_editorial
+schumann-concurrent-training-2022:
+  skip_pages: [11, 12]
+  drop_paragraphs: *referencias_e_editorial
+singer-rest-interval-2024:
+  skip_pages: [13]
+  drop_paragraphs: *referencias_e_editorial
+walsh-sleep-athlete-2021:
+  skip_pages: [11, 12, 13]
+  drop_paragraphs: *referencias_e_editorial

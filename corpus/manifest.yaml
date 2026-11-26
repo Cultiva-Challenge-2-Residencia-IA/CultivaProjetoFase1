@@ -1521,11 +1521,12 @@ sources:
     edition: 'v. 36, n. 6, p. 1753-1762'
     version: 2022-article-en
     source_type: revisao
-    source: 'pendente: DOI não aparece no PDF; J Strength Cond Res 36(6):1753-1762, 2022'
+    source: https://doi.org/10.1519/JSC.0000000000004258
+    doi: 10.1519/JSC.0000000000004258
     license: 'Copyright © 2022 National Strength and Conditioning Association'
     license_evidence:
       pdf_page: 1
-      description: 'Página 1: "Copyright © 2022 National Strength and Conditioning Association". O PDF não traz licença aberta nem o DOI.'
+      description: 'Página 1: "Copyright © 2022 National Strength and Conditioning Association". O PDF não traz licença aberta nem o DOI; o DOI foi conferido no Crossref em 26/11/2026 (título, revista, volume, páginas e autores iguais aos do PDF).'
     original_path: corpus/saudefisica/originais/24-kassiano-exercise-variation-jscr-2022.pdf
     markdown_path: corpus/saudefisica/markdown/24-kassiano-exercise-variation-jscr-2022.md
     report_path: corpus/saudefisica/relatorios/24-kassiano-exercise-variation-jscr-2022.json
