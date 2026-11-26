@@ -27,6 +27,6 @@ uv run python -m src.evaluation.redacao resultado --split dev      # depois do j
 
 A redação fica ligada por padrão (`CULTIVA_REDACAO=true`) se, no `test`, utilidade **e** exagero cumprirem os critérios. Se o exagero passar de 10%, fica desligada por padrão até corrigir, mesmo que a utilidade melhore: fidelidade vem antes de tom.
 
-## Situação em 26/11/2026
+## Resultado
 
-O `dev` foi medido duas vezes. A primeira medição foi descartada porque comparava duas execuções diferentes do LLM; a segunda (par na mesma execução) não foi julgada. O `test` não foi rodado. Pela regra de decisão, a redação fica **desligada por padrão** (`CULTIVA_REDACAO=false`) até essa medição, que segue na issue "Qualidade das respostas do chat: régua de perguntas reais e correção das causas" (#118).
+Ver [`resultados.md`](resultados.md): o `test` cumpriu os critérios, e a redação ficou ligada por padrão.

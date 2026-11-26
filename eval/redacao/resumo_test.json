@@ -1,0 +1,15 @@
+{
+  "aceitacao": 0.8,
+  "respostas_llm": 5,
+  "utilidade_vitorias_da_redigida": 1.0,
+  "pares": {
+    "vence": 4,
+    "perde": 0,
+    "empate": 0
+  },
+  "exagero": 0.1,
+  "mediana_s_sem": 48.25,
+  "mediana_s_com": 41.0,
+  "esclarecimento_nos_vagos": 1.0,
+  "esclarecimento_nos_demais": 0.0
+}
