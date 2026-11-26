@@ -120,6 +120,21 @@ def test_reformulacao_resgata_a_pergunta_quando_a_primeira_busca_nao_tem_base():
     assert "fonte-3-p003-01" in [r.chunk.chunk_id for r in resposta.retrieved_chunks]
 
 
+def test_reformulacao_recebe_a_pergunta_com_dados_pessoais_mascarados():
+    chamadas = []
+
+    def llm(sistema, usuario):
+        chamadas.append(json.loads(usuario))
+        return {"consultas": ["lower body resistance training"]}
+
+    consultor = _consultor_fisica(RerankerFalso(["resistance training"]), reformulacao=llm)
+    consultor.responder("Sou ana.souza@exemplo.com, CPF 123.456.789-09, quero malhar as coxas", 1, [], [])
+    assert chamadas
+    pergunta = chamadas[0]["pergunta"]
+    assert "ana.souza@exemplo.com" not in pergunta and "123.456.789-09" not in pergunta
+    assert "[EMAIL]" in pergunta and "[CPF]" in pergunta
+
+
 def test_sem_filtro_o_fluxo_e_o_de_antes():
     consultor = _consultor_fisica(None)
     resposta = consultor.responder("Gostaria de treinar perna, pode me ajudar?", 4, [], [])
@@ -132,10 +147,25 @@ def test_lacuna_de_nutricao_aponta_os_temas_e_o_nutricionista():
     assert "Guia Alimentar" in texto and "nutricionista" in texto
 
 
-def test_filtro_e_reranker_desligados_por_padrao_nao_carregam_modelo():
-    consultor = NutritionConsultantBaseline(chunks=CHUNKS, enable_ollama=False, enable_taco_tool=False,
-                                            enable_graph_engine=False, reranker_na_busca=False,
-                                            filtro_relevancia=False)
+def test_padroes_por_area_reranker_e_filtro_so_em_saude_fisica(monkeypatch):
+    """Sem parâmetros, valem os padrões de src/config.py: Nutrição sem reranker nem filtro."""
+    import src.agent.consultant_baseline as cb
+
+    for nome, valor in {"RERANKER_NUTRICAO": False, "FILTRO_RELEVANCIA_NUTRICAO": False,
+                        "RERANKER_SAUDE_FISICA": True, "FILTRO_RELEVANCIA_SAUDE_FISICA": True}.items():
+        monkeypatch.setattr(cb, nome, valor)
+    nutricao = NutritionConsultantBaseline(chunks=CHUNKS, enable_ollama=False, enable_taco_tool=False,
+                                           enable_graph_engine=False)
+    assert nutricao.retriever.reranker is None and nutricao.filtro_reranker is None
+    fisica = ConsultorSaudeFisica(chunks=CHUNKS, enable_ollama=False)
+    # O mesmo reranker serve à busca e ao filtro, e o modelo só é carregado na primeira pergunta.
+    assert isinstance(fisica.retriever.reranker, RerankerCruzado)
+    assert fisica.filtro_reranker is fisica.retriever.reranker
+
+
+def test_parametros_explicitos_desligam_reranker_e_filtro():
+    consultor = ConsultorSaudeFisica(chunks=CHUNKS, enable_ollama=False, reranker_na_busca=False,
+                                     filtro_relevancia=False)
     assert consultor.retriever.reranker is None and consultor.filtro_reranker is None
 
 

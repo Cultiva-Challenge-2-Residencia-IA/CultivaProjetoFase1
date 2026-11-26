@@ -47,6 +47,8 @@ class ConsultorSaudeFisica(NutritionConsultantBaseline):
         chunks: Optional[List[DocumentChunk]] = None,
         incluir_pendentes: bool = INCLUDE_PENDING_SOURCES,
         enable_ollama: bool = True,
+        reranker_na_busca: Optional[bool] = None,
+        filtro_relevancia: Optional[bool] = None,
     ) -> None:
         if chunks is None:
             chunks = carregar_chunks_do_corpus(incluir_pendentes=incluir_pendentes,
@@ -58,6 +60,8 @@ class ConsultorSaudeFisica(NutritionConsultantBaseline):
             enable_taco_tool=False,
             enable_graph_engine=False,
             com_portao_de_risco=False,
+            reranker_na_busca=reranker_na_busca,
+            filtro_relevancia=filtro_relevancia,
         )
         self.guardrail = GuardrailSaudeFisica()
         self.llm_client = LocalLLMClient(

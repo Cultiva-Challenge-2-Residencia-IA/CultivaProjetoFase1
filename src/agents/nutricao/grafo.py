@@ -35,6 +35,7 @@ from src.models.schemas import (
     RetrievedChunk,
     TacoFoodNutrientRecord,
 )
+from src.guardrails.pii import mascarar_dados_pessoais
 from src.rag.abstencao import MENSAGEM_NAO_SEI, TERMOS_NUTRICAO, fora_do_dominio
 from src.rag.relevancia import julgar, mensagem_lacuna, reformular
 from src.retrieval.fusao import fundir_rrf
@@ -156,7 +157,9 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
             julgamento = julgar(consulta, estado["recuperados"], reranker, limiar)
             reformuladas: List[str] = []
             if julgamento.lacuna:
-                reformuladas = reformular(estado["pergunta"], getattr(consultor, "area", "nutricao"),
+                # O que vai ao LLM leva os dados pessoais mascarados (RNF05), como na síntese.
+                reformuladas = reformular(mascarar_dados_pessoais(estado["pergunta"]),
+                                          getattr(consultor, "area", "nutricao"),
                                           getattr(consultor, "reformulacao_llm", None))
                 if reformuladas:
                     listas = [consultor.retriever.retrieve(c, top_k=top_k) for c in reformuladas]

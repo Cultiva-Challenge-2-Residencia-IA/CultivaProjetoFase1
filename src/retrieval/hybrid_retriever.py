@@ -276,7 +276,10 @@ class HybridRetriever:
         return float(rrf_score + (self.peso_sobreposicao * overlap_ratio) + grade_bonus)
 
     def _reordenar_por_cross_encoder(self, query: str, itens: List[RetrievedChunk]) -> List[RetrievedChunk]:
-        """Os `candidatos_reranker` primeiros da fusão, pela nota do cross-encoder (empate: a fusão)."""
+        """Os `candidatos_reranker` primeiros da fusão, pela nota do cross-encoder (empate: a fusão).
+
+        Os candidatos depois desses saem da lista, antes da diversificação por documento: com
+        `top_k` maior que `candidatos_reranker`, a busca devolve menos Trechos que o pedido."""
         candidatos = itens[: self.candidatos_reranker]
         notas = self.reranker.pontuar(
             query,
