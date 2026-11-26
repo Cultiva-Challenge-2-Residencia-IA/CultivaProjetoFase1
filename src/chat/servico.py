@@ -82,6 +82,8 @@ class RespostaDoChat(BaseModel):
     fatos_usados: List[dict] = Field(default_factory=list)
     # Redação final (issue #104): "aceita", "recusada" (ficou o texto checado de antes) ou None.
     redacao: Optional[str] = None
+    # Texto checado antes da redação, com os marcadores (auditoria e medição da #104); None sem redação aceita.
+    texto_antes_da_redacao: Optional[str] = None
 
 
 def _chave_da_frase(frase: str) -> str:
@@ -460,11 +462,12 @@ class ServicoDeChat:
                 self.llm,
             )
             texto, tipo, modo = sinc.texto, "sincronizada", sinc.modo
-            redacao = None
+            redacao, antes = None, None
             # Com nota legal no texto sincronizado, a redação não entra (a nota não pode ser reescrita).
             if self._pode_redigir(respostas) and not any(r.guardrail_triggered for r in respostas.values()):
                 redigido = redigir(reescrita.pergunta_completa or mensagem, texto, self.llm)
                 redacao = "aceita" if redigido else "recusada"
+                antes = texto if redigido else None
                 texto = redigido or texto
             # Os marcadores do texto sincronizado contam os Trechos das duas áreas num só intervalo:
             # as citações saem da mesma lista (RN04).
@@ -474,7 +477,7 @@ class ServicoDeChat:
             tipo, modo = "agente", None
             corpo = texto_da_resposta(unica, com_nota_legal=False)
             texto = texto_da_resposta(unica)
-            redacao = None
+            redacao, antes = None, None
             if self._pode_redigir(respostas):
                 # Redação final (issue #104): só o corpo; a nota legal segue fixa, por código.
                 redigido = redigir(reescrita.pergunta_completa or mensagem, corpo, self.llm)
@@ -483,6 +486,7 @@ class ServicoDeChat:
                     guardrail = getattr(self.agentes[areas[0]], "guardrail", None)
                     if guardrail is not None:
                         redigido = guardrail.sanitize_output_text(redigido)
+                    antes = texto
                     texto = texto.replace(corpo, redigido) if corpo else redigido
             citacoes = citacoes_do_texto(texto, unica.retrieved_chunks)
             # TACO e grafo causal não são Trechos: entram como vieram do agente.
@@ -497,6 +501,7 @@ class ServicoDeChat:
             areas=areas, respostas=respostas,
             modo_sincronizacao=modo, citacoes=citacoes, redirecionamento=redirecionamento,
             reescrita=reescrita.origem, fatos_usados=[f.como_dict() for f in fatos_usados], redacao=redacao,
+            texto_antes_da_redacao=antes,
         )
 
     def _pode_redigir(self, respostas: Mapping[str, ConsultantResponse]) -> bool:

@@ -65,6 +65,7 @@ def test_redator_reescreve_e_herda_os_marcadores_das_frases_de_origem(tmp_path, 
     assert r.texto_com_marcadores.startswith("Chocolate industrializado entra entre os ultraprocessados")
     assert r.texto_com_marcadores.count("[T1]") == 2 and "[T2]" not in r.texto_com_marcadores
     assert r.redacao == "aceita"
+    assert r.texto_antes_da_redacao.startswith("O Guia recomenda evitar alimentos ultraprocessados [T1].")
 
 
 def test_redacao_com_numero_que_nao_esta_na_origem_e_recusada(tmp_path, agentes):

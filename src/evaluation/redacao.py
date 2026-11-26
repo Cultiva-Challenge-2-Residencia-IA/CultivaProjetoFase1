@@ -7,7 +7,9 @@
 - `resultado_<split>.json`: as duas respostas, a aceitação, o tempo e o esclarecimento;
 - `cego_<split>.json`: os pares para o juiz, em ordem sorteada (A/B), sem dizer qual é a redigida;
 - `chave_<split>.json`: qual letra é a redigida (o juiz não lê este arquivo).
-`resultado` lê `julgamento_<split>.json` (do juiz) e calcula utilidade e exagero. Exige o Ollama.
+- `exagero_<split>.json`: a reescrita e o texto checado de origem, para o juiz de exagero.
+`resultado` lê `julgamento_<split>.json` (utilidade) e `julgamento_exagero_<split>.json` (exagero),
+de juízes diferentes, e calcula as medidas. Exige o Ollama.
 """
 
 import argparse
@@ -20,6 +22,7 @@ import tempfile
 import time
 
 from src.chat.historico import HistoricoSQLite
+from src.chat.servico import em_notas
 from src.config import PROJECT_ROOT
 
 PASTA = PROJECT_ROOT / "eval" / "redacao"
@@ -47,23 +50,30 @@ def responder(split: str) -> int:
                 inicio = time.perf_counter()
                 r = servico.enviar(caso["chat"], "u", f"{caso['id']}-{modo}", caso["mensagem"])
                 registro[modo] = {"tipo": r.tipo, "texto": r.texto, "texto_com_marcadores": r.texto_com_marcadores,
-                                  "redacao": r.redacao, "segundos": round(time.perf_counter() - inicio, 1),
+                                  "redacao": r.redacao, "texto_antes_da_redacao": r.texto_antes_da_redacao, "segundos": round(time.perf_counter() - inicio, 1),
                                   "status": [resp.fundamentacao_status for resp in r.respostas.values()]}
                 print(caso["id"], modo, r.tipo, r.redacao, registro[modo]["segundos"], file=sys.stderr)
             registros.append(registro)
     sorteio = random.Random(f"redacao-{split}")
-    cegos, chave = [], {}
+    cegos, exagero, chave = [], [], {}
     for reg in registros:
-        if reg["com"]["redacao"] != "aceita":
-            continue  # sem redação aceita, as duas versões são iguais
+        com = reg["com"]
+        if com["redacao"] != "aceita":
+            continue  # sem redação aceita, não há o que comparar
+        # O par sai da MESMA execução: o texto checado antes da redação e o texto redigido. Duas
+        # execuções do LLM dão respostas diferentes e não servem de par.
+        antes = em_notas(com["texto_antes_da_redacao"])
         redigida_e_a = sorteio.random() < 0.5
-        a, b = (reg["com"], reg["sem"]) if redigida_e_a else (reg["sem"], reg["com"])
-        cegos.append({"id": reg["id"], "pergunta": reg["mensagem"], "A": a["texto"], "B": b["texto"],
-                      "frases_de_origem": reg["sem"]["texto_com_marcadores"],
-                      "versao_reescrita": reg["com"]["texto_com_marcadores"]})
+        a, b = (com["texto"], antes) if redigida_e_a else (antes, com["texto"])
+        # Utilidade: só A e B, sem pista de qual é a redigida.
+        cegos.append({"id": reg["id"], "pergunta": reg["mensagem"], "A": a, "B": b})
+        # Exagero (outro juiz): a reescrita frase a frase contra o texto checado de origem.
+        exagero.append({"id": reg["id"], "frases_de_origem": com["texto_antes_da_redacao"],
+                        "reescrita": com["texto_com_marcadores"]})
         chave[reg["id"]] = "A" if redigida_e_a else "B"
     _gravar(f"resultado_{split}.json", registros)
     _gravar(f"cego_{split}.json", cegos)
+    _gravar(f"exagero_{split}.json", exagero)
     _gravar(f"chave_{split}.json", chave)
     print(f"{len(registros)} perguntas; {len(cegos)} pares para o juiz em eval/redacao/cego_{split}.json")
     return 0
@@ -73,6 +83,7 @@ def resultado(split: str) -> int:
     registros = json.loads((PASTA / f"resultado_{split}.json").read_text(encoding="utf-8"))
     chave = json.loads((PASTA / f"chave_{split}.json").read_text(encoding="utf-8"))
     julgamento = json.loads((PASTA / f"julgamento_{split}.json").read_text(encoding="utf-8"))
+    exageros = json.loads((PASTA / f"julgamento_exagero_{split}.json").read_text(encoding="utf-8"))
     llm = [r for r in registros if r["com"]["redacao"] in ("aceita", "recusada")]
     vence = perde = empate = alem = frases = 0
     for caso_id, j in julgamento.items():
@@ -82,6 +93,7 @@ def resultado(split: str) -> int:
             vence += 1
         else:
             perde += 1
+    for j in exageros.values():
         alem += j["frases_alem_da_origem"]
         frases += j["frases_reescritas"]
     vagos = [r for r in registros if r["vago"]]
