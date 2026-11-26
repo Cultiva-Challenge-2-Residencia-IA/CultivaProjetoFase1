@@ -102,6 +102,16 @@ def expand_clinical_synonyms(text: str) -> str:
     return norm
 
 
+def expandir_sinonimos(text: str, normalizar: bool = True) -> str:
+    """Texto para o modelo de embeddings: com `normalizar`, igual a `expand_clinical_synonyms`
+    (minúsculas, sem acentos); sem, o texto original com as mesmas expansões acrescentadas."""
+    if normalizar:
+        return expand_clinical_synonyms(text)
+    norm = normalize_text(text)
+    additions = [expansion for phrase, expansion in CLINICAL_SYNONYMS.items() if phrase in norm]
+    return f"{text} {' '.join(additions)}" if additions else text
+
+
 def tokenize_biomedical(text: str) -> List[str]:
     """Tokeniza preservando siglas científicas (ex: hba1c, ldl-c, glp-1, mtorc1, fe2+)."""
     norm = expand_clinical_synonyms(text)
@@ -121,7 +131,7 @@ class HybridRetriever:
     """
     Motor de Busca Híbrida:
     1. Índice Léxico BM25 (termos exatos, siglas, biomarcadores e compostos).
-    2. Índice Vetorial Denso no ChromaDB (embeddings multilíngues 384d). Padrão desde a issue #35
+    2. Índice Vetorial Denso no ChromaDB (embeddings multilíngues locais; modelo em `EMBEDDING_MODEL_NAME`). Padrão desde a issue #35
        (`MODO_DENSO="chromadb_pure"`). O índice local TF-IDF n-gramas + SVD/LSA só é construído
        quando usado: no modo `chromadb_dense` (mistura 55% ChromaDB + 45% LSA), no `legacy_lsa`
        ou como alternativa quando o ChromaDB está desligado.
@@ -178,7 +188,7 @@ class HybridRetriever:
         self.tfidf: Optional[TfidfVectorizer] = None
         self.svd: Optional[TruncatedSVD] = None
 
-        # 3. Banco Vetorial Persistente (ChromaDB + Embeddings Multilíngues 384d)
+        # 3. Banco Vetorial Persistente (ChromaDB + embeddings multilíngues locais)
         self.vector_store = None
         if self.use_vector_store and self.vector_mode != "legacy_lsa":
             from src.retrieval.vector_store import NutritionVectorStore
@@ -242,7 +252,7 @@ class HybridRetriever:
             chroma_scores = np.zeros(len(self.chunks), dtype=np.float32)
             for doc_idx, sim_score in chroma_hits:
                 chroma_scores[doc_idx] = sim_score
-            # Combina similaridade do Banco Vetorial Denso (ChromaDB 384d) + precisão contextual LSA
+            # Combina similaridade do Banco Vetorial Denso (ChromaDB) + precisão contextual LSA
             combined_sim = 0.55 * chroma_scores + 0.45 * lsa_sim
         else:
             combined_sim = lsa_sim

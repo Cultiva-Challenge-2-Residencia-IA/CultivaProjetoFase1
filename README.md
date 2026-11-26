@@ -9,7 +9,7 @@ Projeto: **CULTIVA**, um aplicativo que usa IA para ajudar jovens adultos e estu
 
 ## Consultor Científico de Nutrição Baseado em Evidências (RAG Híbrido + ChromaDB + TACO + Grafo Causal)
 
-Implementação completa de um consultor de nutrição baseado em evidências científicas e diretrizes oficiais, operando com **Banco Vetorial Persistente (`ChromaDB` + Embeddings Multilíngues de 384d)**, **API gratuita da Groq (`openai/gpt-oss-120b` / `qwen/qwen3.8-27b`)** (com fallback opcional para **Ollama local `gemma4:e4b`, com `qwen2.5:7b` de reserva (ADR 0004)** e síntese extrativa determinística) e respeitando rigorosamente os limites da **Lei Federal nº 8.234/1991 (Art. 3º - CFN)**.
+Implementação completa de um consultor de nutrição baseado em evidências científicas e diretrizes oficiais, operando com **Banco Vetorial Persistente (`ChromaDB` + Embeddings Multilíngues `e5-large` de 1024d, locais)**, **API gratuita da Groq (`openai/gpt-oss-120b` / `qwen/qwen3.8-27b`)** (com fallback opcional para **Ollama local `gemma4:e4b`, com `qwen2.5:7b` de reserva (ADR 0004)** e síntese extrativa determinística) e respeitando rigorosamente os limites da **Lei Federal nº 8.234/1991 (Art. 3º - CFN)**.
 
 ---
 
@@ -19,7 +19,7 @@ Detalhes, números gerados pelo sistema, diagramas e limitações em [`docs/entr
 
 1. **Base de conhecimento curada:** 21 documentos-fonte aprovados (mínimo exigido: 20) de 22 catalogados em [`corpus/manifest.yaml`](corpus/manifest.yaml) com origem e SHA-256, somando 1.814 Trechos no índice. A SBAN segue pendente; o `seed_guidelines` (sem origem verificável) e os resumos do PubMed (em inglês) ficaram fora do índice.
 2. **Chunking:** `corpus/scripts/prepare_rag.py` gera Trechos de cerca de 1.000 caracteres sem atravessar página nem seção, no formato do [ADR 0002](docs/adrs/0002-contrato-corpus-retriever.md), com cabeçalho contextual na indexação.
-3. **Embeddings:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (384 dimensões, cosseno), executado localmente, combinado ao BM25 por RRF.
+3. **Embeddings:** `intfloat/multilingual-e5-large` (1024 dimensões, cosseno), executado localmente pelo fastembed e combinado ao BM25 por RRF. Escolhido na comparação da issue #15 ([ADR 0006](docs/adrs/0006-provedor-embeddings-e-banco-vetorial.md)); a primeira indexação leva cerca de 19 minutos em CPU, e as seguintes reaproveitam o cache de vetores.
 4. **Banco vetorial:** ChromaDB persistente em `data/vector_store/chroma_db`, índice HNSW por cosseno (`ef_search` e `ef_construction` em 200, para o resultado coincidir com a busca exata), coleção versionada pela impressão digital do conteúdo e metadados de rastreabilidade (fonte, página, link, aprovação).
 5. **Gate de aprovação:** só fontes `aprovado` entram no índice, inclusive na demonstração e no benchmark. Para testar com as pendentes, use `CULTIVA_INCLUIR_PENDENTES=true` (API e CLI).
 

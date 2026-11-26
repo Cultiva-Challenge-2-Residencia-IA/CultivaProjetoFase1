@@ -19,7 +19,7 @@ Cada caso traz a `origem`:
 
 O "não sei" só vem quando a pergunta está **fora do domínio**, com os dois sinais apontando para fora:
 
-1. o cosseno do Trecho mais próximo no ChromaDB (`HybridRetriever.similaridade_maxima`) fica abaixo de `ABSTENCAO_LIMIAR_COSSENO` (0,40); **e**
+1. o cosseno do Trecho mais próximo no ChromaDB (`HybridRetriever.similaridade_maxima`) fica abaixo de `ABSTENCAO_LIMIAR_COSSENO` (0,845 com o e5-large desde a issue #15; era 0,40 com o MiniLM); **e**
 2. a pergunta não tem nenhum termo do vocabulário de Nutrição (`TERMOS_NUTRICAO` em `src/rag/abstencao.py`).
 
 Nesse caso:
@@ -52,7 +52,7 @@ Sinais testados no `dev` (84 perguntas que devem ser respondidas, contando golde
 
 O vocabulário só **impede** recusas: um termo que falte, no pior caso, deixa recusar uma pergunta de cosseno baixo. Os termos foram escritos a partir do domínio; `sono`, `dormir`, `absorção`, `cúrcuma` e `pimenta` entraram depois de ver perguntas do `dev` sem termo.
 
-## Resultado (conjunto completo, 12/11/2026)
+## Resultado (conjunto completo, 12/11/2026, com o MiniLM e limiar 0,40)
 
 | Métrica | Valor | Mínimo no gate |
 |---|---:|---:|
@@ -63,6 +63,18 @@ O vocabulário só **impede** recusas: um termo que falte, no pior caso, deixa r
 Fora de Nutrição e ainda respondidas:
 - "Como trocar o óleo do carro?": "óleo" é termo do domínio;
 - "Como estudar para o ENEM?" e "Me ajuda a fazer um currículo?": cosseno um pouco acima de 0,40. A do ENEM pertence à futura aba de Estudos (RF-IA06).
+
+## Recalibração com o e5-large (issue #15, 24/11/2026)
+
+O cosseno muda de escala com o modelo de embeddings: o e5-large dá cossenos entre 0,8 e 0,9 a quase qualquer pergunta. Na troca de modelo, o limiar foi recalibrado só no `dev`, com a regra da seção anterior: o maior "não sei" fora de Nutrição com zero recusas indevidas (casos `dentro` e `grafo_sem_corpus`, e as perguntas a responder do golden v1 e v2), escolhendo o menor limiar entre os empatados (`src/evaluation/comparacao_embeddings.py`).
+
+| Métrica (e5-large, limiar 0,845) | Valor | Mínimo no gate |
+|---|---:|---:|
+| Recusa indevida | 0 de 89 perguntas a responder | no máximo 5% |
+| "Não sei" fora de Nutrição | 25/26 (96%); dev 20/21, test 5/5 | 85% |
+| "Não sei" em Nutrição fora do corpus | 1/28 (informativo) | sem mínimo |
+
+Números do `abstention_metrics` do benchmark. Pelo sinal sozinho, sem o desvio do grafo e da TACO, seriam 3/28 em Nutrição fora do corpus. A única pergunta fora de Nutrição respondida é a do óleo do carro. **A folga é pequena:** a pergunta a responder de menor cosseno tem 0,8456, e as fora de Nutrição de maior cosseno têm 0,8445. Neste conjunto, o cosseno sozinho separa os dois grupos, mas uma pergunta nova pode cair do outro lado. O vocabulário de Nutrição continua sendo a proteção contra recusa indevida. Os números do MiniLM ficam na seção anterior, como registro. Detalhes em `eval/runs/comparacao_embeddings_issue15.md`.
 
 ## Limite conhecido
 

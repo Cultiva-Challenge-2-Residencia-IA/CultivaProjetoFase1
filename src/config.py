@@ -21,8 +21,10 @@ CORPUS_MANIFEST_PATH = PROJECT_ROOT / "corpus" / "manifest.yaml"
 # Casos do detector de risco (RF-IA03), avaliados junto com o benchmark (issue #9).
 RISCO_CASOS_PATH = PROJECT_ROOT / "eval" / "risco" / "casos.json"
 # "Não sei" (RF-IA01, issue #6): limiar do cosseno do Trecho mais próximo no ChromaDB.
-# Calibrado no dev de eval/abstencao/casos.json em 12/11/2026 (eval/abstencao/README.md).
-ABSTENCAO_LIMIAR_COSSENO = float(os.getenv("ABSTENCAO_LIMIAR_COSSENO", "0.40"))
+# Depende da escala do modelo de embeddings: recalibrado para o e5-large no dev de
+# eval/abstencao/casos.json em 24/11/2026 (issue #15; era 0,40 com o MiniLM). Trocar o modelo exige
+# recalibrar (src/evaluation/comparacao_embeddings.py; eval/runs/comparacao_embeddings_issue15.md).
+ABSTENCAO_LIMIAR_COSSENO = float(os.getenv("ABSTENCAO_LIMIAR_COSSENO", "0.845"))
 ABSTENCAO_CASOS_PATH = PROJECT_ROOT / "eval" / "abstencao" / "casos.json"
 RISCO_HOLDOUT_PATH = PROJECT_ROOT / "eval" / "risco" / "holdout.json"
 # Camada semântica do detector de risco (issue #48): modelo do Ollama local consultado quando o
@@ -44,6 +46,10 @@ TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / 
 # chat vão ao LLM (janela).
 HISTORICO_DB_PATH = Path(os.getenv("CULTIVA_HISTORICO_DB", str(DATA_DIR / "conversas.sqlite3")))
 JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "6"))
+# Autenticação dos endpoints de chat e de exclusão (issue #108, src/chat/autenticacao.py). O segredo
+# (CULTIVA_AUTH_SEGREDO) e a flag de desenvolvimento (CULTIVA_AUTH_DESLIGADA) são lidos a cada pedido,
+# não aqui; esta é só a validade dos tokens de teste emitidos pela linha de comando.
+AUTH_VALIDADE_PADRAO_S = int(os.getenv("CULTIVA_AUTH_VALIDADE_S", "3600"))
 # Reescrita de consulta com o LLM local (issue #99): pergunta de continuação e área das mensagens sem
 # termo. Ligada por padrão.
 REESCRITA_LLM = os.getenv("CULTIVA_REESCRITA_LLM", "true").strip().lower() in {"1", "true", "sim", "yes"}
@@ -66,11 +72,23 @@ VECTOR_STORE_DIR = DATA_DIR / "vector_store" / "chroma_db"
 VECTOR_COLLECTION_NAME = os.getenv(
     "VECTOR_COLLECTION_NAME", "cultiva_nutricao_evidencias"
 )
-EMBEDDING_MODEL_NAME = os.getenv(
-    "EMBEDDING_MODEL_NAME",
-    "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-)
-EMBEDDING_DIMENSION = int(os.getenv("EMBEDDING_DIMENSION", "384"))
+# Modelo local do fastembed (ADR 0006, issue #15). Escolhido na comparação com o MiniLM-L12 e o
+# mpnet multilíngues: eval/runs/comparacao_embeddings_issue15.md. Trocar o modelo muda a escala do
+# cosseno: recalibre ABSTENCAO_LIMIAR_COSSENO junto.
+EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME", "intfloat/multilingual-e5-large")
+# Com "true" (padrão), o texto vai ao modelo de embeddings em minúsculas e sem acentos, como no
+# BM25. A dimensão dos vetores vem do próprio modelo (catálogo do fastembed).
+EMBEDDING_NORMALIZAR_TEXTO = os.getenv("EMBEDDING_NORMALIZAR_TEXTO", "true").strip().lower() in {
+    "1", "true", "sim", "yes"
+}
+# Cache dos vetores dos Trechos, por modelo e texto (issue #15): só Trechos novos ou alterados são
+# recalculados ao refazer uma coleção. Vazio desliga o cache.
+_cache_vetores = os.getenv("EMBEDDING_CACHE_PATH", str(DATA_DIR / "vector_store" / "vetores_cache.sqlite3")).strip()
+EMBEDDING_CACHE_PATH = Path(_cache_vetores) if _cache_vetores else None
+# Textos por chamada ao modelo de embeddings. O padrão do fastembed (256) faz o e5-large passar de
+# 12 GB de memória num lote de Trechos longos (512 tokens): o runner do CI, com 16 GB, para de
+# responder e é derrubado. Com 16, o pico fica perto de 2 GB, sem perda de velocidade em CPU.
+EMBEDDING_LOTE_MODELO = int(os.getenv("EMBEDDING_LOTE_MODELO", "16"))
 # Parâmetros do índice HNSW do ChromaDB. Com os padrões, a busca aproximada perdia vizinhos
 # e variava a cada carga do índice; com 200, o top-24 coincide com a busca exata no corpus atual.
 HNSW_EF_CONSTRUCTION = int(os.getenv("HNSW_EF_CONSTRUCTION", "200"))
@@ -105,9 +123,6 @@ OLLAMA_NUM_PREDICT = int(os.getenv("OLLAMA_NUM_PREDICT", "2048"))
 OLLAMA_THINK = os.getenv("OLLAMA_THINK", "false").strip().lower() in {"1", "true", "sim", "yes"}
 OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text")
 OLLAMA_TIMEOUT = float(os.getenv("OLLAMA_TIMEOUT", "45.0"))
-
-# Backend de vetorização local ("local_lsa" ou "ollama")
-VECTOR_BACKEND = os.getenv("VECTOR_BACKEND", "local_lsa")
 
 # Parâmetros do Motor RAG Híbrido (Fase 1 Baseline)
 TOP_K_BM25 = int(os.getenv("TOP_K_BM25", "8"))

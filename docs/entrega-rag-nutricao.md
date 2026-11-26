@@ -55,10 +55,10 @@ A página e a seção nunca são misturadas entre Trechos. É isso que permite c
 
 ### 1.3 Estratégia de embeddings
 
-- **Modelo:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`, multilíngue, **384 dimensões**, vetores normalizados (L2) e similaridade por cosseno.
+- **Modelo:** `intfloat/multilingual-e5-large`, multilíngue, **1024 dimensões**, com os prefixos `query: ` e `passage: `, vetores normalizados (L2) e similaridade por cosseno ([ADR 0006](adrs/0006-provedor-embeddings-e-banco-vetorial.md)). Até a issue #15 era o `paraphrase-multilingual-MiniLM-L12-v2` (384 dimensões), que cortava cada Trecho em 128 tokens.
 - **Execução local** (biblioteca `fastembed`, ONNX): nenhum texto sai da máquina, o que atende ao RNF05.
 - **Busca híbrida** (`src/retrieval/hybrid_retriever.py`): BM25 léxico com sinônimos clínicos e similaridade densa do ChromaDB, fundidos por **Reciprocal Rank Fusion**, seguidos de diversificação (no máximo 2 Trechos por documento). Desde a issue #35, o reranker por sobreposição de termos e nível de evidência e a mistura com TF-IDF/LSA ficam desligados por padrão (`MODO_DENSO`, `RERANK_*` em `src/config.py`); ver `eval/runs/ablacao_mrr_issue35.md`.
-- **Ainda não feito:** comparar pelo menos dois modelos em português no golden set (issue #15).
+- **Comparação de modelos (issue #15):** MiniLM-L12, mpnet e e5-large multilíngues no golden set v1 e v2 e no "não sei". O e5-large venceu (MRR por Trecho no v2 `dev` de 0,815 contra 0,732), com o limiar do "não sei" recalibrado para 0,845. Sem o cache de vetores (`EMBEDDING_CACHE_PATH`), indexar leva cerca de 19 minutos em CPU, contra 30 s antes. Ver `eval/runs/comparacao_embeddings_issue15.md`.
 
 ### 1.4 Banco vetorial
 
@@ -82,7 +82,7 @@ flowchart LR
     J -.-> V
     J --> G{"Gate de aprovação<br/>só aprovado por padrão<br/>(21 de 22 fontes)"}
     G --> T["trecho_para_chunk<br/>cabeçalho contextual +<br/>nível de evidência pelo tipo"]
-    T --> E["Embeddings multilíngues<br/>MiniLM-L12, 384d (local)"]
+    T --> E["Embeddings multilíngues<br/>e5-large, 1024d (local)"]
     E --> DB[("ChromaDB HNSW cosseno<br/>coleção por impressão digital")]
     T --> B[("Índice BM25")]
 ```
@@ -123,20 +123,20 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 
 ### 3.1 Avaliação (benchmark offline)
 
-`run_benchmark.py` sobre as 16 perguntas de `data/benchmark/eval_questions.json`, sem LLM e só com as fontes aprovadas (medido de novo em 10/11/2026, depois da mudança de ranking da #35; entre parênteses, o valor de 08/11/2026):
+`run_benchmark.py` sobre as 16 perguntas de `data/benchmark/eval_questions.json`, sem LLM e só com as fontes aprovadas (medido de novo em 24/11/2026, depois da revisão de sete perguntas na #59 e da troca do modelo de embeddings da #15; entre parênteses, o valor com o MiniLM nas mesmas perguntas):
 
 | Métrica | Valor |
 |---|---|
-| Recall@4 por fonte | 91.7% (em 12 das 16 perguntas) |
-| MRR | 0.778 (0.750) |
-| Cobertura de termos esperados | 92.5% (88.1%) |
+| Recall@4 por fonte | 96.2% (88.5%), em 13 das 16 perguntas |
+| MRR | 0.853 (0.769) |
+| Cobertura de termos esperados | 92.5% (92.5%) |
 | Acurácia do guardrail legal | 100% |
 
-- As perguntas foram escritas para o `data/raw`. Os ids esperados foram mapeados para as fontes do corpus (Guia por capítulo vira o Guia inteiro). As 4 perguntas que dependiam só do `seed_guidelines` ou do PubMed ficaram fora da média de recall, e o relatório as lista.
+- As perguntas foram escritas para o `data/raw`. Os ids esperados foram mapeados para as fontes do corpus (Guia por capítulo vira o Guia inteiro). As perguntas sem fonte esperada no corpus ficam fora da média de recall (3 desde a revisão da #59, em `data/benchmark/README.md`), e o relatório as lista.
 - O recall agora é por fonte e não por capítulo, então os números **não são comparáveis** aos da versão anterior (93,8% com 47 fontes).
-- A ablação da #5 (`eval/runs/ablacao_seed_issue5.md`) mediu, com a mesma régua, o efeito de devolver o `seed_guidelines` ao índice: recall@4 e cobertura não mudam, e o MRR **cai** de 0,778 para 0,708 (no v2, o MRR por Trecho cai no dev e no test). A saída do `seed` não custou qualidade de busca, e a queda desde a versão anterior vem da troca de base e do mapeamento dos ids. As 7 perguntas do v1 que esperam documentos do `seed` ainda precisam ser revistas.
+- A ablação da #5 (`eval/runs/ablacao_seed_issue5.md`) mediu, com a mesma régua, o efeito de devolver o `seed_guidelines` ao índice: recall@4 e cobertura não mudam, e o MRR **cai** de 0,778 para 0,708 (no v2, o MRR por Trecho cai no dev e no test). A saída do `seed` não custou qualidade de busca, e a queda desde a versão anterior vem da troca de base e do mapeamento dos ids. As 7 perguntas do v1 que esperavam documentos do `seed` foram revistas na #59.
 - Tirar a SBAN do índice não mudou as métricas: ela aparecia em três perguntas (Q08, Q13 e Q16), mas em nenhuma era a fonte esperada, e as fontes que entraram no lugar também não eram.
-- O MRR de 0,778 é o baseline do CI (`eval/baselines/benchmark_offline.json`). A ablação da #35 mostrou que o reranker por sobreposição de termos pesava cerca de 10 vezes a fusão RRF e decidia o ranking sozinho; com RRF puro sobre BM25 + ChromaDB, o MRR subiu de 0,750 para 0,778 (2 perguntas melhoram, 1 piora). No benchmark v2, o MRR por Trecho foi de 0,740 para 0,814. Os ganhos foram medidos em conjuntos pequenos e são hipótese a confirmar.
+- O MRR de 0,853 é o baseline do CI (`eval/baselines/benchmark_offline.json`) desde a troca do modelo de embeddings (#15): frente ao MiniLM, o e5-large põe a fonte esperada no top-4 de Q08 e em 1º lugar em Q11 e Q14, e piora a Q10 (de 0,50 para 0,33). A ablação da #35 mostrou que o reranker por sobreposição de termos pesava cerca de 10 vezes a fusão RRF e decidia o ranking sozinho; com RRF puro sobre BM25 + ChromaDB, o MRR subiu de 0,750 para 0,778 (2 perguntas melhoram, 1 piora). No benchmark v2, o MRR por Trecho foi de 0,740 para 0,814. Os ganhos foram medidos em conjuntos pequenos e são hipótese a confirmar.
 - O conjunto é pequeno e tem só 3 armadilhas de prescrição. O benchmark v2 é a issue #13.
 
 ## 4. Limitações conhecidas
@@ -152,7 +152,7 @@ Os artefatos foram gerados **sem LLM** (síntese extrativa local e determinísti
 |---|---|
 | #4 Integrar os JSONL do corpus | Feita: `src/rag/corpus_loader.py` carrega os Trechos pelo contrato do ADR 0002. |
 | #7 Filtrar por fonte aprovada | Feita: gate no momento de montar o índice. Demonstração e benchmark usam só fontes aprovadas; `CULTIVA_INCLUIR_PENDENTES=true` inclui as pendentes. |
-| #15 Embeddings e banco vetorial | Parcial: modelo multilíngue local e ChromaDB. Falta comparar modelos em português. |
+| #15 Embeddings e banco vetorial | Parcial: três modelos locais comparados e e5-large adotado ([relatório da comparação](../eval/runs/comparacao_embeddings_issue15.md), [critérios](../eval/runs/comparacao_embeddings_issue15_criterios.md)); ChromaDB mantido como padrão ([ADR 0006](adrs/0006-provedor-embeddings-e-banco-vetorial.md)). Falta o backend pgvector com reindexação por `corpus_version`. |
 | #11 Rastreabilidade | Resposta inclui `corpus_version` (SHA-256 do manifesto das fontes indexadas e dos JSONL correspondentes), `prompt_version`, `model_version`, `fontes_version` e `trechos_usados` (id, fonte, página, link e título). Um `response_id` associa o registro persistido de rastreabilidade ao endpoint `POST /feedback/incorrect`. |
 | #13 Benchmark v2 | Parcial: ids esperados mapeados para as fontes do corpus. O conjunto continua o mesmo. |
 | #28 PubMed e TACO no corpus | Decidido para esta entrega: PubMed fora. O suporte a resumos no pipeline está pronto. |

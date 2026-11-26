@@ -13,11 +13,11 @@ Conversa presa a um único Agente de área, como o chat de Nutrição ou o de Sa
 _Evitar_: chat específico, chat do agente
 
 **Conversa**:
-Sequência de mensagens de um Usuário num mesmo chat, identificada por um id e com contexto entre as mensagens.
+Sequência de mensagens de um Usuário num mesmo chat, identificada por um id e com contexto entre as mensagens. O id pertence ao Usuário que o usou primeiro; outro Usuário não pode usá-lo.
 _Evitar_: sessão, thread (fora do código)
 
 **Usuário**:
-Pessoa que conversa com o CULTIVA, identificada por um id; liga as Conversas dela nos diferentes chats.
+Pessoa que conversa com o CULTIVA, identificada por um id que vem do token emitido pelo App; liga as Conversas dela nos diferentes chats.
 _Evitar_: cliente, conta, paciente
 
 **Histórico**:
@@ -31,12 +31,20 @@ Peça que recebe toda mensagem do Chat geral, aplica os portões e decide para q
 _Evitar_: roteador (como nome da peça), chat geral
 
 **Agente de área**:
-Agente que responde só na sua área (Nutrição ou Saúde Física), a partir das fontes aprovadas dela, e redireciona perguntas de outra área.
+Agente que responde só na sua área (Nutrição ou Saúde Física), a partir das fontes aprovadas dela, e redireciona perguntas de outra área. Pode receber Fatos do Usuário, pelo Projetor de contexto, para relacionar a resposta à vida da pessoa.
 _Evitar_: especialista, consultor
 
 **Sincronizador**:
 Peça que cruza as respostas de mais de um Agente de área numa resposta única, sem acrescentar fato que os agentes não trouxeram.
 _Evitar_: integrador, agregador, orquestrador
+
+**Projetor de contexto**:
+Peça do Orquestrador que, antes de cada Agente de área, escolhe os Fatos do Usuário relacionados à Subpergunta, de qualquer área, e entrega só esses ao agente, nos três chats. Não responde conteúdo nem junta respostas.
+_Evitar_: sincronizador (quando se refere à escolha do contexto), memória
+
+**Fato do Usuário**:
+Afirmação curta sobre a vida do Usuário numa área (a área vem do assunto, não do chat em que foi dita), com a área e a data de origem (ex.: "pratica musculação 4 vezes por semana"). Serve para personalizar e relacionar a resposta, nunca como fonte; o que acionou um Portão nunca vira Fato do Usuário. Só existe com o consentimento do Usuário; condição de saúde declarada (como diabetes) exige um consentimento à parte e só orienta a escolha da evidência e o encaminhamento a profissional.
+_Evitar_: perfil, memória, contexto (quando se refere a um fato isolado)
 
 **Portão**:
 Verificação feita antes de qualquer Agente de área que pode encerrar a mensagem com uma resposta fixa (risco, prompt injection).

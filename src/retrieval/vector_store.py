@@ -1,4 +1,5 @@
 import hashlib
+import sqlite3
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -8,17 +9,65 @@ from sklearn.preprocessing import normalize
 
 from src.config import (
     PROJECT_ROOT,
-    EMBEDDING_DIMENSION,
+    EMBEDDING_CACHE_PATH,
+    EMBEDDING_LOTE_MODELO,
     EMBEDDING_MODEL_NAME,
+    EMBEDDING_NORMALIZAR_TEXTO,
     HNSW_EF_CONSTRUCTION,
     HNSW_EF_SEARCH,
     VECTOR_COLLECTION_NAME,
     VECTOR_STORE_DIR,
 )
 from src.models.schemas import DocumentChunk
-from src.retrieval.hybrid_retriever import expand_clinical_synonyms
+from src.retrieval.hybrid_retriever import expandir_sinonimos
 
 _FASTEMBED_MODEL_CACHE: Dict[str, Any] = {}
+
+# Prefixos (consulta, documento) que o modelo espera. O e5 foi treinado com "query: " e
+# "passage: " e perde qualidade sem eles. Modelos ausentes daqui não usam prefixo.
+PREFIXOS_EMBEDDING: Dict[str, Tuple[str, str]] = {
+    "intfloat/multilingual-e5-large": ("query: ", "passage: "),
+}
+
+
+# Modelo de embeddings dos testes (pytest): hashing de termos, determinístico, sem download e em
+# milissegundos. Testa a lógica de indexação, busca, fusão e HNSW, não a qualidade semântica; os
+# testes que dependem do modelo real levam a marca `embeddings_reais` (tests/conftest.py).
+MODELO_DE_TESTE = "cultiva/hash-teste"
+DIMENSAO_DE_TESTE = 512
+
+
+class EmbeddingsDeTeste:
+    """Hashing de palavras e de pares de palavras vizinhas num vetor de `DIMENSAO_DE_TESTE`."""
+
+    def embed(self, textos: List[str], batch_size: Optional[int] = None):
+        from src.retrieval.hybrid_retriever import normalize_text
+
+        for texto in textos:
+            vetor = np.zeros(DIMENSAO_DE_TESTE, dtype=np.float32)
+            palavras = normalize_text(texto).split()
+            for termo in palavras + [f"{a} {b}" for a, b in zip(palavras, palavras[1:])]:
+                h = int.from_bytes(hashlib.blake2b(termo.encode(), digest_size=8).digest(), "little")
+                vetor[h % DIMENSAO_DE_TESTE] += 1.0 if (h >> 32) & 1 else -1.0
+            if not vetor.any():
+                vetor[0] = 1.0
+            yield vetor
+
+
+def prefixos_do_modelo(modelo: str) -> Tuple[str, str]:
+    return PREFIXOS_EMBEDDING.get(modelo, ("", ""))
+
+
+def dimensao_do_modelo(modelo: str) -> int:
+    """Dimensão dos vetores do modelo, segundo o catálogo do fastembed."""
+    if modelo == MODELO_DE_TESTE:
+        return DIMENSAO_DE_TESTE
+    from fastembed import TextEmbedding
+
+    for descricao in TextEmbedding.list_supported_models():
+        if descricao["model"] == modelo:
+            return int(descricao["dim"])
+    raise ValueError(f"modelo de embeddings fora do catálogo do fastembed: {modelo}")
 
 
 def _caminho_relativo(caminho: Path) -> str:
@@ -38,13 +87,20 @@ def configuracao_hnsw() -> Dict[str, Any]:
     }
 
 
-def impressao_digital(chunks: List[DocumentChunk], modelo: str) -> str:
-    """Hash do modelo, da configuração do HNSW e do conteúdo indexado.
+def impressao_digital(chunks: List[DocumentChunk], modelo: str,
+                      normalizar_texto: bool = EMBEDDING_NORMALIZAR_TEXTO) -> str:
+    """Hash do modelo, dos prefixos, do pré-processamento, da configuração do HNSW e do conteúdo.
 
-    Muda quando o corpus, o modelo ou o índice mudam, para não reaproveitar uma coleção
-    construída com outros parâmetros.
+    Muda quando o corpus, o modelo, a forma de preparar o texto ou o índice mudam, para não
+    reaproveitar uma coleção construída com outros parâmetros.
     """
     h = hashlib.sha256(modelo.encode())
+    # Só entram quando diferem do comportamento anterior (sem prefixo, texto normalizado), para
+    # a coleção do modelo atual continuar com o mesmo nome.
+    if any(prefixos_do_modelo(modelo)):
+        h.update(repr(prefixos_do_modelo(modelo)).encode())
+    if not normalizar_texto:
+        h.update(b"texto-original")
     h.update(repr(sorted(configuracao_hnsw().items())).encode())
     for c in chunks:
         h.update(c.chunk_id.encode())
@@ -54,6 +110,8 @@ def impressao_digital(chunks: List[DocumentChunk], modelo: str) -> str:
 
 def _get_fastembed_model(model_name: str) -> Any:
     """Carrega e mantém em cache de processo o modelo ONNX de embeddings densos."""
+    if model_name == MODELO_DE_TESTE:
+        return EmbeddingsDeTeste()
     if model_name not in _FASTEMBED_MODEL_CACHE:
         from fastembed import TextEmbedding
 
@@ -61,40 +119,110 @@ def _get_fastembed_model(model_name: str) -> Any:
     return _FASTEMBED_MODEL_CACHE[model_name]
 
 
+class CacheDeVetores:
+    """Vetores já calculados, por modelo e texto preparado, num SQLite local (issue #15).
+
+    Modelos grandes (o e5-large leva cerca de 19 minutos para o corpus em CPU) tornam caro refazer
+    a coleção a cada mudança de Trecho, a cada corpus (aprovadas, pendentes) e a cada teste. A chave
+    é o hash do modelo, da versão do fastembed e do texto exatamente como vai ao modelo (prefixo e
+    pré-processamento incluídos): só Trechos novos ou alterados são calculados. Guarda só vetores de
+    Trechos do corpus, nunca perguntas.
+    """
+
+    def __init__(self, caminho: Path) -> None:
+        caminho.parent.mkdir(parents=True, exist_ok=True)
+        self.caminho = caminho
+        self._conexao = sqlite3.connect(str(caminho))
+        self._conexao.execute("CREATE TABLE IF NOT EXISTS vetores (chave TEXT PRIMARY KEY, vetor BLOB NOT NULL)")
+        self._conexao.commit()
+
+    @staticmethod
+    def chave(modelo: str, texto: str) -> str:
+        import fastembed
+
+        h = hashlib.sha256(f"{modelo}\0{fastembed.__version__}\0".encode())
+        h.update(texto.encode())
+        return h.hexdigest()
+
+    def buscar(self, chaves: List[str]) -> Dict[str, np.ndarray]:
+        encontrados: Dict[str, np.ndarray] = {}
+        for inicio in range(0, len(chaves), 500):
+            lote = chaves[inicio:inicio + 500]
+            marcas = ",".join("?" * len(lote))
+            for chave, blob in self._conexao.execute(
+                f"SELECT chave, vetor FROM vetores WHERE chave IN ({marcas})", lote
+            ):
+                encontrados[chave] = np.frombuffer(blob, dtype=np.float32)
+        return encontrados
+
+    def gravar(self, itens: Dict[str, np.ndarray]) -> None:
+        self._conexao.executemany(
+            "INSERT OR REPLACE INTO vetores (chave, vetor) VALUES (?, ?)",
+            [(k, np.asarray(v, dtype=np.float32).tobytes()) for k, v in itens.items()],
+        )
+        self._conexao.commit()
+
+
 class DenseMultilingualEmbedder:
     """
-    Gerador de Embeddings Densos Multilíngues (384 dimensões, normalizados em norma L2)
-    baseado em `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (via FastEmbed/ONNX).
-    Permite alinhamento semântico cross-lingual entre consultas em português e diretrizes/artigos em PT-BR e EN.
+    Embeddings densos multilíngues, normalizados em norma L2, gerados localmente pelo fastembed
+    (ONNX, CPU): nenhum texto sai da máquina (RNF05; ADR 0006). O modelo vem de
+    `EMBEDDING_MODEL_NAME`, e a dimensão e os prefixos de consulta e documento, do próprio modelo.
     """
 
     def __init__(
         self,
         model_name: str = EMBEDDING_MODEL_NAME,
-        dimension: int = EMBEDDING_DIMENSION,
+        normalizar_texto: bool = EMBEDDING_NORMALIZAR_TEXTO,
     ) -> None:
         self.model_name = model_name
-        self.dimension = dimension
+        self.dimension = dimensao_do_modelo(model_name)
+        self.normalizar_texto = normalizar_texto
+        self.prefixo_consulta, self.prefixo_documento = prefixos_do_modelo(model_name)
         self._model = _get_fastembed_model(model_name)
+        # Quantos textos a última chamada de `embed_documents` calculou (os demais vieram do cache).
+        self.calculados = 0
 
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+    def _vetores(self, textos: List[str]) -> np.ndarray:
+        brutos = np.array(list(self._model.embed(textos, batch_size=EMBEDDING_LOTE_MODELO)), dtype=np.float32)
+        return normalize(brutos, norm="l2")
+
+    def preparar_documento(self, texto: str) -> str:
+        return self.prefixo_documento + expandir_sinonimos(texto, self.normalizar_texto)
+
+    def preparar_consulta(self, consulta: str) -> str:
+        return self.prefixo_consulta + expandir_sinonimos(consulta, self.normalizar_texto)
+
+    # Lote de cálculo: cada lote é gravado no cache assim que termina, para que uma execução
+    # interrompida (job cancelado, tempo limite) não perca os vetores já calculados.
+    LOTE_DO_CACHE = 256
+
+    def embed_documents(self, texts: List[str], cache: Optional[CacheDeVetores] = None) -> List[List[float]]:
+        """Vetores de textos já preparados (`preparar_documento`). Com `cache`, só calcula os ausentes."""
         if not texts:
             return []
-        raw_vectors = np.array(list(self._model.embed(texts)), dtype=np.float32)
-        normalized = normalize(raw_vectors, norm="l2")
-        return normalized.tolist()
+        if cache is None:
+            self.calculados = len(texts)
+            return self._vetores(texts).tolist()
+        chaves = [CacheDeVetores.chave(self.model_name, t) for t in texts]
+        encontrados = cache.buscar(list(dict.fromkeys(chaves)))
+        faltam = list(dict.fromkeys(t for t, k in zip(texts, chaves) if k not in encontrados))
+        self.calculados = len(faltam)
+        for inicio in range(0, len(faltam), self.LOTE_DO_CACHE):
+            lote = faltam[inicio:inicio + self.LOTE_DO_CACHE]
+            novos = {CacheDeVetores.chave(self.model_name, t): v for t, v in zip(lote, self._vetores(lote))}
+            cache.gravar(novos)
+            encontrados.update(novos)
+        return [encontrados[k].tolist() for k in chaves]
 
     def embed_query(self, query: str) -> List[float]:
-        expanded = expand_clinical_synonyms(query)
-        raw_vec = np.array(list(self._model.embed([expanded])), dtype=np.float32)
-        normalized = normalize(raw_vec, norm="l2")
-        return normalized[0].tolist()
+        return self._vetores([self.preparar_consulta(query)])[0].tolist()
 
 
 class NutritionVectorStore:
     """
     Banco de Dados Vetorial Persistente (ChromaDB + Índice HNSW Cosseno):
-    Armazena em disco (`data/vector_store/chroma_db`) os embeddings densos de 384 dimensões,
+    Armazena em disco (`data/vector_store/chroma_db`) os embeddings densos do modelo configurado,
     os textos contextualizados dos chunks e os metadados auditáveis de cada fonte científica.
     """
 
@@ -105,6 +233,8 @@ class NutritionVectorStore:
         collection_name: str = VECTOR_COLLECTION_NAME,
         embedding_model_name: str = EMBEDDING_MODEL_NAME,
         use_persistent: bool = True,
+        normalizar_texto: bool = EMBEDDING_NORMALIZAR_TEXTO,
+        cache_vetores: Optional[Path] = EMBEDDING_CACHE_PATH,
     ) -> None:
         self.chunks = chunks
         self.chunk_id_to_index: Dict[str, int] = {
@@ -113,12 +243,15 @@ class NutritionVectorStore:
         self.persist_directory = persist_directory
         # A coleção leva a impressão digital do conteúdo: um corpus ou modelo diferente gera
         # outra coleção, em vez de reaproveitar vetores de uma versão anterior.
-        self.fingerprint = impressao_digital(chunks, embedding_model_name)
+        self.fingerprint = impressao_digital(chunks, embedding_model_name, normalizar_texto)
         self.collection_name = f"{collection_name}_{self.fingerprint[:12]}"
         self.embedding_model_name = embedding_model_name
         self.use_persistent = use_persistent and (persist_directory is not None)
 
-        self.embedder = DenseMultilingualEmbedder(model_name=embedding_model_name)
+        self.embedder = DenseMultilingualEmbedder(
+            model_name=embedding_model_name, normalizar_texto=normalizar_texto
+        )
+        self.cache_vetores = CacheDeVetores(cache_vetores) if cache_vetores is not None else None
 
         if self.use_persistent and self.persist_directory is not None:
             self.persist_directory.mkdir(parents=True, exist_ok=True)
@@ -157,8 +290,8 @@ class NutritionVectorStore:
 
     def index_chunks(self, chunks: List[DocumentChunk], batch_size: int = 128) -> int:
         """Gera os embeddings densos L2-normalizados e persiste no banco vetorial ChromaDB."""
-        texts = [expand_clinical_synonyms(c.contextualized_text) for c in chunks]
-        vectors = self.embedder.embed_documents(texts)
+        texts = [self.embedder.preparar_documento(c.contextualized_text) for c in chunks]
+        vectors = self.embedder.embed_documents(texts, cache=self.cache_vetores)
 
         for start in range(0, len(chunks), batch_size):
             end = min(start + batch_size, len(chunks))
