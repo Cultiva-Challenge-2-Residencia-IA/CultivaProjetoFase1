@@ -14,15 +14,21 @@ Para cada mensagem:
    só o Histórico da área dele (RF-IA09). Um Chat de área responde só a parte da sua área e indica o
    chat certo para o resto (RF-IA06).
 6. **Sincronizador** (Chat geral com duas áreas): resposta única cruzada, ou lado a lado.
+
+Cada resposta leva o tempo de cada etapa em segundos (`tempos`; issue #107). Com duas áreas, os
+Agentes rodam em paralelo quando `CULTIVA_AGENTES_EM_PARALELO` está ligado.
 """
 
+from concurrent.futures import ThreadPoolExecutor
+import contextvars
 import hashlib
 import re
+import time
 from typing import Dict, List, Mapping, Optional, Protocol, Sequence
 
 from pydantic import BaseModel, Field
 
-from src.config import HYDE_NA_BUSCA, HYDE_NA_BUSCA_SAUDE_FISICA, JANELA_HISTORICO, TOP_K_FINAL
+from src.config import AGENTES_EM_PARALELO, HYDE_NA_BUSCA, HYDE_NA_BUSCA_SAUDE_FISICA, JANELA_HISTORICO, TOP_K_FINAL
 from src.guardrails.alerta import MENSAGEM_ALERTA, detectar_sinal_de_alerta
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.pii import mascarar_dados_pessoais
@@ -72,6 +78,12 @@ class RespostaDoChat(BaseModel):
     citacoes: List[str] = Field(default_factory=list)
     redirecionamento: Optional[str] = None
     reescrita: Optional[str] = None  # origem da reescrita: "llm" ou "regras"
+    # Por que o Sincronizador deixou lado a lado (issue #107); None quando integrou ou não houve duas áreas.
+    motivo_sincronizacao: Optional[str] = None
+    detalhes_sincronizacao: List[str] = Field(default_factory=list)  # o que a checagem apontou
+    # Segundos por etapa (issue #107): "portoes", "roteamento", "agentes", "agente_<área>",
+    # "sincronizador" e "total".
+    tempos: Dict[str, float] = Field(default_factory=dict)
 
 
 def _chave_da_frase(frase: str) -> str:
@@ -153,6 +165,7 @@ class ServicoDeChat:
         reescrita_com_llm: bool = True,
         hyde_na_busca: bool = HYDE_NA_BUSCA,
         hyde_na_busca_saude_fisica: bool = HYDE_NA_BUSCA_SAUDE_FISICA,
+        agentes_em_paralelo: bool = AGENTES_EM_PARALELO,
     ) -> None:
         self.agentes = dict(agentes)
         self.historico = historico
@@ -167,6 +180,7 @@ class ServicoDeChat:
         self.hyde_na_busca_saude_fisica = hyde_na_busca_saude_fisica
         self.risco_llm = risco_llm
         self.janela = janela
+        self.agentes_em_paralelo = agentes_em_paralelo
 
     # Exclusão (LGPD): o Usuário apaga uma Conversa ou todas as dele.
     def apagar_conversa(self, usuario_id: str, conversa_id: str) -> int:
@@ -184,14 +198,21 @@ class ServicoDeChat:
             raise ConversaDeOutroUsuario("Esta Conversa pertence a outro Usuário.")
         with atributos_do_trace(trace_name=f"chat_{chat}", tags=["chat", chat], session_id=conversa_id,
                                 user_id=_id_anonimo(usuario_id)):
+            inicio = time.perf_counter()
             fixa = self._portoes(chat, usuario_id, conversa_id, mensagem)
+            portoes = time.perf_counter() - inicio
             if fixa is not None:
+                fixa.tempos = {"portoes": round(portoes, 3), "total": round(portoes, 3)}
                 return fixa
             with observacao("chat", input={"chat": chat, "mensagem": mensagem}) as raiz:
-                resposta = self._responder(chat, usuario_id, conversa_id, mensagem, top_k)
+                tempos: Dict[str, float] = {"portoes": portoes}
+                resposta = self._responder(chat, usuario_id, conversa_id, mensagem, top_k, tempos)
+                tempos["total"] = time.perf_counter() - inicio
+                resposta.tempos = {etapa: round(segundos, 3) for etapa, segundos in tempos.items()}
                 raiz.update(output={"tipo": resposta.tipo, "areas": resposta.areas, "texto": resposta.texto},
                             metadata={"modo_sincronizacao": resposta.modo_sincronizacao,
-                                      "reescrita": resposta.reescrita})
+                                      "motivo_sincronizacao": resposta.motivo_sincronizacao,
+                                      "reescrita": resposta.reescrita, "tempos": resposta.tempos})
                 return resposta
 
     def _fixa(self, chat: str, usuario_id: str, conversa_id: str, tipo: str, guardada: str,
@@ -251,12 +272,15 @@ class ServicoDeChat:
         return reescrita, regras, subperguntas
 
     def _responder(self, chat: str, usuario_id: str, conversa_id: str, mensagem: str,
-                   top_k: int) -> RespostaDoChat:
+                   top_k: int, tempos: Optional[Dict[str, float]] = None) -> RespostaDoChat:
+        tempos = {} if tempos is None else tempos
         if e_conversa_social(mensagem) and not rotear_por_regras(mensagem).areas:
             return self._fixa(chat, usuario_id, conversa_id, "conversa", mensagem, APRESENTACOES[chat])
         historico = self._historico(chat, usuario_id, conversa_id)
         historico_proprio = self.historico.recentes(usuario_id, conversa_id, self.janela)
+        inicio = time.perf_counter()
         reescrita, regras, subperguntas = self._rotear(chat, mensagem, historico)
+        tempos["roteamento"] = time.perf_counter() - inicio
         redirecionamento = None
 
         if not subperguntas:
@@ -282,8 +306,7 @@ class ServicoDeChat:
                 redirecionamento = mensagem_outra_area(outras[0])
             subperguntas = proprias
 
-        respostas: Dict[str, ConsultantResponse] = {}
-        for sub in subperguntas:
+        def responder_area(sub: Subpergunta):
             extras: List[str] = []
             if self.hyde_na_busca or (self.hyde_na_busca_saude_fisica and sub.area == AREA_SAUDE_FISICA):
                 extras = [t for t in (sub.trecho_hipotetico,) if t]
@@ -293,20 +316,40 @@ class ServicoDeChat:
             # busca medida como base no dev. Com continuação ou com mais de uma área, vai a Subpergunta.
             pergunta = mensagem if not varias_areas and not historico_proprio else sub.texto
             historico_da_area = [m for m in historico if m.e_da_area(sub.area)]
-            respostas[sub.area] = self.agentes[sub.area].responder(pergunta, top_k, extras, historico_da_area)
+            inicio_area = time.perf_counter()
+            resposta = self.agentes[sub.area].responder(pergunta, top_k, extras, historico_da_area)
+            return resposta, time.perf_counter() - inicio_area
+
+        inicio = time.perf_counter()
+        if self.agentes_em_paralelo and len(subperguntas) > 1:
+            # Cada tarefa leva uma cópia do contexto, para os spans do Langfuse ficarem no mesmo trace.
+            with ThreadPoolExecutor(max_workers=len(subperguntas)) as executor:
+                futuros = [executor.submit(contextvars.copy_context().run, responder_area, sub)
+                           for sub in subperguntas]
+                resultados = [f.result() for f in futuros]
+        else:
+            resultados = [responder_area(sub) for sub in subperguntas]
+        tempos["agentes"] = time.perf_counter() - inicio
+        respostas: Dict[str, ConsultantResponse] = {}
+        for sub, (resposta, segundos) in zip(subperguntas, resultados):
+            respostas[sub.area] = resposta
+            tempos[f"agente_{sub.area}"] = segundos
 
         areas = list(respostas)
         self.historico.adicionar(usuario_id, conversa_id, chat, "usuario", mensagem, areas)
         for area, resposta in respostas.items():
             self.historico.adicionar(usuario_id, conversa_id, chat, "assistente", texto_da_resposta(resposta), [area])
 
+        motivo, detalhes = None, []
         if len(respostas) > 1:
+            inicio = time.perf_counter()
             sinc = sincronizar(
                 reescrita.pergunta_completa,
                 [RespostaDeArea(a, texto_da_resposta(r), list(r.retrieved_chunks)) for a, r in respostas.items()],
                 self.llm,
             )
-            texto, tipo, modo = sinc.texto, "sincronizada", sinc.modo
+            tempos["sincronizador"] = time.perf_counter() - inicio
+            texto, tipo, modo, motivo, detalhes = sinc.texto, "sincronizada", sinc.modo, sinc.motivo, sinc.detalhes
             # Os marcadores do texto sincronizado contam os Trechos das duas áreas num só intervalo:
             # as citações saem da mesma lista (RN04).
             citacoes = citacoes_do_texto(texto, sinc.trechos)
@@ -325,5 +368,5 @@ class ServicoDeChat:
             chat=chat, conversa_id=conversa_id, tipo=tipo, texto=texto, texto_com_marcadores=com_marcadores,
             areas=areas, respostas=respostas,
             modo_sincronizacao=modo, citacoes=citacoes, redirecionamento=redirecionamento,
-            reescrita=reescrita.origem,
+            reescrita=reescrita.origem, motivo_sincronizacao=motivo, detalhes_sincronizacao=detalhes,
         )

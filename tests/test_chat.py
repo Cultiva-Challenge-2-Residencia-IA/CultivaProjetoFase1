@@ -283,7 +283,7 @@ def test_sinal_de_alerta_guarda_so_os_sinais_no_historico(tmp_path, agentes):
 
 
 def test_trecho_hipotetico_vai_so_a_busca_de_saude_fisica(tmp_path, agentes):
-    """Issue #105: com o padrão, o HyDE entra na busca do Agente de Saúde Física e não na de Nutrição."""
+    """Issue #105: com o HyDE de Saúde Física ligado (desligado por padrão), ele entra na busca do Agente de Saúde Física e não na de Nutrição."""
     def llm(sistema: str, usuario: str) -> Optional[dict]:
         if "prepara buscas" not in sistema:
             return None
@@ -296,3 +296,44 @@ def test_trecho_hipotetico_vai_so_a_busca_de_saude_fisica(tmp_path, agentes):
     servico.enviar(CHAT_GERAL, "u1", "c1", "O que comer antes de treinar perna?")
     assert "Lower body training." in agentes[AREA_SAUDE_FISICA].chamadas[-1]["extras"]
     assert "Carboidratos antes." not in agentes[AREA_NUTRICAO].chamadas[-1]["extras"]
+
+
+def test_resposta_traz_o_tempo_de_cada_etapa(tmp_path, agentes):
+    # Issue #107: a medição de latência lê estes tempos.
+    resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "O que comer antes do treino de musculação?")
+    assert {"portoes", "roteamento", "agentes", "agente_nutricao", "agente_saude_fisica",
+            "sincronizador", "total"} <= set(resposta.tempos)
+    assert resposta.tempos["total"] >= resposta.tempos["agentes"]
+    assert resposta.motivo_sincronizacao == "sem_llm"
+
+
+def test_resposta_de_portao_tambem_traz_o_tempo(tmp_path, agentes):
+    resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "Senti dor no peito forte correndo")
+    assert resposta.tipo == "alerta"
+    assert set(resposta.tempos) == {"portoes", "total"}
+
+
+class AgenteLento(AgenteFalso):
+    """Espera o outro agente começar: só termina se os dois rodarem ao mesmo tempo."""
+
+    def __init__(self, area: str, barreira):
+        super().__init__(area)
+        self.barreira = barreira
+
+    def responder(self, *args, **kwargs):
+        self.barreira.wait(timeout=5)
+        return super().responder(*args, **kwargs)
+
+
+def test_agentes_em_paralelo_rodam_ao_mesmo_tempo_e_mantem_a_ordem(tmp_path):
+    import threading
+
+    barreira = threading.Barrier(2)
+    agentes = {AREA_NUTRICAO: AgenteLento(AREA_NUTRICAO, barreira),
+               AREA_SAUDE_FISICA: AgenteLento(AREA_SAUDE_FISICA, barreira)}
+    servico = ServicoDeChat(agentes=agentes, historico=HistoricoSQLite(tmp_path / "c.sqlite3"),
+                            agentes_em_paralelo=True)
+    resposta = servico.enviar(CHAT_GERAL, "u1", "c1", "O que comer antes do treino de musculação?")
+    assert not barreira.broken  # com os agentes em sequência, a barreira esgotaria o tempo e quebraria
+    assert resposta.areas == [AREA_NUTRICAO, AREA_SAUDE_FISICA]
+    assert resposta.texto.index("Resposta de nutricao.") < resposta.texto.index("Resposta de saude_fisica.")
