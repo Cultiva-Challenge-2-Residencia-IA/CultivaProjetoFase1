@@ -25,6 +25,7 @@ uv run python -m src.evaluation.relevancia roteamento --split dev
 | Filtro: queda do recall@4 de Nutrição | ≤ 0,05 | 0,556 → 0,537 | 0,604 → 0,562 | |
 | Reformulação: lacuna nos casos sem base depois | ≥ 0,75 | **0,643** | 0,833 (nenhum resgate) | desligada |
 | HyDE em Saúde Física: MRR da fonte | +0,05 | 0,625 → 0,700 (+0,075) | 0,819 → 0,778 (**−0,042**) | ligado em Saúde Física (regra do `dev`) |
+| Latência do Agente de Saúde Física, sem e com HyDE | relatada, não decide | mediana 1,27 s → 4,17 s; p95 1,54 s → 4,66 s | | |
 | Roteamento só com regras, casos claros novos | ≥ 0,90 | 0,643 → **1,000** (14) | **1,000** (6) | vocabulário novo |
 | Roteamento só com regras, casos da #99 (regressão) | não cair | todos: 0,750 → 0,800; compostas: 0,933 → 1,000 | | |
 
@@ -60,6 +61,8 @@ Quando nenhum Trecho passa, o LLM reescreve a pergunta com os termos técnicos (
 ## 4. Trecho hipotético (HyDE) só em Saúde Física
 
 Com o `gemma4:e4b`, o MRR da fonte no `dev` foi de 0,625 para 0,700 (+0,075), e o acerto@4 de 0,80 para 1,00. Pela regra, ele **fica ligado no Agente de Saúde Física** (`CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA=true`); em Nutrição, continua desligado (#99). **No `test`, o MRR caiu de 0,819 para 0,778**, com o acerto@4 igual (0,917). Como na #99, o ganho do `dev` não se repetiu no `test`. Com o `qwen2.5:7b`, medido por engano antes (o `.env` local fixava esse modelo), o `dev` deu +0,037, o que reforça que o efeito é pequeno e instável. Ele também custa uma chamada ao LLM por mensagem, que a reescrita do Chat já fazia.
+
+**Latência (medida em 26/11/2026, depois da revisão, ainda com o MiniLM e antes da mescla da #15):** o trecho hipotético e a pergunta completa viram duas consultas extras, e cada uma passa os seus 20 candidatos pelo cross-encoder. No `dev`, com os trechos hipotéticos gravados em `resultado_hyde_dev.json`, a mediana do Agente de Saúde Física (busca, reranker, filtro e síntese extrativa, sem a chamada de reescrita) foi de 1,27 s (p95 1,54 s) sem as consultas extras para 4,17 s (p95 4,66 s) com elas, cerca de 3,3 vezes (`resultado_latencia_dev.json`, `uv run python -m src.evaluation.relevancia latencia --split dev`). Como o ganho do HyDE não se repetiu no `test`, esse custo é um argumento para revisar a decisão no próximo ciclo de medição.
 
 ## 5. Vocabulário de roteamento
 

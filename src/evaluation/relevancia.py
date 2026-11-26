@@ -5,6 +5,7 @@
     uv run python -m src.evaluation.relevancia reformulacao --split dev     # exige o Ollama
     uv run python -m src.evaluation.relevancia hyde --split dev             # exige o Ollama
     uv run python -m src.evaluation.relevancia roteamento --split dev
+    uv run python -m src.evaluation.relevancia latencia --split dev         # usa o resultado do hyde
 
 Grava `eval/relevancia/resultado_<medida>_<split>.json`. O `test` roda uma vez, depois das decisões.
 """
@@ -362,9 +363,42 @@ def medir_roteamento(split: str) -> None:
     _salvar("roteamento", split, resultado)
 
 
+def _p95(valores: Sequence[float]) -> float:
+    ordenados = sorted(valores)
+    return ordenados[min(len(ordenados) - 1, round(0.95 * (len(ordenados) - 1)))]
+
+
+def medir_latencia(split: str) -> None:
+    """Latência do Agente de Saúde Física sem e com as consultas extras do HyDE.
+
+    Usa os trechos hipotéticos gravados por `hyde` (sem chamar o LLM) e a configuração padrão do
+    agente: reranker na busca, filtro de relevância e síntese extrativa. O cache do reranker é
+    limpo antes de cada medida, como numa pergunta nova. Não inclui a chamada de reescrita do Chat.
+    """
+    from src.agents.fisica.consultor import ConsultorSaudeFisica
+
+    perguntas = {c["id"]: c["pergunta"] for c in casos_saude_fisica(split)}
+    hyde = _json(DIR / f"resultado_hyde_{split}.json")["casos"]
+    consultor = ConsultorSaudeFisica(enable_ollama=False)
+    if consultor.retriever.reranker is None:
+        raise SystemExit("O reranker de Saúde Física está desligado (CULTIVA_RERANKER_SAUDE_FISICA).")
+    consultor.responder("aquecimento antes do treino", K, [], [])  # carrega o modelo
+    tempos: Dict[str, List[float]] = {"sem_extras": [], "com_extras_hyde": []}
+    for caso in hyde:
+        for nome, extras in (("sem_extras", []), ("com_extras_hyde", caso["extras"])):
+            consultor.retriever.reranker._cache.clear()
+            inicio = time.perf_counter()
+            consultor.responder(perguntas[caso["id"]], K, extras, [])
+            tempos[nome].append(time.perf_counter() - inicio)
+    resumo = {nome: {"n": len(v), "mediana_s": round(statistics.median(v), 3), "p95_s": round(_p95(v), 3)}
+              for nome, v in tempos.items()}
+    print(json.dumps(resumo, ensure_ascii=False, indent=1))
+    _salvar("latencia", split, {"resumo": resumo, "tempos_s": {k: [round(t, 3) for t in v] for k, v in tempos.items()}})
+
+
 def main(argv: Optional[List[str]] = None) -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("medida", choices=["busca", "filtro", "reformulacao", "hyde", "roteamento"])
+    parser.add_argument("medida", choices=["busca", "filtro", "reformulacao", "hyde", "roteamento", "latencia"])
     parser.add_argument("--split", choices=["dev", "test"], default="dev")
     parser.add_argument("--modelos", nargs="+", default=MODELOS_CANDIDATOS)
     parser.add_argument("--modelo", default=MODELOS_CANDIDATOS[0], help="filtro: cross-encoder do filtro")
@@ -384,6 +418,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         medir_hyde(args.split, args.reranker_em, args.modelo)
     elif args.medida == "roteamento":
         medir_roteamento(args.split)
+    elif args.medida == "latencia":
+        medir_latencia(args.split)
 
 
 if __name__ == "__main__":
