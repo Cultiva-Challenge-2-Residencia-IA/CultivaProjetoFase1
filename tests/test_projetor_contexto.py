@@ -397,3 +397,12 @@ def test_texto_dos_fatos_nao_vai_ao_langfuse(tmp_path, agentes):
     registrado = mascarar_estrutura({"messages": [{"content": "FATOS: - tem hipotireoidismo desde 2019"}]})
     assert "hipotireoidismo" not in str(registrado)
     assert "[fato do usuário: condicao_saude]" in str(registrado)
+
+
+def test_condicao_de_saude_entregue_traz_o_encaminhamento_mesmo_sem_redacao(tmp_path, agentes):
+    llm = LLMFalso()
+    servico = _com_memoria(tmp_path, agentes, llm, saude=True)
+    diabetes = _guardar(servico, "u1", "condicao_saude", "tem diabetes tipo 2")
+    llm.selecao = _selecao(AREA_NUTRICAO, "Posso comer chocolate?", [diabetes.id])
+    r = servico.enviar(AREA_NUTRICAO, "u1", "c1", "Posso comer chocolate?")
+    assert r.texto.endswith("vale conversar com um profissional de saúde sobre o que faz sentido para você.")

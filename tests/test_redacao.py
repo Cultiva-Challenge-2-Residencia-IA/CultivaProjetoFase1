@@ -118,3 +118,58 @@ def test_esclarecimento_invalido_e_ignorado(tmp_path, agentes):
 def test_sem_llm_nao_ha_redacao_nem_esclarecimento(tmp_path, agentes):
     r = _servico(tmp_path, agentes, None).enviar(AREA_NUTRICAO, "u1", "c1", "Chocolate faz mal?")
     assert r.redacao is None and r.tipo == "agente"
+
+
+# Esclarecimento só para pedido vago; nunca pedindo dado pessoal (decisão de 25/11) ----------------
+
+def test_esclarecimento_que_pede_dado_pessoal_e_ignorado(tmp_path, agentes):
+    for texto in ("Qual seu objetivo e qual seu nível de atividade física?", "Quanto você pesa e qual sua idade?",
+                  "Você pode me mandar seus exames?"):
+        r = _servico(tmp_path, agentes, LLMFalso(esclarecimento=texto)).enviar(
+            AREA_NUTRICAO, "u1", f"c{len(texto)}", "Quanta proteína devo comer por dia?")
+        assert r.tipo != "esclarecimento", texto
+
+
+def test_prompt_da_reescrita_so_pede_esclarecimento_em_pedido_vago():
+    from src.orquestrador.reescrita import SISTEMA_REESCRITA
+
+    assert "vaga" in SISTEMA_REESCRITA and "decisão individual" not in SISTEMA_REESCRITA
+
+
+# Fatos do Usuário no redator, com [CONTEXTO] checado (Q10) ----------------------------------------
+
+from src.orquestrador.fatos import FatoDoUsuario  # noqa: E402
+from src.orquestrador.redator import redigir  # noqa: E402
+
+TREINO = FatoDoUsuario(7, "frequencia_treino", "saude_fisica", "treina musculação 4 vezes por semana", "c0", "2026")
+DIABETES = FatoDoUsuario(8, "condicao_saude", "transversal", "tem diabetes tipo 2", "c0", "2026")
+
+
+def _llm(redacao):
+    return lambda sistema, usuario: redacao
+
+
+def test_redator_relaciona_o_fato_e_a_frase_leva_contexto_e_o_trecho():
+    redacao = {"frases": [{"frase": "Como você treina 4 vezes por semana, vale saber que o Guia recomenda evitar ultraprocessados.",
+                           "origem": [1], "contexto": [7]}]}
+    texto = redigir("Chocolate faz mal?", TEXTO_DO_AGENTE, _llm(redacao), fatos=[TREINO])
+    assert texto == "Como você treina 4 vezes por semana, vale saber que o Guia recomenda evitar ultraprocessados [T1][CONTEXTO]."
+
+
+def test_contexto_com_fato_nao_entregue_e_recusado():
+    redacao = {"frases": [{"frase": "Como você treina, evite ultraprocessados.", "origem": [1], "contexto": [99]}]}
+    assert redigir("Chocolate faz mal?", TEXTO_DO_AGENTE, _llm(redacao), fatos=[TREINO]) is None
+
+
+def test_frase_so_com_fato_sem_origem_e_recusada():
+    redacao = {"frases": [{"frase": "Você treina 4 vezes por semana.", "origem": [], "contexto": [7]}]}
+    assert redigir("Chocolate faz mal?", TEXTO_DO_AGENTE, _llm(redacao), fatos=[TREINO]) is None
+
+
+def test_condicao_de_saude_no_redator_so_encaminha_e_sem_numero():
+    com_numero = {"frases": [{"frase": "Com diabetes, 30 g de chocolate têm 160 kcal.", "origem": [3], "contexto": [8]}]}
+    assert redigir("Posso comer chocolate?", TEXTO_DO_AGENTE, _llm(com_numero), fatos=[DIABETES]) is None
+    sem_numero = {"frases": [{"frase": "O Guia recomenda evitar ultraprocessados.", "origem": [1]}]}
+    texto = redigir("Posso comer chocolate?", TEXTO_DO_AGENTE, _llm(sem_numero), fatos=[DIABETES])
+    assert texto.endswith("Como você contou que tem diabetes tipo 2, vale conversar com um profissional de saúde "
+                          "sobre o que faz sentido para você.")

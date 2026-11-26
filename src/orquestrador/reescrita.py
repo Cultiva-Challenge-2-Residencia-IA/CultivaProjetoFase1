@@ -38,11 +38,11 @@ Receba o histórico recente e a mensagem nova. Responda SÓ com JSON:
 }
 Regras: uma subpergunta por área envolvida, no máximo uma por área. Se a mensagem não for de nenhuma das duas áreas, devolva "subperguntas": []. Não responda a pergunta e não dê conselho individual; o trecho hipotético só serve para a busca.
 
-"esclarecimento": null na maioria das mensagens. Só quando a mensagem nova for vaga demais para buscar bem
-(ex.: "quero treinar perna", "me ajuda com a dieta") ou pedir uma decisão individual (ex.: "sou diabético,
-posso comer chocolate?", "quanto de proteína eu devo comer?"), escreva UMA pergunta curta, terminada em "?",
-que ajude a pessoa a dizer o objetivo ou o contexto e, num pedido individual, ofereça explicar o que as
-diretrizes dizem em geral e lembre que a orientação individual é de um profissional. Sem números."""
+"esclarecimento": null na maioria das mensagens, inclusive em perguntas diretas e em pedidos individuais.
+Só quando a mensagem nova for vaga demais para buscar bem (ex.: "quero treinar perna", "me ajuda com a
+dieta"), escreva UMA pergunta curta, terminada em "?", sobre o TEMA que a pessoa quer saber (ex.: "Você quer
+saber sobre força, resistência ou como começar?"). Nunca pergunte dados pessoais (peso, idade, exames,
+rotina, nível de atividade) e não use números."""
 
 INSTRUCAO_FATOS = """
 

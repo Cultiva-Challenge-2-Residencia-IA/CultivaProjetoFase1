@@ -35,7 +35,7 @@ from src.models.schemas import ConsultantResponse
 from src.observabilidade import atributos_do_trace, observacao, ocultar_fatos
 from src.orquestrador.conversa import APRESENTACOES, e_conversa_social
 from src.orquestrador.fatos import FatoDoUsuario, candidatos_em_texto, escolhidos, extrair_fatos
-from src.orquestrador.redator import esclarecimento_valido, redigir
+from src.orquestrador.redator import encaminhamento, esclarecimento_valido, redigir
 from src.orquestrador.reescrita import LLMJson, Mensagem, Subpergunta, reescrever
 from src.orquestrador.roteamento import AREA_NUTRICAO, AREAS, rotear_por_regras
 from src.orquestrador.sincronizador import MARCADOR_T, NOMES_DAS_AREAS, RespostaDeArea, sincronizar
@@ -465,7 +465,7 @@ class ServicoDeChat:
             redacao, antes = None, None
             # Com nota legal no texto sincronizado, a redação não entra (a nota não pode ser reescrita).
             if self._pode_redigir(respostas) and not any(r.guardrail_triggered for r in respostas.values()):
-                redigido = redigir(reescrita.pergunta_completa or mensagem, texto, self.llm)
+                redigido = redigir(reescrita.pergunta_completa or mensagem, texto, self.llm, fatos=fatos_usados)
                 redacao = "aceita" if redigido else "recusada"
                 antes = texto if redigido else None
                 texto = redigido or texto
@@ -480,7 +480,7 @@ class ServicoDeChat:
             redacao, antes = None, None
             if self._pode_redigir(respostas):
                 # Redação final (issue #104): só o corpo; a nota legal segue fixa, por código.
-                redigido = redigir(reescrita.pergunta_completa or mensagem, corpo, self.llm)
+                redigido = redigir(reescrita.pergunta_completa or mensagem, corpo, self.llm, fatos=fatos_usados)
                 redacao = "aceita" if redigido else "recusada"
                 if redigido:
                     guardrail = getattr(self.agentes[areas[0]], "guardrail", None)
@@ -491,6 +491,11 @@ class ServicoDeChat:
             citacoes = citacoes_do_texto(texto, unica.retrieved_chunks)
             # TACO e grafo causal não são Trechos: entram como vieram do agente.
             citacoes += [c for c in unica.citations if c.startswith(("[KG_", "[TACO_"))]
+        # Condição de saúde entregue (#112): o encaminhamento a profissional entra por código, também
+        # quando não houve redação (o redator já o acrescenta quando a redação é aceita).
+        final_fixo = encaminhamento(fatos_usados)
+        if final_fixo and redacao != "aceita":
+            texto = f"{texto}\n\n{final_fixo}"
         com_marcadores = texto
         texto = em_notas(texto)
         if redirecionamento:
