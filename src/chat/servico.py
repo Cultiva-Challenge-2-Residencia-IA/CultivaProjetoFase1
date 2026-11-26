@@ -39,7 +39,7 @@ from src.guardrails.pii import mascarar_dados_pessoais
 from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.models.schemas import ConsultantResponse
 from src.observabilidade import atributos_do_trace, observacao, ocultar_fatos
-from src.orquestrador.conversa import APRESENTACOES, e_conversa_social
+from src.orquestrador.conversa import resposta_social, resposta_social_valida, tipo_social
 from src.orquestrador.fatos import (CATEGORIA_CONDICAO_SAUDE, FatoDoUsuario, candidatos_em_texto, escolhidos,
                                     extrair_fatos)
 from src.orquestrador.redator import encaminhamento, esclarecimento_valido, redigir
@@ -456,8 +456,14 @@ class ServicoDeChat:
     def _responder(self, chat: str, usuario_id: str, conversa_id: str, mensagem: str,
                    top_k: int, tempos: Optional[Dict[str, float]] = None) -> RespostaDoChat:
         tempos = {} if tempos is None else tempos
-        if e_conversa_social(mensagem) and not rotear_por_regras(mensagem).areas:
-            return self._fixa(chat, usuario_id, conversa_id, "conversa", mensagem, APRESENTACOES[chat])
+        # Conversa social: as regras respondem na hora na primeira mensagem da Conversa (a saudação
+        # inicial não espera o LLM) e sempre que a reescrita não usa LLM; nas demais, a reescrita decide.
+        social_pelas_regras = tipo_social(mensagem)
+        primeira = not self.historico.recentes(usuario_id, conversa_id, 1)
+        com_llm = self.llm is not None and self.reescrita_com_llm
+        if social_pelas_regras and (primeira or not com_llm):
+            return self._fixa(chat, usuario_id, conversa_id, "conversa", mensagem,
+                              resposta_social(chat, social_pelas_regras, primeira))
         historico = self._historico(chat, usuario_id, conversa_id)
         historico_proprio = self.historico.recentes(usuario_id, conversa_id, self.janela)
         # Projetor de contexto (issue #112): os candidatos vão à reescrita, que escolhe por Subpergunta.
@@ -466,6 +472,16 @@ class ServicoDeChat:
         reescrita, regras, subperguntas = self._rotear(chat, mensagem, historico, candidatos)
         tempos["roteamento"] = time.perf_counter() - inicio
         redirecionamento = None
+
+        # Conversa social pelo LLM, só sem termo de área nem Subpergunta; a resposta escrita passa
+        # pela checagem e, se reprovar, vale a fixa do tipo.
+        social = reescrita.social
+        if social is None and social_pelas_regras:
+            social = (social_pelas_regras, None)  # o LLM não marcou (ou falhou): valem as regras
+        if social and not regras.areas and not regras.estudos and not reescrita.subperguntas:
+            tipo = social_pelas_regras if social[0] == "outro" and social_pelas_regras else social[0]
+            texto = resposta_social(chat, tipo, primeira, resposta_social_valida(social[1]))
+            return self._fixa(chat, usuario_id, conversa_id, "conversa", mensagem, texto)
 
         # Pedido vago ou individual (issue #104): uma pergunta de esclarecimento antes dos agentes, uma
         # vez só; a mensagem seguinte segue o fluxo, com a pergunta de esclarecimento no Histórico.

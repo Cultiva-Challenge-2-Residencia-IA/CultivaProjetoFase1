@@ -36,6 +36,7 @@
 ## Provedor de LLM e dados pessoais (ADR 0003)
 
 - O padrão é **Ollama local** (`LLM_PROVIDER=ollama`, com `OLLAMA_NO_CLOUD=1`). Sem Ollama disponível, o consultor usa a síntese extrativa local, que também é o modo do CI.
+- Conversa social (`src/orquestrador/conversa.py`): a chamada de reescrita reconhece cumprimento, "tudo bem?", agradecimento e despedida em qualquer forma e escreve uma resposta curta; ela só é usada se passar na checagem por código (curta, sem número, sem termo de área, sem pedir dado pessoal), e o convite do chat é acrescentado por código. A resposta social não pode trazer conteúdo de saúde (RN01 a RN04). As regras ficam como reserva.
 - Se o Ollama estiver disponível e não responder (tempo limite `OLLAMA_TIMEOUT`, 180 s por padrão, erro ou JSON fora do esquema), a síntese extrativa sai com `fundamentacao_status="extrativa_apos_falha_do_llm"` e a falha vai ao log. No chat, se esse texto extrativo estiver em inglês (artigos de Saúde Física), a pessoa recebe um aviso em português com as fontes citadas, e não o texto copiado.
 - A Groq é alternativa desativada por padrão: exige `LLM_PROVIDER=groq` **e** `ALLOW_EXTERNAL_LLM=true`, além da chave. Mesmo assim, só com entradas sintéticas ou desidentificadas, até que retenção, contrato de não treinamento e LGPD sejam verificados.
 - A máscara de dados pessoais (`src/guardrails/pii`) é defesa adicional, não anonimização.
