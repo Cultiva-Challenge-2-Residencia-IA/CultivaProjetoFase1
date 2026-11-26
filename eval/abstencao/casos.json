@@ -403,7 +403,7 @@
       "id": "ABS-FNU-09",
       "tipo": "fora_de_nutricao",
       "split": "test",
-      "pergunta": "Qual o melhor exercício para dor nas costas?",
+      "pergunta": "Como configurar uma impressora Wi-Fi no computador?",
       "esperado": "nao_sei",
       "origem": "lote1-autor"
     },
