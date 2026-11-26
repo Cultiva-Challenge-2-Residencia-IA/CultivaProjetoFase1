@@ -5,9 +5,10 @@ componentes da área: Trechos de `corpus/saudefisica/rag` (fontes aprovadas, gat
 guardrail da Lei 9.696/1998, o prompt da área e o vocabulário do "não sei". Não tem TACO nem grafo
 causal, e não tem portão próprio: é usado pelo Chat, que aplica os portões antes de qualquer agente.
 
-Desde a issue #105, a busca da área usa por padrão o reranker cross-encoder e o filtro de relevância
-antes da síntese (`CULTIVA_RERANKER_SAUDE_FISICA` e `CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA`), com a
-lacuna explícita quando nenhum Trecho trata da pergunta (eval/relevancia/resultados.md).
+Desde a issue #105, a busca da área usa por padrão o reranker cross-encoder
+(`CULTIVA_RERANKER_SAUDE_FISICA`). O filtro de relevância antes da síntese, com a lacuna explícita
+quando nenhum Trecho trata da pergunta, existe, mas fica desligado por padrão
+(`CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA`; eval/relevancia/resultados.md).
 """
 
 import hashlib

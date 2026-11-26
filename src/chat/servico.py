@@ -162,7 +162,8 @@ class ServicoDeChat:
         # Trecho hipotético como consulta extra na busca das duas áreas: desligado por padrão (medição do
         # dev da #99, que piorou Nutrição).
         self.hyde_na_busca = hyde_na_busca
-        # Só no Agente de Saúde Física (issue #105), cujas fontes estão quase todas em inglês.
+        # Só no Agente de Saúde Física (issue #105), cujas fontes estão quase todas em inglês; desligado
+        # por padrão (CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA).
         self.hyde_na_busca_saude_fisica = hyde_na_busca_saude_fisica
         self.risco_llm = risco_llm
         self.janela = janela

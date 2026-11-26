@@ -18,13 +18,13 @@ uv run python -m src.evaluation.relevancia roteamento --split dev
 |---|---|---:|---:|---|
 | Reranker: MRR da fonte em Saúde Física | +0,05 | 0,367 → 0,625 | 0,389 → **0,819** | **ligado em Saúde Física** (jina) |
 | Reranker: MRR e recall@4 de Nutrição | sem piora | MRR 0,731 → 0,931; recall 0,556 → **0,551** | MRR 1,000 → 0,938; recall 0,604 → 0,604 | desligado em Nutrição |
-| Filtro em Saúde Física: lacuna nos casos sem base | ≥ 0,75 | 0,750 (6 de 8) | 1,000 (4 de 4) | **ligado só em Saúde Física** (decisão da equipe, abaixo) |
+| Filtro em Saúde Física: lacuna nos casos sem base | ≥ 0,75 | 0,750 (6 de 8) | 1,000 (4 de 4) | ligado só em Saúde Física em 24/11; **desligado na revisão** (seção 6) |
 | Filtro em Saúde Física: lacuna indevida | ≤ 0,05 | 0,050 (1 de 20) | **0,167 (2 de 12)**: não cumpriu | |
 | Filtro nas duas áreas: lacuna nos casos sem base | ≥ 0,75 | **0,714**: não cumpriu | 0,833 | desligado em Nutrição |
 | Filtro nas duas áreas: lacuna indevida | ≤ 0,05 | 0,042 | **0,111**: não cumpriu | |
 | Filtro: queda do recall@4 de Nutrição | ≤ 0,05 | 0,556 → 0,537 | 0,604 → 0,562 | |
 | Reformulação: lacuna nos casos sem base depois | ≥ 0,75 | **0,643** | 0,833 (nenhum resgate) | desligada |
-| HyDE em Saúde Física: MRR da fonte | +0,05 | 0,625 → 0,700 (+0,075) | 0,819 → 0,778 (**−0,042**) | ligado em Saúde Física (regra do `dev`) |
+| HyDE em Saúde Física: MRR da fonte | +0,05 | 0,625 → 0,700 (+0,075) | 0,819 → 0,778 (**−0,042**) | ligado em Saúde Física em 24/11; **desligado na revisão** (seção 6) |
 | Latência do Agente de Saúde Física, sem e com HyDE | relatada, não decide | mediana 1,27 s → 4,17 s; p95 1,54 s → 4,66 s | | |
 | Roteamento só com regras, casos claros novos | ≥ 0,90 | 0,643 → **1,000** (14) | **1,000** (6) | vocabulário novo |
 | Roteamento só com regras, casos da #99 (regressão) | não cair | todos: 0,750 → 0,800; compostas: 0,933 → 1,000 | | |
@@ -50,7 +50,7 @@ Trecho com nota do cross-encoder abaixo de τ não vai para a síntese. Sem nenh
 
 - **Nas duas áreas, o filtro não cumpriu os critérios:** no `dev`, a lacuna nos casos sem base ficou em 0,714 (critério 0,75); no `test`, a lacuna indevida ficou em 0,111 (critério 0,05).
 - **Em Nutrição, o filtro derrubava o gate v1 do CI:** o recall de documento caía de 0,885 para 0,731 e o MRR de 0,769 para 0,692, com tolerância de 5 p.p. Nas perguntas do grafo (Q13 a Q16) e na Q11, o jina deu nota baixa aos Trechos em português, e a resposta saía só com o grafo e a TACO.
-- **Decisão da equipe (24/11/2026): filtro ligado só em Saúde Física** (`CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA=true`, `CULTIVA_FILTRO_RELEVANCIA_NUTRICAO=false`). A escolha por área veio depois do `test` e do gate, e não estava nos critérios. Só em Saúde Física, o `dev` cumpre os dois critérios (lacuna sem base 0,750, lacuna indevida 0,050), mas o `test` teve 2 lacunas indevidas em 12: SFN23 ("Minha lombar trava às vezes...", nota 0,142) e SFN26 ("Artrose no quadril: caminhar piora?", 0,077). O τ não foi recalibrado só para Saúde Física.
+- **Decisão da equipe (24/11/2026), desfeita na revisão do PR (seção 6): filtro ligado só em Saúde Física** (`CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA=true`, `CULTIVA_FILTRO_RELEVANCIA_NUTRICAO=false`). A escolha por área veio depois do `test` e do gate, e não estava nos critérios. Só em Saúde Física, o `dev` cumpre os dois critérios (lacuna sem base 0,750, lacuna indevida 0,050), mas o `test` teve 2 lacunas indevidas em 12: SFN23 ("Minha lombar trava às vezes...", nota 0,142) e SFN26 ("Artrose no quadril: caminhar piora?", 0,077). O τ não foi recalibrado só para Saúde Física.
 - As notas do jina ficam comprimidas, quase todas entre 0,05 e 0,25. Por isso o limiar é sensível: SFN23 ficou 0,004 abaixo dele.
 - Casos sem base que passaram no filtro (`dev`): SB03, pistola de massagem (0,205); SB05, correr descalço (0,163); SB14, beta-alanina (0,217); SB18, chá de cavalinha (0,147). No `test`: SB20, NAD+ (0,146).
 
@@ -68,7 +68,25 @@ Com o `gemma4:e4b`, o MRR da fonte no `dev` foi de 0,625 para 0,700 (+0,075), e 
 
 Entraram partes do corpo que as fontes de dor e lesão tratam (costas, pescoço, quadril, perna, coxa, panturrilha, canela, glúteo, braço, cotovelo, punho), gíria de academia (malhar), esportes (futebol, jogar bola, vôlei, basquete, dança), fôlego e "torci/torceu" em Saúde Física, e hidratação, isotônico, eletrólitos, água e beber em Nutrição. C13 ("Dor nas costas pode ter relação com sobrepeso e alimentação?") e R37 ("Hidratação durante o treino longo: água ou isotônico?"), os erros da #99, agora vão às duas áreas. Eles já tinham sido vistos e não serviram de critério.
 
+**Correção da revisão do PR (26/11/2026):** "canela", "coxa" e "torci/torceu" têm outro sentido em Nutrição ("Canela ajuda a emagrecer?", "Coxa de frango assada é saudável?", "Torci muito pelo meu time e esqueci de jantar" iam só para Saúde Física). Eles agora só contam com contexto ("dor na canela", "canela dói", "torci o pé", "torção"), e entraram em Nutrição "frango", "peixe", "almoço", "jantar" e "café da manhã"; "bebe" saiu, porque depois da normalização é também "bebê". Os casos vieram da revisão, não do `test`, e estão em `tests/test_relevancia.py`. O resultado do `dev` e da regressão da #99 não mudou.
+
 O erro que ficou nos casos novos é RN12, "Como trocar o óleo do carro?": "óleo" é termo de Nutrição, então a mensagem vai ao Agente de Nutrição. Com o LLM, as regras continuam decidindo quando há termo, e o erro se mantém. Ele vem do vocabulário da #99 e não foi corrigido, para não ajustar a partir dos casos.
+
+## 6. Medição com o e5-large e decisão da revisão (26/11/2026)
+
+A `main` trocou os embeddings para o `intfloat/multilingual-e5-large` (#15, ADR 0006) depois da medição acima. Na revisão do PR, as medidas do `dev` foram refeitas com o e5-large, pelos mesmos critérios e casos. O `test` não foi rodado de novo, porque já tinha sido visto. Os resultados estão em `resultado_*_dev_e5*.json` e foram gerados com `--sufixo _e5` (filtro com o bge: `--sufixo _e5_bge`).
+
+| `dev`, e5-large | Critério | Resultado | Decisão |
+|---|---|---|---|
+| Reranker: MRR da fonte em Saúde Física | +0,05 | base 0,300; jina **0,667**; bge 0,600 | ligado em Saúde Física, com o jina (diferença de 0,067) |
+| Reranker: recall@4 de Nutrição | sem piora | 0,602 → 0,579 (jina) e 0,588 (bge) | desligado em Nutrição |
+| Latência do reranker, mediana / p95 | relatada | jina 1,4 s / 2,1 s; bge 3,9 s / 5,6 s | |
+| Filtro, τ calibrado (jina) | | 0,145 (0,146 com o MiniLM) | a nota do cross-encoder não depende dos embeddings |
+| Filtro nas duas áreas: lacuna sem base / indevida | ≥ 0,75 / ≤ 0,05 | 0,786 / 0,042 (jina); 0,857 / 0,042 (bge) | cumpre, mas o gate v1 de Nutrição não foi medido de novo |
+| Filtro só em Saúde Física: lacuna indevida | ≤ 0,05 | **0,10** (2 de 20: SFN07 e SFN09 com o jina) | **desligado** |
+| HyDE em Saúde Física: MRR da fonte | +0,05 | 0,667 → 0,704 (**+0,037**); acerto@4 0,70 → 0,95 | **desligado** |
+
+**Decisão (revisão do PR, 26/11/2026):** o reranker fica ligado em Saúde Física. O filtro e o HyDE ficam desligados por padrão nas duas áreas (`CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA=false`, `CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA=false`). O filtro não cumpre a lacuna indevida só em Saúde Física nem no `test` com o MiniLM, nem no `dev` com o e5-large, e a decisão de 24/11 de ligá-lo tinha sido tomada depois de ver o `test`. O HyDE não cumpre a regra do `dev` com o e5-large e triplica a latência. O código, a lacuna explícita e os testes ficam, e o filtro e o HyDE voltam num novo ciclo, com critérios e casos novos.
 
 ## Exemplo da issue
 
@@ -78,5 +96,5 @@ O erro que ficou nos casos novos é RN12, "Como trocar o óleo do carro?": "óle
 
 - Os casos são poucos (32 de busca em Saúde Física, 20 sem base e 26 de roteamento) e têm o mesmo autor do código.
 - O golden de Saúde Física mede a fonte, não o Trecho.
-- A decisão de ligar o filtro só em Saúde Física foi tomada depois do `test` e do gate v1. Ela precisa de casos novos para ser confirmada.
-- Os embeddings são os da `main`. Com o e5-large da #15, os candidatos da busca mudam, e o reranker, o τ e o HyDE precisam ser medidos de novo.
+- A decisão de 24/11 de ligar o filtro só em Saúde Física foi tomada depois do `test` e do gate v1, e foi desfeita na revisão (seção 6).
+- As seções 1 a 5 usam o MiniLM. A seção 6 refaz o `dev` com o e5-large, mas sem `test` novo: os números do e5-large ainda não foram confirmados num conjunto não visto.

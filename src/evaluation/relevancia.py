@@ -19,7 +19,7 @@ import statistics
 import time
 from typing import Any, Callable, Dict, List, Optional, Sequence
 
-from src.config import CORPUS_RAG_DIR_SAUDE_FISICA, RERANKER_CANDIDATOS
+from src.config import CORPUS_RAG_DIR_SAUDE_FISICA, EMBEDDING_MODEL_NAME, RERANKER_CANDIDATOS
 from src.evaluation.benchmark_v2 import carregar_casos, metricas_de_recuperacao
 from src.models.schemas import RetrievedChunk
 from src.rag.corpus_loader import carregar_chunks_do_corpus
@@ -40,8 +40,13 @@ def _casos(nome: str, split: str) -> List[Dict[str, Any]]:
     return [c for c in _json(DIR / f"{nome}.json")["casos"] if c["split"] == split]
 
 
+# Sufixo do arquivo de resultado (--sufixo), para medir outra configuração sem sobrescrever a anterior.
+_SUFIXO = ""
+
+
 def _salvar(medida: str, split: str, dados: Dict[str, Any]) -> None:
-    caminho = DIR / f"resultado_{medida}_{split}.json"
+    dados = {"embeddings": EMBEDDING_MODEL_NAME, **dados}
+    caminho = DIR / f"resultado_{medida}_{split}{_SUFIXO}.json"
     caminho.write_text(json.dumps(dados, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"gravado: {caminho.relative_to(RAIZ)}")
 
@@ -405,7 +410,10 @@ def main(argv: Optional[List[str]] = None) -> None:
     parser.add_argument("--limiar", type=float, default=None, help="filtro: τ escolhido no dev (obrigatório no test)")
     parser.add_argument("--reranker-em", nargs="*", default=[], choices=["nutricao", "saude_fisica"],
                         help="filtro: áreas com o reranker ligado na busca")
+    parser.add_argument("--sufixo", default="", help="sufixo do arquivo de resultado, por exemplo _e5")
     args = parser.parse_args(argv)
+    global _SUFIXO
+    _SUFIXO = args.sufixo
     if args.medida == "busca":
         medir_busca(args.split, args.modelos)
     elif args.medida == "filtro":

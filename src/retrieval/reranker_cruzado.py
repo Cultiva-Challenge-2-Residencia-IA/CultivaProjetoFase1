@@ -12,11 +12,21 @@ A nota é a sigmoide da saída do modelo (0 a 1). Ela serve para duas coisas:
   limiar absoluto.
 
 O modelo é carregado na primeira chamada e fica em memória; as notas ficam num cache por pergunta e
-Trecho, porque o filtro julga de novo os Trechos que o reranker já julgou.
+Trecho, porque o filtro julga de novo os Trechos que o reranker já julgou. Na primeira vez na
+máquina, o fastembed baixa o modelo (cerca de 1,1 GB no jina), e a primeira pergunta de Saúde
+Física demora. Para baixar antes, por exemplo antes de uma demonstração:
+
+    uv run python -m src.retrieval.reranker_cruzado
+
+Licença: o `jinaai/jina-reranker-v2-base-multilingual` (padrão) é CC BY-NC 4.0, só para pesquisa e
+avaliação; uso comercial exige outra licença da Jina AI. O `BAAI/bge-reranker-v2-m3` é Apache-2.0.
+O projeto é acadêmico; antes de qualquer uso comercial, troque o `RERANKER_MODELO`.
 """
 
 from collections import OrderedDict
 import math
+import sys
+import time
 from typing import Any, Dict, List, Sequence, Tuple
 
 _MODELOS: Dict[str, Any] = {}
@@ -26,7 +36,11 @@ def _modelo(nome: str) -> Any:
     if nome not in _MODELOS:
         from fastembed.rerank.cross_encoder import TextCrossEncoder
 
+        print(f"Carregando o reranker {nome}; na primeira vez na máquina, o download tem cerca de 1 GB.",
+              file=sys.stderr, flush=True)
+        inicio = time.perf_counter()
         _MODELOS[nome] = TextCrossEncoder(model_name=nome)
+        print(f"Reranker carregado em {time.perf_counter() - inicio:.1f} s.", file=sys.stderr, flush=True)
     return _MODELOS[nome]
 
 
@@ -70,3 +84,11 @@ class RerankerCruzado:
                     if len(self._cache) > self._tamanho_cache:
                         self._cache.popitem(last=False)
         return notas
+
+
+if __name__ == "__main__":
+    # Baixa e carrega o modelo do RERANKER_MODELO (ou o nome passado) antes da primeira pergunta.
+    from src.config import RERANKER_MODELO
+
+    nome = sys.argv[1] if len(sys.argv) > 1 else RERANKER_MODELO
+    print(RerankerCruzado(nome).pontuar("aquecimento antes do treino", ["Warm up before exercising."]))
