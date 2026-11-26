@@ -1,0 +1,1723 @@
+{
+  "resumo": {
+    "rotulo": "antes",
+    "split": "dev",
+    "agentes_em_paralelo": false,
+    "uma_area": {
+      "n": 17,
+      "mediana_s": 27.8,
+      "p95_s": 32.1,
+      "mediana_por_etapa_s": {
+        "agente_nutricao": 11.1,
+        "agente_saude_fisica": 9.0,
+        "agentes": 9.8,
+        "portoes": 5.1,
+        "roteamento": 12.9,
+        "total": 27.8
+      },
+      "chamadas_llm_por_pergunta": 2.0,
+      "chamadas_com_carga_do_modelo": 17,
+      "chamadas_no_limite_de_tokens": 0
+    },
+    "duas_areas": {
+      "n": 10,
+      "mediana_s": 46.1,
+      "p95_s": 50.9,
+      "mediana_por_etapa_s": {
+        "agente_nutricao": 12.4,
+        "agente_saude_fisica": 8.0,
+        "agentes": 20.9,
+        "portoes": 5.1,
+        "roteamento": 13.3,
+        "sincronizador": 6.7,
+        "total": 46.1
+      },
+      "chamadas_llm_por_pergunta": 4.0,
+      "chamadas_com_carga_do_modelo": 10,
+      "chamadas_no_limite_de_tokens": 0
+    },
+    "integrada": "4/10",
+    "motivos_lado_a_lado": {
+      "frase_sem_citacao_literal": 6,
+      "integrada": 4
+    },
+    "fundamentacao_dos_agentes": {
+      "llm_citacoes_validas": 33,
+      "extrativa_apos_citacao_invalida": 4
+    },
+    "outros_tipos": {}
+  },
+  "casos": [
+    {
+      "id": "C01",
+      "mensagem": "O que comer e quanto exercício fazer para baixar a pressão arterial?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "lado_a_lado",
+      "motivo": "frase_sem_citacao_literal",
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.054,
+        "roteamento": 13.798,
+        "agentes": 23.855,
+        "agente_nutricao": 15.87,
+        "agente_saude_fisica": 7.985,
+        "sincronizador": 8.64,
+        "total": 51.357
+      },
+      "detalhes_sincronizador": [
+        "citacao_literal_ausente_na_fonte: A dieta DASH, que possui menor percentual de gorduras e restrição do consumo de sódio, demonstrou maior benefício para a redução da pressão arterial quando combinada com alto consumo de vegetais",
+        "citacao_literal_ausente_na_fonte: O padrão alimentar DASH, quando baseado em frutas, hortaliças, feijões e sementes em alta quantidade, pode reduzir a pressão arterial sistólica e diastólica",
+        "citacao_literal_ausente_na_fonte: A estratégia segura para indivíduos com Doença Renal Crônica (DRC) envolve a redução de sódio/ultraprocessados, uso de azeite de oliva (0mg K), fibras solúveis purificadas e amido resistente, visando a redução da Pressão Arterial e Resistência à Insulina (HOMA-IR)"
+      ],
+      "chamadas_llm": [
+        {
+          "caso": "C01",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.78,
+          "carga_s": 8.4,
+          "tokens_entrada": 337,
+          "tokens_saida": 234,
+          "entrada_s": 0.31,
+          "saida_s": 3.05,
+          "fim": "stop"
+        },
+        {
+          "caso": "C01",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 13.61,
+          "carga_s": 0.01,
+          "tokens_entrada": 3020,
+          "tokens_saida": 1245,
+          "entrada_s": 0.85,
+          "saida_s": 10.67,
+          "fim": "stop"
+        },
+        {
+          "caso": "C01",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.72,
+          "carga_s": 0.01,
+          "tokens_entrada": 2060,
+          "tokens_saida": 376,
+          "entrada_s": 0.65,
+          "saida_s": 2.99,
+          "fim": "stop"
+        },
+        {
+          "caso": "C01",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 8.62,
+          "carga_s": 0.01,
+          "tokens_entrada": 3370,
+          "tokens_saida": 716,
+          "entrada_s": 0.93,
+          "saida_s": 5.61,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "mensagem": "Para emagrecer, o que é mais importante: alimentação ou atividade física?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "integrada",
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "extrativa_apos_citacao_invalida",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.076,
+        "roteamento": 13.225,
+        "agentes": 17.386,
+        "agente_nutricao": 10.071,
+        "agente_saude_fisica": 7.314,
+        "sincronizador": 5.953,
+        "total": 41.653
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "C02",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.2,
+          "carga_s": 8.16,
+          "tokens_entrada": 340,
+          "tokens_saida": 207,
+          "entrada_s": 0.3,
+          "saida_s": 2.7,
+          "fim": "stop"
+        },
+        {
+          "caso": "C02",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.88,
+          "carga_s": 0.01,
+          "tokens_entrada": 2027,
+          "tokens_saida": 613,
+          "entrada_s": 0.62,
+          "saida_s": 5.17,
+          "fim": "stop"
+        },
+        {
+          "caso": "C02",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.15,
+          "carga_s": 0.01,
+          "tokens_entrada": 1927,
+          "tokens_saida": 285,
+          "entrada_s": 0.64,
+          "saida_s": 2.45,
+          "fim": "stop"
+        },
+        {
+          "caso": "C02",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 5.93,
+          "carga_s": 0.01,
+          "tokens_entrada": 2408,
+          "tokens_saida": 392,
+          "entrada_s": 0.72,
+          "saida_s": 3.1,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "mensagem": "Como a alimentação e o treino de força ajudam a ganhar massa muscular?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "lado_a_lado",
+      "motivo": "frase_sem_citacao_literal",
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.051,
+        "roteamento": 13.518,
+        "agentes": 23.894,
+        "agente_nutricao": 15.157,
+        "agente_saude_fisica": 8.737,
+        "sincronizador": 7.97,
+        "total": 50.447
+      },
+      "detalhes_sincronizador": [
+        "citacao_literal_ausente_na_fonte: A ingestão proteica, quando combinada com carboidratos após o exercício físico de hipertrofia, favorece o aumento de massa muscular ao reduzir a degradação proteica",
+        "citacao_literal_ausente_na_fonte: O treinamento é o que causa o aumento da massa muscular, e não o consumo proteico em si",
+        "citacao_literal_ausente_na_fonte: A combinação de alimentos como Arroz com Feijão, Ovos, Carnes Magras, Peixes e Laticínios pode levar ao aumento da Síntese Proteica Muscular e Hipertrofia",
+        "citacao_literal_ausente_na_fonte: A prática de atividade física pode aumentar a força muscular"
+      ],
+      "chamadas_llm": [
+        {
+          "caso": "C03",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.49,
+          "carga_s": 8.42,
+          "tokens_entrada": 339,
+          "tokens_saida": 203,
+          "entrada_s": 0.32,
+          "saida_s": 2.7,
+          "fim": "stop"
+        },
+        {
+          "caso": "C03",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 12.9,
+          "carga_s": 0.01,
+          "tokens_entrada": 2705,
+          "tokens_saida": 1193,
+          "entrada_s": 0.79,
+          "saida_s": 10.02,
+          "fim": "stop"
+        },
+        {
+          "caso": "C03",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 6.48,
+          "carga_s": 0.01,
+          "tokens_entrada": 2029,
+          "tokens_saida": 435,
+          "entrada_s": 0.62,
+          "saida_s": 3.77,
+          "fim": "stop"
+        },
+        {
+          "caso": "C03",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 7.94,
+          "carga_s": 0.01,
+          "tokens_entrada": 3109,
+          "tokens_saida": 601,
+          "entrada_s": 0.87,
+          "saida_s": 4.98,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "mensagem": "Quem tem diabetes tipo 2 deve fazer exercícios e mudar a dieta? O que as diretrizes dizem?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "lado_a_lado",
+      "motivo": "frase_sem_citacao_literal",
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.086,
+        "roteamento": 13.213,
+        "agentes": 20.335,
+        "agente_nutricao": 12.924,
+        "agente_saude_fisica": 7.411,
+        "sincronizador": 6.707,
+        "total": 45.37
+      },
+      "detalhes_sincronizador": [
+        "citacao_literal_ausente_na_fonte: O consumo de arroz, batata, mandioca e feijão cozidos e resfriados pode levar à diminuição da resistência à insulina (HOMA-IR), pico glicêmico e pressão arterial"
+      ],
+      "chamadas_llm": [
+        {
+          "caso": "C04",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.19,
+          "carga_s": 8.2,
+          "tokens_entrada": 346,
+          "tokens_saida": 219,
+          "entrada_s": 0.3,
+          "saida_s": 2.66,
+          "fim": "stop"
+        },
+        {
+          "caso": "C04",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 10.74,
+          "carga_s": 0.01,
+          "tokens_entrada": 2168,
+          "tokens_saida": 930,
+          "entrada_s": 0.66,
+          "saida_s": 8.01,
+          "fim": "stop"
+        },
+        {
+          "caso": "C04",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.21,
+          "carga_s": 0.01,
+          "tokens_entrada": 1809,
+          "tokens_saida": 296,
+          "entrada_s": 0.61,
+          "saida_s": 2.5,
+          "fim": "stop"
+        },
+        {
+          "caso": "C04",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 6.68,
+          "carga_s": 0.01,
+          "tokens_entrada": 2262,
+          "tokens_saida": 493,
+          "entrada_s": 0.68,
+          "saida_s": 3.93,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "mensagem": "O que comer depois da corrida e quanto tempo descansar antes do próximo treino?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "lado_a_lado",
+      "motivo": "frase_sem_citacao_literal",
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.073,
+        "roteamento": 13.714,
+        "agentes": 21.579,
+        "agente_nutricao": 13.559,
+        "agente_saude_fisica": 8.02,
+        "sincronizador": 6.366,
+        "total": 46.759
+      },
+      "detalhes_sincronizador": [
+        "citacao_literal_ausente_na_fonte: No contexto de tratamento nutricional pós-operatório, deve-se evitar bebidas adoçadas, doces concentrados, sucos de fruta, frituras e gorduras saturadas, além de carboidratos refinados"
+      ],
+      "chamadas_llm": [
+        {
+          "caso": "C05",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.69,
+          "carga_s": 8.17,
+          "tokens_entrada": 339,
+          "tokens_saida": 240,
+          "entrada_s": 0.3,
+          "saida_s": 3.17,
+          "fim": "stop"
+        },
+        {
+          "caso": "C05",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 11.4,
+          "carga_s": 0.01,
+          "tokens_entrada": 2478,
+          "tokens_saida": 991,
+          "entrada_s": 0.72,
+          "saida_s": 8.6,
+          "fim": "stop"
+        },
+        {
+          "caso": "C05",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.84,
+          "carga_s": 0.01,
+          "tokens_entrada": 1735,
+          "tokens_saida": 417,
+          "entrada_s": 0.57,
+          "saida_s": 3.17,
+          "fim": "stop"
+        },
+        {
+          "caso": "C05",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 6.34,
+          "carga_s": 0.01,
+          "tokens_entrada": 2430,
+          "tokens_saida": 438,
+          "entrada_s": 0.71,
+          "saida_s": 3.53,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "mensagem": "Idosos precisam de mais proteína e de exercícios de força?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "lado_a_lado",
+      "motivo": "frase_sem_citacao_literal",
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.065,
+        "roteamento": 13.395,
+        "agentes": 21.445,
+        "agente_nutricao": 11.244,
+        "agente_saude_fisica": 10.201,
+        "sincronizador": 6.893,
+        "total": 46.829
+      },
+      "detalhes_sincronizador": [
+        "citacao_literal_ausente_na_fonte: Protocolos clínicos avaliam uma ingestão proteica de 1,2 a 2,0 g/kg/dia em idosos com função renal preservada",
+        "citacao_literal_ausente_na_fonte: A combinação de arroz com feijão, ovos, carnes magras, peixes e laticínios promove a síntese proteica muscular, hipertrofia e prevenção de sarcopenia",
+        "citacao_literal_ausente_na_fonte: A prática de atividade física em idosos pode melhorar a capacidade para se movimentar e fortalecer músculos e ossos",
+        "citacao_literal_ausente_na_fonte: O tratamento com exercícios para dor lombar crônica visa aumentar a força muscular e melhorar a função muscular e a amplitude de movimento das articulações"
+      ],
+      "chamadas_llm": [
+        {
+          "caso": "C06",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.38,
+          "carga_s": 8.41,
+          "tokens_entrada": 336,
+          "tokens_saida": 208,
+          "entrada_s": 0.31,
+          "saida_s": 2.6,
+          "fim": "stop"
+        },
+        {
+          "caso": "C06",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 9.05,
+          "carga_s": 0.01,
+          "tokens_entrada": 2715,
+          "tokens_saida": 750,
+          "entrada_s": 0.78,
+          "saida_s": 6.17,
+          "fim": "stop"
+        },
+        {
+          "caso": "C06",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.02,
+          "carga_s": 0.01,
+          "tokens_entrada": 2092,
+          "tokens_saida": 647,
+          "entrada_s": 0.65,
+          "saida_s": 5.29,
+          "fim": "stop"
+        },
+        {
+          "caso": "C06",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 6.86,
+          "carga_s": 0.01,
+          "tokens_entrada": 3010,
+          "tokens_saida": 494,
+          "entrada_s": 0.85,
+          "saida_s": 3.93,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "mensagem": "Colesterol alto: quais alimentos evitar e qual atividade física ajuda?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "integrada",
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.074,
+        "roteamento": 13.214,
+        "agentes": 22.436,
+        "agente_nutricao": 12.789,
+        "agente_saude_fisica": 9.647,
+        "sincronizador": 8.001,
+        "total": 48.753
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "C07",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.19,
+          "carga_s": 8.39,
+          "tokens_entrada": 337,
+          "tokens_saida": 216,
+          "entrada_s": 0.3,
+          "saida_s": 2.47,
+          "fim": "stop"
+        },
+        {
+          "caso": "C07",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 10.61,
+          "carga_s": 0.01,
+          "tokens_entrada": 2212,
+          "tokens_saida": 958,
+          "entrada_s": 0.68,
+          "saida_s": 7.87,
+          "fim": "stop"
+        },
+        {
+          "caso": "C07",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.45,
+          "carga_s": 0.01,
+          "tokens_entrada": 2032,
+          "tokens_saida": 595,
+          "entrada_s": 0.63,
+          "saida_s": 4.75,
+          "fim": "stop"
+        },
+        {
+          "caso": "C07",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 7.98,
+          "carga_s": 0.01,
+          "tokens_entrada": 1913,
+          "tokens_saida": 681,
+          "entrada_s": 0.61,
+          "saida_s": 5.32,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "mensagem": "Como evitar câimbras no treino: hidratação, alimentação ou alongamento?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "integrada",
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.091,
+        "roteamento": 13.314,
+        "agentes": 17.558,
+        "agente_nutricao": 10.561,
+        "agente_saude_fisica": 6.997,
+        "sincronizador": 6.707,
+        "total": 42.697
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "C08",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.29,
+          "carga_s": 8.41,
+          "tokens_entrada": 341,
+          "tokens_saida": 222,
+          "entrada_s": 0.33,
+          "saida_s": 2.52,
+          "fim": "stop"
+        },
+        {
+          "caso": "C08",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.35,
+          "carga_s": 0.01,
+          "tokens_entrada": 2211,
+          "tokens_saida": 696,
+          "entrada_s": 0.67,
+          "saida_s": 5.61,
+          "fim": "stop"
+        },
+        {
+          "caso": "C08",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 4.76,
+          "carga_s": 0.01,
+          "tokens_entrada": 2134,
+          "tokens_saida": 253,
+          "entrada_s": 0.64,
+          "saida_s": 2.02,
+          "fim": "stop"
+        },
+        {
+          "caso": "C08",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 6.68,
+          "carga_s": 0.01,
+          "tokens_entrada": 2013,
+          "tokens_saida": 501,
+          "entrada_s": 0.63,
+          "saida_s": 3.95,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "mensagem": "Ultraprocessados atrapalham o desempenho de quem corre?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "integrada",
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "extrativa_apos_citacao_invalida"
+      },
+      "tempos": {
+        "portoes": 5.057,
+        "roteamento": 12.788,
+        "agentes": 19.281,
+        "agente_nutricao": 11.942,
+        "agente_saude_fisica": 7.338,
+        "sincronizador": 4.865,
+        "total": 42.018
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "C09",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.77,
+          "carga_s": 8.44,
+          "tokens_entrada": 336,
+          "tokens_saida": 144,
+          "entrada_s": 0.3,
+          "saida_s": 1.98,
+          "fim": "stop"
+        },
+        {
+          "caso": "C09",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 9.68,
+          "carga_s": 0.01,
+          "tokens_entrada": 2450,
+          "tokens_saida": 845,
+          "entrada_s": 0.72,
+          "saida_s": 6.88,
+          "fim": "stop"
+        },
+        {
+          "caso": "C09",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.09,
+          "carga_s": 0.01,
+          "tokens_entrada": 1987,
+          "tokens_saida": 250,
+          "entrada_s": 0.64,
+          "saida_s": 2.36,
+          "fim": "stop"
+        },
+        {
+          "caso": "C09",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 4.84,
+          "carga_s": 0.01,
+          "tokens_entrada": 1734,
+          "tokens_saida": 280,
+          "entrada_s": 0.59,
+          "saida_s": 2.18,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "mensagem": "Gestante pode fazer musculação e precisa de suplemento de ferro?",
+      "esperado": "duas_areas",
+      "tipo": "sincronizada",
+      "areas": [
+        "nutricao",
+        "saude_fisica"
+      ],
+      "modo": "lado_a_lado",
+      "motivo": "frase_sem_citacao_literal",
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas",
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.042,
+        "roteamento": 13.025,
+        "agentes": 18.435,
+        "agente_nutricao": 9.397,
+        "agente_saude_fisica": 9.038,
+        "sincronizador": 6.472,
+        "total": 43.003
+      },
+      "detalhes_sincronizador": [
+        "citacao_literal_ausente_na_fonte: É bastante seguro para a maioria das gestantes ter um dia a dia fisicamente ativo",
+        "citacao_literal_ausente_na_fonte: A prática de atividade física durante a gestação e no período pós-parto é segura e traz diversos benefícios para a saúde da gestante e do bebê"
+      ],
+      "chamadas_llm": [
+        {
+          "caso": "C10",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.01,
+          "carga_s": 8.14,
+          "tokens_entrada": 338,
+          "tokens_saida": 191,
+          "entrada_s": 0.3,
+          "saida_s": 2.52,
+          "fim": "stop"
+        },
+        {
+          "caso": "C10",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.14,
+          "carga_s": 0.01,
+          "tokens_entrada": 3173,
+          "tokens_saida": 511,
+          "entrada_s": 0.89,
+          "saida_s": 4.14,
+          "fim": "stop"
+        },
+        {
+          "caso": "C10",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 6.86,
+          "carga_s": 0.01,
+          "tokens_entrada": 1861,
+          "tokens_saida": 526,
+          "entrada_s": 0.6,
+          "saida_s": 4.16,
+          "fim": "stop"
+        },
+        {
+          "caso": "C10",
+          "sistema": "Você junta as respostas de dois especialistas (Nutrição",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 6.45,
+          "carga_s": 0.01,
+          "tokens_entrada": 2016,
+          "tokens_saida": 482,
+          "entrada_s": 0.63,
+          "saida_s": 3.76,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R01",
+      "mensagem": "Quais alimentos são fontes de ferro?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.055,
+        "roteamento": 12.047,
+        "agentes": 12.566,
+        "agente_nutricao": 12.566,
+        "total": 29.691
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R01",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.03,
+          "carga_s": 8.39,
+          "tokens_entrada": 332,
+          "tokens_saida": 101,
+          "entrada_s": 0.3,
+          "saida_s": 1.28,
+          "fim": "stop"
+        },
+        {
+          "caso": "R01",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 10.32,
+          "carga_s": 0.01,
+          "tokens_entrada": 3105,
+          "tokens_saida": 930,
+          "entrada_s": 0.87,
+          "saida_s": 7.37,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R02",
+      "mensagem": "O que o Guia Alimentar diz sobre ultraprocessados?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.066,
+        "roteamento": 12.623,
+        "agentes": 12.19,
+        "agente_nutricao": 12.19,
+        "total": 29.897
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R02",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.6,
+          "carga_s": 8.39,
+          "tokens_entrada": 337,
+          "tokens_saida": 150,
+          "entrada_s": 0.31,
+          "saida_s": 1.88,
+          "fim": "stop"
+        },
+        {
+          "caso": "R02",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 9.96,
+          "carga_s": 0.01,
+          "tokens_entrada": 2662,
+          "tokens_saida": 881,
+          "entrada_s": 0.77,
+          "saida_s": 7.12,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R04",
+      "mensagem": "Quantos minutos de atividade física por semana adultos devem fazer?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.055,
+        "roteamento": 13.313,
+        "agentes": 9.349,
+        "agente_saude_fisica": 9.349,
+        "total": 27.739
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R04",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.3,
+          "carga_s": 9.53,
+          "tokens_entrada": 336,
+          "tokens_saida": 120,
+          "entrada_s": 0.35,
+          "saida_s": 1.38,
+          "fim": "stop"
+        },
+        {
+          "caso": "R04",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.16,
+          "carga_s": 0.01,
+          "tokens_entrada": 2028,
+          "tokens_saida": 551,
+          "entrada_s": 0.65,
+          "saida_s": 4.45,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R05",
+      "mensagem": "Alongamento antes da corrida previne lesão?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "extrativa_apos_citacao_invalida"
+      },
+      "tempos": {
+        "portoes": 5.051,
+        "roteamento": 13.107,
+        "agentes": 8.299,
+        "agente_saude_fisica": 8.299,
+        "total": 26.479
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R05",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.09,
+          "carga_s": 9.2,
+          "tokens_entrada": 334,
+          "tokens_saida": 120,
+          "entrada_s": 0.32,
+          "saida_s": 1.53,
+          "fim": "stop"
+        },
+        {
+          "caso": "R05",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 6.11,
+          "carga_s": 0.01,
+          "tokens_entrada": 1766,
+          "tokens_saida": 365,
+          "entrada_s": 0.58,
+          "saida_s": 3.47,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R07",
+      "mensagem": "Exercício ajuda na dor lombar crônica?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.066,
+        "roteamento": 13.605,
+        "agentes": 12.219,
+        "agente_saude_fisica": 12.219,
+        "total": 30.911
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R07",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.58,
+          "carga_s": 9.53,
+          "tokens_entrada": 334,
+          "tokens_saida": 119,
+          "entrada_s": 0.33,
+          "saida_s": 1.71,
+          "fim": "stop"
+        },
+        {
+          "caso": "R07",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 10.02,
+          "carga_s": 0.01,
+          "tokens_entrada": 1891,
+          "tokens_saida": 902,
+          "entrada_s": 0.62,
+          "saida_s": 7.35,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R08",
+      "mensagem": "Quanto de sal por dia é recomendado?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.049,
+        "roteamento": 12.753,
+        "agentes": 9.208,
+        "agente_nutricao": 9.208,
+        "total": 27.029
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R08",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.73,
+          "carga_s": 8.73,
+          "tokens_entrada": 332,
+          "tokens_saida": 129,
+          "entrada_s": 0.31,
+          "saida_s": 1.66,
+          "fim": "stop"
+        },
+        {
+          "caso": "R08",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.02,
+          "carga_s": 0.01,
+          "tokens_entrada": 2973,
+          "tokens_saida": 503,
+          "entrada_s": 0.87,
+          "saida_s": 4.04,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R09",
+      "mensagem": "Como aquecer antes de jogar futebol?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.074,
+        "roteamento": 13.157,
+        "agentes": 9.772,
+        "agente_saude_fisica": 9.772,
+        "total": 28.042
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R09",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.14,
+          "carga_s": 8.98,
+          "tokens_entrada": 332,
+          "tokens_saida": 136,
+          "entrada_s": 0.32,
+          "saida_s": 1.79,
+          "fim": "stop"
+        },
+        {
+          "caso": "R09",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.55,
+          "carga_s": 0.01,
+          "tokens_entrada": 1910,
+          "tokens_saida": 519,
+          "entrada_s": 0.62,
+          "saida_s": 4.85,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R10",
+      "mensagem": "Ficar muito tempo sentado faz mal à saúde?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.058,
+        "roteamento": 12.633,
+        "agentes": 11.16,
+        "agente_saude_fisica": 11.16,
+        "total": 28.872
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R10",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.61,
+          "carga_s": 8.98,
+          "tokens_entrada": 334,
+          "tokens_saida": 115,
+          "entrada_s": 0.33,
+          "saida_s": 1.27,
+          "fim": "stop"
+        },
+        {
+          "caso": "R10",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.97,
+          "carga_s": 0.01,
+          "tokens_entrada": 1816,
+          "tokens_saida": 700,
+          "entrada_s": 0.63,
+          "saida_s": 6.3,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R11",
+      "mensagem": "Como melhorar meu condicionamento para subir escadas sem cansar?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.071,
+        "roteamento": 13.516,
+        "agentes": 7.595,
+        "agente_saude_fisica": 7.595,
+        "total": 26.201
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R11",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.5,
+          "carga_s": 8.75,
+          "tokens_entrada": 337,
+          "tokens_saida": 170,
+          "entrada_s": 0.32,
+          "saida_s": 2.4,
+          "fim": "stop"
+        },
+        {
+          "caso": "R11",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.4,
+          "carga_s": 0.01,
+          "tokens_entrada": 1802,
+          "tokens_saida": 290,
+          "entrada_s": 0.62,
+          "saida_s": 2.69,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R15",
+      "mensagem": "Comer à noite engorda?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.053,
+        "roteamento": 12.836,
+        "agentes": 9.284,
+        "agente_nutricao": 9.284,
+        "total": 27.191
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R15",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.81,
+          "carga_s": 8.71,
+          "tokens_entrada": 331,
+          "tokens_saida": 129,
+          "entrada_s": 0.31,
+          "saida_s": 1.76,
+          "fim": "stop"
+        },
+        {
+          "caso": "R15",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.12,
+          "carga_s": 0.01,
+          "tokens_entrada": 1936,
+          "tokens_saida": 515,
+          "entrada_s": 0.64,
+          "saida_s": 4.4,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R16",
+      "mensagem": "Qual a diferença entre gordura saturada e insaturada?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.078,
+        "roteamento": 12.656,
+        "agentes": 11.076,
+        "agente_nutricao": 11.076,
+        "total": 28.836
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R16",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.63,
+          "carga_s": 8.45,
+          "tokens_entrada": 337,
+          "tokens_saida": 141,
+          "entrada_s": 0.33,
+          "saida_s": 1.83,
+          "fim": "stop"
+        },
+        {
+          "caso": "R16",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.89,
+          "carga_s": 0.01,
+          "tokens_entrada": 2506,
+          "tokens_saida": 692,
+          "entrada_s": 0.75,
+          "saida_s": 6.06,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R19",
+      "mensagem": "Tenho tendinite no ombro, posso continuar nadando?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.054,
+        "roteamento": 12.905,
+        "agentes": 8.486,
+        "agente_saude_fisica": 8.486,
+        "total": 26.463
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R19",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.89,
+          "carga_s": 8.77,
+          "tokens_entrada": 337,
+          "tokens_saida": 126,
+          "entrada_s": 0.31,
+          "saida_s": 1.76,
+          "fim": "stop"
+        },
+        {
+          "caso": "R19",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 6.29,
+          "carga_s": 0.01,
+          "tokens_entrada": 2135,
+          "tokens_saida": 408,
+          "entrada_s": 0.68,
+          "saida_s": 3.56,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R21",
+      "mensagem": "Quantas vezes por semana idosos devem fazer exercícios de equilíbrio?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.096,
+        "roteamento": 12.738,
+        "agentes": 10.486,
+        "agente_saude_fisica": 10.486,
+        "total": 28.34
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R21",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.72,
+          "carga_s": 8.76,
+          "tokens_entrada": 337,
+          "tokens_saida": 118,
+          "entrada_s": 0.31,
+          "saida_s": 1.59,
+          "fim": "stop"
+        },
+        {
+          "caso": "R21",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 8.28,
+          "carga_s": 0.01,
+          "tokens_entrada": 1788,
+          "tokens_saida": 653,
+          "entrada_s": 0.59,
+          "saida_s": 5.6,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R23",
+      "mensagem": "Quais são os benefícios de subir de bike para o trabalho?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.076,
+        "roteamento": 13.391,
+        "agentes": 8.731,
+        "agente_saude_fisica": 8.731,
+        "total": 27.217
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R23",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.37,
+          "carga_s": 9.24,
+          "tokens_entrada": 337,
+          "tokens_saida": 118,
+          "entrada_s": 0.38,
+          "saida_s": 1.72,
+          "fim": "stop"
+        },
+        {
+          "caso": "R23",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 6.54,
+          "carga_s": 0.01,
+          "tokens_entrada": 1957,
+          "tokens_saida": 436,
+          "entrada_s": 0.65,
+          "saida_s": 3.81,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R25",
+      "mensagem": "Torci o tornozelo jogando vôlei semana passada, quando posso voltar?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "saude_fisica"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "saude_fisica": "extrativa_apos_citacao_invalida"
+      },
+      "tempos": {
+        "portoes": 5.066,
+        "roteamento": 13.364,
+        "agentes": 7.989,
+        "agente_saude_fisica": 7.989,
+        "total": 26.439
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R25",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.34,
+          "carga_s": 8.97,
+          "tokens_entrada": 342,
+          "tokens_saida": 142,
+          "entrada_s": 0.32,
+          "saida_s": 2.04,
+          "fim": "stop"
+        },
+        {
+          "caso": "R25",
+          "sistema": "Você é um Consultor Científico de Atividade Física",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 5.8,
+          "carga_s": 0.01,
+          "tokens_entrada": 2377,
+          "tokens_saida": 326,
+          "entrada_s": 0.72,
+          "saida_s": 3.01,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R26",
+      "mensagem": "Arroz com feijão é uma combinação saudável?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.084,
+        "roteamento": 13.04,
+        "agentes": 18.503,
+        "agente_nutricao": 18.503,
+        "total": 36.649
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R26",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 13.02,
+          "carga_s": 8.72,
+          "tokens_entrada": 335,
+          "tokens_saida": 149,
+          "entrada_s": 0.31,
+          "saida_s": 1.93,
+          "fim": "stop"
+        },
+        {
+          "caso": "R26",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 16.31,
+          "carga_s": 0.01,
+          "tokens_entrada": 3574,
+          "tokens_saida": 1511,
+          "entrada_s": 0.99,
+          "saida_s": 13.21,
+          "fim": "stop"
+        }
+      ]
+    },
+    {
+      "id": "R27",
+      "mensagem": "Quanto tempo de tela por dia é saudável para crianças?",
+      "esperado": "uma_area",
+      "tipo": "agente",
+      "areas": [
+        "nutricao"
+      ],
+      "modo": null,
+      "motivo": null,
+      "fundamentacao": {
+        "nutricao": "llm_citacoes_validas"
+      },
+      "tempos": {
+        "portoes": 5.096,
+        "roteamento": 12.731,
+        "agentes": 10.003,
+        "agente_nutricao": 10.003,
+        "total": 27.849
+      },
+      "detalhes_sincronizador": [],
+      "chamadas_llm": [
+        {
+          "caso": "R27",
+          "sistema": "Você prepara buscas para um assistente de saúde",
+          "num_ctx": 8192,
+          "num_predict": 1024,
+          "segundos": 12.71,
+          "carga_s": 8.73,
+          "tokens_entrada": 335,
+          "tokens_saida": 122,
+          "entrada_s": 0.31,
+          "saida_s": 1.63,
+          "fim": "stop"
+        },
+        {
+          "caso": "R27",
+          "sistema": "Você é um Consultor Científico de Nutrição Baseado",
+          "num_ctx": 8192,
+          "num_predict": 2048,
+          "segundos": 7.82,
+          "carga_s": 0.01,
+          "tokens_entrada": 3142,
+          "tokens_saida": 582,
+          "entrada_s": 0.9,
+          "saida_s": 4.86,
+          "fim": "stop"
+        }
+      ]
+    }
+  ]
+}

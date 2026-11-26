@@ -37,7 +37,8 @@ def _casos(nome: str, split: str) -> List[Dict[str, Any]]:
 
 def _salvar(medida: str, split: str, dados: Dict[str, Any]) -> None:
     caminho = DIR / f"resultado_{medida}_{split}.json"
-    caminho.write_text(json.dumps(dados, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Bytes com "\n": no Windows, write_text gravaria CRLF.
+    caminho.write_bytes((json.dumps(dados, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
     print(f"gravado: {caminho.relative_to(DIR.parents[1])}")
 
 
@@ -223,15 +224,21 @@ class _RegistroOllama:
 
         def post(cliente, url, *args, **kwargs):
             inicio = time.perf_counter()
-            resposta = original(cliente, url, *args, **kwargs)
+            erro, resposta = None, None
+            try:
+                resposta = original(cliente, url, *args, **kwargs)
+            except Exception as exc:
+                erro = exc
             if str(url).endswith("/api/chat"):
                 corpo = kwargs.get("json") or {}
                 try:
-                    dados = resposta.json()
+                    dados = resposta.json() if resposta is not None else {}
                 except Exception:
                     dados = {}
                 opcoes = corpo.get("options") or {}
                 linha = {
+                    # Chamada que falhou (por exemplo, tempo esgotado da camada de risco) também conta.
+                    "erro": type(erro).__name__ if erro else None,
                     "caso": registro.caso.get(), "sistema": _inicio_do_sistema(corpo),
                     "num_ctx": opcoes.get("num_ctx"), "num_predict": opcoes.get("num_predict"),
                     "segundos": round(time.perf_counter() - inicio, 2),
@@ -243,6 +250,8 @@ class _RegistroOllama:
                 }
                 with registro._trava:
                     registro.chamadas.append(linha)
+            if erro is not None:
+                raise erro
             return resposta
 
         httpx.Client.post = post
@@ -309,6 +318,7 @@ def medir_latencia(split: str, rotulo: str, paralelo: bool) -> None:
             "chamadas_llm_por_pergunta": round(len(chamadas) / max(1, len(grupo)), 2),
             "chamadas_com_carga_do_modelo": sum(ch["carga_s"] > 1 for ch in chamadas),
             "chamadas_no_limite_de_tokens": sum(ch["fim"] == "length" for ch in chamadas),
+            "chamadas_com_erro": sum(bool(ch.get("erro")) for ch in chamadas),
         }
 
     # O tipo é o que o Chat geral fez (quantas áreas responderam), não o esperado.
