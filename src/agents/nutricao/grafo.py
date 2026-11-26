@@ -69,6 +69,11 @@ class EstadoNutricao(TypedDict, total=False):
     fundamentacao: Dict[str, Any]
 
 
+# Pedido individual (issue #118): a pergunta da pessoa vai inteira à síntese, com esta instrução fixa.
+INSTRUCAO_PEDIDO_INDIVIDUAL = (
+    "(Pedido individual: responda só com o que as fontes dizem de forma geral, para a população. "
+    "Não monte plano, cardápio ou treino para a pessoa e não dê quantidade, dose ou frequência para ela.)")
+
 def _respondido(estado: EstadoNutricao) -> bool:
     return estado.get("resposta") is not None
 
@@ -77,7 +82,10 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
     """Subgrafo que lê `pergunta` e `top_k` e escreve `resposta` (uma `ConsultantResponse`)."""
 
     def guardrail_entrada(estado: EstadoNutricao) -> dict:
-        # Conformidade com a Lei nº 8.234/91: pedidos individuais viram pergunta populacional.
+        # Lei nº 8.234/91 (e 9.696/98 em Saúde Física): o guardrail só marca o Pedido individual. A
+        # busca usa a pergunta da pessoa (já reescrita pelo Chat); a proteção fica na instrução fixa da
+        # síntese, na saída sem quantidades e na nota legal (issue #118). A versão populacional que o
+        # guardrail ainda calcula só vai para o trace.
         pergunta = estado["pergunta"]
         with observacao("guardrail_entrada", tipo="guardrail", input={"query": pergunta}) as obs:
             avaliacao = consultor.guardrail.assess_and_reframe(
@@ -89,9 +97,7 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
                     "query_reformulada": avaliacao.reframed_population_query,
                 }
             )
-        efetiva = avaliacao.reframed_population_query
-        busca = f"{efetiva} {pergunta}" if avaliacao.is_restricted_by_law_8234 else efetiva
-        return {"avaliacao": avaliacao, "pergunta_efetiva": efetiva, "consulta_busca": busca}
+        return {"avaliacao": avaliacao, "pergunta_efetiva": pergunta, "consulta_busca": pergunta}
 
     def busca_hibrida(estado: EstadoNutricao) -> dict:
         # BM25 + vetorial local + RRF (ADR 0001). Sem busca só na linha de base "LLM puro" da ablação.
@@ -195,9 +201,12 @@ def construir_subgrafo(consultor: Any) -> CompiledStateGraph:
 
     def sintese(estado: EstadoNutricao) -> dict:
         # Ollama local, Groq com liberação explícita ou síntese extrativa (ADR 0003).
-        with observacao("sintese", input={"query": estado["pergunta_efetiva"]}) as obs:
+        consulta = estado["pergunta_efetiva"]
+        if estado["avaliacao"].is_restricted_by_law_8234:
+            consulta = f"{consulta}\n\n{INSTRUCAO_PEDIDO_INDIVIDUAL}"
+        with observacao("sintese", input={"query": consulta}) as obs:
             resultado, modelo = consultor.llm_client.generate_structured_synthesis(
-                query=estado["pergunta_efetiva"],
+                query=consulta,
                 retrieved_chunks=estado["recuperados"],
                 taco_context_str=estado["contexto_taco"],
                 graph_context_str=estado["contexto_grafo"],

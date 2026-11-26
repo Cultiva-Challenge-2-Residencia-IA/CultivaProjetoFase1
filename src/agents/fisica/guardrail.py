@@ -3,7 +3,8 @@
 Mesmo papel do guardrail da Lei 8.234/1991 em Nutrição (`src/agent/guardrails.py`):
 
 - **Lei 9.696/1998:** prescrever e orientar o treino de uma pessoa é atribuição do profissional
-  de Educação Física. Pedido de treino individual vira pergunta populacional, com nota legal.
+  de Educação Física. Pedido de treino individual é marcado (Pedido individual): a busca usa a pergunta da pessoa e a
+  síntese recebe a instrução de responder de forma geral (issue #118), com nota legal.
 - **Sem diagnóstico:** pergunta sobre a dor ou a lesão da própria pessoa recebe evidência geral e
   a indicação de um profissional (médico ou fisioterapeuta), nunca um diagnóstico.
 
