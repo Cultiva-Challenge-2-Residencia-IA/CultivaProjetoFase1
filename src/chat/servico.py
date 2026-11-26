@@ -82,7 +82,9 @@ class RespostaDoChat(BaseModel):
 
 
 def _chave_da_frase(frase: str) -> str:
-    return " ".join(MARCADOR.sub("", frase).split()).casefold()
+    """Só as palavras: marcador, pontuação e espaços não distinguem uma frase repetida ("frase [T1]."
+    e "frase." são a mesma)."""
+    return " ".join(re.findall(r"\w+", MARCADOR.sub(" ", frase))).casefold()
 
 
 def texto_da_resposta(resposta: ConsultantResponse) -> str:

@@ -498,7 +498,8 @@ class LocalLLMClient:
         """Marca cada frase de um Trecho copiado inteiro com o marcador da sua posição."""
         marcador = marcador_de_trecho(indice)
         frases = [f.strip() for f in re.split(r"(?<=[.!?])\s+", texto.strip()) if f.strip()]
-        return " ".join(f"{f[:-1].rstrip()} {marcador}{f[-1]}" if f[-1] in ".!?" else f"{f} {marcador}" for f in frases)
+        # Trecho cortado no meio da frase também fecha com ponto: senão ele gruda no Trecho seguinte.
+        return " ".join(f"{f[:-1].rstrip()} {marcador}{f[-1]}" if f[-1] in ".!?" else f"{f} {marcador}." for f in frases)
 
     @staticmethod
     def _mecanismo(llm_result: Dict[str, Any], extractive: Dict[str, Any]) -> str:

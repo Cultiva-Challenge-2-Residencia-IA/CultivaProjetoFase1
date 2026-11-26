@@ -280,3 +280,18 @@ def test_sinal_de_alerta_guarda_so_os_sinais_no_historico(tmp_path, agentes):
     guardadas = " ".join(m.texto for m in servico.historico.recentes("u1", "c1", limite=10))
     assert mensagem not in guardadas
     assert "[sinal de alerta: dor_no_peito]" in guardadas
+
+
+def test_frase_repetida_com_e_sem_marcador_aparece_uma_vez(tmp_path, agentes):
+    class AgenteExtrativo(AgenteFalso):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
+            r = super().responder(pergunta, top_k, consultas_extras, historico, fatos)
+            return r.model_copy(update={
+                "evidence_summary": "Fibra ajuda o intestino [T1]. É importante também saber que órgãos do [T1].",
+                "physiological_mechanism": "Fibra ajuda o intestino. É importante também saber que órgãos do [T1]",
+                "protocol_findings": ""})
+
+    agentes[AREA_NUTRICAO] = AgenteExtrativo(AREA_NUTRICAO)
+    resposta = _servico(tmp_path, agentes).enviar(AREA_NUTRICAO, "u1", "c1", "Quais alimentos têm fibra?")
+    assert resposta.texto_com_marcadores.count("Fibra ajuda o intestino") == 1
+    assert resposta.texto_com_marcadores.count("órgãos do") == 1
