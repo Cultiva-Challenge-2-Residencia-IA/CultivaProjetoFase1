@@ -57,6 +57,8 @@ MEMORIA_PADRAO = os.getenv("CULTIVA_MEMORIA_PADRAO", "desligada").strip().lower(
 FATOS_PRAZO_DIAS = int(os.getenv("CULTIVA_FATOS_PRAZO_DIAS", "90"))
 # Guardrail de prescrição (issue #39): camada LLM local consultada quando as regras não acionam.
 # Sem Ollama (CI, benchmark), só as regras. Qualquer falha ou tempo esgotado faz valer só as regras.
+# Respostas mais humanas (issue #104): redação final a partir das frases checadas, com o LLM local.
+REDACAO_LLM = os.getenv("CULTIVA_REDACAO", "true").strip().lower() in {"1", "true", "sim", "yes"}
 PRESCRICAO_LLM = os.getenv("CULTIVA_PRESCRICAO_LLM", "true").strip().lower() in {"1", "true", "sim", "yes"}
 PRESCRICAO_LLM_TIMEOUT = float(os.getenv("CULTIVA_PRESCRICAO_LLM_TIMEOUT", "8"))
 # Autenticação dos endpoints de chat e de exclusão (issue #108, src/chat/autenticacao.py). O segredo

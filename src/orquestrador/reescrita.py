@@ -36,7 +36,13 @@ Receba o histórico recente e a mensagem nova. Responda SÓ com JSON:
      "trecho_hipotetico": "um parágrafo curto (2 a 3 frases) como o de uma diretriz que responderia a essa parte; em inglês para saude_fisica e em português para nutricao"}
   ]
 }
-Regras: uma subpergunta por área envolvida, no máximo uma por área. Se a mensagem não for de nenhuma das duas áreas, devolva "subperguntas": []. Não responda a pergunta e não dê conselho individual; o trecho hipotético só serve para a busca."""
+Regras: uma subpergunta por área envolvida, no máximo uma por área. Se a mensagem não for de nenhuma das duas áreas, devolva "subperguntas": []. Não responda a pergunta e não dê conselho individual; o trecho hipotético só serve para a busca.
+
+"esclarecimento": null na maioria das mensagens. Só quando a mensagem nova for vaga demais para buscar bem
+(ex.: "quero treinar perna", "me ajuda com a dieta") ou pedir uma decisão individual (ex.: "sou diabético,
+posso comer chocolate?", "quanto de proteína eu devo comer?"), escreva UMA pergunta curta, terminada em "?",
+que ajude a pessoa a dizer o objetivo ou o contexto e, num pedido individual, ofereça explicar o que as
+diretrizes dizem em geral e lembre que a orientação individual é de um profissional. Sem números."""
 
 INSTRUCAO_FATOS = """
 
@@ -74,6 +80,8 @@ class Reescrita:
     pergunta_completa: str
     subperguntas: List[Subpergunta] = field(default_factory=list)
     origem: str = "regras"  # "llm" ou "regras"
+    # Pergunta de esclarecimento para pedido vago ou individual (issue #104); None quando não há.
+    esclarecimento: Optional[str] = None
 
     @property
     def areas(self) -> List[str]:
@@ -113,7 +121,9 @@ def _validar(bruto: Any, mensagem: str, areas_permitidas: Sequence[str]) -> Opti
             except (TypeError, ValueError):
                 continue
         subperguntas.append(Subpergunta(area, texto, hipotetico, ids))
-    return Reescrita(pergunta_completa=completa, subperguntas=subperguntas, origem="llm")
+    esclarecimento = bruto.get("esclarecimento")
+    return Reescrita(pergunta_completa=completa, subperguntas=subperguntas, origem="llm",
+                     esclarecimento=str(esclarecimento) if esclarecimento else None)
 
 
 def reescrever(

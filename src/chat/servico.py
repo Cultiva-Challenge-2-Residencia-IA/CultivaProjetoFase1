@@ -26,7 +26,7 @@ from pydantic import BaseModel, Field
 
 from src.chat.fatos import FatosSQLite
 from src.config import (FATOS_PRAZO_DIAS, HYDE_NA_BUSCA, JANELA_HISTORICO, MEMORIA_PADRAO,
-                        ORCAMENTO_HISTORICO_TOKENS, TOP_K_FINAL)
+                        ORCAMENTO_HISTORICO_TOKENS, REDACAO_LLM, TOP_K_FINAL)
 from src.guardrails.alerta import MENSAGEM_ALERTA, detectar_sinal_de_alerta
 from src.guardrails.injection import MENSAGEM_INJECAO, has_prompt_injection
 from src.guardrails.pii import mascarar_dados_pessoais
@@ -35,6 +35,7 @@ from src.models.schemas import ConsultantResponse
 from src.observabilidade import atributos_do_trace, observacao, ocultar_fatos
 from src.orquestrador.conversa import APRESENTACOES, e_conversa_social
 from src.orquestrador.fatos import FatoDoUsuario, candidatos_em_texto, escolhidos, extrair_fatos
+from src.orquestrador.redator import esclarecimento_valido, redigir
 from src.orquestrador.reescrita import LLMJson, Mensagem, Subpergunta, reescrever
 from src.orquestrador.roteamento import AREA_NUTRICAO, AREAS, rotear_por_regras
 from src.orquestrador.sincronizador import MARCADOR_T, NOMES_DAS_AREAS, RespostaDeArea, sincronizar
@@ -79,6 +80,8 @@ class RespostaDoChat(BaseModel):
     reescrita: Optional[str] = None  # origem da reescrita: "llm" ou "regras"
     # Fatos do Usuário entregues aos agentes nesta resposta (transparência, issue #112).
     fatos_usados: List[dict] = Field(default_factory=list)
+    # Redação final (issue #104): "aceita", "recusada" (ficou o texto checado de antes) ou None.
+    redacao: Optional[str] = None
 
 
 def _chave_da_frase(frase: str) -> str:
@@ -87,7 +90,10 @@ def _chave_da_frase(frase: str) -> str:
     return " ".join(re.findall(r"\w+", MARCADOR.sub(" ", frase))).casefold()
 
 
-def texto_da_resposta(resposta: ConsultantResponse) -> str:
+MARCA_ESCLARECIMENTO = "esclarecimento"  # nas áreas da mensagem do assistente, no Histórico
+
+
+def texto_da_resposta(resposta: ConsultantResponse, com_nota_legal: bool = True) -> str:
     """Texto do Agente de área, com os marcadores [T#], sem a frase fixa de campo sem base.
 
     Os três campos da síntese podem repetir frases (a síntese extrativa usa os mesmos Trechos no
@@ -111,7 +117,8 @@ def texto_da_resposta(resposta: ConsultantResponse) -> str:
                 paragrafos.append(" ".join(novas))
     texto = "\n\n".join(paragrafos)
     # Pedido restrito pela lei da área (Lei 8.234/1991 ou 9.696/1998): a nota legal vem antes.
-    if resposta.guardrail_triggered and resposta.legal_compliance_notice and not resposta.prompt_injection_detected:
+    if (com_nota_legal and resposta.guardrail_triggered and resposta.legal_compliance_notice
+            and not resposta.prompt_injection_detected):
         return f"{resposta.legal_compliance_notice}\n\n{texto}"
     return texto
 
@@ -204,6 +211,7 @@ class ServicoDeChat:
         relogio: Callable[[], datetime] = lambda: datetime.now(timezone.utc),
         prazo_fatos_dias: int = FATOS_PRAZO_DIAS,
         memoria_padrao: str = MEMORIA_PADRAO,
+        redacao: bool = REDACAO_LLM,
     ) -> None:
         self.agentes = dict(agentes)
         self.historico = historico
@@ -222,6 +230,7 @@ class ServicoDeChat:
         self.relogio = relogio
         self.prazo_fatos_dias = prazo_fatos_dias
         self.memoria_padrao = memoria_padrao
+        self.redacao = redacao
         # A extração roda depois da resposta, fora do caminho da latência; os testes passam um
         # executor síncrono.
         if executar_em_segundo_plano is None:
@@ -383,6 +392,18 @@ class ServicoDeChat:
         reescrita, regras, subperguntas = self._rotear(chat, mensagem, historico, candidatos)
         redirecionamento = None
 
+        # Pedido vago ou individual (issue #104): uma pergunta de esclarecimento antes dos agentes, uma
+        # vez só; a mensagem seguinte segue o fluxo, com a pergunta de esclarecimento no Histórico.
+        esclarecimento = esclarecimento_valido(reescrita.esclarecimento)
+        ultima = self.historico.recentes(usuario_id, conversa_id, 1)
+        ja_perguntou = bool(ultima) and MARCA_ESCLARECIMENTO in ultima[-1].areas
+        if esclarecimento and not ja_perguntou:
+            self.historico.adicionar(usuario_id, conversa_id, chat, "usuario", mensagem)
+            self.historico.adicionar(usuario_id, conversa_id, chat, "assistente", esclarecimento,
+                                     [MARCA_ESCLARECIMENTO])
+            return RespostaDoChat(chat=chat, conversa_id=conversa_id, tipo="esclarecimento", texto=esclarecimento,
+                                  texto_com_marcadores=esclarecimento, reescrita=reescrita.origem)
+
         if not subperguntas:
             sem_llm = reescrita.origem == "regras"
             if regras.estudos:
@@ -439,12 +460,30 @@ class ServicoDeChat:
                 self.llm,
             )
             texto, tipo, modo = sinc.texto, "sincronizada", sinc.modo
+            redacao = None
+            # Com nota legal no texto sincronizado, a redação não entra (a nota não pode ser reescrita).
+            if self._pode_redigir(respostas) and not any(r.guardrail_triggered for r in respostas.values()):
+                redigido = redigir(reescrita.pergunta_completa or mensagem, texto, self.llm)
+                redacao = "aceita" if redigido else "recusada"
+                texto = redigido or texto
             # Os marcadores do texto sincronizado contam os Trechos das duas áreas num só intervalo:
             # as citações saem da mesma lista (RN04).
             citacoes = citacoes_do_texto(texto, sinc.trechos)
         else:
             unica = next(iter(respostas.values()))
-            texto, tipo, modo = texto_da_resposta(unica), "agente", None
+            tipo, modo = "agente", None
+            corpo = texto_da_resposta(unica, com_nota_legal=False)
+            texto = texto_da_resposta(unica)
+            redacao = None
+            if self._pode_redigir(respostas):
+                # Redação final (issue #104): só o corpo; a nota legal segue fixa, por código.
+                redigido = redigir(reescrita.pergunta_completa or mensagem, corpo, self.llm)
+                redacao = "aceita" if redigido else "recusada"
+                if redigido:
+                    guardrail = getattr(self.agentes[areas[0]], "guardrail", None)
+                    if guardrail is not None:
+                        redigido = guardrail.sanitize_output_text(redigido)
+                    texto = texto.replace(corpo, redigido) if corpo else redigido
             citacoes = citacoes_do_texto(texto, unica.retrieved_chunks)
             # TACO e grafo causal não são Trechos: entram como vieram do agente.
             citacoes += [c for c in unica.citations if c.startswith(("[KG_", "[TACO_"))]
@@ -457,5 +496,10 @@ class ServicoDeChat:
             chat=chat, conversa_id=conversa_id, tipo=tipo, texto=texto, texto_com_marcadores=com_marcadores,
             areas=areas, respostas=respostas,
             modo_sincronizacao=modo, citacoes=citacoes, redirecionamento=redirecionamento,
-            reescrita=reescrita.origem, fatos_usados=[f.como_dict() for f in fatos_usados],
+            reescrita=reescrita.origem, fatos_usados=[f.como_dict() for f in fatos_usados], redacao=redacao,
         )
+
+    def _pode_redigir(self, respostas: Mapping[str, ConsultantResponse]) -> bool:
+        """Redação só sobre texto do LLM já checado: a síntese extrativa não é reescrita (issue #104)."""
+        return (self.redacao and self.llm is not None
+                and all(r.fundamentacao_status == "llm_citacoes_validas" for r in respostas.values()))
