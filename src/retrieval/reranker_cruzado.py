@@ -26,14 +26,22 @@ O projeto é acadêmico; antes de qualquer uso comercial, troque o `RERANKER_MOD
 from collections import OrderedDict
 import math
 import sys
+import threading
 import time
 from typing import Any, Dict, List, Sequence, Tuple
 
 _MODELOS: Dict[str, Any] = {}
+# O Chat geral roda os Agentes de área em paralelo (#107), e a API atende requisições em threads:
+# a carga do modelo e o cache são protegidos por travas. A inferência roda fora da trava.
+_TRAVA_CARGA = threading.Lock()
 
 
 def _modelo(nome: str) -> Any:
-    if nome not in _MODELOS:
+    if nome in _MODELOS:
+        return _MODELOS[nome]
+    with _TRAVA_CARGA:
+        if nome in _MODELOS:  # outra thread carregou enquanto esta esperava
+            return _MODELOS[nome]
         from fastembed.rerank.cross_encoder import TextCrossEncoder
 
         print(f"Carregando o reranker {nome}; na primeira vez na máquina, o download tem cerca de 1 GB.",
@@ -41,7 +49,7 @@ def _modelo(nome: str) -> Any:
         inicio = time.perf_counter()
         _MODELOS[nome] = TextCrossEncoder(model_name=nome)
         print(f"Reranker carregado em {time.perf_counter() - inicio:.1f} s.", file=sys.stderr, flush=True)
-    return _MODELOS[nome]
+        return _MODELOS[nome]
 
 
 def _sigmoide(x: float) -> float:
@@ -59,6 +67,7 @@ class RerankerCruzado:
         self.lote = lote
         self._tamanho_cache = tamanho_cache
         self._cache: "OrderedDict[Tuple[str, str], float]" = OrderedDict()
+        self._trava = threading.Lock()
 
     def _pontuar_modelo(self, consulta: str, textos: Sequence[str]) -> List[float]:
         brutos = _modelo(self.modelo).rerank(consulta, list(textos), batch_size=self.lote)
@@ -69,20 +78,23 @@ class RerankerCruzado:
         chaves = list(chaves) or [None] * len(textos)
         notas: List[float] = [0.0] * len(textos)
         faltam = []
-        for i, chave in enumerate(chaves):
-            if chave is not None and (consulta, chave) in self._cache:
-                self._cache.move_to_end((consulta, chave))
-                notas[i] = self._cache[(consulta, chave)]
-            else:
-                faltam.append(i)
+        with self._trava:
+            for i, chave in enumerate(chaves):
+                nota = self._cache.get((consulta, chave)) if chave is not None else None
+                if nota is None:
+                    faltam.append(i)
+                else:
+                    self._cache.move_to_end((consulta, chave))
+                    notas[i] = nota
         if faltam:
             novas = self._pontuar_modelo(consulta, [textos[i] for i in faltam])
-            for i, nota in zip(faltam, novas):
-                notas[i] = nota
-                if chaves[i] is not None:
-                    self._cache[(consulta, chaves[i])] = nota
-                    if len(self._cache) > self._tamanho_cache:
-                        self._cache.popitem(last=False)
+            with self._trava:
+                for i, nota in zip(faltam, novas):
+                    notas[i] = nota
+                    if chaves[i] is not None:
+                        self._cache[(consulta, chaves[i])] = nota
+                        if len(self._cache) > self._tamanho_cache:
+                            self._cache.popitem(last=False)
         return notas
 
 

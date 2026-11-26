@@ -70,6 +70,28 @@ def test_filtro_separa_pelo_limiar_e_mantem_a_ordem():
     assert not julgamento.lacuna
 
 
+def test_cache_do_reranker_aguenta_chamadas_em_paralelo():
+    """Issue #107: Agentes em paralelo e requisições em threads chamam o mesmo reranker."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    reranker = RerankerFalso(["treino"])
+    reranker._tamanho_cache = 5  # cache pequeno: as threads disputam inserção e descarte
+    textos = [f"texto {i} treino" if i % 2 else f"texto {i}" for i in range(12)]
+    chaves = [f"t{i}" for i in range(12)]
+    esperado = reranker.pontuar("consulta", textos)
+
+    def chamar(n):
+        # Ordem diferente a cada chamada, para as threads inserirem e descartarem chaves diferentes.
+        k = n % len(textos)
+        notas = reranker.pontuar("consulta", textos[k:] + textos[:k], chaves[k:] + chaves[:k])
+        return notas[-k:] + notas[:-k] if k else notas
+
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        resultados = list(executor.map(chamar, range(200)))
+    assert all(r == esperado for r in resultados)
+    assert len(reranker._cache) <= 5
+
+
 def test_reformular_sem_llm_ou_com_saida_invalida_nao_devolve_consultas():
     assert reformular("treinar perna", "saude_fisica", None) == []
     assert reformular("treinar perna", "saude_fisica", lambda s, u: {"outra": 1}) == []
