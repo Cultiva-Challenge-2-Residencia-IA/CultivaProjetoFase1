@@ -1,0 +1,632 @@
+---
+source_id: bernardez-vazquez-training-variables-2022
+title: 'Resistance Training Variables for Optimization of Muscle Hypertrophy: An Umbrella
+  Review'
+source: https://doi.org/10.3389/fspor.2022.949021
+license: CC-BY
+source_sha256: a2ef06b96241ff0353dd9544af5d58613398b497f6511da0d255d5df9908d783
+---
+
+# Resistance Training Variables for Optimization of Muscle Hypertrophy: An Umbrella Review
+
+Instituição(ões): Universidad Isabel I, University of Suffolk. Edição: 2022-article-en.
+
+[PDF original preservado](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf) · [Relatório por página](../relatorios/27-bernardez-vazquez-training-variables-frontiers-2022.json)
+
+> Conversão documental para revisão. As orientações abaixo pertencem à publicação original. Não constituem recomendações produzidas pelo CULTIVA. Revisão e aprovação da fonte pendentes.
+
+Marcadores usam a posição física no PDF, começando em 1; a numeração impressa pode diferir. Notas de conversão são identificadas como acréscimos editoriais. Figuras e composição visual podem ser conferidas no PDF pelos links de página.
+
+<a id="pagina-pdf-001"></a>
+<!-- PDF_PAGE: 1 -->
+## Página PDF 1
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=1)
+
+MINI REVIEW published: 04 July 2022 doi: 10.3389/fspor.2022.949021
+
+# Resistance Training Variables for Optimization of Muscle Hypertrophy: An Umbrella Review
+
+Roberto Bernárdez-Vázquez<sup>1</sup> , Javier Raya-González<sup>1</sup> *, Daniel Castillo<sup>2</sup> and Marco Beato<sup>3,4</sup>
+
+1 Faculty of Health Sciences, Universidad Isabel I, Burgos, Spain, 2 Valoración del Rendimiento Deportivo, Actividad Física y Salud, y Lesiones Deportivas (REDAFLED), Universidad de Valladolid, Soria, Spain,<sup>3</sup> School of Health and Sports Science, University of Suffolk, Ipswich, United Kingdom,<sup>4</sup> Institute of Health and Wellbeing, University of Suffolk, Ipswich, United Kingdom
+
+Edited by: Chris J. Bishop, Middlesex University, United Kingdom Reviewed by: Philip Chilibeck, University of Saskatchewan, Canada *Correspondence: Javier Raya-González rayagonzalezjavier@gmail.com
+
+This umbrella review aimed to analyze the different variables of resistance training and their effect on hypertrophy, and to provide practical recommendations for the prescription of resistance training programs to maximize hypertrophy responses. A systematic research was conducted through of PubMed/MEDLINE, SPORTDiscus and Web of Science following the preferred reporting items for systematic reviews and meta-analyses statement guidelines. A total of 52 meta-analyses were found, of which 14 met the inclusion criteria. These studies were published between 2009 and 2020 and comprised 178 primary studies corresponding to 4,784 participants. Following a methodological quality analysis, nine meta-analyses were categorized as high quality, presenting values of 81–88%. The remaining meta-analyses were rated as moderate quality, with values between 63–75%. Based on this umbrella review, we can state that at least 10 sets per week per muscle group is optimal, that eccentric contractions seem important, very slow repetitions (≥10 s) should be avoided, and that blood flow restriction might be beneficial for some individuals. In addition, other variables as, exercise order, time of the day and type of periodization appear not to directly influence the magnitude of muscle mass gains. These findings provide valuable information for the design and configuration of the resistance training program with the aim of optimizing muscle hypertrophy.
+
+Keywords: muscle mass, cross sectional area, load magnitude, training methods, resistance
+
+Specialty section: This article was submitted to Elite Sports and Performance Enhancement, a section of the journal Frontiers in Sports and Active Living Received: 20 May 2022 Accepted: 14 June 2022 Published: 04 July 2022 Citation: Bernárdez-Vázquez R, Raya-González J, Castillo D and Beato M (2022) Resistance Training Variables for Optimization of Muscle Hypertrophy: An Umbrella Review. Front. Sports Act. Living 4:949021. doi: 10.3389/fspor.2022.949021
+
+## INTRODUCTION
+
+Hypertrophy is defined as an increase in muscular size, which can be achieved through exercise. Two main factors contribute to this physiological phenomenon such as sarcoplasmic hypertrophy (i.e., increased muscle glycogen storage) and myofibrillar hypertrophy (i.e., increased myofibril size and myofibrillar number) (Triplett and Haff, 2015). In this regard, resistance training is considered the gold standard for increasing muscle mass, which is based on three key variables such as mechanical stress, metabolic stress, and muscle damage (Ahtiainen et al., 2003). Traditionally, resistance training focused on hypertrophy is characterized by moderate load, high total volume load and short rest periods (Kraemer and Ratamess, 2005), although the effects of resistance programs vary depending on the manipulation of its variables (Schoenfeld and Grgic, 2017). Since promising effects related to the increase of muscular size on both performance and health have been previously reported (Maestroni et al., 2020), it seems justified to search for the most effective methods to generate hypertrophy.
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+1
+
+---
+
+<a id="pagina-pdf-002"></a>
+<!-- PDF_PAGE: 2 -->
+## Página PDF 2
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=2)
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+Due to the strong positive relationship observed between the muscle’s capacity to generate force and their cross-sectional area (CSA) (Maughan et al., 1983), hypertrophy is one of the main goals pursued by both professional and recreational athletes. Thus, several research studies have analyzed the effects of resistance training on hypertrophy and its subsequent force level (Hornsby et al., 2018). However, it is important to highlight that most team sports require high-force level, but also that the athletes must apply it in the minimum time period (Taber et al., 2016). Regarding this, increasing muscle mass include a positive influence on rate of force development and power, which improve sportive actions such sprinting, jumping, and change of direction ability (Keiner et al., 2014; Seitz et al., 2014; Suchomel et al., 2018). In addition, muscle mass is a key factor in sports disciplines where the quality and quantity of muscle development is judged, such as bodybuilding (Schoenfeld, 2010). Therefore, promoting hypertrophy could be a relevant strategy for improving sports performance (Andersen et al., 2000).
+
+From a human health standpoint, muscle mass plays a significant role in several actions of daily life as locomotion (McLeod et al., 2016), so low levels of muscle mass may lead to an increased risk of several diseases (Maestroni et al., 2020). In this regard, resistance training and their associated hypertrophy adaptations have been shown to have health benefits such as reducing body fat, increasing metabolic rate, lowering blood pressure and cardiovascular demands on exercise, improving blood lipid profile, glucose tolerance and insulin sensitivity, a reduction in the risk of suffering from type II diabetes, an improvement in mobility and functional capacity, an increase in strength, muscle and bone mass, and an increase in related factors with quality of life (Wolfe, 2006; Maestroni et al., 2020). Specifically, Balachandran et al. (2014) applied a hypertrophy-oriented resistance program (3 sets of 10–12 repetitions using 70% of their one-repetition maximum and 1– 2 min recovery) with sarcopenic obese adults during 15 weeks obtaining improvements in functional capability and power, as well as a reduction in fat mass. On the other hand, Kadoglou et al. (2012) observed significant improvements in glycemic control, insulin sensitivity and triglycerides after the application of a hypertrophy training program (2–3 sets of 8–10 repetitions using 60–80% of the one-repetition maximum and 1–2 min recovery) in adults with type 2 diabetes mellitus. For all these aforementioned benefits, a comprehensive and controlled increase in muscle mass seems to be recommended for anyone, regardless of their age or fitness level.
+
+Muscle hypertrophy adaptations can be obtained through several resistance training programs (Lixandrão et al., 2015; Radaelli et al., 2015; Fink et al., 2016). However, there is no well-established consensus on how resistance training variables should be manipulated to optimize muscle growth, so an umbrella review on this topic is necessary. An umbrella review is characterized by a unique criterion for the selection of scientific evidence, which only considers for inclusion the higher standard of evidence such as systematic reviews and metaanalyses (Aromataris et al., 2015). This approach offers the opportunity to compare and discuss findings of different review papers—that can be summarized in a single review. Thus,
+
+the aims of this review were, firstly, to analyze the current and high-quality scientific literature (i.e., meta-analysis) on the manipulation of different variables of resistance training and their effect on hypertrophy responses, and, secondly, to provide practical recommendations for the prescription of resistance training programs to maximize hypertrophy responses.
+
+## METHODS
+
+## Umbrella Review Design
+
+The present umbrella review was carried out following the guidelines set forth by the working group of Aromataris et al. (2015) and followed the Preferred Reporting Items for Systematic Reviews and Meta-analysis (PRISMA) statement guidelines (Page et al., 2021).
+
+## Search Strategy
+
+For this research, the following database were included: PubMed/MEDLINE, SPORTDiscus and Web of Science. Likewise, ResearchGate was used as a source of complementary information. The search syntax included the following keywords coupled with Boolean operators: “meta-analysis” AND (“resistance training” OR “resistance exercise” OR “strength training” OR “strength exercise” OR “strengthening exercise” OR “weight lifting” OR “weight training” OR “blood flow restriction” OR “blood-flow restricted” OR “blood flow restricted” OR “blood restriction” OR BFR OR hypoxia OR “muscle actions”) AND ((hypertrophy OR muscles OR CSA OR “cross sectional area” OR “cross-sectional area” OR growth OR “muscle size” OR “muscle thickness” OR “lean body mass” OR LBM OR “fat free mass” OR “fat-free mass” OR “skeletal muscle” OR “muscle fibers” OR bodybuilding OR “body building” OR “muscle gain” OR “muscular volume” OR “body composition” OR “muscular adaptations” OR “hypertrophic effects”) AND (volume OR frequency OR frequencies OR sets OR multiple OR single OR tempo OR velocity OR speed OR duration OR repetitions OR order OR “split training” OR “total body training” OR “split routine” OR “split weight training” OR ((training OR light OR low OR “low-” OR “high-”) AND load) OR “low-load” OR “high-load” OR intensity OR eccentric OR concentric OR shortening OR lengthening OR “contraction mode” OR “time-of-day” OR “time of day” OR “diurnal fluctuations” OR “circadian variation” OR “circadian rhythms” OR program OR programs). A secondary search was performed based on the screening of the reference lists of the selected meta-analyses. The last and definitive search was conducted on 27th November 2021. Two authors (RBV and JR) independently screened the title and abstract of each reference to locate potentially relevant studies and reviewed them in detail to identify articles that met the inclusion criteria. Any discrepancies between the authors in the selection process were solved in consultation with a third reviewer (DC).
+
+## Inclusion Criteria
+
+Meta-analyses published in English whose aim was to analyze the effect of manipulating different variables of resistance training in muscle hypertrophy adaptations were included in this umbrella
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+2
+
+---
+
+<a id="pagina-pdf-003"></a>
+<!-- PDF_PAGE: 3 -->
+## Página PDF 3
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=3)
+
+> **Nota de conversão — página 3:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+review. Following to the Participant-Intervention-ComparisonOutcome (PICO) process for evidence-based practice (Schardt et al., 2007), the subsequent inclusion criteria were applied:
+
+- a) Participants: Male and/or female healthy and physically active practitioners. Studies focused on specific age-populations as children or elderly participants were excluded.
+
+- b) Interventions: Resistance training programs with traditional materials (i.e., free weights and weight stack machines).
+
+- c) Comparison group: Usual training (no additional training).
+
+- d) Outcome measures: Muscle mass, CSA, lean body mass, muscle girth, muscle thickness, fat-free mass, muscle fibers and muscle volume.
+
+## Methodological Quality Analysis
+
+The methodological quality of the included meta-analyses was assessed through the Assessing the Methodological Quality of Systematic Reviews 2 (AMSTAR 2) checklist, which is considered as a reliable and valid tool to evaluate the risk of bias (Shea et al., 2017). AMSTAR 2 is composed by 16 different items, which were answered with a “yes”, “no”, “cannot answer” or “not applicable” and only positive answers (i.e., “yes”) allow to sum 1 point. Meta-analyses were classified as high quality (at least 80% of the items were satisfied), moderate quality (between 40 and 80% of the items were satisfied) or low quality (<40% of the items were satisfied) attending to the obtained score in the AMSTAR 2 checklist.
+
+## Quality of the Evidence Evaluation
+
+The quality of the evidence was evaluated using the modified Grading of Recommendations Assessment, Development and Evaluation (GRADE) principles (Guyatt et al., 2011). In this sense, systematic reviews were classified as high (i.e., at least two high-quality primary studies), moderate (i.e., at least one high quality primary study or at least two moderate-quality primary studies), low (i.e., only moderate-quality primary studies and/or inconsistent results in the primary studies) or very low (i.e., no medium to high quality systematic review identified on this topic). If the quality of the primary studies was not assessed, the systematic review must be classified as “no evidence from systematic review”.
+
+## Study Coding and Data Extraction
+
+The following moderator variables were extracted from the included reviews: (a) authors and year of publication, (b) resistance training variable analyzed, (c) main aim of the meta-analysis, (d) number of studies/participants included in the meta-analysis, (e) mean interventions duration, (f) heterogeneity among primary studies (I<sup>2</sup> ), and (g) main findings or conclusions reported by the authors. Data extraction, methodological quality assessment and quality of the evidence evaluation were performed independently by two authors (RBV and JRG) and discrepancies between the authors were resolved in consultation with a third reviewer (DC).
+
+## RESULTS
+
+## Search Results
+
+**Figure 1** shows the flow diagram of the meta-analyses’ retrieval process followed in this umbrella review. The initial search identified 55 meta-analyses, while 2 additional meta-analyses were found through the secondary search. Subsequently, 25 duplicate records were removed, and 13 meta-analyses were excluded based on their titles and/or abstracts. Nineteen metaanalyses were read in more detail (i.e., full-text) and 14 metaanalyses were included in the umbrella review (Roig et al., 2009; Krieger, 2010; Schoenfeld et al., 2015, 2016a, 2017a,b,c, 2019a; Slysz et al., 2016; Grgic et al., 2017, 2019; Lixandrão et al., 2018; Grgic, 2020; Nunes et al., 2020).
+
+## Descriptive Characteristics of the Umbrella Review
+
+The included meta-analyses are summarized in **Table 1** . These studies were published between 2009 and 2020 and comprised 178 primary studies corresponding to 4,704 participants. The 14 selected meta-analyses were classified attending to the analyzed variable, differentiating between volume (Krieger, 2010; Schoenfeld et al., 2017a), frequency (Schoenfeld et al., 2019a), intensity (Schoenfeld et al., 2016a, 2017c; Grgic, 2020), contraction type (Roig et al., 2009; Schoenfeld et al., 2017b), repetition duration (Schoenfeld et al., 2015), exercises order (Nunes et al., 2020), time of day (Grgic et al., 2019), periodization followed (Grgic et al., 2017) and blood-flow restriction (Slysz et al., 2016; Lixandrão et al., 2018).
+
+## Methodological Quality Assessment and Quality of the Evidence Evaluation
+
+The methodological quality of the 14 included meta-analyses is presented in **Table 2** . Nine meta-analyses were categorized as high quality, presenting values of 81 and 88% (i.e., 13 items satisfied) (Schoenfeld et al., 2015, 2017a,b, 2019a; Grgic et al., 2017, 2019; Lixandrão et al., 2018; Nunes et al., 2020). The remaining **meta-analyses** were rated as moderate quality, with values between 63 and 75% (i.e., from 10 to 12 items satisfied) (Roig et al., 2009; Krieger, 2010; Schoenfeld et al., 2016a, 2017c; Slysz et al., 2016; Grgic, 2020). According to GRADE, 8 metaanalyses were based on high-quality primary studies (i.e., high GRADE) (Roig et al., 2009; Slysz et al., 2016; Grgic et al., 2017, 2019; Schoenfeld et al., 2017c; Lixandrão et al., 2018; Grgic, 2020; Nunes et al., 2020) while the other 7 meta-analyses did not presented information regarding to quality (Krieger, 2010; Schoenfeld et al., 2015, 2016a, 2017a,b, 2019a).
+
+## DISCUSSION
+
+The main aims of this review were, firstly, to analyze the different variables of resistance training and their effect on hypertrophy responses, and secondly, to provide practical recommendations for the prescription of resistance training programs to maximize hypertrophy responses. Based on the 14 meta-analyses and the 178 primary studies included in our umbrella review, we can conclude that the variables of volume,
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+3
+
+---
+
+<a id="pagina-pdf-004"></a>
+<!-- PDF_PAGE: 4 -->
+## Página PDF 4
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=4)
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+FIGURE 1 | Flow diagram of the study retrieval process.
+
+frequency, intensity, contraction type, repetition duration, and the application of the restriction of blood flow can generate hypertrophy adaptations in healthy subjects. Conversely, other variables such as exercise order, time of the day and type of periodization appear not to directly influence the magnitude of muscle mass gains, however further research is necessary to clarify their capability to stimulate hypertrophy. The findings reported in this umbrella review provide valuable information for the design and configuration of resistance training programs aiming at optimizing muscle hypertrophy.
+
+## Sets
+
+Volume is commonly defined as the total amount of work performed (Schoenfeld and Grgic, 2017) and can be expressed as
+
+the total number of sets/repetition per exercise (Wernbom et al., 2007; Schoenfeld et al., 2017a) or the total number of repetitions multiplied by the amount of weight used in an exercise across sets (Schoenfeld et al., 2016b). This variable has received a great deal of attention with respect to enhancing muscle hypertrophy (Schoenfeld and Grgic, 2017), since it has been traditionally assumed that prescribing high-volume during resistance training programs will produce greater gains in muscle mass (McCall et al., 1999). This statement is supported by the fact that, when the rest of the variables remain constant, increases in volume will necessarily increase the overall time-under-tension, which has been proposed as an important driver of anabolism (Burd et al., 2012). However, it is still not clear if there is a real dose-response relationship for this variable and if there is a cut-off point from
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+4
+
+---
+
+<a id="pagina-pdf-005"></a>
+<!-- PDF_PAGE: 5 -->
+## Página PDF 5
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=5)
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+TABLE 1 | Summary of meta-analyses that investigated the effects of modify resistance training variables on hypertrophy.
+
+|References|Variable|Aim|Studies<br>(participants)|Interventions’<br>duration|Heterogene<br>(I<sup>2</sup>)|ity<br>Findings/conclusions|
+|---|---|---|---|---|---|---|
+|Krieger (2010)|Volume|To compare the effects of single<br>and multiple sets per exercise on<br>muscle hypertrophy.|8 (322)|From 6 to<br>24 weeks|NR|Multiple sets (2–3 sets) are associated with 40%<br>greater hypertrophy-related than 1 set, in both<br>trained and untrained subjects. the trend was<br>observed that 4–6 sets could give an even<br>greater response, but the small number of<br>included studies prevents from establishing any<br>definitive conclusions.|
+|Schoenfeld<br>et al. (2017a)|Volume|To elucidate the effects of total<br>weekly volume on changes in<br>measures of muscle mass.|15 (390)|From 6<br>weeks to 6<br>months|NR|Although low volumes (≤4 weekly sets/muscle<br>group) are enough to get substantial gains in<br>muscle hypertrophy, the findings indicate a<br>graded dose-response relationship whereby<br>increases in volume produce greater gains in<br>muscle hypertrophy.|
+|Schoenfeld<br>et al. (2019a)|Frequency|To investigate the effects of<br>weekly training frequency on<br>hypertrophic adaptations.|25 (836)|From 6 to<br>30 weeks|0%|Resistance training frequency does not<br>significantly or meaningfully impact muscle<br>hypertrophy when volume is equated.<br>Conversely, a significant effect favoring higher<br>frequencies were observed when volume was<br>not equated.|
+|Schoenfeld<br>et al. (2016a)|Intensity|To compare the effects of low-<br>vs. high-load training in<br>enhancing post-exercise<br>muscular hypertrophy.|8 (191)|From 6 to<br>13 weeks|NR|Training with loads≤60% 1RM can promote<br>substantial increases in muscle hypertrophy in<br>untrained individuals, and although a strong trend<br>was noted for superiority of heavy loading<br>regarding to muscle hypertrophy, no significant<br>differences were observed.|
+|Schoenfeld<br>et al. (2017b)|Intensity|To compare changes in strength<br>and hypertrophy between low-<br>vs. high-load resistance training<br>protocols.|10 (630)|From 6<br>weeks to 1<br>year|NR|The findings indicate that changes in measures of<br>muscle hypertrophy were similar when trained<br>with low-loads compared to high-loads.|
+|Grgic (2020)|Intensity|to explore the effects of low-load<br>vs. high-load resistance training<br>on type I and type II muscle fiber<br>hypertrophy.|10 (120)|From 6 to<br>12 weeks|0-18%|This meta-analysis did not provide significant<br>differences in hypertrophy when compared the<br>effects of low-loads vs. high-loads (performed to<br>momentary muscular failure) in both type I and<br>type II muscle fibers.|
+|Roig et al.<br>(2009)|Contraction<br>type|To determine if eccentric<br>exercise is superior to concentric<br>exercise in stimulating gains in<br>muscle mass.|20 (678)|From 4 to<br>25 weeks|65%|Eccentric training appears to be more effective at<br>increasing muscle mass than concentric training,<br>maybe due to the higher forces developed during<br>this type of exercise. Additionally, adaptations<br>after eccentric training are highly specific to the<br>velocity.|
+|Schoenfeld|Contraction|To compare the hypertrophic|15 (356)|From 6|NR|Although both concentric and eccentric modes|
+|et al. (2017c)|type|effects of concentric vs.<br>eccentric training in healthy<br>adults following regimented<br>resistance training.||weeks to 5<br>months||promote significant muscular hypertrophy, a<br>small advantage favoring eccentric training was<br>observed for promoting a hypertrophic response.|
+|Schoenfeld<br>et al. (2015)|Repetition<br>duration|To determine whether alterations<br>in repetition duration can amplify<br>the hypertrophic response to<br>resistance training.|8 (239)|From 6 to<br>14 weeks|NR|Similar gains in hypertrophy were observed when<br>training with repetition durations ranging from 0.5<br>to 8 s to concentric muscular failure. In addition,<br>training at volitionally very slow durations (10 s<br>per repetition) is inferior from a hypertrophy<br>standpoint.|
+|Nunes et al.<br>(2020)|Exercises<br>order|To analyze the effects of exercise<br>order on muscular hypertrophy.|11 (268)|From 6 to<br>12 weeks|0%|The findings obtained indicated that gains in<br>muscle hypertrophy are not influenced by the<br>exercise order (multi-single vs. single vs. multi)<br>within resistance training programs.|
+|Grgic et al.|Time of|To elucidate the effects of|6 (221)|From 6 to|0%|The findings showed that increases in muscle|
+|(2019)|day|morning vs. evening resistance<br>training on muscle hypertrophy.||24weeks||size are similar irrespective of the time of day at<br>which the training is performed.|
+
+(Continued)
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+5
+
+---
+
+<a id="pagina-pdf-006"></a>
+<!-- PDF_PAGE: 6 -->
+## Página PDF 6
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=6)
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+TABLE 1 | Continued
+
+|References|Variable|Aim|Studies<br>(participants)|Interventions’<br>duration|Heterogeneity<br>(I<sup>2</sup>)|Findings/conclusions|
+|---|---|---|---|---|---|---|
+|Grgic et al.<br>(2017)|Periodization|To compare the effects of linear<br>periodization and daily<br>undulating periodization<br>resistance training programs on<br>muscle hypertrophy.|13 (303)|From 6 to<br>26 weeks|NR|The findings obtained indicated that the effects of<br>the two periodization models (lineal and<br>undulating) on muscle hypertrophy are likely to<br>be similar.|
+|Slysz et al.<br>(2016)|BFR|To assess the effectiveness of<br>BFR exercise on muscle<br>hypertrophy compared to<br>traditional resistance training.|19 (377)|NR|NR|The findings showed that suggests that the<br>addition of BFR to dynamic exercise training is<br>effective for augmenting changes in muscle size.|
+|Lixandrão<br>et al. (2018)|BFR|To compare the effects of<br>high-load vs. low-load resistance<br>training associated with BFR on<br>muscle gains.|10 (222)|From 4 to<br>12 weeks|NR|The results obtained demonstrate similar muscle<br>gains for high-load as compared with low-load<br>resistance training associated with BFR.|
+
+NR, non-reported; 1RM, one repetition maximum; BFR, blow flood restriction.
+
+which, even if the volume increases, the muscle hypertrophy does not increase. In this regard, Krieger (2010) performed a metaanalysis in order to compare the effects on hypertrophy response between the use of one and multiple sets per exercise and to establish a dose-response relationship between training volume and hypertrophy adaptations. This author found that performing multiple sets (2–3 sets) entails 40% more hypertrophy compared to a single set (Krieger, 2010). Regarding the analysis of the doseresponse relationship, the results of this meta-analysis (Krieger, 2010) reported significant differences in muscle mass gains when 2-3 sets compared to 1 set were performed, while no differences were observed when comparing volumes of 2–3 sets vs. 4– 6 sets. This could be due to the theoretically increasing of protein synthesis with increased volume up (Spangenburg, 2009) to a point (Kumar et al., 2009), from which this production remains stable—limiting greater gains in muscle mass. According to the previous study, Schoenfeld et al. (2017a) observed a graded dose-response relationship between resistance training weekly volume and muscle growth. Specifically, these authors established that low-volume protocols (≤4 weekly sets per muscle group) could be enough to get substantial gains in muscle hypertrophy, which is valuable information to those for which the conservation of energy is an ongoing concern or those with a reduced time availability. However, they also observed that at least 10 weekly sets per muscle group is necessary to maximize increases in muscle mass (Schoenfeld et al., 2017a). Some authors hypothesized that the repeated application of highvolume stimulus during resistance training sessions maximizes the anabolic responses (higher protein synthesis) due to the greater metabolic stress generated (Schoenfeld, 2013). Finally, these authors also refer to the existence of a hypertrophic adaptations plateau, advising that training above this level could generate overtraining. Although resistance training volume seems to present a positive dose-response relationship, further research is needed to clarify the level over which there is a plateau, which is currently not well understood. These meta-analyses included in this umbrella review showed some limitations— authors highlight the scarce number of studies that included 4–6
+
+sets per exercises as training variable, as well as the use of indirect measurement methods (e.g., BodPod) to assess the muscle gains in some of the includes studies.
+
+## Frequency
+
+Closely related to volume, frequency appears to be a key variable for hypertrophy gain, which refers to the number of resistance training sessions performed or the number of times a specific muscle group is trained in a given period of time, usually a week (Schoenfeld et al., 2016c). To determine the effects of resistance training frequency on hypertrophic outcomes, Schoenfeld et al. (2019a) observed that when volume is equated, frequency does not significantly impact muscle hypertrophy. Instead, the authors reported that a significant effect favoring higher frequencies was observed when volume was not equated. This could be due to the fact that by maintaining the volume, increasing the weekly frequency allows maintaining the intensity of the effort optimizing recovery between sessions. However, it has been observed that using high training frequencies combined with high intensities can lead to a rapid decline in performance and an increased risk of overtraining (Fry et al., 1994). Therefore, periodizing frequency and/or including periods of low frequency on a regular basis (i.e., tapering periods) can help to maximize hypertrophy responses and to reduce the potential for overtraining, but more research is needed to verify this hypothesis (Fry et al., 1994). Despite these results, training frequency can be a useful strategy to increase the overall training volume, a variable that has shown a dose-response relationship with hypertrophy (Schoenfeld et al., 2017a). In addition, variations in inter-individual responses to training frequency has been observed, so individualization of the training program is essential to maximize the hypertrophy potential of each participant (Haff and Nimphius, 2012).
+
+The main limitations observed in the review in our hands, which examined the effect of training frequency on hypertrophy, were that the direct measurements were only carried out on the thighs and arms, so the results cannot be extrapolated to other muscle groups; it was not possible to compare the effect of
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+6
+
+---
+
+<a id="pagina-pdf-007"></a>
+<!-- PDF_PAGE: 7 -->
+## Página PDF 7
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=7)
+
+> **Nota de conversão — página 7:** Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa.
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+|Score|69% moderate|81% high|81% high|75% moderate|75% moderate|63% moderate|69% moderate|81% high|81% high|81% high|81% high|81% high|69% moderate|81% high||
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|16|Yes|Yes|Yes|No|No|No|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes||
+|15|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes||
+|14|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes||
+|13|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes||
+|12|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes||
+|11|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes||
+|10|No|No|No|No|No|No|No|No|No|No|No|No|No|No||
+|9|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|eview.|
+|8|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|No|Yes|ystematic r|
+|7|No|No|No|No|No|No|No|No|No|No|No|No|No|No|ce from s|
+|6|No|Yes|Yes|Yes|Yes|No|No|Yes|Yes|Yes|Yes|Yes|No|Yes|No eviden|
+|5|No|Yes|Yes|Yes|Yes|No|No|Yes|Yes|Yes|Yes|Yes|Yes|Yes|2; NEFSR,|
+|4|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Reviews|
+|3|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|ystematic|
+|2|No|No|No|No|No|No|No|No|No|No|No|No|No|No|Quality of S|
+|1|Yes|(2017a)<br>Yes|(2019a)<br>Yes|(2016a)<br>Yes|(2017b)<br>Yes|Yes|)<br>Yes|(2017c)<br>Yes|(2015)<br>Yes|0)<br>Yes|9)<br>Yes|7)<br>Yes|)<br>Yes|2018)<br>Yes|ssing the Methodological|
+|es|010)|d et al.|d et al.|d et al.|d et al.|0)|(2009|d et al.|d et al.|al. (202|. (201|. (201|. (2016|et al. (|, Asse|
+|nc|(2|fel|fel|fel|fel|02|al.|fel|fel|et|al|al|al|ão|R 2|
+|Refere|Krieger|Schoen|Schoen|Schoen|Schoen|Grgic (2|Roig et|Schoen|Schoen|Nunes|Grgic et|Grgic et|Slysz et|Lixandr|AMSTA|
+
+training frequency between multi-joint and single-joint exercises as well as the effect of participants’ age on chronical adaptations.
+
+## Intensity
+
+This variable is considered one of those with the greatest effect on hypertrophy responses (Fry, 2004). In this regard, each percentage of the 1RM is related to a certain number of maximum repetitions to be performed (Brzycki, 1993), traditionally categorized into low (<30% 1RM, >20 reps), moderate (30–70% 1RM, 11–20 reps) and high (>70% 1RM, < 11 reps) ranges (Soriano et al., 2015, 2017). Consequently, each percentage of 1RM is associated with a different energy system and fatigue level (Sánchez-Medina and González-Badillo, 2011), impacting the extent of the hypertrophic response (Schoenfeld, 2010). Traditionally, training using high loads with a moderate number of repetitions (i.e., 80% 1RM, 8–10 reps) has been considered as a key strategy to optimize the muscle gains (Kerksick et al., 2009), based on the existence of an intensity threshold from which the increase in metabolic stress improves the hypertrophy response, allowing the recruitment of highthreshold motor units, which is not possible with the high repetition range (Schoenfeld, 2010). However, there is a lack of evidence to objectively establish the balance between external load, metabolic stress and hypertrophy responses. Schoenfeld et al. (2016a) performed a meta-analysis aiming to compare the effects of low- vs. high-load training in enhancing postexercise muscular hypertrophy, who observed that resistance training programs using loads < 60% 1RM allows to achieve hypertrophy levels similar to those achieved with high loads (≥65% 1 RM) in untrained individuals, although they observed a trend toward greater hypertrophy using high loads (difference = 0.43 ± 0.24; CI: −0.05, 0.92; p = 0.076), (Schoenfeld et al., 2016a) which supports the established guidelines for hypertrophy training (loads > 65% 1RM) (Kraemer and Ratamess, 2004). These similar hypertrophy responses reported in this review could be due to several factors such as the training level of the participants involved in the studies, the length of the training process, the type of exercise utilized, rest interval, and training frequency. In a second meta-analysis, Schoenfeld et al. (2017c) observed similar hypertrophy changes after the use of high or low loads when muscle failure was reached. Conversely to the first reported meta-analysis, this study did not observe a superior trend toward the use of high loads. These authors suggest that training with low loads implies a higher level of discomfort, although this did not imply a lower adherence to it compared to that reported in programs with high loads. Finally, Grgic (2020) conducted a new meta-analysis on this topic and observed nonsignificant differences in hypertrophy when comparing the effects of low-loads vs. high-loads (performed to momentary muscular failure) in both type I and type II muscle fibers. Additionally, this author reported a 95% confidence and prediction intervals very wide, so there is a clear need for future research on this topic. These results suggest that the selection of the load to use within a strength training program whose objective is to increase muscle mass should be made based on individual criteria (e.g., training status of the participants, length of the training process).
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+7
+
+---
+
+<a id="pagina-pdf-008"></a>
+<!-- PDF_PAGE: 8 -->
+## Página PDF 8
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=8)
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+A limitation of these meta-analyses (Schoenfeld et al., 2016a, 2017c) is the level of the participants (untrained individuals with minimal research on trained individuals) which difficult to extrapolate the results to trained athletes. In addition, few participants were involved in the included studies and the length of the protocols in some studies was a bit reduced.
+
+## Contraction Type
+
+Traditionally, it has been assumed that eccentric contractions promote greater gains in muscle mass compared to concentric contractions (Hortobágyi et al., 2000), based on the idea that the mechanical stress placed on the eccentrically contracted muscles triggers a progressive activation of genes responsible for cellular growth and development, which is not possible by concentric or isometric actions (Chen et al., 2002; Barash et al., 2004). Additionally, some authors have suggested that eccentric actions promote a more rapid protein synthetic response and greater increases in anabolic signaling (Franchi et al., 2014), generated by the result of the increase muscle damage (Schoenfeld, 2012). To get a more comprehensive knowledge about the superiority of eccentric contractions compared to concentric contractions in muscle gains, Roig et al. (2009) observed that eccentric exercise is more effective than concentric exercise in increasing muscle girth mainly due to the higher absolute loads imposed during eccentric contractions. However, these authors also indicated that concentric training performed separately can promote increases in muscle mass. Schoenfeld et al. (2017b) performed a meta-analysis and confirmed the advantage of eccentric contractions for increasing hypertrophy, although this advantage was relatively small (eccentric training 10% vs. concentric 6.8%). These differences could be explained because of the higher force and mechanic load generated during eccentric training compared to concentric when the same repetitions number is performed (Schoenfeld et al., 2017b). However, when mechanical work was equaled, the results obtained were inconclusive (Hawkins et al., 1999; Moore et al., 2012). Additionally, Schoenfeld et al. (2017b) also observed that concentric contractions induced hypertrophy gains in the middle portion of the muscle, while eccentric contractions have a greater effect on the distal portions, possibly due to localized muscle damage along the fiber produced by nonuniform muscle activation of eccentric contractions. Due to the different responses of both contractions, it seems appropriate to combine both types to optimize the hypertrophy response (e.g., using technologies that allow this) (Beato and dello Iacono, 2020). Finally, these authors found that eccentric training produced greater hypertrophy of type II fibers than concentric, which could be explained because eccentric contractions preferentially recruit high-threshold motor units, which contain more type II fibers (Beato and dello Iacono, 2020). However, the mechanism by which such a fiber type preference exists is not clear.
+
+The comparison between adaptations on hypertrophy caused by concentric and eccentric contractions have been limited by the difficulty of isolating them from human movement, which implies a cyclical repetition of both types of contraction; the uncertainty to know the intensity implied by an external load during an eccentric contraction; and the specificity of resistance training regarding speed and mode of contraction (Roig et al.,
+
+2009). Therefore, it seems necessary to delve into the possible relationship between the effects on hypertrophy and the type of contraction, differentiating between body hemispheres, different muscle regions, the role of induced muscle damage in the increase in hypertrophy, the influence of the angle of pennation and the length of the fascicle and the comparison between types of contractions equating mechanic load (Roig et al., 2009; Schoenfeld et al., 2017b).
+
+## Repetition Duration
+
+Training with loads lower than 80–85% 1RM allows the trainee to voluntarily modify the tempo of the lift (Bamman et al., 2001), an action that reduces the velocity of the lift by increasing the mechanical tension manifested by the muscle (Westcott et al., 2001), thus promoting a greater hypertrophy response (Schoenfeld et al., 2015). In this regard, Schoenfeld et al. (2015) conducted a meta-analysis and observed similar gains in hypertrophy when training with repetition durations ranging from 0.5 to 8 s (to concentric muscular failure). However, it was also observed that training at volitionally very slow durations (10 s per repetition) is inferior from a hypertrophy standpoint. The authors speculate on the existence of a possible threshold velocity below which the hypertrophy response is impaired, since it could not be a suitable stimulus to recruit all motor units of a muscle—mainly high-threshold motor units (Keogh et al., 1999). Nevertheless, the training programs analyzed in this study were performed until concentric failure, which implies a progressive increase in fatigue along the set, reducing the motor unit recruitment thresholds, thereby enhancing muscle recruitment (Mitchell et al., 2012). From a practical perspective, a wide range of repetition durations can be used to stimulate hypertrophy, however, very slow repetitions (around 10 s) should be avoided. Considering that the evidence on this topic is limited, future studies on the effects of variation in the duration of repetitions must be performed in different contexts.
+
+## Exercise Order
+
+Multi-joint exercises are those that recruit one or more large muscle groups involving two or more main joints, while single-joint exercises are those that involve smaller muscle groups involving a single main joint (Haff and Nimphius, 2012). Specifically, multi-joint exercises generate a significant stabilization of the body, involving numerous muscles that could not be stimulated by single-joint movements (Schoenfeld, 2010). However, the biarticular muscles do not receive sufficient hypertrophy stimulation in multi-joint exercises since, during their execution, these muscles maintain a relatively constant length. Therefore, single-joint exercises are necessary to achieve a better length-tension relationship (greater mechanical tension following the length-tension principle) and a greater electromyography activity (a possible greater motor unit recruitment) (Schoenfeld et al., 2019b). In this sense, to know the best organization of these type of exercises within a resistance training session seems to be a key factor in order to optimize the muscle mass gains. Nunes et al. (2020) conducted a meta-analysis to analyze the effects of exercise order on muscular hypertrophy and the obtained results indicated similar hypertrophy responses
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+8
+
+---
+
+<a id="pagina-pdf-009"></a>
+<!-- PDF_PAGE: 9 -->
+## Página PDF 9
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=9)
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+regardless of exercise order, although authors claimed that this finding should be viewed with caution. In the included studies in which model B ultrasounds were used, measurements were taken in muscles that were not the object of the investigation, that is, hypertrophy measurements were performed on muscles that were agonists in the single-joint but synergists in the multijoint exercises (e.g., biceps brachia in a bicep curl and in a vertical pull). In the studies that used indirect measurement methods, no significant differences were found either, but these methods have low sensitivity to identify subtle hypertrophy changes (Haun et al., 2019). Currently, we do not have enough evidence to state proper guidelines and, therefore, more research seems necessary, including analysis of different exercise orders with exercises on the same target muscle in which it also acts as the main agonist, and not only as a synergist, as well as using direct measurement methods on specific muscle regions (which have greater sensitivity).
+
+## Time of Day
+
+Human motor performance varies depending on the time of day (Drust et al., 2005). The time of day in which maximum performance is reached is called acrophase, which is around 6:00 p.m. attending resistance training (Guette et al., 2005). In this regard, Grgic et al. (2019) concluded that the hypertrophy adaptations were similar regardless of the time of day the training sessions were located. These findings could be partially explained by the similar levels of p70S6K phosphorylation observed after strength training performed in the morning or afternoon (Mayhew et al., 2011). These results suggest that the time of day for strength and hypertrophy training should be based on personal preference, although more research appears to be needed to really verify if differences exist between training in the morning vs. evening hours. Future studies should consider the assessment of CSA at the muscle fiber level and individual responses to resistance training at different times of the day based on chronotype (morning or evening) and habitual sleep cycles.
+
+## Periodization
+
+Triplett and Haff (2017) define periodization as “the logical and systematic process of sequencing and integrating training interventions in order to reach peak performance at appropriate times.” Two of the most used periodization models in resistance training are the linear periodization model and the non-linear or undulating model. To compare the effects of these periodization models, Grgic et al. (2017) conducted a meta-analysis and found that at the same training volume, no significant differences were observed, although it cannot be guaranteed that the same occurs with other forms of periodization. With these results, the importance of training volume in modulating the hypertrophy response was once again confirmed (Schoenfeld et al., 2017a). For this reason, linear periodization does not seem to be the most appropriate since it ends with the minimum volume and it is suggested that the inverse linear periodization model, in which the intensity is decreased and the volume increases, seems to be a better alternative since the maximum volume would be at the end of the macrocycle (Prestes and Lima, 2009). Even in trained subjects, who tend to present
+
+an attenuated response to training, significant improvements in hypertrophy have been observed without having applied any periodization model, simply with an adequate progressive overload. This leads to questioning the need to implement periodization models in resistance training programs (Morton et al., 2016). A possible consideration when establishing a periodization model can be the motivational factor in order to ensure adherence to training, being linear periodization more suitable for individuals who want to record weekly or monthly progress; while undulating periodization might be recommended for those who enjoy more the variety of training or because they have different training aims (Grgic et al., 2017).
+
+## Blood Flow Restriction
+
+To optimize hypertrophy, different strategies related to resistance training have been implemented, highlighting the blow flood restriction (Slysz et al., 2016). This method is based on the decrease blood flow to a muscle by application of an external constricting device, such as a blood pressure cuff or tourniquet, to provide mechanical compression of the underlying vasculature (Slysz et al., 2016). In this regard, in with the aim to increase the knowledge about this technique, Slysz et al. (2016) assessed the effectiveness of blow flood restriction exercise on muscle hypertrophy compared to traditional resistance training. These authors observed that the addition of blow flood restriction to dynamic exercise training is effective for augmenting changes in muscle size, mainly when training programs last at least 8 weeks and cuff pressures > 150 mmHg are used. Accordingly, Lixandrão et al. (2018) demonstrate similar muscle gains for high-load as compared with lowload resistance training associated with blow flood restriction techniques. Even though occlusion pressure, which is highly dependent on the width of the cuff, has been considered an important variable in blow flood restriction due to its ability to modulate muscle adaptations, the results obtained show total independent of the absolute occlusion pressure and the width of the cuff used (Lixandrão et al., 2018). However, authors stated that the occlusion pressure has been shown to have a direct relationship with the perception of effort and suggest that blow flood restriction with low pressures is perceived as more comfortable and less physically demanding, being especially useful in individuals with low tolerance to physical stress. Future research on a possible preference of the blow flood restriction stimulus over type I fibers seems to be interesting.
+
+## Methodological Quality of the Included Meta-Analysis
+
+As assessed using the AMSTAR 2 checklist, the included metaanalyses are classified as moderate or high methodological quality. Despite the acceptable overall quality of the included meta-analyses, we noted, regarding to the GRADE quality assessment, that 6 out 14 meta-analyses did not reported information about the quality of the primary studies analyzed. This methodological issue shows the necessity of establishing
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+9
+
+---
+
+<a id="pagina-pdf-010"></a>
+<!-- PDF_PAGE: 10 -->
+## Página PDF 10
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=10)
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+clear and specific methodological guidelines to apply in resistance training meta-analyses to increase the robustness of the findings.
+
+## CONCLUSIONS
+
+Based on the available meta-analyses, it has been observed that volume, frequency, intensity, contraction type, repetition duration and the application of the restriction of blood flow conditioning hypertrophy adaptations in healthy subjects, being volume the only resistance training variable for which a doseresponse relationship with hypertrophy adaptations has been observed. Conversely, other variables as, exercise order, time of the day and type of periodization appear not to directly influence the magnitude of muscle mass gains. These findings provide valuable information for the design and configuration of the resistance training program with the aim of optimizing muscle hypertrophy.
+
+## PRACTICAL APPLICATIONS
+
+From the existing literature some recommendations must be considered when resistance training program focused on muscle mass gains are prescribed:
+
+- a) Volume: research has reported a graded dose-response relationship between resistance training weekly volume and muscle growth. Therefore, it would be recommended to prescribe 2–3 sets per exercise, covering at least 10 weekly sets for each muscle group, while greater weekly volume does not seem to offer additional hypertrophy benefits.
+
+- b) Frequency: although the modification of this variable does not directly influence hypertrophy gains, significant effect favoring higher frequencies was observed when volume was not equated, therefore training frequency can be used as a tool to modify the overall weekly training volume.
+
+- c) Intensity: the choice of light or heavy loads can be made depending on the characteristics of the subject, although
+
+## REFERENCES
+
+- Ahtiainen, J. P., Pakarinen, A., Alen, M., Kraemer, W. J., and Häkkinen, K. (2003). Muscle hypertrophy, hormonal adaptations and strength development during strength training in strength-trained and untrained men. Eur. J. Appl. Physiol. 89, 555–563. doi: 10.1007/s00421-003-0833-3
+
+- Andersen, J. L., Schjerling, P., and Saltin, B. (2000). Muscle, genes and athletic performance. Sci. Am. 283, 48–55. doi: 10.1038/scientificamerican0900-48
+
+- Aromataris, E., Fernandez, R., Godfrey, C. M., Holly, C., Khalil, H., and Tungpunkom, P. (2015). Summarizing systematic reviews: methodological development, conduct and reporting of an umbrella review approach. Int. J. Evid. Based Healthcare 13, 132–140. doi: 10.1097/XEB. 0000000000000055
+
+- Balachandran, A., Krawczyk, S. N., Potiaumpai, M., and Signorile, J. F. (2014). High-speed circuit training vs hypertrophy training to improve physical function in sarcopenic obese adults: a randomized controlled trial. Exp. Gerontol. 60, 64–71. doi: 10.1016/j.exger.2014. 09.016
+
+- Bamman, M. M., Shipp, J. R., Jiang, J., Gower, B. A., Hunter, G. R., and Goodman, A. (2001). Mechanical load increases muscle IGF-I and androgen receptor
+
+always reaching or close to failure. It is appropriate to prescribe variations in the magnitude of the load (<60% 1RM and >60% 1RM), however higher load seem to offer greater adaptations.
+
+- d) Contraction type: it seems appropriate to combine both concentric and eccentric contractions to optimize hypertrophy response, however, it seems that eccentric contractions may offer some additional advantages compared to concentric.
+
+- e) Repetition duration: a wide range of repetition duration seems to be appropriated to stimulate hypertrophic adaptations such as 0.5–8 s, instead, longer duration (very slow movement speed) is counterproductive, therefore it should avoid extending the repetition duration beyond 10 s.
+
+- f) Exercises order: for the modulation of this variable, personal preferences or specific objectives must be addressed, such as deliberately overloading a specific muscle group. Currently, we do not have enough evidence to state proper guidelines and, therefore, more research seems necessary.
+
+- g) Time of day: for the modulation of this variable, personal preferences must be addressed since no evidence in favor of a specific time of day (morning vs. evening hours) have been found on hypertrophy adaptations.
+
+- h) Periodization: individual preferences must be considered when choosing the periodization model to use, but always respecting the training volume and progressive overload.
+
+- i) Blood flow restriction: it seems appropriate to use this technique in widely experienced subjects or in those who cannot use heavy loads (i.e., injured athletes).
+
+## AUTHOR CONTRIBUTIONS
+
+RB-V and JR-G conceived the research idea, collected the included studies, and prepared the manuscript. All authors critically revised the manuscript, read, and approved the final version.
+
+mRNA concentrations in humans. Am. J. Physiol. Endocrinol. Metabol. 280, E383–E3890. doi: 10.1152/ajpendo.2001.280.3.E383
+
+- Barash, I. A., Mathew, L., Ryan, A. F., Chen, J., and Lieber, R. L. (2004). Rapid muscle-specific gene expression changes after a single bout of eccentric contractions in the mouse. Cell Physiol. 286, C355–364. doi: 10.1152/ajpcell.00211.2003
+
+- Beato, M., and dello Iacono, A. (2020). Implementing flywheel (isoinertial) exercise in strength training: current evidence, practical recommendations, and future directions. Front. Physiol. 11, 569. doi: 10.3389/fphys.2020.00569
+
+- Brzycki, M. (1993). Strength testing—predicting a one-rep max from reps-to-fatigue. J. Phys. Ed. Recr. Danc. 64, 88–90. doi: 10.1080/07303084.1993.10606684
+
+- Burd, N. A., Andrews, R. J., West, D. W. D., Little, J. P., Cochran, A. J. R., and Hector, A. J. (2012). Muscle time under tension during resistance exercise stimulates differential muscle protein sub-fractional synthetic responses in men. J. Physiol. 590, 351–362. doi: 10.1113/jphysiol.2011.221200
+
+- Chen, Y. W., Nader, G. A., Baar, K. R., Fedele, M. J., Hoffman, E. P., and Esser, K. A. (2002). Response of rat muscle to acute resistance exercise defined by transcriptional and translational profiling. J. Physiol. 545, 27–41. doi: 10.1113/jphysiol.2002.021220
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+10
+
+---
+
+<a id="pagina-pdf-011"></a>
+<!-- PDF_PAGE: 11 -->
+## Página PDF 11
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=11)
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+- Drust, B., Waterhouse, J., Atkinson, G., Edwards, B., and Reilly, T. (2005). Circadian rhythms in sports performance—an update. Chronobiol. Int. 22, 21–44. doi: 10.1081/CBI-200041039
+
+- Fink, J., Kikuchi, N., Yoshida, S., Terada, K., and Nakazato, K. (2016). Impact of high versus low fixed loads and non-linear training loads on muscle hypertrophy, strength and force development. Springerplus 5, 698. doi: 10.1186/s40064-016-2333-z
+
+- Franchi, M. V., Atherton, P. J., Reeves, N. D., Flück, M., Williams, J., and Mitchell, W. K. (2014). Architectural, functional and molecular responses to concentric and eccentric loading in human skeletal muscle. Acta Physiol. 210, 642–654. doi: 10.1111/apha.12225
+
+- Fry, A. C. (2004). The role of resistance exercise intensity on muscle fibre adaptations. Sports Med. 34, 663–679. doi: 10.2165/00007256-200434100-00004
+
+- Fry, A. C., Kraemer, W. J., Van Borselen, F., Lynch, J. M., Marsit, J.L., Roy, E.P., et al. (1994). Performance decrements with high-intensity resistance exercise overtraining. Med. Sci. Sports Exerc. 26, 1165–1173. doi: 10.1249/00005768-199409000-00015
+
+- Grgic, J. (2020). The effects of low-load vs. high-load resistance training on muscle fiber hypertrophy: a meta-analysis. J. Hum. Kinet. 74, 51–58. doi: 10.2478/hukin-2020-0013
+
+- Grgic, J., Lazinica, B., Garofolini, A., Schoenfeld, B. J., Saner, N. J., and Mikulic, P. (2019). The effects of time of day-specific resistance training on adaptations in skeletal muscle hypertrophy and muscle strength: a systematic review and meta-analysis. Chronobiol. Int. 36, 449–460. doi: 10.1080/07420528.2019.1567524
+
+- Grgic, J., Mikulic, P., Podnar, H., and Pedisic, Z. (2017). Effects of linear and daily undulating periodized resistance training programs on measures of muscle hypertrophy: a systematic review and meta-analysis. PeerJ 5, e3695. doi: 10.7717/peerj.3695
+
+- Guette, M., Gondin, J., and Martin, A. (2005). Time-of-day effect on the torque and neuromuscular properties of dominant and non-dominant quadriceps femoris. Chronobiol. Int. 22, 541–558. doi: 10.1081/CBI-200062407
+
+- Guyatt, G., Oxman, A. D., Akl, E. A., Kunz, R., Vist, G., and Brozek, J. (2011). GRADE guidelines: 1. Introduction - GRADE evidence profiles and summary of findings tables. J. Clin. Epidemiol. 64, 383–394. doi: 10.1016/j.jclinepi.2010.04.026
+
+- Haff, G. G., and Nimphius, S. (2012). Training principles for power. Strength Cond. J. 34, 2–12. doi: 10.1519/SSC.0b013e31826db467
+
+- Haun, C. T., Vann, C. G., Roberts, B. M., Vigotsky, A. D., Schoenfeld, B. J., and Roberts, M. D. (2019). A critical evaluation of the biological construct skeletal muscle hypertrophy: size matters but so does the measurement. Front. Physiol. 10, 247. doi: 10.3389/fphys.2019.00247
+
+- Hawkins, S. A., Schroeder, E. T., Wiswell, R. A., Jaque, S. V., Marcell, T. J., and Costa, K. (1999). Eccentric muscle action increases sitespecific osteogenic response. Med. Sci. Sports Exerc. 31, 1287–1292. doi: 10.1097/00005768-199909000-00009
+
+- Hornsby, W. G., Gentles, J. A., Haff, G. G., Stone, M. H., Buckner, S. L., and Dankel, S. J. (2018). What is the impact of muscle hypertrophy on strength and sport performance? Strength Cond. J. 40, 99–111. doi: 10.1519/SSC.0000000000000432
+
+- Hortobágyi, T., Dempsey, L., Fraser, D., Zheng, D., Hamilton, G., and Lambert, J. (2000). Changes in muscle strength, muscle fibre size and myofibrillar gene expression after immobilization and retraining in humans. J. Physiol. 524, 293–304. doi: 10.1111/j.1469-7793.2000.00293.x
+
+- Kadoglou, N. P. E., Fotiadis, G., Athanasiadou, Z., Vitta, I., Lampropoulos, S., and Vrabas, I. S. (2012). The effects of resistance training on ApoB/ApoA-I ratio, Lp(a) and inflammatory markers in patients with type 2 diabetes. Endocrine 42, 561–569. doi: 10.1007/s12020-012-9650-y
+
+- Keiner, M., Sander, A., Wirth, K., and Schmidtbleicher, D. (2014). Long-term strength training effects on change-of-direction sprint performance. J. Strength Cond. Res. 28, 223–231. doi: 10.1519/JSC.0b013e318295644b
+
+- Keogh, J. W. L., Wilson, G. J., and Weatherby, R. P. (1999). A cross-sectional comparison of different resistance training techniques in the bench press. J. Strength Cond. Res. 13, 247–258. doi: 10.1519/00124278-199908000-00012
+
+- Kerksick, C. M., Wilborn, C. D., Campbell, B. I., Roberts, M. D., Rasmussen, C. J., and Greenwood, M. (2009). Early-phase adaptations to a split-body, linear periodization resistance training program in college-aged and middle-aged men. J. Strength Cond. Res. 23, 962–971. doi: 10.1519/JSC.0b013e3181a00baf
+
+- Kraemer, W. J., and Ratamess, N. A. (2004). Fundamentals of resistance training: progression and exercise prescription. Med. Sci. Sports Exerc. 36, 674–688. doi: 10.1249/01.MSS.0000121945.36635.61
+
+- Kraemer, W. J., and Ratamess, N. A. (2005). Hormonal responses and adaptations to resistance exercise and training. Sports Med. 35, 339–361. doi: 10.2165/00007256-200535040-00004
+
+- Krieger, J. W. (2010). Single vs. multiple sets of resistance exercise for muscle hypertrophy: a meta-analysis. J. Strength Cond. Res. 24, 1150–1159. doi: 10.1519/JSC.0b013e3181d4d436
+
+- Kumar, V., Selby, A., Rankin, D., Patel, R., Atherton, P., and Hildebrandt, W. (2009). Age-related differences in the dose-response relationship of muscle protein synthesis to resistance exercise in young and old men. J. Physiol. 587, 211–217. doi: 10.1113/jphysiol.2008.164483
+
+- Lixandrão, M. E., Ugrinowitsch, C., Berton, R., Vechin, F. C., Conceição, M. S., and Damas, F. (2018). Magnitude of muscle strength and mass adaptations between high-load resistance training versus low-load resistance training associated with blood-flow restriction: a systematic review and meta-analysis. Sports Med. 48, 361–378. doi: 10.1007/s40279-017-0795-y
+
+- Lixandrão, M. E., Ugrinowitsch, C., Laurentino, G., Libardi, C. A., Aihara, A. Y., and Cardoso, F. N. (2015). Effects of exercise intensity and occlusion pressure after 12 weeks of resistance training with blood-flow restriction. Eur. J. Appl. Physiol. 115, 2471–2480. doi: 10.1007/s00421-015-3253-2
+
+- Maestroni, L., Read, P., Bishop, C., Papadopoulos, K., Suchomel, T. J., and Comfort, P. (2020). The benefits of strength training on musculoskeletal system health: practical applications for interdisciplinary care. Sports Med. 50, 1431–1450. doi: 10.1007/s40279-020-01309-5
+
+- Maughan, R. J., Watson, J. S., and Weir, J. (1983). Strength and crosssectional area of human skeletal muscle. J Physiol. 338, 37–49. doi: 10.1113/jphysiol.1983.sp014658
+
+- Mayhew, D. L., Hornberger, T. A., Lincoln, H. C., and Bamman, M. M. (2011). Eukaryotic initiation factor 2B epsilon induces cap-dependent translation and skeletal muscle hypertrophy. J. Physiol. 589, 3023–3037. doi: 10.1113/jphysiol.2010.202432
+
+- McCall, G.E., Byrnes, W.C., Fleck, S.J., Dickinson, A., and Kraemer, W.J. (1999). Acute and chronic hormonal responses to resistance training designed to promote muscle hypertrophy. Can. J. Appl. Physiol. 24, 96–107. doi: 10.1139/h99-009
+
+- McLeod, M., Breen, L., Hamilton, D.L., and Philp, A. (2016). Live strong and prosper: the importance of skeletal muscle strength for healthy ageing. Biogerontology 17, 497–510. doi: 10.1007/s10522-015-9631-7
+
+- Mitchell, C. J., Churchward-Venne, T. A., West, D. W. D., Burd, N. A., Breen, L., and Baker, S. K. (2012). Resistance exercise load does not determine trainingmediated hypertrophic gains in young men. J. Appl. Physiol. 113, 71–77. doi: 10.1152/japplphysiol.00307.2012
+
+- Moore, D. R., Young, M., and Phillips, S. M. (2012). Similar increases in muscle size and strength in young men after training with maximal shortening or lengthening contractions when matched for total work. Eur. J. Appl. Physiol. 112, 1587–1592. doi: 10.1007/s00421-011-2078-x
+
+- Morton, R. W., Oikawa, S. Y., Wavell, C. G., Mazara, N., McGlory, C., Quadrilatero, J., et al. (2016). Neither load nor systemic hormones determine resistance training-mediated hypertrophy or strength gains in resistance-trained young men. J. Appl. Physiol. 121, 129–138. doi: 10.1152/japplphysiol.00154.2016
+
+- Nunes, J. P., Grgic, J., Cunha, P. M., Ribeiro, A. S., Schoenfeld, B. J., and de Salles, B. F., et al. (2020). What influence does resistance exercise order have on muscular strength gains and muscle hypertrophy? A systematic review and meta-analysis. Eur. J. Sport Sci. 21, 149–157. doi: 10.1080/17461391.2020.1733672
+
+- Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, T. C., Mulrow, C. D., et al. (2021). The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. BMJ 372, n71. doi: 10.1136/bmj.n71
+
+- Prestes, J., and Lima, C. D. (2009). Comparison of linear and reverse linear periodization effects on maximal strength and body composition. J. Strength Cond. Res. 23, 266–274. doi: 10.1519/JSC.0b013e3181874bf3
+
+- Radaelli, R., Fleck, S. J., Leite, T., Leite, R. D., Pinto, R. S., and Fernandes, L. (2015). Dose-response of 1, 3, and 5 sets of resistance exercise on strength, local muscular endurance, and hypertrophy. J. Strength Cond. Res. 29, 1349–1358. doi: 10.1519/JSC.0000000000000758
+
+- Roig, M., O’Brien, K., Kirk, G., Murray, R., McKinnon, P., Shadgan, B., et al. (2009). The effects of eccentric versus concentric resistance training on muscle strength
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+11
+
+---
+
+<a id="pagina-pdf-012"></a>
+<!-- PDF_PAGE: 12 -->
+## Página PDF 12
+
+[Conferir no original](../originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf#page=12)
+
+Bernárdez-Vázquez et al.
+
+Hypertrophy in Healthy Adults
+
+and mass in healthy adults: a systematic review with meta-analysis. Br. J. Sports Med. 43, 556–568. doi: 10.1136/bjsm.2008.051417
+
+- Sánchez-Medina, L., and González-Badillo, J. J. (2011). Velocity loss as an indicator of neuromuscular fatigue during resistance training. Med. Sci. Sports Exerc. 43, 1725–1734. doi: 10.1249/MSS.0b013e318213f880
+
+- Schardt, C., Adams, M. B., Owens, T., Keitz, S., and Fontelo, P. (2007). Utilization of the PICO framework to improve searching PubMed for clinical questions. BMC Med. Inform. Decis. Mak. 7, 16. doi: 10.1186/1472-69 47-7-16
+
+- Schoenfeld, B., and Grgic, J. (2017). Evidence-based guidelines for resistance training volume to maximize muscle hypertrophy. Strength Cond. J. 40, 1. doi: 10.1519/SSC.0000000000000363
+
+- Schoenfeld, B. J. (2010). The mechanisms of muscle hypertrophy and their application to resistance training. J. Strength Cond. Res. 24, 2857–2872. doi: 10.1519/JSC.0b013e3181e840f3
+
+- Schoenfeld, B. J. (2012). Does exercise-induced muscle damage play a role in skeletal muscle hypertrophy? J. Strength Cond. Res. 26, 1441–1453. doi: 10.1519/JSC.0b013e31824f207e
+
+- Schoenfeld, B. J. (2013). Potential mechanisms for a role of metabolic stress in hypertrophic adaptations to resistance training. Sports Med. 43, 179–194. doi: 10.1007/s40279-013-0017-1
+
+- Schoenfeld, B. J., Grgic, J., Haun, C., Itagaki, T., and Helms, E. R. (2019b). Calculating set-volume for the limb muscles with the performance of multijoint exercises: implications for resistance training prescription. Sports 7, 177. doi: 10.3390/sports7070177
+
+- Schoenfeld, B. J., Grgic, J., and Krieger, J. (2019a). How many times per week should a muscle be trained to maximize muscle hypertrophy? A systematic review and meta-analysis of studies examining the effects of resistance training frequency. J. Sports Sci. 37, 1286–1295. doi: 10.1080/02640414.2018 .1555906
+
+- Schoenfeld, B. J., Grgic, J., Ogborn, D., and Krieger, J. W. (2017c). Strength and hypertrophy adaptations between low- vs. high-load resistance training: a systematic review and meta-analysis. J. Strength Cond. Res. 31, 3508–3523. doi: 10.1519/JSC.0000000000002200
+
+- Schoenfeld, B. J., Ogborn, D., Contreras, B., Cappaert, T., Silva Ribeiro, A., and Alvar, B. A. (2016b). A comparison of increases in volume load over 8 weeks of low-versus high-load resistance training. Asian J. Sports Med. 7, e29247. doi: 10.5812/asjsm.29247
+
+- Schoenfeld, B. J., Ogborn, D., and Krieger, J. W. (2015). Effect of repetition duration during resistance training on muscle hypertrophy: a systematic review and meta-analysis. Sports Med. 45, 577–585. doi: 10.1007/s40279-015-0304-0
+
+- Schoenfeld, B. J., Ogborn, D., and Krieger, J. W. (2016c). Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis. Sports Med. 46, 1689–1697. doi: 10.1007/s40279-016-0543-8
+
+- Schoenfeld, B. J., Ogborn, D., and Krieger, J. W. (2017a). Dose-response relationship between weekly resistance training volume and increases in muscle mass: a systematic review and meta-analysis. J. Sports Sci. 35, 1073–1082. doi: 10.1080/02640414.2016.1210197
+
+- Schoenfeld, B. J., Ogborn, D. I., Vigotsky, A. D., Franchi, M. V., and Krieger, J. W. (2017b). Hypertrophic effects of concentric versus eccentric muscle actions: a systematic review and meta-analysis. J. Strength Cond. Res. 31, 2599–2608. doi: 10.1519/JSC.0000000000001983
+
+- Schoenfeld, B. J., Wilson, J. M., Lowery, R. P., and Krieger, J. W. (2016a). Muscular adaptations in low- versus high-load resistance training: A meta-analysis. Eur. J. Sport Sci. 16, 1–10. doi: 10.1080/17461391.2014.989922
+
+- Seitz, L. B., Reyes, A., Tran, T. T., de Villarreal, E. S., and Haff, G.G. (2014). Increases in lower-body strength transfer positively to sprint performance:
+
+a systematic review with meta-analysis. Sports Med. 44, 1693–1702. doi: 10.1007/s40279-014-0227-1
+
+- Shea, B. J., Reeves, B. C., Wells, G., Thuku, M., Hamel, C., and Moran, J. (2017). AMSTAR 2: a critical appraisal tool for systematic reviews that include randomised or non-randomised studies of healthcare interventions, or both. BMJ 358, j4008. doi: 10.1136/bmj.j4008
+
+- Slysz, J., Stultz, J., and Burr, J. F. (2016). The efficacy of blood flow restricted exercise: a systematic review & meta-analysis. J. Sci. Med. Sport. 19, 669–675. doi: 10.1016/j.jsams.2015.09.005
+
+- Soriano, M. A., Jiménez-Reyes, P., Rhea, M. R., and Marín, P. J. (2015). The optimal load for maximal power production during lower-body resistance exercises: a meta-analysis. Sports Med. 45, 1191–1205. doi: 10.1007/s40279-015-0341-8
+
+- Soriano, M. A., Suchomel, T. J., and Marín, P. J. (2017). The optimal load for maximal power production during upper-body resistance exercises: a metaanalysis. Sports Med. 47, 757–768. doi: 10.1007/s40279-016-0626-6
+
+- Spangenburg, E. E. (2009). Changes in muscle mass with mechanical load: possible cellular mechanisms. Appl. Physiol. Nutr. Metab. 34, 328–335. doi: 10.1139/H09-010
+
+- Suchomel, T. J., Nimphius, S., Bellon, C. R., and Stone, M. H. (2018). The importance of muscular strength: training considerations. Sports Med. 48, 765–785. doi: 10.1007/s40279-018-0862-z
+
+- Taber, C., Bellon, C., Abbott, H., and Bingham, G. E. (2016). Roles of maximal strength and rate of force development in maximizing muscular power. Strength Cond. J. 38, 71–78. doi: 10.1519/SSC.0000000000000193
+
+- Triplett, N. T., and Haff, G. G. (2015). Essentials of Strength Training and Conditioning. Champaign, IL: Human Kinetics.
+
+- Triplett, N. T., and Haff, G. G. (2017). Principios del entrenamiento de la fuerza y del acondicionamiento físico. 4<sup>a</sup> edición. Paidotribo, editor. Ciudad de México: NSCA.
+
+- Wernbom, M., Augustsson, J., and Thomeé, R. (2007). The influence of frequency, intensity, volume and mode of strength training on whole muscle cross-sectional area in humans. Sports Med. 37, 225–264. doi: 10.2165/00007256-200737030-00004
+
+- Westcott, W. L., Winett, R. A., Anderson, E. S., Wojcik, J. R., Loud, R. L. R., and Cleggett, E. (2001). Effects of regular and slow speed resistance training on muscle strength. J. Sports Med. Phys. Fitness. 41, 154–158.
+
+- Wolfe, R. R. (2006). The underappreciated role of muscle in health and disease. Am. Clin. Nutr. 84, 475–482. doi: 10.1093/ajcn/84.3.475
+
+**Conflict of Interest:** The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
+
+**Publisher’s Note:** All claims expressed in this article are solely those of the authors and do not necessarily represent those of their affiliated organizations, or those of the publisher, the editors and the reviewers. Any product that may be evaluated in this article, or claim that may be made by its manufacturer, is not guaranteed or endorsed by the publisher.
+
+Copyright © 2022 Bernárdez-Vázquez, Raya-González, Castillo and Beato. This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.
+
+Frontiers in Sports and Active Living | www.frontiersin.org
+
+July 2022 | Volume 4 | Article 949021
+
+12
+
+---

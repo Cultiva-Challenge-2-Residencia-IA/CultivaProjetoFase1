@@ -1434,6 +1434,382 @@ sources:
     acquisition_status: original_obtido
     approval_status: aprovado
     intended_use_license_review: pendente
+  - id: currier-resistance-training-prescription-2023
+    area: saude_fisica
+    title: 'Resistance training prescription for muscle strength and hypertrophy in healthy adults: a systematic review and Bayesian network meta-analysis'
+    authors:
+    - 'Brad S Currier'
+    - 'Jonathan C Mcleod'
+    - 'Laura Banfield'
+    - 'Joseph Beyene'
+    - 'Nicky J Welton'
+    - 'Stuart M Phillips'
+    institutions:
+    - 'McMaster University'
+    journal: 'British Journal of Sports Medicine'
+    year: 2023
+    edition: 'v. 57, p. 1211-1220'
+    version: 2023-article-en
+    source_type: metanalise
+    source: https://doi.org/10.1136/bjsports-2023-106807
+    doi: 10.1136/bjsports-2023-106807
+    license: 'CC-BY-NC-4.0'
+    license_evidence:
+      pdf_page: 10
+      description: 'Seção "Open access" declara Creative Commons Attribution Non Commercial (CC BY-NC 4.0); a página 1 diz "Re-use permitted under CC BY-NC. No commercial re-use".'
+    original_path: corpus/saudefisica/originais/22-currier-resistance-training-prescription-bjsm-2023.pdf
+    markdown_path: corpus/saudefisica/markdown/22-currier-resistance-training-prescription-bjsm-2023.md
+    report_path: corpus/saudefisica/relatorios/22-currier-resistance-training-prescription-bjsm-2023.json
+    sha256: d5beb511d687a91f9de0138650ca3f38ee9fc397fe349401cb7089d9c8b3c140
+    pdf_pages: 12
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
+  - id: iusca-hypertrophy-position-stand-2021
+    area: saude_fisica
+    title: 'Resistance Training Recommendations to Maximize Muscle Hypertrophy in an Athletic Population: Position Stand of the IUSCA'
+    authors:
+    - 'Brad J Schoenfeld'
+    - 'James P Fisher'
+    - 'Jozo Grgic'
+    - 'Cody T Haun'
+    - 'Eric R Helms'
+    - 'Stuart M Phillips'
+    - 'James Steele'
+    - 'Andrew D Vigotsky'
+    institutions:
+    - 'International Universities Strength and Conditioning Association'
+    journal: 'International Journal of Strength and Conditioning'
+    year: 2021
+    edition: 'v. 1, n. 1'
+    version: 2021-article-en
+    source_type: diretriz
+    source: https://doi.org/10.47206/ijsc.v1i1.81
+    doi: 10.47206/ijsc.v1i1.81
+    license: 'CC-BY-4.0'
+    license_evidence:
+      pdf_page: 1
+      description: 'Página 1: "open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (creativecommons.org/licenses/by/4.0/)".'
+    original_path: corpus/saudefisica/originais/23-iusca-hypertrophy-position-stand-2021.pdf
+    markdown_path: corpus/saudefisica/markdown/23-iusca-hypertrophy-position-stand-2021.md
+    report_path: corpus/saudefisica/relatorios/23-iusca-hypertrophy-position-stand-2021.json
+    sha256: 363c70e11d63ca6eb77c2282c1998356a318d0d715f77d3d5ecacd3a43769d4e
+    pdf_pages: 30
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+  - id: kassiano-exercise-variation-2022
+    area: saude_fisica
+    title: 'Does Varying Resistance Exercises Promote Superior Muscle Hypertrophy and Strength Gains? A Systematic Review'
+    authors:
+    - 'Witalo Kassiano'
+    - 'João Pedro Nunes'
+    - 'Bruna Costa'
+    - 'Alex S Ribeiro'
+    - 'Brad J Schoenfeld'
+    - 'Edilson S Cyrino'
+    institutions:
+    - 'Universidade Estadual de Londrina'
+    journal: 'Journal of Strength and Conditioning Research'
+    year: 2022
+    edition: 'v. 36, n. 6, p. 1753-1762'
+    version: 2022-article-en
+    source_type: revisao
+    source: 'pendente: DOI não aparece no PDF; J Strength Cond Res 36(6):1753-1762, 2022'
+    license: 'Copyright © 2022 National Strength and Conditioning Association'
+    license_evidence:
+      pdf_page: 1
+      description: 'Página 1: "Copyright © 2022 National Strength and Conditioning Association". O PDF não traz licença aberta nem o DOI.'
+    original_path: corpus/saudefisica/originais/24-kassiano-exercise-variation-jscr-2022.pdf
+    markdown_path: corpus/saudefisica/markdown/24-kassiano-exercise-variation-jscr-2022.md
+    report_path: corpus/saudefisica/relatorios/24-kassiano-exercise-variation-jscr-2022.json
+    sha256: 61ac17b233e5cff7aa875fd504541bb58f1e6014e46055c29a9d8f5926236b96
+    pdf_pages: 10
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+  - id: moesgaard-periodization-2022
+    area: saude_fisica
+    title: 'Effects of Periodization on Strength and Muscle Hypertrophy in Volume-Equated Resistance Training Programs: A Systematic Review and Meta-analysis'
+    authors:
+    - 'Lukas Moesgaard'
+    - 'Mikkel Malling Beck'
+    - 'Lasse Christiansen'
+    - 'Per Aagaard'
+    - 'Jesper Lundbye-Jensen'
+    institutions:
+    - 'University of Copenhagen'
+    journal: 'Sports Medicine'
+    year: 2022
+    edition: 'v. 52, p. 1647-1666'
+    version: 2022-article-en
+    source_type: metanalise
+    source: https://doi.org/10.1007/s40279-021-01636-1
+    doi: 10.1007/s40279-021-01636-1
+    license: '© The Author(s), under exclusive licence to Springer Nature Switzerland AG 2022'
+    license_evidence:
+      pdf_page: 1
+      description: 'Página 1: "© The Author(s), under exclusive licence to Springer Nature Switzerland AG 2022". Sem licença aberta.'
+    original_path: corpus/saudefisica/originais/25-moesgaard-periodization-sports-med-2022.pdf
+    markdown_path: corpus/saudefisica/markdown/25-moesgaard-periodization-sports-med-2022.md
+    report_path: corpus/saudefisica/relatorios/25-moesgaard-periodization-sports-med-2022.json
+    sha256: dccc2268ccce90993f0365b1eab134986ee6182d862eac0e04122d1488df1be5
+    pdf_pages: 20
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+  - id: refalo-proximity-to-failure-2023
+    area: saude_fisica
+    title: 'Influence of Resistance Training Proximity-to-Failure on Skeletal Muscle Hypertrophy: A Systematic Review with Meta-analysis'
+    authors:
+    - 'Martin C Refalo'
+    - 'Eric R Helms'
+    - 'Eric T Trexler'
+    - 'D Lee Hamilton'
+    - 'Jackson J Fyfe'
+    institutions:
+    - 'Deakin University'
+    journal: 'Sports Medicine'
+    year: 2023
+    edition: 'v. 53, p. 649-665'
+    version: 2023-article-en
+    source_type: metanalise
+    source: https://doi.org/10.1007/s40279-022-01784-y
+    doi: 10.1007/s40279-022-01784-y
+    license: 'CC-BY-4.0'
+    license_evidence:
+      pdf_page: 16
+      description: 'Seção "Open Access": "licensed under a Creative Commons Attribution 4.0 International License".'
+    original_path: corpus/saudefisica/originais/26-refalo-proximity-to-failure-sports-med-2023.pdf
+    markdown_path: corpus/saudefisica/markdown/26-refalo-proximity-to-failure-sports-med-2023.md
+    report_path: corpus/saudefisica/relatorios/26-refalo-proximity-to-failure-sports-med-2023.json
+    sha256: 2cdf3a8579cdd0754b1eb8687141adcdcb6a4f5ebc55dbf470714729dd2d20d9
+    pdf_pages: 17
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+  - id: bernardez-vazquez-training-variables-2022
+    area: saude_fisica
+    title: 'Resistance Training Variables for Optimization of Muscle Hypertrophy: An Umbrella Review'
+    authors:
+    - 'Roberto Bernárdez-Vázquez'
+    - 'Javier Raya-González'
+    - 'Daniel Castillo'
+    - 'Marco Beato'
+    institutions:
+    - 'Universidad Isabel I'
+    - 'University of Suffolk'
+    journal: 'Frontiers in Sports and Active Living'
+    year: 2022
+    edition: 'v. 4, art. 949021'
+    version: 2022-article-en
+    source_type: revisao
+    source: https://doi.org/10.3389/fspor.2022.949021
+    doi: 10.3389/fspor.2022.949021
+    license: 'CC-BY'
+    license_evidence:
+      pdf_page: 12
+      description: 'Página 12: "open-access article distributed under the terms of the Creative Commons Attribution License (CC BY)".'
+    original_path: corpus/saudefisica/originais/27-bernardez-vazquez-training-variables-frontiers-2022.pdf
+    markdown_path: corpus/saudefisica/markdown/27-bernardez-vazquez-training-variables-frontiers-2022.md
+    report_path: corpus/saudefisica/relatorios/27-bernardez-vazquez-training-variables-frontiers-2022.json
+    sha256: a2ef06b96241ff0353dd9544af5d58613398b497f6511da0d255d5df9908d783
+    pdf_pages: 12
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+  - id: robinson-proximity-to-failure-2024
+    area: saude_fisica
+    title: 'Exploring the Dose-Response Relationship Between Estimated Resistance Training Proximity to Failure, Strength Gain, and Muscle Hypertrophy: A Series of Meta-Regressions'
+    authors:
+    - 'Zac P Robinson'
+    - 'Joshua C Pelland'
+    - 'Jacob F Remmert'
+    - 'Martin C Refalo'
+    - 'Ivan Jukic'
+    - 'James Steele'
+    - 'Michael C Zourdos'
+    institutions:
+    - 'Florida Atlantic University'
+    journal: 'Sports Medicine'
+    year: 2024
+    edition: 'v. 54, p. 2209-2231'
+    version: 2024-article-en
+    source_type: metanalise
+    source: https://doi.org/10.1007/s40279-024-02069-2
+    doi: 10.1007/s40279-024-02069-2
+    license: '© The Author(s), under exclusive licence to Springer Nature Switzerland AG 2024'
+    license_evidence:
+      pdf_page: 1
+      description: 'Página 1: "© The Author(s), under exclusive licence to Springer Nature Switzerland AG 2024". Sem licença aberta.'
+    original_path: corpus/saudefisica/originais/28-robinson-proximity-to-failure-dose-response-2024.pdf
+    markdown_path: corpus/saudefisica/markdown/28-robinson-proximity-to-failure-dose-response-2024.md
+    report_path: corpus/saudefisica/relatorios/28-robinson-proximity-to-failure-dose-response-2024.json
+    sha256: 90b48f45e3239592bf96c40a00b1a8643882d38f74eab6d97bf0cdaa297240f3
+    pdf_pages: 23
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
+  - id: schoenfeld-grgic-range-of-motion-2020
+    area: saude_fisica
+    title: 'Effects of range of motion on muscle development during resistance training interventions: A systematic review'
+    authors:
+    - 'Brad J Schoenfeld'
+    - 'Jozo Grgic'
+    institutions:
+    - 'CUNY Lehman College'
+    - 'Victoria University'
+    journal: 'SAGE Open Medicine'
+    year: 2020
+    edition: 'v. 8'
+    version: 2020-article-en
+    source_type: revisao
+    source: https://doi.org/10.1177/2050312120901559
+    doi: 10.1177/2050312120901559
+    license: 'CC-BY-NC-4.0'
+    license_evidence:
+      pdf_page: 1
+      description: 'Página 1: "distributed under the terms of the Creative Commons Attribution-NonCommercial 4.0 License".'
+    original_path: corpus/saudefisica/originais/29-schoenfeld-grgic-range-of-motion-2020.pdf
+    markdown_path: corpus/saudefisica/markdown/29-schoenfeld-grgic-range-of-motion-2020.md
+    report_path: corpus/saudefisica/relatorios/29-schoenfeld-grgic-range-of-motion-2020.json
+    sha256: 2a608c1bbd8faca15f88347844e89b00e7092f7362577ecada925e72d1d9a822
+    pdf_pages: 8
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: compativel_uso_nao_comercial
+  - id: schumann-concurrent-training-2022
+    area: saude_fisica
+    title: 'Compatibility of Concurrent Aerobic and Strength Training for Skeletal Muscle Size and Function: An Updated Systematic Review and Meta-Analysis'
+    authors:
+    - 'Moritz Schumann'
+    - 'Joshua F Feuerbacher'
+    - 'Marvin Sünkeler'
+    - 'Nils Freitag'
+    - 'Bent R Rønnestad'
+    - 'Kenji Doma'
+    - 'Tommy R Lundberg'
+    institutions:
+    - 'German Sport University Cologne'
+    journal: 'Sports Medicine'
+    year: 2022
+    edition: 'v. 52, p. 601-612'
+    version: 2022-article-en
+    source_type: metanalise
+    source: https://doi.org/10.1007/s40279-021-01587-7
+    doi: 10.1007/s40279-021-01587-7
+    license: 'CC-BY-4.0'
+    license_evidence:
+      pdf_page: 10
+      description: 'Seção "Open Access": "licensed under a Creative Commons Attribution 4.0 International License".'
+    original_path: corpus/saudefisica/originais/30-schumann-concurrent-training-sports-med-2022.pdf
+    markdown_path: corpus/saudefisica/markdown/30-schumann-concurrent-training-sports-med-2022.md
+    report_path: corpus/saudefisica/relatorios/30-schumann-concurrent-training-sports-med-2022.json
+    sha256: abc19efdc6a2b24782d15bf6966c24fd2b50575261a801c7e864552e9ac71883
+    pdf_pages: 12
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+  - id: singer-rest-interval-2024
+    area: saude_fisica
+    title: 'Give it a rest: a systematic review with Bayesian meta-analysis on the effect of inter-set rest interval duration on muscle hypertrophy'
+    authors:
+    - 'Alec Singer'
+    - 'Milo Wolf'
+    - 'Leonardo Generoso'
+    - 'Elizabeth Arias'
+    - 'Kenneth Delcastillo'
+    - 'Edwin Echevarria'
+    - 'Amaris Martinez'
+    - 'Patroklos Androulakis Korakakis'
+    - 'Martin C Refalo'
+    - 'Paul A Swinton'
+    - 'Brad J Schoenfeld'
+    institutions:
+    - 'CUNY Lehman College'
+    journal: 'Frontiers in Sports and Active Living'
+    year: 2024
+    edition: 'v. 6'
+    version: 2024-article-en
+    source_type: metanalise
+    source: https://doi.org/10.3389/fspor.2024.1429789
+    doi: 10.3389/fspor.2024.1429789
+    license: 'CC-BY'
+    license_evidence:
+      pdf_page: 1
+      description: 'Página 1: "distributed under the terms of the Creative Commons Attribution License (CC BY)".'
+    original_path: corpus/saudefisica/originais/31-singer-rest-interval-frontiers-2024.pdf
+    markdown_path: corpus/saudefisica/markdown/31-singer-rest-interval-frontiers-2024.md
+    report_path: corpus/saudefisica/relatorios/31-singer-rest-interval-frontiers-2024.json
+    sha256: 829aee3b1e9c1309749e8a2808d4e8f8c3ce20820c2f08ff3e165567bfdcc860
+    pdf_pages: 13
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: compativel_cc_by
+  - id: walsh-sleep-athlete-2021
+    area: saude_fisica
+    title: 'Sleep and the athlete: narrative review and 2021 expert consensus recommendations'
+    authors:
+    - 'Neil P Walsh'
+    - 'Shona L Halson'
+    - 'Charli Sargent'
+    - 'Gregory D Roach'
+    - 'Mathieu Nédélec'
+    - 'Charles H Samuels'
+    institutions:
+    - 'Liverpool John Moores University'
+    journal: 'British Journal of Sports Medicine'
+    year: 2021
+    edition: 'v. 55, p. 356-368'
+    version: 2021-article-en
+    source_type: diretriz
+    source: https://doi.org/10.1136/bjsports-2020-102025
+    doi: 10.1136/bjsports-2020-102025
+    license: '© Author(s) (or their employer(s)) 2021; No commercial re-use (BMJ)'
+    license_evidence:
+      pdf_page: 1
+      description: 'Página 1: "© Author(s) (or their employer(s)) 2021. No commercial re-use. See rights and permissions. Published by BMJ". Sem licença aberta.'
+    original_path: corpus/saudefisica/originais/32-walsh-sleep-athlete-consensus-bjsm-2021.pdf
+    markdown_path: corpus/saudefisica/markdown/32-walsh-sleep-athlete-consensus-bjsm-2021.md
+    report_path: corpus/saudefisica/relatorios/32-walsh-sleep-athlete-consensus-bjsm-2021.json
+    sha256: 3512b324706c2131f78a202d9163b0d084c9c19f5427824b9c06a58d0ecfcc9f
+    pdf_pages: 13
+    conversion_status: concluida_com_ressalvas
+    retrieved_on: '2026-11-26'
+    acquisition_status: original_obtido
+    acquisition_note: PDF recebido da equipe em 26/11/2026 (issue #115); título, DOI e licença conferidos no próprio PDF.
+    approval_status: pendente
+    intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos
 
 # intended_use_license_review (decisão de 06/11/2026, ver corpus/README.md, seção "Decisão sobre licenças e uso das fontes"):
 #   compativel_cc_by: licença CC BY, que permite o uso com atribuição.

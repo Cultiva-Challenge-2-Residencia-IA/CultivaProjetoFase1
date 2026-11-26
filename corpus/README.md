@@ -242,6 +242,14 @@ Ficaram de fora: a página pública da diretriz patelofemoral (`18-...-cpg-2019.
 - **Idioma:** 16 das 18 fontes estão em inglês; o agente responde em português e cita o trecho no idioma original.
 - **Tamanho:** cerca de 4.570 Trechos (90 do ACSM 2026); o relatório do HHS sozinho tem cerca de 2.300. O retriever limita 2 Trechos por documento por resposta.
 
+### Artigos de treino de força, hipertrofia e recuperação (issue #115, 26/11/2026)
+
+Onze artigos recebidos da equipe em PDF, numerados de 22 a 32 em `saudefisica/originais/`: Currier et al. 2023, Position Stand da IUSCA 2021, Kassiano et al. 2022, Moesgaard et al. 2022, Refalo et al. 2023, Bernárdez-Vázquez et al. 2022, Robinson et al. 2024, Schoenfeld e Grgic 2020, Schumann et al. 2022, Singer et al. 2024 e o consenso de sono de Walsh et al. 2021. Estão com `approval_status: pendente` e, por isso, **ainda não chegam ao RAG**; os Trechos já estão gerados (933).
+
+- **Licenças**, lidas no próprio PDF e registradas com a página em `license_evidence`: CC BY em cinco (IUSCA, Refalo, Bernárdez-Vázquez, Schumann, Singer), CC BY-NC 4.0 em duas (Currier, Schoenfeld e Grgic) e restritas em quatro (Moesgaard e Robinson, licença exclusiva da Springer Nature; Kassiano, copyright da NSCA; Walsh, BMJ sem licença aberta). As restritas entram pelo aceite de risco de 06/11 e pela decisão de 12/11, com `intended_use_license_review: risco_aceito_uso_academico_sem_fins_lucrativos`.
+- **Kassiano et al.:** o DOI não aparece no PDF; o `source` registra a referência da revista e fica `pendente` até alguém conferir o DOI na página do artigo.
+- **Conversão:** todas têm texto nativo, sem OCR. A cobertura lexical ficou abaixo de 98% em páginas de tabela (Currier p. 2, 6, 8 e 9; Kassiano p. 4 e 5; Bernárdez-Vázquez p. 3; Robinson p. 9 e 10; Walsh p. 9) e de forma leve em todas as páginas do IUSCA e do Walsh (91% a 97%), pelo cabeçalho repetido e por palavras hifenizadas. Essas páginas são as primeiras a conferir na revisão por amostra, antes da aprovação.
+
 ### Prioridades originais (19/11/2026)
 
 | Prioridade | Estado | Observação de obtenção |
