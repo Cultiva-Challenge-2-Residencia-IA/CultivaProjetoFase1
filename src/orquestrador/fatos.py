@@ -32,6 +32,10 @@ CATEGORIAS: Dict[str, Tuple[str, str]] = {
 }
 
 MAX_CARACTERES_DO_FATO = 160
+# Categorias em que a pessoa pode ter vários fatos ao mesmo tempo (duas alergias, dois esportes): um
+# fato novo não encerra os outros, só o igual. Nas demais, o fato novo substitui o anterior.
+CATEGORIAS_COM_VARIOS_VALORES = {"atividade_praticada", "limitacao_fisica", "restricao_alergia",
+                                 CATEGORIA_CONDICAO_SAUDE}
 
 
 @dataclass(frozen=True)

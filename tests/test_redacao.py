@@ -173,3 +173,16 @@ def test_condicao_de_saude_no_redator_so_encaminha_e_sem_numero():
     texto = redigir("Posso comer chocolate?", TEXTO_DO_AGENTE, _llm(sem_numero), fatos=[DIABETES])
     assert texto.endswith("Como você contou que tem diabetes tipo 2, vale conversar com um profissional de saúde "
                           "sobre o que faz sentido para você.")
+
+
+def test_redacao_nao_tira_a_nota_legal_quando_o_corpo_fica_vazio(tmp_path):
+    class AgenteRestrito(AgenteFalso):
+        def responder(self, *a, **k):
+            r = super().responder(*a, **k)
+            return r.model_copy(update={"guardrail_triggered": True, "legal_compliance_notice": "NOTA LEGAL.",
+                                        "evidence_summary": "", "intent_category": "RESTRICTED_DIET_PRESCRIPTION"})
+
+    agentes = {AREA_NUTRICAO: AgenteRestrito(AREA_NUTRICAO), AREA_SAUDE_FISICA: AgenteFalso(AREA_SAUDE_FISICA)}
+    llm = LLMFalso(redacao=_redacao(("Qualquer texto.", [1])))
+    r = _servico(tmp_path, agentes, llm).enviar(AREA_NUTRICAO, "u1", "c1", "Quantas calorias eu devo comer?")
+    assert r.texto.startswith("NOTA LEGAL.")

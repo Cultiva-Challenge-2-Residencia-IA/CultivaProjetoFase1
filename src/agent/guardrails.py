@@ -65,9 +65,11 @@ _QUANTIDADE = re.compile(
     r"whey|creatina|capsulas?|comprimidos?|colheres?|porcoes?|litros?|agua)\b"
     r"|\b(dose|dosagem|posologia)\b|\bcalcul\w*\b.{0,30}\b(necessidade|calorias?|kcal|proteina|dieta|macros?)\b"
     r"|\b\d+([.,]\d+)?\s*(g/kg|mg/kg|kcal)\b")
+# Só sinais ligados ao pedido para a própria pessoa: "me diz quantas calorias tem uma banana" ou "estou
+# curioso, quanto ferro tem o feijão?" são perguntas sobre o alimento (revisão de código do PR).
 _PEDIDO_PESSOAL = re.compile(
-    r"\b(eu|meu|minha|meus|minhas|me|mim|comigo|sou|tenho|estou|devo|deveria|posso|poderia|preciso|"
-    r"pro meu|para mim|pra mim)\b|\b\d+\s*(kg|quilos|anos|cm)\b")
+    r"\b(meu|minha|meus|minhas|mim|devo|deveria|posso|poderia|preciso|necessito|tenho que|"
+    r"pro meu|para mim|pra mim|eu (como|tomo|bebo|ingiro|consumo))\b|\b\d+\s*(kg|quilos|anos|cm)\b")
 _LIBERACAO = re.compile(
     r"\b(posso|poderia|pode|tudo bem|tranquilo|e seguro|faz mal|e ruim|e perigoso|sem problema)\b.{0,40}"
     r"\b(comer|beber|tomar|consumir|ingerir|usar)\b"

@@ -23,6 +23,7 @@ from concurrent.futures import ThreadPoolExecutor
 import contextvars
 from datetime import datetime, timezone
 import hashlib
+import logging
 import re
 import time
 from typing import Callable, Dict, List, Mapping, Optional, Protocol, Sequence
@@ -39,12 +40,15 @@ from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
 from src.models.schemas import ConsultantResponse
 from src.observabilidade import atributos_do_trace, observacao, ocultar_fatos
 from src.orquestrador.conversa import APRESENTACOES, e_conversa_social
-from src.orquestrador.fatos import FatoDoUsuario, candidatos_em_texto, escolhidos, extrair_fatos
+from src.orquestrador.fatos import (CATEGORIA_CONDICAO_SAUDE, FatoDoUsuario, candidatos_em_texto, escolhidos,
+                                    extrair_fatos)
 from src.orquestrador.redator import encaminhamento, esclarecimento_valido, redigir
 from src.orquestrador.reescrita import LLMJson, Mensagem, Subpergunta, reescrever
 from src.orquestrador.roteamento import AREA_NUTRICAO, AREAS, rotear_por_regras
 from src.orquestrador.sincronizador import MARCADOR_T, NOMES_DAS_AREAS, RespostaDeArea, sincronizar
 from src.rag.verificador.citacoes import FRASE_SEM_BASE, MARCADOR, dividir_frases
+
+logger = logging.getLogger(__name__)
 
 CHAT_GERAL = "geral"
 CHATS = (CHAT_GERAL,) + AREAS
@@ -198,6 +202,10 @@ def no_orcamento(mensagens: Sequence[Mensagem], orcamento: int) -> List[Mensagem
         texto = encurtar_resposta(m.texto) if m.papel == "assistente" else m.texto
         custo = tokens_estimados(texto)
         if usados + custo > orcamento:
+            if not escolhidas:
+                # A mensagem mais recente sozinha passa do orçamento (texto colado): entra cortada,
+                # para a continuação não perder o contexto.
+                escolhidas.append(Mensagem(m.papel, texto[: orcamento * 4], m.area, list(m.areas)))
             break
         usados += custo
         escolhidas.append(Mensagem(m.papel, texto, m.area, list(m.areas)))
@@ -271,7 +279,6 @@ class ServicoDeChat:
     def listar_fatos(self, usuario_id: str) -> List[FatoDoUsuario]:
         if self.fatos is None:
             return []
-        _, saude = self.consentimento(usuario_id)
         # Transparência (LGPD, art. 9º): a pessoa vê tudo o que está guardado, mesmo sem consentimento.
         return self.fatos.validos(usuario_id, self.relogio(), self.prazo_fatos_dias, incluir_saude=True)
 
@@ -293,10 +300,22 @@ class ServicoDeChat:
             return
 
         def tarefa() -> None:
-            extraidos = extrair_fatos(mascarar_dados_pessoais(mensagem), self.llm, saude)
-            ocultar_fatos((texto, categoria) for categoria, texto in extraidos)
-            for categoria, texto in extraidos:
-                self.fatos.registrar(usuario_id, conversa_id, categoria, texto, self.relogio())
+            try:
+                extraidos = extrair_fatos(mascarar_dados_pessoais(mensagem), self.llm, saude)
+                ocultar_fatos((texto, categoria) for categoria, texto in extraidos)
+                # A extração roda depois: o Usuário pode ter revogado o aceite, apagado a Conversa ou a
+                # conta nesse meio-tempo (LGPD, art. 18). Reconfere antes de gravar.
+                ainda_memoria, ainda_saude = self.consentimento(usuario_id)
+                if not ainda_memoria or self.fatos.consentimento(usuario_id) is None:
+                    return
+                if not self.historico.recentes(usuario_id, conversa_id, 1):
+                    return
+                for categoria, texto in extraidos:
+                    if categoria == CATEGORIA_CONDICAO_SAUDE and not ainda_saude:
+                        continue
+                    self.fatos.registrar(usuario_id, conversa_id, categoria, texto, self.relogio())
+            except Exception:  # sem o texto do fato no log
+                logger.exception("Falha na extração de Fatos do Usuário")
 
         self.executar_em_segundo_plano(tarefa)
 
@@ -508,6 +527,10 @@ class ServicoDeChat:
             if self._pode_redigir(respostas) and not any(r.guardrail_triggered for r in respostas.values()):
                 redigido = redigir(reescrita.pergunta_completa or mensagem, texto, self.llm, fatos=fatos_usados)
                 redacao = "aceita" if redigido else "recusada"
+                for area in areas:  # guardrail de saída de cada área, como na resposta de uma área
+                    guardrail = getattr(self.agentes[area], "guardrail", None)
+                    if redigido and guardrail is not None:
+                        redigido = guardrail.sanitize_output_text(redigido)
                 antes = texto if redigido else None
                 texto = redigido or texto
             # Os marcadores do texto sincronizado contam os Trechos das duas áreas num só intervalo:
@@ -519,7 +542,7 @@ class ServicoDeChat:
             corpo = texto_da_resposta(unica, com_nota_legal=False)
             texto = texto_da_resposta(unica)
             redacao, antes = None, None
-            if self._pode_redigir(respostas):
+            if self._pode_redigir(respostas) and corpo.strip():
                 # Redação final (issue #104): só o corpo; a nota legal segue fixa, por código.
                 redigido = redigir(reescrita.pergunta_completa or mensagem, corpo, self.llm, fatos=fatos_usados)
                 redacao = "aceita" if redigido else "recusada"
@@ -528,7 +551,7 @@ class ServicoDeChat:
                     if guardrail is not None:
                         redigido = guardrail.sanitize_output_text(redigido)
                     antes = texto
-                    texto = texto.replace(corpo, redigido) if corpo else redigido
+                    texto = texto.replace(corpo, redigido)
             citacoes = citacoes_do_texto(texto, unica.retrieved_chunks)
             # TACO e grafo causal não são Trechos: entram como vieram do agente.
             citacoes += [c for c in unica.citations if c.startswith(("[KG_", "[TACO_"))]

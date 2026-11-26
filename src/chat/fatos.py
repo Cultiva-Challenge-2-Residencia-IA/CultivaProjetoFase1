@@ -18,7 +18,8 @@ from pathlib import Path
 import sqlite3
 from typing import List, Optional, Sequence, Tuple
 
-from src.orquestrador.fatos import CATEGORIA_CONDICAO_SAUDE, FatoDoUsuario, area_do_fato
+from src.orquestrador.fatos import (CATEGORIA_CONDICAO_SAUDE, CATEGORIAS_COM_VARIOS_VALORES, FatoDoUsuario,
+                                    area_do_fato)
 
 _ESQUEMA = [
     """CREATE TABLE IF NOT EXISTS consentimentos (
@@ -82,14 +83,21 @@ class FatosSQLite:
     # Fatos ------------------------------------------------------------------------------------
 
     def registrar(self, usuario_id: str, conversa_id: str, categoria: str, texto: str, agora: datetime) -> None:
-        """Grava o fato e encerra a validade do anterior da mesma categoria."""
+        """Grava o fato e encerra a validade do anterior da mesma categoria (nas categorias de vários
+        valores, só do fato igual). Apagar o fato que substituiu outro não reabre o anterior."""
         area = area_do_fato(categoria)
         if area is None:
             raise ValueError(f"Categoria fora do esquema: {categoria!r}")
         with self._conectar() as conexao:
-            conexao.execute(
-                "UPDATE fatos SET valido_ate = ? WHERE usuario_id = ? AND categoria = ? AND valido_ate IS NULL",
-                (agora.isoformat(), usuario_id, categoria))
+            if categoria in CATEGORIAS_COM_VARIOS_VALORES:
+                # Vários valores: só o mesmo fato repetido é renovado.
+                conexao.execute(
+                    "UPDATE fatos SET valido_ate = ? WHERE usuario_id = ? AND categoria = ? AND valido_ate IS NULL "
+                    "AND lower(texto) = lower(?)", (agora.isoformat(), usuario_id, categoria, texto))
+            else:
+                conexao.execute(
+                    "UPDATE fatos SET valido_ate = ? WHERE usuario_id = ? AND categoria = ? AND valido_ate IS NULL",
+                    (agora.isoformat(), usuario_id, categoria))
             conexao.execute(
                 "INSERT INTO fatos (usuario_id, conversa_id, categoria, area, texto, valido_desde) "
                 "VALUES (?, ?, ?, ?, ?, ?)",

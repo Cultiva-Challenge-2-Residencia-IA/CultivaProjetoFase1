@@ -102,3 +102,12 @@ def test_condicao_de_saude_do_fato_do_usuario_restringe_a_liberacao(agente):
     pergunta = "Quero comer um suflair 80% cacau, tudo bem, certo?"
     assert not agente.responder(pergunta, 4, [], []).guardrail_triggered
     assert agente.responder(pergunta, 4, [], [], fatos=[diabetes]).guardrail_triggered
+
+
+@pytest.mark.parametrize("pergunta", [
+    "Me diz quantas calorias tem uma banana?",
+    "Estou curioso: quanto de ferro tem o feijão?",
+    "Tenho uma dúvida: quantos gramas de fibra tem a aveia?",
+])
+def test_pergunta_sobre_o_alimento_com_palavras_de_primeira_pessoa_passa(pergunta):
+    assert not LegalGuardrail().assess_and_reframe(pergunta).is_restricted_by_law_8234

@@ -406,3 +406,39 @@ def test_condicao_de_saude_entregue_traz_o_encaminhamento_mesmo_sem_redacao(tmp_
     llm.selecao = _selecao(AREA_NUTRICAO, "Posso comer chocolate?", [diabetes.id])
     r = servico.enviar(AREA_NUTRICAO, "u1", "c1", "Posso comer chocolate?")
     assert r.texto.endswith("vale conversar com um profissional de saúde sobre o que faz sentido para você.")
+
+
+# Correções da revisão de código ----------------------------------------------------------------
+
+def test_duas_alergias_na_mesma_mensagem_ficam_as_duas(tmp_path, agentes):
+    llm = LLMFalso(fatos=[{"categoria": "restricao_alergia", "texto": "tem alergia a amendoim"},
+                          {"categoria": "restricao_alergia", "texto": "tem intolerância à lactose"}])
+    servico = _com_memoria(tmp_path, agentes, llm)
+    servico.enviar(AREA_NUTRICAO, "u1", "c1", "Tenho alergia a amendoim e intolerância à lactose, o que comer?")
+    assert sorted(f.texto for f in servico.listar_fatos("u1")) == ["tem alergia a amendoim", "tem intolerância à lactose"]
+
+
+def test_extracao_atrasada_nao_grava_depois_da_exclusao_nem_da_revogacao(tmp_path, agentes):
+    pendentes = []
+    llm = LLMFalso(fatos=[{"categoria": "padrao_alimentar", "texto": "é vegetariana"}])
+    servico = _servico(tmp_path, agentes, llm=llm, executar_em_segundo_plano=pendentes.append)
+    servico.definir_consentimento("u1", memoria=True)
+    servico.enviar(AREA_NUTRICAO, "u1", "c1", "Sou vegetariana, de onde tirar ferro?")
+    servico.apagar_usuario("u1")
+    pendentes.pop()()
+    assert servico.listar_fatos("u1") == []
+
+    servico.definir_consentimento("u2", memoria=True)
+    servico.enviar(AREA_NUTRICAO, "u2", "c2", "Sou vegetariana, de onde tirar ferro?")
+    servico.definir_consentimento("u2", memoria=False)
+    pendentes.pop()()
+    assert servico.listar_fatos("u2") == []
+
+
+def test_mensagem_longa_nao_zera_o_historico():
+    from src.chat.servico import no_orcamento
+    from src.orquestrador.reescrita import Mensagem
+
+    longa = Mensagem("usuario", "palavra " * 3000)
+    recentes = no_orcamento([Mensagem("usuario", "oi"), longa], orcamento=100)
+    assert recentes and recentes[-1].papel == "usuario" and len(recentes[-1].texto) <= 100 * 4
