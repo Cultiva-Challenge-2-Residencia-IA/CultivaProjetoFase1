@@ -1,4 +1,5 @@
 {
+  "embeddings": "intfloat/multilingual-e5-large",
   "configuracao": "regras",
   "novos": {
     "resumo": {

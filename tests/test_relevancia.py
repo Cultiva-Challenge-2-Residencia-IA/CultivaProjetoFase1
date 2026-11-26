@@ -177,6 +177,28 @@ def test_dor_nas_costas_e_hidratacao_entram_no_roteamento():
     assert set(rotear_por_regras("Hidratação durante o treino longo").areas) == {AREA_NUTRICAO, AREA_SAUDE_FISICA}
 
 
+@pytest.mark.parametrize("mensagem", [
+    "Canela ajuda a emagrecer?",
+    "Coxa de frango assada é saudável?",
+    "Torci muito pelo meu time e esqueci de jantar",
+    "Chá de canela com leite",
+])
+def test_termos_ambiguos_nao_levam_pergunta_de_nutricao_so_para_saude_fisica(mensagem):
+    """Revisão do PR da #105: "canela", "coxa" e "torci" só contam para Saúde Física com contexto."""
+    assert rotear_por_regras(mensagem).areas != [AREA_SAUDE_FISICA]
+
+
+@pytest.mark.parametrize("mensagem", [
+    "Dor na canela depois de correr",
+    "Estou com dor nas coxas",
+    "Minha canela dói",
+    "Torci o pé ontem",
+    "Tive uma torção no pé",
+])
+def test_termos_ambiguos_com_contexto_vao_para_saude_fisica(mensagem):
+    assert rotear_por_regras(mensagem).areas == [AREA_SAUDE_FISICA]
+
+
 @pytest.mark.parametrize("split", ["dev", "test"])
 def test_regras_acertam_os_casos_claros_novos(split):
     """Só regras, casos `clara` do roteamento novo, acerto >= 0,90."""
