@@ -1,7 +1,7 @@
 # ADR 0005: Arquitetura multiagentes com Chat geral, Chats de área e Histórico
 
 * **Status:** Proposta técnica; aprovação formal da equipe pendente
-* **Data:** 2026-11-24; revisado em 2026-11-25 (Projetor de contexto e Fatos do Usuário, ainda a implementar)
+* **Data:** 2026-11-24; revisado em 2026-11-25 (Projetor de contexto e Fatos do Usuário, implementados na issue #112; medição em `eval/projetor/`)
 * **Escopo:** `src/chat/`, `src/orquestrador/` (roteamento, reescrita, Projetor de contexto e Sincronizador), `src/agents/fisica/`, `src/guardrails/alerta/`, corpus de Saúde Física e endpoints `/chat/*` da API (com a autenticação da issue #108)
 * **Evidência:** issue #99; critérios e resultados em `eval/multiagentes/`. A revisão de 25/11 vem de uma entrevista de desenho com o mantenedor, a partir do RN06 e do RF-IA09
 * **Vocabulário:** `GLOSSARY.md` (Orquestrador, Agente de área, Sincronizador, Chat geral, Chat de área, Portão, Sinal de alerta, Subpergunta, Projetor de contexto, Fato do Usuário)
@@ -17,7 +17,7 @@ O diferencial do produto é centralizar as áreas da vida do Usuário: os regist
 * **Peças:**
   * **Orquestrador:** aplica os Portões e decide a área ou as áreas de cada mensagem; não responde conteúdo.
   * **Agentes de área:** Nutrição e Saúde Física, cada um com o seu corpus aprovado, o seu guardrail legal (Lei 8.234/1991 e Lei 9.696/1998) e o mesmo subgrafo (busca híbrida, "não sei", síntese com citação por frase, guardrail de saída).
-  * **Projetor de contexto** (decidido em 25/11, a implementar): antes de cada Agente de área, nos três chats, escolhe os Fatos do Usuário relacionados à Subpergunta, de qualquer área, e entrega só esses ao agente. É uma peça própria do Orquestrador, separada do Sincronizador.
+  * **Projetor de contexto** (decidido e implementado em 25/11, issue #112): antes de cada Agente de área, nos três chats, escolhe os Fatos do Usuário relacionados à Subpergunta, de qualquer área, e entrega só esses ao agente. É uma peça própria do Orquestrador, separada do Sincronizador.
   * **Sincronizador:** quando a mensagem envolve as duas áreas, o LLM cruza as frases já citadas dos dois agentes numa resposta única, conferida pela mesma checagem de citação por frase; se a checagem reprovar, se alguma frase vier sem citação literal ou se não houver LLM, as respostas ficam lado a lado.
 * **Chats:** Chat geral (Orquestrador e Sincronizador) e um Chat de área por agente. O Chat orquestra em Python (`src/chat/servico.py`) e chama os subgrafos LangGraph de cada Agente de área; o grafo principal do LangGraph (`construir_grafo`) continua servindo o `/consult`, os benchmarks e a demonstração da semana 2, só com Nutrição. Num Chat de área, o agente responde só a parte da sua área e indica o chat certo para o resto.
 * **Portões, iguais nos três chats:** risco (RF-IA03), **sinal de alerta** (novo: dor no peito, desmaio, falta de ar intensa, lesão aguda; mensagem fixa para parar e procurar atendimento) e prompt injection.
@@ -27,18 +27,19 @@ O diferencial do produto é centralizar as áreas da vida do Usuário: os regist
   * SQLite local (`data/conversas.sqlite3`, ignorado pelo Git), uma linha por mensagem, com o chat e as áreas que responderam;
   * o Chat geral lê o Histórico dos Chats de área do mesmo Usuário; os Chats de área não leem o geral;
   * cada Agente de área recebe o Histórico recente da área dele, para a continuidade da conversa, como contexto no prompt, nunca como fonte; o que a pessoa disse em outras áreas chega pelos Fatos do Usuário, não pelas mensagens;
-  * janela por orçamento de tokens (decidido em 25/11, a implementar; proposta de 2.500 tokens e até 20 mensagens), no lugar das 6 mensagens de `CULTIVA_JANELA_HISTORICO`: as perguntas do Usuário entram inteiras e as respostas do assistente encurtadas (primeiras frases, sem citações); o que é antigo fica com os Fatos do Usuário;
+  * janela por orçamento de tokens (implementado em 25/11: `CULTIVA_HISTORICO_TOKENS`, proposta de 2.500, e no máximo `CULTIVA_JANELA_HISTORICO` mensagens, 20), no lugar das 6 mensagens de antes: as perguntas do Usuário entram inteiras e as respostas do assistente encurtadas (primeiras frases, sem citações); o que é antigo fica com os Fatos do Usuário;
   * texto sem máscara no SQLite (é a conversa do Usuário); máscara de dados pessoais no que vai ao LLM e ao Langfuse; mensagem de risco guardada só com as categorias, e mensagem de sinal de alerta só com os nomes dos sinais;
   * guardado até o Usuário apagar (`DELETE /chat/usuarios/{id}` e `.../conversas/{id}`).
-* **Fatos do Usuário (decidido em 25/11, a implementar):**
+* **Fatos do Usuário (decidido e implementado em 25/11, issue #112; `src/orquestrador/fatos.py`, `src/chat/fatos.py`):**
   * **esquema fixo de categorias**, com a área definida pelo assunto e não pelo chat: Saúde Física (atividade praticada, frequência ou volume, objetivo de treino, limitação física declarada), Nutrição (padrão alimentar, jejum e horários, restrição ou alergia, objetivo alimentar) e condição de saúde declarada;
   * **extração em segundo plano:** o LLM local extrai os fatos só das mensagens do Usuário, depois que a resposta é enviada, e grava numa tabela própria; nada que acionou o Portão de risco ou o de sinal de alerta vira fato;
   * **validade temporal:** um fato novo da mesma categoria encerra a validade do anterior, que fica guardado com a data de fim (RNF08); fato sem atualização expira em 90 dias (proposta);
   * **seleção:** a escolha dos fatos relevantes para cada Subpergunta entra na mesma chamada JSON da reescrita; sem LLM, nenhum fato é passado (falha fechada), e cada fato entregue a um agente fica registrado (critério do RF-IA09);
   * **uso:** o fato só personaliza e relaciona a resposta, nunca é fonte; a frase que o usa leva o marcador `[CONTEXTO]`, aceito pela checagem de citação só quando o fato foi entregue, e afirmação de saúde continua exigindo `[T#]`; nada é prescrito a partir dele;
   * **condição de saúde:** só direciona a busca para evidência da população certa e reforça a indicação de profissional; nunca ajusta quantidade, meta, dose ou plano (RN01 a RN03, Leis 8.234 e 9.696);
-  * **consentimento:** a memória fica desligada até o Usuário aceitar, com aceite separado para condição de saúde (dado sensível, LGPD art. 11), revogável; sem App, o aceite é um campo na API e uma variável de ambiente para testes;
-  * **controle:** a resposta informa quais fatos usou; a API lista e apaga fatos por Usuário; apagar uma Conversa ou um Usuário apaga os fatos derivados.
+  * **consentimento:** a memória fica desligada até o Usuário aceitar, com aceite separado para condição de saúde (dado sensível, LGPD art. 11), revogável; sem App, o aceite vem de `PUT /chat/usuarios/{id}/memoria`, e `CULTIVA_MEMORIA_PADRAO` (`desligada`, `ligada` ou `ligada_com_saude`) vale só para testes e uso local com dados sintéticos;
+  * **observabilidade:** o texto dos fatos não vai ao Langfuse; a máscara troca o texto pela categoria, e o trace leva só a contagem e as categorias entregues;
+  * **controle:** a resposta informa os fatos usados (`fatos_usados`); `GET /chat/usuarios/{id}/fatos` lista e `DELETE .../fatos/{fato_id}` apaga; apagar uma Conversa ou um Usuário apaga os fatos derivados. A pessoa vê os fatos guardados mesmo depois de revogar o consentimento, para poder apagá-los.
 * **Autenticação e posse da Conversa (issue #108):**
   * os endpoints `/chat/*` e de exclusão exigem `Authorization: Bearer <token>`; o token é assinado com HMAC-SHA256 (`src/chat/autenticacao.py`, formato `v1.<payload>.<assinatura>`, payload com `sub` e `exp`), com o segredo de `CULTIVA_AUTH_SEGREDO` (pelo menos 32 caracteres), e o App é quem o emitiria;
   * o Usuário vem do token; `usuario_id` no corpo ou na URL fica por compatibilidade e, se divergir do token, a chamada é recusada (403); sem token, token inválido ou expirado: 401;

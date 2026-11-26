@@ -1,0 +1,153 @@
+{
+  "resumo": {
+    "casos": 12,
+    "precisao": 1.0,
+    "recall": 1.0,
+    "falso_fato": 0
+  },
+  "casos": [
+    {
+      "id": "E01",
+      "fatos": [
+        [
+          "atividade_praticada",
+          "pratica musculação"
+        ],
+        [
+          "frequencia_treino",
+          "treina 4 vezes por semana"
+        ],
+        [
+          "objetivo_treino",
+          "quer ganhar massa muscular"
+        ]
+      ],
+      "esperadas": [
+        "atividade_praticada",
+        "frequencia_treino",
+        "objetivo_treino"
+      ],
+      "falso_fato": false
+    },
+    {
+      "id": "E02",
+      "fatos": [
+        [
+          "padrao_alimentar",
+          "É vegetariana há 3 anos"
+        ]
+      ],
+      "esperadas": [
+        "padrao_alimentar"
+      ],
+      "falso_fato": false
+    },
+    {
+      "id": "E03",
+      "fatos": [
+        [
+          "restricao_alergia",
+          "Tem intolerância à lactose"
+        ]
+      ],
+      "esperadas": [
+        "restricao_alergia"
+      ],
+      "falso_fato": false
+    },
+    {
+      "id": "E04",
+      "fatos": [],
+      "esperadas": [],
+      "falso_fato": false
+    },
+    {
+      "id": "E05",
+      "fatos": [],
+      "esperadas": [],
+      "falso_fato": false
+    },
+    {
+      "id": "E06",
+      "fatos": [
+        [
+          "jejum_horarios",
+          "Faz jejum de 16 horas todos os dias"
+        ]
+      ],
+      "esperadas": [
+        "jejum_horarios"
+      ],
+      "falso_fato": false
+    },
+    {
+      "id": "E07",
+      "fatos": [
+        [
+          "limitacao_fisica",
+          "Sente dor no joelho quando corre"
+        ]
+      ],
+      "esperadas": [
+        "limitacao_fisica"
+      ],
+      "falso_fato": false
+    },
+    {
+      "id": "E08",
+      "fatos": [
+        [
+          "condicao_saude",
+          "tem hipertensão"
+        ],
+        [
+          "atividade_praticada",
+          "caminha 30 minutos por dia"
+        ]
+      ],
+      "esperadas": [
+        "condicao_saude",
+        "atividade_praticada"
+      ],
+      "falso_fato": false
+    },
+    {
+      "id": "E09",
+      "fatos": [],
+      "esperadas": [],
+      "falso_fato": false
+    },
+    {
+      "id": "E10",
+      "fatos": [
+        [
+          "objetivo_alimentar",
+          "Seu objetivo com a alimentação é comer menos ultraprocessados."
+        ]
+      ],
+      "esperadas": [
+        "objetivo_alimentar"
+      ],
+      "falso_fato": false
+    },
+    {
+      "id": "E11",
+      "fatos": [
+        [
+          "atividade_praticada",
+          "pratica futebol aos sábados"
+        ]
+      ],
+      "esperadas": [
+        "atividade_praticada"
+      ],
+      "falso_fato": false
+    },
+    {
+      "id": "E12",
+      "fatos": [],
+      "esperadas": [],
+      "falso_fato": false
+    }
+  ]
+}
