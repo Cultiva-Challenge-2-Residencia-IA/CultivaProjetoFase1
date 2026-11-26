@@ -21,7 +21,8 @@ Detalhes, números gerados pelo sistema, diagramas e limitações em [`docs/entr
 2. **Chunking:** `corpus/scripts/prepare_rag.py` gera Trechos de cerca de 1.000 caracteres sem atravessar página nem seção, no formato do [ADR 0002](docs/adrs/0002-contrato-corpus-retriever.md), com cabeçalho contextual na indexação.
 3. **Embeddings:** `intfloat/multilingual-e5-large` (1024 dimensões, cosseno), executado localmente pelo fastembed e combinado ao BM25 por RRF. Escolhido na comparação da issue #15 ([ADR 0006](docs/adrs/0006-provedor-embeddings-e-banco-vetorial.md)); a primeira indexação leva cerca de 19 minutos em CPU, e as seguintes reaproveitam o cache de vetores.
 4. **Banco vetorial:** ChromaDB persistente em `data/vector_store/chroma_db`, índice HNSW por cosseno (`ef_search` e `ef_construction` em 200, para o resultado coincidir com a busca exata), coleção versionada pela impressão digital do conteúdo e metadados de rastreabilidade (fonte, página, link, aprovação).
-5. **Gate de aprovação:** só fontes `aprovado` entram no índice, inclusive na demonstração e no benchmark. Para testar com as pendentes, use `CULTIVA_INCLUIR_PENDENTES=true` (API e CLI).
+5. **Reranker em Saúde Física (issue #105):** cross-encoder `jinaai/jina-reranker-v2-base-multilingual`, local pelo fastembed, que reordena os candidatos da busca. O filtro de relevância antes da síntese, com a lacuna explícita, existe, mas está desligado por padrão. O modelo tem cerca de 1,1 GB e é baixado na primeira pergunta de Saúde Física; antes de uma demonstração, baixe-o com `uv run python -m src.retrieval.reranker_cruzado`. A licença do modelo é CC BY-NC 4.0 (só pesquisa e avaliação): uso comercial exige trocar o `RERANKER_MODELO`, por exemplo pelo `BAAI/bge-reranker-v2-m3` (Apache-2.0).
+6. **Gate de aprovação:** só fontes `aprovado` entram no índice, inclusive na demonstração e no benchmark. Para testar com as pendentes, use `CULTIVA_INCLUIR_PENDENTES=true` (API e CLI).
 
 ---
 
