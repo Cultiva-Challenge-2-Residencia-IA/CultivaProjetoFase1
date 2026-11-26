@@ -44,10 +44,12 @@ def _modelo(nome: str) -> Any:
             return _MODELOS[nome]
         from fastembed.rerank.cross_encoder import TextCrossEncoder
 
+        from src.retrieval.vector_store import provedores_onnx
+
         print(f"Carregando o reranker {nome}; na primeira vez na máquina, o download tem cerca de 1 GB.",
               file=sys.stderr, flush=True)
         inicio = time.perf_counter()
-        _MODELOS[nome] = TextCrossEncoder(model_name=nome)
+        _MODELOS[nome] = TextCrossEncoder(model_name=nome, providers=provedores_onnx())
         print(f"Reranker carregado em {time.perf_counter() - inicio:.1f} s.", file=sys.stderr, flush=True)
         return _MODELOS[nome]
 

@@ -149,7 +149,9 @@ OLLAMA_NUM_CTX = int(os.getenv("OLLAMA_NUM_CTX", "8192"))
 OLLAMA_NUM_PREDICT = int(os.getenv("OLLAMA_NUM_PREDICT", "2048"))
 OLLAMA_THINK = os.getenv("OLLAMA_THINK", "false").strip().lower() in {"1", "true", "sim", "yes"}
 OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text")
-OLLAMA_TIMEOUT = float(os.getenv("OLLAMA_TIMEOUT", "45.0"))
+# 180 s: numa GPU de 4 GB (GTX 1650) o gemma4:e4b não cabe inteiro e a síntese passava de 45 s, o
+# antigo padrão; a falha caía na síntese extrativa. Numa GPU de 8 GB a resposta leva bem menos.
+OLLAMA_TIMEOUT = float(os.getenv("OLLAMA_TIMEOUT", "180.0"))
 
 # Parâmetros do Motor RAG Híbrido (Fase 1 Baseline)
 TOP_K_BM25 = int(os.getenv("TOP_K_BM25", "8"))

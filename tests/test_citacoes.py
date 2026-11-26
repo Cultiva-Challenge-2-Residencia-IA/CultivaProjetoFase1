@@ -311,3 +311,16 @@ def test_trecho_cortado_no_meio_da_frase_nao_gruda_no_proximo():
     assert texto.endswith("órgãos do [T1].")
     juntos = " ".join([texto, LocalLLMClient._com_marcador("Os participantes relataram temas.", 1)])
     assert [f for f in dividir_frases(juntos) if "órgãos do" in f] == ["É importante também saber que órgãos do [T1]."]
+
+
+def test_llm_que_nao_responde_marca_a_extrativa_como_falha_do_llm():
+    """Tempo limite ou erro do Ollama: a extrativa sai com status próprio, para o chat avisar."""
+    sintese, modelo = _cliente_com_llm(None).generate_structured_synthesis("ultraprocessados", _trechos())
+    assert modelo == "local_extractive_synthesis"
+    assert sintese["_fundamentacao"]["status"] == "extrativa_apos_falha_do_llm"
+
+
+def test_sem_llm_configurado_a_extrativa_segue_com_o_status_de_sempre():
+    cliente = LocalLLMClient(enable_ollama=False)
+    sintese, _ = cliente.generate_structured_synthesis("ultraprocessados", _trechos())
+    assert sintese["_fundamentacao"]["status"] == "extrativa"
