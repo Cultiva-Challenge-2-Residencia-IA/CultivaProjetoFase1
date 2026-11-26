@@ -365,3 +365,29 @@ def test_agentes_em_paralelo_rodam_ao_mesmo_tempo_e_mantem_a_ordem(tmp_path):
     assert not barreira.broken  # com os agentes em sequência, a barreira esgotaria o tempo e quebraria
     assert resposta.areas == [AREA_NUTRICAO, AREA_SAUDE_FISICA]
     assert resposta.texto.index("Resposta de nutricao.") < resposta.texto.index("Resposta de saude_fisica.")
+
+
+def _resposta_extrativa(status: str, texto: str) -> ConsultantResponse:
+    return ConsultantResponse(
+        response_id="r", original_query="q", effective_query="q", guardrail_triggered=False,
+        intent_category="SAFE_EVIDENCE_QUERY", evidence_summary=texto, physiological_mechanism="",
+        protocol_findings="", evidence_grade="N/A", corpus_version="c", prompt_version="p", model_version="m",
+        fontes_version="f", fundamentacao_status=status)
+
+
+def test_extrativa_em_ingles_depois_de_falha_do_llm_vira_aviso_em_portugues():
+    from src.chat.servico import MENSAGEM_SEM_RESPOSTA_EM_PORTUGUES, texto_da_resposta
+    ingles = ("Significant hypertrophy can be achieved when training a muscle group once per week [T1]. "
+              "It may be advantageous to spread out the volume over more sessions [T2].")
+    texto = texto_da_resposta(_resposta_extrativa("extrativa_apos_falha_do_llm", ingles))
+    assert texto.startswith(MENSAGEM_SEM_RESPOSTA_EM_PORTUGUES[:40])
+    assert "hypertrophy" not in texto
+    assert "[T1]" in texto and "[T2]" in texto  # as fontes continuam citadas
+
+
+def test_extrativa_em_portugues_ou_sem_llm_configurado_nao_muda():
+    from src.chat.servico import texto_da_resposta
+    portugues = "O consumo de fibras é recomendado para a saúde do intestino [T1]."
+    assert texto_da_resposta(_resposta_extrativa("extrativa_apos_falha_do_llm", portugues)) == portugues
+    ingles = "Training volume is important for the hypertrophy of the muscle [T1]."
+    assert texto_da_resposta(_resposta_extrativa("extrativa", ingles)) == ingles

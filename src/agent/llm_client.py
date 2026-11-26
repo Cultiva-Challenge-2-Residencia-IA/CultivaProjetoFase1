@@ -1,4 +1,5 @@
 import json
+import logging
 import re
 import threading
 from typing import Any, Dict, List, Optional, Tuple
@@ -33,6 +34,8 @@ from src.rag.verificador.citacoes import (
 from src.guardrails.pii import mascarar_dados_pessoais
 from src.models.schemas import RetrievedChunk
 from src.observabilidade import observacao
+
+logger = logging.getLogger(__name__)
 
 _PAPEL_COM_CONTEXTO = """Você é um Consultor Científico de Nutrição Baseado em Evidências.
 Sua função é responder dúvidas gerais de nutrição baseando-se EXCLUSIVAMENTE nos trechos de diretrizes clínicas e estudos científicos fornecidos no contexto.
@@ -347,6 +350,9 @@ class LocalLLMClient:
                     obs.update(level="WARNING", status_message="JSON fora do esquema esperado")
             except Exception as exc:
                 obs.update(level="ERROR", status_message=f"{type(exc).__name__}: {exc}")
+                # Sem o texto da pergunta no log (dados pessoais).
+                logger.warning("Ollama (%s) falhou na síntese: %s; tempo limite de %.0f s",
+                               model_name, type(exc).__name__, self.timeout)
                 return None
         return None
 
@@ -671,5 +677,6 @@ class LocalLLMClient:
                 "problemas": [f"{r['modelo']}: {p}" for r in rejeitadas for p in r["problemas"]],
             }
         else:
-            extractive["_fundamentacao"] = {"status": "extrativa", "problemas": []}
+            # O LLM estava disponível e não respondeu (tempo limite, erro, JSON fora do esquema).
+            extractive["_fundamentacao"] = {"status": "extrativa_apos_falha_do_llm", "problemas": []}
         return extractive, "local_extractive_synthesis"

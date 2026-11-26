@@ -10,6 +10,10 @@ A chamada devolve, em JSON:
 Sem LLM, ou com saída inválida, a reescrita usa a mensagem como veio e as áreas das regras
 (`rotear_por_regras`), sem trecho hipotético: o mesmo caminho de antes, determinístico.
 
+Conversa social: quando a mensagem é só conversa ("salve", "como vc tá?", "valeu"), a mesma chamada
+devolve `conversa_social` com o tipo e uma resposta curta; o serviço a confere por código
+(`src/orquestrador/conversa.py`) antes de usar.
+
 Projetor de contexto (issue #112): quando há Fatos do Usuário candidatos, a mesma chamada escolhe,
 por Subpergunta, os ids dos fatos relacionados (`fatos`). Sem LLM, nenhum fato é escolhido (falha
 fechada), e id que não está entre os candidatos é ignorado.
@@ -17,8 +21,9 @@ fechada), e id que não está entre os candidatos é ignorado.
 
 from dataclasses import dataclass, field
 import json
-from typing import Any, Callable, Dict, List, Optional, Sequence
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
+from src.orquestrador.conversa import TIPOS_SOCIAIS
 from src.orquestrador.roteamento import AREAS, rotear_por_regras
 
 LLMJson = Callable[[str, str], Optional[Dict[str, Any]]]
@@ -34,7 +39,9 @@ Receba o histórico recente e a mensagem nova. Responda SÓ com JSON:
     {"area": "nutricao" ou "saude_fisica",
      "pergunta": "a parte da pergunta completa que é dessa área",
      "trecho_hipotetico": "um parágrafo curto (2 a 3 frases) como o de uma diretriz que responderia a essa parte; em inglês para saude_fisica e em português para nutricao"}
-  ]
+  ],
+  "esclarecimento": null,
+  "conversa_social": null
 }
 Regras: uma subpergunta por área envolvida, no máximo uma por área. Se a mensagem não for de nenhuma das duas áreas, devolva "subperguntas": []. Não responda a pergunta e não dê conselho individual; o trecho hipotético só serve para a busca.
 
@@ -42,7 +49,18 @@ Regras: uma subpergunta por área envolvida, no máximo uma por área. Se a mens
 Só quando a mensagem nova for vaga demais para buscar bem (ex.: "quero treinar perna", "me ajuda com a
 dieta"), escreva UMA pergunta curta, terminada em "?", sobre o TEMA que a pessoa quer saber (ex.: "Você quer
 saber sobre força, resistência ou como começar?"). Nunca pergunte dados pessoais (peso, idade, exames,
-rotina, nível de atividade) e não use números."""
+rotina, nível de atividade) e não use números.
+
+"conversa_social": null em qualquer mensagem com pergunta ou pedido sobre alimentação, exercício, saúde ou
+outro assunto. Só quando a mensagem nova for apenas conversa (cumprimento, "tudo bem?", "como você está?",
+agradecimento, despedida, elogio, gíria como "salve", "fala aí", "beleza", mesmo com erro de digitação),
+devolva {"tipo": "saudacao" | "como_vai" | "agradecimento" | "despedida" | "apresentacao" | "outro",
+"resposta": "uma ou duas frases curtas, em português do Brasil, no mesmo tom da pessoa"}. Use "apresentacao"
+quando a pessoa perguntar quem você é ou o que você faz. A resposta não fala de alimentação, exercício nem
+saúde, não dá conselho, não usa números e não pergunta nada pessoal. Você é o assistente do CULTIVA, um
+aplicativo, e não uma pessoa: não diga que comeu, treinou ou sentiu algo. Não ofereça ajuda nem convide a
+perguntar ("como posso ajudar?", "estou aqui para..."): o aplicativo acrescenta o convite. Nesse caso, "subperguntas": [] e
+"esclarecimento": null."""
 
 INSTRUCAO_FATOS = """
 
@@ -82,6 +100,8 @@ class Reescrita:
     origem: str = "regras"  # "llm" ou "regras"
     # Pergunta de esclarecimento para pedido vago ou individual (issue #104); None quando não há.
     esclarecimento: Optional[str] = None
+    # Conversa social reconhecida pelo LLM: (tipo, resposta escrita); a resposta ainda é conferida.
+    social: Optional[Tuple[str, Optional[str]]] = None
 
     @property
     def areas(self) -> List[str]:
@@ -103,6 +123,9 @@ def _pelas_regras(mensagem: str, areas_permitidas: Sequence[str]) -> Reescrita:
 
 
 def _validar(bruto: Any, mensagem: str, areas_permitidas: Sequence[str]) -> Optional[Reescrita]:
+    if isinstance(bruto, dict) and bruto.get("tipo") in TIPOS_SOCIAIS and "subperguntas" not in bruto:
+        # O modelo às vezes devolve só o objeto da conversa social, sem o resto do JSON.
+        bruto = {"pergunta_completa": mensagem, "subperguntas": [], "conversa_social": bruto}
     if not isinstance(bruto, dict) or not isinstance(bruto.get("subperguntas"), list):
         return None
     completa = str(bruto.get("pergunta_completa") or "").strip() or mensagem
@@ -122,8 +145,13 @@ def _validar(bruto: Any, mensagem: str, areas_permitidas: Sequence[str]) -> Opti
                 continue
         subperguntas.append(Subpergunta(area, texto, hipotetico, ids))
     esclarecimento = bruto.get("esclarecimento")
+    social = None
+    item = bruto.get("conversa_social")
+    if isinstance(item, dict) and item.get("tipo") in TIPOS_SOCIAIS:
+        resposta = item.get("resposta")
+        social = (item["tipo"], resposta if isinstance(resposta, str) else None)
     return Reescrita(pergunta_completa=completa, subperguntas=subperguntas, origem="llm",
-                     esclarecimento=str(esclarecimento) if esclarecimento else None)
+                     esclarecimento=str(esclarecimento) if esclarecimento else None, social=social)
 
 
 def reescrever(
