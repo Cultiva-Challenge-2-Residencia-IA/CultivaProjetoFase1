@@ -23,7 +23,7 @@ def test_diet_prescription_request_triggers_guardrail_and_reframes() -> None:
     assert assessment.is_restricted_by_law_8234 is True
     assert assessment.intent_category == "RESTRICTED_DIET_PRESCRIPTION"
     assert assessment.legal_notice_required is not None
-    assert "8.234/1991" in assessment.legal_notice_required
+    assert "nutricionista" in assessment.legal_notice_required
     assert "in natura" in assessment.reframed_population_query.lower()
 
 

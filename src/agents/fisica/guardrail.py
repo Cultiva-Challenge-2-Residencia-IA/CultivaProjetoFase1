@@ -18,11 +18,11 @@ from typing import List, Tuple
 from src.models.schemas import GuardrailAssessment
 from src.retrieval.hybrid_retriever import normalize_text
 
+# Nota do Pedido individual (RN02, Lei 9.696/1998): curta, no fim da resposta e fixa por código
+# (issue #118).
 AVISO_LEI_9696 = (
-    "Nota de Conformidade Legal (Lei Federal nº 9.696/1998 - CONFEF): a prescrição e a orientação "
-    "de um programa de exercícios para uma pessoa são atribuições do profissional de Educação "
-    "Física, e a avaliação de dor ou lesão cabe a um médico ou fisioterapeuta. Abaixo estão só o que "
-    "as diretrizes e estudos indicam em nível populacional."
+    "Isto é informação educativa, não uma orientação para você. Para um plano individual, procure um(a) "
+    "profissional de Educação Física; para dor ou lesão, um médico ou fisioterapeuta."
 )
 
 PRESCRICAO_DE_TREINO: List[Tuple[str, str]] = [

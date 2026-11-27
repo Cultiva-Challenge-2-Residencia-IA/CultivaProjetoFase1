@@ -21,12 +21,11 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 from src.models.schemas import GuardrailAssessment
 from src.retrieval.hybrid_retriever import normalize_text
 
+# Nota do Pedido individual (RN02, Lei 8.234/1991): curta, no fim da resposta e fixa por código
+# (issue #118). A lei fica nos termos de uso, não na resposta.
 LAW_8234_COMPLIANCE_NOTICE = (
-    "Nota de Conformidade Legal (Lei Federal nº 8.234/1991, Art. 3º - CFN): "
-    "A prescrição dietética individualizada (cardápios com quantidades, calorias e horários personalizados), "
-    "o diagnóstico nutricional clínico e a prescrição posológica individual de suplementos são atividades "
-    "privativas do nutricionista habilitado. Abaixo estão apresentadas exclusivamente as evidências científicas "
-    "populacionais, os mecanismos fisiológicos e o que indicam as diretrizes oficiais sobre o tema."
+    "Isto é informação educativa, não uma orientação para você. Para um plano individual, procure um(a) "
+    "nutricionista."
 )
 
 DIET_PRESCRIPTION_PATTERNS: List[Tuple[str, str]] = [

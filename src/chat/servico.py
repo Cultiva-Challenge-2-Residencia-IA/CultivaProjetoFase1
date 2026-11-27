@@ -159,10 +159,10 @@ def texto_da_resposta(resposta: ConsultantResponse, com_nota_legal: bool = True)
             if marcador not in marcadores:
                 marcadores.append(marcador)
         texto = MENSAGEM_SEM_RESPOSTA_EM_PORTUGUES[:-1] + " " + "".join(marcadores) + "."
-    # Pedido restrito pela lei da área (Lei 8.234/1991 ou 9.696/1998): a nota legal vem antes.
+    # Pedido individual (Lei 8.234/1991 ou 9.696/1998): a nota curta vem no fim (issue #118).
     if (com_nota_legal and resposta.guardrail_triggered and resposta.legal_compliance_notice
             and not resposta.prompt_injection_detected):
-        return f"{resposta.legal_compliance_notice}\n\n{texto}"
+        return f"{texto}\n\n{resposta.legal_compliance_notice}" if texto else resposta.legal_compliance_notice
     return texto
 
 
