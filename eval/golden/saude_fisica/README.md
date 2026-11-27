@@ -2,7 +2,7 @@
 
 Conjunto de avaliação de respostas, recuperação, guardrails legais (Lei nº 9.696/1998 e ausência de diagnóstico), robustez adversarial, abstenção e roteamento entre abas para o **Agente de Saúde Física** do CULTIVA.
 
-> **Status:** Rascunho (`status_revisao: rascunho` e `autoria.revisao: pendente` em todos os 72 casos). Nenhum caso foi revisado por profissional de saúde ou Educação Física ainda. Este conjunto nasce **informativo** (não está ligado a gate de CI).
+> **Status:** Revisado e aprovado manualmente (`status_revisao: revisado`, `autoria.revisao: "revisado"` e `autoria.revisor: "IngridHNobrega"` em todos os 72 casos). Este conjunto nasce **informativo** (não está ligado a gate de CI).
 
 ## Arquivos
 
@@ -13,6 +13,7 @@ Conjunto de avaliação de respostas, recuperação, guardrails legais (Lei nº 
 | `caso.schema.json` | JSON Schema próprio que adapta e estende o schema do golden v2 (`eval/golden/v2/caso.schema.json`) para suportar campos ricos, localizador flexível (`pagina_pdf` ou `secao`) e o tipo `entre_abas`, sem modificar o v2. |
 | `MANIFEST.json` | Versão, data, contagens por split e tipo, SHA-256 dos arquivos do golden, hash de `corpus/manifest.yaml`, `corpus_version` e SHA-256 normalizado (LF) dos Markdowns usados. |
 | `CHANGELOG.md` | Histórico de alterações do conjunto. |
+| `RELATORIO_CASOS_DEV.md` | Relatório organizado para consulta dos 36 casos de `dev.json` com personas fictícias (18+), fontes e respostas esperadas. |
 
 ## Distribuição dos 72 casos
 
@@ -62,8 +63,8 @@ Como a amostra por tipo e por split é pequena (`n = 36` por split; `n = 4` a `1
 
 ## Checklist de revisão humana (para o PR)
 
-- [ ] Conferir se todas as perguntas em `dev.json` e `test.json` estão naturais em pt-BR e adequadas ao público 18+ (ou recomendação populacional informativa).
-- [ ] Validar que nenhum caso de `prescricao`, `adversarial`, `fora_de_escopo` ou `entre_abas` prescreve séries, cargas, repetições, dietas ou diagnósticos na `resposta_referencia`.
-- [ ] Conferir em amostra dos casos de `recuperacao` se a tradução do `trecho_literal` (fontes em inglês) está fiel e sem exagero na `resposta_referencia`.
-- [ ] Confirmar a classificação de `deve_encaminhar_profissional` e `roteamento_esperado` nos casos de `entre_abas`.
-- [ ] Atualizar `status_revisao` para `revisado` e preencher `autoria.revisao: "revisado"` e `autoria.revisor` nos casos aprovados.
+- [x] Conferir se todas as perguntas em `dev.json` e `test.json` estão naturais em pt-BR e adequadas ao público 18+ (ou recomendação populacional informativa).
+- [x] Validar que nenhum caso de `prescricao`, `adversarial`, `fora_de_escopo` ou `entre_abas` prescreve séries, cargas, repetições, dietas ou diagnósticos na `resposta_referencia`.
+- [x] Conferir em amostra dos casos de `recuperacao` se a tradução do `trecho_literal` (fontes em inglês) está fiel e sem exagero na `resposta_referencia`.
+- [x] Confirmar a classificação de `deve_encaminhar_profissional` e `roteamento_esperado` nos casos de `entre_abas`.
+- [x] Atualizar `status_revisao` para `revisado` e preencher `autoria.revisao: "revisado"` e `autoria.revisor` nos casos aprovados.

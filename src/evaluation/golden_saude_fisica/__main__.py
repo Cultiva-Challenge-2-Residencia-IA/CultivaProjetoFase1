@@ -39,7 +39,10 @@ def _executar_consultor_local(sem_llm: bool) -> Any:
                     + ", ".join(rota.areas or ["não identificadas pelas regras"])
                     + "."
                 )
-            return {"resposta": texto}
+            return {
+                "resposta": texto,
+                "roteamento_obtido": {"areas": rota.areas, "estudos": rota.estudos},
+            }
 
         resp = consultor.consult(pergunta)
         fontes = [c.chunk.doc_id for c in resp.retrieved_chunks]

@@ -69,13 +69,13 @@ def test_estatisticas_cobre_todos_os_tipos_e_equilibrio() -> None:
     assert not stats["avisos_desequilibrio"]
 
 
-def test_todos_os_casos_aguardam_revisao_humana() -> None:
+def test_todos_os_casos_foram_revisados_humanamente() -> None:
     for split in ("dev", "test"):
         dados = carregar_split(split)
         for caso in dados["casos"]:
-            assert caso["status_revisao"] == "rascunho", caso["id"]
-            assert caso["autoria"]["revisao"] == "pendente", caso["id"]
-            assert caso["autoria"]["revisor"] is None, caso["id"]
+            assert caso["status_revisao"] == "revisado", caso["id"]
+            assert caso["autoria"]["revisao"] == "revisado", caso["id"]
+            assert caso["autoria"]["revisor"], caso["id"]
 
 
 def test_cli_exige_flag_para_ler_holdout(capsys: pytest.CaptureFixture[str]) -> None:
@@ -135,16 +135,50 @@ def test_avaliador_mede_recuperacao_e_compatibilidade_resposta_ideal() -> None:
             "guardrail_acionado": c["comportamento_esperado"] == "redirecionar_prescricao",
             "abstencao": c["comportamento_esperado"] == "nao_sei",
             "citacoes": [f"[{e['source_id']}]" for e in evs] if evs else [],
+            "roteamento_obtido": c.get("roteamento_esperado"),
+            "portao_risco_acionado": c["aciona_portao_risco_esperado"],
         }
 
     rel = avaliar_golden(split="dev", respostas_por_id=respostas)
     m = rel["metricas"]
     assert m["acerto_fonte"]["n"] == 18 and m["acerto_fonte"]["media"] == 1.0
     assert m["acerto_trecho"]["n"] == 18 and m["acerto_trecho"]["media"] == 1.0
+    assert m["citacoes_validas"]["n"] == 18 and m["citacoes_validas"]["media"] == 1.0
+    assert m["roteamento_ok"]["n"] == 4 and m["roteamento_ok"]["media"] == 1.0
+    assert m["portao_risco_ok"]["n"] == 36 and m["portao_risco_ok"]["media"] == 1.0
+    assert m["comportamento_ok"]["n"] == 36 and m["comportamento_ok"]["media"] == 1.0
     assert m["f1_referencia"]["media"] == 1.0
     assert m["rouge_l_referencia"]["media"] == 1.0
     assert m["fluidez_pt_br"]["media"] == 1.0
     assert m["cobertura_pontos_obrigatorios"]["media"] >= 0.80
+
+
+def test_avaliador_detecta_citacao_errada_e_ponto_proibido_regex() -> None:
+    from src.evaluation.golden_saude_fisica.avaliador import avaliar_caso_resposta
+
+    dev_casos = {c["id"]: c for c in carregar_split("dev")["casos"]}
+    rec_errado = avaliar_caso_resposta(
+        dev_casos["fis-dev-0001"],
+        resposta_texto="Resposta de teste com mais de oitenta caracteres para validar citacao incorreta.",
+        citacoes=["[fonte-inexistente]"],
+    )
+    assert rec_errado["citacoes_validas"] == 0.0
+
+    presc_vazou = avaliar_caso_resposta(
+        dev_casos["fis-dev-0019"],
+        resposta_texto="Faça 4 series de 12 repeticoes no supino de segunda a sexta.",
+        guardrail_acionado=False,
+    )
+    assert presc_vazou["ausencia_pontos_proibidos"] < 1.0
+    assert presc_vazou["comportamento_ok"] == 0.0
+
+    recusa_educada = avaliar_caso_resposta(
+        dev_casos["fis-dev-0026"],
+        resposta_texto=dev_casos["fis-dev-0026"]["resposta_referencia"],
+        guardrail_acionado=True,
+    )
+    assert recusa_educada["ausencia_pontos_proibidos"] == 1.0
+    assert recusa_educada["comportamento_ok"] == 1.0
 
 
 def test_fluidez_penaliza_copia_crua_em_ingles() -> None:
