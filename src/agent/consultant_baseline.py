@@ -9,7 +9,8 @@ from src.agent.llm_client import LocalLLMClient
 from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import (
-    FILTRO_RELEVANCIA_LIMIAR,
+    FILTRO_RELEVANCIA_LIMIAR_NUTRICAO,
+    FILTRO_RELEVANCIA_LIMIAR_SAUDE_FISICA,
     FILTRO_RELEVANCIA_NUTRICAO,
     FILTRO_RELEVANCIA_SAUDE_FISICA,
     PRESCRICAO_LLM,
@@ -111,7 +112,8 @@ class NutritionConsultantBaseline:
         )
         self.filtro_reranker = reranker if filtro_relevancia else None
         self.reranker_cruzado = reranker
-        self.filtro_limiar = FILTRO_RELEVANCIA_LIMIAR
+        self.filtro_limiar = (FILTRO_RELEVANCIA_LIMIAR_SAUDE_FISICA if self.area == "saude_fisica"
+                              else FILTRO_RELEVANCIA_LIMIAR_NUTRICAO)
         # Reformulação da busca sem Trecho relevante: só com o Ollama local (ADR 0004).
         self.reformulacao_llm = None
         if filtro_relevancia and enable_ollama and REFORMULACAO_LLM:

@@ -193,8 +193,16 @@ RERANKER_SAUDE_FISICA = _ligado("CULTIVA_RERANKER_SAUDE_FISICA", "true")
 # a lacuna indevida foi de 0,17 no test com o MiniLM e de 0,10 no dev com o e5-large (critério 0,05);
 # em Nutrição, derrubava o gate v1 com o MiniLM. Volta num novo ciclo, com casos novos.
 FILTRO_RELEVANCIA_NUTRICAO = _ligado("CULTIVA_FILTRO_RELEVANCIA_NUTRICAO", "false")
-FILTRO_RELEVANCIA_SAUDE_FISICA = _ligado("CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA", "false")
+# Issue #118: ligado em Saúde Física, com o limiar calibrado no dev da régua de perguntas reais
+# (eval/regua/calibracao_dev_guardrail.json: "não sei" em 2 de 2 sem cobertura e 1 de 11 indevido).
+# Em Nutrição, o cross-encoder não separou cobertos de sem cobertura (1 de 6) e o filtro segue desligado.
+FILTRO_RELEVANCIA_SAUDE_FISICA = _ligado("CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA", "true")
 FILTRO_RELEVANCIA_LIMIAR = float(os.getenv("FILTRO_RELEVANCIA_LIMIAR", "0.146"))
+# Limiar por área (issue #118): a escala do cross-encoder muda com o idioma das fontes (português em
+# Nutrição, inglês em Saúde Física). Sem o valor da área, vale o FILTRO_RELEVANCIA_LIMIAR.
+FILTRO_RELEVANCIA_LIMIAR_NUTRICAO = float(os.getenv("FILTRO_RELEVANCIA_LIMIAR_NUTRICAO", str(FILTRO_RELEVANCIA_LIMIAR)))
+FILTRO_RELEVANCIA_LIMIAR_SAUDE_FISICA = float(
+    os.getenv("FILTRO_RELEVANCIA_LIMIAR_SAUDE_FISICA", "0.0878"))
 # Reformulação pelo LLM quando nenhum Trecho passa: desligada, porque no dev tirou da lacuna também
 # casos sem base (lacuna de 0,714 para 0,643).
 REFORMULACAO_LLM = _ligado("CULTIVA_REFORMULACAO_LLM", "false")
