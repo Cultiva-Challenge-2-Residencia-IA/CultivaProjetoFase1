@@ -320,7 +320,8 @@ Responda só com JSON:
 Se não houver tabela nutricional, responda {{"tem_tabela": false, "nutrientes": []}}."""
 
 
-def _ler_com_visao(dados: bytes, modelo: str, base_url: str) -> Optional[Dict[str, Any]]:
+def ler_com_visao(dados: bytes, modelo: str, base_url: str) -> Optional[Dict[str, Any]]:
+    """Lê a tabela nutricional pela visão do modelo local no Ollama."""
     payload = {
         "model": modelo, "stream": False, "format": "json", "think": OLLAMA_THINK,
         "messages": [{"role": "user", "content": PROMPT_VISAO, "images": [base64.b64encode(dados).decode()]}],
@@ -334,6 +335,9 @@ def _ler_com_visao(dados: bytes, modelo: str, base_url: str) -> Optional[Dict[st
             return json.loads(resposta.json().get("message", {}).get("content", ""))
     except Exception:
         return None
+
+
+_ler_com_visao = ler_com_visao  # alias de compatibilidade para chamadas antigas
 
 
 def ler_tabela_visao(bruto: Optional[Dict[str, Any]]) -> Dict[str, Dict[str, str]]:
@@ -442,7 +446,7 @@ def _chamar_explicacao(usuario: str, modelo: str, base_url: str) -> Optional[Dic
 def ler_rotulo(
     dados: bytes, buscar: Optional[Callable[[str], List[RetrievedChunk]]] = None,
     modelo: str = OLLAMA_MODEL, base_url: str = OLLAMA_BASE_URL,
-    visao: Callable[[bytes, str, str], Optional[Dict[str, Any]]] = _ler_com_visao,
+    visao: Callable[[bytes, str, str], Optional[Dict[str, Any]]] = ler_com_visao,
     chamar: Callable[[str, str, str], Optional[Dict[str, Any]]] = _chamar_explicacao,
 ) -> ResultadoRotulo:
     inicio = time.perf_counter()
