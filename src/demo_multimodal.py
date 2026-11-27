@@ -10,7 +10,8 @@ Quatro fluxos, com os documentos e rótulos fictícios das medições (eval/mult
 2. **Foto de rótulo:** a leitura do OCR e a da visão do gemma lado a lado; só o que as duas
    confirmam vira número na resposta.
 3. **Foto de documento:** a foto inclinada vira texto pelo OCR e segue o fluxo do PDF.
-4. **Casos de falha:** instrução escondida no PDF (falha fechada) e foto sem texto.
+4. **Casos de falha:** instrução escondida no PDF (falha fechada), foto sem texto e pergunta com sinal
+   de risco junto com o arquivo.
 
 Exige o Ollama local com o `gemma4:e4b` (ADR 0004) e o modelo OCR do corpus. Sem o Ollama, os passos
 sem LLM (extração, OCR, portões e falha fechada) rodam, e os outros são marcados como pulados.
@@ -32,6 +33,7 @@ from src.evaluation.multimodal_imagem import CASOS as CASOS_IMAGEM, imagens_docu
 from src.evaluation.multimodal_pdf import CASOS as CASOS_PDF, gerar_pdf
 from src.multimodal.imagem import (
     CAMPOS,
+    ler_com_visao,
     ler_rotulo,
     ler_tabela_ocr,
     ler_tabela_visao,
@@ -142,8 +144,7 @@ def fluxo_rotulo(relato: Relato, retriever, com_llm: bool, artefatos: Dict[str, 
     respostas_visao: List[Any] = []
 
     def visao_registrada(dados: bytes, modelo: str, base_url: str):
-        from src.multimodal.imagem import _ler_com_visao
-        bruto = _ler_com_visao(dados, modelo, base_url)
+        bruto = ler_com_visao(dados, modelo, base_url)
         respostas_visao.append(bruto)
         return bruto
     resultado = ler_rotulo(imagem, buscar=lambda q: retriever.retrieve(q, top_k=3), visao=visao_registrada).como_dict()
