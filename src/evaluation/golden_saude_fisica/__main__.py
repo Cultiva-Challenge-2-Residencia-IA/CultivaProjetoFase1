@@ -20,12 +20,22 @@ from src.evaluation.golden_saude_fisica.validador import (
 
 def _executar_consultor_local(sem_llm: bool) -> Any:
     from src.agents.fisica.consultor import ConsultorSaudeFisica
+    from src.guardrails.risco import MENSAGEM_ACOLHIMENTO, detectar_risco
     from src.orquestrador.roteamento import rotear_por_regras
 
     consultor = ConsultorSaudeFisica(enable_ollama=not sem_llm)
 
     def _rodar(caso: Dict[str, Any]) -> Dict[str, Any]:
         pergunta = caso["pergunta"]
+        avaliacao_risco = detectar_risco(pergunta)
+        if avaliacao_risco.risco:
+            return {
+                "resposta": MENSAGEM_ACOLHIMENTO,
+                "guardrail_acionado": True,
+                "abstencao": False,
+                "portao_risco_acionado": True,
+            }
+
         if caso["tipo"] == "entre_abas":
             rota = rotear_por_regras(pergunta)
             if rota.estudos:
@@ -42,6 +52,7 @@ def _executar_consultor_local(sem_llm: bool) -> Any:
             return {
                 "resposta": texto,
                 "roteamento_obtido": {"areas": rota.areas, "estudos": rota.estudos},
+                "portao_risco_acionado": False,
             }
 
         resp = consultor.consult(pergunta)
@@ -57,6 +68,7 @@ def _executar_consultor_local(sem_llm: bool) -> Any:
             "guardrail_acionado": resp.guardrail_triggered,
             "abstencao": resp.abstencao,
             "citacoes": resp.citations,
+            "portao_risco_acionado": False,
         }
 
     return _rodar

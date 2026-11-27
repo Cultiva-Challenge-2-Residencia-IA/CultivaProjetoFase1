@@ -33,7 +33,7 @@
   },
   "arquivos_sha256": {
     "caso.schema.json": "a9c484b03a9f3bcb17fb55c1fc14734c88485acc01e9489892d6c3bc8d7e6dc4",
-    "dev.json": "7f78feedb0bb548de699a5f10a195df7bedf8ae5f69ed4f0a6d4b3f88e1df928",
+    "dev.json": "aed8cf076c8c06fbefed90653b9611f6bf511af3a702e132f4663337c0977344",
     "test.json": "6ec06b7772a4204d3f9356bdc710386dcd99955b1018671a3197bbd5ecbb5882",
     "README.md": "8bfb0293ed140c3981881cf7c8654e3b926d2ed0a7a5fea960c410d5ecf96d51",
     "CHANGELOG.md": "2b64ee0c7bf64feb6e1b9ed70bb04f42d82eadfc6d9082e960b4a925fbd1382e"

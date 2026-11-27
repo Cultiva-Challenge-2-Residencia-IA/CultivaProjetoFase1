@@ -150,7 +150,8 @@ def test_avaliador_mede_recuperacao_e_compatibilidade_resposta_ideal() -> None:
     assert m["f1_referencia"]["media"] == 1.0
     assert m["rouge_l_referencia"]["media"] == 1.0
     assert m["fluidez_pt_br"]["media"] == 1.0
-    assert m["cobertura_pontos_obrigatorios"]["media"] >= 0.80
+    assert m["cobertura_pontos_obrigatorios"]["media"] == 1.0
+    assert m["ausencia_pontos_proibidos"]["media"] == 1.0
 
 
 def test_avaliador_detecta_citacao_errada_e_ponto_proibido_regex() -> None:
