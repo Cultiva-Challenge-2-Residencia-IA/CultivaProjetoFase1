@@ -1,0 +1,194 @@
+{
+  "versao": "1.1.0",
+  "data": "2026-11-26",
+  "contagens": {
+    "total_casos": 72,
+    "por_split": {
+      "dev": 36,
+      "test": 36
+    },
+    "por_tipo": {
+      "adversarial": 8,
+      "entre_abas": 8,
+      "fora_de_escopo": 8,
+      "prescricao": 12,
+      "recuperacao": 36
+    },
+    "por_tipo_por_split": {
+      "dev": {
+        "adversarial": 4,
+        "entre_abas": 4,
+        "fora_de_escopo": 4,
+        "prescricao": 6,
+        "recuperacao": 18
+      },
+      "test": {
+        "adversarial": 4,
+        "entre_abas": 4,
+        "fora_de_escopo": 4,
+        "prescricao": 6,
+        "recuperacao": 18
+      }
+    }
+  },
+  "arquivos_sha256": {
+    "caso.schema.json": "a9c484b03a9f3bcb17fb55c1fc14734c88485acc01e9489892d6c3bc8d7e6dc4",
+    "dev.json": "7f78feedb0bb548de699a5f10a195df7bedf8ae5f69ed4f0a6d4b3f88e1df928",
+    "test.json": "6ec06b7772a4204d3f9356bdc710386dcd99955b1018671a3197bbd5ecbb5882",
+    "README.md": "8bfb0293ed140c3981881cf7c8654e3b926d2ed0a7a5fea960c410d5ecf96d51",
+    "CHANGELOG.md": "2b64ee0c7bf64feb6e1b9ed70bb04f42d82eadfc6d9082e960b4a925fbd1382e"
+  },
+  "corpus": {
+    "manifest_yaml_sha256_lf": "697aa577252115ecf6e8e3ba2e76d22ca4d95d33a88140c8470a6e90d969fde0",
+    "corpus_version_saude_fisica": "bb31c6469ed029f7",
+    "metodo_hash": "SHA-256 sobre bytes UTF-8 com fim de linha normalizado (CRLF -> LF).",
+    "linhagem_relatorios": "NAO_REVALIDADA: a linhagem contra os relatorios de conversao nao foi revalidada neste trabalho; linha de base do verify_corpus.py falhou em corpus/nutricao/markdown/guia_alimentar_populacao_brasileira_2ed_2014.md.",
+    "markdowns_usados": {
+      "acsm-resistance-training-position-stand-2026": {
+        "markdown_path": "corpus/saudefisica/markdown/04-acsm-resistance-training-position-stand-2026.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "da4495c4b8ef9641b7a28c87acb51adf47cb5c4a1624fbaae397488b5c5cf0a4"
+      },
+      "bernardez-vazquez-training-variables-2022": {
+        "markdown_path": "corpus/saudefisica/markdown/27-bernardez-vazquez-training-variables-frontiers-2022.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "e69634e18e474196e63cb07253a6d0410e353a17144c036e573a5be4c855f9c5"
+      },
+      "cochrane-exercise-chronic-low-back-pain-2021": {
+        "markdown_path": "corpus/saudefisica/markdown/16-cochrane-exercise-chronic-low-back-pain-2021.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "598480ae2c4a12c401b0c8910ba3430b3c5eaec232967e9bbfc118be12971b0a"
+      },
+      "currier-resistance-training-prescription-2023": {
+        "markdown_path": "corpus/saudefisica/markdown/22-currier-resistance-training-prescription-bjsm-2023.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "d7296f5d1f61f97e1b1499ee2c44201730891fb9a5d13fc3f816e4342671b954"
+      },
+      "guia-atividade-fisica-brasil-2021": {
+        "markdown_path": "corpus/saudefisica/markdown/01-guia-atividade-fisica-brasil-2021.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "4494df545fe81972e1efab83dd00bca032d2d9bf948c72d51cdeb64492cd92e4"
+      },
+      "hhs-physical-activity-scientific-report-2018": {
+        "markdown_path": "corpus/saudefisica/markdown/12-hhs-physical-activity-scientific-report-2018.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "5a5af0b6d788dd0cdf8ccdb4ad1906b2f7fef65b1d57499c78816c1df9a4f8c6"
+      },
+      "ioc-load-sport-illness-2016": {
+        "markdown_path": "corpus/saudefisica/markdown/07-2-ioc-load-illness-2016.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "da4f24099e8956a3070698fac5b80bf60255dc38c3cf413a0dc53968f5e95769"
+      },
+      "ioc-load-sport-injury-2016": {
+        "markdown_path": "corpus/saudefisica/markdown/07-1-ioc-load-injury-2016.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "b0967ef6e9916b7fa5aa4dab259ce2098f20c5dbbbdf2f5b4b8768997597c96d"
+      },
+      "iusca-hypertrophy-position-stand-2021": {
+        "markdown_path": "corpus/saudefisica/markdown/23-iusca-hypertrophy-position-stand-2021.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "fb8e97ee5fa7b7aca78e1b998440fcad20007654b2b3e0ce872c405607888a06"
+      },
+      "jospt-ankle-ligament-sprains-cpg-2021": {
+        "markdown_path": "corpus/saudefisica/markdown/19-jospt-ankle-ligament-sprains-cpg-2021.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "5b98bdd414b12fb8f28c469040fa8d385ec702acbe2ada1793a7e476f6a62060"
+      },
+      "jospt-low-back-pain-cpg-revision-2021": {
+        "markdown_path": "corpus/saudefisica/markdown/08-jospt-low-back-pain-cpg-2021.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "f3e7c5ad12c43eb7ba657d55d8bcabf6b6e0e784e461aed0f81c33328fc62cc7"
+      },
+      "jospt-patellofemoral-pain-infographic-2019": {
+        "markdown_path": "corpus/saudefisica/markdown/18-jospt-patellofemoral-pain-infographic-2019.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "4cac7d8d260b0e724e4ac4aff33e9271b7ec9721549fe5d2379687244f9e9816"
+      },
+      "jospt-rotator-cuff-tendinopathy-cpg-2025": {
+        "markdown_path": "corpus/saudefisica/markdown/10-jospt-rotator-cuff-2025.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "0b91e24b35173f2adbc42ea212e37c3120b7a69b6f1ea1b67ff3d5379185e9f2"
+      },
+      "kassiano-exercise-variation-2022": {
+        "markdown_path": "corpus/saudefisica/markdown/24-kassiano-exercise-variation-jscr-2022.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "65a094ecb192338a6057a7259c7f9595ee8ffbb10ea4189bab8cf1b22ebfb9ef"
+      },
+      "moesgaard-periodization-2022": {
+        "markdown_path": "corpus/saudefisica/markdown/25-moesgaard-periodization-sports-med-2022.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "b24fb6313c212c073dbda136578b6cdb1a4517c6c53d4aa8c1529c3472cfed9c"
+      },
+      "nhs-physical-activity-adults-19-64": {
+        "markdown_path": "corpus/saudefisica/markdown/13-nhs-physical-activity-adults-19-64.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "807f8dd825315063e00ed20cdafdbf3344718f01e741664dc3009f76a1325eb5"
+      },
+      "nhs-warm-up-before-exercise": {
+        "markdown_path": "corpus/saudefisica/markdown/14-nhs-warm-up-before-exercise.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "5769cc02599f0aa57325235433f8a713e4e34e5fd1540cacd748eef4131ba98d"
+      },
+      "nice-low-back-pain-sciatica-ng59": {
+        "markdown_path": "corpus/saudefisica/markdown/15-nice-low-back-pain-sciatica-ng59.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "b6d9fd7139611c3344cc787a6db991241d52c8e50e0bd35d392ace16fe187dda"
+      },
+      "nice-osteoarthritis-ng226": {
+        "markdown_path": "corpus/saudefisica/markdown/17-nice-osteoarthritis-ng226.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "93848010f131b6c3742c6f9665bf4024f4ede810be5ea004d22f65e037b3735b"
+      },
+      "refalo-proximity-to-failure-2023": {
+        "markdown_path": "corpus/saudefisica/markdown/26-refalo-proximity-to-failure-sports-med-2023.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "8145aa959ce4db984e9836e3af823a5e60e66d94cd21f744ecddc3dac60e0924"
+      },
+      "robinson-proximity-to-failure-2024": {
+        "markdown_path": "corpus/saudefisica/markdown/28-robinson-proximity-to-failure-dose-response-2024.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "d85cd4fdce4113cc577b924276213aa84f3ba2086d2ca82ec17149eed73233b4"
+      },
+      "schoenfeld-grgic-range-of-motion-2020": {
+        "markdown_path": "corpus/saudefisica/markdown/29-schoenfeld-grgic-range-of-motion-2020.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "f5439bd11c327cb1d9187726ca391898ff4f42849636b0a2340f20f775a79fd4"
+      },
+      "schumann-concurrent-training-2022": {
+        "markdown_path": "corpus/saudefisica/markdown/30-schumann-concurrent-training-sports-med-2022.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "51d1f249e5fb09746eb1242f9c8f31ace3860c2120b54e5b20f70d97bff6a4da"
+      },
+      "singer-rest-interval-2024": {
+        "markdown_path": "corpus/saudefisica/markdown/31-singer-rest-interval-frontiers-2024.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "47e9c19f723c3f2876b517c5f5ab336b8c550fd179112d6386b7757c4f8e2a37"
+      },
+      "walsh-sleep-athlete-2021": {
+        "markdown_path": "corpus/saudefisica/markdown/32-walsh-sleep-athlete-consensus-bjsm-2021.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "bcbf377d9e77ae5386ed4b632ac3423bc2f89a546f121bea1363e54d2e9bbc49"
+      },
+      "who-diretrizes-atividade-fisica-sedentarismo-2020": {
+        "markdown_path": "corpus/saudefisica/markdown/02-who-physical-activity-guidelines-2020.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "1841dad55978b977276510a189b040e270dbde23cf8ba293dd420f950f5f792d"
+      },
+      "who-physical-activity-at-a-glance-2020": {
+        "markdown_path": "corpus/saudefisica/markdown/11-who-physical-activity-at-a-glance-2020.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "1c4999904f322cb8951d0d66bc6ec37c6445c400c5798330f72f707479a7f40f"
+      },
+      "who-physical-activity-factsheet-2024": {
+        "markdown_path": "corpus/saudefisica/markdown/03-who-physical-activity-factsheet-2024.md",
+        "approval_status": "aprovado",
+        "sha256_lf": "a23e00835b0b525c8aae665d3f351bbbc7fd320e123759932a17d9a5a6c09e30"
+      }
+    },
+    "markdowns_nao_catalogados_observados": [
+      "corpus/saudefisica/markdown/18-jospt-patellofemoral-pain-cpg-2019.md",
+      "corpus/saudefisica/markdown/20-who-rehabilitation-musculoskeletal-annex-2023.md",
+      "corpus/saudefisica/markdown/21-ms-guia-atividade-fisica-gestores-profissionais-2021.md"
+    ]
+  }
+}
