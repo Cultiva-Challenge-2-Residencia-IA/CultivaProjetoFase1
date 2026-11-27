@@ -62,6 +62,14 @@ _Evitar_: consulta, query
 Mensagem sem conteúdo de área (saudação, agradecimento, "o que você faz?"); recebe a apresentação fixa do chat.
 _Evitar_: fora das áreas (quando é só um cumprimento)
 
+**Pedido individual**:
+Mensagem que pede orientação para a própria pessoa (quantidade, dose, liberação de alimento, plano de treino ou de dieta). O CULTIVA responde só com informação geral, sem quantidades, e encaminha a um profissional.
+_Evitar_: pergunta restrita, prescrição (como nome da mensagem)
+
+**Lacuna**:
+Tema de uma área que as fontes aprovadas não cobrem. Recebe "não sei" e a indicação de a quem procurar, em vez de Trechos sem relação.
+_Evitar_: fora do domínio (assunto fora das áreas é Fora das áreas)
+
 **Fora das áreas**:
 Mensagem que não pertence a nenhuma área com agente; recebe o "não sei" fixo.
 _Evitar_: fora do escopo, fora do domínio (quando se refere ao Chat geral)

@@ -111,3 +111,22 @@ def test_condicao_de_saude_do_fato_do_usuario_restringe_a_liberacao(agente):
 ])
 def test_pergunta_sobre_o_alimento_com_palavras_de_primeira_pessoa_passa(pergunta):
     assert not LegalGuardrail().assess_and_reframe(pergunta).is_restricted_by_law_8234
+
+
+def test_pedido_individual_busca_com_a_pergunta_da_pessoa(agente, monkeypatch):
+    """Issue #118: o guardrail só marca o Pedido individual; a busca e a síntese recebem a pergunta da
+    pessoa, e não o modelo pronto "Quais são as evidências... sobre: <temas>"."""
+    consultas, sinteses = [], []
+    original = agente.retriever.retrieve
+    monkeypatch.setattr(agente.retriever, "retrieve", lambda q, top_k: consultas.append(q) or original(q, top_k=top_k))
+    sintese_original = agente.llm_client.generate_structured_synthesis
+    monkeypatch.setattr(agente.llm_client, "generate_structured_synthesis",
+                        lambda **k: sinteses.append(k["query"]) or sintese_original(**k))
+    pergunta = "Sou vegana, quanto de vitamina B12 eu preciso tomar por dia?"
+    r = agente.responder(pergunta, 4, [], [])
+    assert r.guardrail_triggered
+    assert consultas and all(c == pergunta for c in consultas)
+    assert "Quais são as evidências" not in " ".join(consultas)
+    assert sinteses and sinteses[0].startswith(pergunta)
+    assert "Pedido individual" in sinteses[0]  # instrução fixa para responder de forma geral
+    assert r.effective_query == pergunta

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "Q48",
+    "tipo_da_pergunta": "continuacao",
+    "mensagens_anteriores": [
+      "oq é jejum intermitente"
+    ],
+    "pergunta": "funciona msm ou é igual so comer menos?",
+    "boa_resposta": "Entende que se refere ao jejum intermitente e resume o que as fontes dizem sobre sua eficácia em comparação com outras estratégias, ou admite que não tem base; não recomenda para a pessoa.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "O jejum intermitente é apontado como uma estratégia para ajudar na perda de peso e melhorar o perfil metabólico. Em alguns estudos, ele mostrou redução no percentual de gordura corporal e em marcadores como insulina de jejum, comparado a restrição calórica contínua. Além disso, em indivíduos obesos, o jejum intermitente pode ter uma adesão melhor comparado a outras intervenções, e ainda ajuda a reduzir o estresse oxidativo. ¹ ² ⁴",
+    "trechos_citados": [
+      {
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "texto": "Nos últimos anos, dietas que propõem restrição intermitente do consumo de calorias (jejum intermitente) vêm sendo apontadas como estratégia para a perda de peso e melhora do perfil metabólico e têm ganhado popularidade e espaço tanto na mídia como entre pacientes. Jejum intermitente (JI) é o termo utilizado para planos que alternam períodos de ingestão livre com períodos (16-24h) de abstinência alimentar ou restrição severa da ingestão de calorias (consumo de 25% das necessidades energéticas normalmente em refeição única realizada em janela alimentar), ou planos que determinam janela alimentar (4-8 h/dia) na qual o consumo calórico é ad libitum , seguido de jejum no restante das horas ."
+      },
+      {
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "texto": "Em mulheres com sobrepeso ou obesidade e histórico familiar de câncer de mama, mas sem doença previa, o seguimento de JI, comparado à restrição calórica contínua, reduziu percentual de gordura corporal, insulina de jejum e HOMA. Vale ressaltar que esta diferença não se manteve no 4º mês de estudo, e tanto perda de peso como melhora dos parâmetros metabólicos foram similares entre os grupos. Com relação à adequação da ingestão de determinados nutrientes, as deficiências de fibras, zinco, magnésio e selênio foram mais aparentes no JI comparado à restrição calórica contínua ."
+      },
+      {
+        "fonte": "Effects of intermittent fasting on metabolism in men",
+        "texto": "animais têm mostrado alterac¸ões positivas no metabolismo glicídico (valores menores de glicemia e insulinemia) e lipídico (reduc¸ão no volume de gordura visceral e aumento nos valores de adiponectina plasmática), além de uma maior resistência ao estresse. Apesar dos estudos disponíveis apresentarem populac¸ões muito reduzidas, observaram-se resultados positivos com esta intervenc¸ão também na saúde humana. Os resultados indicam melhorias no perfil lipídico, reduc¸ão de respostas inflamatórias, com reduc¸ão na liberac¸ão de adipocinas inflamatórias e alterac¸ões na expressão de genes relacionados com a resposta inflamatória e de outros fatores. Em indivíduos obesos observou-se uma melhor adesão ao jejum intermitente em relac¸ão a intervenc¸ões tradicionais (restric¸ão calórica), além da reduc¸ão no estresse oxidativo desta populac¸ão. Dessa maneira, por se tratar de uma intervenc¸ão viável e acessível para a maioria dos indivíduos, novos estudos clínicos são necessários para testar a eficácia desta intervenc¸ão na prevenc¸ão e no controle de doenc¸as metabólicas e cardiovasculares."
+      }
+    ]
+  },
+  {
+    "id": "Q30",
+    "tipo_da_pergunta": "pedido_individual",
+    "mensagens_anteriores": [],
+    "pergunta": "monta um cardapio da semana pra mim? ganho pouco e almoço no bandejao da facul",
+    "boa_resposta": "Não monta cardápio individual; dá princípios gerais do guia alimentar para comer bem com pouco dinheiro e sugere nutricionista, inclusive serviços gratuitos como o SUS ou clínicas-escola.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "Você gostaria de focar em um tipo de dieta específico (ex: vegetariana, low-carb) ou apenas em otimizar o custo?",
+    "trechos_citados": []
+  }
+]

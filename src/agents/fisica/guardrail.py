@@ -3,7 +3,8 @@
 Mesmo papel do guardrail da Lei 8.234/1991 em Nutrição (`src/agent/guardrails.py`):
 
 - **Lei 9.696/1998:** prescrever e orientar o treino de uma pessoa é atribuição do profissional
-  de Educação Física. Pedido de treino individual vira pergunta populacional, com nota legal.
+  de Educação Física. Pedido de treino individual é marcado (Pedido individual): a busca usa a pergunta da pessoa e a
+  síntese recebe a instrução de responder de forma geral (issue #118), com nota legal.
 - **Sem diagnóstico:** pergunta sobre a dor ou a lesão da própria pessoa recebe evidência geral e
   a indicação de um profissional (médico ou fisioterapeuta), nunca um diagnóstico.
 
@@ -17,11 +18,11 @@ from typing import List, Tuple
 from src.models.schemas import GuardrailAssessment
 from src.retrieval.hybrid_retriever import normalize_text
 
+# Nota do Pedido individual (RN02, Lei 9.696/1998): curta, no fim da resposta e fixa por código
+# (issue #118).
 AVISO_LEI_9696 = (
-    "Nota de Conformidade Legal (Lei Federal nº 9.696/1998 - CONFEF): a prescrição e a orientação "
-    "de um programa de exercícios para uma pessoa são atribuições do profissional de Educação "
-    "Física, e a avaliação de dor ou lesão cabe a um médico ou fisioterapeuta. Abaixo estão só o que "
-    "as diretrizes e estudos indicam em nível populacional."
+    "Isto é informação educativa, não uma orientação para você. Para um plano individual, procure um(a) "
+    "profissional de Educação Física; para dor ou lesão, um médico ou fisioterapeuta."
 )
 
 PRESCRICAO_DE_TREINO: List[Tuple[str, str]] = [

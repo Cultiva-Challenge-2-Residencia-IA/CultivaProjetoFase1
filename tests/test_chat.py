@@ -168,7 +168,7 @@ def test_pedido_restrito_pela_lei_da_area_traz_a_nota_legal(tmp_path, agentes):
 
     agentes[AREA_SAUDE_FISICA] = AgenteComGuardrail(AREA_SAUDE_FISICA)
     resposta = _servico(tmp_path, agentes).enviar(AREA_SAUDE_FISICA, "u1", "c1", "Monte um treino de musculação para mim")
-    assert resposta.texto.startswith("Nota da Lei 9.696/1998.")
+    assert resposta.texto.endswith("Nota da Lei 9.696/1998.")  # nota curta no fim (issue #118)
 
 
 def test_sem_a_flag_o_trecho_hipotetico_nao_vai_para_a_busca(tmp_path, agentes):
@@ -391,3 +391,18 @@ def test_extrativa_em_portugues_ou_sem_llm_configurado_nao_muda():
     assert texto_da_resposta(_resposta_extrativa("extrativa_apos_falha_do_llm", portugues)) == portugues
     ingles = "Training volume is important for the hypertrophy of the muscle [T1]."
     assert texto_da_resposta(_resposta_extrativa("extrativa", ingles)) == ingles
+
+
+def test_nota_legal_curta_vem_no_fim_sem_citar_a_lei():
+    """Issue #118: nota curta e humana, no fim da resposta do Pedido individual, ainda fixa por código."""
+    from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE
+    from src.agents.fisica.guardrail import AVISO_LEI_9696
+    from src.chat.servico import texto_da_resposta
+    for nota, profissional in ((LAW_8234_COMPLIANCE_NOTICE, "nutricionista"),
+                               (AVISO_LEI_9696, "profissional de Educação Física")):
+        assert profissional in nota and "Lei" not in nota and len(nota) <= 200
+    resposta = _resposta_extrativa("llm_citacoes_validas", "O consumo de fibras é recomendado [T1].")
+    resposta = resposta.model_copy(update={"guardrail_triggered": True,
+                                           "legal_compliance_notice": LAW_8234_COMPLIANCE_NOTICE})
+    texto = texto_da_resposta(resposta)
+    assert texto.startswith("O consumo de fibras") and texto.endswith(LAW_8234_COMPLIANCE_NOTICE)

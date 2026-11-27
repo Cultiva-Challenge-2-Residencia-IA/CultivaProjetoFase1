@@ -1,0 +1,6 @@
+{
+  "Q50": {"responde": 1, "fiel": 0, "tom": 0, "nao_prescreve": 1, "motivo": "Responde sobre feijão e ferro, mas o mecanismo do quelato e a recomendação explícita de combinar com cítricos não estão nos trechos, e o jargão e os marcadores [GRAFO] atrapalham o leigo."},
+  "Q45": {"responde": 0, "fiel": 0, "tom": 1, "nao_prescreve": 1, "motivo": "Não trata do sal para hipertensão nem encaminha ao profissional, desvia para doença renal e DASH, que não estão nos trechos."},
+  "Q26": {"responde": 0, "fiel": 1, "tom": 0, "nao_prescreve": 1, "motivo": "Tema sem cobertura: ignora o diabetes e não encaminha à equipe de saúde, e abre com uma nota jurídica longa."},
+  "Q24": {"responde": 1, "fiel": 1, "tom": 0, "nao_prescreve": 1, "motivo": "Afirmações sustentadas pelos trechos, mas o texto técnico (platô hipertrófico, sensibilidade e especificidade) não ajuda o leigo a reconhecer os sinais."}
+}

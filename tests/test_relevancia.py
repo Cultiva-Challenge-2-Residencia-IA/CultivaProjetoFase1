@@ -228,3 +228,13 @@ def test_regras_acertam_os_casos_claros_novos(split):
     claros = [c for c in casos if c["split"] == split and c["tipo"] == "clara"]
     acertos = sum(sorted(rotear_por_regras(c["mensagem"]).areas) == sorted(c["areas_esperadas"]) for c in claros)
     assert acertos / len(claros) >= 0.90
+
+
+def test_limiar_do_filtro_e_por_area(monkeypatch):
+    """Issue #118: a escala do cross-encoder muda com o idioma das fontes; cada área tem o seu limiar."""
+    from src.agent import consultant_baseline as cb
+    monkeypatch.setattr(cb, "FILTRO_RELEVANCIA_LIMIAR_NUTRICAO", 0.11)
+    monkeypatch.setattr(cb, "FILTRO_RELEVANCIA_LIMIAR_SAUDE_FISICA", 0.22)
+    from src.agents.fisica.consultor import ConsultorSaudeFisica
+    assert cb.NutritionConsultantBaseline(enable_ollama=False, filtro_relevancia=False).filtro_limiar == 0.11
+    assert ConsultorSaudeFisica(enable_ollama=False).filtro_limiar == 0.22

@@ -1,0 +1,161 @@
+{
+  "nutricao": {
+    "casos_cobertos": 8,
+    "casos_sem_cobertura": 6,
+    "melhor": {
+      "limiar": 0.0456,
+      "nao_sei_nos_nao_cobertos": 0.167,
+      "nao_sei_indevido_nos_cobertos": 0.0
+    },
+    "cumpre": false,
+    "notas": [
+      {
+        "id": "Q48",
+        "cobertura": "coberto",
+        "maior_nota": 0.4017
+      },
+      {
+        "id": "Q47",
+        "cobertura": "nao_coberto",
+        "maior_nota": 0.1483
+      },
+      {
+        "id": "Q41",
+        "cobertura": "coberto",
+        "maior_nota": 0.1316
+      },
+      {
+        "id": "Q40",
+        "cobertura": "coberto",
+        "maior_nota": 0.6683
+      },
+      {
+        "id": "Q39",
+        "cobertura": "coberto",
+        "maior_nota": 0.4812
+      },
+      {
+        "id": "Q28",
+        "cobertura": "coberto",
+        "maior_nota": 0.207
+      },
+      {
+        "id": "Q57",
+        "cobertura": "coberto",
+        "maior_nota": 0.046
+      },
+      {
+        "id": "Q29",
+        "cobertura": "nao_coberto",
+        "maior_nota": 0.196
+      },
+      {
+        "id": "Q02",
+        "cobertura": "coberto",
+        "maior_nota": 0.2905
+      },
+      {
+        "id": "Q03",
+        "cobertura": "coberto",
+        "maior_nota": 0.2516
+      },
+      {
+        "id": "Q05",
+        "cobertura": "nao_coberto",
+        "maior_nota": 0.0616
+      },
+      {
+        "id": "Q09",
+        "cobertura": "nao_coberto",
+        "maior_nota": 0.0901
+      },
+      {
+        "id": "Q08",
+        "cobertura": "nao_coberto",
+        "maior_nota": 0.06
+      },
+      {
+        "id": "Q10",
+        "cobertura": "nao_coberto",
+        "maior_nota": 0.0456
+      }
+    ]
+  },
+  "saude_fisica": {
+    "casos_cobertos": 11,
+    "casos_sem_cobertura": 2,
+    "melhor": {
+      "limiar": 0.0878,
+      "nao_sei_nos_nao_cobertos": 1.0,
+      "nao_sei_indevido_nos_cobertos": 0.091
+    },
+    "cumpre": true,
+    "notas": [
+      {
+        "id": "Q46",
+        "cobertura": "coberto",
+        "maior_nota": 0.3548
+      },
+      {
+        "id": "Q41",
+        "cobertura": "coberto",
+        "maior_nota": 0.0934
+      },
+      {
+        "id": "Q40",
+        "cobertura": "coberto",
+        "maior_nota": 0.3288
+      },
+      {
+        "id": "Q43",
+        "cobertura": "coberto",
+        "maior_nota": 0.0727
+      },
+      {
+        "id": "Q39",
+        "cobertura": "coberto",
+        "maior_nota": 0.1932
+      },
+      {
+        "id": "Q55",
+        "cobertura": "coberto",
+        "maior_nota": 0.2342
+      },
+      {
+        "id": "Q32",
+        "cobertura": "coberto",
+        "maior_nota": 0.1531
+      },
+      {
+        "id": "Q35",
+        "cobertura": "nao_coberto",
+        "maior_nota": 0.0763
+      },
+      {
+        "id": "Q21",
+        "cobertura": "coberto",
+        "maior_nota": 0.1
+      },
+      {
+        "id": "Q23",
+        "cobertura": "coberto",
+        "maior_nota": 0.1536
+      },
+      {
+        "id": "Q22",
+        "cobertura": "coberto",
+        "maior_nota": 0.2186
+      },
+      {
+        "id": "Q16",
+        "cobertura": "coberto",
+        "maior_nota": 0.1219
+      },
+      {
+        "id": "Q18",
+        "cobertura": "nao_coberto",
+        "maior_nota": 0.0878
+      }
+    ]
+  }
+}

@@ -30,6 +30,7 @@ O Trecho é uma linha de `corpus/nutricao/rag/*.jsonl`, descrita por [`corpus/sc
 | `texto` | conversão | Conteúdo, dentro de uma única página. |
 | `licenca` | manifesto (`license`) | Metadado. **Não entra no gate.** |
 | `approval_status` | manifesto | `pendente` ou `aprovado`. O gate só deixa passar `aprovado`. |
+| `area` | manifesto (`area`; sem o campo, `nutricao`) | `nutricao` ou `saude_fisica`. Vai para o cabeçalho contextual ("Domínio:"). Adendo de 26/11/2026. |
 
 Os valores de `source_type` são `diretriz`, `norma`, `metanalise`, `revisao` e `estudo`, definidos no esquema e descritos no fim do `manifest.yaml`. O `prepare_rag.py` falha se uma fonte não tiver um tipo válido.
 
@@ -116,5 +117,15 @@ A avaliação deve checar fatos do fluxo, não interpretar o texto gerado (decis
 
 - Calibrar a tabela de evidência e o bônus do reranker (#13).
 - Definir o limiar de relevância do "não sei" (#6).
-- Campo de aba nos Trechos quando entrarem os agentes de Saúde Física e Estudos.
+- ~~Campo de aba nos Trechos quando entrarem os agentes de Saúde Física e Estudos.~~ Resolvido pelo campo `area` (adendo de 26/11/2026); Estudos entra no enum quando tiver corpus.
 - Versionar o esquema quando ele mudar (hoje a versão é a do `$id` e do título).
+
+## Adendo de 26/11/2026: campo `area` no Trecho (issue #120)
+
+O cabeçalho contextual de todo Trecho dizia "Domínio: nutricao", porque o domínio era uma constante em `src/rag/contrato.py`, inclusive nos Trechos de Saúde Física (desde a issue #99). Esse cabeçalho entra nos embeddings, no BM25 e no reranker cross-encoder.
+
+**Decisão:** o Trecho ganha o campo obrigatório `area` (`nutricao` ou `saude_fisica`), copiado pelo `prepare_rag.py` do campo `area` da fonte no manifesto (sem ele, `nutricao`) e conferido pelo `verify_trechos.py` como os demais campos do manifesto. `trecho_para_chunk` usa esse campo como `clinical_domain`.
+
+**Alternativas:** inferir a área da pasta `rag/` no carregamento (sem mudar o JSONL, mas com a área implícita no caminho) ou consultar o manifesto no carregamento (o carregador passaria a depender do manifesto). Ficou o metadado gravado na ingestão, que é o padrão de mercado e deixa o contrato explícito.
+
+**Consequências:** todos os JSONL foram regenerados. Os Trechos de Nutrição mantêm o mesmo texto contextualizado, então os vetores deles não mudam; os de Saúde Física mudam e são recalculados. O padrão do `id` passou a aceitar 3 dígitos no número do Trecho, porque uma seção HTML da diretriz JOSPT de dor lombar tem mais de 99 Trechos (os testes do contrato não validavam os Trechos de Saúde Física até este adendo).

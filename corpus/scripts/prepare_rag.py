@@ -136,6 +136,11 @@ def split_sections(markdown: str) -> list[tuple[int, str]]:
     return [(numero, texto) for numero, texto in enumerate((t for t in textos if t.strip()), 1)]
 
 
+def area_da_fonte(source: dict) -> str:
+    """Área do assunto da fonte no manifesto (`area`); sem o campo, Nutrição (issue #120)."""
+    return source.get("area", "nutricao")
+
+
 def rag_dir(source: dict) -> Path:
     """Pasta `rag/` da área da fonte, irmã da pasta `markdown/` dela."""
     return repo_path(source["markdown_path"]).parent.parent / "rag"
@@ -393,6 +398,7 @@ def prepare(source: dict) -> tuple[dict, dict]:
                 "texto": text,
                 "licenca": source["license"],
                 "approval_status": source["approval_status"],
+                "area": area_da_fonte(source),
             })
 
     output = rag_dir(source) / f"{markdown_path.stem}.jsonl"
@@ -457,6 +463,7 @@ def prepare_resumos(sources: list[dict]) -> tuple[dict[str, dict], dict]:
                 "texto": text,
                 "licenca": source["license"],
                 "approval_status": source["approval_status"],
+                "area": area_da_fonte(source),
             })
     output = repo_path(destinos.pop())
     output.parent.mkdir(parents=True, exist_ok=True)

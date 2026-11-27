@@ -1,0 +1,242 @@
+{
+  "Q01": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados ovo/ovos + colesterol, colesterol alimentar/dietético, gema: só menções soltas a ovos em padrões alimentares; diretriz de dislipidemias está pendente."
+  },
+  "Q02": {
+    "cobertura": "coberto",
+    "evidencia": "Guia alimentar para a população brasileira: \"Alimentos ultraprocessados são formulações industriais...\"; \"O chamado macarrão 'instantâneo' é um típico alimento ultraprocessado\"."
+  },
+  "Q03": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): define adoçantes nutritivos e não nutritivos, tabela com IDA de sucralose, stevia etc. e estudos de efeitos no peso e glicemia."
+  },
+  "Q04": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados kombucha, chá fermentado, probiótico: a única fonte sobre kombucha (Fraiz et al. 2025) está pendente; nenhum Trecho aprovado trata do tema."
+  },
+  "Q05": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados fruta + noite/horário/engorda, frutose: nenhum Trecho aprovado trata de comer fruta à noite."
+  },
+  "Q06": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): \"diferentes tipos de proteína de soro de leite, ou whey protein, como o concentrado (80% proteína), isolado (100% proteína), hidrolisado\"."
+  },
+  "Q07": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados integral + rótulo/ingredientes, farinha integral, pão: há orientação geral de ler lista de ingredientes (Guia), mas nada sobre identificar pão integral; rotulagem ANVISA está pendente."
+  },
+  "Q08": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados gestante/gravidez/gestação + peixe cru/sushi/listeria/mercúrio: nenhum Trecho aprovado."
+  },
+  "Q09": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados idosos/older adults/sarcopenia/envelhecimento + proteína/protein intake/g/kg: nenhum Trecho aprovado sobre necessidade proteica de idosos."
+  },
+  "Q10": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados ashwagandha, withania, adaptógeno: nenhum resultado."
+  },
+  "Q11": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): \"Vários trabalhos reportam efeitos adversos da ingestão excessiva de cafeína... taquicardia, irritabilidade\"; consumo médio de cafeína em adultos."
+  },
+  "Q12": {
+    "cobertura": "coberto",
+    "evidencia": "Guia alimentar para a população brasileira: \"Leite e iogurtes naturais são ricos em proteínas... cálcio... Versões desnatadas ou semidesnatadas podem ser mais adequadas para os adultos\"."
+  },
+  "Q13": {
+    "cobertura": "coberto",
+    "evidencia": "2018 Physical Activity Guidelines Advisory Committee Scientific Report: \"Limited evidence does suggest that various combinations of warm up, muscle-strengthening, conditioning, and stretching are associated with lower rates of musculoskeletal injuries\"."
+  },
+  "Q14": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados DOMS, delayed onset muscle soreness, dor muscular tardia: só menções em listas de tópicos, sem Trecho que trate do significado da dor pós-treino."
+  },
+  "Q15": {
+    "cobertura": "coberto",
+    "evidencia": "WHO Guidelines on Physical Activity at a Glance: \"Adults should do at least 150–300 minutes of moderate-intensity aerobic physical activity; or at least 75–150 minutes of vigorous\"."
+  },
+  "Q16": {
+    "cobertura": "coberto",
+    "evidencia": "Physical activity guidelines for adults aged 19 to 64 (NHS): exemplos de atividade moderada incluem \"doubles tennis\"; vigorosa inclui \"sports, like football...\"; esportes de lazer contam como atividade física."
+  },
+  "Q17": {
+    "cobertura": "coberto",
+    "evidencia": "JOSPT Lateral Ankle Ligament Sprains CPG 2021: \"Clinicians should use repeated intermittent applications of ice to reduce pain... following an acute ankle sprain\"."
+  },
+  "Q18": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados crossfit, high-intensity functional training, coluna/spine + injury: nenhum Trecho aprovado sobre CrossFit; só segurança geral de musculação."
+  },
+  "Q19": {
+    "cobertura": "coberto",
+    "evidencia": "Sleep and the athlete (Walsh 2021): sleep restriction pode reduzir \"submaximal strength and anaerobic power\"; sono ligado à recuperação e a over-reaching."
+  },
+  "Q20": {
+    "cobertura": "coberto",
+    "evidencia": "Physical activity guidelines for adults aged 19 to 64 (NHS): exemplos de atividade vigorosa incluem \"walking up the stairs\"; \"running up stairs\" em atividades muito vigorosas."
+  },
+  "Q21": {
+    "cobertura": "coberto",
+    "evidencia": "JOSPT Low Back Pain CPG 2021: \"use active treatments (ie, yoga, stretching, Pilates, and strength training)\"; RCT com exercício em hérnia de disco lombar."
+  },
+  "Q22": {
+    "cobertura": "coberto",
+    "evidencia": "ACSM Resistance Training Position Stand 2026: \"Resistance training is safe for healthy adults of all ages... particularly older adults, avoid RT due to misperceptions\"."
+  },
+  "Q23": {
+    "cobertura": "coberto",
+    "evidencia": "WHO at a Glance: 150–300 min moderada ou 75–150 min vigorosa, \"or an equivalent combination\"; Physical activity guidelines for adults aged 19 to 64 (NHS): 75 min vigorosa dá benefícios semelhantes a 150 min moderada."
+  },
+  "Q24": {
+    "cobertura": "coberto",
+    "evidencia": "Sleep and the athlete (Walsh 2021): \"Overtraining is defined as a long-term decrement in performance capacity with or without related physiological and psychological signs\"."
+  },
+  "Q25": {
+    "cobertura": "coberto",
+    "evidencia": "Modificações dietéticas, reposição hídrica, suplementos alimentares (SBME 2009): \"Para indivíduos sedentários, recomenda-se a ingestão de 0,8g de proteína por kg/dia. Já indivíduos ativos... 1,2 a 1,4g/kg/dia\"."
+  },
+  "Q26": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados tapioca/mandioca + diabetes/DM2/índice glicêmico: nenhum Trecho aprovado sobre alimentação no diabetes; diretriz SBD está pendente."
+  },
+  "Q27": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): \"dietas de muito baixa caloria (VLCDs)... que requerem perda de peso rápida, não são recomendadas rotineiramente no tratamento da obesidade\"."
+  },
+  "Q28": {
+    "cobertura": "coberto",
+    "evidencia": "Modificações dietéticas, reposição hídrica, suplementos alimentares (SBME 2009): creatina eficaz em exercício de alta intensidade; \"recomenda-se que a utilização da creatina... seja analisada individualmente, caso a caso\" (sem dose)."
+  },
+  "Q29": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados amamentação/lactação/lactante/nutriz + whey/suplemento: só menções soltas (B12 em lactantes); nada sobre suplementos proteicos na amamentação."
+  },
+  "Q30": {
+    "cobertura": "coberto",
+    "evidencia": "Guia alimentar para a população brasileira: \"o custo total de uma alimentação baseada em alimentos in natura ou minimamente processados ainda é menor\"; dicas de compra e estrutura das refeições."
+  },
+  "Q31": {
+    "cobertura": "coberto",
+    "evidencia": "Physical activity guidelines for adults aged 19 to 64 (NHS): fortalecimento \"at home or in a gym\", incluindo \"exercises that use your own body weight, such as push-ups and sit-ups\", 2 dias por semana."
+  },
+  "Q32": {
+    "cobertura": "coberto",
+    "evidencia": "JOSPT Patellofemoral Pain Infographic 2019: \"Hip and knee exercises are the best thing for people with kneecap pain\"; ajustar a rotina de treino ajuda."
+  },
+  "Q33": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): promessas de \"perda de peso rápida... cápsulas termogênicas, fitoterápicos, suplementos sem comprovação\"; How much is too much? (Part 1) IOC consensus: aumentos rápidos de carga elevam risco de lesão."
+  },
+  "Q34": {
+    "cobertura": "coberto",
+    "evidencia": "2018 Physical Activity Guidelines Advisory Committee Scientific Report: treino resistido (inclusive isométrico) reduziu pressão arterial em adultos com hipertensão; atividade física reduz progressão da pressão."
+  },
+  "Q35": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados menisco/meniscus, ACL, return to sport/play, cirurgia de joelho: só retorno ao esporte em tendinopatia do manguito; nada sobre menisco."
+  },
+  "Q36": {
+    "cobertura": "coberto",
+    "evidencia": "How much is too much? (Part 1) IOC consensus: \"not high absolute loads... but rather excessive and rapid increases in the load\"; razão carga aguda:crônica para progressão de volume (km)."
+  },
+  "Q37": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados jejum/fasted/fasting + exercício/treino/oxidação de gordura: nenhum Trecho aprovado sobre treinar em jejum."
+  },
+  "Q38": {
+    "cobertura": "coberto",
+    "evidencia": "Modificações dietéticas, reposição hídrica, suplementos alimentares (SBME 2009): \"a refeição que antecede os treinos deve ser... pobre em gorduras e fibras... rica em carboidratos... de consistência leve ou líquida\"."
+  },
+  "Q39": {
+    "cobertura": "coberto",
+    "evidencia": "Modificações dietéticas, reposição hídrica, suplementos alimentares (SBME 2009): \"Ingestão proteica, após o exercício físico de hipertrofia, favorece o aumento de massa muscular... 10g de proteínas e 20g de carboidratos\"."
+  },
+  "Q40": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): tratamento engloba \"prática regular de atividade física e seguimento de padrão alimentar saudável, que promova déficit calórico\"; HHS sobre atividade física e perda de peso."
+  },
+  "Q41": {
+    "cobertura": "coberto",
+    "evidencia": "Modificações dietéticas, reposição hídrica, suplementos alimentares (SBME 2009): \"A água é uma boa opção de reidratação\"; acima de uma hora, repor \"carboidrato na quantidade de 30 a 60g·h e sódio\"."
+  },
+  "Q42": {
+    "cobertura": "coberto",
+    "evidencia": "Modificações dietéticas, reposição hídrica, suplementos alimentares (SBME 2009): \"O aumento da massa muscular ocorre como consequência do treinamento, assim como a demanda proteica, não sendo o inverso verdadeiro\"; proteína para hipertrofia."
+  },
+  "Q43": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): efeitos adversos da cafeína \"especialmente por meio do consumo de bebidas energéticas... taquicardia, irritabilidade\"; energéticos podem aumentar a pressão arterial."
+  },
+  "Q44": {
+    "cobertura": "coberto",
+    "evidencia": "Guia alimentar de dietas vegetarianas para adultos: dietas vegetarianas bem planejadas \"podem ser adotadas em todos os ciclos da vida, inclusive por atletas\"; proteína e feijões como substitutos da carne."
+  },
+  "Q45": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): dieta DASH, \"estratégia terapêutica não medicamentosa para a redução da pressão arterial\", com \"restrição do consumo de sódio\" em hipertensos."
+  },
+  "Q46": {
+    "cobertura": "coberto",
+    "evidencia": "2018 Physical Activity Guidelines Advisory Committee Scientific Report: \"Bouts, or episodes, of moderate-to-vigorous physical activity of any duration may be included in the daily accumulated total volume\"."
+  },
+  "Q47": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados creatina/creatine + mulher/women/retenção/inchaço/rim: Trechos aprovados tratam só de desempenho e uso caso a caso; nada sobre mulheres ou retenção hídrica."
+  },
+  "Q48": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): \"o JI apresenta resultados de perda de peso semelhantes a planos alimentares com restrição calórica diária, em razão de também promover déficit calórico\"."
+  },
+  "Q49": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados estalo/click/crepitus/popping/snapping/noise + ombro/supino: nenhum Trecho aprovado sobre estalos articulares sem dor."
+  },
+  "Q50": {
+    "cobertura": "coberto",
+    "evidencia": "Guia alimentar de dietas vegetarianas para adultos: \"os feijões são os melhores substitutos da carne\"; dobro de ferro por caloria; vitamina C aumenta a absorção de ferro não-heme."
+  },
+  "Q51": {
+    "cobertura": "nao_se_aplica",
+    "evidencia": "Mensagem vaga: não indica dúvida específica sobre alimentação."
+  },
+  "Q52": {
+    "cobertura": "nao_se_aplica",
+    "evidencia": "Fora das áreas de alimentação e exercício (ansiedade e foco nos estudos)."
+  },
+  "Q53": {
+    "cobertura": "nao_se_aplica",
+    "evidencia": "Fora das áreas de alimentação e exercício (horário de estudo)."
+  },
+  "Q54": {
+    "cobertura": "nao_se_aplica",
+    "evidencia": "Mensagem vaga: não indica tema específico de alimentação ou exercício."
+  },
+  "Q55": {
+    "cobertura": "coberto",
+    "evidencia": "IUSCA Hypertrophy Position Stand 2021 e ACSM Resistance Training 2026: recomendações de volume, carga, frequência e proximidade da falha para hipertrofia."
+  },
+  "Q56": {
+    "cobertura": "nao_coberto",
+    "evidencia": "Buscados chocolate/cacau/fissura/craving + diabetes: só relato sobre fissura por comida em obesos (França 2012); nada sobre doces no diabetes; diretriz SBD pendente."
+  },
+  "Q57": {
+    "cobertura": "coberto",
+    "evidencia": "Monteiro et al. NOVA (2010): classifica \"chocolates, confectionery (candies)\" como produtos ultraprocessados; Guia alimentar para a população brasileira orienta evitar ultraprocessados."
+  },
+  "Q58": {
+    "cobertura": "coberto",
+    "evidencia": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade (ABESO 2022): \"aconselhamento nutricional baseado no consumo de alimentos e bebidas de baixa densidade energética associado ao déficit calórico da dieta\"."
+  },
+  "Q59": {
+    "cobertura": "coberto",
+    "evidencia": "Physical activity guidelines for adults aged 19 to 64 (NHS): fortalecer \"all the major muscle groups (legs, hips...)\" 2 dias por semana; ACSM e IUSCA com prescrição de treino resistido (agachamento, leg press)."
+  },
+  "Q60": {
+    "cobertura": "coberto",
+    "evidencia": "Physical activity guidelines for adults aged 19 to 64 (NHS): fortalecer \"all the major muscle groups (legs, hips...)\" 2 dias por semana; ACSM e IUSCA com prescrição de treino resistido (agachamento, leg press)."
+  }
+}

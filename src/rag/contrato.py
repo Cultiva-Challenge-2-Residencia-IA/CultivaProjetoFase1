@@ -20,8 +20,6 @@ NIVEL_DE_EVIDENCIA = {
     "estudo": "GRADE_C",
 }
 
-DOMINIO_CLINICO = "nutricao"
-
 
 @runtime_checkable
 class Retriever(Protocol):
@@ -54,7 +52,7 @@ def trecho_para_chunk(trecho: Mapping[str, Any]) -> DocumentChunk:
         title=trecho["titulo_fonte"],
         source_organization=organizacao,
         publication_year=trecho["ano"],
-        clinical_domain=DOMINIO_CLINICO,
+        clinical_domain=trecho["area"],
         evidence_level=nivel,
         section_path=section_path,
     )
@@ -64,7 +62,7 @@ def trecho_para_chunk(trecho: Mapping[str, Any]) -> DocumentChunk:
         title=trecho["titulo_fonte"],
         source_organization=organizacao,
         publication_year=trecho["ano"],
-        clinical_domain=DOMINIO_CLINICO,
+        clinical_domain=trecho["area"],
         evidence_level=nivel,
         section_path=section_path,
         raw_text=trecho["texto"],

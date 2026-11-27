@@ -71,6 +71,10 @@ class RerankerCruzado:
         self._cache: "OrderedDict[Tuple[str, str], float]" = OrderedDict()
         self._trava = threading.Lock()
 
+    def carregar(self) -> None:
+        """Carrega o modelo agora (issue #121: na criação do serviço, e não na primeira pergunta)."""
+        _modelo(self.modelo)
+
     def _pontuar_modelo(self, consulta: str, textos: Sequence[str]) -> List[float]:
         brutos = _modelo(self.modelo).rerank(consulta, list(textos), batch_size=self.lote)
         return [_sigmoide(float(b)) for b in brutos]

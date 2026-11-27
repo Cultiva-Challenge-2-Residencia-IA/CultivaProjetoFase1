@@ -9,7 +9,8 @@ from src.agent.llm_client import LocalLLMClient
 from src.agent.llm_client import SYSTEM_PROMPT_CONSULTANT, SYSTEM_PROMPT_SEM_CONTEXTO
 from src.agent.traceability import corpus_version_do_indice, new_response_id, passages_fingerprint
 from src.config import (
-    FILTRO_RELEVANCIA_LIMIAR,
+    FILTRO_RELEVANCIA_LIMIAR_NUTRICAO,
+    FILTRO_RELEVANCIA_LIMIAR_SAUDE_FISICA,
     FILTRO_RELEVANCIA_NUTRICAO,
     FILTRO_RELEVANCIA_SAUDE_FISICA,
     PRESCRICAO_LLM,
@@ -95,7 +96,8 @@ class NutritionConsultantBaseline:
         # calculada uma vez aqui, e não a cada pergunta.
         self.corpus_version = corpus_version_do_indice(self.chunks)
         # Relevância da busca (issue #105): reranker cross-encoder ligado por área e filtro antes da
-        # síntese, com os padrões de src/config.py. O modelo só é carregado na primeira pergunta.
+        # síntese, com os padrões de src/config.py. O modelo é carregado na criação do serviço de chat
+        # (`pre_carregar_rerankers`, issue #121) ou, fora dele, na primeira pergunta.
         if reranker_na_busca is None:
             reranker_na_busca = RERANKER_SAUDE_FISICA if self.area == "saude_fisica" else RERANKER_NUTRICAO
         if filtro_relevancia is None:
@@ -109,7 +111,9 @@ class NutritionConsultantBaseline:
             candidatos_reranker=RERANKER_CANDIDATOS,
         )
         self.filtro_reranker = reranker if filtro_relevancia else None
-        self.filtro_limiar = FILTRO_RELEVANCIA_LIMIAR
+        self.reranker_cruzado = reranker
+        self.filtro_limiar = (FILTRO_RELEVANCIA_LIMIAR_SAUDE_FISICA if self.area == "saude_fisica"
+                              else FILTRO_RELEVANCIA_LIMIAR_NUTRICAO)
         # Reformulação da busca sem Trecho relevante: só com o Ollama local (ADR 0004).
         self.reformulacao_llm = None
         if filtro_relevancia and enable_ollama and REFORMULACAO_LLM:
