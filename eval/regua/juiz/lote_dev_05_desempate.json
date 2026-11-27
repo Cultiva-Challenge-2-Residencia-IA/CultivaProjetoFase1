@@ -1,0 +1,55 @@
+[
+  {
+    "id": "Q41",
+    "tipo_da_pergunta": "duas_areas",
+    "mensagens_anteriores": [],
+    "pergunta": "isotonico ou agua numa corrida de 10k?",
+    "boa_resposta": "Explica de forma geral hidratação no exercício conforme as fontes, ou diz que não tem base específica; não define quantidade para a pessoa.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "**Nutrição**\nPara atividades de menor duração e de elevada intensidade, como futebol, basquetebol, tênis e handebol, a água pode apresentar desvantagens por não conter sódio e carboidratos. A água pode favorecer a desidratação voluntária e dificultar o processo de equilíbrio hidroeletrolítico em certas situações. ¹\n\nProtocolos clínicos de 1,5g a 2,0g/dia de fitoesteróis promovem redução média de 8% a 12% no LDL-c [GRAFO]. A contraindicação/cautela para o consumo de fitoesteróis é a sitosterolemia familiar (condição genética rara) [GRAFO].\n\n**Saúde Física**\nAs fontes aprovadas do CULTIVA não tratam dessa pergunta: os trechos que a busca encontrou são sobre outros assuntos, e eu não vou responder com eles.\n\nNessas fontes, posso falar sobre quanto de atividade física cada idade precisa, treino de força, sedentarismo, aquecimento, carga de treino e risco de lesão ou de doença em atletas, e exercício na dor lombar e na ciática, na tendinopatia do ombro, na entorse de tornozelo, na dor patelofemoral e na artrose. Se a sua dúvida tiver relação com algum desses temas, pergunte de novo com mais detalhes.\n\nPara uma orientação para o seu caso, procure um profissional de Educação Física ou um fisioterapeuta.",
+    "trechos_citados": [
+      {
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "texto": "A água é uma boa opção de reidratação para o exercício por ser facilmente disponível, barata e ocasionar esvaziamento gástrico relativamente rápido. Entretanto, para as intermitentes, de mais de uma hora de duração, ou para as atividades de menor duração e de elevada intensidade como o futebol, basquetebol, tênis e handebol, poderá apresentar as desvantagens de não conter sódio e carboidratos e de ser insípida, favorecendo a desidratação voluntária e dificultando o processo de equilíbrio hidroeletrolítico. A desidratação voluntária é verificada quando se compara a hidratação com água com a hidratação com bebidas contendo sabor."
+      }
+    ]
+  },
+  {
+    "id": "Q32",
+    "tipo_da_pergunta": "pedido_individual",
+    "mensagens_anteriores": [],
+    "pergunta": "to com dor no joelho qnd agacho faz 2 semanas, posso continuar treinando perna?",
+    "boa_resposta": "Não diagnostica nem libera o treino; orienta que dor persistente deve ser avaliada por médico ou fisioterapeuta antes de continuar.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "As informações disponíveis focam em adultos com dor lombar crônica que dura mais de 12 semanas. Os estudos analisados acompanharam os participantes em diferentes períodos, como curto, médio e longo prazo. ¹ ²",
+    "trechos_citados": [
+      {
+        "fonte": "Exercícios para o tratamento da dor lombar crônica",
+        "texto": "Incluímos ensaios clínicos randomizados que compararam o tratamento com exercícios versus nenhum tratamento, cuidados habituais, placebo ou outro tratamento conservador na dor ou limitação funcional em adultos com dor lombar crônica não específica de mais de 12 semanas de duração."
+      },
+      {
+        "fonte": "Exercícios para o tratamento da dor lombar crônica",
+        "texto": "A maioria dos estudos avaliou a dor (223 estudos) e a incapacidade (223 estudos). Apenas 12 estudos relataram dados que poderíamos usar sobre os efeitos adversos dos tratamentos. Os estudos acompanharam os participantes a curto prazo (6 a 12 semanas; 184 estudos); a médio prazo (13 a 47 semanas; 121 estudos) e a longo prazo (48 semanas ou mais, 69 estudos).\n\nIdentificamos 172 estudos mais recentes que acrescentaremos à próxima versão de nossa revisão.\n\nResultados principais"
+      }
+    ]
+  },
+  {
+    "id": "Q08",
+    "tipo_da_pergunta": "tema_nutricao",
+    "mensagens_anteriores": [],
+    "pergunta": "gravida pode comer sushi? to de 4 meses e to com mt vontade",
+    "boa_resposta": "Se houver fonte, explica os cuidados gerais com peixe cru na gestação; senão diz que não tem informação confiável; em ambos os casos orienta a conversar com o obstetra ou nutricionista do pré-natal.",
+    "corpus_cobre_o_tema": "nao_coberto",
+    "resposta": "Não consegui montar a resposta em português agora, e os trechos encontrados estão em inglês. Tente de novo em instantes. As fontes que tratam da sua pergunta estão listadas abaixo. ¹ ²\n\nIsto é informação educativa, não uma orientação para você. Para um plano individual, procure um(a) nutricionista.",
+    "trechos_citados": [
+      {
+        "fonte": "Depressão, ansiedade e estresse e o comportamento alimentar",
+        "texto": "Desenvolvida por Arnow, Kenardy e Agras (1995), esta escala é composta por 25 itens que avaliam o quanto o ato de comer é motivado por emoções negativas. Os participantes são orientados a responder uma escala tipo likert de quatro pontos ( 0 =Nenhuma vontade de comer a 4= irresistível vontade de comer), selecionando a melhor opção quanto a vontade que sentem de comer sob a influência das emoções listadas. A escala é dividida em três subescalas: raiva, ansiedade e depressão. As subescalas deste instrumento se correlacionam fortemente com as medidas de compulsão alimentar, demonstrando evidências de validade de construto (Arnow, Kenardy & Agras, 1995), o que permite a aplicação da versão em português que foi a utilizada neste estudo, apesar desta última estar em processo de adaptação por LucenaSantos, Oliveira."
+      },
+      {
+        "fonte": "Uma nova classificação de alimentos baseada na extensão e propósito do seu processamento",
+        "texto": "The industrial processing of group 3 is designed to create durable, accessible, convenient, attractive ready-to-eat or ready-to-heat products. Most of them are often termed “fast” foods or convenience foods. They are formulated to reduce microbial deterioration (“long shelf life”), to be transportable for long distances, and to be extremely palatable (“high organoleptic quality”) and often to be habit-forming. Typically they are designed to be consumed anywhere – in fast-food establishments, at home in place of prepared dishes and meals, while watching television, at desks or elsewhere at work, in the street, and while driving. Their processing is usually undertaken by food manufacturers, or else by caterers (such as burger outlets) or food retailers (such as bakeries), for sale to consumers."
+      }
+    ]
+  }
+]
