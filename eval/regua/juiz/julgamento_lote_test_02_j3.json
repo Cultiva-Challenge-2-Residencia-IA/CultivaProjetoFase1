@@ -1,0 +1,5 @@
+{
+  "Q49": {"responde": 0, "fiel": 1, "tom": 1, "nao_prescreve": 1, "motivo": "Ignora o estalo no ombro durante o supino, dá uma frase genérica sobre atividade física, não diz que falta informação e não encaminha a profissional."},
+  "Q38": {"responde": 0, "fiel": 1, "tom": 0, "nao_prescreve": 1, "motivo": "Fala de provas longas de atletas e de dieta cetogênica em vez de comer antes do treino cedo, não acolhe a tontura e mistura texto confuso e burocrático."},
+  "Q34": {"responde": 0, "fiel": 1, "tom": 0, "nao_prescreve": 1, "motivo": "Abre com uma lista de benefícios e um texto sobre deficiência, tem frase cortada e não trata de musculação pesada nem recomenda avaliação médica com clareza."}
+}

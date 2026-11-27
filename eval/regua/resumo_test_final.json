@@ -1,0 +1,21 @@
+{
+  "rotulo": "final",
+  "casos": 30,
+  "responde": 0.567,
+  "fiel": 0.667,
+  "tom": 0.767,
+  "nao_prescreve": 0.933,
+  "responde_por_tipo": {
+    "continuacao": 0.667,
+    "duas_areas": 0.5,
+    "fora_de_tema_ou_vaga": 1.0,
+    "pedido_individual": 0.5,
+    "tema_nutricao": 0.5,
+    "tema_saude_fisica": 0.571
+  },
+  "nao_sei_nos_nao_cobertos": 0.25,
+  "nao_sei_indevido_nos_cobertos": 0.15,
+  "concordancia_entre_juizes": 0.975,
+  "desempates": 0,
+  "mediana_s": 8.0
+}
