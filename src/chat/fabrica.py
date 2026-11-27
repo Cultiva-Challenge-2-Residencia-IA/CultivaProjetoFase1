@@ -1,6 +1,6 @@
 """Monta o serviço de chat com os Agentes de área reais (issue #99)."""
 
-import sys
+import logging
 import time
 from typing import Iterable, Optional
 
@@ -11,6 +11,8 @@ from src.chat.historico import HistoricoSQLite
 from src.chat.servico import ServicoDeChat
 from src.config import HISTORICO_DB_PATH, INCLUDE_PENDING_SOURCES, OLLAMA_NUM_PREDICT, REESCRITA_LLM
 from src.orquestrador.roteamento import AREA_NUTRICAO, AREA_SAUDE_FISICA
+
+logger = logging.getLogger(__name__)
 
 
 def pre_carregar_rerankers(agentes: Iterable) -> None:
@@ -24,7 +26,7 @@ def pre_carregar_rerankers(agentes: Iterable) -> None:
         vistos.add(id(reranker))
         inicio = time.perf_counter()
         reranker.carregar()
-        print(f"Reranker {reranker.modelo} pronto em {time.perf_counter() - inicio:.1f} s.", file=sys.stderr, flush=True)
+        logger.info("Reranker %s pronto em %.1f s.", reranker.modelo, time.perf_counter() - inicio)
 
 
 def criar_servico(enable_ollama: bool = True, incluir_pendentes: bool = INCLUDE_PENDING_SOURCES,

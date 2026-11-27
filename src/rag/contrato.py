@@ -21,7 +21,6 @@ NIVEL_DE_EVIDENCIA = {
 }
 
 
-
 @runtime_checkable
 class Retriever(Protocol):
     """Interface do retriever: consulta em, Trechos ordenados por relevância fora.

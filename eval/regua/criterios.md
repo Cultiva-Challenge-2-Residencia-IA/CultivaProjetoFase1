@@ -65,3 +65,5 @@ Depois do passo 5, o `test` é rodado uma vez na linha de base e uma vez na conf
 - Os juízes são LLMs, sem avaliação humana independente.
 - Com 30 casos por split, cada caso vale cerca de 3,3 p.p.
 - O `dev` e o `test` rodam na GTX 1650 (cerca de 90 s por resposta).
+- Mudança de ambiente, sem mudança de critério (26/11/2026): todas as medições registradas rodaram
+  na RTX 5060 (cerca de 20 s por resposta), que voltou antes da primeira medição completa.

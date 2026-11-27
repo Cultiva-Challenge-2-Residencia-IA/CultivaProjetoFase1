@@ -26,7 +26,7 @@ from pathlib import Path
 import sys
 import tempfile
 import time
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 from src.chat.historico import HistoricoSQLite
 from src.config import PROJECT_ROOT
@@ -110,13 +110,16 @@ def exportar(split: str, rotulo: str) -> int:
     return 0
 
 
-def _julgamentos(split: str, rotulo: str) -> Dict[str, Dict[str, Any]]:
+def _julgamentos(split: str, rotulo: str) -> Tuple[Dict[str, Dict[str, Any]], List[str], Dict[str, Any], Dict[str, Any]]:
+    """(julgamento final por caso, casos com divergência sem desempate, juiz 1, juiz 2)."""
     j1 = _ler(f"julgamento_{split}_{rotulo}_j1.json")
     j2 = _ler(f"julgamento_{split}_{rotulo}_j2.json")
     caminho_j3 = PASTA / f"julgamento_{split}_{rotulo}_j3.json"
     j3 = json.loads(caminho_j3.read_text(encoding="utf-8")) if caminho_j3.exists() else {}
     final, divergentes = {}, []
     for caso_id, a in j1.items():
+        if caso_id not in j2:
+            raise SystemExit(f"O juiz 2 não julgou o caso {caso_id}; julgue de novo o lote inteiro.")
         b = j2[caso_id]
         final[caso_id] = {}
         for criterio in CRITERIOS:
@@ -186,7 +189,7 @@ def calibrar(split: str, rotulo: str) -> int:
         for area, consulta in reg["consulta_da_busca"].items():
             recuperados = agentes[area].retriever.retrieve(consulta, top_k=TOP_K_FINAL)
             pontos = reranker.pontuar(consulta, [r.chunk.contextualized_text for r in recuperados])
-            notas[area].append({"id": reg["id"], "cobertura": cobertura, "maior_nota": round(max(pontos, default=0.0), 4)})
+            notas[area].append({"id": reg["id"], "cobertura": cobertura, "maior_nota": max(pontos, default=0.0)})
     resultado_por_area = {}
     for area, itens in notas.items():
         cobertos = [i["maior_nota"] for i in itens if i["cobertura"] == "coberto"]
@@ -196,7 +199,8 @@ def calibrar(split: str, rotulo: str) -> int:
             indevido = sum(n < limiar for n in cobertos) / len(cobertos) if cobertos else 0.0
             acerto = sum(n < limiar for n in sem) / len(sem) if sem else 0.0
             if indevido <= 0.10 and (melhor is None or acerto > melhor["nao_sei_nos_nao_cobertos"]):
-                melhor = {"limiar": round(limiar, 4), "nao_sei_nos_nao_cobertos": round(acerto, 3),
+                # Sem arredondar: o limiar gravado precisa ficar acima da nota real que ele separa.
+                melhor = {"limiar": limiar, "nao_sei_nos_nao_cobertos": round(acerto, 3),
                           "nao_sei_indevido_nos_cobertos": round(indevido, 3)}
         resultado_por_area[area] = {"casos_cobertos": len(cobertos), "casos_sem_cobertura": len(sem),
                                     "melhor": melhor, "cumpre": bool(melhor and melhor["nao_sei_nos_nao_cobertos"] >= 0.70),
