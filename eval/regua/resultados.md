@@ -36,6 +36,9 @@ quem tem diabetes) e relações que os Trechos não fazem (pão integral); o gra
 a diferença parece ser variação do gemma entre execuções. O filtro deu um "não sei" indevido numa
 pergunta coberta ("o que comer antes de treinar de manhã?") e acertou 2 de 8 lacunas.
 
+**Decisão sobre a issue (26/11/2026):** a #118 é fechada com este PR por decisão do mantenedor,
+mesmo sem cumprir os critérios 1 a 4 no `test`. O trabalho restante está em "O que falta" abaixo.
+
 **Decisão sobre o filtro de Saúde Física (26/11/2026):** fica ligado por padrão, por decisão do
 mantenedor, registrando que não cumpriu o critério 4 no `test` (15% contra 10%).
 
@@ -51,7 +54,7 @@ mantenedor, registrando que não cumpriu o critério 4 no `test` (15% contra 10%
   1 de 6), e o filtro segue desligado.
 - **Nota curta:** o tom do `test` subiu de 60% para 76,7%.
 
-## O que falta para a #118
+## O que falta (depois da #118)
 
 - **Lacunas em Nutrição:** os temas sem cobertura (sushi na gestação, ashwagandha, proteína para
   idosos) continuam recebendo Trechos sem relação. O cross-encoder não resolve; a alternativa é o LLM
