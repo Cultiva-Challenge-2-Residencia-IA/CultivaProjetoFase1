@@ -1,0 +1,21 @@
+{
+  "rotulo": "filtro",
+  "casos": 30,
+  "responde": 0.6,
+  "fiel": 0.867,
+  "tom": 0.7,
+  "nao_prescreve": 0.967,
+  "responde_por_tipo": {
+    "continuacao": 0.667,
+    "duas_areas": 0.75,
+    "fora_de_tema_ou_vaga": 1.0,
+    "pedido_individual": 0.375,
+    "tema_nutricao": 0.333,
+    "tema_saude_fisica": 0.833
+  },
+  "nao_sei_nos_nao_cobertos": 0.25,
+  "nao_sei_indevido_nos_cobertos": 0.1,
+  "concordancia_entre_juizes": 0.983,
+  "desempates": 0,
+  "mediana_s": 7.2
+}

@@ -11,6 +11,8 @@ from src.config import (
     PROJECT_ROOT,
     EMBEDDING_CACHE_PATH,
     EMBEDDING_LOTE_MODELO,
+    EMBEDDINGS_GPU,
+    EMBEDDINGS_GPU_ID,
     EMBEDDING_MODEL_NAME,
     EMBEDDING_NORMALIZAR_TEXTO,
     HNSW_EF_CONSTRUCTION,
@@ -108,6 +110,20 @@ def impressao_digital(chunks: List[DocumentChunk], modelo: str,
     return h.hexdigest()
 
 
+def provedores_onnx() -> List[Any]:
+    """Provedores do onnxruntime para os modelos do fastembed (embeddings e reranker): CPU, a não ser
+    com `CULTIVA_EMBEDDINGS_GPU`. Explícito porque, com o `onnxruntime-gpu` instalado, o fastembed
+    escolhe a GPU sozinho e pode disputar a memória da placa com o Ollama."""
+    if not EMBEDDINGS_GPU:
+        return ["CPUExecutionProvider"]
+    import onnxruntime
+
+    # Carrega as bibliotecas CUDA e cuDNN instaladas pelo pip (pacotes nvidia-*).
+    if hasattr(onnxruntime, "preload_dlls"):
+        onnxruntime.preload_dlls()
+    return [("CUDAExecutionProvider", {"device_id": EMBEDDINGS_GPU_ID}), "CPUExecutionProvider"]
+
+
 def _get_fastembed_model(model_name: str) -> Any:
     """Carrega e mantém em cache de processo o modelo ONNX de embeddings densos."""
     if model_name == MODELO_DE_TESTE:
@@ -115,7 +131,7 @@ def _get_fastembed_model(model_name: str) -> Any:
     if model_name not in _FASTEMBED_MODEL_CACHE:
         from fastembed import TextEmbedding
 
-        _FASTEMBED_MODEL_CACHE[model_name] = TextEmbedding(model_name=model_name)
+        _FASTEMBED_MODEL_CACHE[model_name] = TextEmbedding(model_name=model_name, providers=provedores_onnx())
     return _FASTEMBED_MODEL_CACHE[model_name]
 
 

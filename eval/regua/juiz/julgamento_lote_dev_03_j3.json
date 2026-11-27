@@ -1,0 +1,4 @@
+{"Q39": {"responde": 1, "fiel": 0, "tom": 0, "nao_prescreve": 1, "motivo": "Toca o pós-treino mas não diz se a janela é mito; distorce o trecho (relação com hipertrofia, não com duração) e usa jargão como MPS."},
+"Q28": {"responde": 1, "fiel": 0, "tom": 0, "nao_prescreve": 1, "motivo": "A faixa de 3 a 5 g/dia não está nos trechos; marcador [GRAFO] exposto e aviso de área confuso, sem encaminhar a profissional."},
+"Q57": {"responde": 0, "fiel": 1, "tom": 1, "nao_prescreve": 1, "motivo": "Desvia para cafeína e não trata de chocolate, açúcar ou ultraprocessados; o que afirma está no trecho."},
+"Q30": {"responde": 0, "fiel": 1, "tom": 1, "nao_prescreve": 1, "motivo": "Pedido não é vago; o esclarecimento sugere que vai montar o cardápio, sem princípios gerais nem encaminhamento a nutricionista."}}

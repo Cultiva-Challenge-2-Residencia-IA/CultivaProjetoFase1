@@ -1,0 +1,238 @@
+{
+ "descricao": "Roteamento do Chat geral, casos novos (issue #105). areas_esperadas vazio = fora das áreas (ou Estudos). Escritos pelo autor do código antes de mudar o vocabulário e de medir.",
+ "casos": [
+  {
+   "id": "RN01",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Dor nas costas depois de carregar peso, o que as fontes dizem?"
+  },
+  {
+   "id": "RN02",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "nutricao"
+   ],
+   "mensagem": "Isotônico repõe os sais minerais melhor que a água?"
+  },
+  {
+   "id": "RN03",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "nutricao",
+    "saude_fisica"
+   ],
+   "mensagem": "Quanta água beber durante uma corrida de 10 km?"
+  },
+  {
+   "id": "RN04",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Treino de perna: quantas vezes por semana?"
+  },
+  {
+   "id": "RN05",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Meu joelho estala no agachamento, é normal?"
+  },
+  {
+   "id": "RN06",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "nutricao"
+   ],
+   "mensagem": "Pão integral tem mais fibra que o pão francês?"
+  },
+  {
+   "id": "RN07",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Dói o pescoço de ficar no computador; algum exercício ajuda?"
+  },
+  {
+   "id": "RN08",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "nutricao",
+    "saude_fisica"
+   ],
+   "mensagem": "Me hidratar bem melhora o rendimento na academia?"
+  },
+  {
+   "id": "RN09",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Quero começar a malhar, por onde começo?"
+  },
+  {
+   "id": "RN10",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Como fortalecer glúteo e panturrilha?"
+  },
+  {
+   "id": "RN11",
+   "split": "dev",
+   "tipo": "ambigua",
+   "areas_esperadas": [
+    "nutricao"
+   ],
+   "mensagem": "Banana antes de dormir dá azia?"
+  },
+  {
+   "id": "RN12",
+   "split": "dev",
+   "tipo": "fora",
+   "areas_esperadas": [],
+   "mensagem": "Como trocar o óleo do carro?"
+  },
+  {
+   "id": "RN13",
+   "split": "dev",
+   "tipo": "estudos",
+   "areas_esperadas": [],
+   "mensagem": "Quantas horas por dia devo estudar para concurso?"
+  },
+  {
+   "id": "RN14",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "nutricao",
+    "saude_fisica"
+   ],
+   "mensagem": "Sobrepeso piora a dor no joelho? A alimentação ajuda?"
+  },
+  {
+   "id": "RN15",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Como evitar dor na canela quando começo a correr?"
+  },
+  {
+   "id": "RN16",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "nutricao"
+   ],
+   "mensagem": "Bebida isotônica tem muito açúcar?"
+  },
+  {
+   "id": "RN17",
+   "split": "dev",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Quero fortalecer o braço sem ir à academia."
+  },
+  {
+   "id": "RN18",
+   "split": "dev",
+   "tipo": "ambigua",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Ando cansado para subir ladeira; como melhorar o fôlego?"
+  },
+  {
+   "id": "RN19",
+   "split": "test",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Estou com as costas travadas, alongar ajuda?"
+  },
+  {
+   "id": "RN20",
+   "split": "test",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "nutricao",
+    "saude_fisica"
+   ],
+   "mensagem": "Isotônico ajuda na recuperação depois do treino de futebol?"
+  },
+  {
+   "id": "RN21",
+   "split": "test",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "nutricao"
+   ],
+   "mensagem": "Como me hidratar bem num dia quente?"
+  },
+  {
+   "id": "RN22",
+   "split": "test",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Exercícios para a panturrilha ajudam quem fica muito em pé?"
+  },
+  {
+   "id": "RN23",
+   "split": "test",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Treinar perna dói no dia seguinte, é normal?"
+  },
+  {
+   "id": "RN24",
+   "split": "test",
+   "tipo": "fora",
+   "areas_esperadas": [],
+   "mensagem": "Qual é a melhor operadora de celular?"
+  },
+  {
+   "id": "RN25",
+   "split": "test",
+   "tipo": "clara",
+   "areas_esperadas": [
+    "nutricao",
+    "saude_fisica"
+   ],
+   "mensagem": "O que comer antes de treinar perna?"
+  },
+  {
+   "id": "RN26",
+   "split": "test",
+   "tipo": "ambigua",
+   "areas_esperadas": [
+    "saude_fisica"
+   ],
+   "mensagem": "Como voltar a jogar bola depois de torcer o pé?"
+  }
+ ]
+}

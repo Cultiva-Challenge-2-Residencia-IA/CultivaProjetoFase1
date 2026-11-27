@@ -1,0 +1,57 @@
+[
+  {
+    "id": "Q49",
+    "tipo_da_pergunta": "continuacao",
+    "mensagens_anteriores": [
+      "meu ombro estala quando faço supino, é normal?"
+    ],
+    "pergunta": "mas nao doi, so estala. continuo?",
+    "boa_resposta": "Entende o contexto do ombro no supino, não diagnostica nem libera, dá informação geral se houver fonte e sugere avaliação com fisioterapeuta ou médico se houver dúvida ou dor.",
+    "corpus_cobre_o_tema": "nao_coberto",
+    "resposta": "Se não houver contraindicações, diferentes tipos de atividade física podem ser feitos tranquilamente, e o ideal é escolher atividades que te deem satisfação e segurança. ⁴",
+    "trechos_citados": [
+      {
+        "fonte": "Guia de Atividade Física para a População Brasileira",
+        "texto": "Se você ainda não alcança as recomendações de quantidade de tempo para a prática de atividade física, não desista e aumente aos poucos a quantidade e a intensidade. Tenha em mente que fazer qualquer atividade física, no tempo e no lugar em que for possível, é melhor que não fazer nada.\n\nÉ importante lembrar que, no começo da prática rotineira de atividade física, é normal você sentir um pouco de dor muscular após a prática.\n\nIncorpore a atividade física no seu dia a dia! Você lembra que falamos disso no Capítulo 1 - Entendendo a Atividade Física ? Você pode inclusive fazer vários tipos de atividades físicas na sua própria casa.\n\nDiferentes tipos de atividade física podem ser feitos tranquilamente, caso você não tenha contraindicações. Escolha as atividades que lhe proporcionem satisfação e segurança."
+      }
+    ]
+  },
+  {
+    "id": "Q38",
+    "tipo_da_pergunta": "duas_areas",
+    "mensagens_anteriores": [],
+    "pergunta": "oq comer antes de treinar de manha cedo? se eu como passo mal e se nao como fico tonta",
+    "boa_resposta": "Dá orientações gerais sobre alimentação antes do exercício com base nas fontes, sem montar refeição individual, e sugere nutricionista e avaliação médica pela tontura.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "**Nutrição**\nPara evitar hipoglicemia em provas longas, os atletas devem consumir carboidratos em uma faixa específica por hora de exercício. A dieta cetogênica pode causar hipoglicemia, além de outros efeitos indesejáveis. ³ ²\n\nIsto é informação educativa, não uma orientação para você. Para um plano individual, procure um(a) nutricionista.\n\n**Saúde Física**\nAs fontes aprovadas do CULTIVA não tratam dessa pergunta: os trechos que a busca encontrou são sobre outros assuntos, e eu não vou responder com eles.\n\nNessas fontes, posso falar sobre quanto de atividade física cada idade precisa, treino de força, sedentarismo, aquecimento, carga de treino e risco de lesão ou de doença em atletas, e exercício na dor lombar e na ciática, na tendinopatia do ombro, na entorse de tornozelo, na dor patelofemoral e na artrose. Se a sua dúvida tiver relação com algum desses temas, pergunte de novo com mais detalhes.\n\nPara uma orientação para o seu caso, procure um profissional de Educação Física ou um fisioterapeuta.",
+    "trechos_citados": [
+      {
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "texto": "Trabalho de revisão sistemática e metanálise que avaliou estudos com treino de resistência associado à dieta cetogênica também mostrou efeitos negativos sobre a massa magra, mesmo com período treino de resistência adicional . Assim, a perda de massa corporal induzida pela dieta cetogênica pode resultar em redução de massa magra muscular, reiterando ausência de vantagem do seguimento dessa dieta em comparação a outras, com quantidades superiores de carboidratos .\n\nÉ importante enfatizar que os efeitos indesejáveis da dieta cetogênica incluem: baixo consumo de fibras e grãos integrais, desidratação, hipoglicemia, letargia, halitose, náuseas, vômitos, alopecia, entre outros . Além disso, a dieta cetogênica promove aumento das LDL-c, podendo elevar o risco cardiovascular em longo prazo . Outro efeito colateral importante do"
+      },
+      {
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "texto": "A quantidade de glicogênio consumida depende, naturalmente, da duração do exercício. Para provas longas, os atletas devem consumir entre 7 e 8g/kg de peso ou 30 a 60g de carboidrato, para cada hora de exercício, o que evita hipoglicemia, depleção de glicogênio e fadiga. Frequentemente, os carboidratos consumidos fazem parte da composição de bebidas especialmente desenvolvidas para atletas. Após o exercício exaustivo, recomenda-se a ingestão de carboidratos simples entre 0,7 e 1,5g/kg peso no período de quatro horas, o que é suficiente para a ressíntese plena de glicogênio muscular."
+      }
+    ]
+  },
+  {
+    "id": "Q34",
+    "tipo_da_pergunta": "pedido_individual",
+    "mensagens_anteriores": [],
+    "pergunta": "tenho 58 anos e pressao alta, posso fazer musculacao pesada?",
+    "boa_resposta": "Não libera; traz o que as fontes dizem de forma geral sobre exercício e hipertensão, se houver, e recomenda avaliação médica antes de iniciar treino intenso.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "- Ajuda na inclusão social, e na criação e fortalecimento de laços sociais, vínculos e solidariedade;\n\n- Auxilia no seu controle do peso adequado e na diminuição do risco de obesidade;\n\n- Melhora sua imunidade;\n\n- Melhora sua atenção, sua memória e seu raciocínio, assim como reduz o risco de declínio cognitivo;\n\n- Melhora seu humor, e reduz a sensação de estresse e os sintomas de ansiedade e de depressão;\n\n- Melhora a circulação sanguínea e diminui o risco de doenças do coração, diabetes (alto nível de açúcar no sangue), pressão alta e colesterol alto.\n\nVocê pode realizar atividade física independentemente da sua deficiência. Apesar de algumas dificuldades vivenciadas, é preciso encontrar formas de praticar atividade física, seja em atividades individualizadas, que consideram as especificidades de cada pessoa, ou em atividades em grupo, que proporcionam a socialização e interação. tiver alguma lesão ou sentir algum desconforto anormal, procure um profissional de saúde ou a Unidade Básica de Saúde mais próxima de você. ¹\n\nQuando você estiver sentado ou deitado, levante-se devagar. Isso vai lhe ajudar a prevenir tonturas, desequilíbrios e quedas. ²\n\nCaso você use óculos, muleta ou aparelho auditivo, não se esqueça de utilizá-los durante a atividade física.\n\nSe você tem pressão alta, diabetes (alto nível de açúcar no sangue), asma ou está acima do peso, comece com períodos curtos de atividade física de intensidade leve a moderada. ²\n\nVocê deve aumentar a intensidade e a duração progressivamente. Respeite seus limites. Se você tem pressão alta e faz uso de medicamentos, mantenha o tratamento e procure medir sua pressão antes de atividades de intensidade vigorosa. Desse modo, a prática de atividade física pode ajudar a controlar sua pressão e auxiliar na redução do uso de medicamentos. ²",
+    "trechos_citados": [
+      {
+        "fonte": "Guia de Atividade Física para a População Brasileira",
+        "texto": "- Ajuda na inclusão social, e na criação e fortalecimento de laços sociais, vínculos e solidariedade;\n\n- Auxilia no seu controle do peso adequado e na diminuição do risco de obesidade;\n\n- Melhora sua imunidade;\n\n- Melhora sua atenção, sua memória e seu raciocínio, assim como reduz o risco de declínio cognitivo;\n\n- Melhora seu humor, e reduz a sensação de estresse e os sintomas de ansiedade e de depressão;\n\n- Melhora a circulação sanguínea e diminui o risco de doenças do coração, diabetes (alto nível de açúcar no sangue), pressão alta e colesterol alto.\n\nVocê pode realizar atividade física independentemente da sua deficiência. Apesar de algumas dificuldades vivenciadas, é preciso encontrar formas de praticar atividade física, seja em atividades individualizadas, que consideram as especificidades de cada pessoa, ou em atividades em grupo, que proporcionam a socialização e interação."
+      },
+      {
+        "fonte": "Guia de Atividade Física para a População Brasileira",
+        "texto": "tiver alguma lesão ou sentir algum desconforto anormal, procure um profissional de saúde ou a Unidade Básica de Saúde mais próxima de você.\n\nQuando você estiver sentado ou deitado, levante-se devagar. Isso vai lhe ajudar a prevenir tonturas, desequilíbrios e quedas.\n\nCaso você use óculos, muleta ou aparelho auditivo, não se esqueça de utilizá-los durante a atividade física.\n\nSe você tem pressão alta, diabetes (alto nível de açúcar no sangue), asma ou está acima do peso, comece com períodos curtos de atividade física de intensidade leve a moderada. Você deve aumentar a intensidade e a duração progressivamente. Respeite seus limites.\n\nSe você tem pressão alta e faz uso de medicamentos, mantenha o tratamento e procure medir sua pressão antes de atividades de intensidade vigorosa. Desse modo, a prática de atividade física pode ajudar a controlar sua pressão e auxiliar na redução do uso de medicamentos."
+      }
+    ]
+  }
+]

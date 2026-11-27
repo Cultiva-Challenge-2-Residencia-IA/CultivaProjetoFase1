@@ -1,0 +1,208 @@
+{
+  "source_id": "kassiano-exercise-variation-2022",
+  "source_sha256": "61ac17b233e5cff7aa875fd504541bb58f1e6014e46055c29a9d8f5926236b96",
+  "pdf_pages": 10,
+  "conversion_status": "concluida_com_ressalvas",
+  "script_sha256": "24bf426a3bd7927fc21ad34252418d0d1b024ec5bc46da082ab4a3960caca55c",
+  "config_sha256": null,
+  "versions": {
+    "PyMuPDF": "2.1",
+    "pymupdf4llm": "2.1",
+    "PyYAML": "6.0.3",
+    "Pillow": "13.0.0",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.4.6"
+  },
+  "method": "PyMuPDF Layout local; texto nativo, OCR pontual e ajustes explícitos; imagens consultadas no PDF",
+  "sparse_threshold_characters": 150,
+  "ocr_model": null,
+  "limitations": [
+    "Cobertura lexical não prova fidelidade, ordem, semântica ou ausência de erros.",
+    "Hierarquia de títulos, capitalização, colunas e composição gráfica são aproximadas.",
+    "Fotos e diagramas permanecem no PDF original, acessível pelos links de página; nenhum PNG é exportado.",
+    "A detecção de pouco texto é heurística; documentos mistos também exigem inspeção visual.",
+    "Conversão e conferência amostral não aprovam a fonte nem substituem revisão integral."
+  ],
+  "pages": [
+    {
+      "pdf_page": 1,
+      "native_characters": 5449,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99875,
+      "missing_native_tokens": {
+        "cyrino1": 1
+      },
+      "markdown_characters": 5540
+    },
+    {
+      "pdf_page": 2,
+      "native_characters": 6502,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 6528
+    },
+    {
+      "pdf_page": 3,
+      "native_characters": 4396,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99875,
+      "missing_native_tokens": {
+        "criteria": 1
+      },
+      "markdown_characters": 4496
+    },
+    {
+      "pdf_page": 4,
+      "native_characters": 4070,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.87585,
+      "missing_native_tokens": {
+        "0": 16,
+        "1": 5,
+        "2": 2,
+        "21": 1,
+        "22": 2,
+        "36": 1,
+        "47": 1,
+        "48": 1,
+        "5": 31,
+        "es": 25,
+        "freeweight": 1,
+        "latpulldown": 1,
+        "n": 4
+      },
+      "markdown_characters": 4508
+    },
+    {
+      "pdf_page": 5,
+      "native_characters": 3945,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [
+        "Cobertura lexical inferior a 98%: conferir perdas, palavras partidas ou texto não visível na camada nativa."
+      ],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.87448,
+      "missing_native_tokens": {
+        "0": 19,
+        "1": 4,
+        "17": 1,
+        "23": 1,
+        "26": 1,
+        "30": 1,
+        "49": 1,
+        "5": 30,
+        "57": 1,
+        "74": 1,
+        "es": 26,
+        "n": 4,
+        "pulldown": 1
+      },
+      "markdown_characters": 4359
+    },
+    {
+      "pdf_page": 6,
+      "native_characters": 6920,
+      "method": "native",
+      "tables_detected": 1,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99261,
+      "missing_native_tokens": {
+        "0": 1,
+        "1": 2,
+        "5": 3,
+        "es": 2
+      },
+      "markdown_characters": 6965
+    },
+    {
+      "pdf_page": 7,
+      "native_characters": 7844,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 7797
+    },
+    {
+      "pdf_page": 8,
+      "native_characters": 7829,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 7781
+    },
+    {
+      "pdf_page": 9,
+      "native_characters": 8320,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 0.99924,
+      "missing_native_tokens": {
+        "horizontal": 1
+      },
+      "markdown_characters": 8358
+    },
+    {
+      "pdf_page": 10,
+      "native_characters": 3550,
+      "method": "native",
+      "tables_detected": 0,
+      "warnings": [],
+      "adjustments": [],
+      "ocr": [],
+      "native_word_coverage": 1.0,
+      "missing_native_tokens": {},
+      "markdown_characters": 3558
+    }
+  ],
+  "markdown_sha256": "65a094ecb192338a6057a7259c7f9595ee8ffbb10ea4189bab8cf1b22ebfb9ef",
+  "summary": {
+    "pages_converted": 10,
+    "sparse_pages": [],
+    "ocr_pages": [],
+    "pages_with_tables_detected": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "pages_with_warnings": [
+      4,
+      5
+    ],
+    "pages_with_adjustments": []
+  }
+}

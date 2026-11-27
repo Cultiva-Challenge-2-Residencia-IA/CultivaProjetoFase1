@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Cultiva-Challenge-2-Residencia-IA/CultivaProjetoFase1/eval/golden/saude_fisica/caso.schema.json",
+  "title": "Golden set de Saúde Física do CULTIVA",
+  "description": "Adaptação do schema do golden v2 para o Agente de Saúde Física (Fase 2), com campos ricos de avaliação, localizador flexível (página PDF ou seção) e suporte ao tipo entre_abas.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["versao", "split", "casos"],
+  "properties": {
+    "versao": {
+      "type": "integer",
+      "const": 1
+    },
+    "split": {
+      "enum": ["dev", "test"]
+    },
+    "casos": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/caso"
+      }
+    }
+  },
+  "$defs": {
+    "localizador": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pagina_pdf", "secao"],
+      "properties": {
+        "pagina_pdf": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        },
+        "secao": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "evidencia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "approval_status",
+        "localizador",
+        "trecho_literal",
+        "trecho_id"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approval_status": {
+          "enum": ["aprovado", "pendente", "nao_catalogada"]
+        },
+        "localizador": {
+          "$ref": "#/$defs/localizador"
+        },
+        "trecho_literal": {
+          "type": "string",
+          "minLength": 10
+        },
+        "trecho_id": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "caso": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "tipo",
+        "split",
+        "tema",
+        "dificuldade",
+        "pergunta",
+        "comportamento_esperado",
+        "tipo_resposta_esperada",
+        "recuperacao",
+        "geracao",
+        "roteamento_esperado",
+        "deve_encaminhar_profissional",
+        "aciona_portao_risco_esperado",
+        "resposta_referencia",
+        "status_revisao",
+        "justificativa_rotulo",
+        "notas_limitacao",
+        "versao_caso",
+        "nota",
+        "autoria"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^fis-(dev|test)-[0-9]{4}$"
+        },
+        "tipo": {
+          "enum": [
+            "recuperacao",
+            "prescricao",
+            "adversarial",
+            "fora_de_escopo",
+            "entre_abas"
+          ]
+        },
+        "split": {
+          "enum": ["dev", "test"]
+        },
+        "tema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dificuldade": {
+          "enum": ["basica", "intermediaria", "alta"]
+        },
+        "pergunta": {
+          "type": "string",
+          "minLength": 5
+        },
+        "comportamento_esperado": {
+          "enum": [
+            "responder",
+            "redirecionar_prescricao",
+            "recusar_adversarial",
+            "nao_sei",
+            "rotear_entre_abas"
+          ]
+        },
+        "tipo_resposta_esperada": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recuperacao": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["evidencias", "notas_fonte"],
+          "properties": {
+            "evidencias": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/evidencia"
+              }
+            },
+            "notas_fonte": {
+              "type": ["string", "null"]
+            }
+          }
+        },
+        "geracao": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["pontos_obrigatorios", "pontos_proibidos"],
+          "properties": {
+            "pontos_obrigatorios": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "pontos_proibidos": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "roteamento_esperado": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["areas", "estudos"],
+          "properties": {
+            "areas": {
+              "type": "array",
+              "items": {
+                "enum": ["nutricao", "saude_fisica"]
+              }
+            },
+            "estudos": {
+              "type": "boolean"
+            }
+          }
+        },
+        "deve_encaminhar_profissional": {
+          "type": "boolean"
+        },
+        "aciona_portao_risco_esperado": {
+          "type": "boolean"
+        },
+        "resposta_referencia": {
+          "type": "string",
+          "minLength": 10
+        },
+        "status_revisao": {
+          "enum": ["rascunho", "revisado"]
+        },
+        "justificativa_rotulo": {
+          "type": "string",
+          "minLength": 5
+        },
+        "notas_limitacao": {
+          "type": ["string", "null"]
+        },
+        "versao_caso": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "nota": {
+          "type": ["string", "null"]
+        },
+        "autoria": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["autor", "revisao", "revisor"],
+          "properties": {
+            "autor": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revisao": {
+              "enum": ["pendente", "revisado"]
+            },
+            "revisor": {
+              "type": ["string", "null"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "R09",
+    "pergunta": "Refrigerante zero é melhor que o normal?",
+    "A": "As diretrizes orientam que as pessoas devem evitar o consumo de bebidas adoçadas, incluindo refrigerantes. Um estudo observou uma elevada proporção de indivíduos com consumo inadequado de refrigerante e doce. ⁴ ³\n\nAs diretrizes recomendam que se evite o consumo de bebidas adoçadas, como refrigerante, suco de caixinha, suco em pó e refrescos. ⁴",
+    "B": "As diretrizes orientam que as pessoas devem evitar o consumo de bebidas adoçadas, o que inclui refrigerantes. Além disso, as diretrizes recomendam evitar bebidas adoçadas, como refrigerantes, suco de caixinha, suco em pó e refrescos. ⁴"
+  },
+  {
+    "id": "R10",
+    "pergunta": "Musculação ajuda quem tem dor nas costas?",
+    "A": "A atividade física ajuda a diminuir a intensidade das dores nas costas. O exercício pode reduzir a dor e a incapacidade quando comparado com tratamentos usuais para dor lombar de longa duração. É importante saber que a dor lombar crônica é aquela que dura três meses ou mais e não tem uma causa específica. ¹ ³ ²",
+    "B": "O exercício provavelmente reduz a dor em comparação com nenhum tratamento, cuidados habituais ou placebo em pessoas com dor lombar (crônica) de longa duração. O exercício pode reduzir a dor e a incapacidade em comparação com tratamentos usuais, como eletroterapia ou educação, em pessoas com dor lombar de longa duração. A atividade física ajuda a diminuir a intensidade das dores nas costas. ³ ¹\n\nA dor lombar crônica é definida como a dor que dura três meses ou mais, que pode sumir, mas que retorna mais de duas vezes em um ano, e não tem uma causa específica, como uma lesão ou tumor. Exemplos de tratamentos usuais para dor lombar crônica incluem a manipulação da coluna vertebral ou a terapia psicológica. Há muitas pesquisas nesta área, mas precisamos de estudos maiores e melhores projetados para que possamos alcançar conclusões sólidas. ² ³"
+  },
+  {
+    "id": "R13",
+    "pergunta": "Comer à noite engorda?",
+    "A": "A curta duração do tempo de sono tem sido correlacionada com o aumento do índice da massa corporal (IMC) em diferentes populações. As orientações básicas para a alimentação incluem comer com regularidade e com atenção, o que pode influenciar o controle mais eficiente do quanto se come. ³ ⁴\n\nOs benefícios da adoção de orientações como comer com atenção incluem melhor digestão dos alimentos e controle mais eficiente do quanto comemos. ⁴",
+    "B": "As orientações básicas sugerem comer com regularidade e atenção, o que ajuda a controlar melhor a quantidade que se come. Comer com atenção pode trazer benefícios como melhor digestão e um controle mais eficiente do que você come. ⁴"
+  },
+  {
+    "id": "R14",
+    "pergunta": "Caminhada conta como atividade física?",
+    "A": "Sim, uma caminhada é vista como uma atividade física positiva para ajudar você a ser ativo no dia a dia. Além disso, momentos em família podem ser uma chance de se exercitar, como passear de bicicleta ou na natureza. Muitas secretarias de saúde e esporte oferecem espaços como pistas de caminhada para a prática de atividade física. ² ³",
+    "B": "Uma caminhada é considerada uma atividade física bem-vinda para ser ativo no dia. ²\n\nOs momentos da família reunida podem ser uma oportunidade para fazer atividade física, como praticar esportes, passear com o animal de estimação, passear de bicicleta e fazer atividades na natureza. Secretarias municipais/estaduais de saúde, esporte, lazer, turismo, cultura, assistência social e meio ambiente, geralmente, oferecem oportunidades, com quadras, pista de caminhada e outros espaços para a prática de atividade física. ² ³"
+  }
+]

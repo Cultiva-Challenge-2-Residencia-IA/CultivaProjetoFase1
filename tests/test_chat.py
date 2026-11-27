@@ -23,7 +23,7 @@ class AgenteFalso:
         self.chamadas: List[dict] = []
 
     def responder(self, pergunta: str, top_k: int, consultas_extras: List[str],
-                  historico: List[Mensagem]) -> ConsultantResponse:
+                  historico: List[Mensagem], fatos=()) -> ConsultantResponse:
         self.chamadas.append({"pergunta": pergunta, "extras": consultas_extras, "historico": historico})
         return ConsultantResponse(
             response_id=f"r-{self.area}-{len(self.chamadas)}", original_query=pergunta, effective_query=pergunta,
@@ -161,14 +161,14 @@ def test_apagar_usuario_remove_todas_as_conversas(tmp_path, agentes):
 
 def test_pedido_restrito_pela_lei_da_area_traz_a_nota_legal(tmp_path, agentes):
     class AgenteComGuardrail(AgenteFalso):
-        def responder(self, pergunta, top_k, consultas_extras, historico):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
             resposta = super().responder(pergunta, top_k, consultas_extras, historico)
             return resposta.model_copy(update={"guardrail_triggered": True,
                                                "legal_compliance_notice": "Nota da Lei 9.696/1998."})
 
     agentes[AREA_SAUDE_FISICA] = AgenteComGuardrail(AREA_SAUDE_FISICA)
     resposta = _servico(tmp_path, agentes).enviar(AREA_SAUDE_FISICA, "u1", "c1", "Monte um treino de musculação para mim")
-    assert resposta.texto.startswith("Nota da Lei 9.696/1998.")
+    assert resposta.texto.endswith("Nota da Lei 9.696/1998.")  # nota curta no fim (issue #118)
 
 
 def test_sem_a_flag_o_trecho_hipotetico_nao_vai_para_a_busca(tmp_path, agentes):
@@ -191,7 +191,7 @@ def _com_trechos(agente: AgenteFalso, prefixo: str) -> AgenteFalso:
 
     original = agente.responder
 
-    def responder(pergunta, top_k, extras, historico):
+    def responder(pergunta, top_k, extras, historico, fatos=()):
         resposta = original(pergunta, top_k, extras, historico)
         chunk = DocumentChunk(chunk_id=f"{prefixo}-p001-01", doc_id=prefixo, title=f"Fonte {prefixo}",
                               source_organization="Org", publication_year=2020, clinical_domain="x",
@@ -238,7 +238,7 @@ def test_pergunta_das_duas_areas_fica_no_historico_dos_dois_agentes(tmp_path, ag
 
 def test_campos_repetidos_da_sintese_nao_aparecem_duas_vezes(tmp_path, agentes):
     class AgenteRepetido(AgenteFalso):
-        def responder(self, pergunta, top_k, extras, historico):
+        def responder(self, pergunta, top_k, extras, historico, fatos=()):
             r = super().responder(pergunta, top_k, extras, historico)
             frase = "Ovos no café da manhã aumentam a saciedade [T1]."
             return r.model_copy(update={"evidence_summary": frase,
@@ -282,6 +282,50 @@ def test_sinal_de_alerta_guarda_so_os_sinais_no_historico(tmp_path, agentes):
     assert "[sinal de alerta: dor_no_peito]" in guardadas
 
 
+def test_frase_repetida_com_e_sem_marcador_aparece_uma_vez(tmp_path, agentes):
+    class AgenteExtrativo(AgenteFalso):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
+            r = super().responder(pergunta, top_k, consultas_extras, historico, fatos)
+            return r.model_copy(update={
+                "evidence_summary": "Fibra ajuda o intestino [T1]. É importante também saber que órgãos do [T1].",
+                "physiological_mechanism": "Fibra ajuda o intestino. É importante também saber que órgãos do [T1]",
+                "protocol_findings": ""})
+
+    agentes[AREA_NUTRICAO] = AgenteExtrativo(AREA_NUTRICAO)
+    resposta = _servico(tmp_path, agentes).enviar(AREA_NUTRICAO, "u1", "c1", "Quais alimentos têm fibra?")
+    assert resposta.texto_com_marcadores.count("Fibra ajuda o intestino") == 1
+    assert resposta.texto_com_marcadores.count("órgãos do") == 1
+
+
+def test_frase_repetida_dentro_do_mesmo_item_aparece_uma_vez(tmp_path, agentes):
+    class AgenteQueRepete(AgenteFalso):
+        def responder(self, pergunta, top_k, consultas_extras, historico, fatos=()):
+            r = super().responder(pergunta, top_k, consultas_extras, historico, fatos)
+            frase = "Os mecanismos biológicos que regulam nosso apetite são complexos"
+            return r.model_copy(update={"evidence_summary": f"Comer devagar ajuda [T1]. ({frase}. {frase}.) [T1]",
+                                        "physiological_mechanism": "", "protocol_findings": ""})
+
+    agentes[AREA_NUTRICAO] = AgenteQueRepete(AREA_NUTRICAO)
+    resposta = _servico(tmp_path, agentes).enviar(AREA_NUTRICAO, "u1", "c1", "Posso comer chocolate?")
+    assert resposta.texto_com_marcadores.count("Os mecanismos biológicos") == 1
+
+
+def test_trecho_hipotetico_vai_so_a_busca_de_saude_fisica(tmp_path, agentes):
+    """Issue #105: com o HyDE de Saúde Física ligado (desligado por padrão), ele entra na busca do Agente de Saúde Física e não na de Nutrição."""
+    def llm(sistema: str, usuario: str) -> Optional[dict]:
+        if "prepara buscas" not in sistema:
+            return None
+        return {"pergunta_completa": "O que comer antes do treino de perna?", "subperguntas": [
+            {"area": "nutricao", "pergunta": "O que comer antes do treino?", "trecho_hipotetico": "Carboidratos antes."},
+            {"area": "saude_fisica", "pergunta": "Treino de perna", "trecho_hipotetico": "Lower body training."}]}
+
+    servico = _servico(tmp_path, agentes, llm=llm)
+    servico.hyde_na_busca, servico.hyde_na_busca_saude_fisica = False, True
+    servico.enviar(CHAT_GERAL, "u1", "c1", "O que comer antes de treinar perna?")
+    assert "Lower body training." in agentes[AREA_SAUDE_FISICA].chamadas[-1]["extras"]
+    assert "Carboidratos antes." not in agentes[AREA_NUTRICAO].chamadas[-1]["extras"]
+
+
 def test_resposta_traz_o_tempo_de_cada_etapa(tmp_path, agentes):
     # Issue #107: a medição de latência lê estes tempos.
     resposta = _servico(tmp_path, agentes).enviar(CHAT_GERAL, "u1", "c1", "O que comer antes do treino de musculação?")
@@ -321,3 +365,44 @@ def test_agentes_em_paralelo_rodam_ao_mesmo_tempo_e_mantem_a_ordem(tmp_path):
     assert not barreira.broken  # com os agentes em sequência, a barreira esgotaria o tempo e quebraria
     assert resposta.areas == [AREA_NUTRICAO, AREA_SAUDE_FISICA]
     assert resposta.texto.index("Resposta de nutricao.") < resposta.texto.index("Resposta de saude_fisica.")
+
+
+def _resposta_extrativa(status: str, texto: str) -> ConsultantResponse:
+    return ConsultantResponse(
+        response_id="r", original_query="q", effective_query="q", guardrail_triggered=False,
+        intent_category="SAFE_EVIDENCE_QUERY", evidence_summary=texto, physiological_mechanism="",
+        protocol_findings="", evidence_grade="N/A", corpus_version="c", prompt_version="p", model_version="m",
+        fontes_version="f", fundamentacao_status=status)
+
+
+def test_extrativa_em_ingles_depois_de_falha_do_llm_vira_aviso_em_portugues():
+    from src.chat.servico import MENSAGEM_SEM_RESPOSTA_EM_PORTUGUES, texto_da_resposta
+    ingles = ("Significant hypertrophy can be achieved when training a muscle group once per week [T1]. "
+              "It may be advantageous to spread out the volume over more sessions [T2].")
+    texto = texto_da_resposta(_resposta_extrativa("extrativa_apos_falha_do_llm", ingles))
+    assert texto.startswith(MENSAGEM_SEM_RESPOSTA_EM_PORTUGUES[:40])
+    assert "hypertrophy" not in texto
+    assert "[T1]" in texto and "[T2]" in texto  # as fontes continuam citadas
+
+
+def test_extrativa_em_portugues_ou_sem_llm_configurado_nao_muda():
+    from src.chat.servico import texto_da_resposta
+    portugues = "O consumo de fibras é recomendado para a saúde do intestino [T1]."
+    assert texto_da_resposta(_resposta_extrativa("extrativa_apos_falha_do_llm", portugues)) == portugues
+    ingles = "Training volume is important for the hypertrophy of the muscle [T1]."
+    assert texto_da_resposta(_resposta_extrativa("extrativa", ingles)) == ingles
+
+
+def test_nota_legal_curta_vem_no_fim_sem_citar_a_lei():
+    """Issue #118: nota curta e humana, no fim da resposta do Pedido individual, ainda fixa por código."""
+    from src.agent.guardrails import LAW_8234_COMPLIANCE_NOTICE
+    from src.agents.fisica.guardrail import AVISO_LEI_9696
+    from src.chat.servico import texto_da_resposta
+    for nota, profissional in ((LAW_8234_COMPLIANCE_NOTICE, "nutricionista"),
+                               (AVISO_LEI_9696, "profissional de Educação Física")):
+        assert profissional in nota and "Lei" not in nota and len(nota) <= 200
+    resposta = _resposta_extrativa("llm_citacoes_validas", "O consumo de fibras é recomendado [T1].")
+    resposta = resposta.model_copy(update={"guardrail_triggered": True,
+                                           "legal_compliance_notice": LAW_8234_COMPLIANCE_NOTICE})
+    texto = texto_da_resposta(resposta)
+    assert texto.startswith("O consumo de fibras") and texto.endswith(LAW_8234_COMPLIANCE_NOTICE)

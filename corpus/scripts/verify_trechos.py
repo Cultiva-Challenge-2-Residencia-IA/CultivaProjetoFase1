@@ -47,6 +47,7 @@ def _campos_do_manifesto(source: dict) -> dict:
         "doi": source.get("doi"),
         "licenca": source["license"],
         "approval_status": source["approval_status"],
+        "area": source.get("area", "nutricao"),
     }
 
 

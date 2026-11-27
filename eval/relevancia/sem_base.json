@@ -1,0 +1,145 @@
+{
+ "descricao": "Perguntas dentro de uma área sem base nas fontes aprovadas (issue #105): o esperado é a lacuna explícita, não Trechos sem relação. A ausência foi conferida pela busca dos termos (campo termos_procurados, em português nas fontes de Nutrição e em inglês nas de Saúde Física) no texto dos Trechos, sem rodar a busca. Escrito pelo autor do código antes de qualquer medição.",
+ "casos": [
+  {
+   "id": "SB01",
+   "split": "dev",
+   "area": "saude_fisica",
+   "pergunta": "Quanto tempo depois de doar sangue posso voltar a treinar?",
+   "termos_procurados": "blood donation"
+  },
+  {
+   "id": "SB02",
+   "split": "dev",
+   "area": "saude_fisica",
+   "pergunta": "Treinar com tatuagem recém-feita atrapalha a cicatrização?",
+   "termos_procurados": "tattoo"
+  },
+  {
+   "id": "SB03",
+   "split": "dev",
+   "area": "saude_fisica",
+   "pergunta": "Pistola de massagem ajuda na recuperação depois do treino?",
+   "termos_procurados": "massage gun, percussive"
+  },
+  {
+   "id": "SB04",
+   "split": "dev",
+   "area": "saude_fisica",
+   "pergunta": "Sauna depois do treino ajuda a eliminar toxinas?",
+   "termos_procurados": "sauna"
+  },
+  {
+   "id": "SB05",
+   "split": "dev",
+   "area": "saude_fisica",
+   "pergunta": "Correr descalço reduz as lesões?",
+   "termos_procurados": "barefoot"
+  },
+  {
+   "id": "SB06",
+   "split": "dev",
+   "area": "saude_fisica",
+   "pergunta": "Dá para treinar de ressaca sem problema?",
+   "termos_procurados": "hangover"
+  },
+  {
+   "id": "SB07",
+   "split": "dev",
+   "area": "saude_fisica",
+   "pergunta": "Tênis com placa de carbono previne lesão na corrida?",
+   "termos_procurados": "carbon plate (carbon só aparece em outro sentido)"
+  },
+  {
+   "id": "SB08",
+   "split": "dev",
+   "area": "saude_fisica",
+   "pergunta": "Máscara de restrição de ar no treino melhora o fôlego?",
+   "termos_procurados": "training mask (altitude só como ambiente)"
+  },
+  {
+   "id": "SB09",
+   "split": "test",
+   "area": "saude_fisica",
+   "pergunta": "Banho de gelo depois da corrida acelera a recuperação?",
+   "termos_procurados": "ice bath, cold water immersion"
+  },
+  {
+   "id": "SB10",
+   "split": "test",
+   "area": "saude_fisica",
+   "pergunta": "Óculos que bloqueiam luz azul melhoram o desempenho no treino?",
+   "termos_procurados": "blue light"
+  },
+  {
+   "id": "SB11",
+   "split": "test",
+   "area": "saude_fisica",
+   "pergunta": "Treinar com roupa de plástico faz suar e emagrecer mais rápido?",
+   "termos_procurados": "sauna suit, plastic"
+  },
+  {
+   "id": "SB12",
+   "split": "test",
+   "area": "saude_fisica",
+   "pergunta": "Posso fazer musculação no dia em que tomei vacina?",
+   "termos_procurados": "vaccine, vaccination"
+  },
+  {
+   "id": "SB13",
+   "split": "dev",
+   "area": "nutricao",
+   "pergunta": "Berberina ajuda a controlar a glicemia?",
+   "termos_procurados": "berberina"
+  },
+  {
+   "id": "SB14",
+   "split": "dev",
+   "area": "nutricao",
+   "pergunta": "Suplemento de beta-alanina melhora o desempenho no treino?",
+   "termos_procurados": "beta-alanina"
+  },
+  {
+   "id": "SB15",
+   "split": "dev",
+   "area": "nutricao",
+   "pergunta": "Colostro bovino em cápsula fortalece a imunidade?",
+   "termos_procurados": "colostro"
+  },
+  {
+   "id": "SB16",
+   "split": "dev",
+   "area": "nutricao",
+   "pergunta": "Carne cultivada em laboratório é segura para comer?",
+   "termos_procurados": "carne cultivada"
+  },
+  {
+   "id": "SB17",
+   "split": "dev",
+   "area": "nutricao",
+   "pergunta": "Ômega-7 em cápsula ajuda a emagrecer?",
+   "termos_procurados": "ômega-7"
+  },
+  {
+   "id": "SB18",
+   "split": "dev",
+   "area": "nutricao",
+   "pergunta": "Chá de cavalinha emagrece?",
+   "termos_procurados": "cavalinha"
+  },
+  {
+   "id": "SB19",
+   "split": "test",
+   "area": "nutricao",
+   "pergunta": "Óleo de MCT no café dá mais energia?",
+   "termos_procurados": "MCT, triglicerídeos de cadeia média"
+  },
+  {
+   "id": "SB20",
+   "split": "test",
+   "area": "nutricao",
+   "pergunta": "Suplemento de NAD+ retarda o envelhecimento?",
+   "termos_procurados": "NAD+"
+  }
+ ]
+}

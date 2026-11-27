@@ -1,0 +1,22 @@
+[
+  {
+    "id": "R09",
+    "frases_de_origem": "As diretrizes orientam que as pessoas devem evitar o consumo de bebidas adoçadas, incluindo refrigerantes [T4]. Um estudo observou uma elevada proporção de indivíduos com consumo inadequado de refrigerante e doce [T3].\n\nAs diretrizes recomendam que se evite o consumo de bebidas adoçadas, como refrigerante, suco de caixinha, suco em pó e refrescos [T4].",
+    "reescrita": "As diretrizes orientam que as pessoas devem evitar o consumo de bebidas adoçadas, o que inclui refrigerantes [T4]. Além disso, as diretrizes recomendam evitar bebidas adoçadas, como refrigerantes, suco de caixinha, suco em pó e refrescos [T4]."
+  },
+  {
+    "id": "R10",
+    "frases_de_origem": "O exercício provavelmente reduz a dor em comparação com nenhum tratamento, cuidados habituais ou placebo em pessoas com dor lombar (crônica) de longa duração [T3]. O exercício pode reduzir a dor e a incapacidade em comparação com tratamentos usuais, como eletroterapia ou educação, em pessoas com dor lombar de longa duração [T3]. A atividade física ajuda a diminuir a intensidade das dores nas costas [T1].\n\nA dor lombar crônica é definida como a dor que dura três meses ou mais, que pode sumir, mas que retorna mais de duas vezes em um ano, e não tem uma causa específica, como uma lesão ou tumor [T2]. Exemplos de tratamentos usuais para dor lombar crônica incluem a manipulação da coluna vertebral ou a terapia psicológica [T2]. Há muitas pesquisas nesta área, mas precisamos de estudos maiores e melhores projetados para que possamos alcançar conclusões sólidas [T3].",
+    "reescrita": "A atividade física ajuda a diminuir a intensidade das dores nas costas [T1]. O exercício pode reduzir a dor e a incapacidade quando comparado com tratamentos usuais para dor lombar de longa duração [T3]. É importante saber que a dor lombar crônica é aquela que dura três meses ou mais e não tem uma causa específica [T2]."
+  },
+  {
+    "id": "R13",
+    "frases_de_origem": "A curta duração do tempo de sono tem sido correlacionada com o aumento do índice da massa corporal (IMC) em diferentes populações [T3]. As orientações básicas para a alimentação incluem comer com regularidade e com atenção, o que pode influenciar o controle mais eficiente do quanto se come [T4].\n\nOs benefícios da adoção de orientações como comer com atenção incluem melhor digestão dos alimentos e controle mais eficiente do quanto comemos [T4].",
+    "reescrita": "As orientações básicas sugerem comer com regularidade e atenção, o que ajuda a controlar melhor a quantidade que se come [T4]. Comer com atenção pode trazer benefícios como melhor digestão e um controle mais eficiente do que você come [T4]."
+  },
+  {
+    "id": "R14",
+    "frases_de_origem": "Uma caminhada é considerada uma atividade física bem-vinda para ser ativo no dia [T2].\n\nOs momentos da família reunida podem ser uma oportunidade para fazer atividade física, como praticar esportes, passear com o animal de estimação, passear de bicicleta e fazer atividades na natureza [T2]. Secretarias municipais/estaduais de saúde, esporte, lazer, turismo, cultura, assistência social e meio ambiente, geralmente, oferecem oportunidades, com quadras, pista de caminhada e outros espaços para a prática de atividade física [T3].",
+    "reescrita": "Sim, uma caminhada é vista como uma atividade física positiva para ajudar você a ser ativo no dia a dia [T2]. Além disso, momentos em família podem ser uma chance de se exercitar, como passear de bicicleta ou na natureza [T2]. Muitas secretarias de saúde e esporte oferecem espaços como pistas de caminhada para a prática de atividade física [T3]."
+  }
+]

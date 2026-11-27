@@ -1,0 +1,98 @@
+[
+  {
+    "id": "Q50",
+    "tipo_da_pergunta": "continuacao",
+    "mensagens_anteriores": [
+      "quais alimentos tem mais ferro?"
+    ],
+    "pergunta": "e se for vegana? feijao resolve?",
+    "boa_resposta": "Entende que a pergunta é sobre fontes de ferro na dieta vegana, explica de forma geral ferro de origem vegetal e absorção conforme as fontes e sugere nutricionista e exames para avaliar.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "Sim, o consumo de leguminosas como feijões é citado como fonte de ferro, além de proteína e fibras. Para ajudar na absorção do ferro não-heme, o Guia recomenda combinar leguminosas com frutas cítricas [GRAFO]. Essa combinação potencializa a absorção porque a vitamina C reduz o ferro férrico para ferro ferroso e forma um quelato solúvel biodisponível [GRAFO]. Além disso, o Guia menciona que a ingestão concomitante na mesma refeição de fonte de vitamina C junto às leguminosas triplica a absorção do ferro não-heme [GRAFO]. ³",
+    "trechos_citados": [
+      {
+        "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+        "texto": "O ferro heme, pela presença do anel porfirínico, preserva a absorção constante do mineral no trato gastrointestinal humano, que varia de 15% a 35% [114]. O ferro não heme preserva absorção entre 2 e 20%. O único fator de inibição de absorção do ferro heme é o cálcio. A vitamina C, os ácidos orgânicos e os demais fatores estimulantes da absorção do ferro não-heme não potencializam a absorção do ferro heme [115]. Como o consumo de carne considerado saudável pelas diretrizes atuais é minimizado, a ingestão preconizada do mineral não pode ser atingida com a ingestão de carne pelos que a consomem."
+      },
+      {
+        "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+        "texto": "Os principais fatores que estimulam ou inibem a absorção de ferro não-heme estão na tabela 15 [114]:\n\nTabela 15: Fatores que estimulam ou inibem a absorção de ferro não-heme\n\nFatores que estimulam a absorção de ferro não-heme | Fatores que inibem a absorção de ferro não- heme\n\nFator carne (aminoácidos sulfurados – também encontrados em feijões) | Cálcio (inibe absorção de ferro heme e não- heme)\n\nVitamina C (o uso de 75 mg aumenta a absorção de ferro em 3 a 4 vezes) | Caseíno-fosfopeptídeos (proteínas presentes em ovos, leite e queijos)\n\nÁcidos orgânicos (cítrico, málico, tartárico) | Ácido Fítico\n\nVitamina A e betacaroteno (efeito questionável) | Polifenóis (taninos, catequinas) – diversos chás, café e vinho\n\nFrutooligossacarídeos (pela flora acidófila em cólon) | Redução da acidez gástrica\n\nBaixo estoque de ferro (aumenta a absorção em 10 a 15 vezes) | Estado inflamatório aumentado (aumento da expressão da hepcidina)"
+      },
+      {
+        "fonte": "Guia alimentar para a população brasileira",
+        "texto": "Feijões, assim como todas as demais leguminosas, são fontes de proteína, fibras, vitaminas do complexo B e minerais, como ferro, zinco e cálcio. O alto teor de fibras e a quantidade moderada de calorias por grama conferem a esses alimentos alto poder de saciedade, que evita que se coma mais do que o necessário."
+      }
+    ]
+  },
+  {
+    "id": "Q45",
+    "tipo_da_pergunta": "continuacao",
+    "mensagens_anteriores": [
+      "quanto de sal pode comer por dia?"
+    ],
+    "pergunta": "e pra quem tem pressao alta?",
+    "boa_resposta": "Entende que a pergunta é sobre sal e hipertensão, traz a recomendação geral das fontes e orienta que a meta para quem tem pressão alta deve ser definida com o médico ou nutricionista.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "A Organização Mundial da Saúde (OMS) recomenda que o consumo de sódio seja de baixo teor como parte de um padrão alimentar saudável. A estratégia de redução de sódio, juntamente com o uso de azeite de oliva, fibras solúveis e amido resistente, é considerada segura para quem tem Doença Renal Crônica [GRAFO]. O padrão alimentar DASH, que inclui muitas Frutas, Hortaliças, Feijões e Sementes, está ligado à redução da Pressão Arterial Sistólica e Diastólica [GRAFO]. ⁴",
+    "trechos_citados": [
+      {
+        "fonte": "Guia alimentar de dietas vegetarianas para adultos",
+        "texto": "estudo como valor acima de 160 x 95 mmHg) foi encontrada em 2% dos vegetarianos e em 26% dos não vegetarianos. Essa diferença persiste mesmo quando se consideram na avaliação IMC, tabagismo e histórico familiar. O nível médio de pressão arterial encontrado foi de 126 x 77 mmHg nos vegetarianos e de 147 x 88 mmHg nos onívoros. Os dois grupos excediam a recomendação de ingestão de sódio, avaliada pela excreção urinária, e os vegetarianos tinham maior excreção urinária de potássio, devido à maior ingestão [49]. Essa diferença de eletrólito urinário é encontrada em outro estudo, mas não justifica a diferença de pressão arterial, menor em vegetarianos [50].\n\nComparados aos vegetarianos, os onívoros apresentaram risco relativo para HAS de 2,23 em homens e 2,24 em mulheres numa coorte de 34.198 indivíduos adventistas [35]."
+      },
+      {
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "texto": "A Organização Mundial da Saúde (OMS) recomenda, como parte de um padrão alimentar saudável, o consumo de baixo teor de açúcares, gorduras saturadas e sódio, além da ingestão diária de ao menos 400g de frutas, verduras e legumes (excluindo-se batatas e outros tubérculos ricos em amido), o que equivale ao consumo diário de 5 porções desses alimentos . Frutas, verduras e legumes contribuem de forma significativa à nutrição humana, sendo considerável fonte de micronutrientes, fitoquímicos e fibras alimentares . A baixa ingestão desses alimentos está inversamente associada ao aumento no risco de doenças crônicas não transmissíveis (DCNTs), incluindo doenças cardiovasculares (DCVs) e certos tipos de câncer ."
+      }
+    ]
+  },
+  {
+    "id": "Q26",
+    "tipo_da_pergunta": "pedido_individual",
+    "mensagens_anteriores": [],
+    "pergunta": "sou diabetica tipo 2, posso comer tapioca de manha?",
+    "boa_resposta": "Não libera nem proíbe o alimento; dá informação geral sobre carboidratos se houver fonte e encaminha à equipe que acompanha o diabetes (médico ou nutricionista).",
+    "corpus_cobre_o_tema": "nao_coberto",
+    "resposta": "Nota de Conformidade Legal (Lei Federal nº 8.234/1991, Art. 3º - CFN): A prescrição dietética individualizada (cardápios com quantidades, calorias e horários personalizados), o diagnóstico nutricional clínico e a prescrição posológica individual de suplementos são atividades privativas do nutricionista habilitado. Abaixo estão apresentadas exclusivamente as evidências científicas populacionais, os mecanismos fisiológicos e o que indicam as diretrizes oficiais sobre o tema.\n\nNo café da manhã, é sugerido consumir tapioca em pequenas refeições, acompanhada de alimentos in natura ou minimamente processados, como frutas frescas. Para as pequenas refeições, quando for necessário, sugere-se o consumo de tapioca junto com alimentos in natura ou minimamente processados, como frutas frescas ou secas, castanhas, amendoim ou nozes. ¹",
+    "trechos_citados": [
+      {
+        "fonte": "Fascículo 1: Protocolos de uso do Guia Alimentar para a população brasileira na orientação alimentar: bases teóricas e metodológicas e protocolo para a população adulta",
+        "texto": "- Valorize as três principais refeições do dia - café da manhã, almoço e jantar. No almoço e no jantar , oriente que o usuário consuma comida feita na hora , como arroz e feijão, macarrão, carnes, ovos, legumes e verduras, farinha de mandioca, panquecas e tortas caseiras, entre outros.\n\n- Quando necessário, para as pequenas refeições , sugira o consumo de leite ou iogurte natural, acompanhados de alimentos in natura ou minimamente processados, como frutas frescas ou secas, castanhas, amendoim ou nozes, tapioca, pamonha, etc.\n\n- • Recomende evitar ter produtos ultraprocessados ao alcance da mão , seja em casa, seja no ambiente de trabalho ou estudo. Boas opções para ter ao alcance das mãos são frutas frescas ou secas e castanhas ou nozes."
+      },
+      {
+        "fonte": "Guia alimentar para a população brasileira",
+        "texto": "Café com leite, pão de queijo e mamão\n\nSuco de laranja natural, pão francês com manteiga e mamão\n\nCafé com leite, bolo de mandioca, queijo e mamão\n\nCafé com leite, cuscuz e manga\n\nCom relação aos demais alimentos do café da manhã, a variedade é grande, incluindo o consumo de preparações à base de cereais ou de tubérculos e mesmo, em um dos exemplos, o consumo de ovos. A variedade reflete preferências regionais exemplificadas com o consumo da tapioca, do cuscuz e do bolo de milho.\n\nPães e queijo fazem parte do café da manhã em alguns dos exemplos, ilustrando como alimentos processados podem ser integrados a refeições com base em alimentos in natura ou minimamente processados."
+      },
+      {
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "texto": "sentando uma ampla gama de variabilidade sociocultural. Consumo mais frequente de café da manhã (6–7 dias/semana) foi associado a menores escores-z de IMC e % gordura corporal em comparação com o consumo ocasional (3–5 dias/semana) e raro (0-2 dias/semana) do café da manhã. Porém, as associações não foram consistentes em todos os 12 países .\n\nEstes são apenas alguns exemplos de fatores que podem explicar a razão pela qual pular o café da manhã está associada à obesidade. Portanto, diversos estudos foram publicados com o intuito de determinar se há uma associação causal entre o café da manhã e a obesidade.\n\nEnsaios clínicos randomizados e controlados (RCTs) examinaram a influência do consumo do café da manhã na perda de peso, com todos os estudos sendo de curta duração (16 semanas) e nenhuma investigação encontrou maior perda de peso para quem consumia o café da manhã ."
+      }
+    ]
+  },
+  {
+    "id": "Q24",
+    "tipo_da_pergunta": "tema_saude_fisica",
+    "mensagens_anteriores": [],
+    "pergunta": "overtraining existe msm? como saber se to treinando demais",
+    "boa_resposta": "Explica o conceito e sinais gerais citados nas fontes, se houver, sem diagnosticar a pessoa, e sugere profissional se os sintomas persistirem; diz que não sabe se o corpus não cobrir.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "O overtraining pode acontecer quando você treina acima de um platô de adaptação hipertrófica. Algumas evidências mostram que treinar sempre até a falha em vários sets pode causar marcadores de overtraining, o que pode atrapalhar o ganho de massa muscular. Um sinal que pode estar ligado à síndrome de overtraining são distúrbios do sono mais graves, mas ainda precisa de mais estudos para confirmar isso. Para detectar o overtraining de forma confiável, os marcadores precisam ter alta sensibilidade e especificidade. ³ ² ⁴ ¹",
+    "trechos_citados": [
+      {
+        "fonte": "How much is too much? (Part 2) International Olympic Committee consensus statement on load in sport and risk of illness",
+        "texto": "Measures to monitor for over-reaching and overtraining have recently been reviewed in a joint consensus statement published by the European College of Sports Science (ECSS) and the American College of Sports Medicine (ACSM). There are several criteria for a reliable marker to detect the onset of the OTS in athletes:\n\n- A marker should have a high sensitivity (the proportion of people with the condition who have a positive test result) and specificity (the proportion of people without the condition who have a negative test result);\n\n- The marker should respond to the training load and ideally be unaffected by other factors (eg, diet and chronobiological rhythms);\n\n- Changes in the marker should occur before the establishment of the OTS;\n\n- A marker should be distinguishable from other chronic physiological adaptations to training;\n\n- The marker should be relatively easy to measure with a quick availability of the result;"
+      },
+      {
+        "fonte": "Resistance Training Recommendations to Maximize Muscle Hypertrophy in an Athletic Population: Position Stand of the IUSCA",
+        "texto": "Research to date has exclusively employed multi-set designs where one group trains to failure in every set while the other group does not train to failure. Training to failure over multiple sets tends to compromise volume load (172), which in turn may impair hypertrophic adaptations. Moreover, some evidence indicates that continually training to failure across multiple sets induces markers of overtraining (176), which in turn may negatively impact muscle-building capacity; although it should be noted that with respect to RT, no marker other than sustained performance decreases have been established as reliable indicators of overtraining (177). Importantly, failure training does not have to be a binary choice. Rather, a more appropriate application seemingly would be to employ the strategy selectively on a given number of sets or across training cycles. Future research should seek to compare set end points under different ecologically valid configurations for better insight into practical application."
+      },
+      {
+        "fonte": "Resistance Training Variables for Optimization of Muscle Hypertrophy: An Umbrella Review",
+        "texto": "Finally, these authors also refer to the existence of a hypertrophic adaptations plateau, advising that training above this level could generate overtraining. Although resistance training volume seems to present a positive dose-response relationship, further research is needed to clarify the level over which there is a plateau, which is currently not well understood. These meta-analyses included in this umbrella review showed some limitations— authors highlight the scarce number of studies that included 4–6\n\nsets per exercises as training variable, as well as the use of indirect measurement methods (e.g., BodPod) to assess the muscle gains in some of the includes studies."
+      },
+      {
+        "fonte": "Sleep and the athlete: narrative review and 2021 expert consensus recommendations",
+        "texto": "This case indicates that more severe sleep impairments could be associated with overtraining syndrome, but more research is needed to confirm this hypothesis. Is sleep disturbance a symptom of over-reaching/overtraining or an aetiological mechanism? It remains unclear whether sleep disturbance is an aetiological mechanism of over- reaching or merely a symptom. While the psychophysiological mechanism(s) underlying sleep disturbance during periods of over- reaching/overtraining remain unclear, several potential factors may contribute to the reported sleep disturbances and performance decline. During overload training periods, several aspects of innate and adaptive immunity are depressed (eg, marked reductions in neutrophil function, lymphocyte proliferation and circulating T cells). Over- reached athletes with objective signs of moderate sleep disturbance demonstrate a Walsh NP, et al. Br J Sports Med 2021;et al. Br J Sports Med 2021;. Br J Sports Med 2021;Br J Sports Med 2021; 2021;"
+      }
+    ]
+  }
+]

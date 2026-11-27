@@ -1,0 +1,21 @@
+{
+  "rotulo": "guardrail",
+  "casos": 30,
+  "responde": 0.5,
+  "fiel": 0.767,
+  "tom": 0.733,
+  "nao_prescreve": 0.933,
+  "responde_por_tipo": {
+    "continuacao": 0.333,
+    "duas_areas": 0.5,
+    "fora_de_tema_ou_vaga": 1.0,
+    "pedido_individual": 0.375,
+    "tema_nutricao": 0.333,
+    "tema_saude_fisica": 0.667
+  },
+  "nao_sei_nos_nao_cobertos": 0.0,
+  "nao_sei_indevido_nos_cobertos": 0.05,
+  "concordancia_entre_juizes": 0.967,
+  "desempates": 0,
+  "mediana_s": 28.6
+}

@@ -20,7 +20,7 @@ Para garantir conformidade estrita:
 * **Onde fica:** SQLite local (`CULTIVA_HISTORICO_DB`, por padrão `data/conversas.sqlite3`, ignorado pelo Git), uma linha por mensagem, sem criptografia própria em repouso (depende do disco da máquina). Uma segunda tabela (`conversas`) liga cada id de Conversa ao Usuário dono.
 * **Minimização:**
   * mensagem que o portão de risco detecta é guardada só com as categorias, e mensagem com sinal de alerta só com os nomes dos sinais;
-  * cada Agente de área recebe só o Histórico da área dele, e só as últimas `CULTIVA_JANELA_HISTORICO` mensagens (6);
+  * cada Agente de área recebe só o Histórico recente da área dele, dentro de um orçamento de tokens (`CULTIVA_HISTORICO_TOKENS`, 2.500, e no máximo `CULTIVA_JANELA_HISTORICO` mensagens, 20), com as respostas do assistente encurtadas; o que a pessoa contou em outras áreas chega só pelos Fatos do Usuário (seção 4);
   * o que sai da máquina (LLM e Langfuse) passa pela máscara de dados pessoais (`src/guardrails/pii`), que é defesa adicional, não anonimização; no Langfuse, o id do Usuário vai com hash (ADR 0003).
 * **Retenção:** a Conversa fica guardada até o Usuário apagar. Não há prazo automático de expiração. **Pendente de decisão da equipe:** prazo máximo de retenção (por exemplo, apagar Conversas sem mensagem nova há N dias) e se o Histórico precisa de consentimento específico no App.
 * **Exclusão (LGPD, Art. 18, VI):** `DELETE /chat/usuarios/{id}/conversas/{conversa_id}` apaga uma Conversa; `DELETE /chat/usuarios/{id}` apaga todas as Conversas do Usuário. A exclusão remove as linhas do SQLite; cópias de backup da máquina, se existirem, e traces já enviados ao Langfuse não são apagados por esses endpoints. O registro de rastreabilidade (`data/traceability.sqlite3`, RF-IA15) guarda o id, as versões e os Trechos usados em cada resposta e o comentário de feedback com máscara de dados pessoais; não guarda o texto da Conversa nem o id do Usuário, e não é apagado por esses endpoints.
@@ -31,9 +31,9 @@ Para garantir conformidade estrita:
   * quem tem acesso à máquina ou ao arquivo SQLite lê tudo: o controle é da API, não do banco.
 * **Riscos remanescentes:** ainda não há App nem provedor de identidade; o segredo é compartilhado entre App e API, sem rotação nem revogação antes da expiração do token; o `POST /feedback/incorrect` não exige token; não há registro de auditoria de quem acessou ou apagou o quê.
 
-## 4. Fatos do Usuário e Projetor de contexto (issue #112, a implementar)
+## 4. Fatos do Usuário e Projetor de contexto (issue #112)
 
-> Situação: decisão de desenho registrada no ADR 0005 (revisão de 25/11/2026), ainda **não implementada**, sem aprovação formal da equipe nem revisão de pessoa encarregada de proteção de dados. Esta seção descreve o tratamento previsto, para ser conferido antes da implementação e de qualquer uso com pessoas reais.
+> Situação: implementado em 25/11/2026 (issue #112, ADR 0005), sem aprovação formal da equipe nem revisão de pessoa encarregada de proteção de dados. Precisa dessa revisão antes de qualquer uso com pessoas reais. Medição em `eval/projetor/`.
 
 * **Finalidade:** relacionar a resposta de um Agente de área à vida do Usuário nas outras áreas (RN06, RF-IA09), sem usar o dado como fonte e sem prescrever.
 * **Dados tratados:** Fatos do Usuário, frases curtas extraídas pelo LLM local das mensagens do próprio Usuário, em categorias fixas: Saúde Física (atividade praticada, frequência ou volume, objetivo de treino, limitação física declarada), Nutrição (padrão alimentar, jejum e horários, restrição ou alergia, objetivo alimentar) e **condição de saúde declarada**, que é dado pessoal sensível (LGPD, Art. 5º, II, e Art. 11).

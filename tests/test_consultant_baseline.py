@@ -28,7 +28,7 @@ def test_consultant_baseline_end_to_end_restricted_query() -> None:
     assert response.guardrail_triggered is True
     assert response.intent_category == "RESTRICTED_DIET_PRESCRIPTION"
     assert response.legal_compliance_notice is not None
-    assert "8.234/1991" in response.legal_compliance_notice
+    assert "nutricionista" in response.legal_compliance_notice
     assert len(response.retrieved_chunks) > 0
 
 

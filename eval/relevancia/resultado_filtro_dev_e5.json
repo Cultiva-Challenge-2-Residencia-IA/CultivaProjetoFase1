@@ -1,0 +1,1687 @@
+{
+  "embeddings": "intfloat/multilingual-e5-large",
+  "resumo": {
+    "modelo": "jinaai/jina-reranker-v2-base-multilingual",
+    "reranker_na_busca": [
+      "saude_fisica"
+    ],
+    "limiar": 0.145076,
+    "limiar_calibrado_neste_split": 0.145076,
+    "lacuna_indevida_golden_saude_fisica": 0.1,
+    "lacuna_indevida_golden_v2_nutricao": 0.0,
+    "lacuna_indevida_abstencao_dentro": 0.029,
+    "lacuna_indevida_controles": 0.042,
+    "lacuna_sem_base_nutricao": 0.667,
+    "lacuna_sem_base_saude_fisica": 0.875,
+    "lacuna_sem_base": 0.786,
+    "recall_nutricao_sem_filtro": 0.602,
+    "recall_nutricao_com_filtro": 0.583,
+    "trechos_descartados_nos_controles": 0.299
+  },
+  "controles": {
+    "golden_saude_fisica": [
+      {
+        "id": "SFN01",
+        "area": "saude_fisica",
+        "pergunta": "Quantas séries por exercício são indicadas para ganhar força?",
+        "trechos": [
+          "acsm-resistance-training-position-stand-2026-s004-15",
+          "who-diretrizes-atividade-fisica-sedentarismo-2020-p038-03",
+          "guia-atividade-fisica-brasil-2021-p030-02",
+          "guia-atividade-fisica-brasil-2021-p045-01"
+        ],
+        "notas": [
+          0.587797,
+          0.128901,
+          0.0997,
+          0.055594
+        ],
+        "fontes_esperadas": [
+          "acsm-resistance-training-position-stand-2026"
+        ]
+      },
+      {
+        "id": "SFN02",
+        "area": "saude_fisica",
+        "pergunta": "Musculação ajuda a ganhar massa muscular depois dos 60 anos?",
+        "trechos": [
+          "hhs-physical-activity-scientific-report-2018-p079-01",
+          "who-package-rehabilitation-musculoskeletal-2023-p043-01",
+          "acsm-resistance-training-position-stand-2026-s001-06",
+          "guia-atividade-fisica-brasil-2021-p029-01"
+        ],
+        "notas": [
+          0.33631,
+          0.154443,
+          0.140585,
+          0.103514
+        ],
+        "fontes_esperadas": [
+          "acsm-resistance-training-position-stand-2026",
+          "who-diretrizes-atividade-fisica-sedentarismo-2020",
+          "hhs-physical-activity-scientific-report-2018"
+        ]
+      },
+      {
+        "id": "SFN03",
+        "area": "saude_fisica",
+        "pergunta": "Treino de força melhora o equilíbrio e evita quedas em idosos?",
+        "trechos": [
+          "who-diretrizes-atividade-fisica-sedentarismo-2020-p055-04",
+          "hhs-physical-activity-scientific-report-2018-p466-01",
+          "guia-atividade-fisica-brasil-2021-p046-02",
+          "guia-atividade-fisica-brasil-2021-p029-02"
+        ],
+        "notas": [
+          0.621278,
+          0.534106,
+          0.482794,
+          0.480207
+        ],
+        "fontes_esperadas": [
+          "acsm-resistance-training-position-stand-2026",
+          "who-diretrizes-atividade-fisica-sedentarismo-2020",
+          "hhs-physical-activity-scientific-report-2018",
+          "guia-atividade-fisica-brasil-2021"
+        ]
+      },
+      {
+        "id": "SFN04",
+        "area": "saude_fisica",
+        "pergunta": "Estou com dor nas costas faz meses, mexer o corpo ajuda?",
+        "trechos": [
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-03",
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-07",
+          "guia-atividade-fisica-brasil-2021-p027-02",
+          "guia-atividade-fisica-brasil-2021-p049-03"
+        ],
+        "notas": [
+          0.286381,
+          0.256824,
+          0.074371,
+          0.072626
+        ],
+        "fontes_esperadas": [
+          "jospt-low-back-pain-cpg-revision-2021",
+          "cochrane-exercise-chronic-low-back-pain-2021",
+          "nice-low-back-pain-sciatica-ng59",
+          "who-package-rehabilitation-musculoskeletal-2023"
+        ]
+      },
+      {
+        "id": "SFN05",
+        "area": "saude_fisica",
+        "pergunta": "Dor nas costas que desce pela perna: o que as diretrizes dizem sobre exercício?",
+        "trechos": [
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-07",
+          "guia-atividade-fisica-brasil-2021-p029-01",
+          "guia-atividade-fisica-brasil-2021-p010-01"
+        ],
+        "notas": [
+          0.330905,
+          0.307608,
+          0.053383,
+          0.040515
+        ],
+        "fontes_esperadas": [
+          "jospt-low-back-pain-cpg-revision-2021",
+          "nice-low-back-pain-sciatica-ng59"
+        ]
+      },
+      {
+        "id": "SFN06",
+        "area": "saude_fisica",
+        "pergunta": "Meu ombro dói quando levanto o braço; exercício de fisioterapia resolve?",
+        "trechos": [
+          "jospt-rotator-cuff-tendinopathy-cpg-2025-p038-07",
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-17",
+          "jospt-rotator-cuff-tendinopathy-cpg-2025-p037-05"
+        ],
+        "notas": [
+          0.232829,
+          0.202284,
+          0.17649,
+          0.141365
+        ],
+        "fontes_esperadas": [
+          "jospt-rotator-cuff-tendinopathy-cpg-2025"
+        ]
+      },
+      {
+        "id": "SFN07",
+        "area": "saude_fisica",
+        "pergunta": "Torci o pé; usar tornozeleira evita torcer de novo?",
+        "trechos": [
+          "jospt-rotator-cuff-tendinopathy-cpg-2025-p039-02",
+          "jospt-rotator-cuff-tendinopathy-cpg-2025-p026-09",
+          "guia-atividade-fisica-brasil-2021-p013-03",
+          "guia-atividade-fisica-brasil-2021-p042-01"
+        ],
+        "notas": [
+          0.071511,
+          0.067849,
+          0.05419,
+          0.050754
+        ],
+        "fontes_esperadas": [
+          "jospt-ankle-ligament-sprains-cpg-2021"
+        ]
+      },
+      {
+        "id": "SFN08",
+        "area": "saude_fisica",
+        "pergunta": "Dor na frente do joelho ao subir escada: o que costuma ajudar?",
+        "trechos": [
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-10",
+          "guia-atividade-fisica-brasil-2021-p026-01",
+          "guia-atividade-fisica-brasil-2021-p050-01"
+        ],
+        "notas": [
+          0.148083,
+          0.113618,
+          0.066864,
+          0.056499
+        ],
+        "fontes_esperadas": [
+          "jospt-patellofemoral-pain-infographic-2019"
+        ]
+      },
+      {
+        "id": "SFN09",
+        "area": "saude_fisica",
+        "pergunta": "Quem tem desgaste no joelho deve perder peso e se exercitar?",
+        "trechos": [
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-09",
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-10",
+          "guia-atividade-fisica-brasil-2021-p022-02",
+          "guia-atividade-fisica-brasil-2021-p024-02"
+        ],
+        "notas": [
+          0.090883,
+          0.082016,
+          0.056151,
+          0.050531
+        ],
+        "fontes_esperadas": [
+          "nice-osteoarthritis-ng226",
+          "who-package-rehabilitation-musculoskeletal-2023"
+        ]
+      },
+      {
+        "id": "SFN10",
+        "area": "saude_fisica",
+        "pergunta": "Como esquentar o corpo antes de malhar em casa?",
+        "trechos": [
+          "nhs-warm-up-before-exercise-s007-01",
+          "guia-atividade-fisica-brasil-2021-p021-02",
+          "guia-atividade-fisica-brasil-2021-p031-03",
+          "guia-atividade-fisica-brasil-2021-p010-02"
+        ],
+        "notas": [
+          0.152211,
+          0.108375,
+          0.099163,
+          0.095669
+        ],
+        "fontes_esperadas": [
+          "nhs-warm-up-before-exercise"
+        ]
+      },
+      {
+        "id": "SFN11",
+        "area": "saude_fisica",
+        "pergunta": "Que atividades do dia a dia contam como exercício moderado?",
+        "trechos": [
+          "guia-atividade-fisica-brasil-2021-p013-01",
+          "guia-atividade-fisica-brasil-2021-p025-01",
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-08",
+          "guia-atividade-fisica-brasil-2021-p046-01"
+        ],
+        "notas": [
+          0.340038,
+          0.244765,
+          0.031281,
+          0.219341
+        ],
+        "fontes_esperadas": [
+          "nhs-physical-activity-adults-19-64",
+          "who-diretrizes-atividade-fisica-sedentarismo-2020",
+          "guia-atividade-fisica-brasil-2021",
+          "who-physical-activity-at-a-glance-2020"
+        ]
+      },
+      {
+        "id": "SFN12",
+        "area": "saude_fisica",
+        "pergunta": "Ficar o dia inteiro no sofá aumenta o risco de morrer mais cedo?",
+        "trechos": [
+          "hhs-physical-activity-scientific-report-2018-p150-04",
+          "hhs-physical-activity-scientific-report-2018-p151-01",
+          "guia-atividade-fisica-brasil-2021-p019-02",
+          "guia-atividade-fisica-brasil-2021-p031-03"
+        ],
+        "notas": [
+          0.352272,
+          0.325351,
+          0.083704,
+          0.06954
+        ],
+        "fontes_esperadas": [
+          "who-diretrizes-atividade-fisica-sedentarismo-2020",
+          "hhs-physical-activity-scientific-report-2018",
+          "who-physical-activity-factsheet-2024"
+        ]
+      },
+      {
+        "id": "SFN13",
+        "area": "saude_fisica",
+        "pergunta": "Atleta que viaja muito para competir fica doente com mais facilidade?",
+        "trechos": [
+          "ioc-load-sport-illness-2016-p005-08",
+          "ioc-load-sport-illness-2016-p005-09",
+          "guia-atividade-fisica-brasil-2021-p022-02",
+          "guia-atividade-fisica-brasil-2021-p009-02"
+        ],
+        "notas": [
+          0.600553,
+          0.560006,
+          0.031964,
+          0.031119
+        ],
+        "fontes_esperadas": [
+          "ioc-load-sport-illness-2016"
+        ]
+      },
+      {
+        "id": "SFN14",
+        "area": "saude_fisica",
+        "pergunta": "Dobrar o volume de corrida de uma semana para outra aumenta o risco de me machucar?",
+        "trechos": [
+          "ioc-load-sport-injury-2016-p012-05",
+          "ioc-load-sport-injury-2016-p007-01",
+          "guia-atividade-fisica-brasil-2021-p040-01",
+          "guia-atividade-fisica-brasil-2021-p029-02"
+        ],
+        "notas": [
+          0.447468,
+          0.387058,
+          0.0492,
+          0.049054
+        ],
+        "fontes_esperadas": [
+          "ioc-load-sport-injury-2016"
+        ]
+      },
+      {
+        "id": "SFN15",
+        "area": "saude_fisica",
+        "pergunta": "Exercício melhora a memória e o raciocínio?",
+        "trechos": [
+          "guia-atividade-fisica-brasil-2021-p045-02",
+          "guia-atividade-fisica-brasil-2021-p029-02",
+          "hhs-physical-activity-scientific-report-2018-p196-01",
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-17"
+        ],
+        "notas": [
+          0.538768,
+          0.534446,
+          0.478072,
+          0.087817
+        ],
+        "fontes_esperadas": [
+          "hhs-physical-activity-scientific-report-2018",
+          "who-diretrizes-atividade-fisica-sedentarismo-2020"
+        ]
+      },
+      {
+        "id": "SFN16",
+        "area": "saude_fisica",
+        "pergunta": "Depois do parto, quando e como voltar a me exercitar?",
+        "trechos": [
+          "guia-atividade-fisica-brasil-2021-p040-03",
+          "guia-atividade-fisica-brasil-2021-p041-02",
+          "jospt-ankle-ligament-sprains-cpg-2021-p080-02",
+          "jospt-rotator-cuff-tendinopathy-cpg-2025-p021-01"
+        ],
+        "notas": [
+          0.447096,
+          0.356221,
+          0.033413,
+          0.032274
+        ],
+        "fontes_esperadas": [
+          "who-diretrizes-atividade-fisica-sedentarismo-2020",
+          "who-physical-activity-at-a-glance-2020",
+          "hhs-physical-activity-scientific-report-2018"
+        ]
+      },
+      {
+        "id": "SFN17",
+        "area": "saude_fisica",
+        "pergunta": "Treino de potência ajuda idosos a levantar da cadeira com mais facilidade?",
+        "trechos": [
+          "acsm-resistance-training-position-stand-2026-s003-14",
+          "guia-atividade-fisica-brasil-2021-p029-01",
+          "guia-atividade-fisica-brasil-2021-p029-02",
+          "guia-atividade-fisica-brasil-2021-p024-02"
+        ],
+        "notas": [
+          0.32363,
+          0.149641,
+          0.093312,
+          0.088643
+        ],
+        "fontes_esperadas": [
+          "acsm-resistance-training-position-stand-2026"
+        ]
+      },
+      {
+        "id": "SFN18",
+        "area": "saude_fisica",
+        "pergunta": "Atividade física ajuda a controlar a pressão alta?",
+        "trechos": [
+          "guia-atividade-fisica-brasil-2021-p029-02",
+          "guia-atividade-fisica-brasil-2021-p033-01",
+          "guia-atividade-fisica-brasil-2021-p045-02",
+          "guia-atividade-fisica-brasil-2021-p039-02"
+        ],
+        "notas": [
+          0.713401,
+          0.656112,
+          0.57395,
+          0.55972
+        ],
+        "fontes_esperadas": [
+          "hhs-physical-activity-scientific-report-2018",
+          "who-diretrizes-atividade-fisica-sedentarismo-2020",
+          "who-physical-activity-factsheet-2024"
+        ]
+      },
+      {
+        "id": "SFN19",
+        "area": "saude_fisica",
+        "pergunta": "Quanta atividade física uma criança de 4 anos precisa?",
+        "trechos": [
+          "guia-atividade-fisica-brasil-2021-p046-01",
+          "guia-atividade-fisica-brasil-2021-p013-03",
+          "guia-atividade-fisica-brasil-2021-p018-01",
+          "guia-atividade-fisica-brasil-2021-p045-01"
+        ],
+        "notas": [
+          0.415943,
+          0.401709,
+          0.282418,
+          0.280242
+        ],
+        "fontes_esperadas": [
+          "guia-atividade-fisica-brasil-2021",
+          "hhs-physical-activity-scientific-report-2018",
+          "who-physical-activity-factsheet-2024"
+        ]
+      },
+      {
+        "id": "SFN20",
+        "area": "saude_fisica",
+        "pergunta": "Agachamento e leg press: com que carga treinar para ficar mais forte?",
+        "trechos": [
+          "acsm-resistance-training-position-stand-2026-s002-07",
+          "acsm-resistance-training-position-stand-2026-s003-14",
+          "guia-atividade-fisica-brasil-2021-p010-01",
+          "cochrane-exercise-chronic-low-back-pain-2021-s001-05"
+        ],
+        "notas": [
+          0.197644,
+          0.154838,
+          0.054597,
+          0.051038
+        ],
+        "fontes_esperadas": [
+          "acsm-resistance-training-position-stand-2026"
+        ]
+      }
+    ],
+    "golden_v2_nutricao": [
+      {
+        "id": "V2-REC-01",
+        "area": "nutricao",
+        "pergunta": "Qual é a regra de ouro do Guia Alimentar para a População Brasileira?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p048-01",
+          "guia-alimentar-populacao-brasileira-2014-p049-01",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p009-02",
+          "protocolos-guia-alimentar-fasciculo1-2021-p009-01"
+        ],
+        "notas": [
+          0.847753,
+          0.769441,
+          0.312883,
+          0.435879
+        ],
+        "notas_julgadas": {
+          "guia-alimentar-populacao-brasileira-2014-p048-01": 2,
+          "guia-alimentar-populacao-brasileira-2014-p051-02": 1
+        }
+      },
+      {
+        "id": "V2-REC-02",
+        "area": "nutricao",
+        "pergunta": "Como o Guia Alimentar orienta o uso de óleos, gorduras, sal e açúcar na cozinha?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p034-02",
+          "guia-alimentar-populacao-brasileira-2014-p035-03",
+          "protocolos-guia-alimentar-fasciculo1-2021-p007-03",
+          "guia-alimentar-populacao-brasileira-2014-p036-01"
+        ],
+        "notas": [
+          0.796723,
+          0.732908,
+          0.662933,
+          0.711082
+        ],
+        "notas_julgadas": {
+          "guia-alimentar-populacao-brasileira-2014-p034-02": 2,
+          "guia-alimentar-populacao-brasileira-2014-p036-01": 2,
+          "guia-alimentar-populacao-brasileira-2014-p050-02": 2,
+          "guia-alimentar-populacao-brasileira-2014-p126-01": 2,
+          "guia-alimentar-populacao-brasileira-2014-p036-02": 1,
+          "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p007-07": 1
+        }
+      },
+      {
+        "id": "V2-REC-04",
+        "area": "nutricao",
+        "pergunta": "Que obstáculos o Guia Alimentar aponta para quem quer adotar uma alimentação saudável?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p014-01",
+          "guia-alimentar-populacao-brasileira-2014-p104-02",
+          "protocolos-guia-alimentar-fasciculo1-2021-p008-03",
+          "guia-alimentar-populacao-brasileira-2014-p122-02"
+        ],
+        "notas": [
+          0.697497,
+          0.776332,
+          0.668273,
+          0.771589
+        ],
+        "notas_julgadas": {
+          "guia-alimentar-populacao-brasileira-2014-p014-01": 2,
+          "guia-alimentar-populacao-brasileira-2014-p104-02": 2,
+          "guia-alimentar-populacao-brasileira-2014-p122-02": 2,
+          "protocolos-guia-alimentar-fasciculo1-2021-p008-03": 2
+        }
+      },
+      {
+        "id": "V2-REC-05",
+        "area": "nutricao",
+        "pergunta": "Que tipos de alimento o Guia Alimentar classifica como processados?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p038-01",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p159-02",
+          "guia-alimentar-populacao-brasileira-2014-p052-01",
+          "guia-alimentar-populacao-brasileira-2014-p085-02"
+        ],
+        "notas": [
+          0.751013,
+          0.116608,
+          0.690523,
+          0.452168
+        ],
+        "notas_julgadas": {
+          "guia-alimentar-populacao-brasileira-2014-p037-01": 2,
+          "guia-alimentar-populacao-brasileira-2014-p038-01": 2,
+          "guia-alimentar-populacao-brasileira-2014-p038-02": 2,
+          "guia-alimentar-populacao-brasileira-2014-p052-01": 1,
+          "martins-ultraprocessados-rsp-2013-p002-02": 1
+        }
+      },
+      {
+        "id": "V2-REC-07",
+        "area": "nutricao",
+        "pergunta": "Qual combinação de alimentos aparece na maior parte dos almoços e jantares descritos no Guia Alimentar?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p057-01",
+          "guia-alimentar-populacao-brasileira-2014-p060-01",
+          "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
+          "fusco-ansiedade-sono-compulsao-reeusp-2020-p005-09"
+        ],
+        "notas": [
+          0.73348,
+          0.531264,
+          0.392812,
+          0.03462
+        ],
+        "notas_julgadas": {
+          "guia-alimentar-populacao-brasileira-2014-p060-01": 2,
+          "guia-alimentar-populacao-brasileira-2014-p063-01": 2,
+          "protocolos-guia-alimentar-fasciculo1-2021-p019-03": 1
+        }
+      },
+      {
+        "id": "V2-REC-08",
+        "area": "nutricao",
+        "pergunta": "No protocolo de uso do Guia Alimentar para adultos, qual é a primeira pergunta do fluxograma e a recomendação ligada a ela?",
+        "trechos": [
+          "protocolos-guia-alimentar-fasciculo1-2021-p015-03",
+          "protocolos-guia-alimentar-fasciculo1-2021-p018-02",
+          "protocolos-guia-alimentar-fasciculo1-2021-p017-03",
+          "protocolos-guia-alimentar-fasciculo1-2021-p018-03"
+        ],
+        "notas": [
+          0.730065,
+          0.796026,
+          0.687798,
+          0.730193
+        ],
+        "notas_julgadas": {
+          "protocolos-guia-alimentar-fasciculo1-2021-p018-02": 2,
+          "protocolos-guia-alimentar-fasciculo1-2021-p015-01": 1
+        }
+      },
+      {
+        "id": "V2-REC-10",
+        "area": "nutricao",
+        "pergunta": "Em dietas vegetarianas, o que ajuda a melhorar a absorção do ferro?",
+        "trechos": [
+          "guia-dietas-vegetarianas-svb-2012-p027-03",
+          "guia-dietas-vegetarianas-svb-2012-p029-02",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01",
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06"
+        ],
+        "notas": [
+          0.58401,
+          0.695465,
+          0.05612,
+          0.068276
+        ],
+        "notas_julgadas": {
+          "guia-dietas-vegetarianas-svb-2012-p005-03": 2,
+          "guia-dietas-vegetarianas-svb-2012-p029-02": 2,
+          "guia-dietas-vegetarianas-svb-2012-p029-03": 2,
+          "guia-dietas-vegetarianas-svb-2012-p027-03": 1
+        }
+      },
+      {
+        "id": "V2-REC-11",
+        "area": "nutricao",
+        "pergunta": "Em exercícios que duram mais de uma hora, o que a diretriz da SBME recomenda repor nas bebidas?",
+        "trechos": [
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-07",
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-01",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-03",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p002-04"
+        ],
+        "notas": [
+          0.742477,
+          0.781477,
+          0.05209,
+          0.10488
+        ],
+        "notas_julgadas": {
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-01": 2,
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-07": 2,
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p003-02": 1,
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p004-08": 1,
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p005-03": 1
+        }
+      },
+      {
+        "id": "V2-REC-13",
+        "area": "nutricao",
+        "pergunta": "Dietas low carb emagrecem mais do que dietas com pouca gordura?",
+        "trechos": [
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-03",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p148-01",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-02",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p148-02"
+        ],
+        "notas": [
+          0.554659,
+          0.480135,
+          0.544869,
+          0.521051
+        ],
+        "notas_julgadas": {
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-02": 2,
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p147-03": 2,
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p148-01": 2,
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p148-04": 2,
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p130-04": 1
+        }
+      },
+      {
+        "id": "V2-REC-14",
+        "area": "nutricao",
+        "pergunta": "O que se sabe sobre a adesão de pessoas com obesidade ao jejum intermitente?",
+        "trechos": [
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p165-01",
+          "azevedo-jejum-intermitente-ramb-2013-p001-03",
+          "azevedo-jejum-intermitente-ramb-2013-p002-01",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p204-02"
+        ],
+        "notas": [
+          0.510938,
+          0.403018,
+          0.567289,
+          0.326392
+        ],
+        "notas_julgadas": {
+          "azevedo-jejum-intermitente-ramb-2013-p002-01": 2
+        }
+      },
+      {
+        "id": "V2-REC-16",
+        "area": "nutricao",
+        "pergunta": "Como mudou a participação de produtos ultraprocessados na dieta brasileira entre 1987 e 2009?",
+        "trechos": [
+          "martins-ultraprocessados-rsp-2013-p001-01",
+          "martins-ultraprocessados-rsp-2013-p004-07",
+          "guia-alimentar-populacao-brasileira-2014-p136-01",
+          "martins-ultraprocessados-rsp-2013-p001-04"
+        ],
+        "notas": [
+          0.793591,
+          0.764513,
+          0.710558,
+          0.916372
+        ],
+        "notas_julgadas": {
+          "martins-ultraprocessados-rsp-2013-p001-04": 2,
+          "martins-ultraprocessados-rsp-2013-p001-01": 1,
+          "martins-ultraprocessados-rsp-2013-p003-02": 1,
+          "martins-ultraprocessados-rsp-2013-p008-05": 1
+        }
+      },
+      {
+        "id": "V2-REC-17",
+        "area": "nutricao",
+        "pergunta": "Como o perfil nutricional dos ultraprocessados se compara ao dos alimentos in natura?",
+        "trechos": [
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p001-03",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p004-03",
+          "guia-alimentar-populacao-brasileira-2014-p051-01",
+          "guia-alimentar-populacao-brasileira-2014-p107-02"
+        ],
+        "notas": [
+          0.528753,
+          0.697006,
+          0.425459,
+          0.370751
+        ],
+        "notas_julgadas": {
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p001-02": 2,
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p002-02": 2,
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p005-04": 2,
+          "guia-alimentar-populacao-brasileira-2014-p051-01": 1,
+          "guia-alimentar-populacao-brasileira-2014-p044-03": 1
+        }
+      },
+      {
+        "id": "V2-REC-19",
+        "area": "nutricao",
+        "pergunta": "Quantos adultos das capitais brasileiras relatam consumo adequado de frutas e hortaliças segundo o VIGITEL?",
+        "trechos": [
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p003-05",
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p003-06",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p092-01",
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p001-01"
+        ],
+        "notas": [
+          0.77098,
+          0.692835,
+          0.649284,
+          0.741419
+        ],
+        "notas_julgadas": {
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p001-02": 2,
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p003-05": 2,
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p004-01": 2,
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p005-03": 2,
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p092-01": 2
+        }
+      },
+      {
+        "id": "V2-REC-20",
+        "area": "nutricao",
+        "pergunta": "Quais barreiras dificultam o consumo de frutas, verduras e legumes?",
+        "trechos": [
+          "santos-barreiras-frutas-verduras-csc-2019-p003-03",
+          "santos-barreiras-frutas-verduras-csc-2019-p007-01",
+          "santos-barreiras-frutas-verduras-csc-2019-p009-02",
+          "santos-barreiras-frutas-verduras-csc-2019-p004-05"
+        ],
+        "notas": [
+          0.64452,
+          0.739195,
+          0.577937,
+          0.659185
+        ],
+        "notas_julgadas": {
+          "santos-barreiras-frutas-verduras-csc-2019-p001-04": 2,
+          "santos-barreiras-frutas-verduras-csc-2019-p002-04": 2,
+          "santos-barreiras-frutas-verduras-csc-2019-p007-01": 2,
+          "santos-barreiras-frutas-verduras-csc-2019-p008-04": 1,
+          "santos-barreiras-frutas-verduras-csc-2019-p008-05": 1,
+          "santos-barreiras-frutas-verduras-csc-2019-p009-05": 1,
+          "santos-barreiras-frutas-verduras-csc-2019-p008-02": 2
+        }
+      },
+      {
+        "id": "V2-REC-22",
+        "area": "nutricao",
+        "pergunta": "Estresse, ansiedade e depressão influenciam a alimentação emocional?",
+        "trechos": [
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-01",
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-03",
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-02",
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p006-04"
+        ],
+        "notas": [
+          0.907724,
+          0.879246,
+          0.8721,
+          0.873248
+        ],
+        "notas_julgadas": {
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-01": 2,
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p001-02": 2,
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-03": 2,
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p006-04": 2,
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p002-07": 1,
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-01": 1,
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p004-07": 2
+        }
+      },
+      {
+        "id": "V2-REC-23",
+        "area": "nutricao",
+        "pergunta": "Praticantes que usam suplementos alimentares costumam comer mais proteína do que o recomendado?",
+        "trechos": [
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-03",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-02",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-04",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-01"
+        ],
+        "notas": [
+          0.741605,
+          0.55396,
+          0.533917,
+          0.588684
+        ],
+        "notas_julgadas": {
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p001-02": 2,
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-03": 2,
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-01": 1,
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-02": 1
+        }
+      },
+      {
+        "id": "V2-ADV-04",
+        "area": "nutricao",
+        "pergunta": "Qual marca de whey protein um nutricionista pode me indicar publicamente?",
+        "trechos": [
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p188-01",
+          "cfn-codigo-etica-conduta-nutricionista-2018-p012-04",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p187-02",
+          "cfn-codigo-etica-conduta-nutricionista-2018-p012-03"
+        ],
+        "notas": [
+          0.272627,
+          0.441411,
+          0.184048,
+          0.381502
+        ],
+        "notas_julgadas": {
+          "cfn-codigo-etica-conduta-nutricionista-2018-p012-03": 2,
+          "cfn-codigo-etica-conduta-nutricionista-2018-p013-01": 2,
+          "cfn-codigo-etica-conduta-nutricionista-2018-p012-04": 1,
+          "cfn-codigo-etica-conduta-nutricionista-2018-p012-02": 1
+        }
+      },
+      {
+        "id": "V2-GRA-01",
+        "area": "nutricao",
+        "pergunta": "Comer feijão com laranja na mesma refeição ajuda a absorver o ferro?",
+        "trechos": [
+          "guia-dietas-vegetarianas-svb-2012-p027-03",
+          "guia-dietas-vegetarianas-svb-2012-p029-02",
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01"
+        ],
+        "notas": [
+          0.096472,
+          0.145076,
+          0.037239,
+          0.045632
+        ],
+        "notas_julgadas": {
+          "guia-dietas-vegetarianas-svb-2012-p005-03": 2,
+          "guia-dietas-vegetarianas-svb-2012-p029-02": 2,
+          "guia-dietas-vegetarianas-svb-2012-p027-03": 1
+        }
+      }
+    ],
+    "abstencao_dentro": [
+      {
+        "id": "ABS-DEN-01",
+        "area": "nutricao",
+        "pergunta": "O que é a regra de ouro do Guia Alimentar?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p048-01",
+          "guia-alimentar-populacao-brasileira-2014-p049-01",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p009-02",
+          "protocolos-guia-alimentar-fasciculo1-2021-p009-01"
+        ],
+        "notas": [
+          0.742162,
+          0.600772,
+          0.164048,
+          0.2105
+        ]
+      },
+      {
+        "id": "ABS-DEN-02",
+        "area": "nutricao",
+        "pergunta": "Vegetariano precisa suplementar vitamina B12?",
+        "trechos": [
+          "guia-dietas-vegetarianas-svb-2012-p041-02",
+          "guia-dietas-vegetarianas-svb-2012-p037-02",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-02",
+          "guia-dietas-vegetarianas-svb-2012-p039-02"
+        ],
+        "notas": [
+          0.810287,
+          0.828967,
+          0.143503,
+          0.66046
+        ]
+      },
+      {
+        "id": "ABS-DEN-04",
+        "area": "nutricao",
+        "pergunta": "O que são alimentos ultraprocessados?",
+        "trechos": [
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-06",
+          "guia-alimentar-populacao-brasileira-2014-p051-01",
+          "guia-alimentar-populacao-brasileira-2014-p044-03",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p004-06"
+        ],
+        "notas": [
+          0.400618,
+          0.664607,
+          0.559495,
+          0.695902
+        ]
+      },
+      {
+        "id": "ABS-DEN-05",
+        "area": "nutricao",
+        "pergunta": "Dormir pouco aumenta a fome?",
+        "trechos": [
+          "crispim-sono-obesidade-abem-2007-p006-05",
+          "crispim-sono-obesidade-abem-2007-p006-02",
+          "crispim-sono-obesidade-abem-2007-p005-01",
+          "crispim-sono-obesidade-abem-2007-p004-03"
+        ],
+        "notas": [
+          0.325205,
+          0.195413,
+          0.346551,
+          0.480861
+        ]
+      },
+      {
+        "id": "ABS-DEN-07",
+        "area": "nutricao",
+        "pergunta": "O que o Guia diz sobre comer em companhia?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p097-02",
+          "guia-alimentar-populacao-brasileira-2014-p101-04",
+          "protocolos-guia-alimentar-fasciculo1-2021-p008-02",
+          "guia-alimentar-populacao-brasileira-2014-p098-01"
+        ],
+        "notas": [
+          0.829417,
+          0.761884,
+          0.601821,
+          0.792551
+        ]
+      },
+      {
+        "id": "ABS-DEN-08",
+        "area": "nutricao",
+        "pergunta": "Quantos brasileiros comem frutas e hortaliças todo dia?",
+        "trechos": [
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p003-02",
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p002-01",
+          "rossetti-universitarios-consumo-alimentar-san-2015-p003-03",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p092-01"
+        ],
+        "notas": [
+          0.7365,
+          0.42944,
+          0.508679,
+          0.562079
+        ]
+      },
+      {
+        "id": "ABS-DEN-10",
+        "area": "nutricao",
+        "pergunta": "Whey protein ajuda a emagrecer?",
+        "trechos": [
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p188-01",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p187-02",
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p010-12",
+          "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p005-02"
+        ],
+        "notas": [
+          0.532039,
+          0.497371,
+          0.213351,
+          0.075836
+        ]
+      },
+      {
+        "id": "ABS-DEN-11",
+        "area": "nutricao",
+        "pergunta": "BCAA melhora o desempenho esportivo?",
+        "trechos": [
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-05",
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p002-01",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-08",
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p001-04"
+        ],
+        "notas": [
+          0.640174,
+          0.128334,
+          0.11417,
+          0.090262
+        ]
+      },
+      {
+        "id": "ABS-DEN-13",
+        "area": "nutricao",
+        "pergunta": "Como vegetarianos conseguem ferro suficiente?",
+        "trechos": [
+          "guia-dietas-vegetarianas-svb-2012-p027-03",
+          "guia-dietas-vegetarianas-svb-2012-p029-02",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01",
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06"
+        ],
+        "notas": [
+          0.424978,
+          0.38371,
+          0.065682,
+          0.083032
+        ]
+      },
+      {
+        "id": "ABS-DEN-14",
+        "area": "nutricao",
+        "pergunta": "Como usar sal e açúcar na cozinha?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p034-02",
+          "guia-alimentar-populacao-brasileira-2014-p035-03",
+          "protocolos-guia-alimentar-fasciculo1-2021-p007-03",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p011-02"
+        ],
+        "notas": [
+          0.524036,
+          0.377456,
+          0.20527,
+          0.171068
+        ]
+      },
+      {
+        "id": "ABS-DEN-16",
+        "area": "nutricao",
+        "pergunta": "Adoçante como aspartame faz mal?",
+        "trechos": [
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p113-03",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p114-03",
+          "protocolos-guia-alimentar-fasciculo1-2021-p020-05",
+          "protocolos-guia-alimentar-fasciculo1-2021-p010-03"
+        ],
+        "notas": [
+          0.432096,
+          0.421836,
+          0.227632,
+          0.03442
+        ]
+      },
+      {
+        "id": "ABS-DEN-17",
+        "area": "nutricao",
+        "pergunta": "Quem tem intolerância à lactose pode tomar leite?",
+        "trechos": [
+          "guia-dietas-vegetarianas-svb-2012-p035-01",
+          "guia-dietas-vegetarianas-svb-2012-p053-05",
+          "protocolos-guia-alimentar-fasciculo1-2021-p020-05",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p226-01"
+        ],
+        "notas": [
+          0.267406,
+          0.077177,
+          0.135223,
+          0.063309
+        ]
+      },
+      {
+        "id": "ABS-DEN-19",
+        "area": "nutricao",
+        "pergunta": "Ultraprocessados têm menos micronutrientes?",
+        "trechos": [
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p003-08",
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p001-03",
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-05",
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p002-07"
+        ],
+        "notas": [
+          0.749438,
+          0.694088,
+          0.720318,
+          0.672672
+        ]
+      },
+      {
+        "id": "ABS-DEN-20",
+        "area": "nutricao",
+        "pergunta": "Estresse aumenta a vontade de comer?",
+        "trechos": [
+          "fusco-ansiedade-sono-compulsao-reeusp-2020-p005-09",
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p002-07",
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p002-04",
+          "guia-alimentar-populacao-brasileira-2014-p097-03"
+        ],
+        "notas": [
+          0.521246,
+          0.493706,
+          0.63696,
+          0.050747
+        ]
+      },
+      {
+        "id": "ABS-DEN-22",
+        "area": "nutricao",
+        "pergunta": "O que o Guia Alimentar diz sobre comer em companhia?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p097-02",
+          "guia-alimentar-populacao-brasileira-2014-p101-04",
+          "protocolos-guia-alimentar-fasciculo1-2021-p008-02",
+          "protocolos-guia-alimentar-fasciculo1-2021-p015-02"
+        ],
+        "notas": [
+          0.829602,
+          0.764063,
+          0.67714,
+          0.713852
+        ]
+      },
+      {
+        "id": "ABS-DEN-23",
+        "area": "nutricao",
+        "pergunta": "Por que devo evitar alimentos ultraprocessados?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p042-05",
+          "guia-alimentar-populacao-brasileira-2014-p047-03",
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p001-03",
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p007-02"
+        ],
+        "notas": [
+          0.729003,
+          0.674275,
+          0.548106,
+          0.561635
+        ]
+      },
+      {
+        "id": "ABS-DEN-24",
+        "area": "nutricao",
+        "pergunta": "Arroz com feijão é uma boa combinação?",
+        "trechos": [
+          "protocolos-guia-alimentar-fasciculo1-2021-p019-03",
+          "guia-alimentar-populacao-brasileira-2014-p063-01",
+          "protocolos-guia-alimentar-fasciculo1-2021-p019-02",
+          "guia-alimentar-populacao-brasileira-2014-p061-01"
+        ],
+        "notas": [
+          0.818211,
+          0.518582,
+          0.513168,
+          0.353215
+        ]
+      },
+      {
+        "id": "ABS-DEN-25",
+        "area": "nutricao",
+        "pergunta": "Quanto tempo de jejum intermitente é seguro?",
+        "trechos": [
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p165-01",
+          "azevedo-jejum-intermitente-ramb-2013-p001-03",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p168-01",
+          "azevedo-jejum-intermitente-ramb-2013-p002-01"
+        ],
+        "notas": [
+          0.406126,
+          0.091264,
+          0.200408,
+          0.108692
+        ]
+      },
+      {
+        "id": "ABS-DEN-26",
+        "area": "nutricao",
+        "pergunta": "Dormir pouco pode me fazer engordar?",
+        "trechos": [
+          "crispim-sono-obesidade-abem-2007-p007-02",
+          "crispim-sono-obesidade-abem-2007-p006-04",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p087-01",
+          "crispim-sono-obesidade-abem-2007-p006-05"
+        ],
+        "notas": [
+          0.396058,
+          0.159813,
+          0.081602,
+          0.163523
+        ]
+      },
+      {
+        "id": "ABS-DEN-27",
+        "area": "nutricao",
+        "pergunta": "Quais alimentos são ricos em ferro para quem não come carne?",
+        "trechos": [
+          "guia-dietas-vegetarianas-svb-2012-p027-03",
+          "guia-dietas-vegetarianas-svb-2012-p029-02",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p224-01",
+          "louzada-ultraprocessados-micronutrientes-rsp-2015-p005-06"
+        ],
+        "notas": [
+          0.180642,
+          0.236265,
+          0.07988,
+          0.05461
+        ]
+      },
+      {
+        "id": "ABS-DEN-28",
+        "area": "nutricao",
+        "pergunta": "Estudantes universitários comem mal? O que os estudos mostram?",
+        "trechos": [
+          "rossetti-universitarios-consumo-alimentar-san-2015-p005-01",
+          "rossetti-universitarios-consumo-alimentar-san-2015-p006-01",
+          "salvi-estudantes-enfermagem-sono-reben-2020-p005-01",
+          "salvi-estudantes-enfermagem-sono-reben-2020-p005-07"
+        ],
+        "notas": [
+          0.452332,
+          0.428714,
+          0.34011,
+          0.270369
+        ]
+      },
+      {
+        "id": "ABS-DEN-29",
+        "area": "nutricao",
+        "pergunta": "Ansiedade faz a gente comer mais?",
+        "trechos": [
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p005-07",
+          "brisotto-depressao-ansiedade-estresse-rbtc-2022-p002-04",
+          "fusco-ansiedade-sono-compulsao-reeusp-2020-p006-02",
+          "guia-alimentar-populacao-brasileira-2014-p092-01"
+        ],
+        "notas": [
+          0.518743,
+          0.59088,
+          0.256764,
+          0.06649
+        ]
+      },
+      {
+        "id": "ABS-DEN-30",
+        "area": "nutricao",
+        "pergunta": "Suplemento de proteína é necessário para quem treina?",
+        "trechos": [
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-02",
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-02",
+          "guia-alimentar-populacao-brasileira-2014-p068-03",
+          "guia-dietas-vegetarianas-svb-2012-p033-01"
+        ],
+        "notas": [
+          0.484934,
+          0.609144,
+          0.04545,
+          0.075713
+        ]
+      },
+      {
+        "id": "ABS-DEN-31",
+        "area": "nutricao",
+        "pergunta": "Como ler o rótulo para identificar um ultraprocessado?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p071-01",
+          "guia-alimentar-populacao-brasileira-2014-p052-01",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p184-05",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p002-04"
+        ],
+        "notas": [
+          0.462605,
+          0.278963,
+          0.065516,
+          0.029456
+        ]
+      },
+      {
+        "id": "ABS-DEN-32",
+        "area": "nutricao",
+        "pergunta": "O que é a classificação NOVA dos alimentos?",
+        "trechos": [
+          "martins-ultraprocessados-rsp-2013-p002-02",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p003-05",
+          "louzada-ultraprocessados-perfil-nutricional-rsp-2015-p009-02",
+          "guia-alimentar-populacao-brasileira-2014-p136-02"
+        ],
+        "notas": [
+          0.184094,
+          0.262967,
+          0.086565,
+          0.110114
+        ]
+      },
+      {
+        "id": "ABS-DEN-33",
+        "area": "nutricao",
+        "pergunta": "Comer frutas e verduras todo dia faz diferença?",
+        "trechos": [
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p094-04",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p093-02",
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p003-02",
+          "santos-barreiras-frutas-verduras-csc-2019-p008-06"
+        ],
+        "notas": [
+          0.646233,
+          0.547929,
+          0.273185,
+          0.24378
+        ]
+      },
+      {
+        "id": "ABS-DEN-34",
+        "area": "nutricao",
+        "pergunta": "Por que é difícil comer frutas e verduras no dia a dia?",
+        "trechos": [
+          "jaime-frutas-hortalicas-brasil-rsp-2009-p003-02",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p094-01",
+          "rossetti-universitarios-consumo-alimentar-san-2015-p003-03",
+          "guia-alimentar-populacao-brasileira-2014-p094-02"
+        ],
+        "notas": [
+          0.129604,
+          0.253828,
+          0.175814,
+          0.10156
+        ]
+      },
+      {
+        "id": "ABS-DEN-35",
+        "area": "nutricao",
+        "pergunta": "Posso tomar creatina sem orientação?",
+        "trechos": [
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p007-01",
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-10",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-01",
+          "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p003-09"
+        ],
+        "notas": [
+          0.382334,
+          0.270503,
+          0.108666,
+          0.122755
+        ]
+      },
+      {
+        "id": "ABS-DEN-36",
+        "area": "nutricao",
+        "pergunta": "Lanchar entre as refeições faz mal?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p013-01",
+          "santos-barreiras-frutas-verduras-csc-2019-p008-06",
+          "protocolos-guia-alimentar-fasciculo1-2021-p017-04",
+          "protocolos-guia-alimentar-fasciculo1-2021-p010-03"
+        ],
+        "notas": [
+          0.061828,
+          0.041706,
+          0.146167,
+          0.030968
+        ]
+      },
+      {
+        "id": "ABS-DEN-37",
+        "area": "nutricao",
+        "pergunta": "O que fazer quando não tenho tempo de cozinhar?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p114-03",
+          "guia-alimentar-populacao-brasileira-2014-p128-02",
+          "protocolos-guia-alimentar-fasciculo1-2021-p009-01",
+          "guia-alimentar-populacao-brasileira-2014-p115-01"
+        ],
+        "notas": [
+          0.499037,
+          0.329009,
+          0.070048,
+          0.31083
+        ]
+      },
+      {
+        "id": "ABS-DEN-38",
+        "area": "nutricao",
+        "pergunta": "Refrigerante zero é melhor que o normal?",
+        "trechos": [
+          "salvi-estudantes-enfermagem-sono-reben-2020-p003-01",
+          "crispim-sono-obesidade-abem-2007-p006-05",
+          "rossetti-universitarios-consumo-alimentar-san-2015-p004-02",
+          "protocolos-guia-alimentar-fasciculo1-2021-p020-01"
+        ],
+        "notas": [
+          0.068795,
+          0.035605,
+          0.048462,
+          0.063315
+        ]
+      },
+      {
+        "id": "ABS-DEN-39",
+        "area": "nutricao",
+        "pergunta": "Qual a importância de beber água?",
+        "trechos": [
+          "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p004-02",
+          "guia-alimentar-populacao-brasileira-2014-p087-02",
+          "guia-alimentar-populacao-brasileira-2014-p087-01",
+          "protocolos-guia-alimentar-fasciculo1-2021-p020-04"
+        ],
+        "notas": [
+          0.207004,
+          0.444811,
+          0.66712,
+          0.144131
+        ]
+      },
+      {
+        "id": "ABS-DEN-40",
+        "area": "nutricao",
+        "pergunta": "Comer rápido atrapalha a digestão?",
+        "trechos": [
+          "guia-alimentar-populacao-brasileira-2014-p093-01",
+          "protocolos-guia-alimentar-fasciculo1-2021-p024-03",
+          "guia-alimentar-populacao-brasileira-2014-p092-01",
+          "santos-barreiras-frutas-verduras-csc-2019-p003-05"
+        ],
+        "notas": [
+          0.366678,
+          0.38847,
+          0.127609,
+          0.090675
+        ]
+      },
+      {
+        "id": "ABS-DEN-41",
+        "area": "nutricao",
+        "pergunta": "Jejum intermitente funciona?",
+        "trechos": [
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p165-01",
+          "azevedo-jejum-intermitente-ramb-2013-p001-03",
+          "azevedo-jejum-intermitente-ramb-2013-p002-01",
+          "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p168-01"
+        ],
+        "notas": [
+          0.52204,
+          0.498551,
+          0.524148,
+          0.349789
+        ]
+      }
+    ]
+  },
+  "sem_base": [
+    {
+      "id": "SB13",
+      "area": "nutricao",
+      "pergunta": "Berberina ajuda a controlar a glicemia?",
+      "trechos": [
+        "guia-alimentar-populacao-brasileira-2014-p045-02",
+        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p006-01",
+        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p005-06",
+        "guia-dietas-vegetarianas-svb-2012-p035-04"
+      ],
+      "notas": [
+        0.035969,
+        0.034245,
+        0.045763,
+        0.033855
+      ]
+    },
+    {
+      "id": "SB14",
+      "area": "nutricao",
+      "pergunta": "Suplemento de beta-alanina melhora o desempenho no treino?",
+      "trechos": [
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-05",
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-09",
+        "moreira-rodrigues-conhecimento-nutricional-suplementacao-2014-p004-08",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p121-03"
+      ],
+      "notas": [
+        0.443103,
+        0.216741,
+        0.175898,
+        0.048925
+      ]
+    },
+    {
+      "id": "SB15",
+      "area": "nutricao",
+      "pergunta": "Colostro bovino em cápsula fortalece a imunidade?",
+      "trechos": [
+        "guia-dietas-vegetarianas-svb-2012-p028-01",
+        "guia-alimentar-populacao-brasileira-2014-p063-01",
+        "cfn-codigo-etica-conduta-nutricionista-2018-p008-01",
+        "cfn-codigo-etica-conduta-nutricionista-2018-p008-03"
+      ],
+      "notas": [
+        0.03247,
+        0.044626,
+        0.026918,
+        0.028934
+      ]
+    },
+    {
+      "id": "SB16",
+      "area": "nutricao",
+      "pergunta": "Carne cultivada em laboratório é segura para comer?",
+      "trechos": [
+        "guia-dietas-vegetarianas-svb-2012-p015-01",
+        "guia-dietas-vegetarianas-svb-2012-p055-06",
+        "sbme-modificacoes-dieteticas-suplementos-rbme-2009-p006-02",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p175-02"
+      ],
+      "notas": [
+        0.099059,
+        0.076545,
+        0.038284,
+        0.030145
+      ]
+    },
+    {
+      "id": "SB17",
+      "area": "nutricao",
+      "pergunta": "Ômega-7 em cápsula ajuda a emagrecer?",
+      "trechos": [
+        "guia-dietas-vegetarianas-svb-2012-p021-01",
+        "guia-dietas-vegetarianas-svb-2012-p020-03",
+        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p005-02",
+        "franca-psicologia-nutricao-comportamento-alimentar-epsic-2012-p006-01"
+      ],
+      "notas": [
+        0.069012,
+        0.069476,
+        0.061852,
+        0.030982
+      ]
+    },
+    {
+      "id": "SB18",
+      "area": "nutricao",
+      "pergunta": "Chá de cavalinha emagrece?",
+      "trechos": [
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p177-06",
+        "abeso-posicionamento-tratamento-nutricional-obesidade-2022-p178-01",
+        "guia-alimentar-populacao-brasileira-2014-p087-02",
+        "guia-dietas-vegetarianas-svb-2012-p048-01"
+      ],
+      "notas": [
+        0.147356,
+        0.183188,
+        0.064767,
+        0.076175
+      ]
+    },
+    {
+      "id": "SB01",
+      "area": "saude_fisica",
+      "pergunta": "Quanto tempo depois de doar sangue posso voltar a treinar?",
+      "trechos": [
+        "jospt-rotator-cuff-tendinopathy-cpg-2025-p038-08",
+        "guia-atividade-fisica-brasil-2021-p033-02",
+        "guia-atividade-fisica-brasil-2021-p044-01",
+        "jospt-rotator-cuff-tendinopathy-cpg-2025-p039-03"
+      ],
+      "notas": [
+        0.070788,
+        0.056989,
+        0.048195,
+        0.042391
+      ]
+    },
+    {
+      "id": "SB02",
+      "area": "saude_fisica",
+      "pergunta": "Treinar com tatuagem recém-feita atrapalha a cicatrização?",
+      "trechos": [
+        "jospt-rotator-cuff-tendinopathy-cpg-2025-p037-03",
+        "guia-atividade-fisica-brasil-2021-p008-02",
+        "guia-atividade-fisica-brasil-2021-p013-02",
+        "jospt-rotator-cuff-tendinopathy-cpg-2025-p020-09"
+      ],
+      "notas": [
+        0.043417,
+        0.029697,
+        0.02864,
+        0.027744
+      ]
+    },
+    {
+      "id": "SB03",
+      "area": "saude_fisica",
+      "pergunta": "Pistola de massagem ajuda na recuperação depois do treino?",
+      "trechos": [
+        "who-package-rehabilitation-musculoskeletal-2023-p024-02",
+        "cochrane-exercise-chronic-low-back-pain-2021-s001-02",
+        "guia-atividade-fisica-brasil-2021-p050-01",
+        "acsm-resistance-training-position-stand-2026-s003-06"
+      ],
+      "notas": [
+        0.06574,
+        0.045988,
+        0.033971,
+        0.033297
+      ]
+    },
+    {
+      "id": "SB04",
+      "area": "saude_fisica",
+      "pergunta": "Sauna depois do treino ajuda a eliminar toxinas?",
+      "trechos": [
+        "guia-atividade-fisica-brasil-2021-p050-01",
+        "ioc-load-sport-illness-2016-p010-02",
+        "jospt-rotator-cuff-tendinopathy-cpg-2025-p037-04",
+        "guia-atividade-fisica-brasil-2021-p010-02"
+      ],
+      "notas": [
+        0.035904,
+        0.035274,
+        0.033088,
+        0.032492
+      ]
+    },
+    {
+      "id": "SB05",
+      "area": "saude_fisica",
+      "pergunta": "Correr descalço reduz as lesões?",
+      "trechos": [
+        "cochrane-exercise-chronic-low-back-pain-2021-s001-01",
+        "cochrane-exercise-chronic-low-back-pain-2021-s001-03",
+        "guia-atividade-fisica-brasil-2021-p029-02",
+        "guia-atividade-fisica-brasil-2021-p041-02"
+      ],
+      "notas": [
+        0.163438,
+        0.136347,
+        0.100281,
+        0.082582
+      ]
+    },
+    {
+      "id": "SB06",
+      "area": "saude_fisica",
+      "pergunta": "Dá para treinar de ressaca sem problema?",
+      "trechos": [
+        "jospt-rotator-cuff-tendinopathy-cpg-2025-p020-09",
+        "guia-atividade-fisica-brasil-2021-p043-02",
+        "guia-atividade-fisica-brasil-2021-p023-01",
+        "jospt-rotator-cuff-tendinopathy-cpg-2025-p021-01"
+      ],
+      "notas": [
+        0.071892,
+        0.069648,
+        0.063167,
+        0.058205
+      ]
+    },
+    {
+      "id": "SB07",
+      "area": "saude_fisica",
+      "pergunta": "Tênis com placa de carbono previne lesão na corrida?",
+      "trechos": [
+        "jospt-rotator-cuff-tendinopathy-cpg-2025-p039-03",
+        "jospt-ankle-ligament-sprains-cpg-2021-p012-07",
+        "guia-atividade-fisica-brasil-2021-p025-02",
+        "guia-atividade-fisica-brasil-2021-p008-02"
+      ],
+      "notas": [
+        0.069663,
+        0.057051,
+        0.055492,
+        0.047084
+      ]
+    },
+    {
+      "id": "SB08",
+      "area": "saude_fisica",
+      "pergunta": "Máscara de restrição de ar no treino melhora o fôlego?",
+      "trechos": [
+        "who-diretrizes-atividade-fisica-sedentarismo-2020-p045-01",
+        "jospt-rotator-cuff-tendinopathy-cpg-2025-p027-09",
+        "hhs-physical-activity-scientific-report-2018-p519-01",
+        "guia-atividade-fisica-brasil-2021-p029-02"
+      ],
+      "notas": [
+        0.05945,
+        0.047933,
+        0.047774,
+        0.046632
+      ]
+    }
+  ]
+}

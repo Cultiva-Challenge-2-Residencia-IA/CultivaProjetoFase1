@@ -1,0 +1,21 @@
+{
+  "descricao": "Perguntas para medir a redação final e o esclarecimento (issue #104). 'vago': pedido vago ou individual, que deve receber pergunta de esclarecimento. Escritas pelo autor do código antes da medição.",
+  "dev": [
+    {"id": "R01", "chat": "nutricao", "mensagem": "To comendo 300 gramas de pão pela manhã, por qual alimento eu posso substituir?", "vago": false},
+    {"id": "R02", "chat": "nutricao", "mensagem": "Ultraprocessados fazem mal mesmo?", "vago": false},
+    {"id": "R03", "chat": "saude_fisica", "mensagem": "Quantos minutos de atividade física por semana um adulto deve fazer?", "vago": false},
+    {"id": "R04", "chat": "nutricao", "mensagem": "Quais alimentos são boas fontes de fibra?", "vago": false},
+    {"id": "R05", "chat": "saude_fisica", "mensagem": "Quero treinar perna", "vago": true},
+    {"id": "R06", "chat": "nutricao", "mensagem": "Me ajuda com a minha alimentação", "vago": true},
+    {"id": "R07", "chat": "saude_fisica", "mensagem": "Ficar muito tempo sentado faz mal?", "vago": false},
+    {"id": "R08", "chat": "nutricao", "mensagem": "Café da manhã é a refeição mais importante do dia?", "vago": false}
+  ],
+  "test": [
+    {"id": "R09", "chat": "nutricao", "mensagem": "Refrigerante zero é melhor que o normal?", "vago": false},
+    {"id": "R10", "chat": "saude_fisica", "mensagem": "Musculação ajuda quem tem dor nas costas?", "vago": false},
+    {"id": "R11", "chat": "nutricao", "mensagem": "Quais são os benefícios de comer feijão com arroz?", "vago": false},
+    {"id": "R12", "chat": "saude_fisica", "mensagem": "Quero começar a me exercitar", "vago": true},
+    {"id": "R13", "chat": "nutricao", "mensagem": "Comer à noite engorda?", "vago": false},
+    {"id": "R14", "chat": "saude_fisica", "mensagem": "Caminhada conta como atividade física?", "vago": false}
+  ]
+}

@@ -45,7 +45,23 @@ TRACEABILITY_DB_PATH = Path(os.getenv("CULTIVA_TRACEABILITY_DB", str(DATA_DIR / 
 # Histórico das Conversas (issue #99): SQLite local, ignorado pelo Git, e quantas mensagens de cada
 # chat vão ao LLM (janela).
 HISTORICO_DB_PATH = Path(os.getenv("CULTIVA_HISTORICO_DB", str(DATA_DIR / "conversas.sqlite3")))
-JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "6"))
+# Janela do Histórico (issue #112, ADR 0005): orçamento de tokens (proposta: 2.500) e, no máximo,
+# CULTIVA_JANELA_HISTORICO mensagens (20). As respostas do assistente entram encurtadas.
+JANELA_HISTORICO = int(os.getenv("CULTIVA_JANELA_HISTORICO", "20"))
+ORCAMENTO_HISTORICO_TOKENS = int(os.getenv("CULTIVA_HISTORICO_TOKENS", "2500"))
+# Fatos do Usuário (issue #112): a memória fica desligada até o Usuário aceitar (opt-in). Sem App, o
+# aceite vem da API; CULTIVA_MEMORIA_PADRAO vale para quem ainda não respondeu, só em testes e uso
+# local com dados sintéticos: "desligada" (padrão), "ligada" ou "ligada_com_saude".
+MEMORIA_PADRAO = os.getenv("CULTIVA_MEMORIA_PADRAO", "desligada").strip().lower()
+# Fato sem atualização deixa de valer depois deste prazo (proposta).
+FATOS_PRAZO_DIAS = int(os.getenv("CULTIVA_FATOS_PRAZO_DIAS", "90"))
+# Guardrail de prescrição (issue #39): camada LLM local consultada quando as regras não acionam.
+# Sem Ollama (CI, benchmark), só as regras. Qualquer falha ou tempo esgotado faz valer só as regras.
+# Respostas mais humanas (issue #104): redação final a partir das frases checadas, com o LLM local.
+# Ligada por padrão: no test, cumpriu utilidade e exagero (eval/redacao/resultados.md).
+REDACAO_LLM = os.getenv("CULTIVA_REDACAO", "true").strip().lower() in {"1", "true", "sim", "yes"}
+PRESCRICAO_LLM = os.getenv("CULTIVA_PRESCRICAO_LLM", "true").strip().lower() in {"1", "true", "sim", "yes"}
+PRESCRICAO_LLM_TIMEOUT = float(os.getenv("CULTIVA_PRESCRICAO_LLM_TIMEOUT", "8"))
 # Autenticação dos endpoints de chat e de exclusão (issue #108, src/chat/autenticacao.py). O segredo
 # (CULTIVA_AUTH_SEGREDO) e a flag de desenvolvimento (CULTIVA_AUTH_DESLIGADA) são lidos a cada pedido,
 # não aqui; esta é só a validade dos tokens de teste emitidos pela linha de comando.
@@ -94,6 +110,12 @@ EMBEDDING_CACHE_PATH = Path(_cache_vetores) if _cache_vetores else None
 # 12 GB de memória num lote de Trechos longos (512 tokens): o runner do CI, com 16 GB, para de
 # responder e é derrubado. Com 16, o pico fica perto de 2 GB, sem perda de velocidade em CPU.
 EMBEDDING_LOTE_MODELO = int(os.getenv("EMBEDDING_LOTE_MODELO", "16"))
+# Embeddings na GPU (opt-in, uso local): exige o onnxruntime-gpu no lugar do onnxruntime, com as
+# bibliotecas CUDA e cuDNN (pacotes nvidia-* do pip). O CI e o padrão seguem em CPU.
+EMBEDDINGS_GPU = os.getenv("CULTIVA_EMBEDDINGS_GPU", "false").strip().lower() in {"1", "true", "sim", "yes"}
+# Placa dos embeddings, na ordem do CUDA (a mais rápida primeiro). O e5-large ocupa cerca de 3 GB: numa
+# máquina com duas placas, deixe o gemma do Ollama sozinho na maior e os embeddings na outra.
+EMBEDDINGS_GPU_ID = int(os.getenv("CULTIVA_EMBEDDINGS_GPU_ID", "0"))
 # Parâmetros do índice HNSW do ChromaDB. Com os padrões, a busca aproximada perdia vizinhos
 # e variava a cada carga do índice; com 200, o top-24 coincide com a busca exata no corpus atual.
 HNSW_EF_CONSTRUCTION = int(os.getenv("HNSW_EF_CONSTRUCTION", "200"))
@@ -127,7 +149,9 @@ OLLAMA_NUM_CTX = int(os.getenv("OLLAMA_NUM_CTX", "8192"))
 OLLAMA_NUM_PREDICT = int(os.getenv("OLLAMA_NUM_PREDICT", "2048"))
 OLLAMA_THINK = os.getenv("OLLAMA_THINK", "false").strip().lower() in {"1", "true", "sim", "yes"}
 OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text")
-OLLAMA_TIMEOUT = float(os.getenv("OLLAMA_TIMEOUT", "45.0"))
+# 180 s: numa GPU de 4 GB (GTX 1650) o gemma4:e4b não cabe inteiro e a síntese passava de 45 s, o
+# antigo padrão; a falha caía na síntese extrativa. Numa GPU de 8 GB a resposta leva bem menos.
+OLLAMA_TIMEOUT = float(os.getenv("OLLAMA_TIMEOUT", "180.0"))
 
 # Parâmetros do Motor RAG Híbrido (Fase 1 Baseline)
 TOP_K_BM25 = int(os.getenv("TOP_K_BM25", "8"))
@@ -146,6 +170,46 @@ MAX_CHUNKS_PER_DOC = int(os.getenv("MAX_CHUNKS_PER_DOC", "2"))
 MODO_DENSO = os.getenv("MODO_DENSO", "chromadb_pure")
 RERANK_PESO_SOBREPOSICAO = float(os.getenv("RERANK_PESO_SOBREPOSICAO", "0.0"))
 RERANK_BONUS_EVIDENCIA = os.getenv("RERANK_BONUS_EVIDENCIA", "false").strip().lower() in {"1", "true", "sim"}
+
+
+def _ligado(nome: str, padrao: str) -> bool:
+    return os.getenv(nome, padrao).strip().lower() in {"1", "true", "sim", "yes"}
+
+
+# Relevância da busca (issue #105; critérios e medição em eval/relevancia/). Reranker cross-encoder
+# multilíngue, local pelo fastembed, sobre os RERANKER_CANDIDATOS primeiros da busca híbrida, ligado
+# por área. No dev com o e5-large (#15): em Saúde Física, MRR da fonte de 0,300 para 0,667 (jina) e
+# 0,600 (bge); em Nutrição, recall@4 de 0,602 para 0,579, e a regra registrada não deixa ligar com piora.
+# Licença do jina: CC BY-NC 4.0 (pesquisa e avaliação; projeto acadêmico). O bge-reranker-v2-m3 é
+# Apache-2.0 e cerca de 2,7 vezes mais lento.
+RERANKER_MODELO = os.getenv("RERANKER_MODELO", "jinaai/jina-reranker-v2-base-multilingual")
+RERANKER_CANDIDATOS = int(os.getenv("RERANKER_CANDIDATOS", "20"))
+RERANKER_NUTRICAO = _ligado("CULTIVA_RERANKER_NUTRICAO", "false")
+RERANKER_SAUDE_FISICA = _ligado("CULTIVA_RERANKER_SAUDE_FISICA", "true")
+# Filtro de relevância antes da síntese, por área: Trecho com nota do cross-encoder abaixo do limiar
+# não vai para a síntese; sem nenhum, a resposta é a lacuna explícita (src/rag/relevancia.py). Limiar
+# calibrado no dev das duas áreas juntas (lacuna indevida <= 5%; 0,146 com o MiniLM, 0,145 com o
+# e5-large). Desligado por padrão nas duas áreas (revisão do PR da #105, 26/11/2026): em Saúde Física,
+# a lacuna indevida foi de 0,17 no test com o MiniLM e de 0,10 no dev com o e5-large (critério 0,05);
+# em Nutrição, derrubava o gate v1 com o MiniLM. Volta num novo ciclo, com casos novos.
+FILTRO_RELEVANCIA_NUTRICAO = _ligado("CULTIVA_FILTRO_RELEVANCIA_NUTRICAO", "false")
+# Issue #118: ligado em Saúde Física, com o limiar calibrado no dev da régua de perguntas reais
+# (eval/regua/calibracao_dev_guardrail.json: "não sei" em 2 de 2 sem cobertura e 1 de 11 indevido).
+# Em Nutrição, o cross-encoder não separou cobertos de sem cobertura (1 de 6) e o filtro segue desligado.
+FILTRO_RELEVANCIA_SAUDE_FISICA = _ligado("CULTIVA_FILTRO_RELEVANCIA_SAUDE_FISICA", "true")
+FILTRO_RELEVANCIA_LIMIAR = float(os.getenv("FILTRO_RELEVANCIA_LIMIAR", "0.146"))
+# Limiar por área (issue #118): a escala do cross-encoder muda com o idioma das fontes (português em
+# Nutrição, inglês em Saúde Física). Sem o valor da área, vale o FILTRO_RELEVANCIA_LIMIAR.
+FILTRO_RELEVANCIA_LIMIAR_NUTRICAO = float(os.getenv("FILTRO_RELEVANCIA_LIMIAR_NUTRICAO", str(FILTRO_RELEVANCIA_LIMIAR)))
+FILTRO_RELEVANCIA_LIMIAR_SAUDE_FISICA = float(
+    os.getenv("FILTRO_RELEVANCIA_LIMIAR_SAUDE_FISICA", "0.0878"))
+# Reformulação pelo LLM quando nenhum Trecho passa: desligada, porque no dev tirou da lacuna também
+# casos sem base (lacuna de 0,714 para 0,643).
+REFORMULACAO_LLM = _ligado("CULTIVA_REFORMULACAO_LLM", "false")
+# Trecho hipotético (HyDE) na busca só do Agente de Saúde Física (CULTIVA_HYDE_NA_BUSCA vale para as
+# duas). Desligado pela regra do dev: com o e5-large, MRR da fonte +0,037 (a regra pede +0,05), e as
+# duas consultas extras levam o agente de cerca de 1,3 s para 4,2 s. Com o MiniLM: +0,075 no dev, −0,042 no test.
+HYDE_NA_BUSCA_SAUDE_FISICA = _ligado("CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA", "false")
 
 # Observabilidade (proposta técnica, ainda não documentada na Documentacao-Cultiva; ADR 0003).
 # Desligada por padrão: só envia traces ao Langfuse com CULTIVA_LANGFUSE=true e as chaves

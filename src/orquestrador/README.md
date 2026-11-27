@@ -6,12 +6,13 @@ Grafo que recebe a pergunta, passa pelos portões de segurança e entrega ao age
 
 - Portões, iguais nos três chats: risco, sinal de alerta (`src/guardrails/alerta`) e prompt injection.
 - `roteamento.py`: vocabulário de cada área; as regras decidem sempre que alguma área tem termo, e o LLM decide só quando nenhuma tem.
-- `reescrita.py`: uma chamada ao LLM com pergunta completa (continuação), Subperguntas por área e trecho hipotético (HyDE); sem LLM, a mensagem e as regras.
+- `reescrita.py`: uma chamada ao LLM com pergunta completa (continuação), Subperguntas por área e trecho hipotético (HyDE); sem LLM, a mensagem e as regras. O trecho hipotético pode entrar na busca só do Agente de Saúde Física (`CULTIVA_HYDE_NA_BUSCA_SAUDE_FISICA`, issue #105), desligado por padrão.
 - `sincronizador.py`: cruza as respostas citadas das duas áreas, conferido pela checagem de citação por frase, ou as deixa lado a lado.
 - Histórico em `src/chat/historico.py` (SQLite local); o Chat geral lê os Chats de área do mesmo Usuário, e cada agente recebe só o Histórico da área dele.
 
 - `grafo.py`: grafo principal. Os portões de risco (RF-IA03) e de prompt injection (RNF04) são os primeiros nós e ficam **fora** dos agentes, para valerem para todos. Uma pergunta barrada termina com resposta fixa, sem chegar a agente nenhum.
-- `src/agents/nutricao/grafo.py`: subgrafo de Nutrição, com a mesma sequência de antes. As saídas antecipadas ("não sei" por falta de domínio ou por `llm_sem_base`) são arestas condicionais para o fim.
+- `src/agents/nutricao/grafo.py`: subgrafo de Nutrição, com a mesma sequência de antes. As saídas antecipadas ("não sei" por falta de domínio ou por `llm_sem_base`, e a lacuna do filtro de relevância) são arestas condicionais para o fim.
+- `filtro_relevancia` (issue #105, `src/rag/relevancia.py`): com o filtro ligado (`CULTIVA_FILTRO_RELEVANCIA_*`, desligado por padrão nas duas áreas), só os Trechos com nota do cross-encoder de pelo menos `FILTRO_RELEVANCIA_LIMIAR` vão para a síntese; sem nenhum, a resposta é a lacuna explícita. Desligado, o nó não muda nada.
 - `NutritionConsultantBaseline.consult()` monta o grafo na primeira chamada e o invoca, com a mesma assinatura e a mesma `ConsultantResponse` de antes. A API, os benchmarks e a demonstração não mudam.
 
 **Observabilidade (Langfuse, opcional):** a observação raiz é aberta em `consult()`, fora do grafo, e cada nó abre a sua. O callback do LangGraph para o Langfuse não é usado: ele registraria a entrada do grafo, inclusive a pergunta que o portão de risco barra (ADR 0003, item 5).
@@ -47,12 +48,15 @@ graph TD;
 	nutricao\3atabela_taco(tabela_taco)
 	nutricao\3agrafo_causal(grafo_causal)
 	nutricao\3aabstencao(abstencao)
+	nutricao\3afiltro_relevancia(filtro_relevancia)
 	nutricao\3asintese(sintese)
 	nutricao\3aresposta(resposta)
 	nutricao\3a__end__(<p>__end__</p>)
 	nutricao\3aabstencao -.-> nutricao\3a__end__;
-	nutricao\3aabstencao -.-> nutricao\3asintese;
+	nutricao\3aabstencao -.-> nutricao\3afiltro_relevancia;
 	nutricao\3abusca_hibrida --> nutricao\3atabela_taco;
+	nutricao\3afiltro_relevancia -.-> nutricao\3a__end__;
+	nutricao\3afiltro_relevancia -.-> nutricao\3asintese;
 	nutricao\3agrafo_causal --> nutricao\3aabstencao;
 	nutricao\3aguardrail_entrada --> nutricao\3abusca_hibrida;
 	nutricao\3asintese -.-> nutricao\3a__end__;

@@ -1,0 +1,6 @@
+{
+  "R02": {"melhor": "B", "motivo": "B responde logo com 'Sim' em linguagem simples, enquanto A não responde de forma direta e termina com um parágrafo técnico e fora de contexto."},
+  "R06": {"melhor": "B", "motivo": "B se dirige à pessoa e começa pelo conselho principal, enquanto A abre com uma frase confusa e salta entre temas sem conexão."},
+  "R07": {"melhor": "B", "motivo": "B diz logo que há riscos e explica em termos leigos, sem as estatísticas técnicas e a repetição que pesam em A."},
+  "R08": {"melhor": "B", "motivo": "As duas trazem a mesma informação central, mas B é mais enxuta e clara, sem os dados tangenciais que A acrescenta."}
+}
