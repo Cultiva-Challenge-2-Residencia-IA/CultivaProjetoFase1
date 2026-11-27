@@ -1,0 +1,77 @@
+[
+  {
+    "id": "Q39",
+    "tipo_da_pergunta": "duas_areas",
+    "mensagens_anteriores": [],
+    "pergunta": "precisa tomar whey logo dps do treino ou essa janela anabolica é mito",
+    "boa_resposta": "Resume o que as fontes dizem sobre timing de proteína após o treino, citando a fonte, ou diz que não tem informação; reforça que suplemento não é obrigatório.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "A resposta aguda da Síntese de Proteínas Musculares (MPS) após o exercício não foi ligada à duração do pós-exercício. Além disso, a formação de proteína acontece quando o corpo está alimentado, e não somente em jejum. ⁵",
+    "trechos_citados": [
+      {
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "texto": "Em relação à manutenção de massa magra durante dieta com restrição calórica, a suplementação com whey não demonstra ter efeito clínico significativo . Ao mesmo tempo, observam-se alguns efeitos metabólicos favoráveis da suplementação com proteína do soro do leite, como aumento da liberação de hormônios, incluindo peptídeo semelhante ao glucagon 1 (GLP-1), leptina e colecistoquinina e a redução da grelina, alterações relacionadas à saciedade, o que pode resultar na redução de peso. Em mulheres jovens com obesidade, o consumo diário de 45g de whey protein isolado comparado com 43g de maltodextrina demonstrou redução no apetite, associado a maior estímulo de peptídeos gastrointestinais anorexigênicos (PYY e GLP-1) após 2 horas . Os benefícios biológicos da proteína do soro também podem estar associados aos seus componentes nutricionais, especialmente à cisteína e aos BCAA"
+      },
+      {
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "texto": "Ingestão proteica, após o exercício físico de hipertrofia, favorece o aumento de massa muscular, quando combinado com a ingestão de carboidratos, reduzindo a degradação proteica. A dose recomendada é de 10g de proteínas e 20g de carboidratos. Esse consumo deve estar de acordo com a ingestão proteica e calórica total. O aumento da massa muscular ocorre como consequência do treinamento, assim como a demanda proteica, não sendo o inverso verdadeiro."
+      },
+      {
+        "fonte": "Resistance Training Recommendations to Maximize Muscle Hypertrophy in an Athletic Population: Position Stand of the IUSCA",
+        "texto": "A key question is whether short-term (hours) infusion-determined measures of MPS, and when available MPB and net muscle protein balance, are relevant in the longer-term and ultimately aligned with phenotypic adaptation? Broadly, there are examples of short-term protein turnover estimates aligning with longer-term training studies. For example, ingestion of bovine skimmed milk was shown to be more anabolic than a protein-matched isoenergetic soy drink (67), which aligned with outcomes from a subsequent trial (68). Similarly, short-term responses of MPS to lifting with lower and higher loads (55) aligned with unilateral (69) and independent group comparative outcomes (70); namely, that when lower loads were lifted to the point of failure, they are as effective at stimulating hypertrophy as heavier loads. Nonetheless, there are other scenarios where acute responses have not aligned with longer-term outcomes. For instance, the acute (1-6h) post-exercise MPS response was not related to the extent of muscle hypertrophy (71); however, this may not be surprising given that the post-exercise MPS response was only a fasted-state response (71) and, as outlined above, it is in the fed-state when protein accretion occurs."
+      },
+      {
+        "fonte": "Effects of range of motion on muscle development during resistance training interventions: A systematic review",
+        "texto": "Therefore, it could be hypothesized that when a certain ROM threshold is achieved, no additional benefit is obtained by further increases in ROM of a given exercise. This concept can be compared with protein intake and muscle protein synthesis (MPS). Specifically, increasing protein amounts from 20 to 40 grams likely results in greater increases in MPS; however, additional increases from 40 to 70 grams do not further augment MPS responses. In the studies by Bloomquist et al. and McMahon et al., the groups training with partial"
+      },
+      {
+        "fonte": "Resistance Training Recommendations to Maximize Muscle Hypertrophy in an Athletic Population: Position Stand of the IUSCA",
+        "texto": "that RT results in sensitization of muscle to hyperaminoacidemia, that only essential amino acids are required to support a full and robust MPS response, that leucine is the key amino acid that triggers the rise in MPS and that adding carbohydrates (with the resultant hyperinsulinemia) does not contribute to stimulating MPS when protein is sufficient. We also have a good idea of the dose-response relationship between ingested protein dose and the stimulation of MPS after resistance exercise (65,66). If mixed meal-induced rises in MPS are translatable from isolated proteins, and we apply a margin of error in making this estimation, then it appears that per-meal doses of protein that maximally stimulate MPS are 0.35-0.5 g protein/kg bodyweight/meal (4). These estimates are based on the ingestion of higher quality, mostly animal-derived proteins, that have been tested to date."
+      }
+    ]
+  },
+  {
+    "id": "Q28",
+    "tipo_da_pergunta": "pedido_individual",
+    "mensagens_anteriores": [],
+    "pergunta": "qual dose de creatina eu tomo? tenho 41 anos e comecei a treinar agora",
+    "boa_resposta": "Não indica dose; explica o que as fontes dizem sobre creatina em geral, se houver, e recomenda nutricionista ou médico para decidir sobre suplementação.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "O uso de creatina como suplemento ergogênico deve ser analisado individualmente, caso a caso, de acordo com as necessidades analisadas. A suplementação de creatina não é recomendada em geral, sendo seu uso aceito em raras ocasiões. Protocolos clínicos utilizam saturação crônica de 3g a 5g/dia em indivíduos saudáveis [GRAFO]. ¹\n\nEssa parte da pergunta é da área de Saúde Física. Pergunte no chat de Saúde Física ou no chat geral, que reúne as duas áreas.",
+    "trechos_citados": [
+      {
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "texto": "a de que em geral não se deve usar a suplementação de creatina, sendo seu uso aceito em raras ocasiões. Para os demais desportistas fica estabelecida a recomendação de nunca usar.\n\nDesse modo, recomenda-se que a utilização da creatina como suplemento, com finalidade ergogênica, seja analisada individualmente, caso a caso, de acordo com as necessidades analisadas."
+      },
+      {
+        "fonte": "Modificações dietéticas, reposição hídrica, suplementos alimentares e drogas: comprovação de ação ergogênica e potenciais riscos para a saúde",
+        "texto": "Somente para atletas competitivos de eventos de grande intensidade e curta duração, ou sejam, atividades nas quais predomina a utilização de fosfagênios, sempre em caráter excepcional, seu uso é permitido. Portanto, mesmo nesses casos, a recomendação é"
+      }
+    ]
+  },
+  {
+    "id": "Q57",
+    "tipo_da_pergunta": "pedido_individual",
+    "mensagens_anteriores": [],
+    "pergunta": "quero comer um suflair 80% cacau, tudo bem?",
+    "boa_resposta": "explica de forma geral o que as fontes dizem sobre chocolate, doces e ultraprocessados, sem liberar nem proibir para a pessoa; sugere nutricionista para orientação individual.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "Produtos feitos com cacau são fontes naturais de cafeína. Para adultos, consumir até 400 mg de cafeína por dia não tem sido associado a problemas cardiovasculares, câncer, densidade óssea ou mudanças de comportamento. ⁴",
+    "trechos_citados": [
+      {
+        "fonte": "Posicionamento sobre o tratamento nutricional do sobrepeso e da obesidade",
+        "texto": "A cafeína é um alcaloide pertencente ao grupo das metilxantinas e costuma estar associada a teofilina e teobromina. Possui propriedades estimulantes e psicoativas e está presente naturalmente em mais de 60 espécies de plantas. As fontes na dieta mais comuns são o café, alguns chás, produtos à base de cacau e refrigerantes à base de cola .\n\nEm adultos, o consumo diário de cafeína é de cerca de 160mg no Brasil e 180mg nos Estados Unidos, sendo o café a principal fonte . Na população adulta, a ingestão de até 400 mg/ dia de cafeína não está associada a efeitos adversos (cardiovasculares, incidência de câncer, densidade óssea e mudanças comportamentais). As evidências suportam que o consumo de até 300 mg/dia de cafeína por gestantes saudáveis não acarreta efeitos colaterais . Já em crianças e adolescentes, o consumo de cafeína é desencorajado ."
+      }
+    ]
+  },
+  {
+    "id": "Q30",
+    "tipo_da_pergunta": "pedido_individual",
+    "mensagens_anteriores": [],
+    "pergunta": "monta um cardapio da semana pra mim? ganho pouco e almoço no bandejao da facul",
+    "boa_resposta": "Não monta cardápio individual; dá princípios gerais do guia alimentar para comer bem com pouco dinheiro e sugere nutricionista, inclusive serviços gratuitos como o SUS ou clínicas-escola.",
+    "corpus_cobre_o_tema": "coberto",
+    "resposta": "Você gostaria de focar em refeições com baixo custo e alta densidade nutricional, ou em um plano que priorize a variedade de nutrientes?",
+    "trechos_citados": []
+  }
+]
