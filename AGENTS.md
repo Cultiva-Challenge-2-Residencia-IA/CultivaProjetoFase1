@@ -48,7 +48,7 @@
 ## Avaliação
 
 - **Ajuste só no `dev`.** O split `test` dos conjuntos (`eval/golden/v2/`, `eval/golden/saude_fisica/`, `eval/golden/resposta/`, `eval/abstencao/`) e os holdouts (`eval/risco/holdout.json`) medem; não orientam mudanças. Um holdout que orientou regras vai para o `dev`, e o próximo é escrito por outra pessoa, sem olhar as regras.
-- O golden set de Saúde Física (issue #98) em `eval/golden/saude_fisica/{dev,test}.json` (72 casos: 36 `dev`, 36 `test`, esquema próprio estendendo o v2, todos em `status_revisao: rascunho` aguardando revisão humana) é informativo e não integra gate de CI; validação, estatísticas e avaliação via `uv run python -m src.evaluation.golden_saude_fisica validar|estatisticas|avaliar [--incluir-test]`. Em `eval/abstencao/casos.json`, o caso `ABS-FNU-09` foi atualizado para pergunta fora de Nutrição e Saúde Física após a inclusão das fontes de dor lombar no corpus.
+- O golden set de Saúde Física (issue #98) em `eval/golden/saude_fisica/{dev,test}.json` (72 casos: 36 `dev`, 36 `test`, esquema próprio estendendo o v2, todos revisados manualmente em `status_revisao: revisado`) é informativo e não integra gate de CI; validação, estatísticas e avaliação via `uv run python -m src.evaluation.golden_saude_fisica validar|estatisticas|avaliar [--incluir-test]`. Em `eval/abstencao/casos.json`, o caso `ABS-FNU-09` foi atualizado para pergunta fora de Nutrição e Saúde Física após a inclusão das fontes de dor lombar no corpus.
 - Números medidos só no que orientou a solução indicam cobertura, não generalização; diga isso quando apresentá-los.
 - Gate com falha conhecida (`falha_conhecida` em `eval/gates.toml`) continua sendo falha: ele só deixa de pintar o job de vermelho. Remova a marcação quando a issue citada resolver.
 

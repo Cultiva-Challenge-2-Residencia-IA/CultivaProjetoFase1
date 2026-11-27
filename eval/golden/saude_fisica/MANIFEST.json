@@ -1,5 +1,5 @@
 {
-  "versao": "1.0.0",
+  "versao": "1.1.0",
   "data": "2026-11-26",
   "contagens": {
     "total_casos": 72,
@@ -33,10 +33,10 @@
   },
   "arquivos_sha256": {
     "caso.schema.json": "a9c484b03a9f3bcb17fb55c1fc14734c88485acc01e9489892d6c3bc8d7e6dc4",
-    "dev.json": "32c391a2585bd0ff040db536d5728118e88e1e15fbcff928fc42921689e01ff1",
-    "test.json": "c9eb971f8ff92d85d33ecb2a226fababd84f666e940fe199ee2191b8371d3831",
-    "README.md": "3f1b812deb2389ebfa5bb8ab67e6347863bb9c94afc3d89fdea81de43fc92797",
-    "CHANGELOG.md": "b08688ac11f0404b5036f79d8f9d66d06a07f7f386607241f3daff6828ae73ab"
+    "dev.json": "7f78feedb0bb548de699a5f10a195df7bedf8ae5f69ed4f0a6d4b3f88e1df928",
+    "test.json": "6ec06b7772a4204d3f9356bdc710386dcd99955b1018671a3197bbd5ecbb5882",
+    "README.md": "8bfb0293ed140c3981881cf7c8654e3b926d2ed0a7a5fea960c410d5ecf96d51",
+    "CHANGELOG.md": "2b64ee0c7bf64feb6e1b9ed70bb04f42d82eadfc6d9082e960b4a925fbd1382e"
   },
   "corpus": {
     "manifest_yaml_sha256_lf": "697aa577252115ecf6e8e3ba2e76d22ca4d95d33a88140c8470a6e90d969fde0",
